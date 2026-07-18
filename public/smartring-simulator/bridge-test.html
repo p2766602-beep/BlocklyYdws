@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>SmartRing Simulator Bridge Test</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      margin: 0;
+      padding: 28px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    main {
+      max-width: 880px;
+      margin: 0 auto;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 14px 42px rgba(15, 23, 42, 0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    button {
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      background: #2563eb;
+      color: white;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button.secondary {
+      background: #0f766e;
+    }
+
+    button.danger {
+      background: #dc2626;
+    }
+
+    pre {
+      background: #0f172a;
+      color: #dbeafe;
+      padding: 14px;
+      border-radius: 12px;
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>SmartRing Simulator Bridge Test</h1>
+    <p>這個頁面用來測試 Blockly Lab 中的 SmartRing 模擬器橋接模組。</p>
+
+    <div class="grid">
+      <button id="toggle">開啟 / 關閉模擬器</button>
+      <button id="red1">第 1 顆紅燈</button>
+      <button id="greenAll">全部綠燈</button>
+      <button id="progress">進度條 6 / 12</button>
+      <button id="buffer" class="secondary">暫存陣列彩色測試</button>
+      <button id="clear" class="danger">清除全部</button>
+    </div>
+
+    <pre id="log">等待操作...</pre>
+  </main>
+
+  <script type="module">
+    import {
+      toggleSimulator,
+      sendSmartRingLedCommand,
+      sendSmartRingLedCommands,
+    } from '../src/smartring/simulator-bridge.js';
+
+    const log = document.getElementById('log');
+
+    function show(message) {
+      log.textContent = JSON.stringify(message, null, 2);
+    }
+
+    document.getElementById('toggle').addEventListener('click', () => {
+      const result = toggleSimulator();
+      show({ action: 'toggleSimulator', result });
+    });
+
+    document.getElementById('red1').addEventListener('click', () => {
+      const command = { type: 'setLed', index: 1, r: 30, g: 0, b: 0 };
+      sendSmartRingLedCommand(command);
+      show(command);
+    });
+
+    document.getElementById('greenAll').addEventListener('click', () => {
+      const command = { type: 'setAll', r: 0, g: 30, b: 0 };
+      sendSmartRingLedCommand(command);
+      show(command);
+    });
+
+    document.getElementById('progress').addEventListener('click', () => {
+      const command = { type: 'showProgress', value: 6, max: 12 };
+      sendSmartRingLedCommand(command);
+      show(command);
+    });
+
+    document.getElementById('buffer').addEventListener('click', () => {
+      const buffer = [
+        { r: 30, g: 0, b: 0 }, { r: 30, g: 10, b: 0 }, { r: 30, g: 20, b: 0 },
+        { r: 30, g: 30, b: 0 }, { r: 0, g: 30, b: 0 }, { r: 0, g: 25, b: 20 },
+        { r: 0, g: 15, b: 30 }, { r: 0, g: 0, b: 30 }, { r: 15, g: 0, b: 30 },
+        { r: 25, g: 0, b: 30 }, { r: 30, g: 0, b: 15 }, { r: 30, g: 0, b: 5 },
+      ];
+
+      const commands = [
+        { type: 'setBuffer', buffer },
+        { type: 'showBuffer' },
+      ];
+
+      sendSmartRingLedCommands(commands);
+      show(commands);
+    });
+
+    document.getElementById('clear').addEventListener('click', () => {
+      const command = { type: 'clear' };
+      sendSmartRingLedCommand(command);
+      show(command);
+    });
+  </script>
+</body>
+</html>

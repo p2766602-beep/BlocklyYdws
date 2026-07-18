@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blockly Lab｜韌體燒錄中心</title>
+    <script
+      type="module"
+      src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"
+    ></script>
+    <style>
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          "Noto Sans TC",
+          "Microsoft JhengHei",
+          sans-serif;
+        line-height: 1.8;
+        color: #1f2937;
+        background: #f8fafc;
+      }
+
+      .page {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 40px 24px 64px;
+        background: #ffffff;
+        min-height: 100vh;
+      }
+
+      h1 {
+        color: #1e3a8a;
+        border-bottom: 3px solid #2563eb;
+        padding-bottom: 12px;
+      }
+
+      h2 {
+        color: #1e40af;
+        margin-top: 36px;
+      }
+
+      .lead {
+        color: #475569;
+        font-size: 1.05rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+        margin-top: 24px;
+      }
+
+      .card {
+        border: 1px solid #cbd5e1;
+        border-radius: 14px;
+        padding: 20px;
+        background: #f8fafc;
+      }
+
+      .card h2 {
+        margin-top: 0;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: #1e40af;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .warning {
+        border: 1px solid #fed7aa;
+        background: #fff7ed;
+        border-radius: 12px;
+        padding: 16px;
+        margin: 24px 0;
+      }
+
+      .disabled {
+        opacity: 0.72;
+      }
+
+      .download-link,
+      a {
+        color: #1d4ed8;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .download-link:hover,
+      a:hover {
+        text-decoration: underline;
+      }
+
+      esp-web-install-button {
+        display: block;
+        margin: 20px 0 8px;
+      }
+
+      .footer {
+        margin-top: 40px;
+        border-top: 1px solid #cbd5e1;
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <h1>Blockly Lab 韌體燒錄中心</h1>
+
+      <p class="lead">
+        請依照手上的控制板版本選擇正確韌體。ESP8266 / ESP32 系列可使用 ESP Web Tools
+        線上燒錄；Arduino UNO 版本需另行使用 Arduino IDE 燒錄。
+      </p>
+
+      <div class="warning">
+        <strong>燒錄前請確認：</strong>
+        <ol>
+          <li>使用 Chrome 或 Edge 瀏覽器。</li>
+          <li>USB 線必須支援資料傳輸。</li>
+          <li>請先關閉 Arduino IDE 序列埠監控視窗，避免 COM 埠被占用。</li>
+          <li>燒錄過程中不要拔除 USB 線。</li>
+        </ol>
+      </div>
+
+      <section class="grid">
+        <article class="card">
+          <span class="tag">ESP8266</span>
+          <h2>D8 WS2812 + 8 按鈕版</h2>
+          <p>
+            適用於完整 SmartRingController：D8 接 12 顆 WS2812，並使用 8 個按鈕輸入。
+          </p>
+          <p><strong>韌體版本：</strong>C8</p>
+          <p><strong>檔案：</strong>SmartRingController_D8_C8.bin</p>
+
+          <esp-web-install-button
+            manifest="./firmware/esp8266-d8-buttons/manifest.json"
+          ></esp-web-install-button>
+        </article>
+
+        <article class="card">
+          <span class="tag">ESP8266</span>
+          <h2>D4 LED-only WS2812 版</h2>
+          <p>
+            適用於只有 D4 接 12 顆 WS2812 燈環的版本，沒有 8 個按鈕，按鍵狀態固定為未按下。
+          </p>
+          <p><strong>韌體版本：</strong>C8 LED-only D4</p>
+          <p><strong>檔案：</strong>Ws2812Ring_D4_C8.bin</p>
+
+          <esp-web-install-button
+            manifest="./firmware/esp8266-d4-ledonly/manifest.json"
+          ></esp-web-install-button>
+        </article>
+
+        <article class="card disabled">
+          <span class="tag">ESP32</span>
+          <h2>ESP32 版本</h2>
+          <p>預留版本。待 ESP32 韌體穩定後，可加入線上燒錄。</p>
+          <p><strong>狀態：</strong>尚未啟用</p>
+        </article>
+
+        <article class="card disabled">
+          <span class="tag">ESP32-C3</span>
+          <h2>ESP32-C3 Mini 版本</h2>
+          <p>預留版本。待 ESP32-C3 Mini 韌體穩定後，可加入線上燒錄。</p>
+          <p><strong>狀態：</strong>尚未啟用</p>
+        </article>
+
+        <article class="card disabled">
+          <span class="tag">Arduino UNO</span>
+          <h2>Arduino UNO 版本</h2>
+          <p>Arduino UNO 不支援 ESP Web Tools。未來可提供 INO 下載與 Arduino IDE 燒錄教學。</p>
+          <p><strong>狀態：</strong>尚未啟用</p>
+        </article>
+      </section>
+
+      <div class="footer">
+        <p>
+          燒錄完成後，請返回
+          <a href="./index.html">Blockly Lab 主頁</a>
+          測試 SmartRing 連線、按鍵偵測與 LED 控制。
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

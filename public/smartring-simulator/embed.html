@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OSEP SmartRing LED Embed Simulator</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --text: #e5e7eb;
+      --muted: rgba(226, 232, 240, 0.78);
+      --ring-size: min(90vmin, 244px);
+      --led-size: max(18px, calc(var(--ring-size) * 0.115));
+      --ring-radius: calc(var(--ring-size) * 0.39);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 38%, rgba(30, 64, 175, 0.22), transparent 44%),
+        var(--bg);
+      color: var(--text);
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Noto Sans TC",
+        sans-serif;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .embed-shell {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-width: 210px;
+      min-height: 210px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+
+    .ring-wrap {
+      position: relative;
+      width: var(--ring-size);
+      height: var(--ring-size);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ring-halo {
+      position: absolute;
+      width: 68%;
+      height: 68%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      box-shadow:
+        inset 0 0 30px rgba(15, 23, 42, 0.95),
+        0 0 18px rgba(59, 130, 246, 0.14);
+      background: rgba(15, 23, 42, 0.38);
+    }
+
+    .center-status {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 44%;
+      transform: translate(-50%, -50%);
+      color: var(--muted);
+      font-size: clamp(10px, 3.2vw, 13px);
+      font-weight: 700;
+      line-height: 1.25;
+      text-align: center;
+      pointer-events: none;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+      z-index: 2;
+    }
+
+    .led {
+      --x: 0px;
+      --y: 0px;
+      --r: 0;
+      --g: 0;
+      --b: 0;
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: var(--led-size);
+      height: var(--led-size);
+      border-radius: 999px;
+      transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y)));
+      background:
+        radial-gradient(circle at 35% 30%,
+          rgba(255, 255, 255, 0.85),
+          rgba(var(--r), var(--g), var(--b), 1) 34%,
+          rgba(var(--r), var(--g), var(--b), 0.65) 62%,
+          rgba(15, 23, 42, 0.96) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow:
+        0 0 7px rgba(var(--r), var(--g), var(--b), 0.55),
+        0 0 18px rgba(var(--r), var(--g), var(--b), 0.28),
+        inset 0 0 7px rgba(255, 255, 255, 0.16);
+      transition:
+        background-color 120ms ease,
+        box-shadow 120ms ease,
+        opacity 120ms ease;
+      z-index: 3;
+    }
+
+    .led.off {
+      opacity: 0.5;
+      background:
+        radial-gradient(circle at 35% 30%,
+          rgba(255, 255, 255, 0.22),
+          rgba(71, 85, 105, 0.45) 36%,
+          rgba(15, 23, 42, 0.92) 100%);
+      box-shadow:
+        0 0 5px rgba(15, 23, 42, 0.8),
+        inset 0 0 6px rgba(255, 255, 255, 0.08);
+    }
+
+    .led-index {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: rgba(255, 255, 255, 0.74);
+      font-size: clamp(8px, 2.4vw, 11px);
+      font-weight: 800;
+      line-height: 1;
+      pointer-events: none;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.9);
+    }
+  </style>
+</head>
+<body>
+  <main class="embed-shell" aria-label="SmartRing WS2812 LED 燈環模擬器">
+    <section class="ring-wrap" id="ring" aria-label="12 顆 LED 燈環">
+      <div class="ring-halo" aria-hidden="true"></div>
+      <div class="center-status" id="status">等待 Scratch 指令</div>
+    </section>
+  </main>
+
+  <script>
+    (function() {
+      "use strict";
+
+      const VERSION = "MVP-32-8B";
+      const LED_COUNT = 12;
+      const MAX_LED_VALUE = 30;
+      const SOURCE_NAME = "OSEP";
+
+      const ring = document.getElementById("ring");
+      const status = document.getElementById("status");
+      const leds = [];
+      const buffer = Array.from({ length: LED_COUNT }, () => ({ r: 0, g: 0, b: 0 }));
+
+      function limitLedValue(value) {
+        value = Number(value);
+        if (Number.isNaN(value)) value = 0;
+        value = Math.round(value);
+        if (value < 0) value = 0;
+        if (value > MAX_LED_VALUE) value = MAX_LED_VALUE;
+        return value;
+      }
+
+      function limitLedIndex(index) {
+        index = Number(index);
+        if (Number.isNaN(index)) index = 1;
+        index = Math.round(index);
+        if (index < 1) index = 1;
+        if (index > LED_COUNT) index = LED_COUNT;
+        return index;
+      }
+
+      function scale(value) {
+        return Math.round((limitLedValue(value) / MAX_LED_VALUE) * 255);
+      }
+
+      function setStatus(text) {
+        if (status) status.textContent = text || "";
+      }
+
+      function createLeds() {
+        for (let i = 0; i < LED_COUNT; i++) {
+          const led = document.createElement("div");
+          led.className = "led off";
+          led.dataset.index = String(i + 1);
+
+          const angle = ((i / LED_COUNT) * Math.PI * 2) - (Math.PI / 2);
+          led.style.setProperty("--x", `calc(${Math.cos(angle)} * var(--ring-radius))`);
+          led.style.setProperty("--y", `calc(${Math.sin(angle)} * var(--ring-radius))`);
+
+          const label = document.createElement("span");
+          label.className = "led-index";
+          label.textContent = String(i + 1);
+
+          led.appendChild(label);
+          ring.appendChild(led);
+          leds.push(led);
+        }
+      }
+
+      function render() {
+        for (let i = 0; i < LED_COUNT; i++) {
+          const rgb = buffer[i] || { r: 0, g: 0, b: 0 };
+          const r = limitLedValue(rgb.r);
+          const g = limitLedValue(rgb.g);
+          const b = limitLedValue(rgb.b);
+
+          const led = leds[i];
+          led.style.setProperty("--r", String(scale(r)));
+          led.style.setProperty("--g", String(scale(g)));
+          led.style.setProperty("--b", String(scale(b)));
+
+          if (r === 0 && g === 0 && b === 0) led.classList.add("off");
+          else led.classList.remove("off");
+        }
+      }
+
+      function setLed(index, r, g, b) {
+        const i = limitLedIndex(index) - 1;
+        buffer[i] = { r: limitLedValue(r), g: limitLedValue(g), b: limitLedValue(b) };
+        render();
+      }
+
+      function setAll(r, g, b) {
+        for (let i = 0; i < LED_COUNT; i++) {
+          buffer[i] = { r: limitLedValue(r), g: limitLedValue(g), b: limitLedValue(b) };
+        }
+        render();
+      }
+
+      function clear() {
+        setAll(0, 0, 0);
+      }
+
+      function setBuffer(nextBuffer) {
+        if (!Array.isArray(nextBuffer)) return;
+
+        for (let i = 0; i < LED_COUNT; i++) {
+          const rgb = nextBuffer[i] || {};
+          buffer[i] = {
+            r: limitLedValue(rgb.r ?? rgb[0]),
+            g: limitLedValue(rgb.g ?? rgb[1]),
+            b: limitLedValue(rgb.b ?? rgb[2])
+          };
+        }
+      }
+
+      function showProgress(value, max, color) {
+        value = Math.round(Number(value));
+        max = Math.round(Number(max));
+        if (Number.isNaN(value)) value = 0;
+        if (Number.isNaN(max) || max <= 0) max = LED_COUNT;
+        if (value < 0) value = 0;
+        if (value > max) value = max;
+
+        const count = Math.round((value / max) * LED_COUNT);
+        const rgb = color || { r: 30, g: 30, b: 0 };
+
+        clear();
+
+        for (let i = 1; i <= count; i++) {
+          setLed(i, rgb.r, rgb.g, rgb.b);
+        }
+      }
+
+      function showScore(value, max) {
+        showProgress(value, max, { r: 0, g: 30, b: 0 });
+      }
+
+      function showLife(value, max) {
+        showProgress(value, max, { r: 30, g: 0, b: 0 });
+      }
+
+      function dispatchLedCommand(command) {
+        if (!command || typeof command !== "object") return false;
+        const type = String(command.type || "").trim();
+
+        if (type === "setLed") {
+          setLed(command.index, command.r, command.g, command.b);
+          setStatus(`LED ${limitLedIndex(command.index)}`);
+          return true;
+        }
+
+        if (type === "setAll") {
+          setAll(command.r, command.g, command.b);
+          setStatus("全部 LED");
+          return true;
+        }
+
+        if (type === "clear") {
+          clear();
+          setStatus("已清除");
+          return true;
+        }
+
+        if (type === "showProgress") {
+          showProgress(command.value, command.max, { r: 30, g: 30, b: 0 });
+          setStatus("進度條");
+          return true;
+        }
+
+        if (type === "showScore") {
+          showScore(command.value, command.max);
+          setStatus("分數");
+          return true;
+        }
+
+        if (type === "showLife") {
+          showLife(command.value, command.max);
+          setStatus("生命值");
+          return true;
+        }
+
+        if (type === "setBuffer") {
+          setBuffer(command.buffer || command.leds);
+          setStatus("暫存陣列");
+          return true;
+        }
+
+        if (type === "showBuffer") {
+          render();
+          setStatus("顯示陣列");
+          return true;
+        }
+
+        return false;
+      }
+
+      function dispatchLedCommands(commands) {
+        if (!Array.isArray(commands)) return false;
+        let ok = true;
+        for (const command of commands) {
+          if (!dispatchLedCommand(command)) ok = false;
+        }
+        return ok;
+      }
+
+      function handleMessage(event) {
+        if (event.origin !== window.location.origin) return;
+
+        const message = event.data;
+        if (!message || typeof message !== "object" || message.source !== SOURCE_NAME) return;
+
+        if (message.type === "ledCommand") {
+          dispatchLedCommand(message.command);
+          return;
+        }
+
+        if (message.type === "ledCommands") {
+          dispatchLedCommands(message.commands);
+          return;
+        }
+
+        if (message.type === "getStatus" && event.source) {
+          event.source.postMessage(
+            {
+              source: SOURCE_NAME,
+              type: "embedStatus",
+              version: VERSION,
+              status: window.OSEPEmbedSimulator.getStatus()
+            },
+            event.origin
+          );
+        }
+      }
+
+      window.dispatchLedCommand = dispatchLedCommand;
+
+      window.OSEPEmbedSimulator = {
+        version: VERSION,
+        getStatus() {
+          return {
+            version: VERSION,
+            ledCount: LED_COUNT,
+            source: SOURCE_NAME,
+            origin: window.location.origin,
+            ready: true,
+            mode: "embed-compact"
+          };
+        },
+        getBuffer() {
+          return buffer.map((rgb) => ({ ...rgb }));
+        },
+        dispatchLedCommand,
+        dispatchLedCommands,
+        clear,
+        setLed,
+        setAll,
+        showProgress,
+        showScore,
+        showLife
+      };
+
+      createLeds();
+      clear();
+      window.addEventListener("message", handleMessage);
+      setStatus("等待 Scratch 指令");
+    })();
+  </script>
+</body>
+</html>

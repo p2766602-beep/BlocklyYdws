@@ -1,0 +1,38 @@
+# 環境變數與金鑰，絕對不要進版控
+.env
+.env.*
+*.key
+secrets/
+
+# 依賴套件
+node_modules/
+
+# 建置產出
+dist/
+dist-ssr/
+build/
+*.local
+
+# 舊有本機參考資料，不進版控（正式來源在 C:\YOSEP\YDWS-CodingBank，該專案主張不公開）
+/YDWS-CodingData/
+/courses/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

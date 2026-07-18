@@ -1,0 +1,16 @@
+{
+  "name": "SmartRingController ESP8266 D8 + 8 Buttons",
+  "version": "C8",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [
+        {
+          "path": "SmartRingController_D8_C8.bin",
+          "offset": 0
+        }
+      ]
+    }
+  ]
+}

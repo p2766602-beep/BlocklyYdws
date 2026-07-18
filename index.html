@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Younger Dream Workshop</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <div class="brand-block">
+          <h1>Younger Dream Workshop</h1>
+          <p>Blockly x SmartRingControler 教學實驗室</p>
+        </div>
+
+        <div class="header-actions">
+          <button id="btnConnectSmartRing" type="button">連線</button>
+          <button id="btnToggleSimulator" type="button">開啟模擬</button>
+          <button id="btnLoadSample" type="button">載入範例</button>
+          <button id="btnRun" type="button">執行程式</button>
+          <button id="btnStop" type="button" class="warning-button" disabled>中止程式</button>
+          <button id="btnSaveBlocks" type="button">存檔積木</button>
+          <button id="btnLoadBlocks" type="button">載入積木</button>
+          <button id="btnClear" type="button">清除工作區</button>
+          <input id="blockFileInput" type="file" accept=".xml,.blockly,.blockly.xml,text/xml" hidden />
+        </div>
+      </header>
+
+      <section class="course-bar">
+        <label class="field-group">
+          <span>班級</span>
+          <input id="studentClass" type="text" placeholder="例如：701" />
+        </label>
+
+        <label class="field-group">
+          <span>座號</span>
+          <input id="studentNumber" type="text" placeholder="例如：08" />
+        </label>
+
+        <label class="field-group student-profile-field">
+          <span>姓名</span>
+          <input id="studentName" type="text" placeholder="請輸入姓名" />
+        </label>
+
+        <button id="btnClearStudentProfile" type="button" class="small-button profile-clear-button">清除學生資料</button>
+
+        <label class="field-group course-code-field">
+          <span>課程代碼</span>
+          <input id="courseCode" type="text" placeholder="例如：SRB00" />
+        </label>
+
+        <label class="field-group task-select-field">
+          <span>子任務</span>
+          <select id="taskSelector" disabled>
+            <option value="">請先載入課程組</option>
+          </select>
+        </label>
+
+        <div class="field-group mode-display-field" aria-live="polite">
+          <span>模式</span>
+          <strong id="courseModeDisplay" class="mode-status-pill learning-mode">尚未載入</strong>
+        </div>
+
+        <button id="btnLoadCourse" type="button" class="secondary-button">載入課程</button>
+        <button id="btnTestTask" type="button" class="success-button" disabled>系統評分</button>
+        <button id="btnSubmitScore" type="button" class="warning-button" disabled>上傳成績</button>
+      </section>
+
+      <main class="app-main">
+        <section class="workspace-panel">
+          <div class="workspace-tabs">
+            <button id="tabBlocks" type="button" class="tab-button active">積木程式</button>
+            <button id="tabCode" type="button" class="tab-button">JavaScript 程式碼</button>
+            <div class="workspace-tab-actions">
+              <button id="btnCopyCode" type="button" class="small-button">複製程式碼</button>
+            </div>
+          </div>
+
+          <div id="blocksView" class="workspace-view active">
+            <div id="blocklyDiv"></div>
+          </div>
+
+          <div id="codeView" class="workspace-view">
+            <pre id="codePreview"></pre>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="task-panel">
+            <div class="panel-title panel-title-clickable task-panel-title">
+              <button id="btnToggleTaskPanel" type="button" class="panel-toggle-button" aria-expanded="true" aria-controls="taskInfo">
+                <span id="taskPanelHeading">課程任務摘要</span>
+                <span class="panel-toggle-text">收合 ▲</span>
+              </button>
+              <button id="btnOpenTaskModal" type="button" class="small-button task-modal-button">查看完整任務</button>
+            </div>
+            <div id="taskInfo" class="info-box">
+              <h2>課程代碼</h2>
+            </div>
+          </section>
+
+          <section class="smartring-panel">
+            <div class="panel-title panel-title-clickable">
+              <button id="btnToggleSmartRingPanel" type="button" class="panel-toggle-button" aria-expanded="true" aria-controls="smartRingInfo">
+                <span>SmartRing 狀態</span>
+                <span class="panel-toggle-text">收合 ▲</span>
+              </button>
+            </div>
+
+            <div id="smartRingInfo" class="smartring-info">
+              <p><strong>連線狀態：</strong><span id="serialStatusValue">尚未連線</span></p>
+              <p><strong>按鈕狀態：</strong><span id="buttonStateValue">尚無資料</span></p>
+
+              <div class="smartring-test-actions">
+                <button id="btnTestLedRed" type="button" class="small-button success-small">測試第 1 顆紅燈</button>
+                <button id="btnTestLedClear" type="button" class="small-button warning-small">清除 LED</button>
+              </div>
+
+              <p><strong>最後送出指令：</strong></p>
+              <pre id="lastCommandValue">尚未送出 LED 指令。</pre>
+
+              <p><strong>原始資料：</strong></p>
+              <pre id="rawStateValue">尚未收到 ESP8266 資料。</pre>
+            </div>
+          </section>
+
+          <section class="result-panel">
+            <div class="panel-title panel-title-clickable result-panel-title">
+              <button id="btnToggleResultPanel" type="button" class="panel-toggle-button" aria-expanded="true" aria-controls="outputArea">
+                <span>測試結果 / 執行輸出</span>
+                <span class="panel-toggle-text">收合 ▲</span>
+              </button>
+              <button id="btnClearOutput" type="button" class="small-button result-clear-button">清除結果</button>
+            </div>
+            <div id="outputArea" class="output-area">尚未執行程式。</div>
+          </section>
+        </aside>
+      </main>
+
+      <footer class="app-footer">
+        <span>  MVP-J11｜ <a href="./firmware.html" target="_blank" rel="noopener">韌體燒錄</a> ｜<a href="./license.html" target="_blank" rel="noopener">授權與引用說明</a></span>
+        
+        <span id="modeStatus">目前模式：學習模式</span>
+        <span id="smartRingStatus">SmartRing：尚未連線</span>
+      </footer>
+
+
+      <div id="taskModal" class="modal-backdrop" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="taskModalTitle">
+          <div class="modal-header">
+            <h2 id="taskModalTitle">完整任務說明</h2>
+            <button id="btnCloseTaskModal" type="button" class="small-button">關閉</button>
+          </div>
+          <div id="taskModalBody" class="modal-body">
+            <p>尚未載入課程。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
