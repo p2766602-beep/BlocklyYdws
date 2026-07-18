@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blockly Lab｜授權與引用說明</title>
+    <style>
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          "Noto Sans TC",
+          "Microsoft JhengHei",
+          sans-serif;
+        line-height: 1.8;
+        color: #1f2937;
+        background: #f8fafc;
+        margin: 0;
+        padding: 0;
+      }
+
+      .page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 24px 64px;
+        background: #ffffff;
+        min-height: 100vh;
+      }
+
+      h1 {
+        color: #1e3a8a;
+        border-bottom: 3px solid #2563eb;
+        padding-bottom: 12px;
+      }
+
+      h2 {
+        color: #1e40af;
+        margin-top: 36px;
+        border-left: 6px solid #2563eb;
+        padding-left: 12px;
+      }
+
+      h3 {
+        color: #1f2937;
+        margin-top: 24px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 16px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #cbd5e1;
+        padding: 8px 10px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        background: #e0ecff;
+      }
+
+      code,
+      pre {
+        background: #f1f5f9;
+        border-radius: 6px;
+      }
+
+      code {
+        padding: 2px 5px;
+      }
+
+      pre {
+        padding: 12px;
+        overflow-x: auto;
+      }
+
+      .meta {
+        color: #475569;
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        padding: 12px 16px;
+        border-radius: 10px;
+      }
+
+      .notice {
+        background: #fff7ed;
+        border: 1px solid #fed7aa;
+        padding: 12px 16px;
+        border-radius: 10px;
+      }
+
+      a {
+        color: #1d4ed8;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .footer {
+        margin-top: 48px;
+        padding-top: 24px;
+        border-top: 1px solid #cbd5e1;
+        color: #64748b;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="page">
+      <h1>Blockly Lab 授權與引用說明</h1>
+
+      <div class="meta">
+        <p><strong>版本：</strong>MVP-J11</p>
+        <p><strong>適用專案：</strong>Blockly Lab</p>
+        <p><strong>維護者：</strong>Younger Yang / Younger Dream Workshop</p>
+        <p><strong>最後更新：</strong>2026-06-20</p>
+      </div>
+
+      <h2>1. 文件目的</h2>
+
+      <p>
+        本頁面用於說明 Blockly Lab 專案的授權方式、第三方套件來源、AI
+        協作開發聲明，以及教師、學生或其他使用者引用本專案時的建議標示方式。
+      </p>
+
+      <p>
+        Blockly Lab 是一個用於資訊科技教學、Blockly
+        積木程式、程式解題與 SmartRingController 硬體互動的教學實驗平台。
+      </p>
+
+      <h2>2. 專案內容分類</h2>
+
+      <p>本專案內容大致分為四類：</p>
+
+      <ol>
+        <li>平台程式碼。</li>
+        <li>教材、題目與課程文件。</li>
+        <li>第三方開源套件。</li>
+        <li>平台服務與瀏覽器 API。</li>
+      </ol>
+
+      <p>不同類型的內容，授權方式不同。</p>
+
+      <h2>3. 平台程式碼授權</h2>
+
+      <p>本專案平台程式碼，除另有標示外，採用 <strong>MIT License</strong>。</p>
+
+      <p>主要包含：</p>
+
+      <ul>
+        <li><code>index.html</code></li>
+        <li><code>src/main.js</code></li>
+        <li><code>src/style.css</code></li>
+        <li><code>src/blockly/</code></li>
+        <li><code>src/smartring/</code></li>
+        <li><code>tools/</code></li>
+        <li><code>google-apps-script/</code></li>
+        <li><code>package.json</code></li>
+        <li>Vite 設定檔</li>
+        <li>其他平台運作所需程式碼</li>
+      </ul>
+
+      <p>MIT License 的核心精神是：</p>
+
+      <ol>
+        <li>可以使用。</li>
+        <li>可以複製。</li>
+        <li>可以修改。</li>
+        <li>可以散布。</li>
+        <li>可以再授權。</li>
+        <li>需要保留原作者版權與授權聲明。</li>
+        <li>作者不提供擔保。</li>
+      </ol>
+
+      <p>完整授權條文請見專案根目錄 <code>LICENSE</code>。</p>
+
+      <h2>4. 教材、題目與課程文件授權</h2>
+
+      <p>
+        本專案中的教材、題目、任務說明、課程文件與教學活動設計，與平台程式碼分開授權。
+      </p>
+
+      <p>
+        除另有標示外，採用
+        <strong>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International</strong>，
+        也就是 <strong>CC BY-NC-SA 4.0</strong>。
+      </p>
+
+      <p>主要包含：</p>
+
+      <ul>
+        <li><code>docs/</code> 中的課程文件、教學文件與測試文件。</li>
+        <li><code>src/courses/</code> 中的題目文字。</li>
+        <li><code>src/courses/</code> 中的課程任務說明。</li>
+        <li>程式解題題目。</li>
+        <li>SmartRingController 教學任務。</li>
+        <li>Notion 教學手冊內容。</li>
+        <li>課堂測試文件。</li>
+        <li>學生學習單。</li>
+        <li>教師備課文件。</li>
+      </ul>
+
+      <p>CC BY-NC-SA 4.0 的核心精神是：</p>
+
+      <ol>
+        <li>可以分享。</li>
+        <li>可以改作。</li>
+        <li>必須標示原作者。</li>
+        <li>不得用於商業用途。</li>
+        <li>改作後必須採用相同或相容授權方式分享。</li>
+      </ol>
+
+      <p>
+        若未來有部分教材、題目或文件需要採用不同授權，應在該檔案或該章節中另外標示。
+      </p>
+
+      <h2>5. 程式碼與教材分開授權的原因</h2>
+
+      <p>Blockly Lab 同時包含平台程式與教學內容。</p>
+
+      <p>
+        平台程式碼適合使用較開放的 MIT License，方便其他教師、學生或社群改作、部署與研究。
+      </p>
+
+      <p>
+        教材與題目則包含課程設計、教學脈絡與長期累積的教學經驗，因此採用
+        CC BY-NC-SA 4.0，允許教育用途分享與改作，但要求標示來源，並限制未經同意的商業使用。
+      </p>
+
+      <h2>6. 第三方開源套件</h2>
+
+      <p>Blockly Lab 目前直接使用下列主要第三方開源套件：</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>套件</th>
+            <th>版本</th>
+            <th>用途</th>
+            <th>授權</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Blockly</td>
+            <td>13.0.0</td>
+            <td>視覺化積木程式編輯器</td>
+            <td>Apache License 2.0</td>
+          </tr>
+          <tr>
+            <td>Vite</td>
+            <td>8.0.16</td>
+            <td>前端開發伺服器與建置工具</td>
+            <td>MIT License</td>
+          </tr>
+          <tr>
+            <td>gh-pages</td>
+            <td>6.3.0</td>
+            <td>GitHub Pages 部署工具</td>
+            <td>MIT License</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        第三方套件不屬於 Blockly Lab 原創內容，仍依其原始授權條款使用。
+        完整清單請見專案根目錄 <code>THIRD_PARTY_LICENSES.md</code>。
+      </p>
+
+      <h2>7. 平台服務與瀏覽器 API</h2>
+
+      <p>本專案可能使用下列平台服務或瀏覽器 API：</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>服務 / API</th>
+            <th>用途</th>
+            <th>備註</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GitHub Pages</td>
+            <td>發布靜態網站</td>
+            <td>GitHub 提供的網站代管服務</td>
+          </tr>
+          <tr>
+            <td>Google Apps Script</td>
+            <td>接收成績上傳</td>
+            <td>Google 提供的平台服務</td>
+          </tr>
+          <tr>
+            <td>Google Sheets</td>
+            <td>儲存學生成績</td>
+            <td>Google 提供的平台服務</td>
+          </tr>
+          <tr>
+            <td>Web Serial API</td>
+            <td>連接 SmartRingController</td>
+            <td>瀏覽器提供的序列埠 API</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        這些服務或 API 不是本專案原始碼的一部分，也不是本專案重新授權的內容。
+        使用者仍需遵守各平台或瀏覽器服務的使用條款。
+      </p>
+
+      <h2>8. 韌體檔案授權</h2>
+      <p>
+        本專案提供 SmartRingController 相關 ESP8266 韌體檔案，供教學與硬體測試使用。
+        目前包含 ESP8266 D8 WS2812 + 8 按鈕版，以及 ESP8266 D4 LED-only WS2812 版。
+      </p>
+
+      <p>
+        除另有標示外，本專案自行開發之韌體原始碼與韌體二進位檔，採用與平台程式碼相同的
+        <strong>MIT License</strong> 授權。
+      </p>
+
+      <p>
+        本專案使用 ESP Web Tools 提供瀏覽器線上燒錄流程。ESP Web Tools
+        為第三方開源工具，仍依其原授權條款使用。
+      </p>
+      
+      <h2>9. AI 協作開發聲明</h2>
+
+      <p>
+        本專案部分程式碼、文件與開發規劃曾使用 OpenAI ChatGPT
+        輔助產生與整理，最終內容由專案維護者審閱、測試與整合。
+      </p>
+
+      <p>
+        OpenAI ChatGPT 是本專案的 AI
+        輔助開發工具，不是本專案著作權人、維護者、贊助者或官方合作單位。
+      </p>
+
+      <h2>10. 非官方關係聲明</h2>
+
+      <p>
+        Blockly Lab 並非 Google、Blockly、Vite、GitHub 或 OpenAI 的官方專案。
+      </p>
+
+      <p>
+        本專案使用 Blockly 作為視覺化積木程式編輯器，使用 Vite
+        作為前端開發與建置工具，使用 gh-pages 部署至 GitHub Pages，
+        並可能使用 Google Apps Script 與 Google Sheets 作為成績上傳與儲存工具。
+      </p>
+
+      <p>
+        這些名稱、商標、服務與工具均屬其各自所有者。本專案未宣稱與上述單位有官方合作、
+        授權代理、贊助或背書關係。
+      </p>
+
+      <h2>11. 建議引用格式</h2>
+
+      <h3>11.1 中文引用格式</h3>
+
+      <p>
+        Younger Yang / Younger Dream Workshop（2026）。Blockly Lab：Blockly x SmartRingController
+        教學實驗平台。取自
+        <a href="https://github.com/tnjbox/blockly-lab" target="_blank" rel="noopener">
+          https://github.com/tnjbox/blockly-lab
+        </a>
+      </p>
+
+      <p>
+        若引用線上網站：Younger Yang / Younger Dream Workshop（2026）。Blockly Lab
+        線上教學平台。取自
+        <a href="https://tnjbox.github.io/blockly-lab/" target="_blank" rel="noopener">
+          https://tnjbox.github.io/blockly-lab/
+        </a>
+      </p>
+
+      <h3>11.2 英文引用格式</h3>
+
+      <p>
+        Younger Yang / Younger Dream Workshop. (2026). Blockly Lab: A Blockly x SmartRingController
+        educational platform. Retrieved from
+        <a href="https://github.com/tnjbox/blockly-lab" target="_blank" rel="noopener">
+          https://github.com/tnjbox/blockly-lab
+        </a>
+      </p>
+
+      <p>
+        For the online website: Younger Yang / Younger Dream Workshop. (2026). Blockly Lab online
+        platform. Retrieved from
+        <a href="https://tnjbox.github.io/blockly-lab/" target="_blank" rel="noopener">
+          https://tnjbox.github.io/blockly-lab/
+        </a>
+      </p>
+
+      <h2>12. 教師改作建議標示</h2>
+
+      <p>若其他教師根據本專案改作自己的版本，建議標示：</p>
+
+      <blockquote>
+        本教材改作自 Younger Yang / Younger Dream Workshop 的 Blockly Lab 專案，原專案網址：
+        https://github.com/tnjbox/blockly-lab
+      </blockquote>
+
+      <p>若有修改平台程式碼，建議保留：</p>
+
+      <blockquote>
+        Original project: Blockly Lab by Younger Yang / Younger Dream Workshop.<br />
+        Modified by: 修改者姓名或單位。
+      </blockquote>
+
+      <h2>13. 免責提醒</h2>
+
+      <div class="notice">
+        <p>
+          本文件是專案維護與教學發布用途的授權整理說明，不構成法律意見。
+        </p>
+
+        <p>
+          若本專案未來要用於正式商業服務、大規模公開發行、校際競賽平台或政府標案，
+          建議再請具備相關經驗的法律或智財專業人士確認授權條款。
+        </p>
+      </div>
+
+      <div class="footer">
+        <p>
+          © 2026 Younger Yang / Younger Dream Workshop. Blockly Lab.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
