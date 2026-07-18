@@ -111,7 +111,10 @@ const outputArea = document.getElementById('outputArea');
 
 // Google Apps Script Web App URL for score upload.
 // Paste the deployed Web App URL here after setting up google-apps-script/Code.gs.
-const SCORE_UPLOAD_URL = '';
+const SCORE_UPLOAD_URL = 'https://script.google.com/macros/s/AKfycbyOu4ZVMgr3577ZdUZ6o732GUPoayRHFiw3_Xglhaj0mg_W-4REr-KjtZllU9SZnAQq/exec';
+// 選填的簡易共用密鑰：需與 Apps Script 那邊 Script Properties 的 UPLOAD_TOKEN 一致才會生效。
+// 留空字串代表不啟用檢查（沿用目前行為）。詳見 google-apps-script/Code.gs 的說明。
+const SCORE_UPLOAD_TOKEN = '';
 const STUDENT_PROFILE_STORAGE_KEY = 'blocklyLabStudentProfileV1';
 
 const btnConnectSmartRing = document.getElementById('btnConnectSmartRing');
@@ -1873,13 +1876,16 @@ async function uploadScorePayload(payload) {
     throw new Error('尚未設定 Google Apps Script Web App URL。請先部署 Apps Script，並將 Web App URL 填入 src/main.js 的 SCORE_UPLOAD_URL。');
   }
 
+  const token = String(SCORE_UPLOAD_TOKEN || '').trim();
+  const payloadWithToken = token ? { ...payload, token } : payload;
+
   await fetch(url, {
     method: 'POST',
     mode: 'no-cors',
     headers: {
       'Content-Type': 'text/plain;charset=utf-8',
     },
-    body: JSON.stringify(payload),
+    body: JSON.stringify(payloadWithToken),
   });
 
   return {

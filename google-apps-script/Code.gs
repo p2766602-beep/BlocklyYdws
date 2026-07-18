@@ -8,6 +8,14 @@
  * 4. 執行 setupSheet() 建立表頭。
  * 5. 部署為 Web App：執行身分選「我」，存取權依課堂需求選擇。
  * 6. 將 Web App URL 貼回前端 src/main.js 的 SCORE_UPLOAD_URL。
+ *
+ * 選填的簡易防護（非必要，但建議設定）：
+ * 7. 在 Apps Script 編輯器左側「專案設定」→「指令碼屬性」新增一筆
+ *    UPLOAD_TOKEN = 自己選的一串亂數字串（例如用密碼產生器產生）。
+ * 8. 把同一個字串填到前端 src/main.js 的 SCORE_UPLOAD_TOKEN。
+ * 9. 未設定 UPLOAD_TOKEN 屬性時，doPost 不會檢查 token，維持原本行為。
+ *    這只能擋掉隨手亂打這支網址的人，無法阻止真的去讀原始碼取得 token 的人——
+ *    前端程式碼終究是公開的，真正正式使用前應改走有後端驗證的方案。
  */
 
 const SHEET_NAME = '成績';
@@ -40,6 +48,12 @@ function setupSheet() {
 function doPost(e) {
   try {
     const payload = parsePayload_(e);
+
+    const expectedToken = PropertiesService.getScriptProperties().getProperty('UPLOAD_TOKEN');
+    if (expectedToken && payload.token !== expectedToken) {
+      return json_({ ok: false, error: 'invalid token' });
+    }
+
     const sheet = getOrCreateSheet_();
     ensureHeader_(sheet);
 
