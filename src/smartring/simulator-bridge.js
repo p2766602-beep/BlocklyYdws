@@ -23,16 +23,11 @@ const DRAG_STATE = {
 };
 
 function getBasePath() {
-  // Vite / GitHub Pages 情境：
-  // 本機通常是 http://localhost:5173/
-  // GitHub Pages 通常是 https://tnjbox.github.io/blockly-lab/
-  const path = window.location.pathname || '';
-
-  if (path.includes('/blockly-lab/')) {
-    return '/blockly-lab';
-  }
-
-  return '';
+  // 改用 Vite 的 BASE_URL（對應 vite.config.js 的 base 設定），
+  // 不寫死特定 repo 名稱，換 repo/換部署路徑時不用同步修改這裡。
+  // 本機開發時 BASE_URL 是 '/'；GitHub Pages 部署時是 '/<repo-name>/'。
+  const base = import.meta.env.BASE_URL || '/';
+  return base.endsWith('/') ? base.slice(0, -1) : base;
 }
 
 export function getSimulatorEmbedUrl() {
