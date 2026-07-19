@@ -81,8 +81,8 @@ export default {
         "清單處理",
         "條件判斷"
       ],
-      "difficultyLevel": "L2",
-      "difficultyLabel": "L2｜進階",
+      "difficultyLevel": "L3",
+      "difficultyLabel": "L3｜挑戰",
       "starterXml": ""
     },
     {
@@ -121,8 +121,8 @@ export default {
         "清單處理",
         "條件判斷"
       ],
-      "difficultyLevel": "L2",
-      "difficultyLabel": "L2｜進階",
+      "difficultyLevel": "L3",
+      "difficultyLabel": "L3｜挑戰",
       "starterXml": ""
     },
     {

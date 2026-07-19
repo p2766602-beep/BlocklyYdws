@@ -41,8 +41,8 @@ export default {
         "清單處理",
         "資料統計"
       ],
-      "difficultyLevel": "L3",
-      "difficultyLabel": "L3｜挑戰",
+      "difficultyLevel": "L2",
+      "difficultyLabel": "L2｜進階",
       "starterXml": ""
     },
     {
@@ -81,8 +81,8 @@ export default {
         "條件判斷",
         "資料統計"
       ],
-      "difficultyLevel": "L3",
-      "difficultyLabel": "L3｜挑戰",
+      "difficultyLevel": "L2",
+      "difficultyLabel": "L2｜進階",
       "starterXml": ""
     },
     {
@@ -120,8 +120,8 @@ export default {
         "清單處理",
         "最大最小值"
       ],
-      "difficultyLevel": "L3",
-      "difficultyLabel": "L3｜挑戰",
+      "difficultyLevel": "L2",
+      "difficultyLabel": "L2｜進階",
       "starterXml": ""
     },
     {

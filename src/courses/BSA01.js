@@ -307,8 +307,8 @@ export default {
       "knowledgePoints": [
         "變數與運算"
       ],
-      "difficultyLevel": "L2",
-      "difficultyLabel": "L2｜進階",
+      "difficultyLevel": "L1",
+      "difficultyLabel": "L1｜基礎",
       "starterXml": ""
     }
   ]
