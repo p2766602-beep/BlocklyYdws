@@ -120,8 +120,8 @@ export default {
         "清單處理",
         "變數與運算"
       ],
-      "difficultyLevel": "L3",
-      "difficultyLabel": "L3｜挑戰",
+      "difficultyLevel": "L2",
+      "difficultyLabel": "L2｜進階",
       "starterXml": ""
     },
     {

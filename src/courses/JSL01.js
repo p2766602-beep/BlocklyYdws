@@ -119,7 +119,7 @@ const course = {
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "demo",
-      "difficulty": "L1",
+      "difficulty": "L2",
       "blocklyFit": "高",
       "description": "輸入一個正整數 N，請計算 1 + 2 + 3 + ... + N 的總和。本題用來示範累加變數的初始化、更新與輸出。",
       "inputDescription": "第一行：一個正整數 N。",
