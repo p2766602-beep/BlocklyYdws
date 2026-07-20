@@ -1479,7 +1479,7 @@ function loadTask(task, courseGroup, { shouldLoadStarter = false } = {}) {
   outputArea.textContent = `已載入子任務：${task.id}｜${task.title}。工作區積木未變更，如需範例請按「載入範例」。`;
 }
 
-function loadCourse() {
+async function loadCourse() {
   const profile = getStudentProfile();
   const code = profile.courseCode;
 
@@ -1489,7 +1489,7 @@ function loadCourse() {
     return;
   }
 
-  const courseGroup = getCourseGroup(code);
+  const courseGroup = await getCourseGroup(code);
 
   if (!courseGroup) {
     currentCourseGroup = null;
@@ -2005,8 +2005,9 @@ function getCourseHealthText(inspection) {
   return messages.length > 0 ? messages.join('；') : '課程格式檢查正常。';
 }
 
-function renderCourseManager() {
-  const courses = getAllCourseGroups();
+async function renderCourseManager() {
+  courseManagerBody.innerHTML = '<p>載入中…</p>';
+  const courses = await getAllCourseGroups();
 
   if (!courses.length) {
     courseManagerBody.innerHTML = '<p>目前沒有可載入的課程。</p>';
@@ -2062,9 +2063,9 @@ function renderCourseManager() {
 }
 
 function openCourseManager() {
-  renderCourseManager();
   courseManagerModal.classList.add('active');
   courseManagerModal.setAttribute('aria-hidden', 'false');
+  renderCourseManager();
 }
 
 function closeCourseManager() {

@@ -1,6 +1,8 @@
-const courseModules = import.meta.glob(['./*.js', '!./index.js', '!./smartring-tasks.js'], {
-  eager: true,
-});
+// 不使用 eager:true，避免所有課程（含隱藏課程）在頁面載入當下就整包送進瀏覽器。
+// 每個課程檔會被 Vite 各自切成獨立的 chunk，只有在使用者實際輸入對應課程代碼時才會被抓取。
+const courseLoaders = import.meta.glob(['./*.js', '!./index.js', '!./smartring-tasks.js']);
+
+const resolvedCourseCache = new Map();
 
 export function normalizeCourseCode(code) {
   return String(code || '').trim().toUpperCase();
@@ -83,38 +85,48 @@ function extractCourseGroup(module, path) {
   return null;
 }
 
-function buildCourseGroups() {
-  const groups = {};
+// path -> 檔名推得的課程代碼，只需解析路徑字串，不需要載入模組內容，可同步建立。
+const pathsByFileCode = new Map();
+Object.keys(courseLoaders).forEach((path) => {
+  pathsByFileCode.set(getCourseCodeFromPath(path), path);
+});
 
-  Object.entries(courseModules).forEach(([path, module]) => {
-    const courseGroup = extractCourseGroup(module, path);
-    if (!courseGroup) return;
-    groups[courseGroup.id] = courseGroup;
-    if (courseGroup.sourceFileCode && !groups[courseGroup.sourceFileCode]) {
-      groups[courseGroup.sourceFileCode] = courseGroup;
-    }
-  });
+async function loadCourseGroupByPath(path) {
+  if (resolvedCourseCache.has(path)) return resolvedCourseCache.get(path);
 
-  return groups;
+  const loader = courseLoaders[path];
+  if (!loader) return null;
+
+  const module = await loader();
+  const courseGroup = extractCourseGroup(module, path);
+  resolvedCourseCache.set(path, courseGroup);
+  return courseGroup;
 }
 
-export const courseGroups = buildCourseGroups();
+export async function getCourseGroup(code) {
+  const normalized = normalizeCourseCode(code);
+  if (!normalized) return null;
 
-export function getCourseGroup(code) {
-  return courseGroups[normalizeCourseCode(code)] || null;
+  const path = pathsByFileCode.get(normalized);
+  if (!path) return null;
+
+  return loadCourseGroupByPath(path);
 }
 
 export function getAvailableCourseGroupCodes() {
-  return Object.keys(courseGroups).sort();
+  return Array.from(pathsByFileCode.keys()).sort();
 }
 
-export function getAllCourseGroups() {
+export async function getAllCourseGroups() {
   const uniqueGroups = new Map();
 
-  Object.values(courseGroups).forEach((courseGroup) => {
-    if (!courseGroup?.id) return;
-    uniqueGroups.set(courseGroup.id, courseGroup);
-  });
+  await Promise.all(
+    Array.from(pathsByFileCode.values()).map(async (path) => {
+      const courseGroup = await loadCourseGroupByPath(path);
+      if (!courseGroup?.id) return;
+      uniqueGroups.set(courseGroup.id, courseGroup);
+    })
+  );
 
   return Array.from(uniqueGroups.values()).sort((a, b) =>
     String(a.id).localeCompare(String(b.id), 'en-US', { numeric: true })
@@ -217,8 +229,7 @@ export function getPublicCourseGroupListHtml() {
     .map((group) => {
       const items = group.codes
         .map((code) => {
-          const course = courseGroups[code];
-          const title = course?.title || fallbackPublicCourseTitles[code] || '課程內容尚未建立';
+          const title = fallbackPublicCourseTitles[code] || '課程內容尚未建立';
           return `<li><code>${code}</code>${title}</li>`;
         })
         .join('');
