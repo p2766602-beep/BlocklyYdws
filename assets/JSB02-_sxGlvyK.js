@@ -1,0 +1,2270 @@
+var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mode:`learning`,description:`以運算、條件判斷、多條件流程與基礎控制結構為核心的基礎流程課程。`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-07-18T23:59:23+08:00`,sourceCsv:`data\\problem_bank_master_tagged.csv`,version:`PB05-4B`},tasks:[{id:`JSB02-D01`,title:`通過門檻`,problemTitle:`通過門檻`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`老師設定一次測驗的通過門檻為 60 分。請輸入一個整數分數，如果分數大於或等於 60，輸出 Pass；否則不輸出任何文字。本題用來示範單一 if 條件成立時才執行輸出的流程。`,inputDescription:`第一行：一個整數 S，代表測驗分數。`,outputDescription:`若 S 大於或等於 60，輸出 Pass。
+
+若 S 小於 60，不輸出。`,statement:{description:`老師設定一次測驗的通過門檻為 60 分。請輸入一個整數分數，如果分數大於或等於 60，輸出 Pass；否則不輸出任何文字。本題用來示範單一 if 條件成立時才執行輸出的流程。`,input:`第一行：一個整數 S，代表測驗分數。`,output:`若 S 大於或等於 60，輸出 Pass。
+
+若 S 小於 60，不輸出。`},examples:[{input:`75`,output:`Pass`,explanation:`75 大於等於 60，所以輸出 Pass。`},{input:`40`,output:``,explanation:`40 小於 60，所以不輸出任何文字。`}],testCases:[{input:`60`,expectedOutput:`Pass`,output:`Pass`,score:20,hidden:!1},{input:`59`,expectedOutput:``,output:``,score:20,hidden:!1},{input:`100`,expectedOutput:`Pass`,output:`Pass`,score:20,hidden:!1},{input:`0`,expectedOutput:``,output:``,score:20,hidden:!1},{input:`75`,expectedOutput:`Pass`,output:`Pass`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!0,risk:`中`,flags:[`正式測資有空白輸出`],note:`已人工確認空白輸出合理`,exportDecision:`保留：人工複核題，但屬已知合理空白輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSB02-D02`,title:`優惠或原價`,problemTitle:`優惠或原價`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`商店規定消費金額達到 100 元以上可以獲得優惠。請輸入消費金額，如果金額大於或等於 100，輸出 Discount；否則輸出 Normal。本題用來示範 if / else 的二選一流程。`,inputDescription:`第一行：一個整數 M，代表消費金額。`,outputDescription:`若 M 大於或等於 100，輸出 Discount。
+
+否則輸出 Normal。`,statement:{description:`商店規定消費金額達到 100 元以上可以獲得優惠。請輸入消費金額，如果金額大於或等於 100，輸出 Discount；否則輸出 Normal。本題用來示範 if / else 的二選一流程。`,input:`第一行：一個整數 M，代表消費金額。`,output:`若 M 大於或等於 100，輸出 Discount。
+
+否則輸出 Normal。`},examples:[{input:`120`,output:`Discount`,explanation:`120 達到優惠門檻。`},{input:`80`,output:`Normal`,explanation:`80 未達優惠門檻。`}],testCases:[{input:`100`,expectedOutput:`Discount`,output:`Discount`,score:20,hidden:!1},{input:`99`,expectedOutput:`Normal`,output:`Normal`,score:20,hidden:!1},{input:`250`,expectedOutput:`Discount`,output:`Discount`,score:20,hidden:!1},{input:`1`,expectedOutput:`Normal`,output:`Normal`,score:20,hidden:!1},{input:`150`,expectedOutput:`Discount`,output:`Discount`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSB02-D03`,title:`成績等第示範`,problemTitle:`成績等第示範`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`demo`,difficulty:`L2`,blocklyFit:`高`,description:`輸入一個整數成績，請依照分數輸出等第。90 分以上輸出 A，80 到 89 輸出 B，70 到 79 輸出 C，60 到 69 輸出 D，未滿 60 輸出 F。本題用來示範多條件判斷。`,inputDescription:`第一行：一個整數 S，代表成績。`,outputDescription:`輸出一個英文字母，代表成績等第。`,statement:{description:`輸入一個整數成績，請依照分數輸出等第。90 分以上輸出 A，80 到 89 輸出 B，70 到 79 輸出 C，60 到 69 輸出 D，未滿 60 輸出 F。本題用來示範多條件判斷。`,input:`第一行：一個整數 S，代表成績。`,output:`輸出一個英文字母，代表成績等第。`},examples:[{input:`95`,output:`A`,explanation:`95 分屬於 A。`},{input:`72`,output:`C`,explanation:`72 分屬於 C。`}],testCases:[{input:`90`,expectedOutput:`A`,output:`A`,score:20,hidden:!1},{input:`89`,expectedOutput:`B`,output:`B`,score:20,hidden:!1},{input:`70`,expectedOutput:`C`,output:`C`,score:20,hidden:!1},{input:`60`,expectedOutput:`D`,output:`D`,score:20,hidden:!1},{input:`59`,expectedOutput:`F`,output:`F`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`115J-01`,title:`考試獎勵`,problemTitle:`考試獎勵`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`強強的老師每週的週一到週五都會進行測驗。每位學生在每次測驗後，可以獲得其測驗分數「除以 10（無條件捨去）」的點數，老師會將點數持續累積。每週五老師會提供娃娃當作獎品讓學生用點數兌換。
+
+【兌換規則】
+
+1. 第一週：所有學生都有資格兌換獎品。
+
+2. 第二週起：學生必須「該週五的成績」比「前一週五的成績」更高，才有資格兌換。
+
+3. 兌換限制：學生若有資格，且累積的點數足夠兌換該週的獎品，就可以扣除該週規定的點數換取一隻娃娃。每人每週最多只能兌換「一隻」娃娃。
+
+請撰寫一個程式，輸入強強每週的測驗成績與各週兌換娃娃所需的點數，計算 N 週後，強強總共兌換了幾隻娃娃，以及最後剩餘多少點數。`,inputDescription:`• 系統的第一個輸入包含：先是一個整數 N（1 ≤ N ≤ 5），代表測驗總共進行的週數。接著是 N 個整數，依序代表第 1 週到第 N 週兌換獎品所需的點數。
+
+• 接下來有 N 個輸入（系統的第二至第六個輸入）：每個輸入包含 5 個整數，分別代表強強該週由週一至週五的考試分數（0 ≤ 分數 ≤ 100）。
+
+• 所有數字之間皆以單一空白隔開。`,outputDescription:`• 請輸出兩個整數（中間以空白隔開）：分別代表「總共兌換到的娃娃數量」以及「剩餘點數」。`,statement:{description:`強強的老師每週的週一到週五都會進行測驗。每位學生在每次測驗後，可以獲得其測驗分數「除以 10（無條件捨去）」的點數，老師會將點數持續累積。每週五老師會提供娃娃當作獎品讓學生用點數兌換。
+
+【兌換規則】
+
+1. 第一週：所有學生都有資格兌換獎品。
+
+2. 第二週起：學生必須「該週五的成績」比「前一週五的成績」更高，才有資格兌換。
+
+3. 兌換限制：學生若有資格，且累積的點數足夠兌換該週的獎品，就可以扣除該週規定的點數換取一隻娃娃。每人每週最多只能兌換「一隻」娃娃。
+
+請撰寫一個程式，輸入強強每週的測驗成績與各週兌換娃娃所需的點數，計算 N 週後，強強總共兌換了幾隻娃娃，以及最後剩餘多少點數。`,input:`• 系統的第一個輸入包含：先是一個整數 N（1 ≤ N ≤ 5），代表測驗總共進行的週數。接著是 N 個整數，依序代表第 1 週到第 N 週兌換獎品所需的點數。
+
+• 接下來有 N 個輸入（系統的第二至第六個輸入）：每個輸入包含 5 個整數，分別代表強強該週由週一至週五的考試分數（0 ≤ 分數 ≤ 100）。
+
+• 所有數字之間皆以單一空白隔開。`,output:`• 請輸出兩個整數（中間以空白隔開）：分別代表「總共兌換到的娃娃數量」以及「剩餘點數」。`},examples:[{input:`1 23
+10 20 30 40 50`,output:`0 15`,explanation:`第 1 週五天成績為 10, 20, 30, 40, 50，累積總點數為 1+2+3+4+5 = 15 點。
+需要 23 點，點數不足，兌換 0 個，剩餘 15 點。`},{input:`4 10 20 80 99
+80 88 60 70 90
+70 71 72 73 74
+89 80 85 83 81
+100 100 100 100 100`,output:`2 73`,explanation:`1. 第 1 週點數 38，週五 90。換 1 隻，扣 10 剩 28 點。
+2. 第 2 週得 35 點，共 63 點。週五 74 分  74 分，具資格。換 1 隻，扣 80 剩 23 點。
+4. 第 4 週得 50 點，共 73 點。週五 100 分 > 81 分，具資格。但點數 73 < 99，點數不足。
+總共兌換 2 隻，剩餘 73 點。`}],testCases:[{input:`1 20
+10 20 30 40 50`,expectedOutput:`0 15`,output:`0 15`,score:10,hidden:!1},{input:`1 15
+50 50 50 50 50`,expectedOutput:`1 10`,output:`1 10`,score:10,hidden:!1},{input:`2 10 10
+20 20 20 20 80
+30 30 30 30 70`,expectedOutput:`1 25`,output:`1 25`,score:10,hidden:!1},{input:`2 10 10
+20 20 20 20 60
+90 90 90 90 60`,expectedOutput:`1 46`,output:`1 46`,score:10,hidden:!1},{input:`3 50 50 50
+50 50 50 50 10
+50 50 50 50 20
+50 50 50 50 30`,expectedOutput:`1 16`,output:`1 16`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-04-0`,title:`判斷奇偶數`,problemTitle:`判斷奇偶數`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L1`,blocklyFit:`高`,description:`程式設計中，常常需要根據數字的性質進行分類。
+
+請你寫一個程式，輸入一個整數，如果這個數除以2的餘數為0，表示是偶數，輸出 Even，如果餘數是1，表示是奇數，輸出 Odd。
+
+這樣的練習可以幫助你熟悉條件判斷的應用。`,inputDescription:``,outputDescription:``,statement:{description:`程式設計中，常常需要根據數字的性質進行分類。
+
+請你寫一個程式，輸入一個整數，如果這個數除以2的餘數為0，表示是偶數，輸出 Even，如果餘數是1，表示是奇數，輸出 Odd。
+
+這樣的練習可以幫助你熟悉條件判斷的應用。`,input:``,output:``},examples:[{input:`8`,output:`Even`,explanation:`輸入8，8除以2餘數=0
+程式輸出偶數Even`},{input:`7`,output:`Odd`,explanation:`輸入7，7除以2餘數=1
+程式輸出奇數數Odd`}],testCases:[{input:`3`,expectedOutput:`Odd`,output:`Odd`,score:10,hidden:!1},{input:`99`,expectedOutput:`Odd`,output:`Odd`,score:10,hidden:!1},{input:`78`,expectedOutput:`Even`,output:`Even`,score:10,hidden:!1},{input:`22`,expectedOutput:`Even`,output:`Even`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-04-1`,title:`成績等第`,problemTitle:`成績等第`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`不少學校成績採用等弟制，80~100為A，70~79為B，60~69為C，50~59為D，其餘49分以下為E
+
+請你寫一個程式，輸入一個整數(0~100)，輸出對應的成績等弟。
+
+這樣的練習可以幫助你熟悉條件判斷的應用。`,inputDescription:``,outputDescription:``,statement:{description:`不少學校成績採用等弟制，80~100為A，70~79為B，60~69為C，50~59為D，其餘49分以下為E
+
+請你寫一個程式，輸入一個整數(0~100)，輸出對應的成績等弟。
+
+這樣的練習可以幫助你熟悉條件判斷的應用。`,input:``,output:``},examples:[{input:`90`,output:`A`,explanation:`輸入90，表示成績90
+程式輸出A`},{input:`45`,output:`E`,explanation:`輸入45，表示成績45
+程式輸出E`}],testCases:[{input:`69`,expectedOutput:`C`,output:`C`,score:10,hidden:!1},{input:`99`,expectedOutput:`A`,output:`A`,score:10,hidden:!1},{input:`78`,expectedOutput:`B`,output:`B`,score:10,hidden:!1},{input:`55`,expectedOutput:`D`,output:`D`,score:10,hidden:!1},{input:`12`,expectedOutput:`E`,output:`E`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-05-0`,title:`三科成績計算`,problemTitle:`三科成績計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`小明參加了數學、英文、自然三科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
+
+請設計程式，輸入三科的成績，計算總分與平均。
+
+平均成績以四捨五入取到整數
+
+如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。
+
+這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,inputDescription:``,outputDescription:``,statement:{description:`小明參加了數學、英文、自然三科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
+
+請設計程式，輸入三科的成績，計算總分與平均。
+
+平均成績以四捨五入取到整數
+
+如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。
+
+這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,input:``,output:``},examples:[{input:`3
+80 70 90`,output:`240
+80
+及格`,explanation:`第一行輸入3,表示有3筆資料
+第二行輸入3筆資料80 70 90，經過計算後
+總分、平均、及格或不及格180 80 及格`},{input:`3
+50 42 60`,output:`152
+51
+不及格`,explanation:`第一行輸入3,表示有3筆資料
+第二行輸入3筆資料50 42 60，經過計算後
+程式輸出總分、平均、及格或不及格152 51 不及格`}],testCases:[{input:`3
+20 60 90`,expectedOutput:`170 57 不及格`,output:`170 57 不及格`,score:10,hidden:!1},{input:`3
+80 70 90`,expectedOutput:`240 80 及格`,output:`240 80 及格`,score:10,hidden:!1},{input:`3
+45 65 80`,expectedOutput:`190 63 及格`,output:`190 63 及格`,score:10,hidden:!1},{input:`3
+100 100 90`,expectedOutput:`290 97 及格`,output:`290 97 及格`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-05-1`,title:`購物優惠`,problemTitle:`購物優惠`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`大南百貨進行第二、第三件優惠活動，購買3件物品，第2件9折，第3件8折。
+
+請設計程式，依序輸入三件物品的定價，計算三件物品合計售價，以及最後優惠多少元。
+
+每件物品打折後價格以無條件捨去取整數
+
+程式最後輸出 定價加總總額、售價加總總額、優惠多少元`,inputDescription:``,outputDescription:``,statement:{description:`大南百貨進行第二、第三件優惠活動，購買3件物品，第2件9折，第3件8折。
+
+請設計程式，依序輸入三件物品的定價，計算三件物品合計售價，以及最後優惠多少元。
+
+每件物品打折後價格以無條件捨去取整數
+
+程式最後輸出 定價加總總額、售價加總總額、優惠多少元`,input:``,output:``},examples:[{input:`3
+80 70 90`,output:`240
+215
+25`,explanation:`第一行輸入3,表示有3筆資料
+第二行輸入3筆資料80 70 90，經過計算後
+第二筆70打9折再無條件捨去，共63元
+第三筆90打8折再無條件捨去，共72元
+程式輸出定價加總總額240元，售價加總總額215元，共優惠25元`},{input:`3
+50 42 60`,output:`152
+135
+17`,explanation:`第一行輸入3,表示有3筆資料
+第二行輸入3筆資料50 42 60，經過計算後
+第二筆42打9折再無條件捨去，共37元
+第三筆60打8折再無條件捨去，共48元
+程式輸出定價加總總額240元，售價加總總額215元，共優惠25元`}],testCases:[{input:`3
+60 65 1999`,expectedOutput:`2124 1717 407`,output:`2124 1717 407`,score:10,hidden:!1},{input:`3
+70 90 965`,expectedOutput:`1125  923 202`,output:`1125  923 202`,score:10,hidden:!1},{input:`3
+45 65 80`,expectedOutput:`190 167 23`,output:`190 167 23`,score:10,hidden:!1},{input:`3
+90 100 284`,expectedOutput:`474 407 67`,output:`474 407 67`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`TYTN-09`,title:`Y-2-1-校園販賣機自動補貨`,problemTitle:`Y-2-1-校園販賣機自動補貨`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`自立國中販賣機販售多種飲料，每種飲料都有目前庫存量。為避免缺貨造成不便，系統規定：凡庫存低於10罐者，一律自動補貨至20罐；庫存大於等於10者不補貨。
+
+請寫一個程式，讀入各品項目前的庫存量，進行自動補貨後，輸出所有飲料的總罐數。`,inputDescription:`第一行：一個整數 N，代表飲料的種類數。
+
+第二行：輸入 N 個整數，代表各飲料目前的庫存量（以空格隔開）。`,outputDescription:`輸出一個整數（自動補貨後的飲料總罐數）。`,statement:{description:`自立國中販賣機販售多種飲料，每種飲料都有目前庫存量。為避免缺貨造成不便，系統規定：凡庫存低於10罐者，一律自動補貨至20罐；庫存大於等於10者不補貨。
+
+請寫一個程式，讀入各品項目前的庫存量，進行自動補貨後，輸出所有飲料的總罐數。`,input:`第一行：一個整數 N，代表飲料的種類數。
+
+第二行：輸入 N 個整數，代表各飲料目前的庫存量（以空格隔開）。`,output:`輸出一個整數（自動補貨後的飲料總罐數）。`},examples:[{input:`5
+12 8 5 20 18`,output:`90`,explanation:`5 種飲料庫存為 12、8、5、20、18。
+8、5 低於 10，補至 20。
+補貨後為 12、20、20、20、18，總和 90。`},{input:`4
+9 9 9 9`,output:`80`,explanation:`4 種飲料庫存皆低於 10，皆補至 20。
+總量為 20×4=80。`}],testCases:[{input:`5
+12 8 5 20 18`,expectedOutput:`90`,output:`90`,score:10,hidden:!1},{input:`4
+9 9 9 9`,expectedOutput:`80`,output:`80`,score:10,hidden:!1},{input:`4
+10 11 15 20`,expectedOutput:`56`,output:`56`,score:10,hidden:!1},{input:`1
+3`,expectedOutput:`20`,output:`20`,score:10,hidden:!1},{input:`6
+0 10 25 9 15 8`,expectedOutput:`110`,output:`110`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`TYTN-11`,title:`Y-2-3-攻擊防禦力平衡`,problemTitle:`Y-2-3-攻擊防禦力平衡`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L4`,blocklyFit:`高`,description:`小麗在玩一款魔法戰鬥RPG手機遊戲。角色擁有「魔力攻擊」與「魔法防禦」兩種屬性。三件魔法道具會同時提升攻擊與防禦，道具效果可以疊加，但每件道具只能使用一次。
+
+小麗希望使用最少的道具，使角色攻擊力與防禦力相等。請撰寫程式找出要使用哪些道具才能達成要求，若需要多個道具，請依道具編號由小到大輸出；若無法達成攻擊力等於防禦力則輸出0。`,inputDescription:`第1行：角色的魔法攻擊力
+
+第2行：角色的魔法防禦力
+
+第3行：第1、2、3件道具的攻擊力與防禦力（先列全部攻擊力，再列全部防禦力）`,outputDescription:`第1行：使用的道具編號（若多個，請以空白間隔；若無法達成則輸出0）`,statement:{description:`小麗在玩一款魔法戰鬥RPG手機遊戲。角色擁有「魔力攻擊」與「魔法防禦」兩種屬性。三件魔法道具會同時提升攻擊與防禦，道具效果可以疊加，但每件道具只能使用一次。
+
+小麗希望使用最少的道具，使角色攻擊力與防禦力相等。請撰寫程式找出要使用哪些道具才能達成要求，若需要多個道具，請依道具編號由小到大輸出；若無法達成攻擊力等於防禦力則輸出0。`,input:`第1行：角色的魔法攻擊力
+
+第2行：角色的魔法防禦力
+
+第3行：第1、2、3件道具的攻擊力與防禦力（先列全部攻擊力，再列全部防禦力）`,output:`第1行：使用的道具編號（若多個，請以空白間隔；若無法達成則輸出0）`},examples:[{input:`15
+20
+20 5 10 10 15 5`,output:`3`,explanation:`第1行：角色攻擊力15
+第2行：角色防禦力20
+第3行：20 5 10為三件道具攻擊力；10 15 5為防禦力
+使用3號道具後攻擊與防禦相等。`},{input:`10
+15
+5 20 15 10 10 25`,output:`1 2`,explanation:`第1行：角色攻擊力10
+第2行：角色防禦力15
+第3行：5 20 15為攻擊力；10 10 25為防禦力
+使用1號與2號道具後攻擊與防禦相同。`}],testCases:[{input:`15
+20
+20 5 10 10 15 5`,expectedOutput:`3`,output:`3`,score:10,hidden:!1},{input:`10
+15
+5 20 15 10 10 25`,expectedOutput:`1 2`,output:`1 2`,score:10,hidden:!1},{input:`30
+40
+8 5 10 10 20 0`,expectedOutput:`3`,output:`3`,score:10,hidden:!1},{input:`20
+50
+10 10 10 0 0 0`,expectedOutput:`1 2 3`,output:`1 2 3`,score:10,hidden:!1},{input:`10
+100
+20 10 5 5 5 5`,expectedOutput:`0`,output:`0`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`W1-01`,title:`個人綜合所得稅試算`,problemTitle:`個人綜合所得稅試算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`為了協助民眾了解所得稅的基本計算方式，財政單位設計了一個簡化的
+個人綜合所得稅試算系統。
+
+假設某位民眾一整年的課稅所得為固定金額（以「萬元」為單位），
+系統將依照下列稅率級距，直接計算應繳的所得稅金額：
+
+稅率規則如下：
+
+1. 所得收入 1～30 萬元之間，稅率為 5%。
+
+2. 所得超過30萬，前30萬扣稅15000元，31～60 萬元之間的稅率為 10%。
+
+3. 所得超過60萬，前60萬扣稅45000元，61～100 萬元之間的稅率為 15%。
+
+4. 所得超過100萬，前100萬扣稅105000元，101萬元~以上，稅率為 20%。
+
+本題為教學用簡化模型，不考慮扣除額、免稅額或其他費用。`,inputDescription:`輸入一個整數，代表個人全年課稅所得（單位：萬元，1 以上）。`,outputDescription:`輸出一個整數，代表應繳的所得稅金額（單位：元）。`,statement:{description:`為了協助民眾了解所得稅的基本計算方式，財政單位設計了一個簡化的
+個人綜合所得稅試算系統。
+
+假設某位民眾一整年的課稅所得為固定金額（以「萬元」為單位），
+系統將依照下列稅率級距，直接計算應繳的所得稅金額：
+
+稅率規則如下：
+
+1. 所得收入 1～30 萬元之間，稅率為 5%。
+
+2. 所得超過30萬，前30萬扣稅15000元，31～60 萬元之間的稅率為 10%。
+
+3. 所得超過60萬，前60萬扣稅45000元，61～100 萬元之間的稅率為 15%。
+
+4. 所得超過100萬，前100萬扣稅105000元，101萬元~以上，稅率為 20%。
+
+本題為教學用簡化模型，不考慮扣除額、免稅額或其他費用。`,input:`輸入一個整數，代表個人全年課稅所得（單位：萬元，1 以上）。`,output:`輸出一個整數，代表應繳的所得稅金額（單位：元）。`},examples:[{input:`20`,output:`10000`,explanation:`全年課稅所得為 20 萬元，屬於 1～30 萬元區間。
+適用稅率為 5%。
+20 × 10000 × 0.05 = 10000 元。`},{input:`55`,output:`40000`,explanation:`全年課稅所得為 55萬元
+1～30 萬元區間，適用稅率5%，扣稅15000元。
+31～55 萬元區間，適用稅率10%，扣稅25000元。
+合計扣稅40000元。`}],testCases:[{input:`10`,expectedOutput:`5000`,output:`5000`,score:10,hidden:!1},{input:`30`,expectedOutput:`15000`,output:`15000`,score:15,hidden:!1},{input:`40`,expectedOutput:`25000`,output:`25000`,score:20,hidden:!1},{input:`80`,expectedOutput:`75000`,output:`75000`,score:25,hidden:!1},{input:`120`,expectedOutput:`145000`,output:`145000`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`W1-02`,title:`籃球機得分計算`,problemTitle:`籃球機得分計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
+
+每投進 1 球得 1 分，未投進得 0 分。
+
+若某次投籃進球，且「前一次投籃也進球」，則該次投籃得 3 分；
+
+若進球但前一次未進球（或為第一球），則得 1 分。
+
+請寫程式模擬籃球機的得分計算，輸入每次投籃結果（1 表示進球，0 表示未進），
+輸出兩位玩家單場遊戲的總得分，以及獲勝的玩家名稱
+（1P、2P，若同分則顯示「不分勝負」）。`,inputDescription:`第一行輸入整數 N（5～10）
+
+第二行輸入 N 個整數（0 或 1），代表 1P 玩家每次投籃是否命中
+
+第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,outputDescription:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`,statement:{description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
+
+每投進 1 球得 1 分，未投進得 0 分。
+
+若某次投籃進球，且「前一次投籃也進球」，則該次投籃得 3 分；
+
+若進球但前一次未進球（或為第一球），則得 1 分。
+
+請寫程式模擬籃球機的得分計算，輸入每次投籃結果（1 表示進球，0 表示未進），
+輸出兩位玩家單場遊戲的總得分，以及獲勝的玩家名稱
+（1P、2P，若同分則顯示「不分勝負」）。`,input:`第一行輸入整數 N（5～10）
+
+第二行輸入 N 個整數（0 或 1），代表 1P 玩家每次投籃是否命中
+
+第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,output:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`},examples:[{input:`5
+1 0 1 1 0
+0 1 1 1 1`,output:`5 10 2P`,explanation:`1P 得分：1 + 0 + 1 + 3 + 0 = 5
+2P 得分：0 + 1 + 3 + 3 + 3 = 10
+2P 總分較高，勝出。`}],testCases:[{input:`5
+0 1 0 1 0
+0 0 0 0 0`,expectedOutput:`2 0 1P`,output:`2 0 1P`,score:10,hidden:!1},{input:`6
+1 1 1 0 1 0
+0 1 1 1 1 0`,expectedOutput:`8 10 2P`,output:`8 10 2P`,score:15,hidden:!1},{input:`9
+0 1 0 1 0 1 0 1 0
+0 0 0 0 0 0 0 0 0`,expectedOutput:`4 0 1P`,output:`4 0 1P`,score:20,hidden:!1},{input:`8
+1 1 0 1 1 0 1 1
+1 1 1 0 1 1 1 0`,expectedOutput:`12 14 2P`,output:`12 14 2P`,score:25,hidden:!1},{input:`7
+1 1 0 1 1 0 1
+1 1 0 1 1 0 1`,expectedOutput:`9 9 不分勝負`,output:`9 9 不分勝負`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`W1-04`,title:`碼易丁飲料店`,problemTitle:`碼易丁飲料店`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`子題四：每日銷售數量結算
+
+到了晚上，小明需要結算一整天賣出了多少杯飲料，以及總共多少利潤。
+
+假設店內共有 K 種飲料（編號為 1 ～ K），每種飲料的「每杯利潤」皆不同。
+
+今天共有 N 筆訂單，每筆訂單包含「飲料編號」與「購買杯數」。
+
+請你設計一個程式，依序讀取輸入資料，計算：
+
+1. 各種飲料的總銷售杯數（依照 1～K 順序）
+
+2. 當天的總利潤`,inputDescription:`• 第一行輸入一個整數 K（3 ≤ K ≤ 10），代表飲料種類數。
+
+• 第二行輸入 K 個整數，依序代表第 1 種到第 K 種飲料的「每杯利潤」。
+
+• 第三行輸入一個整數 N（1 ≤ N ≤ 20），代表今天共有 N 筆訂單。
+
+• 第四行輸入 2N 個整數，依序代表「飲料編號（1～K）」與「杯數（1～20）」。`,outputDescription:`• 輸出一行共 K+1 個整數。
+
+• 前 K 個數字依序為第 1～K 種飲料的總銷售杯數。
+
+• 最後一個數字為當天的總利潤。
+
+• 所有數字之間以一個半形空格隔開。`,statement:{description:`子題四：每日銷售數量結算
+
+到了晚上，小明需要結算一整天賣出了多少杯飲料，以及總共多少利潤。
+
+假設店內共有 K 種飲料（編號為 1 ～ K），每種飲料的「每杯利潤」皆不同。
+
+今天共有 N 筆訂單，每筆訂單包含「飲料編號」與「購買杯數」。
+
+請你設計一個程式，依序讀取輸入資料，計算：
+
+1. 各種飲料的總銷售杯數（依照 1～K 順序）
+
+2. 當天的總利潤`,input:`• 第一行輸入一個整數 K（3 ≤ K ≤ 10），代表飲料種類數。
+
+• 第二行輸入 K 個整數，依序代表第 1 種到第 K 種飲料的「每杯利潤」。
+
+• 第三行輸入一個整數 N（1 ≤ N ≤ 20），代表今天共有 N 筆訂單。
+
+• 第四行輸入 2N 個整數，依序代表「飲料編號（1～K）」與「杯數（1～20）」。`,output:`• 輸出一行共 K+1 個整數。
+
+• 前 K 個數字依序為第 1～K 種飲料的總銷售杯數。
+
+• 最後一個數字為當天的總利潤。
+
+• 所有數字之間以一個半形空格隔開。`},examples:[{input:`5
+15 10 15 20 25
+3
+5 5 2 2 2 10`,output:`0 12 0 0 5 245`,explanation:`共有 5 種飲料，各自利潤為 15、10、15、20、25 元
+三筆訂單：
+5 號 5 杯、2 號 2 杯、2 號 10 杯
+各飲料銷售量為：0 12 0 0 5
+總利潤 = 12×10 + 5×25 = 245`},{input:`5
+5 8 8 6 5
+5
+2 4 1 3 5 2 3 3 4 4`,output:`3 4 3 4 2 105`,explanation:`共有 5 種飲料，各自利潤為 5、8、8、6、5 元
+五筆訂單：
+2 號 4 杯、1 號 3 杯、5 號 2 杯、3 號 3 杯、4 號 4 杯
+各飲料銷售量為：3 4 3 4 2
+總利潤 = 3*5 + 4*8 + 3*8 + 4*6 + 2*5 = 105`}],testCases:[{input:`3
+10 20 30
+1
+2 5`,expectedOutput:`0 5 0 100`,output:`0 5 0 100`,score:10,hidden:!1},{input:`4
+5 10 15 20
+3
+1 2 2 3 4 1`,expectedOutput:`2 3 0 1 60`,output:`2 3 0 1 60`,score:15,hidden:!1},{input:`5
+15 10 15 20 25
+4
+1 2 3 3 5 2 1 1`,expectedOutput:`3 0 3 0 2 140`,output:`3 0 3 0 2 140`,score:20,hidden:!1},{input:`6
+8 12 20 15 10 25
+6
+6 2 2 5 4 3 6 1 2 2 1 4`,expectedOutput:`4 7 0 3 0 3 236`,output:`4 7 0 3 0 3 236`,score:25,hidden:!1},{input:`10
+5 6 7 8 9 10 11 12 13 14
+10
+1 1 2 2 3 3 4 4 5 5 6 1 7 2 8 1 9 2 10 3`,expectedOutput:`1 2 3 4 5 1 2 1 2 3 227`,output:`1 2 3 4 5 1 2 1 2 3 227`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`W2-02`,title:`程式設計師阿倫`,problemTitle:`程式設計師阿倫`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`阿倫很喜歡寫程式，他每天都會寫好幾個程式。
+
+為了自我要求，他規定自己：
+
+從第 3 天開始，每天寫的程式數量必須等於「前 2 天寫的總和」，
+
+以此作為自己持續進步的證明。
+
+已知阿倫：
+
+第 1 天寫了 A 個程式，第 2 天寫了 B 個程式。
+
+請你撰寫一個程式，計算阿倫在第 N 天寫了多少個程式。`,inputDescription:`輸入為一行，包含三個整數 N、A、B，
+
+分別代表要查詢的天數、第 1 天與第 2 天寫的程式數量。`,outputDescription:`輸出一個整數，代表阿倫在第 N 天寫的程式數量。`,statement:{description:`阿倫很喜歡寫程式，他每天都會寫好幾個程式。
+
+為了自我要求，他規定自己：
+
+從第 3 天開始，每天寫的程式數量必須等於「前 2 天寫的總和」，
+
+以此作為自己持續進步的證明。
+
+已知阿倫：
+
+第 1 天寫了 A 個程式，第 2 天寫了 B 個程式。
+
+請你撰寫一個程式，計算阿倫在第 N 天寫了多少個程式。`,input:`輸入為一行，包含三個整數 N、A、B，
+
+分別代表要查詢的天數、第 1 天與第 2 天寫的程式數量。`,output:`輸出一個整數，代表阿倫在第 N 天寫的程式數量。`},examples:[{input:`4 1 2`,output:`5`,explanation:`第 1 天：1
+第 2 天：2
+第 3 天：1 + 2 = 3
+第 4 天：2 + 3 = 5`},{input:`1 1 1`,output:`1`,explanation:`查詢第 1 天，直接輸出 A = 1`}],testCases:[{input:`1 5 8`,expectedOutput:`5`,output:`5`,score:10,hidden:!1},{input:`2 5 8`,expectedOutput:`8`,output:`8`,score:15,hidden:!1},{input:`5 1 2`,expectedOutput:`8`,output:`8`,score:20,hidden:!1},{input:`6 2 3`,expectedOutput:`21`,output:`21`,score:25,hidden:!1},{input:`10 1 1`,expectedOutput:`55`,output:`55`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`W4-03`,title:`省電大作戰`,problemTitle:`省電大作戰`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L4`,blocklyFit:`高`,description:`小明的房間有一台變頻冷氣，為了節省電費，他研究出冷氣的耗電規則如下：
+
+【耗電規則】
+
+1. 運轉費：只要冷氣是開著的（運轉中），每個小時消耗 1 度電。
+
+2. 啟動費：每次把冷氣「從關機變成開機」的瞬間，需要額外消耗 5 度電。
+
+注意：若冷氣本來就是開著的，進入下一小時不需要再付啟動費。
+
+3. 關機省電：冷氣關掉時不耗電（0 度）。
+
+【行程表】
+
+小明列出一天 N 個小時的行程表（以 0 和 1 表示）：
+
+1：代表小明在房間，該小時冷氣必須是開著的。
+
+0：代表小明不在房間，你可以選擇讓冷氣關掉（省運轉費），或維持開著（避免下次再付啟動費 5 度）。
+
+【任務】
+
+在滿足所有「小明在房間」的時段冷氣都必須開著的條件下，請計算一整天最少總共要消耗多少度電。`,inputDescription:`第一行輸入一個整數 N，代表總時數。
+
+第二行輸入 N 個整數（0 或 1，以空白隔開），代表每個小時小明是否在房間。`,outputDescription:`輸出一個整數，代表最少的總耗電度數。`,statement:{description:`小明的房間有一台變頻冷氣，為了節省電費，他研究出冷氣的耗電規則如下：
+
+【耗電規則】
+
+1. 運轉費：只要冷氣是開著的（運轉中），每個小時消耗 1 度電。
+
+2. 啟動費：每次把冷氣「從關機變成開機」的瞬間，需要額外消耗 5 度電。
+
+注意：若冷氣本來就是開著的，進入下一小時不需要再付啟動費。
+
+3. 關機省電：冷氣關掉時不耗電（0 度）。
+
+【行程表】
+
+小明列出一天 N 個小時的行程表（以 0 和 1 表示）：
+
+1：代表小明在房間，該小時冷氣必須是開著的。
+
+0：代表小明不在房間，你可以選擇讓冷氣關掉（省運轉費），或維持開著（避免下次再付啟動費 5 度）。
+
+【任務】
+
+在滿足所有「小明在房間」的時段冷氣都必須開著的條件下，請計算一整天最少總共要消耗多少度電。`,input:`第一行輸入一個整數 N，代表總時數。
+
+第二行輸入 N 個整數（0 或 1，以空白隔開），代表每個小時小明是否在房間。`,output:`輸出一個整數，代表最少的總耗電度數。`},examples:[{input:`5
+1 1 1 1 1`,output:`10`,explanation:`一直都在房間。
+第 1 小時開機（啟動費 5 + 運轉費 1 = 6 度）。
+第 2~5 小時保持開機（運轉費 1×4 = 4 度）。
+總共：6 + 4 = 10 度。`},{input:`8
+1 0 0 1 0 1 0 0`,output:`11`,explanation:`小明在房間的時段為第 1、4、6 小時。
+最佳策略：第 1~6 小時維持開機（避免多次付 5 度啟動費），第 7~8 小時關機。
+總計耗電為 11 度。`}],testCases:[{input:`1
+1`,expectedOutput:`6`,output:`6`,score:10,hidden:!1},{input:`6
+0 0 0 0 0 0`,expectedOutput:`0`,output:`0`,score:15,hidden:!1},{input:`8
+1 0 0 0 0 0 0 1`,expectedOutput:`12`,output:`12`,score:20,hidden:!1},{input:`7
+1 0 0 0 0 0 1`,expectedOutput:`12`,output:`12`,score:25,hidden:!1},{input:`10
+1 0 1 0 1 0 1 0 1 0`,expectedOutput:`14`,output:`14`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`W7-03`,title:`停車費計算`,problemTitle:`停車費計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`停車場採用階梯式收費方式。停車時會依照停放時間長短來計價，其中停車1小時內有優惠，超過 1小時後依半小時計費。計費方式如下：
+
+1. 停車時間小於或等於30分鐘，收費20 元
+
+2. 停車時間在31~60分鐘之間，收費40 元
+
+3. 若停車時間超過60分鐘，則在60分鐘以後的時間，每30分鐘加收30元，若剩餘不足 30 分鐘，也以 30分鐘計算。
+
+另外單日無論停車時間多長，單日最高收費上限為400元。若停車超過24小時，剩餘不足24小時部分一樣享有1小時優惠。小柔開車於此停車場停放，請計算本次停車應繳的費用。`,inputDescription:`第一行:停車分鐘數(整數)`,outputDescription:`第一行: 應繳納的費用(整數）`,statement:{description:`停車場採用階梯式收費方式。停車時會依照停放時間長短來計價，其中停車1小時內有優惠，超過 1小時後依半小時計費。計費方式如下：
+
+1. 停車時間小於或等於30分鐘，收費20 元
+
+2. 停車時間在31~60分鐘之間，收費40 元
+
+3. 若停車時間超過60分鐘，則在60分鐘以後的時間，每30分鐘加收30元，若剩餘不足 30 分鐘，也以 30分鐘計算。
+
+另外單日無論停車時間多長，單日最高收費上限為400元。若停車超過24小時，剩餘不足24小時部分一樣享有1小時優惠。小柔開車於此停車場停放，請計算本次停車應繳的費用。`,input:`第一行:停車分鐘數(整數)`,output:`第一行: 應繳納的費用(整數）`},examples:[{input:`100`,output:`100`,explanation:`輸入部分 第1行 代表停車分鐘數
+輸出部分 第1行 代表應繳納的費用
+計算方式:停車60分鐘以40元計算，超過時間每30分鐘加30元，不足30分鐘也收30元，40+30+30=100元`},{input:`820`,output:`400`,explanation:`輸入部分 第1行 代表停車分鐘數
+輸出部分 第1行 代表應繳納的費用
+計算方式: 停車820分鐘，時間未超過1日(1440分)，但繳費金額超過單日400元上限，故以400元計`},{input:`1443`,output:`420`,explanation:`輸入部分 第1行 代表停車分鐘數
+輸出部分 第1行 代表應繳納的費用
+計算方式: 停車1443分鐘，時間超過1日(1440分)，單日繳金額400元為上限，隔日的3分鐘繳費20元，故合計為400+20=420元`}],testCases:[{input:`60`,expectedOutput:`40`,output:`40`,score:10,hidden:!1},{input:`61`,expectedOutput:`70`,output:`70`,score:15,hidden:!1},{input:`145`,expectedOutput:`130`,output:`130`,score:20,hidden:!1},{input:`1500`,expectedOutput:`440`,output:`440`,score:25,hidden:!1},{input:`3005`,expectedOutput:`930`,output:`930`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`W9-05`,title:`連續成績進步分析`,problemTitle:`連續成績進步分析`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`老師連續記錄了你 N 天的測驗成績，依照時間順序存放在一份成績清單中。老師希望透過這些資料，了解你在學習過程中是否有持續進步的表現。
+
+請從第 2 天開始，將每天的成績與前一天的成績進行比較，並依下列規則判斷：
+
+• 若當天成績大於前一天成績，則視為「成績進步一次」。
+
+• 若當天成績沒有比前一天高（小於或等於），則中斷連續進步的計算。
+
+• 請找出並輸出「連續成績進步」的最長次數。
+
+【輸入與輸出說明】
+
+• 第一行輸入一個整數 N，代表記錄成績的天數（1 ≤ N ≤ 50）。
+
+• 第二行輸入 N 個整數，分別代表每一天的測驗成績（0 ≤ 成績 ≤ 100），數字間以單一空白隔開。
+
+• 輸出一個整數，代表「連續成績進步」的最大連續次數。若完全沒有進步，請輸出 0。`,inputDescription:``,outputDescription:`• 第一行輸入一個整數 N，代表記錄成績的天數（1 ≤ N ≤ 50）。
+
+• 第二行輸入 N 個整數，分別代表每一天的測驗成績（0 ≤ 成績 ≤ 100），數字間以單一空白隔開。
+
+• 輸出一個整數，代表「連續成績進步」的最大連續次數。若完全沒有進步，請輸出 0。`,statement:{description:`老師連續記錄了你 N 天的測驗成績，依照時間順序存放在一份成績清單中。老師希望透過這些資料，了解你在學習過程中是否有持續進步的表現。
+
+請從第 2 天開始，將每天的成績與前一天的成績進行比較，並依下列規則判斷：
+
+• 若當天成績大於前一天成績，則視為「成績進步一次」。
+
+• 若當天成績沒有比前一天高（小於或等於），則中斷連續進步的計算。
+
+• 請找出並輸出「連續成績進步」的最長次數。
+
+【輸入與輸出說明】
+
+• 第一行輸入一個整數 N，代表記錄成績的天數（1 ≤ N ≤ 50）。
+
+• 第二行輸入 N 個整數，分別代表每一天的測驗成績（0 ≤ 成績 ≤ 100），數字間以單一空白隔開。
+
+• 輸出一個整數，代表「連續成績進步」的最大連續次數。若完全沒有進步，請輸出 0。`,input:``,output:`• 第一行輸入一個整數 N，代表記錄成績的天數（1 ≤ N ≤ 50）。
+
+• 第二行輸入 N 個整數，分別代表每一天的測驗成績（0 ≤ 成績 ≤ 100），數字間以單一空白隔開。
+
+• 輸出一個整數，代表「連續成績進步」的最大連續次數。若完全沒有進步，請輸出 0。`},examples:[{input:`5
+60 65 70 68 72`,output:`2`,explanation:`連續進步區段：
+1. 60 -> 65 -> 70 (連續 2 次進步)
+2. 68 -> 72 (連續 1 次進步)
+最大值為 2。`},{input:`5
+50 60 55 56 57`,output:`2`,explanation:`連續進步區段：
+1. 50 -> 60 (連續 1 次進步)
+2. 55 -> 56 -> 57 (連續 2 次進步)
+最大值為 2。`}],testCases:[{input:`5
+60 65 70 68 72`,expectedOutput:`2`,output:`2`,score:10,hidden:!1},{input:`5
+50 60 55 56 57`,expectedOutput:`2`,output:`2`,score:15,hidden:!1},{input:`4
+100 90 90 80`,expectedOutput:`0`,output:`0`,score:20,hidden:!1},{input:`6
+10 20 30 40 50 60`,expectedOutput:`5`,output:`5`,score:25,hidden:!1},{input:`10
+80 85 90 88 89 90 95 95 96 98`,expectedOutput:`3`,output:`3`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`WP-01`,title:`A-超商收銀-`,problemTitle:`A-超商收銀-`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`顧客到超商購物，收銀機會依序讀取購買的每樣商品價格。 最後顧客拿出一筆錢付款。
+
+請你設計程式： 先計算所有商品的總金額。 如果付款金額大於或等於總金額，輸出應找的金額。
+
+如果付款金額不足，輸出：付款金額不足`,inputDescription:`第一行：一個整數 N，代表購買的商品數量。
+
+第二行：輸入 N 個整數，代表每樣商品的價格。
+
+第三行：一個整數，代表付款金額。`,outputDescription:`如果付款金額足夠，輸出一個整數（應找的金額）。
+
+如果不足，輸出 付款金額不足。`,statement:{description:`顧客到超商購物，收銀機會依序讀取購買的每樣商品價格。 最後顧客拿出一筆錢付款。
+
+請你設計程式： 先計算所有商品的總金額。 如果付款金額大於或等於總金額，輸出應找的金額。
+
+如果付款金額不足，輸出：付款金額不足`,input:`第一行：一個整數 N，代表購買的商品數量。
+
+第二行：輸入 N 個整數，代表每樣商品的價格。
+
+第三行：一個整數，代表付款金額。`,output:`如果付款金額足夠，輸出一個整數（應找的金額）。
+
+如果不足，輸出 付款金額不足。`},examples:[{input:`3
+50 20 30
+120`,output:`20`,explanation:`商品總金額 = 50 + 30 + 20 = 100
+付款金額 = 120
+足夠付款 → 應找錢 = 120 - 100 = 20`},{input:`2
+40 35
+60`,output:`付款金額不足`,explanation:`商品總金額 = 40 + 35 = 75
+付款金額 = 60
+不足以支付 → 輸出「付款金額不足」`}],testCases:[{input:`3
+50 20 30
+120`,expectedOutput:`20`,output:`20`,score:10,hidden:!1},{input:`2
+40 35
+60`,expectedOutput:`付款金額不足`,output:`付款金額不足`,score:10,hidden:!1},{input:`4
+10 20 30 40
+100`,expectedOutput:`0`,output:`0`,score:10,hidden:!1},{input:`4
+5 5 5 5
+50`,expectedOutput:`30`,output:`30`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`WP-07`,title:`C-找零錢計算`,problemTitle:`C-找零錢計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L4`,blocklyFit:`高`,description:`收銀機內有 5 種面額的錢幣：100、50、10、5、1，且每種面額皆有有限數量。
+顧客付款後需要找零，請在不超過庫存的前提下，用最少的硬幣數完成找零。
+
+若無法剛好找出需要的金額，輸出 無法找零。若無法剛好找出需要的金額，輸出 無法找零。`,inputDescription:`3行
+
+第一行輸入代表購物金額。
+
+第二行輸入代表付款金額
+
+第三行輸入有5個用空格隔開的非負整數，代表每種零錢剩餘的數量`,outputDescription:`若可找零，輸出五個整數，表示實際找出的 100、50、10、5、1 的枚數（以空格分隔）。
+
+若無法找零輸出：無法找零`,statement:{description:`收銀機內有 5 種面額的錢幣：100、50、10、5、1，且每種面額皆有有限數量。
+顧客付款後需要找零，請在不超過庫存的前提下，用最少的硬幣數完成找零。
+
+若無法剛好找出需要的金額，輸出 無法找零。若無法剛好找出需要的金額，輸出 無法找零。`,input:`3行
+
+第一行輸入代表購物金額。
+
+第二行輸入代表付款金額
+
+第三行輸入有5個用空格隔開的非負整數，代表每種零錢剩餘的數量`,output:`若可找零，輸出五個整數，表示實際找出的 100、50、10、5、1 的枚數（以空格分隔）。
+
+若無法找零輸出：無法找零`},examples:[{input:`270
+500
+3 3 10 10 20`,output:`2 0 3 0 0`,explanation:`第一行輸入270，表示買270元。
+第二行輸入500，表示付款500元。
+第三行輸入3 3 10 10 20，代表每種零錢剩餘的數量。
+程式分別輸出100、50、10、5、1最少硬幣2 0 3 0 0`},{input:`500
+500
+1 2 3 4 5`,output:`0 0 0 0 0`,explanation:`第一行輸入500，表示買500元。
+第二行輸入500，表示付款500元。
+第三行輸入1 2 3 4 5，代表每種零錢剩餘的數量。
+程式分別輸出100、50、10、5、1最少硬幣0 0 0 0 0`},{input:`123
+150
+2 2 2 2 0`,output:`無法找零`,explanation:`第一行輸入123，表示買123元。
+第二行輸入150，表示付款150元。
+第三行輸入2 2 2 2 0，代表每種零錢剩餘的數量。
+程式輸出無法找零`}],testCases:[{input:`270
+500
+3 3 10 10 20`,expectedOutput:`2 0 3 0 0`,output:`2 0 3 0 0`,score:10,hidden:!1},{input:`500
+500
+1 2 3 4 5`,expectedOutput:`0 0 0 0 0`,output:`0 0 0 0 0`,score:10,hidden:!1},{input:`123
+150
+2 2 2 2 0`,expectedOutput:`無法找零`,output:`無法找零`,score:10,hidden:!1},{input:`350
+1000
+5 5 5 5 5`,expectedOutput:`5 3 0 0 0`,output:`5 3 0 0 0`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`WP-08`,title:`C-短片欣賞`,problemTitle:`C-短片欣賞`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L4`,blocklyFit:`高`,description:`圖書館有一間媒體播放室，每週六會連續播放科學系列短片，
+最多播放 20 個短片。每個短片以一個大寫英文字母表示，
+相同字母代表同一系列短片。
+
+娜娜有特別喜歡的系列短片，但她每天能夠待在圖書館的時間有限，
+只能連續觀看 K 場短片。她可以自由選擇從哪一場開始觀看。
+
+請你幫娜娜找出，在連續觀看 K 場短片的情況下，
+最多可以看到幾次她最喜歡的系列短片。`,inputDescription:`第 1 行：整數 N，代表播放的短片總場次。
+
+第 2 行：N 個大寫英文字母，代表每一場播放的短片系列（以一個半形空格隔開）。
+
+第 3 行：一個整數 K 與一個大寫英文字母，
+分別代表可連續觀看的場次數，以及娜娜最喜歡的短片系列（以一個半形空格隔開）。`,outputDescription:`第 1 行：整數，代表最多可以看到幾次最喜歡的短片系列。`,statement:{description:`圖書館有一間媒體播放室，每週六會連續播放科學系列短片，
+最多播放 20 個短片。每個短片以一個大寫英文字母表示，
+相同字母代表同一系列短片。
+
+娜娜有特別喜歡的系列短片，但她每天能夠待在圖書館的時間有限，
+只能連續觀看 K 場短片。她可以自由選擇從哪一場開始觀看。
+
+請你幫娜娜找出，在連續觀看 K 場短片的情況下，
+最多可以看到幾次她最喜歡的系列短片。`,input:`第 1 行：整數 N，代表播放的短片總場次。
+
+第 2 行：N 個大寫英文字母，代表每一場播放的短片系列（以一個半形空格隔開）。
+
+第 3 行：一個整數 K 與一個大寫英文字母，
+分別代表可連續觀看的場次數，以及娜娜最喜歡的短片系列（以一個半形空格隔開）。`,output:`第 1 行：整數，代表最多可以看到幾次最喜歡的短片系列。`},examples:[{input:`8
+A B C A W A Q A
+5 A`,output:`3`,explanation:`圖書館安排 8 場短片，
+播放順序為 A B C A W A Q A。
+娜娜可以連續觀看 5 場，最喜歡 A 系列。
+從第 4 場開始觀看 (A W A Q A)，
+可看到 3 次 A，因此輸出 3。`},{input:`3
+X G X
+2 X`,output:`1`,explanation:`不論從第 1 場或第 2 場開始觀看，
+都只能看到 1 次 X 系列短片，因此輸出 1。`}],testCases:[{input:`8
+A B C A W A Q A
+5 A`,expectedOutput:`3`,output:`3`,score:50,hidden:!1},{input:`3
+X G X
+2 X`,expectedOutput:`1`,output:`1`,score:50,hidden:!1},{input:`6
+B B B B B B
+3 B`,expectedOutput:`3`,output:`3`,score:50,hidden:!1},{input:`10
+A C A C A C A C A C
+4 A`,expectedOutput:`2`,output:`2`,score:50,hidden:!1},{input:`5
+D E F G H
+3 A`,expectedOutput:`0`,output:`0`,score:50,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cycelement-001`,title:`個人綜合所得稅試算`,problemTitle:`個人綜合所得稅試算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`為了協助民眾了解所得稅的基本計算方式，財政單位設計了一個簡化的
+個人綜合所得稅試算系統。
+
+假設某位民眾一整年的課稅所得為固定金額（以「萬元」為單位），
+系統將依照下列稅率級距，直接計算應繳的所得稅金額：
+
+稅率規則如下：
+
+1. 所得收入 1～30 萬元之間，稅率為 5%。
+
+2. 所得超過30萬，前30萬扣稅15000元，31～60 萬元之間的稅率為 10%。
+
+3. 所得超過60萬，前60萬扣稅45000元，61～100 萬元之間的稅率為 15%。
+
+4. 所得超過100萬，前100萬扣稅105000元，101萬元~以上，稅率為 20%。
+
+本題為教學用簡化模型，不考慮扣除額、免稅額或其他費用。`,inputDescription:`輸入一個整數，代表個人全年課稅所得（單位：萬元，1 以上）。`,outputDescription:`輸出一個整數，代表應繳的所得稅金額（單位：元）。`,statement:{description:`為了協助民眾了解所得稅的基本計算方式，財政單位設計了一個簡化的
+個人綜合所得稅試算系統。
+
+假設某位民眾一整年的課稅所得為固定金額（以「萬元」為單位），
+系統將依照下列稅率級距，直接計算應繳的所得稅金額：
+
+稅率規則如下：
+
+1. 所得收入 1～30 萬元之間，稅率為 5%。
+
+2. 所得超過30萬，前30萬扣稅15000元，31～60 萬元之間的稅率為 10%。
+
+3. 所得超過60萬，前60萬扣稅45000元，61～100 萬元之間的稅率為 15%。
+
+4. 所得超過100萬，前100萬扣稅105000元，101萬元~以上，稅率為 20%。
+
+本題為教學用簡化模型，不考慮扣除額、免稅額或其他費用。`,input:`輸入一個整數，代表個人全年課稅所得（單位：萬元，1 以上）。`,output:`輸出一個整數，代表應繳的所得稅金額（單位：元）。`},examples:[{input:`20`,output:`10000`,explanation:`全年課稅所得為 20 萬元，屬於 1～30 萬元區間。
+適用稅率為 5%。
+20 × 10000 × 0.05 = 10000 元。`},{input:`55`,output:`40000`,explanation:`全年課稅所得為 55萬元
+1～30 萬元區間，適用稅率5%，扣稅15000元。
+31～55 萬元區間，適用稅率10%，扣稅25000元。
+合計扣稅40000元。`}],testCases:[{input:`10`,expectedOutput:`5000`,output:`5000`,score:10,hidden:!1},{input:`30`,expectedOutput:`15000`,output:`15000`,score:15,hidden:!1},{input:`40`,expectedOutput:`25000`,output:`25000`,score:20,hidden:!1},{input:`80`,expectedOutput:`75000`,output:`75000`,score:25,hidden:!1},{input:`120`,expectedOutput:`145000`,output:`145000`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cycelement-002`,title:`跳馬比賽成績計算`,problemTitle:`跳馬比賽成績計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`跳馬比賽為求公平性，決議去除評審中較極端的成績。
+
+比賽會依賽制等級不同，聘用五位評審，
+各自給予參賽者 0 至 10 分的評價。
+
+參賽者的最終得分計算方式如下：
+
+1. 讀入五位評審的分數（未排序）。
+
+2. 扣除最高分與最低分各一筆（若有多筆，只刪除其中一筆）。
+
+3. 將剩餘分數取平均，並四捨五入取整數。
+
+請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終得分。`,inputDescription:`第一行輸入 5 個整數（0～10），代表評審分數，資料之間以一個半形空格分隔。`,outputDescription:`輸出一個數值，代表去除最高與最低分後的最終得分之平均(四捨五入)。`,statement:{description:`跳馬比賽為求公平性，決議去除評審中較極端的成績。
+
+比賽會依賽制等級不同，聘用五位評審，
+各自給予參賽者 0 至 10 分的評價。
+
+參賽者的最終得分計算方式如下：
+
+1. 讀入五位評審的分數（未排序）。
+
+2. 扣除最高分與最低分各一筆（若有多筆，只刪除其中一筆）。
+
+3. 將剩餘分數取平均，並四捨五入取整數。
+
+請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終得分。`,input:`第一行輸入 5 個整數（0～10），代表評審分數，資料之間以一個半形空格分隔。`,output:`輸出一個數值，代表去除最高與最低分後的最終得分之平均(四捨五入)。`},examples:[{input:`9 8 10 6 7`,output:`8`,explanation:`刪除最高分 10 與最低分 6，剩下 9、8、7。
+平均為 (9+8+7)/3 = 8。`},{input:`5 5 8 9 10`,output:`7`,explanation:`刪除最高分 10 與最低分 5，剩下 5、8、9。
+平均為 (5+8+9)/4 = 7.25，四捨五入答案為7。`}],testCases:[{input:`9 8 10 6 7`,expectedOutput:`8`,output:`8`,score:10,hidden:!1},{input:`10 10 10 10 10`,expectedOutput:`10`,output:`10`,score:15,hidden:!1},{input:`5 5 7 7 10`,expectedOutput:`6`,output:`6`,score:20,hidden:!1},{input:`9 9 9 10 10`,expectedOutput:`9`,output:`9`,score:25,hidden:!1},{input:`7 7 8 8 6`,expectedOutput:`7`,output:`7`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cycelement-003`,title:`動態密碼轉換`,problemTitle:`動態密碼轉換`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`小明設計了一種英文字元密碼環編碼規則：
+
+密碼環為：abcdefghijklmnopqrstuvwxyz
+
+編碼規則說明：
+
+1. 第一行輸入一個整數 N，代表位移值。
+
+2. 第二行輸入一個由小寫英文字母（a~z）組成的字串。
+
+3. 編碼時，字串中的每一個字元皆依密碼環「往後」移動 N 個位置。
+
+4. 若位移後超出密碼環尾端，則從密碼環開頭繼續計算（環狀結構）。
+
+請撰寫程式，依照上述規則輸出轉換後的密碼字串。`,inputDescription:`第一行輸入整數 N（0 ≤ N ≤ 100）。
+
+第二行輸入一個字串，僅包含小寫英文字母 a~z。`,outputDescription:`輸出一行字串，代表加密後的結果。`,statement:{description:`小明設計了一種英文字元密碼環編碼規則：
+
+密碼環為：abcdefghijklmnopqrstuvwxyz
+
+編碼規則說明：
+
+1. 第一行輸入一個整數 N，代表位移值。
+
+2. 第二行輸入一個由小寫英文字母（a~z）組成的字串。
+
+3. 編碼時，字串中的每一個字元皆依密碼環「往後」移動 N 個位置。
+
+4. 若位移後超出密碼環尾端，則從密碼環開頭繼續計算（環狀結構）。
+
+請撰寫程式，依照上述規則輸出轉換後的密碼字串。`,input:`第一行輸入整數 N（0 ≤ N ≤ 100）。
+
+第二行輸入一個字串，僅包含小寫英文字母 a~z。`,output:`輸出一行字串，代表加密後的結果。`},examples:[{input:`2
+banana`,output:`dcpcpc`,explanation:`b → d，a → c，n → p
+每個字元皆往後移動 2 個位置`}],testCases:[{input:`0
+abc`,expectedOutput:`abc`,output:`abc`,score:10,hidden:!1},{input:`1
+xyz`,expectedOutput:`yza`,output:`yza`,score:15,hidden:!1},{input:`26
+hello`,expectedOutput:`hello`,output:`hello`,score:20,hidden:!1},{input:`28
+az`,expectedOutput:`cb`,output:`cb`,score:25,hidden:!1},{input:`100
+a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cycelement-004`,title:`籃球機得分計算`,problemTitle:`籃球機得分計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
+
+每投進 1 球得 1 分，未投進得 0 分。
+
+若某次投籃進球，且「前一次投籃也進球」，則該次投籃得 3 分；
+
+若進球但前一次未進球（或為第一球），則得 1 分。
+
+請寫程式模擬籃球機的得分計算，輸入每次投籃結果（1 表示進球，0 表示未進），
+輸出兩位玩家單場遊戲的總得分，以及獲勝的玩家名稱
+（1P、2P，若同分則顯示「不分勝負」）。`,inputDescription:`第一行輸入整數 N（5～10）
+
+第二行輸入 N 個整數（0 或 1），代表 1P 玩家每次投籃是否命中
+
+第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,outputDescription:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`,statement:{description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
+
+每投進 1 球得 1 分，未投進得 0 分。
+
+若某次投籃進球，且「前一次投籃也進球」，則該次投籃得 3 分；
+
+若進球但前一次未進球（或為第一球），則得 1 分。
+
+請寫程式模擬籃球機的得分計算，輸入每次投籃結果（1 表示進球，0 表示未進），
+輸出兩位玩家單場遊戲的總得分，以及獲勝的玩家名稱
+（1P、2P，若同分則顯示「不分勝負」）。`,input:`第一行輸入整數 N（5～10）
+
+第二行輸入 N 個整數（0 或 1），代表 1P 玩家每次投籃是否命中
+
+第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,output:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`},examples:[{input:`5
+1 0 1 1 0
+0 1 1 1 1`,output:`5 10 2P`,explanation:`1P 得分：1 + 0 + 1 + 3 + 0 = 5
+2P 得分：0 + 1 + 3 + 3 + 3 = 10
+2P 總分較高，勝出。`},{input:`7
+1 0 1 1 0 1 0
+0 1 1 0 1 0 1`,output:`6 6 不分勝負`,explanation:`1P 得分：1 + 0 + 1 + 3 + 0 + 1 + 0 = 6
+2P 得分：0 + 1 + 3 + 0 + 1 + 0 + 1 = 6
+同分，不分勝負。`}],testCases:[{input:`0 1 0 1 0
+0 0 0 0 0`,expectedOutput:`2 0 1P`,output:`2 0 1P`,score:10,hidden:!1},{input:`1 1 1 0 1
+0 1 1 1 1`,expectedOutput:`8 10 2P`,output:`8 10 2P`,score:15,hidden:!1},{input:`0 1 0 1 0
+0 0 0 0 0`,expectedOutput:`2 0 1P`,output:`2 0 1P`,score:20,hidden:!1},{input:`1 1 0 1 1
+1 1 1 0 1`,expectedOutput:`12 14 2P`,output:`12 14 2P`,score:25,hidden:!1},{input:`7
+1 1 0 1 1 0 1
+1 1 0 1 1 0 1`,expectedOutput:`9 9 不分勝負`,output:`9 9 不分勝負`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cycelement-005`,title:`無人搬運車運送計算`,problemTitle:`無人搬運車運送計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`智慧工廠中使用一輛無人搬運車（AGV），負責將零件從倉庫運送到生產線。
+由於安全與設備限制，每一趟無人搬運車的最大可承載重量為 200 公斤。
+
+零件會依照完成檢驗的順序排隊裝載，無人搬運車會依序將零件放上車並累加重量。
+若某一件零件放上車後，累計重量超過 200 公斤，
+則該零件不放入本趟車次，無人搬運車立刻出發，該零件改由下一趟車次運送。
+
+請根據輸入的零件重量資料，計算無人搬運車最少需要出發幾趟，才能將所有零件依序安全運送完成。`,inputDescription:`第一行：一個整數 N，代表零件的件數。
+
+第二行：N 個整數，代表每件零件的重量（公斤），資料間以一個半形空格隔開。`,outputDescription:`輸出一個整數，代表無人搬運車最少需要出發的趟數。`,statement:{description:`智慧工廠中使用一輛無人搬運車（AGV），負責將零件從倉庫運送到生產線。
+由於安全與設備限制，每一趟無人搬運車的最大可承載重量為 200 公斤。
+
+零件會依照完成檢驗的順序排隊裝載，無人搬運車會依序將零件放上車並累加重量。
+若某一件零件放上車後，累計重量超過 200 公斤，
+則該零件不放入本趟車次，無人搬運車立刻出發，該零件改由下一趟車次運送。
+
+請根據輸入的零件重量資料，計算無人搬運車最少需要出發幾趟，才能將所有零件依序安全運送完成。`,input:`第一行：一個整數 N，代表零件的件數。
+
+第二行：N 個整數，代表每件零件的重量（公斤），資料間以一個半形空格隔開。`,output:`輸出一個整數，代表無人搬運車最少需要出發的趟數。`},examples:[{input:`6
+50 60 40 70 90 30`,output:`3`,explanation:`第一趟：50+60+40=150，下一件 70 加入會超過 200 → 出發。
+第二趟：70+90=160，下一件 30 加入會超過 200 → 出發。
+第三趟：30 → 出發。
+共需要 3 趟無人搬運車。`},{input:`5
+80 90 60 30 40`,output:`2`,explanation:`第一趟：80+90=170，下一件 60 加入會超過 200 → 出發。
+第二趟：60+30+40=130 → 出發。
+共需要 2 趟無人搬運車。`}],testCases:[{input:`9
+50 60 40 70 90 30 80 90 60`,expectedOutput:`4`,output:`4`,score:10,hidden:!1},{input:`5
+80 90 60 30 40`,expectedOutput:`2`,output:`2`,score:15,hidden:!1},{input:`5
+100 50 60 70 80`,expectedOutput:`3`,output:`3`,score:20,hidden:!1},{input:`3
+100 100 100`,expectedOutput:`2`,output:`2`,score:25,hidden:!1},{input:`1
+100`,expectedOutput:`1`,output:`1`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cycjunior-001`,title:`自動販賣機的補貨通知`,problemTitle:`自動販賣機的補貨通知`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`學校走廊上有一台受歡迎的自動販賣機。為了確保飲料隨時充足，管理員小華每天會查看 N 個飲料格位的剩餘數量。 請你幫小華寫一個程式，計算整台販賣機目前「總共還剩多少瓶飲料」，並且計算有幾個格位「缺貨」（剩餘數量低於 5 瓶），需要小華去補貨。
+
+1. 給定一個整數 N，代表販賣機的格位數量。
+
+2. 給定 N 個整數，代表每個格位目前的飲料剩餘量。
+
+3. 任務一：把所有格位的剩餘量加起來，得到總數。
+
+4. 任務二：檢查每個格位，如果剩餘量小於 5，則補貨次數加 1。
+
+5. 輸出總剩餘量與需要補貨的格位數量。`,inputDescription:`第一行：一個整數 N，代表格位數量。
+
+第二行：N 個整數，代表每個格位的飲料剩餘量（以半形空格分隔）。`,outputDescription:`一行輸出二個整數，代表整台機器的飲料總剩餘量及需要補貨的格位數量（剩餘量小於 5）。`,statement:{description:`學校走廊上有一台受歡迎的自動販賣機。為了確保飲料隨時充足，管理員小華每天會查看 N 個飲料格位的剩餘數量。 請你幫小華寫一個程式，計算整台販賣機目前「總共還剩多少瓶飲料」，並且計算有幾個格位「缺貨」（剩餘數量低於 5 瓶），需要小華去補貨。
+
+1. 給定一個整數 N，代表販賣機的格位數量。
+
+2. 給定 N 個整數，代表每個格位目前的飲料剩餘量。
+
+3. 任務一：把所有格位的剩餘量加起來，得到總數。
+
+4. 任務二：檢查每個格位，如果剩餘量小於 5，則補貨次數加 1。
+
+5. 輸出總剩餘量與需要補貨的格位數量。`,input:`第一行：一個整數 N，代表格位數量。
+
+第二行：N 個整數，代表每個格位的飲料剩餘量（以半形空格分隔）。`,output:`一行輸出二個整數，代表整台機器的飲料總剩餘量及需要補貨的格位數量（剩餘量小於 5）。`},examples:[{input:`5
+10 2 8 3 20`,output:`43 2`,explanation:`總剩餘量：10+2+8+3+20 = 43。
+缺貨判斷：2 和 3 小於 5，共有 2 個格位需要補貨。`},{input:`3
+0 4 0`,output:`4 3`,explanation:`總剩餘量：0+4+0=4。
+缺貨判斷：0, 4, 0 皆小於 5，全部 3 個格位都需要補貨。`}],testCases:[{input:`3
+10 10 10`,expectedOutput:`30 0`,output:`30 0`,score:10,hidden:!1},{input:`4
+4 4 4 4`,expectedOutput:`16 4`,output:`16 4`,score:15,hidden:!1},{input:`5
+1 2 3 4 5`,expectedOutput:`15 4`,output:`15 4`,score:20,hidden:!1},{input:`6
+0 10 0 10 0 10`,expectedOutput:`30 3`,output:`30 3`,score:25,hidden:!1},{input:`5
+20 20 1 20 20`,expectedOutput:`81 1`,output:`81 1`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyelement-001`,title:`營養午餐分析(1-1)`,problemTitle:`營養午餐分析(1-1)`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+
+其中每天的「主菜種類」用以下字母表示：
+
+• A = 白肉（雞肉、魚肉）
+
+• B = 紅肉（豬肉、牛肉）
+
+• C = 豆製品
+
+• D = 蛋類
+
+• E = 海鮮（非魚）
+
+• F = 蔬菜主菜（如蔬菜炒豆乾）
+
+接著請回答以下問題
+
+問題（1）: 若規定「每 5 天至少要出現1次豆製（C）才算健康」，請檢查：第1～5天是否符合？第 6～10天是否符合？`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行:Y/N Y/N，Y代表符合，N代表不符合，字母間以1個半形空格區隔`,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+
+其中每天的「主菜種類」用以下字母表示：
+
+• A = 白肉（雞肉、魚肉）
+
+• B = 紅肉（豬肉、牛肉）
+
+• C = 豆製品
+
+• D = 蛋類
+
+• E = 海鮮（非魚）
+
+• F = 蔬菜主菜（如蔬菜炒豆乾）
+
+接著請回答以下問題
+
+問題（1）: 若規定「每 5 天至少要出現1次豆製（C）才算健康」，請檢查：第1～5天是否符合？第 6～10天是否符合？`,input:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,output:`第一行:Y/N Y/N，Y代表符合，N代表不符合，字母間以1個半形空格區隔`},examples:[{input:`B A B A B C D E F F`,output:`N Y`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表1~5天不符合，6~10天符合`},{input:`C A B C D A B C D E`,output:`Y Y`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表1~5天符合，6~10天符合`},{input:`A A A D C E F B B C`,output:`Y Y`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表1~5天符合，6~10天符合`}],testCases:[{input:`A B A B A B D D D D`,expectedOutput:`N N`,output:`N N`,score:10,hidden:!1},{input:`C C C D E F B A B A`,expectedOutput:`Y N`,output:`Y N`,score:15,hidden:!1},{input:`A B B D F F F E D C`,expectedOutput:`N Y`,output:`N Y`,score:20,hidden:!1},{input:`E D E D E C C C C C`,expectedOutput:`N Y`,output:`N Y`,score:25,hidden:!1},{input:`A B C B A C B A C B`,expectedOutput:`Y Y`,output:`Y Y`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyelement-002`,title:`營養午餐分析(1-2)`,problemTitle:`營養午餐分析(1-2)`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+
+其中每天的「主菜種類」用以下字母表示：
+
+• A = 白肉（雞肉、魚肉）
+
+• B = 紅肉（豬肉、牛肉）
+
+• C = 豆製品
+
+• D = 蛋類
+
+• E = 海鮮（非魚）
+
+• F = 蔬菜主菜（如蔬菜炒豆乾）
+
+接著請回答以下問題
+
+問題（2）: 營養師她想知道每週是否「紅肉攝取過量」。假設規則：「B 的總次數不可超過所有 A + C 次數的總和」。請檢查：第 1～5 天是否有超量？第 6～10 天是否有超量？`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行:Y/N Y/N，Y代表符合，N代表不符合，字母間以1個半形空格區隔`,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+
+其中每天的「主菜種類」用以下字母表示：
+
+• A = 白肉（雞肉、魚肉）
+
+• B = 紅肉（豬肉、牛肉）
+
+• C = 豆製品
+
+• D = 蛋類
+
+• E = 海鮮（非魚）
+
+• F = 蔬菜主菜（如蔬菜炒豆乾）
+
+接著請回答以下問題
+
+問題（2）: 營養師她想知道每週是否「紅肉攝取過量」。假設規則：「B 的總次數不可超過所有 A + C 次數的總和」。請檢查：第 1～5 天是否有超量？第 6～10 天是否有超量？`,input:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,output:`第一行:Y/N Y/N，Y代表符合，N代表不符合，字母間以1個半形空格區隔`},examples:[{input:`B A B A B C D E F F`,output:`Y N`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表1~5天超量，6~10天未超量`},{input:`C A B C D A B C D E`,output:`N N`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表1~5天超量，6~10天未超量`},{input:`A A A D C E F B B C`,output:`N Y`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表1~5天超量，6~10天未超量`}],testCases:[{input:`A B A B A B D D D D`,expectedOutput:`N Y`,output:`N Y`,score:10,hidden:!1},{input:`C C C D E F B A B A`,expectedOutput:`N N`,output:`N N`,score:15,hidden:!1},{input:`A B B D F F F E D C`,expectedOutput:`Y N`,output:`Y N`,score:20,hidden:!1},{input:`E D E D E C C C C C`,expectedOutput:`N N`,output:`N N`,score:25,hidden:!1},{input:`A B C B A C B A C B`,expectedOutput:`N N`,output:`N N`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyelement-003`,title:`營養午餐分析(1-3)`,problemTitle:`營養午餐分析(1-3)`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+
+其中每天的「主菜種類」用以下字母表示：
+
+• A = 白肉（雞肉、魚肉）
+
+• B = 紅肉（豬肉、牛肉）
+
+• C = 豆製品
+
+• D = 蛋類
+
+• E = 海鮮（非魚）
+
+• F = 蔬菜主菜（如蔬菜炒豆乾）
+
+接著請回答以下問題
+
+問題（3）: 請分別統計：第 1～5 天共出現幾次「白肉（A）之後緊接著紅肉（B）」？第 6～10 天共出現幾次「白肉（A）之後緊接著紅肉（B）」？`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行: 第一週次數 第二週次數，中間使用1個半形空格分開`,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+
+其中每天的「主菜種類」用以下字母表示：
+
+• A = 白肉（雞肉、魚肉）
+
+• B = 紅肉（豬肉、牛肉）
+
+• C = 豆製品
+
+• D = 蛋類
+
+• E = 海鮮（非魚）
+
+• F = 蔬菜主菜（如蔬菜炒豆乾）
+
+接著請回答以下問題
+
+問題（3）: 請分別統計：第 1～5 天共出現幾次「白肉（A）之後緊接著紅肉（B）」？第 6～10 天共出現幾次「白肉（A）之後緊接著紅肉（B）」？`,input:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,output:`第一行: 第一週次數 第二週次數，中間使用1個半形空格分開`},examples:[{input:`B A B A B C D E F F`,output:`2 0`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表1~5天2次，6~10天0次`},{input:`C A B C D A B C D E`,output:`1 1`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表1~5天1次，6~10天1次`},{input:`A A A D C E F B B C`,output:`0 0`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表1~5天0次，6~10天0次`}],testCases:[{input:`C C C D E F B A B A`,expectedOutput:`0 1`,output:`0 1`,score:10,hidden:!1},{input:`A B B D F F F E D C`,expectedOutput:`1 0`,output:`1 0`,score:15,hidden:!1},{input:`E D E D E C C C C C`,expectedOutput:`0 0`,output:`0 0`,score:20,hidden:!1},{input:`A B C B A C B A C B`,expectedOutput:`1 0`,output:`1 0`,score:25,hidden:!1},{input:`A B A B A B D D D D`,expectedOutput:`2 0`,output:`2 0`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyelement-004`,title:`營養午餐分析(1-4)`,problemTitle:`營養午餐分析(1-4)`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+
+其中每天的「主菜種類」用以下字母表示：
+
+• A = 白肉（雞肉、魚肉）
+
+• B = 紅肉（豬肉、牛肉）
+
+• C = 豆製品
+
+• D = 蛋類
+
+• E = 海鮮（非魚）
+
+• F = 蔬菜主菜（如蔬菜炒豆乾）
+
+接著請回答以下問題
+
+問題（4）: 在這10天裡，哪一種主菜出現次數最多？(假設不會出現重複狀況，也就是只有一種主菜是最多)`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行: 出現次數最多的主菜`,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+
+其中每天的「主菜種類」用以下字母表示：
+
+• A = 白肉（雞肉、魚肉）
+
+• B = 紅肉（豬肉、牛肉）
+
+• C = 豆製品
+
+• D = 蛋類
+
+• E = 海鮮（非魚）
+
+• F = 蔬菜主菜（如蔬菜炒豆乾）
+
+接著請回答以下問題
+
+問題（4）: 在這10天裡，哪一種主菜出現次數最多？(假設不會出現重複狀況，也就是只有一種主菜是最多)`,input:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,output:`第一行: 出現次數最多的主菜`},examples:[{input:`B A B A B C D E F F`,output:`B`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表出現最多的主菜`},{input:`C A B C D A B C D E`,output:`C`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表出現最多的主菜`},{input:`A A A D C E F B B C`,output:`A`,explanation:`輸入部分 第1行 代表兩週主餐紀錄
+輸出部分 第1行 代表出現最多的主菜`}],testCases:[{input:`A B A B A B D D D D`,expectedOutput:`D`,output:`D`,score:10,hidden:!1},{input:`C C C D E F B A B A`,expectedOutput:`C`,output:`C`,score:15,hidden:!1},{input:`A B B D F F F E D C`,expectedOutput:`F`,output:`F`,score:20,hidden:!1},{input:`E D E D E C C C C C`,expectedOutput:`C`,output:`C`,score:25,hidden:!1},{input:`A B C B A C B A C B`,expectedOutput:`B`,output:`B`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyelement-005`,title:`停車費計算`,problemTitle:`停車費計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`停車場採用階梯式收費方式。停車時會依照停放時間長短來計價，其中停車1小時內有優惠，超過 1小時後依半小時計費。計費方式如下：
+
+1. 停車時間小於或等於30分鐘，收費20 元
+
+2. 停車時間在31~60分鐘之間，收費40 元
+
+3. 若停車時間超過60分鐘，則在60分鐘以後的時間，每30分鐘加收30元，若剩餘不足 30 分鐘，也以 30分鐘計算。
+
+另外單日無論停車時間多長，單日最高收費上限為400元。若停車超過24小時，剩餘不足24小時部分一樣享有1小時優惠。小柔開車於此停車場停放，請計算本次停車應繳的費用。`,inputDescription:`第一行:停車分鐘數(整數)`,outputDescription:`第一行: 應繳納的費用(整數）`,statement:{description:`停車場採用階梯式收費方式。停車時會依照停放時間長短來計價，其中停車1小時內有優惠，超過 1小時後依半小時計費。計費方式如下：
+
+1. 停車時間小於或等於30分鐘，收費20 元
+
+2. 停車時間在31~60分鐘之間，收費40 元
+
+3. 若停車時間超過60分鐘，則在60分鐘以後的時間，每30分鐘加收30元，若剩餘不足 30 分鐘，也以 30分鐘計算。
+
+另外單日無論停車時間多長，單日最高收費上限為400元。若停車超過24小時，剩餘不足24小時部分一樣享有1小時優惠。小柔開車於此停車場停放，請計算本次停車應繳的費用。`,input:`第一行:停車分鐘數(整數)`,output:`第一行: 應繳納的費用(整數）`},examples:[{input:`100`,output:`100`,explanation:`輸入部分 第1行 代表停車分鐘數
+輸出部分 第1行 代表應繳納的費用
+計算方式:停車60分鐘以40元計算，超過時間每30分鐘加30元，不足30分鐘也收30元，40+30+30=100元`},{input:`820`,output:`400`,explanation:`輸入部分 第1行 代表停車分鐘數
+輸出部分 第1行 代表應繳納的費用
+計算方式: 停車820分鐘，時間未超過1日(1440分)，但繳費金額超過單日400元上限，故以400元計`},{input:`1443`,output:`420`,explanation:`輸入部分 第1行 代表停車分鐘數
+輸出部分 第1行 代表應繳納的費用
+計算方式: 停車1443分鐘，時間超過1日(1440分)，單日繳金額400元為上限，隔日的3分鐘繳費20元，故合計為400+20=420元`}],testCases:[{input:`60`,expectedOutput:`40`,output:`40`,score:10,hidden:!1},{input:`61`,expectedOutput:`70`,output:`70`,score:15,hidden:!1},{input:`145`,expectedOutput:`130`,output:`130`,score:20,hidden:!1},{input:`1500`,expectedOutput:`440`,output:`440`,score:25,hidden:!1},{input:`3005`,expectedOutput:`930`,output:`930`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyelement-006`,title:`班級活動票選`,problemTitle:`班級活動票選`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`班上將舉辦期末班級活動，本次活動地點有5個候選選項，編號為1、2、3、4、5，每位同學有1票。請設計一個程式讀取所有同學投票的地點編號，統計每個地點的得票數，並依下列規則輸出結果
+
+1.若只有一個地點得票最高，輸出該地點編號。
+
+2.若最高票有多個地點同票，輸出全部最高票的地點編號，並依照地點編號大小，由小到大依序排列。`,inputDescription:`第一行:投票人數(整數)。
+
+第二行:每票選擇的活動地點編號(中間使用1個半形空格分開)。`,outputDescription:`第一行:輸出最高票活動地點編號或是全部並列最高票的活動地點編號(中間使用1個半形空格分開，同時依照地點編號大小，由小到大排列)。`,statement:{description:`班上將舉辦期末班級活動，本次活動地點有5個候選選項，編號為1、2、3、4、5，每位同學有1票。請設計一個程式讀取所有同學投票的地點編號，統計每個地點的得票數，並依下列規則輸出結果
+
+1.若只有一個地點得票最高，輸出該地點編號。
+
+2.若最高票有多個地點同票，輸出全部最高票的地點編號，並依照地點編號大小，由小到大依序排列。`,input:`第一行:投票人數(整數)。
+
+第二行:每票選擇的活動地點編號(中間使用1個半形空格分開)。`,output:`第一行:輸出最高票活動地點編號或是全部並列最高票的活動地點編號(中間使用1個半形空格分開，同時依照地點編號大小，由小到大排列)。`},examples:[{input:`4
+1 5 1 5`,output:`1 5`,explanation:`輸入部分
+第1行 代表有4位投票人員
+第2行 代表4張選票所圈選的地點編號
+輸出部分
+第1行 代表地點1與地點5獲得最高票，需要重新投票`},{input:`5
+1 2 1 1 4`,output:`1`,explanation:`輸入部分
+第1行 代表有5位投票人員
+第2行 代表5張選票所圈選的地點編號
+輸出部分
+第1行 代表地點1獲得最高票`},{input:`8
+3 4 5 1 3 4 5 1`,output:`1 3 4 5`,explanation:`輸入部分
+第1行 代表有8位投票人員
+第2行 代表8張選票所圈選的地點編號
+輸出部分
+第1行 代表地點1、3、4、5獲得最高票，需要重新投票`}],testCases:[{input:`4
+1 2 1 3`,expectedOutput:`1`,output:`1`,score:10,hidden:!1},{input:`6
+5 1 5 2 1 4`,expectedOutput:`1 5`,output:`1 5`,score:15,hidden:!1},{input:`8
+2 2 2 2 2 2 2 2`,expectedOutput:`2`,output:`2`,score:20,hidden:!1},{input:`10
+1 2 3 4 5 1 2 3 4 5`,expectedOutput:`1 2 3 4 5`,output:`1 2 3 4 5`,score:25,hidden:!1},{input:`10
+3 3 3 5 5 5 4 4 4 1`,expectedOutput:`3 4 5`,output:`3 4 5`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyelement-007`,title:`班級集星比賽`,problemTitle:`班級集星比賽`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L4`,blocklyFit:`高`,description:`小波的班上規定，若學生表現良好，老師就會給學生一張星星貼紙。到學期末會統一結算貼紙數來進行兌換獎品。小波希望找出在哪個連續 K 天中，他得到的星星貼紙總數最多，這樣他就能知道自己在哪段時間表現最優秀！如果出現兩段或兩段以上的連續K天，星星總數一樣多，請選最早開始的那一段（以開始的第1天訂為 1）。`,inputDescription:`第 1 行：總天數(整數)
+
+第 2 行：總天數中每一天獲得的星星貼紙數量(中間使用1個半形空格分開)。
+
+第 3 行：要計算的連續天數(整數)`,outputDescription:`第 1 行：開始天數和最大星星總數(中間使用1個半形空格分開)`,statement:{description:`小波的班上規定，若學生表現良好，老師就會給學生一張星星貼紙。到學期末會統一結算貼紙數來進行兌換獎品。小波希望找出在哪個連續 K 天中，他得到的星星貼紙總數最多，這樣他就能知道自己在哪段時間表現最優秀！如果出現兩段或兩段以上的連續K天，星星總數一樣多，請選最早開始的那一段（以開始的第1天訂為 1）。`,input:`第 1 行：總天數(整數)
+
+第 2 行：總天數中每一天獲得的星星貼紙數量(中間使用1個半形空格分開)。
+
+第 3 行：要計算的連續天數(整數)`,output:`第 1 行：開始天數和最大星星總數(中間使用1個半形空格分開)`},examples:[{input:`6
+10 2 3 4 1 5
+3`,output:`1 15`,explanation:`輸入部分
+第1行 代表6天
+第2行 代表這6天依序所獲得星星貼紙數
+第3行 代表連續3天
+輸出部分
+第1行 代表第1天起連續3天獲得最多15顆星星(10+2+3)`},{input:`7
+1 2 10 12 5 3 1
+3`,output:`3 27`,explanation:`輸入部分
+第1行 代表7天
+第2行 代表這7天依序所獲得星星貼紙數
+第3行 代表連續3天
+輸出部分
+第1行 代表第3天起連續3天獲得最多27顆星星(10+12+5)`},{input:`8
+5 1 5 1 5 1 5 1
+4`,output:`1 12`,explanation:`輸入部分
+第1行 代表8天
+第2行 代表這8天依序所獲得星星貼紙數
+第3行 代表連續4天
+輸出部分
+第1行 代表第1天起連續4天獲得最多12顆星星(5+1+5+1)`}],testCases:[{input:`5
+1 8 3 4 2
+1`,expectedOutput:`2 8`,output:`2 8`,score:10,hidden:!1},{input:`5
+1 2 3 4 5
+5`,expectedOutput:`1 15`,output:`1 15`,score:15,hidden:!1},{input:`8
+1 1 1 1 1 5 5 5
+4`,expectedOutput:`5 16`,output:`5 16`,score:20,hidden:!1},{input:`10
+1 0 1 0 0 0 1 0 1 0
+3`,expectedOutput:`1 2`,output:`1 2`,score:25,hidden:!1},{input:`6
+100 10 500 900 100 200
+2`,expectedOutput:`3 1400`,output:`3 1400`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyelement-008`,title:`森林小火車的能量大冒險`,problemTitle:`森林小火車的能量大冒險`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L4`,blocklyFit:`高`,description:`小佳設計了一款桌遊遊戲，在森林裡有一列環狀小火車，繞著 5 個車站（編號 1 到 5）載客。小火車從 1 號站出發，一開始火車上有 10 顆能量糖果。
+
+遊戲規則
+
+1. 環狀鐵軌：火車開到底會回到起點。例如：在 5 號站再往前開 1 步，就會回到 1 號站。
+
+2. 前進方式：以丟骰子決定走N步，也會同步消耗N顆能量糖果。例如:在1號站時，骰子出現 3 ，火車會直接移動至4號站，同時消耗 3 顆能量糖果。
+
+3. 車站補給：抵達車站後，站長會送糖果（正數）或是請你分享糖果給小動物（負數）。
+
+特殊狀況
+
+• 【太重了！】：火車最多只能載 30 顆糖果。如果領完補給後超過 30 顆，多出來的會送給森林小精靈，火車上只留 30 顆。
+
+• 【沒力了！】：如果糖果變成 0 顆或更少，火車會停下來。這時森林國王會緊急救援，直接送你 5 顆糖果讓火車重新出發。`,inputDescription:`第 1 行：為5個車站個別能量糖果的增減(中間以1個半形空格分開)
+
+第 2 行：小火車行駛的總次數
+
+第 3 行：每次移動距離(骰子丟出的步數）(中間以1個半形空格分開)`,outputDescription:`第 1 行：代表所有行程結束後，火車上最終剩餘的能量糖果數量`,statement:{description:`小佳設計了一款桌遊遊戲，在森林裡有一列環狀小火車，繞著 5 個車站（編號 1 到 5）載客。小火車從 1 號站出發，一開始火車上有 10 顆能量糖果。
+
+遊戲規則
+
+1. 環狀鐵軌：火車開到底會回到起點。例如：在 5 號站再往前開 1 步，就會回到 1 號站。
+
+2. 前進方式：以丟骰子決定走N步，也會同步消耗N顆能量糖果。例如:在1號站時，骰子出現 3 ，火車會直接移動至4號站，同時消耗 3 顆能量糖果。
+
+3. 車站補給：抵達車站後，站長會送糖果（正數）或是請你分享糖果給小動物（負數）。
+
+特殊狀況
+
+• 【太重了！】：火車最多只能載 30 顆糖果。如果領完補給後超過 30 顆，多出來的會送給森林小精靈，火車上只留 30 顆。
+
+• 【沒力了！】：如果糖果變成 0 顆或更少，火車會停下來。這時森林國王會緊急救援，直接送你 5 顆糖果讓火車重新出發。`,input:`第 1 行：為5個車站個別能量糖果的增減(中間以1個半形空格分開)
+
+第 2 行：小火車行駛的總次數
+
+第 3 行：每次移動距離(骰子丟出的步數）(中間以1個半形空格分開)`,output:`第 1 行：代表所有行程結束後，火車上最終剩餘的能量糖果數量`},examples:[{input:`0 15 -5 15 -10
+2
+1 2`,output:`30`,explanation:`輸入部分
+第1行 代表5個車站能量糖果的增減
+第2行 代表小火車行駛的總次數為2
+第3行 代表每次小火車移動步數
+輸出部分:小火車最終能量糖果數量
+計算方式
+起始能量糖果為10
+移動1步，能量糖果為10+15-1=24
+移動2步，能量糖果為24+15-2=37，太重了最後調整成30`},{input:`0 15 -5 15 -10
+2
+4 3`,output:`5`,explanation:`輸入部分
+第1行 代表5個車站能量糖果的增減
+第2行 代表小火車行駛的總次數為2
+第3行 代表每次小火車移動步數
+輸出部分:小火車最終能量糖果數量
+計算方式
+起始能量糖果為10
+移動4步，能量糖果為10-10-4=-4，沒力了最後調整成5
+移動3步，能量糖果為5-5-3=-3，沒力了最後調整成5`},{input:`0 15 -5 15 -10
+3
+5 6 1`,output:`8`,explanation:`輸入部分
+第1行 代表5個車站能量糖果的增減
+第2行 代表小火車行駛的總次數為2
+第3行 代表每次小火車移動步數
+輸出部分:小火車最終能量糖果數量
+計算方式
+起始能量糖果為10
+移動5步，能量糖果為10+0-5=5
+移動6步，能量糖果為5+15-6=14
+移動1步，能量糖果為14-5-1=8`}],testCases:[{input:`50 50 50 50 50
+2
+1 1`,expectedOutput:`30`,output:`30`,score:10,hidden:!1},{input:`-10 -20 -30 -10 -20
+3
+1 1 1`,expectedOutput:`5`,output:`5`,score:15,hidden:!1},{input:`0 20 0 0 0
+1
+11`,expectedOutput:`19`,output:`19`,score:20,hidden:!1},{input:`10 30 -40 10 -5
+3
+1 1 1`,expectedOutput:`14`,output:`14`,score:25,hidden:!1},{input:`0 5 7 9 0
+4
+5 5 9 8`,expectedOutput:`4`,output:`4`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyelement-009`,title:`玩具收納挑戰`,problemTitle:`玩具收納挑戰`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L4`,blocklyFit:`高`,description:`小安是「玩具夢工場」的義工，她負責為最近一次展覽活動的玩具進行裝箱，以便之後能有效率運送到下一個地方展出。工場裡有N件(N不大於6)大小不一的精美玩具，為了安全和節省運費，必須使用容量統一的標準收納箱，其中收納箱最大容量為20單位重量，放入的玩具每件重量不一定相同，且每個箱子的玩具總重量都不能超過20單位。
+
+為了提高運輸車的空間使用率，小安決定採用以下步驟來裝箱
+
+(1)逐一裝箱:按照玩具重量輸入的順序，一件一件依序處理。
+
+(2)尋找佳適配:對於每件玩具，依序檢查所有已經打開的收納箱。
+
+• 若已開啟收納箱剩餘空間仍裝得下此玩具，就把這件玩具放入這個收納箱。
+
+• 如果所有已打開的收納箱都裝不下，則開啟一個新的收納箱來收納玩具。
+
+請你幫小安計算，依照上述的步驟收納這些玩具，最少需要多少個標準收納箱？`,inputDescription:`第 1 行：玩具件數(整數，不大於6)
+
+第 2 行：分別代表每件玩具的重量(以1個半形空格分開）`,outputDescription:`第 1 行：最少需要的收納箱數`,statement:{description:`小安是「玩具夢工場」的義工，她負責為最近一次展覽活動的玩具進行裝箱，以便之後能有效率運送到下一個地方展出。工場裡有N件(N不大於6)大小不一的精美玩具，為了安全和節省運費，必須使用容量統一的標準收納箱，其中收納箱最大容量為20單位重量，放入的玩具每件重量不一定相同，且每個箱子的玩具總重量都不能超過20單位。
+
+為了提高運輸車的空間使用率，小安決定採用以下步驟來裝箱
+
+(1)逐一裝箱:按照玩具重量輸入的順序，一件一件依序處理。
+
+(2)尋找佳適配:對於每件玩具，依序檢查所有已經打開的收納箱。
+
+• 若已開啟收納箱剩餘空間仍裝得下此玩具，就把這件玩具放入這個收納箱。
+
+• 如果所有已打開的收納箱都裝不下，則開啟一個新的收納箱來收納玩具。
+
+請你幫小安計算，依照上述的步驟收納這些玩具，最少需要多少個標準收納箱？`,input:`第 1 行：玩具件數(整數，不大於6)
+
+第 2 行：分別代表每件玩具的重量(以1個半形空格分開）`,output:`第 1 行：最少需要的收納箱數`},examples:[{input:`4
+10 10 9 1`,output:`2`,explanation:`輸入部分
+第1行 代表有4件玩具
+第2行 代表每件玩具的重量
+輸出部分
+第1行 代表需要2個收納箱`},{input:`4
+11 11 11 11`,output:`4`,explanation:`輸入部分
+第1行 代表有4件玩具
+第2行 代表每件玩具的重量
+輸出部分
+第1行 代表需要4個收納箱`},{input:`5
+19 19 19 1 1`,output:`3`,explanation:`第1行 代表有5件玩具
+第2行 代表每件玩具的重量
+輸出部分
+第1行 代表需要3個收納箱`}],testCases:[{input:`3
+16 15 18`,expectedOutput:`3`,output:`3`,score:10,hidden:!1},{input:`6
+11 11 11 1 1 1`,expectedOutput:`3`,output:`3`,score:15,hidden:!1},{input:`4
+10 10 10 10`,expectedOutput:`2`,output:`2`,score:20,hidden:!1},{input:`5
+18 18 2 2 2`,expectedOutput:`3`,output:`3`,score:25,hidden:!1},{input:`5
+15 15 15 15 15`,expectedOutput:`5`,output:`5`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nanto-001`,title:`遊樂園的自動售票機`,problemTitle:`遊樂園的自動售票機`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`遊樂園引進了一套自動售票機系統，用來快速計算團體遊客的門票總金額。
+
+每位遊客依據「是否持有縣民卡」、「年齡」、「身高」等條件，適用不同的票價。
+
+【收費規則（依下列順序判斷）】
+
+1. 縣民卡免費：持有縣民卡者，門票為 0 元。
+
+2. 敬老票：年齡大於等於 65 歲者，票價為 150 元。
+
+3. 兒童票：身高小於 120 公分 或 年齡小於 6 歲者，票價為 180 元。
+
+4. 全票：不符合以上條件者，票價為 300 元。`,inputDescription:`第一行輸入一個整數 N，代表遊客人數。
+
+第二行輸入 3×N 個整數，每 3 個為一組，依序代表：
+
+身高（公分）、年齡（歲）、縣民卡（1 表示有，0 表示無），資料間以空白分隔。`,outputDescription:`輸出一個整數，代表這一團遊客的門票總金額。`,statement:{description:`遊樂園引進了一套自動售票機系統，用來快速計算團體遊客的門票總金額。
+
+每位遊客依據「是否持有縣民卡」、「年齡」、「身高」等條件，適用不同的票價。
+
+【收費規則（依下列順序判斷）】
+
+1. 縣民卡免費：持有縣民卡者，門票為 0 元。
+
+2. 敬老票：年齡大於等於 65 歲者，票價為 150 元。
+
+3. 兒童票：身高小於 120 公分 或 年齡小於 6 歲者，票價為 180 元。
+
+4. 全票：不符合以上條件者，票價為 300 元。`,input:`第一行輸入一個整數 N，代表遊客人數。
+
+第二行輸入 3×N 個整數，每 3 個為一組，依序代表：
+
+身高（公分）、年齡（歲）、縣民卡（1 表示有，0 表示無），資料間以空白分隔。`,output:`輸出一個整數，代表這一團遊客的門票總金額。`},examples:[{input:`2
+170 25 1 100 8 0`,output:`180`,explanation:`第一位：有縣民卡 → 0 元。
+第二位：無卡，身高 100（小於120）→ 兒童票 180 元。
+總計 180 元。`},{input:`3
+180 30 0 160 70 0 110 5 1`,output:`450`,explanation:`第一位：全票 300 元。
+第二位：敬老票 150 元。
+第三位：有縣民卡 → 0 元。
+總計 450 元。`}],testCases:[{input:`1
+170 30 0`,expectedOutput:`300`,output:`300`,score:10,hidden:!1},{input:`1
+110 10 0`,expectedOutput:`180`,output:`180`,score:15,hidden:!1},{input:`2
+160 70 0 130 40 0`,expectedOutput:`450`,output:`450`,score:20,hidden:!1},{input:`3
+150 5 0 180 30 1 160 65 0`,expectedOutput:`330`,output:`330`,score:25,hidden:!1},{input:`4
+170 40 0 115 7 0 140 70 1 180 20 0`,expectedOutput:`780`,output:`780`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nanto-002`,title:`勇者的挑戰`,problemTitle:`勇者的挑戰`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`勇者的挑戰
+
+說明：勇者正在地下城探險。他會遇到怪物（扣血）或撿到藥水（補血）。請模擬他的血量變化。要注意的是，血量有上限，補血不能補超過上限；且一旦血量歸零或變負數，勇者就倒下了，血量歸零，勇者已經陣亡，立即停止事件處理，最終輸出為 0。`,inputDescription:`第一行：一個整數 H，代表初始血量 (同時也是血量上限)。
+
+第二行：一個整數 N ( N 大於 0 )，代表發生了 N 個事件。
+
+第三行：輸入 N 個整數，代表 N 個事件造成的數值變化`,outputDescription:`輸出一個整數，代表最終血量。`,statement:{description:`勇者的挑戰
+
+說明：勇者正在地下城探險。他會遇到怪物（扣血）或撿到藥水（補血）。請模擬他的血量變化。要注意的是，血量有上限，補血不能補超過上限；且一旦血量歸零或變負數，勇者就倒下了，血量歸零，勇者已經陣亡，立即停止事件處理，最終輸出為 0。`,input:`第一行：一個整數 H，代表初始血量 (同時也是血量上限)。
+
+第二行：一個整數 N ( N 大於 0 )，代表發生了 N 個事件。
+
+第三行：輸入 N 個整數，代表 N 個事件造成的數值變化`,output:`輸出一個整數，代表最終血量。`},examples:[{input:`100
+4
+-30 50 -10 -5`,output:`85`,explanation:`第一行輸入100，代表初始血量100，上限100。
+第二行輸入4，代表後面有4筆事件資料要輸入
+第三行輸入-30 50 -10 -5，代表4次事件增減值
+事件1：100-30=70
+事件2：70+50=120，超過上限，修正最高為上限100
+事件3：100-10=90
+事件4：90-5=85，程式輸出 85`},{input:`50
+3
+-60 20 -10`,output:`0`,explanation:`第一行輸入50，代表初始血量50，上限50。
+第二行輸入3，代表後面有3筆事件資料要輸入
+第三行輸入-60 20 -10，代表3次事件增減值
+事件1：50-60=-10，低於下限0，勇者陣亡，血量為0，程式輸出 0。`}],testCases:[{input:`100
+1
+-20`,expectedOutput:`80`,output:`80`,score:10,hidden:!1},{input:`100
+2
+-30 80`,expectedOutput:`100`,output:`100`,score:15,hidden:!1},{input:`50
+3
+-60 200 -10`,expectedOutput:`0`,output:`0`,score:20,hidden:!1},{input:`120
+4
+-30 -50 -50 200`,expectedOutput:`0`,output:`0`,score:25,hidden:!1},{input:`77
+6
+-20 10 10 -35 20 15`,expectedOutput:`77`,output:`77`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nanto-003`,title:`跳水比賽成績計算`,problemTitle:`跳水比賽成績計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`跳水比賽為求公平性，會去除評審中較極端的成績。
+
+比賽共聘用 5～10 位評審，每位評審會給予參賽者 0～10 分的評價。
+
+參賽者的總成績計算方式如下：
+
+1. 讀入 N 位評審的分數（未排序）。
+
+2. 去除一個最高分與一個最低分。
+
+3. 剩餘評審分數的總和即為該選手的最終得分。
+
+請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終成績。`,inputDescription:`第一行輸入一個整數 N（5 ≤ N ≤ 10），代表評審人數。
+
+第二行輸入 N 個整數（0～10），代表每位評審給的分數，資料間以空白隔開。`,outputDescription:`輸出一個整數，代表去除最高分與最低分後的總成績。`,statement:{description:`跳水比賽為求公平性，會去除評審中較極端的成績。
+
+比賽共聘用 5～10 位評審，每位評審會給予參賽者 0～10 分的評價。
+
+參賽者的總成績計算方式如下：
+
+1. 讀入 N 位評審的分數（未排序）。
+
+2. 去除一個最高分與一個最低分。
+
+3. 剩餘評審分數的總和即為該選手的最終得分。
+
+請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終成績。`,input:`第一行輸入一個整數 N（5 ≤ N ≤ 10），代表評審人數。
+
+第二行輸入 N 個整數（0～10），代表每位評審給的分數，資料間以空白隔開。`,output:`輸出一個整數，代表去除最高分與最低分後的總成績。`},examples:[{input:`5
+9 8 10 6 7`,output:`24`,explanation:`評審分數為 9、8、10、6、7
+去除最高分 10 與最低分 6
+剩餘分數 9 + 8 + 7 = 24`}],testCases:[{input:`5
+9 8 10 6 7`,expectedOutput:`24`,output:`24`,score:10,hidden:!1},{input:`6
+8 8 8 8 8 8`,expectedOutput:`32`,output:`32`,score:15,hidden:!1},{input:`7
+10 9 8 7 6 5 4`,expectedOutput:`35`,output:`35`,score:20,hidden:!1},{input:`10
+0 10 5 6 7 8 9 4 3 2`,expectedOutput:`44`,output:`44`,score:25,hidden:!1},{input:`5
+0 0 10 10 5`,expectedOutput:`15`,output:`15`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nanto-004`,title:`籃球機得分計算`,problemTitle:`籃球機得分計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
+
+每投進 1 球得 1 分，未投進得 0 分。
+
+若某次投籃進球，且「前一次投籃也進球」，則該次投籃得 3 分；
+
+若進球但前一次未進球（或為第一球），則得 1 分。
+
+請寫程式模擬籃球機的得分計算，輸入每次投籃結果（1 表示進球，0 表示未進），
+輸出兩位玩家單場遊戲的總得分，以及獲勝的玩家名稱
+（1P、2P，若同分則顯示「不分勝負」）。`,inputDescription:`第一行輸入整數 N（5～10）
+
+第二行輸入 N 個整數（0 或 1），代表 1P 玩家每次投籃是否命中
+
+第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,outputDescription:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`,statement:{description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
+
+每投進 1 球得 1 分，未投進得 0 分。
+
+若某次投籃進球，且「前一次投籃也進球」，則該次投籃得 3 分；
+
+若進球但前一次未進球（或為第一球），則得 1 分。
+
+請寫程式模擬籃球機的得分計算，輸入每次投籃結果（1 表示進球，0 表示未進），
+輸出兩位玩家單場遊戲的總得分，以及獲勝的玩家名稱
+（1P、2P，若同分則顯示「不分勝負」）。`,input:`第一行輸入整數 N（5～10）
+
+第二行輸入 N 個整數（0 或 1），代表 1P 玩家每次投籃是否命中
+
+第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,output:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`},examples:[{input:`5
+1 0 1 1 0
+0 1 1 1 1`,output:`5 10 2P`,explanation:`1P 得分：1 + 0 + 1 + 3 + 0 = 5
+2P 得分：0 + 1 + 3 + 3 + 3 = 10
+2P 總分較高，勝出。`}],testCases:[{input:`5
+0 1 0 1 0
+0 0 0 0 0`,expectedOutput:`2 0 1P`,output:`2 0 1P`,score:10,hidden:!1},{input:`6
+1 1 1 0 1 0
+0 1 1 1 1 0`,expectedOutput:`8 10 2P`,output:`8 10 2P`,score:15,hidden:!1},{input:`9
+0 1 0 1 0 1 0 1 0
+0 0 0 0 0 0 0 0 0`,expectedOutput:`4 0 1P`,output:`4 0 1P`,score:20,hidden:!1},{input:`8
+1 1 0 1 1 0 1 1
+1 1 1 0 1 1 1 0`,expectedOutput:`12 14 2P`,output:`12 14 2P`,score:25,hidden:!1},{input:`7
+1 1 0 1 1 0 1
+1 1 0 1 1 0 1`,expectedOutput:`9 9 不分勝負`,output:`9 9 不分勝負`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nanto-005`,title:`玩具收納運送計算`,problemTitle:`玩具收納運送計算`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`夢想玩具工坊每天需要將完成的玩具裝箱後，運送到展示倉庫。
+
+為了確保運送安全，每一個標準收納箱最多只能承載 20 公斤 的玩具重量。
+
+玩具會依照製作完成的順序，一件一件依序處理。
+
+當嘗試將某件玩具放入目前使用的收納箱時，
+
+若箱內現有玩具重量加上該玩具後超過 20 公斤，
+
+則該玩具不可放入此箱，該箱立即封箱，
+
+並改使用一個新的收納箱來放置該玩具。
+
+請根據輸入的玩具重量資料，計算最少需要多少個收納箱，
+
+才能將所有玩具依序安全裝箱完成。`,inputDescription:`第一行：一個整數 N，代表玩具的件數。
+
+第二行：N 個整數，代表每件玩具的重量（公斤），資料之間以一個半形空格隔開。`,outputDescription:`輸出一個整數，代表最少需要的收納箱數量。`,statement:{description:`夢想玩具工坊每天需要將完成的玩具裝箱後，運送到展示倉庫。
+
+為了確保運送安全，每一個標準收納箱最多只能承載 20 公斤 的玩具重量。
+
+玩具會依照製作完成的順序，一件一件依序處理。
+
+當嘗試將某件玩具放入目前使用的收納箱時，
+
+若箱內現有玩具重量加上該玩具後超過 20 公斤，
+
+則該玩具不可放入此箱，該箱立即封箱，
+
+並改使用一個新的收納箱來放置該玩具。
+
+請根據輸入的玩具重量資料，計算最少需要多少個收納箱，
+
+才能將所有玩具依序安全裝箱完成。`,input:`第一行：一個整數 N，代表玩具的件數。
+
+第二行：N 個整數，代表每件玩具的重量（公斤），資料之間以一個半形空格隔開。`,output:`輸出一個整數，代表最少需要的收納箱數量。`},examples:[{input:`6
+5 6 4 7 9 3`,output:`3`,explanation:`第一箱：5＋6＋4＝15，加入 7 會超過 20 → 封箱。
+第二箱：7＋9＝16，加入 3 會超過 20 → 封箱。
+第三箱：3 → 封箱。
+共需要 3 個收納箱。`},{input:`5
+8 9 6 3 4`,output:`2`,explanation:`第一箱：8＋9＝17，加入 6 會超過 20 → 封箱。
+第二箱：6＋3＋4＝13 → 封箱。
+共需要 2 個收納箱。`}],testCases:[{input:`1
+20`,expectedOutput:`1`,output:`1`,score:10,hidden:!1},{input:`4
+5 5 5 5`,expectedOutput:`1`,output:`1`,score:15,hidden:!1},{input:`5
+9 9 9 9 9`,expectedOutput:`3`,output:`3`,score:20,hidden:!1},{input:`6
+12 3 4 6 5 2`,expectedOutput:`2`,output:`2`,score:25,hidden:!1},{input:`8
+2 2 2 2 2 2 2 2`,expectedOutput:`1`,output:`1`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nanto-006`,title:`1-碼易丁飲料店-1`,problemTitle:`1-碼易丁飲料店-1`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`小明家的巷口開了一間名叫「碼易丁」的飲料店，販賣好喝的飲料。身為資訊科技高手的你，決定要寫幾個小程式來幫助小明解決店裡遇到的各種計算問題，從計算單筆訂單金額、找錢，到最後計算每天的營業額。讓我們一步一步跟著小明，用程式解決飲料店的經營問題吧！
+
+請根據下列四個子題，逐步完成整個課飲料店程式系統的設計。
+
+子題一：飲料總金額計算-逐筆輸入
+
+客人上門了！首先，我們要解決最基本的問題：計算客人買了數杯飲料時，總共需要付多少錢。
+
+飲料店販售5種飲料名稱、價格如後，請你設計一個程式，讀取各種飲料購買杯數後，計算出總金額。
+
+1 號：珍珠奶茶（每杯 45 元）
+
+2 號：伯爵紅茶（每杯 25 元）
+
+3 號：烏龍綠茶（每杯 30 元）
+
+4 號：四季春茶（每杯 40 元）
+
+5 號：黑糖珍珠鮮奶茶（每杯 60 元）
+
+第一行同學先輸入數字N，表示總共N杯飲料
+
+第二行依序輸入想購買的飲料編號（1～5），編號以空白間隔
+
+程式需計算並輸出此次訂單的總金額。`,inputDescription:``,outputDescription:``,statement:{description:`小明家的巷口開了一間名叫「碼易丁」的飲料店，販賣好喝的飲料。身為資訊科技高手的你，決定要寫幾個小程式來幫助小明解決店裡遇到的各種計算問題，從計算單筆訂單金額、找錢，到最後計算每天的營業額。讓我們一步一步跟著小明，用程式解決飲料店的經營問題吧！
+
+請根據下列四個子題，逐步完成整個課飲料店程式系統的設計。
+
+子題一：飲料總金額計算-逐筆輸入
+
+客人上門了！首先，我們要解決最基本的問題：計算客人買了數杯飲料時，總共需要付多少錢。
+
+飲料店販售5種飲料名稱、價格如後，請你設計一個程式，讀取各種飲料購買杯數後，計算出總金額。
+
+1 號：珍珠奶茶（每杯 45 元）
+
+2 號：伯爵紅茶（每杯 25 元）
+
+3 號：烏龍綠茶（每杯 30 元）
+
+4 號：四季春茶（每杯 40 元）
+
+5 號：黑糖珍珠鮮奶茶（每杯 60 元）
+
+第一行同學先輸入數字N，表示總共N杯飲料
+
+第二行依序輸入想購買的飲料編號（1～5），編號以空白間隔
+
+程式需計算並輸出此次訂單的總金額。`,input:``,output:``},examples:[{input:`3
+1 3 5`,output:`135`,explanation:`第一行輸入3，有3筆訂單
+第二行輸入1 3 5
+1 → 珍珠奶茶 45 元
+3 → 烏龍綠茶 30 元
+5 → 黑糖珍珠鮮奶茶 60 元
+總金額 = 45 + 30 + 60 = 135 元。`},{input:`5
+2 2 4 1 3`,output:`165`,explanation:`第一行輸入5，有5筆訂單
+2 → 伯爵紅茶 25 元
+2 → 伯爵紅茶 25 元
+4 → 四季春茶 40 元
+1 → 珍珠奶茶 45 元
+3 → 烏龍綠茶 30 元
+總金額 = 25 + 25 + 40 + 45 + 30 = 165 元。`}],testCases:[{input:`3
+1 3 5`,expectedOutput:`135`,output:`135`,score:10,hidden:!1},{input:`5
+2 2 4 1 3`,expectedOutput:`165`,output:`165`,score:15,hidden:!1},{input:`4
+5 5 5 5`,expectedOutput:`240`,output:`240`,score:20,hidden:!1},{input:`1
+1`,expectedOutput:`45`,output:`45`,score:25,hidden:!1},{input:`10
+2 2 2 2 2 1 1 1 1 1`,expectedOutput:`350`,output:`350`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nanto-006-2-碼易丁飲料店-2`,title:`2-碼易丁飲料店-2`,problemTitle:`2-碼易丁飲料店-2`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`子題二：付款與找零-批次輸入
+
+前一個程式計算金額時，相同飲料也需要一杯一杯分別計價，請修改程式，讓程式可以依序輸入飲料編號及數量，以加快輸入及計算速度！計算總金額後，下一步再處理收錢和找錢的問題了。請你修改剛剛的程式，除輸入方式改變及計算總金額改變外，還要讀取客人支付的金額，並計算應該找給客人多少錢。如果客人付的錢不夠，也要提醒小明喔！
+
+1 號：珍珠奶茶（每杯 45 元）
+
+2 號：伯爵紅茶（每杯 25 元）
+
+3 號：烏龍綠茶（每杯 30 元）
+
+4 號：四季春茶（每杯 40 元）
+
+5 號：黑糖珍珠鮮奶茶（每杯 60 元）
+
+•輸入有三行，第一行輸入整數N，表示有N項飲料訂單要輸入
+
+•第二行輸入2N個數字，依序代表飲料編號(1~5)與數量(1~20)，中間以空白間隔。
+
+•第三行輸入數字M，代表客人支付金額
+
+•輸出請依下列格式，數字間以一個空白隔開
+
+•付款足夠：總金額X 應找錢Y
+
+•付款不足：總金額X 付款不足Y`,inputDescription:``,outputDescription:``,statement:{description:`子題二：付款與找零-批次輸入
+
+前一個程式計算金額時，相同飲料也需要一杯一杯分別計價，請修改程式，讓程式可以依序輸入飲料編號及數量，以加快輸入及計算速度！計算總金額後，下一步再處理收錢和找錢的問題了。請你修改剛剛的程式，除輸入方式改變及計算總金額改變外，還要讀取客人支付的金額，並計算應該找給客人多少錢。如果客人付的錢不夠，也要提醒小明喔！
+
+1 號：珍珠奶茶（每杯 45 元）
+
+2 號：伯爵紅茶（每杯 25 元）
+
+3 號：烏龍綠茶（每杯 30 元）
+
+4 號：四季春茶（每杯 40 元）
+
+5 號：黑糖珍珠鮮奶茶（每杯 60 元）
+
+•輸入有三行，第一行輸入整數N，表示有N項飲料訂單要輸入
+
+•第二行輸入2N個數字，依序代表飲料編號(1~5)與數量(1~20)，中間以空白間隔。
+
+•第三行輸入數字M，代表客人支付金額
+
+•輸出請依下列格式，數字間以一個空白隔開
+
+•付款足夠：總金額X 應找錢Y
+
+•付款不足：總金額X 付款不足Y`,input:``,output:``},examples:[{input:`2
+5 2 4 3
+500`,output:`總金額240 應找錢260`,explanation:`第一行輸入2，代表有2項飲料訂單
+第二行輸入5 2 4 3，表示有5號飲料購買2杯，4號飲料購買3杯，合計總金額420元
+第三行輸入500，表示客人付款500元
+程式運算後一行輸出：總金額420 應找錢80`},{input:`3
+1 5 3 3 2 2
+350`,output:`總金額365 付款不足15`,explanation:`第一行輸入3，代表有3項飲料訂單
+第二行輸入1 5 3 3 2 2，表示有1號飲料購買5杯，3號飲料購買3杯，2號飲料購買2杯，合計總金額365元
+第三行輸入350，表示客人付款350元
+程式運算後一行輸出：總金額365 付款不足15`}],testCases:[{input:`2
+5 2 4 3
+500`,expectedOutput:`總金額240 應找錢260`,output:`總金額240 應找錢260`,score:10,hidden:!1},{input:`3
+1 3 2 2 4 1
+300`,expectedOutput:`總金額225 應找錢75`,output:`總金額225 應找錢75`,score:15,hidden:!1},{input:`1
+1 5
+200`,expectedOutput:`總金額225 付款不足25`,output:`總金額225 付款不足25`,score:20,hidden:!1},{input:`2
+1 2 3 1
+100`,expectedOutput:`總金額120 付款不足20`,output:`總金額120 付款不足20`,score:25,hidden:!1},{input:`4
+1 5 2 4 3 3 5 2
+600`,expectedOutput:`總金額535 應找錢65`,output:`總金額535 應找錢65`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nanto-006-3-碼易丁飲料店-3`,title:`3-碼易丁飲料店-3`,problemTitle:`3-碼易丁飲料店-3`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`子題三：最少硬幣數找零
+
+為了讓收銀機裡的零錢管理更方便，小明希望找錢時盡量使用最少數量的硬幣與鈔票。假設收銀機裡有充足的 50元、10元、5元、1元 硬幣（暫不考慮鈔票），請依序使用 50、10、5、1 元硬幣，由大到小進行找零，此幣值組合可保證找零所需的硬幣數量最少。請寫出一個計算出找零金額所需的最少硬幣組合。
+
+•輸入只有一個整數，代表需要找零的總金額 (Change)，範圍 0 ~ 999
+
+•程式運算，輸出找零組合1 3 1 3，共四`,inputDescription:``,outputDescription:``,statement:{description:`子題三：最少硬幣數找零
+
+為了讓收銀機裡的零錢管理更方便，小明希望找錢時盡量使用最少數量的硬幣與鈔票。假設收銀機裡有充足的 50元、10元、5元、1元 硬幣（暫不考慮鈔票），請依序使用 50、10、5、1 元硬幣，由大到小進行找零，此幣值組合可保證找零所需的硬幣數量最少。請寫出一個計算出找零金額所需的最少硬幣組合。
+
+•輸入只有一個整數，代表需要找零的總金額 (Change)，範圍 0 ~ 999
+
+•程式運算，輸出找零組合1 3 1 3，共四`,input:``,output:``},examples:[{input:`88`,output:`1 3 1 3`,explanation:`第一行輸入88，表示找零88元
+程式運算後一行輸出四個整數：1 3 1 3，
+分別表示找零50元硬幣1個、10元硬幣3個、5元硬幣1個、1元硬幣3個`},{input:`124`,output:`2 2 0 4`,explanation:`第一行輸入124，表示找零124元
+程式運算後一行輸出四個整數：2 2 0 4，
+分別表示找零50元硬幣2個、10元硬幣2個、5元硬幣0個、1元硬幣4個`}],testCases:[{input:`7`,expectedOutput:`0 0 1 2`,output:`0 0 1 2`,score:10,hidden:!1},{input:`100`,expectedOutput:`2 0 0 0`,output:`2 0 0 0`,score:15,hidden:!1},{input:`388`,expectedOutput:`7 3 1 3`,output:`7 3 1 3`,score:20,hidden:!1},{input:`999`,expectedOutput:`19 4 1 4`,output:`19 4 1 4`,score:25,hidden:!1},{input:`0`,expectedOutput:`0 0 0 0`,output:`0 0 0 0`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nanto-006-4-碼易丁飲料店-4`,title:`4-碼易丁飲料店-4`,problemTitle:`4-碼易丁飲料店-4`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`子題四：每日銷售數量結算
+
+到了晚上，小明需要結算一整天賣出了多少杯飲料，以及總共多少利潤。
+
+假設店內共有 K 種飲料（編號為 1 ～ K），每種飲料的「每杯利潤」皆不同。
+
+今天共有 N 筆訂單，每筆訂單包含「飲料編號」與「購買杯數」。
+
+請你設計一個程式，依序讀取輸入資料，計算：
+
+1. 各種飲料的總銷售杯數（依照 1～K 順序）
+
+2. 當天的總利潤`,inputDescription:`• 第一行輸入一個整數 K（3 ≤ K ≤ 10），代表飲料種類數。
+
+• 第二行輸入 K 個整數，依序代表第 1 種到第 K 種飲料的「每杯利潤」。
+
+• 第三行輸入一個整數 N（1 ≤ N ≤ 20），代表今天共有 N 筆訂單。
+
+• 第四行輸入 2N 個整數，依序代表「飲料編號（1～K）」與「杯數（1～20）」。`,outputDescription:`• 輸出一行共 K+1 個整數。
+
+• 前 K 個數字依序為第 1～K 種飲料的總銷售杯數。
+
+• 最後一個數字為當天的總利潤。
+
+• 所有數字之間以一個半形空格隔開。`,statement:{description:`子題四：每日銷售數量結算
+
+到了晚上，小明需要結算一整天賣出了多少杯飲料，以及總共多少利潤。
+
+假設店內共有 K 種飲料（編號為 1 ～ K），每種飲料的「每杯利潤」皆不同。
+
+今天共有 N 筆訂單，每筆訂單包含「飲料編號」與「購買杯數」。
+
+請你設計一個程式，依序讀取輸入資料，計算：
+
+1. 各種飲料的總銷售杯數（依照 1～K 順序）
+
+2. 當天的總利潤`,input:`• 第一行輸入一個整數 K（3 ≤ K ≤ 10），代表飲料種類數。
+
+• 第二行輸入 K 個整數，依序代表第 1 種到第 K 種飲料的「每杯利潤」。
+
+• 第三行輸入一個整數 N（1 ≤ N ≤ 20），代表今天共有 N 筆訂單。
+
+• 第四行輸入 2N 個整數，依序代表「飲料編號（1～K）」與「杯數（1～20）」。`,output:`• 輸出一行共 K+1 個整數。
+
+• 前 K 個數字依序為第 1～K 種飲料的總銷售杯數。
+
+• 最後一個數字為當天的總利潤。
+
+• 所有數字之間以一個半形空格隔開。`},examples:[{input:`5
+15 10 15 20 25
+3
+5 5 2 2 2 10`,output:`0 12 0 0 5 245`,explanation:`共有 5 種飲料，各自利潤為 15、10、15、20、25 元
+三筆訂單：
+5 號 5 杯、2 號 2 杯、2 號 10 杯
+各飲料銷售量為：0 12 0 0 5
+總利潤 = 12×10 + 5×25 = 245`},{input:`5
+5 8 8 6 5
+5
+2 4 1 3 5 2 3 3 4 4`,output:`3 4 3 4 2 105`,explanation:`共有 5 種飲料，各自利潤為 5、8、8、6、5 元
+五筆訂單：
+2 號 4 杯、1 號 3 杯、5 號 2 杯、3 號 3 杯、4 號 4 杯
+各飲料銷售量為：3 4 3 4 2
+總利潤 = 3*5 + 4*8 + 3*8 + 4*6 + 2*5 = 105`}],testCases:[{input:`3
+10 20 30
+1
+2 5`,expectedOutput:`0 5 0 100`,output:`0 5 0 100`,score:10,hidden:!1},{input:`4
+5 10 15 20
+3
+1 2 2 3 4 1`,expectedOutput:`2 3 0 1 60`,output:`2 3 0 1 60`,score:15,hidden:!1},{input:`5
+15 10 15 20 25
+4
+1 2 3 3 5 2 1 1`,expectedOutput:`3 0 3 0 2 140`,output:`3 0 3 0 2 140`,score:20,hidden:!1},{input:`6
+8 12 20 15 10 25
+6
+6 2 2 5 4 3 6 1 2 2 1 4`,expectedOutput:`4 7 0 3 0 3 236`,output:`4 7 0 3 0 3 236`,score:25,hidden:!1},{input:`10
+5 6 7 8 9 10 11 12 13 14
+10
+1 1 2 2 3 3 4 4 5 5 6 1 7 2 8 1 9 2 10 3`,expectedOutput:`1 2 3 4 5 1 2 1 2 3 227`,output:`1 2 3 4 5 1 2 1 2 3 227`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-001`,title:`SWAP交換函數`,problemTitle:`SWAP交換函數`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L1`,blocklyFit:`高`,description:`在學習排序之前，小安先練習一個重要的小任務。
+
+桌上有兩張數字卡片，依序放在第 1 個位置與第 2 個位置。
+
+小安希望讓「數字小的卡片在前面，數字大的卡片在後面」。
+
+如果前面的數字比較大，就需要把兩張卡片的位置交換；
+
+如果順序本來就正確，則不需要交換。
+
+請你寫一個程式，判斷是否需要交換，並輸出交換後的結果。
+
+（提示：交換時需要使用暫存變數）`,inputDescription:`一次輸入兩個整數 A、B（以空格隔開），代表目前卡片的順序。`,outputDescription:`輸出兩個整數，代表調整後由小到大的順序（以空格隔開）。`,statement:{description:`在學習排序之前，小安先練習一個重要的小任務。
+
+桌上有兩張數字卡片，依序放在第 1 個位置與第 2 個位置。
+
+小安希望讓「數字小的卡片在前面，數字大的卡片在後面」。
+
+如果前面的數字比較大，就需要把兩張卡片的位置交換；
+
+如果順序本來就正確，則不需要交換。
+
+請你寫一個程式，判斷是否需要交換，並輸出交換後的結果。
+
+（提示：交換時需要使用暫存變數）`,input:`一次輸入兩個整數 A、B（以空格隔開），代表目前卡片的順序。`,output:`輸出兩個整數，代表調整後由小到大的順序（以空格隔開）。`},examples:[{input:`8 3`,output:`3 8`,explanation:`前面的數字 8 比後面的 3 大，
+需要交換兩個數字的位置。`},{input:`4 9`,output:`4 9`,explanation:`前面的數字較小，順序正確，
+不需要交換。`}],testCases:[{input:`8 3`,expectedOutput:`3 8`,output:`3 8`,score:10,hidden:!1},{input:`4 9`,expectedOutput:`4 9`,output:`4 9`,score:10,hidden:!1},{input:`6 6`,expectedOutput:`6 6`,output:`6 6`,score:10,hidden:!1},{input:`0 5`,expectedOutput:`0 5`,output:`0 5`,score:10,hidden:!1},{input:`9 0`,expectedOutput:`0 9`,output:`0 9`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-002`,title:`卡片位置交換清單版`,problemTitle:`卡片位置交換清單版`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`小安已經學會「兩個變數的交換」，現在他拿到一排固定 5 張的數字卡片，
+卡片依序放在第 1 到第 5 個位置中。
+
+老師指定清單中的兩個位置，小安需要把這兩個位置上的數字卡片進行交換，
+其他位置的卡片保持不變。
+
+請你寫一個程式，完成指定「清單位址」的資料交換。
+
+（提示：交換時仍然需要使用暫存變數）`,inputDescription:`第1行：輸入一個整數N，N固定為5
+
+第2行：輸入5 個整數，代表清單中第 1 到第 5 個位置的數字（以空格隔開）。
+
+第3行：輸入一個整數M，M固定為2
+
+第4行：輸入兩個整數 P、Q，代表要交換的清單位置（1 ≤ P,Q ≤ 5）。`,outputDescription:`輸出 5 個整數，代表交換完成後清單中的數字順序（以空格隔開）。`,statement:{description:`小安已經學會「兩個變數的交換」，現在他拿到一排固定 5 張的數字卡片，
+卡片依序放在第 1 到第 5 個位置中。
+
+老師指定清單中的兩個位置，小安需要把這兩個位置上的數字卡片進行交換，
+其他位置的卡片保持不變。
+
+請你寫一個程式，完成指定「清單位址」的資料交換。
+
+（提示：交換時仍然需要使用暫存變數）`,input:`第1行：輸入一個整數N，N固定為5
+
+第2行：輸入5 個整數，代表清單中第 1 到第 5 個位置的數字（以空格隔開）。
+
+第3行：輸入一個整數M，M固定為2
+
+第4行：輸入兩個整數 P、Q，代表要交換的清單位置（1 ≤ P,Q ≤ 5）。`,output:`輸出 5 個整數，代表交換完成後清單中的數字順序（以空格隔開）。`},examples:[{input:`5
+8 3 5 1 6
+2
+2 4`,output:`8 1 5 3 6`,explanation:`第2個位置是 3，第4個位置是 1，
+交換後，其餘位置不變。`},{input:`5
+4 7 2 9 5
+2
+1 5`,output:`5 7 2 9 4`,explanation:`交換第1與第5個位置的卡片。`}],testCases:[{input:`5
+8 3 5 1 6
+2
+2 4`,expectedOutput:`8 1 5 3 6`,output:`8 1 5 3 6`,score:10,hidden:!1},{input:`5
+4 7 2 9 5
+2
+1 5`,expectedOutput:`5 7 2 9 4`,output:`5 7 2 9 4`,score:10,hidden:!1},{input:`5
+6 6 6 6 6
+2
+3 4`,expectedOutput:`6 6 6 6 6`,output:`6 6 6 6 6`,score:10,hidden:!1},{input:`5
+1 2 3 4 5
+2
+2 3`,expectedOutput:`1 3 2 4 5`,output:`1 3 2 4 5`,score:10,hidden:!1},{input:`5
+9 8 7 6 5
+2
+1 4`,expectedOutput:`6 8 7 9 5`,output:`6 8 7 9 5`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-003`,title:`清單最大最小值的位置`,problemTitle:`清單最大最小值的位置`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`在進行排序之前，程式必須先知道「最大值或最小值在清單的哪一個位置」。
+
+小安已經可以找出清單中的最大值與最小值，
+但老師希望他進一步找出該數值所在的位置（索引值），
+才能正確進行資料交換。
+
+現在給你一個固定長度為 5 的整數清單，
+請找出清單中最小值所在的位置。
+
+注意事項：
+
+1. 清單位置由 1 開始計算（第 1 個為位置 1）。
+
+2. 若最小值出現多次，請輸出最前面出現的那一個位置。`,inputDescription:`第 1 行：輸入一個數N，N固定為整數5
+
+第 2 行：輸入5 個整數，代表清單內容（以空格隔開）。`,outputDescription:`輸出一個整數，代表最小值所在的位置（索引值）。`,statement:{description:`在進行排序之前，程式必須先知道「最大值或最小值在清單的哪一個位置」。
+
+小安已經可以找出清單中的最大值與最小值，
+但老師希望他進一步找出該數值所在的位置（索引值），
+才能正確進行資料交換。
+
+現在給你一個固定長度為 5 的整數清單，
+請找出清單中最小值所在的位置。
+
+注意事項：
+
+1. 清單位置由 1 開始計算（第 1 個為位置 1）。
+
+2. 若最小值出現多次，請輸出最前面出現的那一個位置。`,input:`第 1 行：輸入一個數N，N固定為整數5
+
+第 2 行：輸入5 個整數，代表清單內容（以空格隔開）。`,output:`輸出一個整數，代表最小值所在的位置（索引值）。`},examples:[{input:`5
+8 3 5 1 6`,output:`4`,explanation:`最小值為 1，
+位於第 4 個位置。`},{input:`5
+2 4 2 9 5`,output:`1`,explanation:`最小值為 2，
+第 1 與第 3 個位置都有，
+取最前面的第 1 個位置。`}],testCases:[{input:`5
+8 3 5 1 6`,expectedOutput:`4`,output:`4`,score:10,hidden:!1},{input:`5
+2 4 2 9 5`,expectedOutput:`1`,output:`1`,score:10,hidden:!1},{input:`5
+7 6 5 4 3`,expectedOutput:`5`,output:`5`,score:10,hidden:!1},{input:`5
+1 9 8 7 6`,expectedOutput:`1`,output:`1`,score:10,hidden:!1},{input:`5
+4 4 4 4 4`,expectedOutput:`1`,output:`1`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-004`,title:`選擇排序第一回合`,problemTitle:`選擇排序第一回合`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`小安正在學習「選擇排序法」，老師請他先完成第一回合的任務。
+
+桌上有一排固定 5 個的數字，依序放在第 1 到第 5 個位置中。
+請你找出這 5 個數字中最小的數字，並把它與第 1 個位置的數字交換。
+
+注意事項：
+
+1. 只進行「第一回合」，不需要完成整個排序。
+
+2. 若最小值有多個，請選擇最前面出現的那一個。
+
+3. 交換完成後，其餘位置的數字順序保持不變。`,inputDescription:`第1行：輸入一個整數N，N固定為5
+
+第2行：輸入5 個整數，代表清單中第 1 到第 5 個位置的數字（以空格隔開）。`,outputDescription:`輸出 5 個整數，代表完成「選擇排序第一回合」後的數字順序（以空格隔開）。`,statement:{description:`小安正在學習「選擇排序法」，老師請他先完成第一回合的任務。
+
+桌上有一排固定 5 個的數字，依序放在第 1 到第 5 個位置中。
+請你找出這 5 個數字中最小的數字，並把它與第 1 個位置的數字交換。
+
+注意事項：
+
+1. 只進行「第一回合」，不需要完成整個排序。
+
+2. 若最小值有多個，請選擇最前面出現的那一個。
+
+3. 交換完成後，其餘位置的數字順序保持不變。`,input:`第1行：輸入一個整數N，N固定為5
+
+第2行：輸入5 個整數，代表清單中第 1 到第 5 個位置的數字（以空格隔開）。`,output:`輸出 5 個整數，代表完成「選擇排序第一回合」後的數字順序（以空格隔開）。`},examples:[{input:`5
+8 3 5 1 6`,output:`1 3 5 8 6`,explanation:`最小值為 1（在第4個位置），
+與第1個位置的 8 交換。`},{input:`5
+2 4 6 8 10`,output:`2 4 6 8 10`,explanation:`最小值已在第1個位置，
+不需交換。`}],testCases:[{input:`5
+8 3 5 1 6`,expectedOutput:`1 3 5 8 6`,output:`1 3 5 8 6`,score:10,hidden:!1},{input:`5
+2 4 6 8 10`,expectedOutput:`2 4 6 8 10`,output:`2 4 6 8 10`,score:10,hidden:!1},{input:`5
+5 4 3 2 1`,expectedOutput:`1 4 3 2 5`,output:`1 4 3 2 5`,score:10,hidden:!1},{input:`5
+7 2 2 9 5`,expectedOutput:`2 7 2 9 5`,output:`2 7 2 9 5`,score:10,hidden:!1},{input:`5
+9 8 7 6 5`,expectedOutput:`5 8 7 6 9`,output:`5 8 7 6 9`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-005`,title:`完整選擇排序-Blockly友善版`,problemTitle:`完整選擇排序-Blockly友善版`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`小安已經學會如何在清單中找出最小值，並進行兩數交換。
+現在老師請他完成完整的選擇排序任務。
+
+桌上有一排固定 5 個整數，請你使用「選擇排序法」，
+將這些數字由小到大排序。
+
+選擇排序說明：
+
+1. 從尚未排序的部分中找出最小值。
+
+2. 將最小值與目前排序位置的數字交換。
+
+3. 重複上述步驟，直到整個清單排序完成。
+
+注意事項：
+
+1. 不可使用排序相關的積木或指令。
+
+2. 若有相同數字，排序後相對位置不限。`,inputDescription:`第1行：輸入數字N，N固定為5
+
+第2行：輸入5 個整數，代表清單中的數字（以空格隔開）。`,outputDescription:`輸出 5 個整數，代表排序完成後的結果（以空格隔開）。`,statement:{description:`小安已經學會如何在清單中找出最小值，並進行兩數交換。
+現在老師請他完成完整的選擇排序任務。
+
+桌上有一排固定 5 個整數，請你使用「選擇排序法」，
+將這些數字由小到大排序。
+
+選擇排序說明：
+
+1. 從尚未排序的部分中找出最小值。
+
+2. 將最小值與目前排序位置的數字交換。
+
+3. 重複上述步驟，直到整個清單排序完成。
+
+注意事項：
+
+1. 不可使用排序相關的積木或指令。
+
+2. 若有相同數字，排序後相對位置不限。`,input:`第1行：輸入數字N，N固定為5
+
+第2行：輸入5 個整數，代表清單中的數字（以空格隔開）。`,output:`輸出 5 個整數，代表排序完成後的結果（以空格隔開）。`},examples:[{input:`5
+8 3 5 1 6`,output:`1 3 5 6 8`,explanation:`依序找出最小值並交換，
+完成由小到大的排序。`},{input:`5
+2 4 6 8 10`,output:`2 4 6 8 10`,explanation:`原本已經排序完成，
+結果不變。`}],testCases:[{input:`5
+8 3 5 1 6`,expectedOutput:`1 3 5 6 8`,output:`1 3 5 6 8`,score:10,hidden:!1},{input:`5
+2 4 6 8 10`,expectedOutput:`2 4 6 8 10`,output:`2 4 6 8 10`,score:10,hidden:!1},{input:`5
+5 4 3 2 1`,expectedOutput:`1 2 3 4 5`,output:`1 2 3 4 5`,score:10,hidden:!1},{input:`5
+7 2 2 9 5`,expectedOutput:`2 2 5 7 9`,output:`2 2 5 7 9`,score:10,hidden:!1},{input:`5
+9 1 8 1 7`,expectedOutput:`1 1 7 8 9`,output:`1 1 7 8 9`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-006`,title:`排序演算法`,problemTitle:`排序演算法`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`資訊課中，老師給了小華一排數字卡片，每張卡片上都有一個整數。
+
+小華想要把這些卡片由小到大排好，但老師規定：
+
+不能使用任何「排序」積木，只能使用重複、比較與變數。
+
+小華想到一個方法：
+
+每一回合從「還沒排好的卡片」中，找出最小的數字，依序放到前面。
+
+請你寫一個程式，依照這個想法，將輸入的數字由小到大排序後輸出。`,inputDescription:`第1行：一個整數 N，代表卡片的數量。
+
+第2行：N 個整數，代表卡片上的數字（以空格隔開）。`,outputDescription:`輸出 N 個整數，依由小到大的順序排列（以空格隔開）。`,statement:{description:`資訊課中，老師給了小華一排數字卡片，每張卡片上都有一個整數。
+
+小華想要把這些卡片由小到大排好，但老師規定：
+
+不能使用任何「排序」積木，只能使用重複、比較與變數。
+
+小華想到一個方法：
+
+每一回合從「還沒排好的卡片」中，找出最小的數字，依序放到前面。
+
+請你寫一個程式，依照這個想法，將輸入的數字由小到大排序後輸出。`,input:`第1行：一個整數 N，代表卡片的數量。
+
+第2行：N 個整數，代表卡片上的數字（以空格隔開）。`,output:`輸出 N 個整數，依由小到大的順序排列（以空格隔開）。`},examples:[{input:`5
+8 3 5 1 6`,output:`1 3 5 6 8`,explanation:`第1次找最小值為 1
+第2次在剩下的數中找最小值為 3
+依序完成排序。`},{input:`4
+7 2 2 9`,output:`2 2 7 9`,explanation:`排序時需正確處理重複數字。`}],testCases:[{input:`5
+8 3 5 1 6`,expectedOutput:`1 3 5 6 8`,output:`1 3 5 6 8`,score:10,hidden:!1},{input:`4
+7 2 2 9`,expectedOutput:`2 2 7 9`,output:`2 2 7 9`,score:10,hidden:!1},{input:`5
+1 2 3 4 5`,expectedOutput:`1 2 3 4 5`,output:`1 2 3 4 5`,score:10,hidden:!1},{input:`5
+9 8 7 6 5`,expectedOutput:`5 6 7 8 9`,output:`5 6 7 8 9`,score:10,hidden:!1},{input:`1
+4`,expectedOutput:`4`,output:`4`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-007`,title:`雙卡同步交換（連動清單入門）`,problemTitle:`雙卡同步交換（連動清單入門）`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`在資訊課中，老師準備了兩排卡片，
+
+第一排是學生姓名，第二排是對應的分數。
+
+每一個位置上的姓名與分數是一組資料，必須一起行動。
+
+老師指定兩個位置，小華需要把這兩個位置上的資料進行交換。
+
+交換時，姓名與分數都必須一起交換，其他位置保持不變。
+
+請你寫一個程式，完成指定位置的「連動清單交換」任務。`,inputDescription:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。
+
+第3行：兩個整數 P、Q，代表要交換的位置（1 ≤ P, Q ≤ 5）。`,outputDescription:`第1行：交換完成後的 5 個姓名（以空格隔開）。
+
+第2行：交換完成後的 5 個分數（以空格隔開）。`,statement:{description:`在資訊課中，老師準備了兩排卡片，
+
+第一排是學生姓名，第二排是對應的分數。
+
+每一個位置上的姓名與分數是一組資料，必須一起行動。
+
+老師指定兩個位置，小華需要把這兩個位置上的資料進行交換。
+
+交換時，姓名與分數都必須一起交換，其他位置保持不變。
+
+請你寫一個程式，完成指定位置的「連動清單交換」任務。`,input:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。
+
+第3行：兩個整數 P、Q，代表要交換的位置（1 ≤ P, Q ≤ 5）。`,output:`第1行：交換完成後的 5 個姓名（以空格隔開）。
+
+第2行：交換完成後的 5 個分數（以空格隔開）。`},examples:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60
+2 4`,output:`Amy Dora Carl Bob Eric
+80 85 70 90 60`,explanation:`第2與第4個位置交換，
+姓名與分數必須一起交換。`},{input:`Tom May John Lily Ken
+75 88 92 60 85
+1 5`,output:`Ken May John Lily Tom
+85 88 92 60 75`,explanation:`第1與第5個位置交換，
+兩個清單同步變動。`}],testCases:[{input:`5
+Amy Bob Carl Dora Eric
+5
+80 90 70 85 60
+2
+2 4`,expectedOutput:`Amy Dora Carl Bob Eric 80 85 70 90 60`,output:`Amy Dora Carl Bob Eric 80 85 70 90 60`,score:10,hidden:!1},{input:`5
+Tom May John Lily Ken
+5
+75 88 92 60 85
+2
+1 5`,expectedOutput:`Ken May John Lily Tom 85 88 92 60 75`,output:`Ken May John Lily Tom 85 88 92 60 75`,score:10,hidden:!1},{input:`5
+A B C D E
+5
+10 20 30 40 50
+2
+3 3`,expectedOutput:`A B C D E 10 20 30 40 50`,output:`A B C D E 10 20 30 40 50`,score:10,hidden:!1},{input:`5
+Ann Ben Ann Dan Eva
+5
+90 80 90 70 60
+2
+1 3`,expectedOutput:`Ann Ben Ann Dan Eva 90 80 90 70 60`,output:`Ann Ben Ann Dan Eva 90 80 90 70 60`,score:10,hidden:!1},{input:`5
+One Two Three Four Five
+5
+5 4 3 2 1
+2
+4 5`,expectedOutput:`One Two Three Five Four 5 4 3 1 2`,output:`One Two Three Five Four 5 4 3 1 2`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-008`,title:`找出最高分與最低分學生的位置與姓名`,problemTitle:`找出最高分與最低分學生的位置與姓名`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`在整理成績資料時，小華發現每位學生的姓名與分數
+是分別存放在兩個清單中，但相同位置代表同一位學生。
+
+現在老師希望小華一次找出：
+
+最高分所在的位置與姓名
+最低分所在的位置與姓名
+
+以便後續進行成績分析與排序。
+
+請你寫一個程式，從分數清單中找出最高分與最低分，
+並輸出它們所在的位置與對應的學生姓名。
+
+注意事項：
+
+1. 清單位置由 1 開始計算。
+
+2. 若最高分或最低分出現多次，請輸出最前面出現的那一筆資料。`,inputDescription:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。`,outputDescription:`輸出一行資料，依序輸出：
+
+最高分位置 最高分姓名 最低分位置 最低分姓名（以空格隔開）。`,statement:{description:`在整理成績資料時，小華發現每位學生的姓名與分數
+是分別存放在兩個清單中，但相同位置代表同一位學生。
+
+現在老師希望小華一次找出：
+
+最高分所在的位置與姓名
+最低分所在的位置與姓名
+
+以便後續進行成績分析與排序。
+
+請你寫一個程式，從分數清單中找出最高分與最低分，
+並輸出它們所在的位置與對應的學生姓名。
+
+注意事項：
+
+1. 清單位置由 1 開始計算。
+
+2. 若最高分或最低分出現多次，請輸出最前面出現的那一筆資料。`,input:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。`,output:`輸出一行資料，依序輸出：
+
+最高分位置 最高分姓名 最低分位置 最低分姓名（以空格隔開）。`},examples:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60`,output:`2 Bob 5 Eric`,explanation:`最高分為 90，在第 2 個位置（Bob）；
+最低分為 60，在第 5 個位置（Eric）。`},{input:`Tom May John Lily Ken
+88 92 92 75 60`,output:`2 May 5 Ken`,explanation:`最高分為 92，第 2、3 個位置都有，
+取最前面的 May；
+最低分為 60，在第 5 個位置 Ken。`}],testCases:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60`,expectedOutput:`2 Bob 5 Eric`,output:`2 Bob 5 Eric`,score:10,hidden:!1},{input:`Tom May John Lily Ken
+88 92 92 75 60`,expectedOutput:`2 May 5 Ken`,output:`2 May 5 Ken`,score:10,hidden:!1},{input:`A B C D E
+10 20 30 40 50`,expectedOutput:`5 E 1 A`,output:`5 E 1 A`,score:10,hidden:!1},{input:`Ann Ben Ann Dan Eva
+90 80 90 70 60`,expectedOutput:`1 Ann 5 Eva`,output:`1 Ann 5 Eva`,score:10,hidden:!1},{input:`One Two Three Four Five
+100 90 80 70 60`,expectedOutput:`1 One 5 Five`,output:`1 One 5 Five`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-009`,title:`連動選擇排序第一回合`,problemTitle:`連動選擇排序第一回合`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`小華已經學會如何在成績清單中找出最高分與最低分的位置，
+現在老師要他進一步練習連動清單的排序操作。
+
+桌上有兩個清單：
+
+學生姓名清單
+對應的分數清單
+
+相同位置代表同一位學生。
+
+請你完成選擇排序的第一回合：
+
+從所有學生中找出分數最高的學生，
+並將這位學生與第 1 個位置的資料進行交換。
+
+交換時，姓名與分數必須一起交換，
+其餘位置的順序保持不變。
+
+注意事項：
+
+1. 只進行第一回合，不需完成整個排序。
+
+2. 若最高分出現多次，請選擇最前面出現的那一筆資料。`,inputDescription:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。`,outputDescription:`第1行：第一回合完成後的 5 個姓名（以空格隔開）。
+
+第2行：第一回合完成後的 5 個分數（以空格隔開）。`,statement:{description:`小華已經學會如何在成績清單中找出最高分與最低分的位置，
+現在老師要他進一步練習連動清單的排序操作。
+
+桌上有兩個清單：
+
+學生姓名清單
+對應的分數清單
+
+相同位置代表同一位學生。
+
+請你完成選擇排序的第一回合：
+
+從所有學生中找出分數最高的學生，
+並將這位學生與第 1 個位置的資料進行交換。
+
+交換時，姓名與分數必須一起交換，
+其餘位置的順序保持不變。
+
+注意事項：
+
+1. 只進行第一回合，不需完成整個排序。
+
+2. 若最高分出現多次，請選擇最前面出現的那一筆資料。`,input:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。`,output:`第1行：第一回合完成後的 5 個姓名（以空格隔開）。
+
+第2行：第一回合完成後的 5 個分數（以空格隔開）。`},examples:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60`,output:`Bob Amy Carl Dora Eric
+90 80 70 85 60`,explanation:`最高分為 90（Bob），
+與第 1 個位置的 Amy 交換。`},{input:`Tom May John Lily Ken
+95 88 92 75 60`,output:`Tom May John Lily Ken
+95 88 92 75 60`,explanation:`最高分已在第 1 個位置，
+不需交換。`}],testCases:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60`,expectedOutput:`Bob Amy Carl Dora Eric 90 80 70 85 60`,output:`Bob Amy Carl Dora Eric 90 80 70 85 60`,score:10,hidden:!1},{input:`Tom May John Lily Ken
+95 88 92 75 60`,expectedOutput:`Tom May John Lily Ken 95 88 92 75 60`,output:`Tom May John Lily Ken 95 88 92 75 60`,score:10,hidden:!1},{input:`A B C D E
+10 50 30 40 20`,expectedOutput:`B A C D E 50 10 30 40 20`,output:`B A C D E 50 10 30 40 20`,score:10,hidden:!1},{input:`Ann Ben Ann Dan Eva
+90 80 90 70 60`,expectedOutput:`Ann Ben Ann Dan Eva 90 80 90 70 60`,output:`Ann Ben Ann Dan Eva 90 80 90 70 60`,score:10,hidden:!1},{input:`One Two Three Four Five
+20 100 80 60 40`,expectedOutput:`Two One Three Four Five 100 20 80 60 40`,output:`Two One Three Four Five 100 20 80 60 40`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-010`,title:`完整雙清單排序`,problemTitle:`完整雙清單排序`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`小華已經完成「連動選擇排序第一回合」的練習，
+現在老師希望他能夠完成完整的連動排序任務。
+
+桌上有兩個清單：
+
+學生姓名清單
+對應的分數清單
+
+相同位置代表同一位學生。
+
+請你使用選擇排序法，依照分數由高到低的順序，
+將所有學生進行排序。
+
+排序時必須注意：
+
+比較時只比較「分數」
+交換時「姓名與分數必須一起交換」
+
+不可使用任何排序相關的積木或指令。
+
+注意事項：
+
+1. 若分數相同，學生的相對順序不限。
+
+2. 必須完成整個排序流程。`,inputDescription:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。`,outputDescription:`第1行：排序完成後的 5 個姓名（以空格隔開）。
+
+第2行：排序完成後的 5 個分數（以空格隔開）。`,statement:{description:`小華已經完成「連動選擇排序第一回合」的練習，
+現在老師希望他能夠完成完整的連動排序任務。
+
+桌上有兩個清單：
+
+學生姓名清單
+對應的分數清單
+
+相同位置代表同一位學生。
+
+請你使用選擇排序法，依照分數由高到低的順序，
+將所有學生進行排序。
+
+排序時必須注意：
+
+比較時只比較「分數」
+交換時「姓名與分數必須一起交換」
+
+不可使用任何排序相關的積木或指令。
+
+注意事項：
+
+1. 若分數相同，學生的相對順序不限。
+
+2. 必須完成整個排序流程。`,input:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。`,output:`第1行：排序完成後的 5 個姓名（以空格隔開）。
+
+第2行：排序完成後的 5 個分數（以空格隔開）。`},examples:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60`,output:`Bob Dora Amy Carl Eric
+90 85 80 70 60`,explanation:`依分數由高到低排序，
+姓名與分數同步調整。`},{input:`Tom May John Lily Ken
+95 88 92 75 60`,output:`Tom John May Lily Ken
+95 92 88 75 60`,explanation:`完成所有回合後，
+清單排序完成。`}],testCases:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60`,expectedOutput:`Bob Dora Amy Carl Eric 90 85 80 70 60`,output:`Bob Dora Amy Carl Eric 90 85 80 70 60`,score:10,hidden:!1},{input:`Tom May John Lily Ken
+95 88 92 75 60`,expectedOutput:`Tom John May Lily Ken 95 92 88 75 60`,output:`Tom John May Lily Ken 95 92 88 75 60`,score:10,hidden:!1},{input:`A B C D E
+10 50 30 40 20`,expectedOutput:`B D C E A 50 40 30 20 10`,output:`B D C E A 50 40 30 20 10`,score:10,hidden:!1},{input:`Ann Ben Ann Dan Eva
+90 80 90 70 60`,expectedOutput:`Ann Ann Ben Dan Eva 90 90 80 70 60`,output:`Ann Ann Ben Dan Eva 90 90 80 70 60`,score:10,hidden:!1},{input:`One Two Three Four Five
+20 100 80 60 40`,expectedOutput:`Two Three Four Five One 100 80 60 40 20`,output:`Two Three Four Five One 100 80 60 40 20`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-011`,title:`排序結果應用－成績排行榜`,problemTitle:`排序結果應用－成績排行榜`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`小華已經完成「完整雙清單排序」，並且將學生依照分數由高到低
+排序完成。
+
+現在老師希望小華能夠應用排序後的結果，
+製作一份簡單的成績排行榜。
+
+請你寫一個程式，完成以下任務：
+
+先依照分數由高到低排序學生資料
+再依排序後的結果，輸出每位學生的名次、姓名與分數
+
+相同位置的姓名與分數必須保持連動。
+
+注意事項：
+
+1. 名次從 1 開始編號。
+
+2. 若分數相同，名次仍依排序後的順序編號即可。
+
+3. 不可使用任何排序相關的積木或指令。`,inputDescription:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。`,outputDescription:`輸出 5 行，每一行依序輸出：
+
+名次 姓名 分數（以空格隔開）。`,statement:{description:`小華已經完成「完整雙清單排序」，並且將學生依照分數由高到低
+排序完成。
+
+現在老師希望小華能夠應用排序後的結果，
+製作一份簡單的成績排行榜。
+
+請你寫一個程式，完成以下任務：
+
+先依照分數由高到低排序學生資料
+再依排序後的結果，輸出每位學生的名次、姓名與分數
+
+相同位置的姓名與分數必須保持連動。
+
+注意事項：
+
+1. 名次從 1 開始編號。
+
+2. 若分數相同，名次仍依排序後的順序編號即可。
+
+3. 不可使用任何排序相關的積木或指令。`,input:`第1行：5 個姓名（以空格隔開）。
+
+第2行：5 個整數，代表對應的分數（以空格隔開）。`,output:`輸出 5 行，每一行依序輸出：
+
+名次 姓名 分數（以空格隔開）。`},examples:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60`,output:`1 Bob 90
+2 Dora 85
+3 Amy 80
+4 Carl 70
+5 Eric 60`,explanation:`先完成排序，
+再依序輸出排行榜。`},{input:`Tom May John Lily Ken
+95 88 92 75 60`,output:`1 Tom 95
+2 John 92
+3 May 88
+4 Lily 75
+5 Ken 60`,explanation:`名次依排序後的位置決定。`}],testCases:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60`,expectedOutput:`1 Bob 90 2 Dora 85 3 Amy 80 4 Carl 70 5 Eric 60`,output:`1 Bob 90 2 Dora 85 3 Amy 80 4 Carl 70 5 Eric 60`,score:10,hidden:!1},{input:`Tom May John Lily Ken
+95 88 92 75 60`,expectedOutput:`1 Tom 95 2 John 92 3 May 88 4 Lily 75 5 Ken 60`,output:`1 Tom 95 2 John 92 3 May 88 4 Lily 75 5 Ken 60`,score:10,hidden:!1},{input:`A B C D E
+10 50 30 40 20`,expectedOutput:`1 B 50 2 D 40 3 C 30 4 E 20 5 A 10`,output:`1 B 50 2 D 40 3 C 30 4 E 20 5 A 10`,score:10,hidden:!1},{input:`Ann Ben Ann Dan Eva
+90 80 90 70 60`,expectedOutput:`1 Ann 90 2 Ann 90 3 Ben 80 4 Dan 70 5 Eva 60`,output:`1 Ann 90 2 Ann 90 3 Ben 80 4 Dan 70 5 Eva 60`,score:10,hidden:!1},{input:`One Two Three Four Five
+20 100 80 60 40`,expectedOutput:`1 Two 100 2 Three 80 3 Four 60 4 Five 40 5 One 20`,output:`1 Two 100 2 Three 80 3 Four 60 4 Five 40 5 One 20`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`seclect-012`,title:`多清單整合實戰－學生資料分析`,problemTitle:`多清單整合實戰－學生資料分析`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`在校務系統中，學生的資料常常分散存放在多個清單中。
+小華目前有三個清單，分別記錄：
+
+學生姓名清單
+國文成績清單
+數學成績清單
+
+相同位置代表同一位學生。
+
+老師希望小華能設計一個程式，將這些資料整合分析，
+完成以下任務：
+
+計算每位學生的「總分」
+依照總分由高到低排序所有學生
+輸出排序後的學生姓名與總分
+
+所有清單在排序過程中必須保持位置連動。
+
+注意事項：
+
+1. 總分 = 國文成績 + 數學成績。
+
+2. 若總分相同，依原本出現的先後順序排列。
+
+3. 不可使用內建排序功能。
+
+4. 總分不會有同分情形`,inputDescription:`第1行：5 個學生姓名（以空格隔開）。
+
+第2行：5 個整數，代表國文成績（以空格隔開）。
+
+第3行：5 個整數，代表數學成績（以空格隔開）。`,outputDescription:`輸出 5 行，每一行依序輸出：
+
+姓名 總分（以空格隔開）。`,statement:{description:`在校務系統中，學生的資料常常分散存放在多個清單中。
+小華目前有三個清單，分別記錄：
+
+學生姓名清單
+國文成績清單
+數學成績清單
+
+相同位置代表同一位學生。
+
+老師希望小華能設計一個程式，將這些資料整合分析，
+完成以下任務：
+
+計算每位學生的「總分」
+依照總分由高到低排序所有學生
+輸出排序後的學生姓名與總分
+
+所有清單在排序過程中必須保持位置連動。
+
+注意事項：
+
+1. 總分 = 國文成績 + 數學成績。
+
+2. 若總分相同，依原本出現的先後順序排列。
+
+3. 不可使用內建排序功能。
+
+4. 總分不會有同分情形`,input:`第1行：5 個學生姓名（以空格隔開）。
+
+第2行：5 個整數，代表國文成績（以空格隔開）。
+
+第3行：5 個整數，代表數學成績（以空格隔開）。`,output:`輸出 5 行，每一行依序輸出：
+
+姓名 總分（以空格隔開）。`},examples:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60
+70 85 80 75 65`,output:`Bob 175
+Dora 160
+Amy 150
+Carl 150
+Eric 125`,explanation:`先計算總分，
+再依總分排序。`}],testCases:[{input:`Amy Bob Carl Dora Eric
+80 90 70 85 60
+70 85 75 75 65`,expectedOutput:`Bob 175 Dora 160 Amy 150 Carl 145 Eric 125`,output:`Bob 175 Dora 160 Amy 150 Carl 145 Eric 125`,score:10,hidden:!1},{input:`Tom May John Lily Ken
+90 80 85 70 60
+88 90 80 75 65`,expectedOutput:`Tom 178 May 170 John 165 Lily 145 Ken 125`,output:`Tom 178 May 170 John 165 Lily 145 Ken 125`,score:10,hidden:!1},{input:`Tom May John Lily Ken
+90 80 85 70 60
+88 90 80 75 65`,expectedOutput:`Tom 178 May 170 John 165 Lily 145 Ken 125`,output:`Tom 178 May 170 John 165 Lily 145 Ken 125`,score:10,hidden:!1},{input:`A B C
+80 60 60
+90 80 70`,expectedOutput:`A 170 B 140 C 130`,output:`A 170 B 140 C 130`,score:10,hidden:!1},{input:`Ann Ben Cat
+95 90 85
+0 10 20`,expectedOutput:`Cat 105 Ben 100 Ann 95`,output:`Cat 105 Ben 100 Ann 95`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}}]};export{e as default};

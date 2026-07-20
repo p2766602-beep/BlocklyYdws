@@ -1,0 +1,257 @@
+var e={code:`CYJUNIOR01`,title:`114-嘉義市國中`,type:`programming`,mode:`contest`,description:`嘉義市國中程式解題公開題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-07-11T12:55:57+08:00`,sourceCsv:`data\\problem_bank_master_tagged.csv`,problemSetTitle:`114-嘉義市國中`,problemSetGeneratedAt:`2026-07-11T04:46:40.659Z`,version:`PB05-7E-custom`},tasks:[{id:`cyjunior-001`,title:`智慧手環的健康挑戰`,problemTitle:`智慧手環的健康挑戰`,courseCode:`CYJUNIOR01`,courseName:`114-嘉義市國中`,role:`challenge`,difficulty:`L4`,blocklyFit:`中`,description:`為了響應教育部推廣的「新世代健康校園」計畫，學校本學期發給每位同學一支「智慧運動手環」。這支手環不僅能顯示時間，還內建了高精度的三軸加速規，能夠以「小時」為單位，記錄使用者的步數活動量。
+主角小華為了爭取期末的「健康小鐵人」獎章，立志要嚴格執行運動計畫。根據手環的說明書，系統設定了一個「活躍門檻值 (K)」。如果某一小時內的步數低於這個門檻，該小時就會被系統判定為「靜態時段」，並記上一筆「久坐警告」。
+
+然而，為了避免學生長時間維持靜態，系統設計了一套嚴厲的連續懲罰機制：如果手環偵測到使用者連續兩個小時（含）以上都處於「靜態時段」，系統會判定這是極不健康的行為。因此，從連續違規的第二個小時開始，該次警告將會被加倍懲罰（也就是該小時會被記 2 次警告）。只有當某一小時的步數成功達到門檻時，這個連續違規的狀態才會解除，計數器才會重置。
+
+請你根據小華手環中匯出的 N 小時歷史數據，幫他計算這段時間內，系統累計發出了幾次警告訊號。`,inputDescription:`第一行：一個整數 N，代表紀錄的總時數。
+
+第二行：一個整數 K，代表活躍門檻值。
+
+第三行：N 個整數，代表每小時測得的步數（以半形空格分隔）。`,outputDescription:`第一行：一個整數，代表總警告次數。`,statement:{description:`為了響應教育部推廣的「新世代健康校園」計畫，學校本學期發給每位同學一支「智慧運動手環」。這支手環不僅能顯示時間，還內建了高精度的三軸加速規，能夠以「小時」為單位，記錄使用者的步數活動量。
+主角小華為了爭取期末的「健康小鐵人」獎章，立志要嚴格執行運動計畫。根據手環的說明書，系統設定了一個「活躍門檻值 (K)」。如果某一小時內的步數低於這個門檻，該小時就會被系統判定為「靜態時段」，並記上一筆「久坐警告」。
+
+然而，為了避免學生長時間維持靜態，系統設計了一套嚴厲的連續懲罰機制：如果手環偵測到使用者連續兩個小時（含）以上都處於「靜態時段」，系統會判定這是極不健康的行為。因此，從連續違規的第二個小時開始，該次警告將會被加倍懲罰（也就是該小時會被記 2 次警告）。只有當某一小時的步數成功達到門檻時，這個連續違規的狀態才會解除，計數器才會重置。
+
+請你根據小華手環中匯出的 N 小時歷史數據，幫他計算這段時間內，系統累計發出了幾次警告訊號。`,input:`第一行：一個整數 N，代表紀錄的總時數。
+
+第二行：一個整數 K，代表活躍門檻值。
+
+第三行：N 個整數，代表每小時測得的步數（以半形空格分隔）。`,output:`第一行：一個整數，代表總警告次數。`},examples:[{input:`5
+1000
+800 900 1200 500 400`,output:`6`,explanation:`800 (=1000): 達標，中斷連續狀態
+500 (<1000): 警告+1 (累計4)
+400 (<1000): 連續未達標，警告+2 (累計6)`},{input:`4
+500
+600 700 800 900`,output:`0`,explanation:`所有時段皆達標，無警告。`}],testCases:[{input:`3
+1000
+1200 1500 2000`,expectedOutput:`0`,output:`0`,score:10,hidden:!1},{input:`4
+800
+500 600 700 400`,expectedOutput:`7`,output:`7`,score:15,hidden:!1},{input:`5
+100
+50 150 50 50 150`,expectedOutput:`4`,output:`4`,score:20,hidden:!1},{input:`6
+2000
+1000 1000 1000 2500 1000 1000`,expectedOutput:`8`,output:`8`,score:25,hidden:!1},{input:`10
+500
+400 400 400 600 600 400 400 400 400 400`,expectedOutput:`14`,output:`14`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`由題目卷 JSON 指定匯出`},tags:{mainConcepts:[`模擬與狀態更新`],subConcepts:[`事件判斷`],algorithm:[`模擬`],dataStructure:[],syntax:[`if`,`迴圈`],math:[],context:[`情境模擬`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyjunior-002`,title:`神秘的古代石板`,problemTitle:`神秘的古代石板`,courseCode:`CYJUNIOR01`,courseName:`114-嘉義市國中`,role:`challenge`,difficulty:`L4`,blocklyFit:`中`,description:`考古社的社員們在整理學校老舊圖書館的地下倉庫時，意外在一個積滿灰塵的角落發現了一塊斷裂的古代石板。石板上刻著一串長得驚人的數字，根據碳十四定年法推測，這可能與百年前一位精通術數的隱士有關。
+
+隨同石板出土的還有一卷泛黃的羊皮紙，上面記載著開啟地下密室的線索：「當數字之河能同時通過『五行之神』與『十一星宿』的試煉時，真理之門將會開啟。」
+
+身為資訊社社長的你被緊急找來協助解謎。羊皮紙下方的註解解釋了試煉的規則：
+
+1. 五行之神的試煉：根據古老的五行方位，數字的尾端必須歸於土或水，這意味著該數字必須是 5 的倍數（個位數為 0 或 5）。
+
+2. 十一星宿的試煉：這是一個複雜的星象算法。你需要將數字中位於「奇數位置」的數字總和，減去位於「偶數位置」的數字總和。如果這個差值能夠被 11 整除（包含 0），才算通過試煉。（注意：若相減後為負數，必須不斷加上 11 的週期，直到轉為非負數後再進行判斷）。
+
+由於石板上的數字極長（甚至超過 23 位數），一般的計算機早已無法處理。請撰寫程式來驗證這串數字是否能同時解開這兩道封印。
+
+Note:
+
+Scratch與 Blockly 積木運算大於16位數字時已無法精確運算，因此輸入的數字字串最後方會強制加上一個英文字母 a (例如 12345a)， 請將其視為字串處理，讀取時請記得忽略最後一個字元。`,inputDescription:`第一行：一個字串(包含後置的英文字母a)，代表石板上的超長整數
+
+輸入格式
+
+第一行：兩個整數（0 或 1），中間以空格分隔，1代表「是」，0代表「非」。
+
+第一個數字代表是否為 5 的倍數，第二個代表是否為 11 的倍數。`,outputDescription:``,statement:{description:`考古社的社員們在整理學校老舊圖書館的地下倉庫時，意外在一個積滿灰塵的角落發現了一塊斷裂的古代石板。石板上刻著一串長得驚人的數字，根據碳十四定年法推測，這可能與百年前一位精通術數的隱士有關。
+
+隨同石板出土的還有一卷泛黃的羊皮紙，上面記載著開啟地下密室的線索：「當數字之河能同時通過『五行之神』與『十一星宿』的試煉時，真理之門將會開啟。」
+
+身為資訊社社長的你被緊急找來協助解謎。羊皮紙下方的註解解釋了試煉的規則：
+
+1. 五行之神的試煉：根據古老的五行方位，數字的尾端必須歸於土或水，這意味著該數字必須是 5 的倍數（個位數為 0 或 5）。
+
+2. 十一星宿的試煉：這是一個複雜的星象算法。你需要將數字中位於「奇數位置」的數字總和，減去位於「偶數位置」的數字總和。如果這個差值能夠被 11 整除（包含 0），才算通過試煉。（注意：若相減後為負數，必須不斷加上 11 的週期，直到轉為非負數後再進行判斷）。
+
+由於石板上的數字極長（甚至超過 23 位數），一般的計算機早已無法處理。請撰寫程式來驗證這串數字是否能同時解開這兩道封印。
+
+Note:
+
+Scratch與 Blockly 積木運算大於16位數字時已無法精確運算，因此輸入的數字字串最後方會強制加上一個英文字母 a (例如 12345a)， 請將其視為字串處理，讀取時請記得忽略最後一個字元。`,input:`第一行：一個字串(包含後置的英文字母a)，代表石板上的超長整數
+
+輸入格式
+
+第一行：兩個整數（0 或 1），中間以空格分隔，1代表「是」，0代表「非」。
+
+第一個數字代表是否為 5 的倍數，第二個代表是否為 11 的倍數。`,output:``},examples:[{input:`55a`,output:`1 1`,explanation:`尾數5                  (是5的倍數)。
+奇位和5 - 偶位和5 = 0   (是11的倍數)。`},{input:`1234a`,output:`0 0`,explanation:`尾數4                  (非5的倍數)。
+奇位和4 - 偶位和6 = -2  (非11的倍數)。`},{input:`1651651651651651651651650a`,output:`1 1`,explanation:`尾數0                  (是5的倍數)。
+奇位和36 - 偶位和36 = 0 (是11的倍數)。`}],testCases:[{input:`35a`,expectedOutput:`1 0`,output:`1 0`,score:10,hidden:!1},{input:`121a`,expectedOutput:`0 1`,output:`0 1`,score:15,hidden:!1},{input:`123a`,expectedOutput:`0 0`,output:`0 0`,score:20,hidden:!1},{input:`55555555555555555555555555a`,expectedOutput:`1 1`,output:`1 1`,score:25,hidden:!1},{input:`5060506050605060506050605060a`,expectedOutput:`1 1`,output:`1 1`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`由題目卷 JSON 指定匯出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyjunior-003`,title:`資源回收車的極限挑戰`,problemTitle:`資源回收車的極限挑戰`,courseCode:`CYJUNIOR01`,courseName:`114-嘉義市國中`,role:`challenge`,difficulty:`L4`,blocklyFit:`中`,description:`每週的資源回收工作結束後，回收車準備將垃圾運走。但是，回收車的剩餘空間有限，只剩下 K 的容量單位。 待清運的回收物還有 N包，每包的大小不一。為了讓校園看起來最整潔，衛生組長希望盡可能載走「最多包」的回收物（數量越多越好，而不是體積最大）。 請你運用「貪婪法則」，幫忙計算在容量 K 的限制下，這台回收車最多能載走幾包回收物？ (提示：為了拿走最多包，我們應該優先選擇體積小的，還是體積大的呢？)`,inputDescription:`第一行：一個整數 N，代表待清運的回收物數量。
+
+第二行：一個整數 K，代表回收車的剩餘容量。
+
+第三行：N 個整數，代表每包回收物的體積。`,outputDescription:`第一行：一個整數，代表最多能載走的數量。`,statement:{description:`每週的資源回收工作結束後，回收車準備將垃圾運走。但是，回收車的剩餘空間有限，只剩下 K 的容量單位。 待清運的回收物還有 N包，每包的大小不一。為了讓校園看起來最整潔，衛生組長希望盡可能載走「最多包」的回收物（數量越多越好，而不是體積最大）。 請你運用「貪婪法則」，幫忙計算在容量 K 的限制下，這台回收車最多能載走幾包回收物？ (提示：為了拿走最多包，我們應該優先選擇體積小的，還是體積大的呢？)`,input:`第一行：一個整數 N，代表待清運的回收物數量。
+
+第二行：一個整數 K，代表回收車的剩餘容量。
+
+第三行：N 個整數，代表每包回收物的體積。`,output:`第一行：一個整數，代表最多能載走的數量。`},examples:[{input:`5
+10
+5 8 3 2 4`,output:`3`,explanation:`1. 排序(小到大)：2, 3, 4, 5, 8
+2. 裝入2 (剩8)
+3. 裝入3 (剩5)
+4. 裝入4 (剩1)
+5. 下一個是5，裝不下。共載走 3 包。`},{input:`4
+20
+10 10 10 10`,output:`2`,explanation:`10+10=20，剛好裝滿，共 2 包。`}],testCases:[{input:`3
+100
+20 30 40`,expectedOutput:`3`,output:`3`,score:10,hidden:!1},{input:`5
+10
+20 30 40 50 60`,expectedOutput:`0`,output:`0`,score:15,hidden:!1},{input:`5
+10
+1 2 3 4 5`,expectedOutput:`4`,output:`4`,score:20,hidden:!1},{input:`6
+15
+5 10 5 10 5 10`,expectedOutput:`3`,output:`3`,score:25,hidden:!1},{input:`8
+50
+100 2 100 3 100 5 100 8`,expectedOutput:`4`,output:`4`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`由題目卷 JSON 指定匯出`},tags:{mainConcepts:[`模擬與狀態更新`],subConcepts:[`事件判斷`],algorithm:[`模擬`],dataStructure:[],syntax:[`if`,`迴圈`],math:[],context:[`情境模擬`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyjunior-004`,title:`大隊接力的棒次安排`,problemTitle:`大隊接力的棒次安排`,courseCode:`CYJUNIOR01`,courseName:`114-嘉義市國中`,role:`contest`,difficulty:`L4`,blocklyFit:`低`,description:`一年一度的校慶運動會即將到來，其中最受矚目的項目就是「兩人三腳大隊接力」。這項比賽要求全班 N 位同學（N 保證為偶數）兩兩一組，將腳綁在一起跑完賽道。
+
+體育老師深知，這個比賽考驗的不只是速度，更是「默契」與「平衡」。如果將兩位飛毛腿分在同一組，雖然該組會跑得飛快，但剩下的同學可能會因為實力太弱而跟不上節奏，導致全班總成績被拖累。
+
+為了讓全班的戰力發揮到極致，老師決定採用「強弱互補」的 S 型分組策略：首先將全班同學依照 100 公尺短跑的測驗成績（能力值）進行排序。接著，讓全班跑最快的同學與跑最慢的同學一組，第二快的與第二慢的一組，以此類推。老師認為，這種分法雖然犧牲了頂尖戰力，但能確保沒有任何一組是「絕對弱勢」。為了評估這個策略的風險，老師希望你計算出在這種分組下，所有組別中「兩人能力值總和」的最大值是多少？這個數值代表了班上目前最強勢一組的實力天花板。`,inputDescription:`第一行：一個整數 N，代表同學人數。
+
+第二行：N 個整數，代表每位同學的能力值。`,outputDescription:`第一行：一個整數，代表依此策略分組後，各組能力和當中的最大值`,statement:{description:`一年一度的校慶運動會即將到來，其中最受矚目的項目就是「兩人三腳大隊接力」。這項比賽要求全班 N 位同學（N 保證為偶數）兩兩一組，將腳綁在一起跑完賽道。
+
+體育老師深知，這個比賽考驗的不只是速度，更是「默契」與「平衡」。如果將兩位飛毛腿分在同一組，雖然該組會跑得飛快，但剩下的同學可能會因為實力太弱而跟不上節奏，導致全班總成績被拖累。
+
+為了讓全班的戰力發揮到極致，老師決定採用「強弱互補」的 S 型分組策略：首先將全班同學依照 100 公尺短跑的測驗成績（能力值）進行排序。接著，讓全班跑最快的同學與跑最慢的同學一組，第二快的與第二慢的一組，以此類推。老師認為，這種分法雖然犧牲了頂尖戰力，但能確保沒有任何一組是「絕對弱勢」。為了評估這個策略的風險，老師希望你計算出在這種分組下，所有組別中「兩人能力值總和」的最大值是多少？這個數值代表了班上目前最強勢一組的實力天花板。`,input:`第一行：一個整數 N，代表同學人數。
+
+第二行：N 個整數，代表每位同學的能力值。`,output:`第一行：一個整數，代表依此策略分組後，各組能力和當中的最大值`},examples:[{input:`4
+10 90 20 80`,output:`100`,explanation:`排序: 10, 20, 80, 90
+組1: 10+90=100
+組2: 20+80=100
+最大值: 100`},{input:`6
+1 5 10 20 50 100`,output:`101`,explanation:`組: (1+100), (5+50), (10+20)
+最大值: 101`},{input:`4
+10 90 20 80`,output:`100`,explanation:`排序: 10, 20, 80, 90
+組1: 10+90=100
+組2: 20+80=100
+最大值: 100`}],testCases:[{input:`2
+50 60`,expectedOutput:`110`,output:`110`,score:10,hidden:!1},{input:`4
+1 10 2 9`,expectedOutput:`11`,output:`11`,score:15,hidden:!1},{input:`6
+10 20 30 40 50 60`,expectedOutput:`70`,output:`70`,score:20,hidden:!1},{input:`6
+10 80 20 70 30 75`,expectedOutput:`100`,output:`100`,score:25,hidden:!1},{input:`8
+1 100 2 99 3 98 50 50`,expectedOutput:`101`,output:`101`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`由題目卷 JSON 指定匯出`},tags:{mainConcepts:[`貪心與策略選擇`],subConcepts:[`配對與排序決策`],algorithm:[`貪心`,`排序`,`策略選擇`],dataStructure:[`清單`],syntax:[],math:[],context:[`競賽情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyjunior-005`,title:`變速傳球的特訓`,problemTitle:`變速傳球的特訓`,courseCode:`CYJUNIOR01`,courseName:`114-嘉義市國中`,role:`challenge`,difficulty:`L3`,blocklyFit:`中`,description:`康輔社為了訓練社員的反應速度，社長發明了一種忽快忽慢的「變速傳球」遊戲。N 位社員圍成一圈，編號依序為 1 到 N。遊戲從 1 號社員開始持球。遊戲總共進行 K 回合，每一回合的傳球距離取決於「目前持球者的編號」：如果目前持球者的編號是奇數：他必須向順時針方向傳 1 個人（傳給下一位）。如果目前持球者的編號是偶數：他必須向順時針方向傳 2 個人（跳過一位傳給下下位）。請注意，如果傳球後的位置超過了 N，就會回到 1 號繼續數（例如：在 5 人小組中，5 號傳 1 人會變成 1 號）。請你計算在經過 K回合的傳球後，最後球會落在幾號社員的手上？`,inputDescription:`第一行：一個整數 N，代表社員人數。
+
+第二行：一個整數 K，代表總共進行的回合數。`,outputDescription:`第一行：一個整數，一個整數，代表最後拿到球的社員編號。`,statement:{description:`康輔社為了訓練社員的反應速度，社長發明了一種忽快忽慢的「變速傳球」遊戲。N 位社員圍成一圈，編號依序為 1 到 N。遊戲從 1 號社員開始持球。遊戲總共進行 K 回合，每一回合的傳球距離取決於「目前持球者的編號」：如果目前持球者的編號是奇數：他必須向順時針方向傳 1 個人（傳給下一位）。如果目前持球者的編號是偶數：他必須向順時針方向傳 2 個人（跳過一位傳給下下位）。請注意，如果傳球後的位置超過了 N，就會回到 1 號繼續數（例如：在 5 人小組中，5 號傳 1 人會變成 1 號）。請你計算在經過 K回合的傳球後，最後球會落在幾號社員的手上？`,input:`第一行：一個整數 N，代表社員人數。
+
+第二行：一個整數 K，代表總共進行的回合數。`,output:`第一行：一個整數，一個整數，代表最後拿到球的社員編號。`},examples:[{input:`5
+3`,output:`1`,explanation:`初始：在 1 號。
+第1回：1號是奇數，傳1人-> 到 2 號。
+第2回：2號是偶數，傳2人-> 到 4 號。
+第3回：4號是偶數，傳2人-> 到 6 號(超過5回到1)。
+結果：最後在 1 號。`},{input:`6
+2`,output:`4`,explanation:`初始：在 1 號。
+第1回：1號是奇數，傳1人-> 到 2 號。
+第2回：2號是偶數，傳2人 -> 到 4 號。結果：最後在 4 號。`}],testCases:[{input:`3
+1`,expectedOutput:`2`,output:`2`,score:10,hidden:!1},{input:`5
+5`,expectedOutput:`4`,output:`4`,score:15,hidden:!1},{input:`10
+4`,expectedOutput:`8`,output:`8`,score:20,hidden:!1},{input:`8
+10`,expectedOutput:`4`,output:`4`,score:25,hidden:!1},{input:`100
+50`,expectedOutput:`100`,output:`100`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`由題目卷 JSON 指定匯出`},tags:{mainConcepts:[`模擬與狀態更新`],subConcepts:[`事件判斷`],algorithm:[`模擬`],dataStructure:[],syntax:[`if`,`迴圈`],math:[],context:[`情境模擬`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyjunior-006`,title:`校園密室逃脫-書架的密碼(6-1)`,problemTitle:`校園密室逃脫-書架的密碼(6-1)`,courseCode:`CYJUNIOR01`,courseName:`114-嘉義市國中`,role:`challenge`,difficulty:`L2`,blocklyFit:`中`,description:`傳說在校園圖書館的深處，隱藏著一間百年前首任校長留下的「智慧密室」。今年校慶，學生會利用最新的 AR 技術重現了這個傳說，設計了四道關卡。只有解開所有謎題的小隊，才能獲得象徵最高榮譽的「智慧之鑰」。你的小隊現在正站在密室的入口。
+
+第一道關卡是一扇巨大的電子鐵門。門鎖的螢幕上並沒有數字鍵盤，只有一串閃爍的、由 0 與 1 組成的符號序列。門邊的銘牌刻著一行字：「只有通曉機器語言的人，才能將二元的虛幻轉化為十進的真實。」這顯然是一個二進位轉十進位的謎題。請將螢幕上的二進位字串解碼為十進位數字，輸入系統以開啟大門。`,inputDescription:`第一行：一個字串 S（只包含 0 與 1）。`,outputDescription:`第一行：一個整數，代表轉換後的十進位數值。`,statement:{description:`傳說在校園圖書館的深處，隱藏著一間百年前首任校長留下的「智慧密室」。今年校慶，學生會利用最新的 AR 技術重現了這個傳說，設計了四道關卡。只有解開所有謎題的小隊，才能獲得象徵最高榮譽的「智慧之鑰」。你的小隊現在正站在密室的入口。
+
+第一道關卡是一扇巨大的電子鐵門。門鎖的螢幕上並沒有數字鍵盤，只有一串閃爍的、由 0 與 1 組成的符號序列。門邊的銘牌刻著一行字：「只有通曉機器語言的人，才能將二元的虛幻轉化為十進的真實。」這顯然是一個二進位轉十進位的謎題。請將螢幕上的二進位字串解碼為十進位數字，輸入系統以開啟大門。`,input:`第一行：一個字串 S（只包含 0 與 1）。`,output:`第一行：一個整數，代表轉換後的十進位數值。`},examples:[{input:`101`,output:`5`,explanation:`1x4 + 0x2 + 1x1 = 5`},{input:`1111`,output:`15`,explanation:`8 + 4 + 2 + 1 = 15`}],testCases:[{input:`10`,expectedOutput:`2`,output:`2`,score:10,hidden:!1},{input:`110`,expectedOutput:`6`,output:`6`,score:15,hidden:!1},{input:`1000`,expectedOutput:`8`,output:`8`,score:20,hidden:!1},{input:`11011`,expectedOutput:`27`,output:`27`,score:25,hidden:!1},{input:`1111101000`,expectedOutput:`1000`,output:`1000`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`由題目卷 JSON 指定匯出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyjunior-007`,title:`校園密室逃脫-費氏階梯(6-2)`,problemTitle:`校園密室逃脫-費氏階梯(6-2)`,courseCode:`CYJUNIOR01`,courseName:`114-嘉義市國中`,role:`challenge`,difficulty:`L3`,blocklyFit:`中`,description:`電子鐵門開啟後，映入眼簾的是一座懸浮的螺旋階梯，通往二樓的平台。階梯旁懸掛著一張發光的警示牌：「欲登智慧之巔，步法須合天道。或是步履穩健走一階，或是大步流星跨兩階，切勿貪快。」
+
+小明看著眼前這 N 階的樓梯，不禁開始思考：如果依照規則，每次只能選擇走 1 階或走 2 階，那麼要安全走到第 N 階平台，總共有多少種不同的步伐組合？這正是經典的費氏數列問題，若可能的走法數為F(N)種，我們可觀察到
+
+F(1)=1 ,1階樓梯有 1種走法
+
+F(2)=2 ,2階樓梯有 2種走法
+
+F(3)=F(2)+F(1)=1+2=3 ,3階樓梯有 3種走法
+
+F(4)=F(3)+F(2)=3+2=5 ,4階樓梯有 5種走法
+
+…
+
+請你幫小明計算出所有可能的走法總數。`,inputDescription:`第一行：一個整數 N，代表樓梯的總階數。`,outputDescription:`第一行： 一個整數，代表走法的總數。`,statement:{description:`電子鐵門開啟後，映入眼簾的是一座懸浮的螺旋階梯，通往二樓的平台。階梯旁懸掛著一張發光的警示牌：「欲登智慧之巔，步法須合天道。或是步履穩健走一階，或是大步流星跨兩階，切勿貪快。」
+
+小明看著眼前這 N 階的樓梯，不禁開始思考：如果依照規則，每次只能選擇走 1 階或走 2 階，那麼要安全走到第 N 階平台，總共有多少種不同的步伐組合？這正是經典的費氏數列問題，若可能的走法數為F(N)種，我們可觀察到
+
+F(1)=1 ,1階樓梯有 1種走法
+
+F(2)=2 ,2階樓梯有 2種走法
+
+F(3)=F(2)+F(1)=1+2=3 ,3階樓梯有 3種走法
+
+F(4)=F(3)+F(2)=3+2=5 ,4階樓梯有 5種走法
+
+…
+
+請你幫小明計算出所有可能的走法總數。`,input:`第一行：一個整數 N，代表樓梯的總階數。`,output:`第一行： 一個整數，代表走法的總數。`},examples:[{input:`3`,output:`3`,explanation:`走法：(1,1,1), (1,2), (2,1) 共 3 種。`},{input:`4`,output:`5`,explanation:`走法：(1,1,1,1), (1,1,2), (1,2,1), (2,1,1), (2,2) 共 5 種。`}],testCases:[{input:`1`,expectedOutput:`1`,output:`1`,score:10,hidden:!1},{input:`5`,expectedOutput:`8`,output:`8`,score:15,hidden:!1},{input:`10`,expectedOutput:`89`,output:`89`,score:20,hidden:!1},{input:`15`,expectedOutput:`987`,output:`987`,score:25,hidden:!1},{input:`20`,expectedOutput:`10946`,output:`10946`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`由題目卷 JSON 指定匯出`},tags:{mainConcepts:[`數學運算與數論`],subConcepts:[`整數性質`],algorithm:[`枚舉`,`輾轉相除`],dataStructure:[],syntax:[`取餘數`,`迴圈`],math:[`數論`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyjunior-008`,title:`校園密室逃脫-書架修繕工程(6-3)`,problemTitle:`校園密室逃脫-書架修繕工程(6-3)`,courseCode:`CYJUNIOR01`,courseName:`114-嘉義市國中`,role:`contest`,difficulty:`L4`,blocklyFit:`低`,description:`終於來到最後一關，只要修復好眼前倒塌的古老書架，就能拿到智慧之鑰。書架的結構需要 K 根長度完全相同的木條來支撐，才能維持平衡。倉庫角落堆放著 N 根長短不一的備用木材。你可以使用鋸子將一根長木材切成多段短木材，但為了結構強度，嚴禁將兩根短木材拼接使用。
+
+為了讓修復後的書架越穩固越好，這 K 根支撐木條的長度應該要越長越好。請根據現有木材的庫存狀況，計算出這 K 根木條的最大可能長度是多少？`,inputDescription:`第一行：一個整數 N（現有木材數量）。
+
+第二行：一個整數 K（需要木條數量）。
+
+第三行：N 個整數，代表現有每根木材的長度。`,outputDescription:`第一行： 一個整數，代表最大可能長度。`,statement:{description:`終於來到最後一關，只要修復好眼前倒塌的古老書架，就能拿到智慧之鑰。書架的結構需要 K 根長度完全相同的木條來支撐，才能維持平衡。倉庫角落堆放著 N 根長短不一的備用木材。你可以使用鋸子將一根長木材切成多段短木材，但為了結構強度，嚴禁將兩根短木材拼接使用。
+
+為了讓修復後的書架越穩固越好，這 K 根支撐木條的長度應該要越長越好。請根據現有木材的庫存狀況，計算出這 K 根木條的最大可能長度是多少？`,input:`第一行：一個整數 N（現有木材數量）。
+
+第二行：一個整數 K（需要木條數量）。
+
+第三行：N 個整數，代表現有每根木材的長度。`,output:`第一行： 一個整數，代表最大可能長度。`},examples:[{input:`3
+4
+10 20 30`,output:`10`,explanation:`預計使用木條之長度為10時
+木條長10：可切出1段
+木條長20：可切出2段
+木條長30：可切出3段
+總段數為1+2+3=6 段，剛好比需求段數4還要多
+預計使用木條之長度為11 時就無法滿足需求`},{input:`3
+7
+21 15 10`,output:`5`,explanation:`預計使用木條之長度為5時
+木條長21：可切出4段
+木條長15：可切出3段
+木條長10：可切出2段
+總段數為4+3+2=9 段，剛好比需求段數7還要多
+預計使用木條之長度為6 時就無法滿足需求`}],testCases:[{input:`1
+5
+100`,expectedOutput:`20`,output:`20`,score:10,hidden:!1},{input:`3
+3
+10 10 10`,expectedOutput:`10`,output:`10`,score:15,hidden:!1},{input:`2
+5
+50 50`,expectedOutput:`16`,output:`16`,score:20,hidden:!1},{input:`5
+10
+100 200 50 120 80`,expectedOutput:`50`,output:`50`,score:25,hidden:!1},{input:`4
+6
+15 25 35 45`,expectedOutput:`15`,output:`15`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`由題目卷 JSON 指定匯出`},tags:{mainConcepts:[`區間與最佳化`],subConcepts:[`進階策略選擇`],algorithm:[`最佳化`,`區間處理`],dataStructure:[`清單`],syntax:[],math:[],context:[`競賽情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyjunior-009`,title:`校園密室逃脫-社團聯絡網(6-4)`,problemTitle:`校園密室逃脫-社團聯絡網(6-4)`,courseCode:`CYJUNIOR01`,courseName:`114-嘉義市國中`,role:`contest`,difficulty:`L5`,blocklyFit:`低`,description:`來到最後一層，主控電腦顯示了一張複雜的「社團關係網絡圖」。圖上有 N 個社團成員節點與 M 條單向連線（代表上級指揮下級）。系統會以「連線列表」的方式給你資料。每一條連線包含「起點（上級）」與「終點（下級）」。這是一個樹狀的分層結構，每一個人都只會有一個上級指導人，請找出從最高指揮（編號 1）傳到最底層的人，中間經過的層數最大是多少。`,inputDescription:`第一行：一個整數 N代表社團總人數（編號 1 ~ N）。
+
+第二行：一個整數 M（代表關係連線總數）。
+
+第三行：M 個整數，代表每條連線的「起點列表」。
+
+第四行：M 個整數，代表每條連線的「終點列表」。
+
+（例：第三行第 i 個數字(起點)與第四行第 i 個數字(終點)構成一條連線）`,outputDescription:`第一行：一個整數，輸出一個整數，代表聯絡網的最大層數。`,statement:{description:`來到最後一層，主控電腦顯示了一張複雜的「社團關係網絡圖」。圖上有 N 個社團成員節點與 M 條單向連線（代表上級指揮下級）。系統會以「連線列表」的方式給你資料。每一條連線包含「起點（上級）」與「終點（下級）」。這是一個樹狀的分層結構，每一個人都只會有一個上級指導人，請找出從最高指揮（編號 1）傳到最底層的人，中間經過的層數最大是多少。`,input:`第一行：一個整數 N代表社團總人數（編號 1 ~ N）。
+
+第二行：一個整數 M（代表關係連線總數）。
+
+第三行：M 個整數，代表每條連線的「起點列表」。
+
+第四行：M 個整數，代表每條連線的「終點列表」。
+
+（例：第三行第 i 個數字(起點)與第四行第 i 個數字(終點)構成一條連線）`,output:`第一行：一個整數，輸出一個整數，代表聯絡網的最大層數。`},examples:[{input:`3
+2
+1 2
+2 3`,output:`2`,explanation:`3個人，2條連線 (1->2、2->3)
+路徑：1 -> 2 -> 3。傳遞在大層數為 2。`},{input:`4
+3
+1 1 3
+2 3 4`,output:`2`,explanation:`4個人，3條連線 (1->2、1->3、3->4)
+路徑一：1 -> 2，起點列沒有2的選項，傳遞終止。
+路徑二：1 -> 3 -> 4，起點列沒有4的選項，傳遞終止。
+最大傳遞層數為2`}],testCases:[{input:`2
+1
+1
+2`,expectedOutput:`1`,output:`1`,score:10,hidden:!1},{input:`5
+4
+1 2 3 4
+2 3 4 5`,expectedOutput:`4`,output:`4`,score:15,hidden:!1},{input:`5
+4
+1 2 1 4
+2 3 4 5`,expectedOutput:`2`,output:`2`,score:20,hidden:!1},{input:`6
+5
+1 2 3 4 1
+2 3 4 6 5`,expectedOutput:`4`,output:`4`,score:25,hidden:!1},{input:`7
+6
+1 2 3 4 2 3
+2 3 4 5 6 7`,expectedOutput:`4`,output:`4`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`由題目卷 JSON 指定匯出`},tags:{mainConcepts:[`圖論與網路結構`],subConcepts:[`節點關係與路徑`],algorithm:[`圖論`,`遍歷`],dataStructure:[`圖`,`樹`],syntax:[],math:[],context:[`競賽情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}}]};export{e as default};
