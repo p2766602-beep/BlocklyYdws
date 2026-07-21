@@ -21,6 +21,16 @@ const DRAG_STATE = {
   offsetY: 0,
 };
 
+function getBasePath() {
+  // 跟 src/smartring/simulator-bridge.js 用同一招：改用 Vite 的 BASE_URL，
+  // 不寫死repo名稱，換部署路徑時不用同步修改這裡。
+  const base = import.meta.env.BASE_URL || '/';
+  return base.endsWith('/') ? base.slice(0, -1) : base;
+}
+
+const AI_AVATAR_URL = `${getBasePath()}/avatars/AIlogo.png`;
+const STUDENT_AVATAR_URL = `${getBasePath()}/avatars/STlogo.png`;
+
 function ensurePanelStyle() {
   if (document.getElementById(PANEL_UI.styleId)) return;
 
@@ -72,6 +82,18 @@ function ensurePanelStyle() {
   cursor: grab;
 }
 
+.ai-companion-panel-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.ai-companion-title-avatar {
+  width: 24px;
+  height: 24px;
+}
+
 #${PANEL_UI.closeId} {
   width: 28px;
   height: 28px;
@@ -102,8 +124,34 @@ function ensurePanelStyle() {
   background: #f8fafc;
 }
 
+.ai-companion-message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 92%;
+}
+
+.ai-companion-message-row-model {
+  align-self: flex-start;
+  flex-direction: row;
+}
+
+.ai-companion-message-row-user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.ai-companion-avatar {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  object-fit: cover;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8), 0 2px 6px rgba(15, 23, 42, 0.24);
+}
+
 .ai-companion-bubble {
-  max-width: 88%;
+  min-width: 0;
   padding: 10px 13px;
   border-radius: 14px;
   line-height: 1.6;
@@ -113,14 +161,12 @@ function ensurePanelStyle() {
 }
 
 .ai-companion-bubble-model {
-  align-self: flex-start;
   background: #ede9fe;
   color: #4c1d95;
   border-bottom-left-radius: 4px;
 }
 
 .ai-companion-bubble-user {
-  align-self: flex-end;
   background: #2563eb;
   color: #ffffff;
   border-bottom-right-radius: 4px;
@@ -303,10 +349,21 @@ export function initAiCompanion({ getProfile, getCurrentTask, workerUrl }) {
   let panelRefs = null;
 
   function appendBubble(role, text) {
+    const row = document.createElement('div');
+    row.className = `ai-companion-message-row ai-companion-message-row-${role}`;
+
+    const avatar = document.createElement('img');
+    avatar.className = 'ai-companion-avatar';
+    avatar.src = role === 'model' ? AI_AVATAR_URL : STUDENT_AVATAR_URL;
+    avatar.alt = role === 'model' ? 'AI 學伴頭像' : '學生頭像';
+
     const bubble = document.createElement('div');
     bubble.className = `ai-companion-bubble ai-companion-bubble-${role}`;
     bubble.textContent = text;
-    panelRefs.messagesEl.appendChild(bubble);
+
+    row.appendChild(avatar);
+    row.appendChild(bubble);
+    panelRefs.messagesEl.appendChild(row);
     panelRefs.messagesEl.scrollTop = panelRefs.messagesEl.scrollHeight;
   }
 
@@ -413,7 +470,18 @@ export function initAiCompanion({ getProfile, getCurrentTask, workerUrl }) {
     header.title = '拖曳可移動 AI 伴學視窗';
 
     const title = document.createElement('span');
-    title.textContent = '🤖 AI 程式學伴';
+    title.className = 'ai-companion-panel-title';
+
+    const titleAvatar = document.createElement('img');
+    titleAvatar.className = 'ai-companion-avatar ai-companion-title-avatar';
+    titleAvatar.src = AI_AVATAR_URL;
+    titleAvatar.alt = '';
+
+    const titleText = document.createElement('span');
+    titleText.textContent = 'AI 程式學伴';
+
+    title.appendChild(titleAvatar);
+    title.appendChild(titleText);
 
     const closeButton = document.createElement('button');
     closeButton.id = PANEL_UI.closeId;
