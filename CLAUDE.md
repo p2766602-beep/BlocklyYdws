@@ -7,6 +7,19 @@
 YDWS-CodingBank 那邊的狀態，不能只看這個專案的歷史就下結論**（過去發生過只看單邊歷史、
 誤判另一邊已完成的工作為「尚未解決」的情況）。
 
+## 最近一次工作階段交接（2026-07-21，家用電腦，下一次預期在學校電腦）
+
+- 修正了 YDWS-CodingBank 的 `tools/export_course_js.py`：`BLOCKLYDWS_COURSES_DIR`
+  原本寫死學校電腦路徑（`D:\YOSEP\BlocklyYdws\src\courses`），在家用電腦上會讓
+  PB06 原生題（無 raw txt 來源）的測資備援機制悄悄失效。已改成兩台電腦路徑都列入候選、
+  自動挑存在的那個（YDWS-CodingBank commit `e8dad10`）。
+- 用 YDWS-CodingBank 的網頁組卷工具產生了自訂題目卷課程 `A20260721`（8題），已複製到
+  本專案 `src/courses/A20260721.js`，build 驗證通過（獨立 chunk，未進主 bundle），
+  **刻意不加入 `publicCourseGroups`，維持隱藏課程**（使用者要上線測試用）。
+- 完整細節、還沒做的事見下方「共用的專案日誌」`專案規劃摘要.md` 第十二輪。
+- 這是本次工作階段的最後動作，之後使用者會換到學校電腦繼續。到校後先讀這節 + 下面的
+  「目前決策現況」表確認現況，不要假設沒發生過這些變更。
+
 ## 怎麼找到 YDWS-CodingBank
 
 它跟本專案是平行資料夾，路徑依電腦而異（不同電腦磁碟機代號不同）：
