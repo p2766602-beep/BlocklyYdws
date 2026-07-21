@@ -22,6 +22,7 @@ import {
   getCourseTypeLabel,
   inspectCourseGroup,
 } from './courses/index.js';
+import { initAiCompanion } from './aiCompanion.js';
 
 Blockly.setLocale(ZhHant);
 registerSmartRingBlocks();
@@ -116,6 +117,9 @@ const SCORE_UPLOAD_URL = 'https://script.google.com/macros/s/AKfycbyOu4ZVMgr3577
 // 留空字串代表不啟用檢查（沿用目前行為）。詳見 google-apps-script/Code.gs 的說明。
 const SCORE_UPLOAD_TOKEN = '';
 const STUDENT_PROFILE_STORAGE_KEY = 'blocklyLabStudentProfileV1';
+
+// AI伴學後端（Cloudflare Worker），代理Gemini API呼叫，金鑰與system prompt都不在前端。
+const AI_COMPANION_WORKER_URL = 'https://blocklyydws-ai-companion.tnjboxing.workers.dev';
 
 const btnConnectSmartRing = document.getElementById('btnConnectSmartRing');
 const btnDisconnectSmartRing = document.getElementById('btnDisconnectSmartRing');
@@ -2338,5 +2342,10 @@ function initStatus() {
 
 initBlockly();
 bindEvents();
+initAiCompanion({
+  getProfile: getStudentProfile,
+  getCurrentTask: () => currentTask,
+  workerUrl: AI_COMPANION_WORKER_URL,
+});
 bindSmartRingRuntimeEvents();
 initStatus();

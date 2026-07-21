@@ -712,6 +712,16 @@ button:disabled {
   margin: 6px 0;
   line-height: 1.65;
 }
+
+/* AI伴學浮動視窗按鈕（面板本體樣式已自包含於 src/aiCompanion.js，跟模擬器面板同模式） */
+.ai-companion-toggle-button {
+  background: #7c3aed;
+}
+
+.ai-companion-toggle-button:hover {
+  background: #6d28d9;
+}
+
 /* MVP-J02-1：程式解題標準題目版面 */
 .problem-title {
   margin: 6px 0 12px;

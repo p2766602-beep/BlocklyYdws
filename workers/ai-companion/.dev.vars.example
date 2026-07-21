@@ -1,0 +1,4 @@
+GEMINI_API_KEY=你的Gemini API金鑰
+
+# 複製這個檔案為 .dev.vars（不會被git追蹤），wrangler dev 會自動讀取，
+# 讓本機開發時不用把金鑰寫進 wrangler.toml 或環境變數。

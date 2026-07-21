@@ -1,0 +1,20 @@
+name = "blocklyydws-ai-companion"
+main = "src/index.js"
+compatibility_date = "2026-07-21"
+
+kv_namespaces = [
+  { binding = "AI_COMPANION_KV", id = "b50326b9756747edad671f04366f42db" }
+]
+
+[vars]
+# 允許呼叫的前端網域（正式環境+本機開發），多個網域用逗號分隔，不含結尾斜線
+ALLOWED_ORIGINS = "https://p2766602-beep.github.io,http://localhost:5173"
+# 開放使用AI伴學的課程代碼白名單，多個代碼用逗號分隔，大小寫不拘（伺服器端會轉大寫比對）
+ALLOWED_COURSE_CODES = "JSA00"
+# 用量上限（可留空使用程式內建預設值：學生每小時30輪／課程每天500輪／全站每天2000輪）
+STUDENT_HOURLY_LIMIT = "30"
+COURSE_DAILY_LIMIT = "500"
+GLOBAL_DAILY_LIMIT = "2000"
+
+# GEMINI_API_KEY 不放在這裡，改用機密設定：
+#   npx wrangler secret put GEMINI_API_KEY
