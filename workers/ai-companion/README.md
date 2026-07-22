@@ -32,5 +32,11 @@ node scripts/gen-system-prompt.mjs
 
 ## 修改課程代碼白名單/用量上限
 
-編輯 `wrangler.toml` 的 `[vars]` 區塊（`ALLOWED_COURSE_CODES`、`STUDENT_HOURLY_LIMIT` 等），
-改完要重新 `npm run deploy` 才會生效。
+編輯 `wrangler.toml` 的 `[vars]` 區塊，改完要重新 `npm run deploy` 才會生效。
+
+課程代碼判斷跟前端「隱藏課程」概念對齊：`PUBLIC_COURSE_CODES` 是選單會列出的公開課程完整
+清單（鏡射 `src/courses/index.js` 的 `publicCourseGroups`，兩邊要手動同步）；
+`ALLOWED_PUBLIC_COURSE_CODES` 是這些公開課程裡實際開放 AI 伴學的子集。不在
+`PUBLIC_COURSE_CODES` 裡的課程代碼一律視為隱藏課程，自動放行——因為前端載入隱藏課程時
+本來就要求輸入正確代碼，這裡不重複把關，只靠 `STUDENT_HOURLY_LIMIT` / `COURSE_DAILY_LIMIT`
+/ `GLOBAL_DAILY_LIMIT` 控管額度。

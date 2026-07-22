@@ -24,11 +24,26 @@ function jsonResponse(body, status, headers) {
   });
 }
 
-function parseAllowedCourseCodes(env) {
-  return (env.ALLOWED_COURSE_CODES || '')
+function parsePublicCourseCodes(env) {
+  return (env.PUBLIC_COURSE_CODES || '')
     .split(',')
     .map((s) => s.trim().toUpperCase())
     .filter(Boolean);
+}
+
+function parseAllowedPublicCourseCodes(env) {
+  return (env.ALLOWED_PUBLIC_COURSE_CODES || '')
+    .split(',')
+    .map((s) => s.trim().toUpperCase())
+    .filter(Boolean);
+}
+
+// 公開課程只有白名單內的才開放AI伴學；不在公開清單裡的視為隱藏課程，
+// 前端載入時已經要求輸入正確代碼，這裡不重複把關，直接放行。
+function isCourseAllowed(env, courseCode) {
+  const publicCourseCodes = parsePublicCourseCodes(env);
+  if (!publicCourseCodes.includes(courseCode)) return true;
+  return parseAllowedPublicCourseCodes(env).includes(courseCode);
 }
 
 function parseAllowedOrigins(env) {
@@ -154,8 +169,7 @@ export default {
       return jsonResponse({ error: '缺少必要欄位（courseCode / studentId / message）' }, 400, headers);
     }
 
-    const allowedCourseCodes = parseAllowedCourseCodes(env);
-    if (!allowedCourseCodes.includes(courseCode)) {
+    if (!isCourseAllowed(env, courseCode)) {
       return jsonResponse({ error: '這個課程代碼尚未開放 AI 伴學功能' }, 403, headers);
     }
 

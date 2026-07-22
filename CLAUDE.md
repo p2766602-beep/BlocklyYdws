@@ -20,6 +20,22 @@ YDWS-CodingBank 那邊的狀態，不能只看這個專案的歷史就下結論*
 - 這是本次工作階段的最後動作，之後使用者會換到學校電腦繼續。到校後先讀這節 + 下面的
   「目前決策現況」表確認現況，不要假設沒發生過這些變更。
 
+## 第三個平行專案：YDWS-EscapeRoom（2026-07-22新增）
+
+演算法密室逃脫（情境B）獨立學習模組，2026-07-22建立，GitHub帳號同樣是`p2766602-beep`，
+家用電腦路徑`C:\YOSEP\YDWS-EscapeRoom`。架構規格見本專案`docs/密室逃脫獨立專案-架構規格.md`，
+情境D（SRC00）留在本專案的AI伴學面板內、透過iframe嵌入該專案的embed頁面，不是搬過去。
+該專案自己的`CLAUDE.md`也指回這份共用的`專案規劃摘要.md`，查狀態時三邊都要考慮進去。
+
+## 資料夾搬家記錄（2026-07-23）
+
+本專案家用電腦路徑已從`C:\cProject\BlocklyYdws`搬到`C:\YOSEP\BlocklyYdws`，跟其他兩個平行
+專案統一同一層目錄（比照學校電腦`D:\YOSEP\BlocklyYdws`的既有慣例）。搬家時已同步更新
+`YDWS-CodingBank/CLAUDE.md`、`YDWS-CodingBank/tools/export_course_js.py`的路徑候選清單、
+`YDWS-EscapeRoom/CLAUDE.md`裡對本專案路徑的引用。舊路徑`C:\cProject\BlocklyYdws`只會出現在
+`專案規劃摘要.md`跟`docs/HOME_TO_SCHOOL_SYNC_HANDOFF.md`裡帶日期的歷史記錄段落中（描述當時
+事實，故意不回溯修改），不代表現在還在用那個路徑。
+
 ## 怎麼找到 YDWS-CodingBank
 
 它跟本專案是平行資料夾，路徑依電腦而異（不同電腦磁碟機代號不同）：

@@ -9,8 +9,17 @@ kv_namespaces = [
 [vars]
 # 允許呼叫的前端網域（正式環境+本機開發），多個網域用逗號分隔，不含結尾斜線
 ALLOWED_ORIGINS = "https://p2766602-beep.github.io,http://localhost:5173"
-# 開放使用AI伴學的課程代碼白名單，多個代碼用逗號分隔，大小寫不拘（伺服器端會轉大寫比對）
-ALLOWED_COURSE_CODES = "JSA00"
+# 判斷規則跟BlocklyYdws前端「隱藏課程」概念對齊：
+#   - PUBLIC_COURSE_CODES：選單會列出的公開課程完整清單（鏡射 src/courses/index.js 的
+#     publicCourseGroups，兩邊改動時要手動同步，不會自動讀取彼此）。
+#   - ALLOWED_PUBLIC_COURSE_CODES：上面公開課程裡，哪些正式開放AI伴學（目前僅JSA00）。
+#   - 不在PUBLIC_COURSE_CODES清單裡的課程代碼一律視為「隱藏課程」，自動放行AI伴學——
+#     學生本來就得先在前端輸入對的代碼才能載入該課程，不需要在這裡重複列白名單。
+#     （跟隱藏課程本身一樣，這不是密碼學等級的安全機制，只是降低曝光；額度上限
+#     仍靠下面STUDENT_HOURLY_LIMIT/COURSE_DAILY_LIMIT/GLOBAL_DAILY_LIMIT把關。）
+# 多個代碼用逗號分隔，大小寫不拘（伺服器端會轉大寫比對）
+PUBLIC_COURSE_CODES = "SRB00,SRA00,SRF00,SRC00,JSB00,JSA00,CPB00"
+ALLOWED_PUBLIC_COURSE_CODES = "JSA00"
 # 用量上限（可留空使用程式內建預設值：學生每小時30輪／課程每天500輪／全站每天2000輪）
 STUDENT_HOURLY_LIMIT = "30"
 COURSE_DAILY_LIMIT = "500"
