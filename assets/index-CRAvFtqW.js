@@ -1347,6 +1347,10 @@ function ${t.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
   bottom: 18px;
   width: 380px;
   height: 520px;
+  min-width: 300px;
+  min-height: 340px;
+  max-width: 92vw;
+  max-height: 92vh;
   z-index: 999998;
   display: flex;
   flex-direction: column;
@@ -1354,6 +1358,7 @@ function ${t.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
   border: 1px solid rgba(148, 163, 184, 0.34);
   border-radius: 16px;
   overflow: hidden;
+  resize: both;
   box-shadow:
     0 18px 46px rgba(15, 23, 42, 0.28),
     0 0 0 1px rgba(255, 255, 255, 0.04) inset;
@@ -1497,9 +1502,9 @@ function ${t.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 
 #${Qh.inputId} {
   flex: 1;
-  resize: none;
+  resize: vertical;
   min-height: 40px;
-  max-height: 120px;
+  max-height: 240px;
   padding: 8px 10px;
   border: 1px solid #cbd5e1;
   border-radius: 10px;
