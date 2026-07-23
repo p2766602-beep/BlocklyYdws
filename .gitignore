@@ -26,6 +26,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Claude Code 個人本機設定，不進版控
+.claude/settings.local.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

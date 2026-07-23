@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "$json = [Console]::In.ReadToEnd() | ConvertFrom-Json; $file = $json.tool_input.file_path; if ($file -and ($file -match 'courses/.*\\.(js|json)$')) { $root = (git rev-parse --show-toplevel 2>$null); if ($root) { Set-Location $root }; $out = (npm run build 2>&1 | Out-String); if ($LASTEXITCODE -ne 0) { $msg = \"Course-data build FAILED for $file`n$out\"; Write-Output ((@{ systemMessage = $msg }) | ConvertTo-Json -Compress) } }",
+            "timeout": 60,
+            "statusMessage": "驗證課程資料 build..."
+          }
+        ]
+      }
+    ]
+  }
+}
