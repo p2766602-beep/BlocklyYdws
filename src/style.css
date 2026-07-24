@@ -722,6 +722,32 @@ button:disabled {
   background: #6d28d9;
 }
 
+/* 密室逃脫是獨立部署的專案（YDWS-EscapeRoom），這裡只是開新分頁的連結，
+   不是iframe嵌入（跟情境D的SRC00嵌入模式刻意不同），所以用<a>而非<button>。 */
+.escape-room-link-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  background: #0d9488;
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
+}
+
+.escape-room-link-button:hover {
+  background: #0f766e;
+  box-shadow: 0 4px 12px rgb(13 148 136 / 24%);
+  transform: translateY(-1px);
+}
+
 /* MVP-J02-1：程式解題標準題目版面 */
 .problem-title {
   margin: 6px 0 12px;
