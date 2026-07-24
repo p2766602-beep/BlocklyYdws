@@ -1,0 +1,15 @@
+{
+  "name": "blocklyydws-score-grader",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "build-answer-key": "node scripts/build-answer-key.mjs",
+    "secret:token": "wrangler secret put UPLOAD_TOKEN"
+  },
+  "devDependencies": {
+    "wrangler": "^4.112.0"
+  }
+}

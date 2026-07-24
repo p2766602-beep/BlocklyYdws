@@ -24,22 +24,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "9",
-          "expectedOutput": "1 2 3 4 5 6 7 8 9",
           "score": 10
         },
         {
           "input": "5",
-          "expectedOutput": "1 2 3 4 5",
           "score": 10
         },
         {
           "input": "7",
-          "expectedOutput": "1 2 3 4 5 6 7",
           "score": 10
         },
         {
           "input": "1",
-          "expectedOutput": "1",
           "score": 10
         }
       ],
@@ -65,22 +61,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1",
-          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "4",
-          "expectedOutput": "1 3",
           "score": 10
         },
         {
           "input": "15",
-          "expectedOutput": "1 3 5 7 9 11 13 15",
           "score": 10
         },
         {
           "input": "10",
-          "expectedOutput": "1 3 5 7 9",
           "score": 10
         }
       ],
@@ -106,22 +98,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1",
-          "expectedOutput": "1 0",
           "score": 10
         },
         {
           "input": "4",
-          "expectedOutput": "4 3 2 1 0",
           "score": 10
         },
         {
           "input": "15",
-          "expectedOutput": "15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0",
           "score": 10
         },
         {
           "input": "10",
-          "expectedOutput": "10 9 8 7 6 5 4 3 2 1 0",
           "score": 10
         }
       ],
@@ -147,22 +135,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1",
-          "expectedOutput": "10",
           "score": 10
         },
         {
           "input": "4",
-          "expectedOutput": "10 20 30 40",
           "score": 10
         },
         {
           "input": "10",
-          "expectedOutput": "10 20 30 40 50 60 70 80 90 100",
           "score": 10
         },
         {
           "input": "3",
-          "expectedOutput": "10 20 30",
           "score": 10
         }
       ],
@@ -188,22 +172,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "9",
-          "expectedOutput": "45",
           "score": 10
         },
         {
           "input": "20",
-          "expectedOutput": "210",
           "score": 10
         },
         {
           "input": "10",
-          "expectedOutput": "55",
           "score": 10
         },
         {
           "input": "100",
-          "expectedOutput": "5050",
           "score": 10
         }
       ],
@@ -229,22 +209,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1\n5\n1",
-          "expectedOutput": "1 2 3 4 5",
           "score": 10
         },
         {
           "input": "0\n10\n5",
-          "expectedOutput": "0 5 10",
           "score": 10
         },
         {
           "input": "10\n20\n2",
-          "expectedOutput": "10 12 14 16 18 20",
           "score": 10
         },
         {
           "input": "1\n10\n3",
-          "expectedOutput": "1 4 7 10",
           "score": 10
         }
       ],
@@ -270,22 +246,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "5\n2",
-          "expectedOutput": "2 4",
           "score": 10
         },
         {
           "input": "15\n4",
-          "expectedOutput": "4 8 12",
           "score": 10
         },
         {
           "input": "7\n7",
-          "expectedOutput": "7",
           "score": 10
         },
         {
           "input": "20\n6",
-          "expectedOutput": "6 12 18",
           "score": 10
         }
       ],
@@ -311,22 +283,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1",
-          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "6",
-          "expectedOutput": "1 4 9 16 25 36",
           "score": 10
         },
         {
           "input": "7",
-          "expectedOutput": "1 4 9 16 25 36 49",
           "score": 10
         },
         {
           "input": "9",
-          "expectedOutput": "1 4 9 16 25 36 49 64 81",
           "score": 10
         }
       ],
@@ -352,22 +320,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "4",
-          "expectedOutput": "6",
           "score": 10
         },
         {
           "input": "9",
-          "expectedOutput": "20",
           "score": 10
         },
         {
           "input": "7",
-          "expectedOutput": "12",
           "score": 10
         },
         {
           "input": "15",
-          "expectedOutput": "56",
           "score": 10
         }
       ],
@@ -393,22 +357,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1",
-          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "9",
-          "expectedOutput": "362880",
           "score": 10
         },
         {
           "input": "7",
-          "expectedOutput": "5040",
           "score": 10
         },
         {
           "input": "3",
-          "expectedOutput": "6",
           "score": 10
         }
       ],
@@ -434,22 +394,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "5\n10",
-          "expectedOutput": "45",
           "score": 10
         },
         {
           "input": "20\n30",
-          "expectedOutput": "275",
           "score": 10
         },
         {
           "input": "1\n1",
-          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "50\n55",
-          "expectedOutput": "315",
           "score": 10
         }
       ],
@@ -475,22 +431,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "10",
-          "expectedOutput": "1 2 3 4 5 6 7 8 9 10 9 8 7 6 5 4 3 2 1",
           "score": 10
         },
         {
           "input": "8",
-          "expectedOutput": "1 2 3 4 5 6 7 8 7 6 5 4 3 2 1",
           "score": 10
         },
         {
           "input": "5",
-          "expectedOutput": "1 2 3 4 5 4 3 2 1",
           "score": 10
         },
         {
           "input": "2",
-          "expectedOutput": "1 2 1",
           "score": 10
         }
       ],
@@ -516,22 +468,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1\n99",
-          "expectedOutput": "99",
           "score": 10
         },
         {
           "input": "3\n1 5 9",
-          "expectedOutput": "1 5 9",
           "score": 10
         },
         {
           "input": "6\n2 4 6 8 10 12",
-          "expectedOutput": "2 4 6 8 10 12",
           "score": 10
         },
         {
           "input": "9\n1 4 9 16 25 36 49 64 81",
-          "expectedOutput": "1 4 9 16 25 36 49 64 81",
           "score": 10
         }
       ],
@@ -557,22 +505,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1\n99",
-          "expectedOutput": "99",
           "score": 10
         },
         {
           "input": "3\n1 5 9",
-          "expectedOutput": "15",
           "score": 10
         },
         {
           "input": "6\n2 4 6 8 10 12",
-          "expectedOutput": "42",
           "score": 10
         },
         {
           "input": "9\n1 1 1 1 1 1 1 1 1",
-          "expectedOutput": "9",
           "score": 10
         }
       ],
@@ -598,22 +542,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1\n99",
-          "expectedOutput": "99",
           "score": 10
         },
         {
           "input": "6\n7 7 7 7 9 7",
-          "expectedOutput": "9",
           "score": 10
         },
         {
           "input": "4\n33 22 44 11",
-          "expectedOutput": "44",
           "score": 10
         },
         {
           "input": "5\n25 45 95 12 55",
-          "expectedOutput": "95",
           "score": 10
         }
       ],
@@ -639,22 +579,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "3\n1 2 3",
-          "expectedOutput": "1 2 3",
           "score": 10
         },
         {
           "input": "6\n7 15 7 24 9 7",
-          "expectedOutput": "7 7 9 7",
           "score": 10
         },
         {
           "input": "4\n33 5 44 11",
-          "expectedOutput": "5",
           "score": 10
         },
         {
           "input": "5\n3 8 11 69 77",
-          "expectedOutput": "3 8",
           "score": 10
         }
       ],
@@ -680,22 +616,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "2\n100 20",
-          "expectedOutput": "20 100",
           "score": 10
         },
         {
           "input": "4\n7 7 9 7",
-          "expectedOutput": "7 9 7 7",
           "score": 10
         },
         {
           "input": "5\n1 2 3 4 5",
-          "expectedOutput": "5 4 3 2 1",
           "score": 10
         },
         {
           "input": "4\n0 1 0 1",
-          "expectedOutput": "1 0 1 0",
           "score": 10
         }
       ],
@@ -721,22 +653,18 @@ export const CPB00 = {
       "testCases": [
         {
           "input": "1\n100",
-          "expectedOutput": "Day-1-100",
           "score": 10
         },
         {
           "input": "4\n7 7 9 7",
-          "expectedOutput": "Day-1-7 Day-2-7 Day-3-9 Day-4-7",
           "score": 10
         },
         {
           "input": "4\n33 22 44 11",
-          "expectedOutput": "Day-1-33 Day-2-22 Day-3-44 Day-4-11",
           "score": 10
         },
         {
           "input": "3\n25 2 3",
-          "expectedOutput": "Day-1-25 Day-2-2 Day-3-3",
           "score": 10
         }
       ],

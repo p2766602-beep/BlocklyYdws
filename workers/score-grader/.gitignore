@@ -1,0 +1,8 @@
+node_modules/
+.wrangler/
+.dev.vars
+
+# 這是全部課程的正確答案，BlocklyYdws是public repo，絕對不能被commit進去，
+# 否則直接defeat問題B（甚至比原本更嚴重，因為這份資料涵蓋所有課程不只contest的）。
+# 用 npm run build-answer-key 在本機重新產生，只bundle進部署的Worker，不進git歷史。
+src/answerKeys.json

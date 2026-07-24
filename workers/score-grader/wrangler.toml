@@ -1,0 +1,16 @@
+name = "blocklyydws-score-grader"
+main = "src/index.js"
+compatibility_date = "2026-07-24"
+
+[vars]
+# 允許呼叫的前端網域（正式環境+本機開發），多個網域用逗號分隔，不含結尾斜線
+ALLOWED_ORIGINS = "https://p2766602-beep.github.io,http://localhost:5173"
+
+# Google Apps Script成績上傳Web App URL（跟google-apps-script/Code.gs是同一份部署）。
+# 這個Worker是唯一會呼叫這支URL的角色，瀏覽器不再直接呼叫。
+APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyOu4ZVMgr3577ZdUZ6o732GUPoayRHFiw3_Xglhaj0mg_W-4REr-KjtZllU9SZnAQq/exec"
+
+# UPLOAD_TOKEN不放在這裡，改用機密設定：
+#   npx wrangler secret put UPLOAD_TOKEN
+# 這個值必須跟Apps Script編輯器「專案設定→指令碼屬性」裡的UPLOAD_TOKEN完全一致，
+# 瀏覽器端不會、也不需要知道這個值。
