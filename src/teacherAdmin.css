@@ -1,0 +1,177 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", -apple-system, sans-serif;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  padding: 24px;
+  background: #f4f5f3;
+  color: #1c211f;
+}
+
+.teacher-header h1 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.teacher-header p {
+  margin: 0 0 20px;
+  color: #5a635f;
+  font-size: 13px;
+}
+
+.teacher-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.teacher-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #5a635f;
+}
+
+.teacher-field input {
+  padding: 6px 10px;
+  border: 1px solid #cfd6d2;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 260px;
+}
+
+.teacher-section button {
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: 1px solid #2f6e4f;
+  background: #2f6e4f;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.teacher-section button:hover {
+  background: #255a40;
+}
+
+.teacher-status {
+  font-size: 12.5px;
+  color: #5a635f;
+}
+
+.teacher-status.error {
+  color: #b0483f;
+}
+
+.teacher-status.ok {
+  color: #2f6e4f;
+}
+
+.teacher-task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.teacher-task-card {
+  background: #fff;
+  border: 1px solid #dfe6e2;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.teacher-task-card-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.teacher-task-card-head .task-id {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  color: #5a635f;
+  background: #eef1ee;
+  padding: 2px 7px;
+  border-radius: 5px;
+}
+
+.teacher-task-card-head .task-title {
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.teacher-task-card-head .override-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7a5ac9;
+  border: 1px solid #7a5ac9;
+  padding: 1px 6px;
+  border-radius: 5px;
+}
+
+.teacher-task-card label.loadable-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  margin-left: auto;
+}
+
+.teacher-task-card textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  border: 1px solid #cfd6d2;
+  border-radius: 6px;
+  padding: 8px;
+  resize: vertical;
+}
+
+.teacher-task-card .starter-xml-field {
+  min-height: 90px;
+  margin-bottom: 8px;
+}
+
+.teacher-task-card .note-field {
+  min-height: 40px;
+  margin-bottom: 8px;
+}
+
+.teacher-task-card .field-label {
+  font-size: 11px;
+  color: #5a635f;
+  margin: 0 0 4px;
+}
+
+.teacher-task-card .task-save-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.teacher-task-card .task-save-row button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #2f6e4f;
+  background: #2f6e4f;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12.5px;
+}
+
+.teacher-task-card .task-save-status {
+  font-size: 12px;
+  color: #5a635f;
+}

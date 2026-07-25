@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>教師後台：範例答案編輯</title>
+  </head>
+  <body>
+    <div id="teacherApp" class="teacher-app">
+      <header class="teacher-header">
+        <h1>教師後台：範例答案編輯</h1>
+        <p>編輯每題「載入範例」的Blockly積木（XML）、開關，以及標記題目內容有誤。</p>
+      </header>
+
+      <section id="lockSection" class="teacher-section">
+        <label class="teacher-field">
+          <span>教師密碼</span>
+          <input id="teacherToken" type="password" placeholder="請輸入教師密碼" />
+        </label>
+        <button id="btnUnlock" type="button">解鎖</button>
+        <span id="lockStatus" class="teacher-status"></span>
+      </section>
+
+      <section id="courseSection" class="teacher-section" hidden>
+        <label class="teacher-field">
+          <span>課程代碼</span>
+          <input id="courseCodeInput" type="text" placeholder="請輸入課程代碼" />
+        </label>
+        <button id="btnLoadCourse" type="button">載入課程</button>
+        <span id="courseStatus" class="teacher-status"></span>
+      </section>
+
+      <section id="taskListSection" class="teacher-task-list"></section>
+    </div>
+
+    <script type="module" src="/src/teacherAdmin.js"></script>
+  </body>
+</html>

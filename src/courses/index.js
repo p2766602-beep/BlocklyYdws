@@ -4,8 +4,46 @@ const courseLoaders = import.meta.glob(['./*.js', '!./index.js', '!./smartring-t
 
 const resolvedCourseCache = new Map();
 
+// 教師後台範例答案覆寫（見 workers/starter-editor/）。讀取不需要密碼，內容只是範例答案積木
+// 跟教師備註；Worker打不到時（尚未部署/離線）直接退回靜態課程JS內容，不擋課程載入。
+const STARTER_EDITOR_WORKER_URL = 'https://blocklyydws-starter-editor.tnjboxing.workers.dev';
+
 export function normalizeCourseCode(code) {
   return String(code || '').trim().toUpperCase();
+}
+
+async function fetchStarterOverrides(courseCode) {
+  try {
+    const resp = await fetch(
+      `${STARTER_EDITOR_WORKER_URL}/overrides?courseCode=${encodeURIComponent(courseCode)}`
+    );
+    if (!resp.ok) return {};
+    const data = await resp.json();
+    return data?.overrides && typeof data.overrides === 'object' ? data.overrides : {};
+  } catch {
+    return {};
+  }
+}
+
+function applyStarterOverrides(courseGroup, overrides) {
+  if (!overrides || Object.keys(overrides).length === 0) return courseGroup;
+
+  const tasks = courseGroup.tasks.map((task) => {
+    const override = overrides[task.id];
+    if (!override) return task;
+
+    if (override.loadable === false) {
+      return { ...task, starterXml: '', teacherNote: override.note || '' };
+    }
+
+    return {
+      ...task,
+      starterXml: override.starterXml || task.starterXml || '',
+      teacherNote: override.note || '',
+    };
+  });
+
+  return { ...courseGroup, tasks };
 }
 
 function getCourseCodeFromPath(path) {
@@ -98,7 +136,13 @@ async function loadCourseGroupByPath(path) {
   if (!loader) return null;
 
   const module = await loader();
-  const courseGroup = extractCourseGroup(module, path);
+  let courseGroup = extractCourseGroup(module, path);
+
+  if (courseGroup) {
+    const overrides = await fetchStarterOverrides(courseGroup.code);
+    courseGroup = applyStarterOverrides(courseGroup, overrides);
+  }
+
   resolvedCourseCache.set(path, courseGroup);
   return courseGroup;
 }

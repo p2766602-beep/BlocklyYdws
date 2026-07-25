@@ -1,0 +1,19 @@
+name = "blocklyydws-starter-editor"
+main = "src/index.js"
+compatibility_date = "2026-07-25"
+
+# KV namespace id 是部署時才知道的值，先用預留位置，實際建立後用
+# `npx wrangler kv namespace create STARTER_KV` 拿到的id回填這裡。
+kv_namespaces = [
+  { binding = "STARTER_KV", id = "ad982b16925b4636afdefade3036d268" }
+]
+
+[vars]
+# 允許呼叫的前端網域（正式環境+本機開發），多個網域用逗號分隔，不含結尾斜線
+ALLOWED_ORIGINS = "https://p2766602-beep.github.io,http://localhost:5173"
+
+# TEACHER_TOKEN不放在這裡，改用機密設定：
+#   npx wrangler secret put TEACHER_TOKEN
+# 教師後台UI寫入時要附上這個密碼，比對正確才允許覆寫starterXml/loadable/note。
+# 讀取（GET /overrides）不需要密碼——內容只是範例答案跟教師備註，不是機密，
+# 學生本來就要先輸入對的課程代碼才會載入到這些資料。
