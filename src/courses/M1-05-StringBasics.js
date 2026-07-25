@@ -50,7 +50,7 @@ export default {
       ],
       "difficulty": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_s">字串</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_s">字串</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入字串</field></shadow></value></block></value><next><block type="text_print"><value name="TEXT"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value></block></value></block></next></block></xml>`
     },
     {
       "id": "STR01-002",

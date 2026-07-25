@@ -55,7 +55,7 @@ export default {
       ],
       "difficulty": "L2",
       "difficultyLabel": "L2｜進階",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">N</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入0到99的整數</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT">0</field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value></block></statement></block></next></block></xml>`
     },
     {
       "id": "M1-12-02",

@@ -50,7 +50,7 @@ export default {
       ],
       "difficulty": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_score">分數</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_score">分數</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入分數</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_score">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">PASS</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">FAIL</field></block></value></block></statement></block></next></block></xml>`
     },
     {
       "id": "BSC01-002",
