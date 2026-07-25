@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YDWS 程式設計學習地圖</title>
+<style>
+  /* Committed single visual world: a powered circuit board at night.
+     Intentionally not theme-switchable — the glowing-trace concept only
+     reads correctly dark, so this ignores prefers-color-scheme / data-theme. */
+  :root {
+    --bg: #0d2620;
+    --bg-panel: #123527;
+    --bg-panel-2: #0f2e24;
+    --ink: #eef3ea;
+    --ink-dim: #9fb8ab;
+    --ink-faint: #6f8a7c;
+    --border: #23503d;
+    --border-soft: #1a3d2e;
+    --copper: #e6a15c;
+    --teal: #63d6cb;
+    --violet: #b79bf0;
+    --rose: #f0899d;
+    --accent-line: #e8c468;
+    --accent-line-glow: rgba(232, 196, 104, 0.28);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+  }
+  body {
+    font-family: "Segoe UI", "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", -apple-system, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono {
+    font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Courier New", monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .page {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    margin-bottom: 2rem;
+  }
+  .eyebrow {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-line);
+    margin: 0 0 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.4rem;
+    height: 1px;
+    background: var(--accent-line);
+    display: inline-block;
+  }
+  h1 {
+    font-size: clamp(1.7rem, 3.4vw, 2.35rem);
+    font-weight: 700;
+    margin: 0 0 0.7rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .lede {
+    max-width: 62ch;
+    color: var(--ink-dim);
+    font-size: 1rem;
+    margin: 0 0 0.4rem;
+  }
+  .howto {
+    max-width: 62ch;
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+    margin: 0.9rem 0 0;
+    padding: 0.7rem 0.9rem;
+    background: var(--bg-panel-2);
+    border: 1px solid var(--border-soft);
+    border-left: 3px solid var(--accent-line);
+    border-radius: 4px;
+  }
+  .howto b { color: var(--ink); }
+
+  /* ---------- Legend ---------- */
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+    margin: 2rem 0 2.75rem;
+  }
+  .legend-item {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-soft);
+    border-radius: 6px;
+    padding: 0.75rem 0.9rem;
+    box-shadow: var(--shadow);
+  }
+  .legend-item .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+  .legend-item .tag .dot {
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .legend-item p {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--ink-dim);
+  }
+
+  /* ---------- Spine + tiers ---------- */
+  .spine-wrap {
+    position: relative;
+    padding-left: 2.6rem;
+  }
+  .spine-line {
+    position: absolute;
+    left: 0.95rem;
+    top: 0.4rem;
+    bottom: 2.4rem;
+    width: 2px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--accent-line) 0,
+      var(--accent-line) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+    opacity: 0.85;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .spine-line {
+      animation: flow 1.6s linear infinite;
+    }
+  }
+  @keyframes flow {
+    to { background-position: 0 -24px; }
+  }
+
+  .tier-band {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+  .tier-via {
+    position: absolute;
+    left: -2.6rem;
+    top: 0.15rem;
+    width: 1.95rem;
+    height: 1.95rem;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--tier-color);
+    box-shadow: 0 0 0 4px var(--bg), 0 0 14px 1px var(--tier-glow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tier-via span {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--tier-color);
+  }
+
+  .tier-head {
+    margin-bottom: 1.1rem;
+  }
+  .tier-head .tier-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+  }
+  .tier-head .tier-name .tcode {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--tier-color);
+    border: 1px solid var(--tier-color);
+    padding: 0.08rem 0.4rem;
+    border-radius: 3px;
+  }
+  .tier-head .tier-count {
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    font-weight: 400;
+  }
+  .tier-head p {
+    margin: 0;
+    color: var(--ink-dim);
+    font-size: 0.9rem;
+    max-width: 62ch;
+  }
+
+  .node-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .node-card {
+    position: relative;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 0.85rem 0.9rem 0.75rem;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    animation: rise 0.5s ease forwards;
+    animation-delay: calc(var(--i) * 45ms);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .node-card { opacity: 1; animation: none; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .node-card::before {
+    content: "";
+    position: absolute;
+    top: 0.9rem;
+    left: -1px;
+    width: 4px;
+    height: 1.3rem;
+    background: var(--tier-color);
+    border-radius: 0 3px 3px 0;
+  }
+  .node-card .idx {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--tier-color);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.32rem;
+    display: block;
+  }
+  .node-card .ttl {
+    font-size: 0.93rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+    text-wrap: balance;
+    line-height: 1.4;
+  }
+  .node-card .meta {
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .node-card .meta .pip {
+    width: 0.4rem; height: 0.4rem; border-radius: 50%;
+    background: var(--ink-faint);
+    display: inline-block;
+  }
+  .node-card.start {
+    border-color: var(--tier-color);
+  }
+  .node-card.start .flag {
+    position: absolute;
+    top: -0.55rem;
+    right: 0.7rem;
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--tier-color);
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+  }
+
+  /* tier color scoping */
+  .tier-band[data-tier="0"] { --tier-color: var(--copper); --tier-glow: color-mix(in srgb, var(--copper) 45%, transparent); }
+  .tier-band[data-tier="1"] { --tier-color: var(--teal);   --tier-glow: color-mix(in srgb, var(--teal) 45%, transparent); }
+  .tier-band[data-tier="2"] { --tier-color: var(--violet); --tier-glow: color-mix(in srgb, var(--violet) 45%, transparent); }
+  .tier-band[data-tier="3"] { --tier-color: var(--rose);   --tier-glow: color-mix(in srgb, var(--rose) 45%, transparent); }
+
+  .legend-item[data-tier="0"] .dot { background: var(--copper); }
+  .legend-item[data-tier="1"] .dot { background: var(--teal); }
+  .legend-item[data-tier="2"] .dot { background: var(--violet); }
+  .legend-item[data-tier="3"] .dot { background: var(--rose); }
+  .legend-item[data-tier="0"] .tag { color: var(--copper); }
+  .legend-item[data-tier="1"] .tag { color: var(--teal); }
+  .legend-item[data-tier="2"] .tag { color: var(--violet); }
+  .legend-item[data-tier="3"] .tag { color: var(--rose); }
+
+  /* ---------- Summit / footer ---------- */
+  .summit {
+    position: relative;
+    margin-left: -2.6rem;
+    padding-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .summit .peak {
+    width: 1.95rem; height: 1.95rem;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--accent-line);
+    box-shadow: 0 0 14px 1px var(--accent-line-glow);
+    flex: none;
+  }
+  .summit .peak svg { width: 0.9rem; height: 0.9rem; }
+  .summit .txt {
+    font-size: 0.85rem;
+    color: var(--ink-dim);
+  }
+  .summit .txt b { color: var(--ink); }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--border-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  footer .note {
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+  footer .badge {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-dim);
+    border: 1px dashed var(--border);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <p class="eyebrow">YDWS 程式設計學習地圖 · 靜態參考版</p>
+    <h1>從輸出一行字，走到動態規劃</h1>
+    <p class="lede">
+      這張地圖把整套課程拆成 4 個 Tier、33 個學習主題（不含課程代碼），
+      沿著金色主幹路徑由上往下探索，愈往下代表思考的電路愈複雜。
+    </p>
+    <p class="howto">
+      <b>怎麼讀這張圖：</b>每個 Tier 是一條「電路層」，同一層裡的主題建議依照左上角編號順序闖關；
+      完成一整層，就往下走到主幹路徑的下一個節點，接上更進階的那層電路。
+    </p>
+  </header>
+
+  <div class="legend">
+    <div class="legend-item" data-tier="0">
+      <div class="tag"><span class="dot"></span>T0 · 起步層</div>
+      <p>程式的基本語法與邏輯：輸出、變數、條件、迴圈、清單。打好地基。</p>
+    </div>
+    <div class="legend-item" data-tier="1">
+      <div class="tag"><span class="dot"></span>T1 · 資料操作層</div>
+      <p>熟練清單、字串、排序與數學規則，開始累積可以組合運用的技法。</p>
+    </div>
+    <div class="legend-item" data-tier="2">
+      <div class="tag"><span class="dot"></span>T2 · 情境策略層</div>
+      <p>把技法放進模擬情境裡綜合運用，並接觸圖論與貪心策略。</p>
+    </div>
+    <div class="legend-item" data-tier="3">
+      <div class="tag"><span class="dot"></span>T3 · 演算法優化層</div>
+      <p>挑戰二分搜尋、前綴和、滑動視窗、動態規劃，為競賽等級做準備。</p>
+    </div>
+  </div>
+
+  <div class="spine-wrap">
+    <div class="spine-line" aria-hidden="true"></div>
+
+    <section class="tier-band" data-tier="0">
+      <div class="tier-via"><span>T0</span></div>
+      <div class="tier-head">
+        <p class="tier-name">
+          起步層 <span class="tcode">T0</span>
+          <span class="tier-count">· 6 個主題</span>
+        </p>
+        <p>程式的基本語法與邏輯，打好地基。</p>
+      </div>
+      <div class="node-grid" id="grid-0"></div>
+    </section>
+
+    <section class="tier-band" data-tier="1">
+      <div class="tier-via"><span>T1</span></div>
+      <div class="tier-head">
+        <p class="tier-name">
+          資料操作層 <span class="tcode">T1</span>
+          <span class="tier-count">· 12 個主題</span>
+        </p>
+        <p>熟練清單、字串、排序與數學規則，開始累積可組合運用的技法。</p>
+      </div>
+      <div class="node-grid" id="grid-1"></div>
+    </section>
+
+    <section class="tier-band" data-tier="2">
+      <div class="tier-via"><span>T2</span></div>
+      <div class="tier-head">
+        <p class="tier-name">
+          情境策略層 <span class="tcode">T2</span>
+          <span class="tier-count">· 10 個主題</span>
+        </p>
+        <p>把技法放進模擬情境裡綜合運用，並接觸圖論與貪心策略。</p>
+      </div>
+      <div class="node-grid" id="grid-2"></div>
+    </section>
+
+    <section class="tier-band" data-tier="3">
+      <div class="tier-via"><span>T3</span></div>
+      <div class="tier-head">
+        <p class="tier-name">
+          演算法優化層 <span class="tcode">T3</span>
+          <span class="tier-count">· 5 個主題</span>
+        </p>
+        <p>挑戰二分搜尋、前綴和、滑動視窗、動態規劃，為競賽等級做準備。</p>
+      </div>
+      <div class="node-grid" id="grid-3"></div>
+    </section>
+
+    <div class="summit">
+      <div class="peak">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 18L9 8L13 14L16 10L21 18H3Z" fill="var(--bg)"/>
+        </svg>
+      </div>
+      <p class="txt">抵達 <b>Tier 3</b> 終點，代表已經具備挑戰程式競賽等級題目的思維工具箱。</p>
+    </div>
+  </div>
+
+  <footer>
+    <p class="note">主題名稱不含課程代碼；點選前往上課的實際連結由老師另行提供。</p>
+    <span class="badge">個人進度紀錄版本 · 規劃中</span>
+  </footer>
+
+</div>
+
+<script>
+  const TIERS = {
+    0: [
+      ["程式起步：輸出與基本運算", 6],
+      ["變數與四則運算", 8],
+      ["條件判斷入門", 12],
+      ["迴圈與累計", 11],
+      ["清單走訪與讀取", 10],
+      ["找最大值/最小值延伸", 8],
+    ],
+    1: [
+      ["清單搜尋與篩選進階", 8],
+      ["清單資料分析挑戰", 9],
+      ["清單統計", 12],
+      ["清單索引與位置", 10],
+      ["字串處理基礎", 8],
+      ["字串處理進階：格式與編碼", 12],
+      ["排序法：交換與選擇排序", 12],
+      ["排序應用：連動資料處理", 8],
+      ["數學規則：因數倍數質數", 8],
+      ["數學規則進階：GCD與應用", 6],
+      ["堆疊與佇列", 6],
+      ["除錯與輸出格式控制", 6],
+    ],
+    2: [
+      ["運算與條件判斷綜合練習：基礎", 12],
+      ["運算與條件判斷綜合挑戰", 12],
+      ["模擬與狀態：基礎", 12],
+      ["模擬與狀態挑戰A：角色扮演系列", 10],
+      ["模擬與狀態挑戰B：感測與監控系列", 11],
+      ["模擬與狀態挑戰C：競賽綜合系列", 11],
+      ["圖論基礎", 8],
+      ["圖論進階", 7],
+      ["貪心策略入門", 8],
+      ["貪心策略進階", 14],
+    ],
+    3: [
+      ["二分搜尋入門暖身", 6],
+      ["區間與最佳化", 6],
+      ["前綴和(prefix sum)", 6],
+      ["滑動視窗(sliding window)", 6],
+      ["動態規劃暖身", 6],
+    ],
+  };
+
+  for (const [tier, list] of Object.entries(TIERS)) {
+    const grid = document.getElementById("grid-" + tier);
+    list.forEach(([title, count], i) => {
+      const card = document.createElement("div");
+      card.className = "node-card" + (i === 0 ? " start" : "");
+      card.style.setProperty("--i", i);
+      const seq = String(i + 1).padStart(2, "0");
+      card.innerHTML =
+        (i === 0 ? '<span class="flag">起點</span>' : "") +
+        '<span class="idx">T' + tier + " · " + seq + '</span>' +
+        '<p class="ttl">' + title + '</p>' +
+        '<div class="meta"><span class="pip"></span>' + count + ' 個關卡</div>';
+      grid.appendChild(card);
+    });
+  }
+</script>
+</body>
+</html>
