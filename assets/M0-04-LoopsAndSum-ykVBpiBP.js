@@ -46,7 +46,7 @@ var e={code:`M0-04-LoopsAndSum`,title:`迴圈與累計`,type:`programming`,mode:
 7
 8
 9
-10`,score:20}],difficulty:`L1`,difficultyLabel:`L1｜基礎`,starterXml:``},{id:`A-07-0`,title:`九九乘法`,description:`請寫一個程式，輸入一個整數 N，輸出 1 到 9 的乘法表結果。
+10`,score:20}],difficulty:`L1`,difficultyLabel:`L1｜基礎`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">N</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N</field></shadow></value></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></statement></block></next></block></xml>`},{id:`A-07-0`,title:`九九乘法`,description:`請寫一個程式，輸入一個整數 N，輸出 1 到 9 的乘法表結果。
 例如輸入 3，輸出 1x3=3, 2x3=6, …, 9x3=27。
 
 程式輸出3 6 9 12 15 18 21 24 27
