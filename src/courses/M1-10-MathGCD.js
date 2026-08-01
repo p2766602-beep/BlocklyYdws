@@ -66,7 +66,83 @@ export default {
                 ],
         "difficulty": "L3",
         "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">N</variable><variable id="v_isprime">是質數</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_isprime">是質數</field><value name="VALUE"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">3</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_isprime">是質數</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value></block></statement></block></statement></block></statement><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="variables_get"><field name="VAR" id="v_isprime">是質數</field></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">Yes</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">No</field></block></value></block></statement></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_n">N</variable>
+    <variable id="var_i">i</variable>
+    <variable id="var_is_prime">是否為質數</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入一個整數</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="var_is_prime">是否為質數</field>
+                <value name="VALUE"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value>
+                <next>
+                  <block type="controls_if">
+                    <value name="IF0">
+                      <block type="logic_compare">
+                        <field name="OP">LTE</field>
+                        <value name="A"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+                        <value name="B"><block type="math_number"><field name="NUM">1</field></block></value>
+                      </block>
+                    </value>
+                    <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_is_prime">是否為質數</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value></block></statement>
+                    <next>
+                      <block type="controls_if">
+                        <value name="IF0">
+                          <block type="logic_compare">
+                            <field name="OP">GT</field>
+                            <value name="A"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+                            <value name="B"><block type="math_number"><field name="NUM">2</field></block></value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="controls_for">
+                            <field name="VAR" id="var_i">i</field>
+                            <value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value>
+                            <value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value>
+                            <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                            <statement name="DO">
+                              <block type="controls_if">
+                                <value name="IF0">
+                                  <block type="logic_compare">
+                                    <field name="OP">EQ</field>
+                                    <value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value></block></value>
+                                    <value name="B"><block type="math_number"><field name="NUM">0</field></block></value>
+                                  </block>
+                                </value>
+                                <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_is_prime">是否為質數</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value></block></statement>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_if">
+                            <mutation else="1"></mutation>
+                            <value name="IF0"><block type="variables_get"><field name="VAR" id="var_is_prime">是否為質數</field></block></value>
+                            <statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Yes</field></block></value></block></statement>
+                            <statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">No</field></block></value></block></statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "A-09-1",
@@ -115,7 +191,7 @@ export default {
                 ],
         "difficulty": "L3",
         "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">N</variable><variable id="v_out">結果</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">N</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value><value name="ADD1"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_x">N</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value><value name="ADD1"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>`
       },
       {
         "id": "A-13-0",
