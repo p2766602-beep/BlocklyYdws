@@ -51,7 +51,51 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_all">全部數字</variable><variable id="v_n">N</variable><variable id="v_max">最大值</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N與N個數字</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">3</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></statement></block></statement></block></statement><next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_max">最大值</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N與N個數字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_max">最大值</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">-999999</field></block></value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                    <statement name="DO">
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_x">數字</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="controls_if">
+                                <value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value>
+                                <statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "EXT01-002",
@@ -95,7 +139,51 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_all">全部數字</variable><variable id="v_n">N</variable><variable id="v_min">最小值</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N與N個數字</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">3</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></statement></block></statement></block></statement><next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_min">最小值</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N與N個數字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_min">最小值</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">999999</field></block></value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                    <statement name="DO">
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_x">數字</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="controls_if">
+                                <value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value>
+                                <statement name="DO0"><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "EXT01-003",
@@ -139,7 +227,81 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_all">全部數字</variable><variable id="v_n">N</variable><variable id="v_max">最大值</variable><variable id="v_min">最小值</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N與N個數字</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">3</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></statement></block></next></block></statement></block></statement><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_max">最大值</variable><variable id="v_min">最小值</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N與N個數字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_max">最大值</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">-999999</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="v_min">最小值</field>
+                    <value name="VALUE"><block type="math_number"><field name="NUM">999999</field></block></value>
+                    <next>
+                      <block type="controls_repeat_ext">
+                        <value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                        <statement name="DO">
+                          <block type="interaction_ask_and_wait">
+                            <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="v_x">數字</field>
+                                <value name="VALUE"><block type="interaction_answer"></block></value>
+                                <next>
+                                  <block type="controls_if">
+                                    <value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value>
+                                    <statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></statement>
+                                    <next>
+                                      <block type="controls_if">
+                                        <value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value>
+                                        <statement name="DO0"><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="interaction_say">
+                            <value name="TEXT">
+                              <block type="text_join">
+                                <mutation items="3"></mutation>
+                                <value name="ADD0"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value>
+                                <value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value>
+                                <value name="ADD2">
+                                  <block type="text_join">
+                                    <mutation items="3"></mutation>
+                                    <value name="ADD0"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value>
+                                    <value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value>
+                                    <value name="ADD2"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "EXT01-004",
@@ -183,7 +345,68 @@ export default {
                 ],
         "difficulty": "L3",
         "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_all">全部數字</variable><variable id="v_n">N</variable><variable id="v_max">最大值</variable><variable id="v_pos">位置</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N與N個成績</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_pos">位置</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">3</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_pos">位置</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></statement></block></statement></block></statement><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_pos">位置</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_max">最大值</variable><variable id="v_pos">位置</variable><variable id="v_i">i</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N與N個成績</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_max">最大值</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">-999999</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="v_pos">位置</field>
+                    <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+                    <next>
+                      <block type="controls_for">
+                        <field name="VAR" id="v_i">i</field>
+                        <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+                        <value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                        <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                        <statement name="DO">
+                          <block type="interaction_ask_and_wait">
+                            <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="v_x">數字</field>
+                                <value name="VALUE"><block type="interaction_answer"></block></value>
+                                <next>
+                                  <block type="controls_if">
+                                    <value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value>
+                                    <statement name="DO0">
+                                      <block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value>
+                                        <next><block type="variables_set"><field name="VAR" id="v_pos">位置</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="interaction_say">
+                            <value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_pos">位置</field></block></value></block></value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "EXT01-005",
@@ -227,7 +450,68 @@ export default {
                 ],
         "difficulty": "L3",
         "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_all">全部數字</variable><variable id="v_n">N</variable><variable id="v_min">最小值</variable><variable id="v_pos">位置</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N與N天溫度</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_pos">位置</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">3</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_pos">位置</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></statement></block></statement></block></statement><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_pos">位置</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_min">最小值</variable><variable id="v_pos">位置</variable><variable id="v_i">i</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N與N天溫度</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_min">最小值</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">999999</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="v_pos">位置</field>
+                    <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+                    <next>
+                      <block type="controls_for">
+                        <field name="VAR" id="v_i">i</field>
+                        <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+                        <value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                        <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                        <statement name="DO">
+                          <block type="interaction_ask_and_wait">
+                            <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="v_x">數字</field>
+                                <value name="VALUE"><block type="interaction_answer"></block></value>
+                                <next>
+                                  <block type="controls_if">
+                                    <value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value>
+                                    <statement name="DO0">
+                                      <block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value>
+                                        <next><block type="variables_set"><field name="VAR" id="v_pos">位置</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="interaction_say">
+                            <value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_pos">位置</field></block></value></block></value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "EXT01-006",
@@ -271,7 +555,70 @@ export default {
                 ],
         "difficulty": "L3",
         "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_all">全部數字</variable><variable id="v_n">N</variable><variable id="v_max">最大值</variable><variable id="v_second">次高分</variable><variable id="v_found2">已找到次高</variable><variable id="v_item">目前值</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N與N個成績</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">3</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></statement></block></statement></block></statement><next><block type="variables_set"><field name="VAR" id="v_second">次高分</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_found2">已找到次高</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_item">目前值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_item">目前值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value><statement name="DO0"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_found2">已找到次高</field></block></value><value name="B"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_second">次高分</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_item">目前值</field></block></value><next><block type="variables_set"><field name="VAR" id="v_found2">已找到次高</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value></block></next></block></statement><statement name="ELSE"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_item">目前值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_second">次高分</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_second">次高分</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_item">目前值</field></block></value></block></statement></block></statement></block></statement></block></next></block></statement><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_second">次高分</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_x">目前值</variable><variable id="v_max">最大值</variable><variable id="v_second">次高分</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N與N個成績</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_max">最大值</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">-999999</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="v_second">次高分</field>
+                    <value name="VALUE"><block type="math_number"><field name="NUM">-999999</field></block></value>
+                    <next>
+                      <block type="controls_repeat_ext">
+                        <value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                        <statement name="DO">
+                          <block type="interaction_ask_and_wait">
+                            <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="v_x">目前值</field>
+                                <value name="VALUE"><block type="interaction_answer"></block></value>
+                                <next>
+                                  <block type="controls_if">
+                                    <mutation elseif="1"></mutation>
+                                    <value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">目前值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value>
+                                    <statement name="DO0">
+                                      <block type="variables_set"><field name="VAR" id="v_second">次高分</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value>
+                                        <next><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_x">目前值</field></block></value></block></next>
+                                      </block>
+                                    </statement>
+                                    <value name="IF1">
+                                      <block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">目前值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_second">次高分</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">目前值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value></block>
+                                    </value>
+                                    <statement name="DO1"><block type="variables_set"><field name="VAR" id="v_second">次高分</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_x">目前值</field></block></value></block></statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="interaction_say">
+                            <value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_second">次高分</field></block></value></block></value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "EXT01-007",
@@ -315,7 +662,78 @@ export default {
                 ],
         "difficulty": "L3",
         "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_all">全部數字</variable><variable id="v_n">N</variable><variable id="v_prev">前一個</variable><variable id="v_maxdiff">最大差</variable><variable id="v_cur">目前值</variable><variable id="v_diff">差值</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N與N個數字</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_prev">前一個</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_maxdiff">最大差</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">3</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_cur">目前值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_diff">差值</field><value name="VALUE"><block type="math_single"><field name="OP">ABS</field><value name="NUM"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cur">目前值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_prev">前一個</field></block></value></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_diff">差值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_maxdiff">最大差</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_maxdiff">最大差</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_diff">差值</field></block></value></block></statement><next><block type="variables_set"><field name="VAR" id="v_prev">前一個</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_cur">目前值</field></block></value></block></next></block></next></block></next></block></statement></block></statement><next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_maxdiff">最大差</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_cur">目前值</variable><variable id="v_prev">前一個</variable><variable id="v_maxdiff">最大差</variable><variable id="v_first">是否第一筆</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N與N個數字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_maxdiff">最大差</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="v_first">是否第一筆</field>
+                    <value name="VALUE"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value>
+                    <next>
+                      <block type="controls_repeat_ext">
+                        <value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                        <statement name="DO">
+                          <block type="interaction_ask_and_wait">
+                            <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="v_cur">目前值</field>
+                                <value name="VALUE"><block type="interaction_answer"></block></value>
+                                <next>
+                                  <block type="controls_if">
+                                    <mutation else="1"></mutation>
+                                    <value name="IF0"><block type="variables_get"><field name="VAR" id="v_first">是否第一筆</field></block></value>
+                                    <statement name="DO0"><block type="variables_set"><field name="VAR" id="v_first">是否第一筆</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value></block></statement>
+                                    <statement name="ELSE">
+                                      <block type="controls_if">
+                                        <value name="IF0">
+                                          <block type="logic_compare">
+                                            <field name="OP">GT</field>
+                                            <value name="A"><block type="math_single"><field name="OP">ABS</field><value name="NUM"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cur">目前值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_prev">前一個</field></block></value></block></value></block></value>
+                                            <value name="B"><block type="variables_get"><field name="VAR" id="v_maxdiff">最大差</field></block></value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="variables_set">
+                                            <field name="VAR" id="v_maxdiff">最大差</field>
+                                            <value name="VALUE"><block type="math_single"><field name="OP">ABS</field><value name="NUM"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cur">目前值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_prev">前一個</field></block></value></block></value></block></value>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="variables_set"><field name="VAR" id="v_prev">前一個</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_cur">目前值</field></block></value></block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_maxdiff">最大差</field></block></value></block></next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "EXT01-008",
@@ -359,7 +777,103 @@ export default {
                 ],
         "difficulty": "L3",
         "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_all">全部數字</variable><variable id="v_n">N</variable><variable id="v_l">L</variable><variable id="v_r">R</variable><variable id="v_lidx">L索引</variable><variable id="v_ridx">R索引</variable><variable id="v_max">最大值</variable><variable id="v_i">i</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N、N個數字、L、R</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_l">L</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_r">R</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">3</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_lidx">L索引</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_l">L</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_ridx">R索引</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_r">R</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_lidx">L索引</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_ridx">R索引</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_lidx">L索引</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_lidx">L索引</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_ridx">R索引</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></statement></block></statement></block></statement><next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_l">L</variable><variable id="v_r">R</variable><variable id="v_max">最大值</variable><variable id="v_i">i</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N與N個數字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_all">全部數字</field>
+                <value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                    <statement name="DO">
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_x">數字</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="lists_setIndex">
+                                <mutation at="false"></mutation>
+                                <field name="MODE">INSERT</field>
+                                <field name="WHERE">LAST</field>
+                                <value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value>
+                                <value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT">請輸入L</field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_l">L</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="interaction_ask_and_wait">
+                                <value name="TEXT"><block type="text"><field name="TEXT">請輸入R</field></block></value>
+                                <next>
+                                  <block type="variables_set">
+                                    <field name="VAR" id="v_r">R</field>
+                                    <value name="VALUE"><block type="interaction_answer"></block></value>
+                                    <next>
+                                      <block type="variables_set">
+                                        <field name="VAR" id="v_max">最大值</field>
+                                        <value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_l">L</field></block></value></block></value>
+                                        <next>
+                                          <block type="controls_if">
+                                            <value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_r">R</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_l">L</field></block></value></block></value>
+                                            <statement name="DO0">
+                                              <block type="controls_for">
+                                                <field name="VAR" id="v_i">i</field>
+                                                <value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_l">L</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value>
+                                                <value name="TO"><block type="variables_get"><field name="VAR" id="v_r">R</field></block></value>
+                                                <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                                                <statement name="DO">
+                                                  <block type="controls_if">
+                                                    <value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value>
+                                                    <statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></statement>
+                                                  </block>
+                                                </statement>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       }
   ]
 };
