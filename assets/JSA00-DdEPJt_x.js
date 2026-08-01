@@ -1,0 +1,652 @@
+var e={code:`JSA00`,title:`基礎練習2`,type:`programming`,mode:`learning`,description:``,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-01T13:28:18+08:00`,sourceCsv:`data\\problem_bank_master_complete.csv`,version:`PB05-4B`},tasks:[{id:`A-08-0`,title:`查找最大值`,problemTitle:`查找最大值`,courseCode:`JSA00`,courseName:`基礎練習2`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分。
+
+輸入第一行是整數 N，代表有 N 筆成績
+
+第二行輸入 N 個數字，數字間以空白間隔
+
+程式輸出最大值。
+這樣的練習可以幫助你處理一串資料，並找出其中的最大值。`,inputDescription:``,outputDescription:``,statement:{description:`老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分。
+
+輸入第一行是整數 N，代表有 N 筆成績
+
+第二行輸入 N 個數字，數字間以空白間隔
+
+程式輸出最大值。
+這樣的練習可以幫助你處理一串資料，並找出其中的最大值。`,input:``,output:``},examples:[{input:`3
+9 6 8`,output:`9`,explanation:`第一行輸入3，表示有3個數字要輸入
+第二行輸入9 6 8三個數字序列
+程式運算輸出最大值9`},{input:`6
+99 12 129 16 8`,output:`129`,explanation:`第一行輸入6，表示有6個數字要輸入
+第二行輸入99 12 129 16 8 3六個數字序列
+程式運算輸出最大值129`}],testCases:[{input:`3
+9 6 8`,expectedOutput:`9`,output:`9`,score:10,hidden:!1},{input:`6
+99 12 129 16 8 3`,expectedOutput:`129`,output:`129`,score:10,hidden:!1},{input:`5
+89 15 47 0 56`,expectedOutput:`89`,output:`89`,score:10,hidden:!1},{input:`1
+25`,expectedOutput:`25`,output:`25`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_n">N</variable>
+    <variable id="var_max">最大值</variable>
+    <variable id="var_current">目前數值</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入資料筆數 N</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="var_max">最大值</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">-999999</field></block></value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+                    <statement name="DO">
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="var_current">目前數值</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="controls_if">
+                                <value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="var_current">目前數值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_max">最大值</field></block></value></block></value>
+                                <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_max">最大值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_current">目前數值</field></block></value></block></statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_max">最大值</field></block></value></block></next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`迴圈與累計`],subConcepts:[`重複運算`],algorithm:[`迭代`],dataStructure:[],syntax:[`for`,`while`,`累加變數`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-08-1`,title:`查找最大值、最小值`,problemTitle:`查找最大值、最小值`,courseCode:`JSA00`,courseName:`基礎練習2`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分及最低分。
+
+輸入第一行是整數 N，代表有 N 筆成績
+
+第二行輸入 N 個數字，數字間以空白間隔
+
+程式輸出最大值及最小值。
+這樣的練習可以幫助你處理一串資料，並同時找出其中的最大值、最小值。`,inputDescription:``,outputDescription:``,statement:{description:`老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分及最低分。
+
+輸入第一行是整數 N，代表有 N 筆成績
+
+第二行輸入 N 個數字，數字間以空白間隔
+
+程式輸出最大值及最小值。
+這樣的練習可以幫助你處理一串資料，並同時找出其中的最大值、最小值。`,input:``,output:``},examples:[{input:`3
+9 6 8`,output:`9
+6`,explanation:`第一行輸入3，表示有3個數字要輸入
+第二行輸入9 6 8三個數字序列
+程式運算輸出最大值9，最小值6`},{input:`6
+99 12 129 16 8 3`,output:`129
+3`,explanation:`第一行輸入6，表示有6個數字要輸入
+第二行輸入99 12 129 16 8 3六個數字序列
+程式運算輸出最大值129，最小值3`}],testCases:[{input:`3
+9 6 8`,expectedOutput:`9 6`,output:`9 6`,score:10,hidden:!1},{input:`6
+99 12 129 16 8 3`,expectedOutput:`129 3`,output:`129 3`,score:10,hidden:!1},{input:`5
+89 15 47 0 56`,expectedOutput:`89 0`,output:`89 0`,score:10,hidden:!1},{input:`1
+25`,expectedOutput:`25 25`,output:`25 25`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`迴圈與累計`],subConcepts:[`重複運算`],algorithm:[`迭代`],dataStructure:[],syntax:[`for`,`while`,`累加變數`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-09-0`,title:`判斷質數`,problemTitle:`判斷質數`,courseCode:`JSA00`,courseName:`基礎練習2`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`質數是大於 1 且只能被 1 和自己整除的數字。
+請寫一個程式，輸入一個整數 N，判斷它是否為質數。
+
+若是質數輸出 Yes，否則輸出 No。
+
+這題訓練你使用條件與迴圈判斷。`,inputDescription:``,outputDescription:``,statement:{description:`質數是大於 1 且只能被 1 和自己整除的數字。
+請寫一個程式，輸入一個整數 N，判斷它是否為質數。
+
+若是質數輸出 Yes，否則輸出 No。
+
+這題訓練你使用條件與迴圈判斷。`,input:``,output:``},examples:[{input:`1`,output:`No`,explanation:`第一行輸入1
+電腦運算判斷1不是質數
+程式運算輸出No`},{input:`2`,output:`Yes`,explanation:`第一行輸入2
+電腦運算判斷2是質數
+程式運算輸出Yes`},{input:`7`,output:`Yes`,explanation:`第一行輸入7
+電腦運算判斷7是質數
+程式運算輸出Yes`},{input:`6`,output:`No`,explanation:`第一行輸入6
+電腦運算判斷6可被2整除，不是質數
+程式運算輸出No`}],testCases:[{input:`1`,expectedOutput:`No`,output:`No`,score:10,hidden:!1},{input:`2`,expectedOutput:`Yes`,output:`Yes`,score:10,hidden:!1},{input:`1007`,expectedOutput:`No`,output:`No`,score:10,hidden:!1},{input:`997`,expectedOutput:`Yes`,output:`Yes`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_n">N</variable>
+    <variable id="var_i">i</variable>
+    <variable id="var_is_prime">是否為質數</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入一個整數</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="var_is_prime">是否為質數</field>
+                <value name="VALUE"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value>
+                <next>
+                  <block type="controls_if">
+                    <value name="IF0">
+                      <block type="logic_compare">
+                        <field name="OP">LTE</field>
+                        <value name="A"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+                        <value name="B"><block type="math_number"><field name="NUM">1</field></block></value>
+                      </block>
+                    </value>
+                    <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_is_prime">是否為質數</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value></block></statement>
+                    <next>
+                      <block type="controls_if">
+                        <value name="IF0">
+                          <block type="logic_compare">
+                            <field name="OP">GT</field>
+                            <value name="A"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+                            <value name="B"><block type="math_number"><field name="NUM">2</field></block></value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="controls_for">
+                            <field name="VAR" id="var_i">i</field>
+                            <value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value>
+                            <value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value>
+                            <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                            <statement name="DO">
+                              <block type="controls_if">
+                                <value name="IF0">
+                                  <block type="logic_compare">
+                                    <field name="OP">EQ</field>
+                                    <value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value></block></value>
+                                    <value name="B"><block type="math_number"><field name="NUM">0</field></block></value>
+                                  </block>
+                                </value>
+                                <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_is_prime">是否為質數</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value></block></statement>
+                              </block>
+                            </statement>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="controls_if">
+                            <mutation else="1"></mutation>
+                            <value name="IF0"><block type="variables_get"><field name="VAR" id="var_is_prime">是否為質數</field></block></value>
+                            <statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Yes</field></block></value></block></statement>
+                            <statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">No</field></block></value></block></statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`數學運算與數論`],subConcepts:[`整數性質`],algorithm:[`枚舉`,`輾轉相除`],dataStructure:[],syntax:[`取餘數`,`迴圈`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-09-1`,title:`找因數`,problemTitle:`找因數`,courseCode:`JSA00`,courseName:`基礎練習2`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`因數是指一個整數能被另一整數「整除」時，這個「除數」就是「被除數」的因數。
+
+0不是任何整數的因數。1是所有整數的因數。
+
+請寫一個程式，輸入一個整數 N，請找出N所有的因數。
+
+所有因數以空白符號間格
+
+這題訓練你使用條件與迴圈判斷。`,inputDescription:``,outputDescription:``,statement:{description:`因數是指一個整數能被另一整數「整除」時，這個「除數」就是「被除數」的因數。
+
+0不是任何整數的因數。1是所有整數的因數。
+
+請寫一個程式，輸入一個整數 N，請找出N所有的因數。
+
+所有因數以空白符號間格
+
+這題訓練你使用條件與迴圈判斷。`,input:``,output:``},examples:[{input:`12`,output:`1 2 3 4 6 12`,explanation:`第一行輸入12
+程式輸出12所有因數1 2 3 4 6 12`},{input:`39`,output:`1 3 13 39`,explanation:`第一行輸入39
+程式輸出39所有因數1 3 13 39`}],testCases:[{input:`56`,expectedOutput:`1 2 4 7 8 14 28 56`,output:`1 2 4 7 8 14 28 56`,score:10,hidden:!1},{input:`37`,expectedOutput:`1 37`,output:`1 37`,score:10,hidden:!1},{input:`78`,expectedOutput:`1 2 3 6 13 26 39 78`,output:`1 2 3 6 13 26 39 78`,score:10,hidden:!1},{input:`88`,expectedOutput:`1 2 4 8 11 22 44 88`,output:`1 2 4 8 11 22 44 88`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`數學運算與數論`],subConcepts:[`整數性質`],algorithm:[`枚舉`,`輾轉相除`],dataStructure:[],syntax:[`取餘數`,`迴圈`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-10-0`,title:`多科成績計算`,problemTitle:`多科成績計算`,courseCode:`JSA00`,courseName:`基礎練習2`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`小明參加了數學、英文、自然...等多科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
+
+請設計程式，輸入多科的成績，計算總分與平均。
+
+第一行輸入共有幾科
+
+第二行依序輸入各科成績，科成績之間以空白間隔
+
+計算總分，平均成績以四捨五入取整數
+
+如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。
+
+這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,inputDescription:``,outputDescription:``,statement:{description:`小明參加了數學、英文、自然...等多科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
+
+請設計程式，輸入多科的成績，計算總分與平均。
+
+第一行輸入共有幾科
+
+第二行依序輸入各科成績，科成績之間以空白間隔
+
+計算總分，平均成績以四捨五入取整數
+
+如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。
+
+這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,input:``,output:``},examples:[{input:`3
+80 70 90`,output:`240
+80
+及格`,explanation:`第一行輸入3，表示後面會有3個數字輸入
+第二行輸入80 70 90，經過計算後
+總分180、平均80、及格`},{input:`6
+50 41 60 55 70 65`,output:`341
+57
+不及格`,explanation:`第一行輸入6，表示後面會有3個數字輸入
+第二行輸入50 41 60 55 70 65，經過計算後
+程式輸出總分341、平均57、不及格`}],testCases:[{input:`3
+20 60 90`,expectedOutput:`170 57 不及格`,output:`170 57 不及格`,score:10,hidden:!1},{input:`6
+50 41 60 55 70 65`,expectedOutput:`341 57 不及格`,output:`341 57 不及格`,score:10,hidden:!1},{input:`5
+80 70 75 85 90`,expectedOutput:`400 80 及格`,output:`400 80 及格`,score:10,hidden:!1},{input:`1
+55`,expectedOutput:`55 55 不及格`,output:`55 55 不及格`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_count">科目數</variable>
+    <variable id="var_score">目前成績</variable>
+    <variable id="var_total">總分</variable>
+    <variable id="var_avg">平均</variable>
+    <variable id="var_result">結果</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入科目數</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_count">科目數</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="var_total">總分</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="var_count">科目數</field></block></value>
+                    <statement name="DO">
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="var_score">目前成績</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="var_total">總分</field>
+                                <value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_score">目前成績</field></block></value></block></value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR" id="var_avg">平均</field>
+                        <value name="VALUE"><block type="math_round"><field name="OP">ROUND</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_count">科目數</field></block></value></block></value></block></value>
+                        <next>
+                          <block type="controls_if">
+                            <mutation else="1"></mutation>
+                            <value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value>
+                            <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_result">結果</field><value name="VALUE"><block type="text"><field name="TEXT">及格</field></block></value></block></statement>
+                            <statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_result">結果</field><value name="VALUE"><block type="text"><field name="TEXT">不及格</field></block></value></block></statement>
+                            <next>
+                              <block type="interaction_say">
+                                <value name="TEXT"><block type="text_join"><mutation items="5"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value><value name="ADD3"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD4"><block type="variables_get"><field name="VAR" id="var_result">結果</field></block></value></block></value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-11-0`,title:`計算字元出現次數`,problemTitle:`計算字元出現次數`,courseCode:`JSA00`,courseName:`基礎練習2`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`請設計程式，輸入一個字串，並輸入一個英文字母輸出該字母在字串中出現的次數。
+
+這樣的練習可以訓練你操作字串與統計。`,inputDescription:``,outputDescription:``,statement:{description:`請設計程式，輸入一個字串，並輸入一個英文字母輸出該字母在字串中出現的次數。
+
+這樣的練習可以訓練你操作字串與統計。`,input:``,output:``},examples:[{input:`banana
+a`,output:`3`,explanation:`第一行輸入banana
+第二行輸入字元a
+程式運算比對a出現3次
+程式輸出3`},{input:`student
+t`,output:`2`,explanation:`第一行輸入student
+第二行輸入字元t
+程式運算比對t出現2次
+程式輸出2`}],testCases:[{input:`Goodmoning
+o`,expectedOutput:`3`,output:`3`,score:10,hidden:!1},{input:`ChaiYiCity
+i`,expectedOutput:`3`,output:`3`,score:10,hidden:!1},{input:`announcement
+n`,expectedOutput:`4`,output:`4`,score:10,hidden:!1},{input:`experimen
+e`,expectedOutput:`3`,output:`3`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_word">字串</variable>
+    <variable id="var_target">目標字元</variable>
+    <variable id="var_count">出現次數</variable>
+    <variable id="var_i">i</variable>
+    <variable id="var_char">目前字元</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入字串</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_word">字串</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="interaction_ask_and_wait">
+                <value name="TEXT"><block type="text"><field name="TEXT">請輸入要統計的字元</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="var_target">目標字元</field>
+                    <value name="VALUE"><block type="interaction_answer"></block></value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR" id="var_count">出現次數</field>
+                        <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+                        <next>
+                          <block type="controls_for">
+                            <field name="VAR" id="var_i">i</field>
+                            <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+                            <value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_word">字串</field></block></value></block></value>
+                            <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                            <statement name="DO">
+                              <block type="variables_set">
+                                <field name="VAR" id="var_char">目前字元</field>
+                                <value name="VALUE">
+                                  <block type="text_charAt">
+                                    <mutation at="true"></mutation>
+                                    <field name="WHERE">FROM_START</field>
+                                    <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_word">字串</field></block></value>
+                                    <value name="AT"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="controls_if">
+                                    <value name="IF0">
+                                      <block type="logic_compare">
+                                        <field name="OP">EQ</field>
+                                        <value name="A"><block type="variables_get"><field name="VAR" id="var_char">目前字元</field></block></value>
+                                        <value name="B"><block type="variables_get"><field name="VAR" id="var_target">目標字元</field></block></value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="variables_set">
+                                        <field name="VAR" id="var_count">出現次數</field>
+                                        <value name="VALUE">
+                                          <block type="math_arithmetic">
+                                            <field name="OP">ADD</field>
+                                            <value name="A"><block type="variables_get"><field name="VAR" id="var_count">出現次數</field></block></value>
+                                            <value name="B"><block type="math_number"><field name="NUM">1</field></block></value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                            <next>
+                              <block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_count">出現次數</field></block></value></block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-12-0`,title:`簡易密碼轉換`,problemTitle:`簡易密碼轉換`,courseCode:`JSA00`,courseName:`基礎練習2`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`小明設計了一種簡單的密碼環密碼規則：將每個字母向後移二個字母（z 變 b）。
+
+密碼環：abcdefghijklmnopqrstuvwxyz
+
+請寫一個程式，輸入一個英文單字，輸出轉換後的字串。
+
+這樣的練習訓練你字元處理與條件轉換。`,inputDescription:``,outputDescription:``,statement:{description:`小明設計了一種簡單的密碼環密碼規則：將每個字母向後移二個字母（z 變 b）。
+
+密碼環：abcdefghijklmnopqrstuvwxyz
+
+請寫一個程式，輸入一個英文單字，輸出轉換後的字串。
+
+這樣的練習訓練你字元處理與條件轉換。`,input:``,output:``},examples:[{input:`banana`,output:`dcpcpc`,explanation:`第一行輸入banana
+程式運算，將字串往後移2個位置加密
+程式輸出dcpcpc`},{input:`student`,output:`uvwfgpv`,explanation:`第一行輸入student
+程式運算，將字串往後移2個位置加密
+程式輸出uvwfgpv`}],testCases:[{input:`goodmoning`,expectedOutput:`iqqfoqpkpi`,output:`iqqfoqpkpi`,score:10,hidden:!1},{input:`chaiyicity`,expectedOutput:`ejckakekva`,output:`ejckakekva`,score:10,hidden:!1},{input:`announcement`,expectedOutput:`cppqwpegogpv`,output:`cppqwpegogpv`,score:10,hidden:!1},{input:`experimen`,expectedOutput:`gzrgtkogp`,output:`gzrgtkogp`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_word">原始字串</variable>
+    <variable id="var_ring">密碼環</variable>
+    <variable id="var_result">轉換結果</variable>
+    <variable id="var_i">i</variable>
+    <variable id="var_char">目前字元</variable>
+    <variable id="var_pos">目前位置</variable>
+    <variable id="var_newpos">新位置</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="variables_set">
+        <field name="VAR" id="var_ring">密碼環</field>
+        <value name="VALUE"><block type="text"><field name="TEXT">abcdefghijklmnopqrstuvwxyz</field></block></value>
+        <next>
+          <block type="interaction_ask_and_wait">
+            <value name="TEXT"><block type="text"><field name="TEXT">請輸入英文單字</field></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="var_word">原始字串</field>
+                <value name="VALUE"><block type="interaction_answer"></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="var_result">轉換結果</field>
+                    <value name="VALUE"><block type="text"><field name="TEXT"></field></block></value>
+                    <next>
+                      <block type="controls_for">
+                        <field name="VAR" id="var_i">i</field>
+                        <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+                        <value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_word">原始字串</field></block></value></block></value>
+                        <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                        <statement name="DO">
+                          <block type="variables_set">
+                            <field name="VAR" id="var_char">目前字元</field>
+                            <value name="VALUE">
+                              <block type="text_charAt">
+                                <mutation at="true"></mutation>
+                                <field name="WHERE">FROM_START</field>
+                                <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_word">原始字串</field></block></value>
+                                <value name="AT"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="var_pos">目前位置</field>
+                                <value name="VALUE">
+                                  <block type="text_indexOf">
+                                    <field name="END">FIRST</field>
+                                    <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_ring">密碼環</field></block></value>
+                                    <value name="FIND"><block type="variables_get"><field name="VAR" id="var_char">目前字元</field></block></value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set">
+                                    <field name="VAR" id="var_newpos">新位置</field>
+                                    <value name="VALUE">
+                                      <block type="math_arithmetic">
+                                        <field name="OP">ADD</field>
+                                        <value name="A"><block type="variables_get"><field name="VAR" id="var_pos">目前位置</field></block></value>
+                                        <value name="B"><block type="math_number"><field name="NUM">2</field></block></value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="controls_if">
+                                        <value name="IF0">
+                                          <block type="logic_compare">
+                                            <field name="OP">GT</field>
+                                            <value name="A"><block type="variables_get"><field name="VAR" id="var_newpos">新位置</field></block></value>
+                                            <value name="B"><block type="math_number"><field name="NUM">26</field></block></value>
+                                          </block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="variables_set">
+                                            <field name="VAR" id="var_newpos">新位置</field>
+                                            <value name="VALUE">
+                                              <block type="math_arithmetic">
+                                                <field name="OP">MINUS</field>
+                                                <value name="A"><block type="variables_get"><field name="VAR" id="var_newpos">新位置</field></block></value>
+                                                <value name="B"><block type="math_number"><field name="NUM">26</field></block></value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </statement>
+                                        <next>
+                                          <block type="variables_set">
+                                            <field name="VAR" id="var_result">轉換結果</field>
+                                            <value name="VALUE">
+                                              <block type="text_join">
+                                                <mutation items="2"></mutation>
+                                                <value name="ADD0"><block type="variables_get"><field name="VAR" id="var_result">轉換結果</field></block></value>
+                                                <value name="ADD1">
+                                                  <block type="text_charAt">
+                                                    <mutation at="true"></mutation>
+                                                    <field name="WHERE">FROM_START</field>
+                                                    <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_ring">密碼環</field></block></value>
+                                                    <value name="AT"><block type="variables_get"><field name="VAR" id="var_newpos">新位置</field></block></value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </statement>
+                        <next>
+                          <block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_result">轉換結果</field></block></value></block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-13-0`,title:`二數的最大公因數`,problemTitle:`二數的最大公因數`,courseCode:`JSA00`,courseName:`基礎練習2`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`小明上學時，不太會找最大公因數，請寫個程式幫他找一下
+輸入二個整數，請計算這二個數字的最大公因數`,inputDescription:`輸入2行
+第一行輸入第1個整數N
+第二行輸入地2個整數M
+程式運算找出二數的最大公因數並輸出`,outputDescription:``,statement:{description:`小明上學時，不太會找最大公因數，請寫個程式幫他找一下
+輸入二個整數，請計算這二個數字的最大公因數`,input:`輸入2行
+第一行輸入第1個整數N
+第二行輸入地2個整數M
+程式運算找出二數的最大公因數並輸出`,output:``},examples:[{input:`9
+6`,output:`3`,explanation:`第一行輸入9，
+第二行輸入6，
+程式輸出6、9二個數的最大公因數3`},{input:`30
+72`,output:`6`,explanation:`第一行輸入30，
+第二行輸入72
+程式輸出30，72二個數的最大公因數6`}],testCases:[{input:`12
+6`,expectedOutput:`6`,output:`6`,score:10,hidden:!1},{input:`34
+52`,expectedOutput:`2`,output:`2`,score:10,hidden:!1},{input:`24
+18`,expectedOutput:`6`,output:`6`,score:10,hidden:!1},{input:`1
+8`,expectedOutput:`1`,output:`1`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_a">第一個數</variable>
+    <variable id="var_b">第二個數</variable>
+    <variable id="var_limit">較小值</variable>
+    <variable id="var_gcd">最大公因數</variable>
+    <variable id="var_i">i</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入第一個整數</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_a">第一個數</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="interaction_ask_and_wait">
+                <value name="TEXT"><block type="text"><field name="TEXT">請輸入第二個整數</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="var_b">第二個數</field>
+                    <value name="VALUE"><block type="interaction_answer"></block></value>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR" id="var_gcd">最大公因數</field>
+                        <value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value>
+                        <next>
+                          <block type="controls_if">
+                            <mutation else="1"></mutation>
+                            <value name="IF0">
+                              <block type="logic_compare">
+                                <field name="OP">LT</field>
+                                <value name="A"><block type="variables_get"><field name="VAR" id="var_a">第一個數</field></block></value>
+                                <value name="B"><block type="variables_get"><field name="VAR" id="var_b">第二個數</field></block></value>
+                              </block>
+                            </value>
+                            <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_limit">較小值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_a">第一個數</field></block></value></block></statement>
+                            <statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_limit">較小值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_b">第二個數</field></block></value></block></statement>
+                            <next>
+                              <block type="controls_for">
+                                <field name="VAR" id="var_i">i</field>
+                                <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+                                <value name="TO"><block type="variables_get"><field name="VAR" id="var_limit">較小值</field></block></value>
+                                <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                                <statement name="DO">
+                                  <block type="controls_if">
+                                    <value name="IF0">
+                                      <block type="logic_operation">
+                                        <field name="OP">AND</field>
+                                        <value name="A"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_a">第一個數</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+                                        <value name="B"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_b">第二個數</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_gcd">最大公因數</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value></block></statement>
+                                  </block>
+                                </statement>
+                                <next>
+                                  <block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_gcd">最大公因數</field></block></value></block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`數學運算與數論`],subConcepts:[`整數性質`],algorithm:[`枚舉`,`輾轉相除`],dataStructure:[],syntax:[`取餘數`,`迴圈`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}}]};export{e as default};
