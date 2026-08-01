@@ -56,7 +56,35 @@ export default {
                 ],
         "difficulty": "L1",
         "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_name">名字</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_name">名字</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入你的名字</field></shadow></value></block></value><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT">Hello, </field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_name">名字</field></block></value></block></value></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_name">名字</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入名字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_name">名字</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="interaction_say">
+                <value name="TEXT">
+                  <block type="text_join">
+                    <mutation items="2"></mutation>
+                    <value name="ADD0"><block type="text"><field name="TEXT">Hello, </field></block></value>
+                    <value name="ADD1"><block type="variables_get"><field name="VAR" id="var_name">名字</field></block></value>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "A-01-1",
@@ -105,7 +133,59 @@ export default {
                 ],
         "difficulty": "L1",
         "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n1">朋友一</variable><variable id="v_n2">朋友二</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_n1">朋友一</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入朋友一名字</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n2">朋友二</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入朋友二名字</field></shadow></value></block></value><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_n1">朋友一</field></block></value><value name="ADD1"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT">, </field></block></value><value name="ADD1"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_n2">朋友二</field></block></value><value name="ADD1"><block type="text"><field name="TEXT">, 一起學習吧！</field></block></value></block></value></block></value></block></value></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_n1">朋友一</variable>
+    <variable id="var_n2">朋友二</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入朋友一名字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_n1">朋友一</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="interaction_ask_and_wait">
+                <value name="TEXT"><block type="text"><field name="TEXT">請輸入朋友二名字</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="var_n2">朋友二</field>
+                    <value name="VALUE"><block type="interaction_answer"></block></value>
+                    <next>
+                      <block type="interaction_say">
+                        <value name="TEXT">
+                          <block type="text_join">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0"><block type="variables_get"><field name="VAR" id="var_n1">朋友一</field></block></value>
+                            <value name="ADD1">
+                              <block type="text_join">
+                                <mutation items="2"></mutation>
+                                <value name="ADD0"><block type="text"><field name="TEXT">, </field></block></value>
+                                <value name="ADD1">
+                                  <block type="text_join">
+                                    <mutation items="2"></mutation>
+                                    <value name="ADD0"><block type="variables_get"><field name="VAR" id="var_n2">朋友二</field></block></value>
+                                    <value name="ADD1"><block type="text"><field name="TEXT">, 一起學習吧！</field></block></value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "A-02-0",
@@ -154,7 +234,47 @@ export default {
                 ],
         "difficulty": "L1",
         "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_a">甲</variable><variable id="v_b">乙</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_a">甲</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入第一個數字</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_b">乙</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入第二個數字</field></shadow></value></block></value><next><block type="text_print"><value name="TEXT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_a">數字一</variable>
+    <variable id="var_b">數字二</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入第一個數字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_a">數字一</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="interaction_ask_and_wait">
+                <value name="TEXT"><block type="text"><field name="TEXT">請輸入第二個數字</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="var_b">數字二</field>
+                    <value name="VALUE"><block type="interaction_answer"></block></value>
+                    <next>
+                      <block type="interaction_say">
+                        <value name="TEXT">
+                          <block type="math_arithmetic">
+                            <field name="OP">ADD</field>
+                            <value name="A"><block type="variables_get"><field name="VAR" id="var_a">數字一</field></block></value>
+                            <value name="B"><block type="variables_get"><field name="VAR" id="var_b">數字二</field></block></value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "A-02-1",
@@ -203,7 +323,52 @@ export default {
                 ],
         "difficulty": "L1",
         "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_a">甲</variable><variable id="v_b">乙</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_a">甲</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入第一個數字</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_b">乙</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入第二個數字</field></shadow></value></block></value><next><block type="text_print"><value name="TEXT"><block type="math_round"><field name="OP">ROUND</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value></block></value></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_a">甲</variable>
+    <variable id="var_b">乙</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入第一個數字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_a">甲</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="interaction_ask_and_wait">
+                <value name="TEXT"><block type="text"><field name="TEXT">請輸入第二個數字</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="var_b">乙</field>
+                    <value name="VALUE"><block type="interaction_answer"></block></value>
+                    <next>
+                      <block type="interaction_say">
+                        <value name="TEXT">
+                          <block type="math_round">
+                            <field name="OP">ROUND</field>
+                            <value name="NUM">
+                              <block type="math_arithmetic">
+                                <field name="OP">DIVIDE</field>
+                                <value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_b">乙</field></block></value></block></value>
+                                <value name="B"><block type="math_number"><field name="NUM">2</field></block></value>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "A-03-0",
@@ -252,7 +417,50 @@ export default {
                 ],
         "difficulty": "L1",
         "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_a">甲</variable><variable id="v_b">乙</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_a">甲</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入第一個數字</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_b">乙</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入第二個數字</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">一樣大</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></statement></block></statement></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_a">數字一</variable>
+    <variable id="var_b">數字二</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入第一個數字</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_a">數字一</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="interaction_ask_and_wait">
+                <value name="TEXT"><block type="text"><field name="TEXT">請輸入第二個數字</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="var_b">數字二</field>
+                    <value name="VALUE"><block type="interaction_answer"></block></value>
+                    <next>
+                      <block type="controls_if">
+                        <mutation elseif="1" else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="var_a">數字一</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_b">數字二</field></block></value></block>
+                        </value>
+                        <statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_a">數字一</field></block></value></block></statement>
+                        <value name="IF1">
+                          <block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="var_a">數字一</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_b">數字二</field></block></value></block>
+                        </value>
+                        <statement name="DO1"><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_b">數字二</field></block></value></block></statement>
+                        <statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">一樣大</field></block></value></block></statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "A-03-1",
@@ -306,7 +514,55 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_m">M台斤</variable><variable id="v_n">N公斤</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_m">M台斤</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入台斤重量</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N公斤</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入公斤重量</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_m">M台斤</field></block></value><value name="B"><block type="math_number"><field name="NUM">6</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N公斤</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">一樣重</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_m">M台斤</field></block></value><value name="B"><block type="math_number"><field name="NUM">6</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N公斤</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_m">M台斤</field></block></value><value name="ADD1"><block type="text"><field name="TEXT">台斤</field></block></value></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_n">N公斤</field></block></value><value name="ADD1"><block type="text"><field name="TEXT">公斤</field></block></value></block></value></block></statement></block></statement></block></next></block></next></block></xml>`
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_m">M台斤</variable>
+    <variable id="var_n">N公斤</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入台斤重量</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_m">M台斤</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="interaction_ask_and_wait">
+                <value name="TEXT"><block type="text"><field name="TEXT">請輸入公斤重量</field></block></value>
+                <next>
+                  <block type="variables_set">
+                    <field name="VAR" id="var_n">N公斤</field>
+                    <value name="VALUE"><block type="interaction_answer"></block></value>
+                    <next>
+                      <block type="controls_if">
+                        <mutation elseif="0" else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="var_m">M台斤</field></block></value><value name="B"><block type="math_number"><field name="NUM">6</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="var_n">N公斤</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block>
+                        </value>
+                        <statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">一樣重</field></block></value></block></statement>
+                        <statement name="ELSE">
+                          <block type="controls_if">
+                            <mutation elseif="0" else="1"></mutation>
+                            <value name="IF0">
+                              <block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="var_m">M台斤</field></block></value><value name="B"><block type="math_number"><field name="NUM">6</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="var_n">N公斤</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block>
+                            </value>
+                            <statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_m">M台斤</field></block></value><value name="ADD1"><block type="text"><field name="TEXT">台斤</field></block></value></block></value></block></statement>
+                            <statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_n">N公斤</field></block></value><value name="ADD1"><block type="text"><field name="TEXT">公斤</field></block></value></block></value></block></statement>
+                          </block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       }
   ]
 };
