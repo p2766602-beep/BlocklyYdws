@@ -9,521 +9,533 @@ export default {
   "mode": "learning",
   "tier": "t0",
   "tasks": [
-    {
-      "id": "BSC01-001",
-      "title": "及格或不及格",
-      "description": "給定一位學生的分數，請判斷是否及格。分數大於或等於 60 分為及格。",
-      "inputDescription": "輸入一個整數 S，代表分數。",
-      "outputDescription": "若 S 大於或等於 60，輸出 PASS；否則輸出 FAIL。",
-      "examples": [
-        {
-          "input": "75",
-          "output": "PASS",
-          "explanation": "75 大於等於 60，所以及格。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "75",
-          "expectedOutput": "PASS",
-          "output": "PASS",
-          "score": 0
-        },
-        {
-          "input": "60",
-          "expectedOutput": "PASS",
-          "output": "PASS",
-          "score": 0
-        },
-        {
-          "input": "59",
-          "expectedOutput": "FAIL",
-          "output": "FAIL",
-          "score": 0
-        },
-        {
-          "input": "0",
-          "expectedOutput": "FAIL",
-          "output": "FAIL",
-          "score": 0
-        }
-      ],
-      "difficulty": "L1",
-      "difficultyLabel": "L1｜基礎",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_score">分數</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_score">分數</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入分數</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_score">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">PASS</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">FAIL</field></block></value></block></statement></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-002",
-      "title": "比較兩個數",
-      "description": "給定兩個整數，請判斷第一個數和第二個數的大小關係。",
-      "inputDescription": "輸入兩個整數 A 與 B。",
-      "outputDescription": "若 A 大於 B，輸出 A；若 B 大於 A，輸出 B；若兩者相等，輸出 SAME。",
-      "examples": [
-        {
-          "input": "8 5",
-          "output": "A",
-          "explanation": "8 大於 5，所以輸出 A。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "8 5",
-          "expectedOutput": "A",
-          "output": "A",
-          "score": 0
-        },
-        {
-          "input": "3 12",
-          "expectedOutput": "B",
-          "output": "B",
-          "score": 0
-        },
-        {
-          "input": "7 7",
-          "expectedOutput": "SAME",
-          "output": "SAME",
-          "score": 0
-        },
-        {
-          "input": "-2 -5",
-          "expectedOutput": "A",
-          "output": "A",
-          "score": 0
-        }
-      ],
-      "difficulty": "L1",
-      "difficultyLabel": "L1｜基礎",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_list">數值清單</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入兩個整數</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_list">數值清單</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">A</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">B</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">SAME</field></block></value></block></statement></block></statement></block></next></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-003",
-      "title": "判斷奇偶數",
-      "description": "給定一個整數，請判斷它是奇數或偶數。",
-      "inputDescription": "輸入一個整數 N。",
-      "outputDescription": "若 N 是偶數，輸出 EVEN；若 N 是奇數，輸出 ODD。",
-      "examples": [
-        {
-          "input": "14",
-          "output": "EVEN",
-          "explanation": "14 可以被 2 整除，所以是偶數。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "14",
-          "expectedOutput": "EVEN",
-          "output": "EVEN",
-          "score": 0
-        },
-        {
-          "input": "9",
-          "expectedOutput": "ODD",
-          "output": "ODD",
-          "score": 0
-        },
-        {
-          "input": "0",
-          "expectedOutput": "EVEN",
-          "output": "EVEN",
-          "score": 0
-        },
-        {
-          "input": "101",
-          "expectedOutput": "ODD",
-          "output": "ODD",
-          "score": 0
-        }
-      ],
-      "difficulty": "L1",
-      "difficultyLabel": "L1｜基礎",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">N</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">N</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入一個整數</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">EVEN</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">ODD</field></block></value></block></statement></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-008",
-      "title": "是否為閏年簡化版",
-      "description": "簡化閏年規則：若年份可以被 4 整除，視為閏年；否則不是閏年。",
-      "inputDescription": "輸入一個整數 Y，代表年份。",
-      "outputDescription": "若 Y 可以被 4 整除，輸出 LEAP；否則輸出 COMMON。",
-      "examples": [
-        {
-          "input": "2024",
-          "output": "LEAP",
-          "explanation": "2024 可以被 4 整除。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "2024",
-          "expectedOutput": "LEAP",
-          "output": "LEAP",
-          "score": 0
-        },
-        {
-          "input": "2025",
-          "expectedOutput": "COMMON",
-          "output": "COMMON",
-          "score": 0
-        },
-        {
-          "input": "2000",
-          "expectedOutput": "LEAP",
-          "output": "LEAP",
-          "score": 0
-        },
-        {
-          "input": "1999",
-          "expectedOutput": "COMMON",
-          "output": "COMMON",
-          "score": 0
-        }
-      ],
-      "difficulty": "L1",
-      "difficultyLabel": "L1｜基礎",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">年份</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">年份</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入年份</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_x">年份</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">4</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">LEAP</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">COMMON</field></block></value></block></statement></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-012",
-      "title": "密碼長度檢查",
-      "description": "系統要求密碼長度至少 8 個字元。給定密碼長度，請判斷是否符合規定。",
-      "inputDescription": "輸入一個整數 L，代表密碼長度。",
-      "outputDescription": "若 L 大於或等於 8，輸出 OK；否則輸出 SHORT。",
-      "examples": [
-        {
-          "input": "6",
-          "output": "SHORT",
-          "explanation": "6 小於 8，密碼太短。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "6",
-          "expectedOutput": "SHORT",
-          "output": "SHORT",
-          "score": 0
-        },
-        {
-          "input": "8",
-          "expectedOutput": "OK",
-          "output": "OK",
-          "score": 0
-        },
-        {
-          "input": "12",
-          "expectedOutput": "OK",
-          "output": "OK",
-          "score": 0
-        },
-        {
-          "input": "1",
-          "expectedOutput": "SHORT",
-          "output": "SHORT",
-          "score": 0
-        }
-      ],
-      "difficulty": "L1",
-      "difficultyLabel": "L1｜基礎",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">長度</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">長度</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入密碼長度</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">長度</field></block></value><value name="B"><block type="math_number"><field name="NUM">8</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">SHORT</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">OK</field></block></value></block></statement></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-004",
-      "title": "門票優惠判斷",
-      "description": "某遊樂園規定，年齡小於 12 歲或大於等於 65 歲可以購買優惠票，其餘為一般票。",
-      "inputDescription": "輸入一個整數 A，代表年齡。",
-      "outputDescription": "若可購買優惠票，輸出 DISCOUNT；否則輸出 NORMAL。",
-      "examples": [
-        {
-          "input": "10",
-          "output": "DISCOUNT",
-          "explanation": "10 歲小於 12 歲，可以購買優惠票。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "10",
-          "expectedOutput": "DISCOUNT",
-          "output": "DISCOUNT",
-          "score": 0
-        },
-        {
-          "input": "12",
-          "expectedOutput": "NORMAL",
-          "output": "NORMAL",
-          "score": 0
-        },
-        {
-          "input": "64",
-          "expectedOutput": "NORMAL",
-          "output": "NORMAL",
-          "score": 0
-        },
-        {
-          "input": "65",
-          "expectedOutput": "DISCOUNT",
-          "output": "DISCOUNT",
-          "score": 0
-        }
-      ],
-      "difficulty": "L2",
-      "difficultyLabel": "L2｜進階",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">年齡</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">年齡</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入年齡</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_operation"><field name="OP">OR</field><value name="A"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">12</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">65</field></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">DISCOUNT</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">NORMAL</field></block></value></block></statement></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-005",
-      "title": "溫度警示",
-      "description": "給定目前溫度，請判斷天氣狀態。低於 18 度為 COLD，18 到 27 度為 OK，高於 27 度為 HOT。",
-      "inputDescription": "輸入一個整數 T，代表溫度。",
-      "outputDescription": "依規則輸出 COLD、OK 或 HOT。",
-      "examples": [
-        {
-          "input": "30",
-          "output": "HOT",
-          "explanation": "30 高於 27，所以輸出 HOT。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "15",
-          "expectedOutput": "COLD",
-          "output": "COLD",
-          "score": 0
-        },
-        {
-          "input": "18",
-          "expectedOutput": "OK",
-          "output": "OK",
-          "score": 0
-        },
-        {
-          "input": "27",
-          "expectedOutput": "OK",
-          "output": "OK",
-          "score": 0
-        },
-        {
-          "input": "30",
-          "expectedOutput": "HOT",
-          "output": "HOT",
-          "score": 0
-        }
-      ],
-      "difficulty": "L2",
-      "difficultyLabel": "L2｜進階",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">溫度</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">溫度</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入溫度</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">溫度</field></block></value><value name="B"><block type="math_number"><field name="NUM">18</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">COLD</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">溫度</field></block></value><value name="B"><block type="math_number"><field name="NUM">27</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">HOT</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">OK</field></block></value></block></statement></block></statement></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-006",
-      "title": "成績等第",
-      "description": "給定一個分數，請依分數輸出等第。90 分以上為 A，80 到 89 為 B，70 到 79 為 C，60 到 69 為 D，未滿 60 為 F。",
-      "inputDescription": "輸入一個整數 S，代表分數。",
-      "outputDescription": "輸出一個字母，代表等第。",
-      "examples": [
-        {
-          "input": "86",
-          "output": "B",
-          "explanation": "86 介於 80 到 89，所以等第為 B。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "95",
-          "expectedOutput": "A",
-          "output": "A",
-          "score": 0
-        },
-        {
-          "input": "86",
-          "expectedOutput": "B",
-          "output": "B",
-          "score": 0
-        },
-        {
-          "input": "70",
-          "expectedOutput": "C",
-          "output": "C",
-          "score": 0
-        },
-        {
-          "input": "59",
-          "expectedOutput": "F",
-          "output": "F",
-          "score": 0
-        }
-      ],
-      "difficulty": "L2",
-      "difficultyLabel": "L2｜進階",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">分數</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">分數</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入分數</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">90</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">A</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">80</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">B</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">70</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">C</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">D</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">F</field></block></value></block></statement></block></statement></block></statement></block></statement></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-007",
-      "title": "三角形成立判斷",
-      "description": "給定三個正整數作為邊長，請判斷是否可以形成三角形。任兩邊和都必須大於第三邊。",
-      "inputDescription": "輸入三個正整數 A、B、C，代表三邊長。",
-      "outputDescription": "若可形成三角形，輸出 YES；否則輸出 NO。",
-      "examples": [
-        {
-          "input": "3 4 5",
-          "output": "YES",
-          "explanation": "3、4、5 可以形成三角形。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "3 4 5",
-          "expectedOutput": "YES",
-          "output": "YES",
-          "score": 0
-        },
-        {
-          "input": "1 2 3",
-          "expectedOutput": "NO",
-          "output": "NO",
-          "score": 0
-        },
-        {
-          "input": "5 5 9",
-          "expectedOutput": "YES",
-          "output": "YES",
-          "score": 0
-        },
-        {
-          "input": "2 2 5",
-          "expectedOutput": "NO",
-          "output": "NO",
-          "score": 0
-        }
-      ],
-      "difficulty": "L2",
-      "difficultyLabel": "L2｜進階",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_list">數值清單</variable><variable id="v_a">甲</variable><variable id="v_b">乙</variable><variable id="v_c">丙</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入三邊長</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_list">數值清單</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_a">甲</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_b">乙</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_c">丙</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">3</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_c">丙</field></block></value></block></value><value name="B"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_c">丙</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_c">丙</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">YES</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">NO</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-009",
-      "title": "購物免運費",
-      "description": "網路商店規定，購物金額大於或等於 1000 元可以免運費，否則需加收 80 元運費。請輸出最後應付金額。",
-      "inputDescription": "輸入一個整數 N，代表購物金額。",
-      "outputDescription": "輸出一個整數，代表最後應付金額。",
-      "examples": [
-        {
-          "input": "950",
-          "output": "1030",
-          "explanation": "950 未滿 1000，需加 80 元運費。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "950",
-          "expectedOutput": "1030",
-          "output": "1030",
-          "score": 0
-        },
-        {
-          "input": "1000",
-          "expectedOutput": "1000",
-          "output": "1000",
-          "score": 0
-        },
-        {
-          "input": "1200",
-          "expectedOutput": "1200",
-          "output": "1200",
-          "score": 0
-        },
-        {
-          "input": "80",
-          "expectedOutput": "160",
-          "output": "160",
-          "score": 0
-        }
-      ],
-      "difficulty": "L2",
-      "difficultyLabel": "L2｜進階",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">金額</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">金額</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入購物金額</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">金額</field></block></value><value name="B"><block type="math_number"><field name="NUM">1000</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_x">金額</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">金額</field></block></value><value name="B"><block type="math_number"><field name="NUM">80</field></block></value></block></value></block></statement></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-010",
-      "title": "電影院票價",
-      "description": "電影院票價規則：未滿 12 歲票價 150 元，12 到 64 歲票價 280 元，65 歲以上票價 120 元。請依年齡輸出票價。",
-      "inputDescription": "輸入一個整數 A，代表年齡。",
-      "outputDescription": "輸出一個整數，代表票價。",
-      "examples": [
-        {
-          "input": "8",
-          "output": "150",
-          "explanation": "8 歲未滿 12 歲，票價為 150 元。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "8",
-          "expectedOutput": "150",
-          "output": "150",
-          "score": 0
-        },
-        {
-          "input": "12",
-          "expectedOutput": "280",
-          "output": "280",
-          "score": 0
-        },
-        {
-          "input": "64",
-          "expectedOutput": "280",
-          "output": "280",
-          "score": 0
-        },
-        {
-          "input": "70",
-          "expectedOutput": "120",
-          "output": "120",
-          "score": 0
-        }
-      ],
-      "difficulty": "L2",
-      "difficultyLabel": "L2｜進階",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">年齡</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">年齡</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入年齡</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">12</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="math_number"><field name="NUM">150</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">64</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="math_number"><field name="NUM">280</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="math_number"><field name="NUM">120</field></block></value></block></statement></block></statement></block></next></block></xml>`
-    },
-    {
-      "id": "BSC01-011",
-      "title": "遊戲血量狀態",
-      "description": "給定角色目前血量，請判斷狀態。血量大於 70 為 SAFE，30 到 70 為 WARNING，低於 30 為 DANGER。",
-      "inputDescription": "輸入一個整數 H，代表血量。",
-      "outputDescription": "依規則輸出 SAFE、WARNING 或 DANGER。",
-      "examples": [
-        {
-          "input": "25",
-          "output": "DANGER",
-          "explanation": "25 低於 30，所以輸出 DANGER。"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "80",
-          "expectedOutput": "SAFE",
-          "output": "SAFE",
-          "score": 0
-        },
-        {
-          "input": "70",
-          "expectedOutput": "WARNING",
-          "output": "WARNING",
-          "score": 0
-        },
-        {
-          "input": "30",
-          "expectedOutput": "WARNING",
-          "output": "WARNING",
-          "score": 0
-        },
-        {
-          "input": "25",
-          "expectedOutput": "DANGER",
-          "output": "DANGER",
-          "score": 0
-        }
-      ],
-      "difficulty": "L2",
-      "difficultyLabel": "L2｜進階",
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">血量</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">血量</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入血量</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">血量</field></block></value><value name="B"><block type="math_number"><field name="NUM">70</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">SAFE</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">血量</field></block></value><value name="B"><block type="math_number"><field name="NUM">30</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">DANGER</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">WARNING</field></block></value></block></statement></block></statement></block></next></block></xml>`
-    }
+      {
+        "id": "BSC01-001",
+        "title": "及格或不及格",
+        "description": "給定一位學生的分數，請判斷是否及格。分數大於或等於 60 分為及格。",
+        "inputDescription": "輸入一個整數 S，代表分數。",
+        "outputDescription": "若 S 大於或等於 60，輸出 PASS；否則輸出 FAIL。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "75",
+                    "output": "PASS",
+                    "explanation": "75 大於等於 60，所以及格。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "75",
+                    "expectedOutput": "PASS",
+                    "output": "PASS",
+                    "score": 0
+                  },
+                  {
+                    "input": "60",
+                    "expectedOutput": "PASS",
+                    "output": "PASS",
+                    "score": 0
+                  },
+                  {
+                    "input": "59",
+                    "expectedOutput": "FAIL",
+                    "output": "FAIL",
+                    "score": 0
+                  },
+                  {
+                    "input": "0",
+                    "expectedOutput": "FAIL",
+                    "output": "FAIL",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L1",
+        "difficultyLabel": "L1｜基礎",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_score">分數</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_score">分數</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入分數</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_score">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">PASS</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">FAIL</field></block></value></block></statement></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-002",
+        "title": "比較兩個數",
+        "description": "給定兩個整數，請判斷第一個數和第二個數的大小關係。",
+        "inputDescription": "輸入兩個整數 A 與 B。",
+        "outputDescription": "若 A 大於 B，輸出 A；若 B 大於 A，輸出 B；若兩者相等，輸出 SAME。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "8 5",
+                    "output": "A",
+                    "explanation": "8 大於 5，所以輸出 A。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "8 5",
+                    "expectedOutput": "A",
+                    "output": "A",
+                    "score": 0
+                  },
+                  {
+                    "input": "3 12",
+                    "expectedOutput": "B",
+                    "output": "B",
+                    "score": 0
+                  },
+                  {
+                    "input": "7 7",
+                    "expectedOutput": "SAME",
+                    "output": "SAME",
+                    "score": 0
+                  },
+                  {
+                    "input": "-2 -5",
+                    "expectedOutput": "A",
+                    "output": "A",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L1",
+        "difficultyLabel": "L1｜基礎",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_list">數值清單</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入兩個整數</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_list">數值清單</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">A</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">B</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">SAME</field></block></value></block></statement></block></statement></block></next></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-003",
+        "title": "判斷奇偶數",
+        "description": "給定一個整數，請判斷它是奇數或偶數。",
+        "inputDescription": "輸入一個整數 N。",
+        "outputDescription": "若 N 是偶數，輸出 EVEN；若 N 是奇數，輸出 ODD。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "14",
+                    "output": "EVEN",
+                    "explanation": "14 可以被 2 整除，所以是偶數。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "14",
+                    "expectedOutput": "EVEN",
+                    "output": "EVEN",
+                    "score": 0
+                  },
+                  {
+                    "input": "9",
+                    "expectedOutput": "ODD",
+                    "output": "ODD",
+                    "score": 0
+                  },
+                  {
+                    "input": "0",
+                    "expectedOutput": "EVEN",
+                    "output": "EVEN",
+                    "score": 0
+                  },
+                  {
+                    "input": "101",
+                    "expectedOutput": "ODD",
+                    "output": "ODD",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L1",
+        "difficultyLabel": "L1｜基礎",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">N</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">N</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入一個整數</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">EVEN</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">ODD</field></block></value></block></statement></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-008",
+        "title": "是否為閏年簡化版",
+        "description": "簡化閏年規則：若年份可以被 4 整除，視為閏年；否則不是閏年。",
+        "inputDescription": "輸入一個整數 Y，代表年份。",
+        "outputDescription": "若 Y 可以被 4 整除，輸出 LEAP；否則輸出 COMMON。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "2024",
+                    "output": "LEAP",
+                    "explanation": "2024 可以被 4 整除。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "2024",
+                    "expectedOutput": "LEAP",
+                    "output": "LEAP",
+                    "score": 0
+                  },
+                  {
+                    "input": "2025",
+                    "expectedOutput": "COMMON",
+                    "output": "COMMON",
+                    "score": 0
+                  },
+                  {
+                    "input": "2000",
+                    "expectedOutput": "LEAP",
+                    "output": "LEAP",
+                    "score": 0
+                  },
+                  {
+                    "input": "1999",
+                    "expectedOutput": "COMMON",
+                    "output": "COMMON",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L1",
+        "difficultyLabel": "L1｜基礎",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">年份</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">年份</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入年份</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_x">年份</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">4</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">LEAP</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">COMMON</field></block></value></block></statement></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-012",
+        "title": "密碼長度檢查",
+        "description": "系統要求密碼長度至少 8 個字元。給定密碼長度，請判斷是否符合規定。",
+        "inputDescription": "輸入一個整數 L，代表密碼長度。",
+        "outputDescription": "若 L 大於或等於 8，輸出 OK；否則輸出 SHORT。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "6",
+                    "output": "SHORT",
+                    "explanation": "6 小於 8，密碼太短。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "6",
+                    "expectedOutput": "SHORT",
+                    "output": "SHORT",
+                    "score": 0
+                  },
+                  {
+                    "input": "8",
+                    "expectedOutput": "OK",
+                    "output": "OK",
+                    "score": 0
+                  },
+                  {
+                    "input": "12",
+                    "expectedOutput": "OK",
+                    "output": "OK",
+                    "score": 0
+                  },
+                  {
+                    "input": "1",
+                    "expectedOutput": "SHORT",
+                    "output": "SHORT",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L1",
+        "difficultyLabel": "L1｜基礎",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">長度</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">長度</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入密碼長度</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">長度</field></block></value><value name="B"><block type="math_number"><field name="NUM">8</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">SHORT</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">OK</field></block></value></block></statement></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-004",
+        "title": "門票優惠判斷",
+        "description": "某遊樂園規定，年齡小於 12 歲或大於等於 65 歲可以購買優惠票，其餘為一般票。",
+        "inputDescription": "輸入一個整數 A，代表年齡。",
+        "outputDescription": "若可購買優惠票，輸出 DISCOUNT；否則輸出 NORMAL。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "10",
+                    "output": "DISCOUNT",
+                    "explanation": "10 歲小於 12 歲，可以購買優惠票。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "10",
+                    "expectedOutput": "DISCOUNT",
+                    "output": "DISCOUNT",
+                    "score": 0
+                  },
+                  {
+                    "input": "12",
+                    "expectedOutput": "NORMAL",
+                    "output": "NORMAL",
+                    "score": 0
+                  },
+                  {
+                    "input": "64",
+                    "expectedOutput": "NORMAL",
+                    "output": "NORMAL",
+                    "score": 0
+                  },
+                  {
+                    "input": "65",
+                    "expectedOutput": "DISCOUNT",
+                    "output": "DISCOUNT",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L2",
+        "difficultyLabel": "L2｜進階",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">年齡</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">年齡</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入年齡</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_operation"><field name="OP">OR</field><value name="A"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">12</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">65</field></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">DISCOUNT</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">NORMAL</field></block></value></block></statement></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-005",
+        "title": "溫度警示",
+        "description": "給定目前溫度，請判斷天氣狀態。低於 18 度為 COLD，18 到 27 度為 OK，高於 27 度為 HOT。",
+        "inputDescription": "輸入一個整數 T，代表溫度。",
+        "outputDescription": "依規則輸出 COLD、OK 或 HOT。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "30",
+                    "output": "HOT",
+                    "explanation": "30 高於 27，所以輸出 HOT。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "15",
+                    "expectedOutput": "COLD",
+                    "output": "COLD",
+                    "score": 0
+                  },
+                  {
+                    "input": "18",
+                    "expectedOutput": "OK",
+                    "output": "OK",
+                    "score": 0
+                  },
+                  {
+                    "input": "27",
+                    "expectedOutput": "OK",
+                    "output": "OK",
+                    "score": 0
+                  },
+                  {
+                    "input": "30",
+                    "expectedOutput": "HOT",
+                    "output": "HOT",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L2",
+        "difficultyLabel": "L2｜進階",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">溫度</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">溫度</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入溫度</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">溫度</field></block></value><value name="B"><block type="math_number"><field name="NUM">18</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">COLD</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">溫度</field></block></value><value name="B"><block type="math_number"><field name="NUM">27</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">HOT</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">OK</field></block></value></block></statement></block></statement></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-006",
+        "title": "成績等第",
+        "description": "給定一個分數，請依分數輸出等第。90 分以上為 A，80 到 89 為 B，70 到 79 為 C，60 到 69 為 D，未滿 60 為 F。",
+        "inputDescription": "輸入一個整數 S，代表分數。",
+        "outputDescription": "輸出一個字母，代表等第。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "86",
+                    "output": "B",
+                    "explanation": "86 介於 80 到 89，所以等第為 B。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "95",
+                    "expectedOutput": "A",
+                    "output": "A",
+                    "score": 0
+                  },
+                  {
+                    "input": "86",
+                    "expectedOutput": "B",
+                    "output": "B",
+                    "score": 0
+                  },
+                  {
+                    "input": "70",
+                    "expectedOutput": "C",
+                    "output": "C",
+                    "score": 0
+                  },
+                  {
+                    "input": "59",
+                    "expectedOutput": "F",
+                    "output": "F",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L2",
+        "difficultyLabel": "L2｜進階",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">分數</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">分數</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入分數</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">90</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">A</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">80</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">B</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">70</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">C</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">D</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">F</field></block></value></block></statement></block></statement></block></statement></block></statement></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-007",
+        "title": "三角形成立判斷",
+        "description": "給定三個正整數作為邊長，請判斷是否可以形成三角形。任兩邊和都必須大於第三邊。",
+        "inputDescription": "輸入三個正整數 A、B、C，代表三邊長。",
+        "outputDescription": "若可形成三角形，輸出 YES；否則輸出 NO。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "3 4 5",
+                    "output": "YES",
+                    "explanation": "3、4、5 可以形成三角形。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "3 4 5",
+                    "expectedOutput": "YES",
+                    "output": "YES",
+                    "score": 0
+                  },
+                  {
+                    "input": "1 2 3",
+                    "expectedOutput": "NO",
+                    "output": "NO",
+                    "score": 0
+                  },
+                  {
+                    "input": "5 5 9",
+                    "expectedOutput": "YES",
+                    "output": "YES",
+                    "score": 0
+                  },
+                  {
+                    "input": "2 2 5",
+                    "expectedOutput": "NO",
+                    "output": "NO",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L2",
+        "difficultyLabel": "L2｜進階",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_line">資料列</variable><variable id="v_list">數值清單</variable><variable id="v_a">甲</variable><variable id="v_b">乙</variable><variable id="v_c">丙</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_line">資料列</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入三邊長</field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_list">數值清單</field><value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="v_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value><next><block type="variables_set"><field name="VAR" id="v_a">甲</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_b">乙</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_c">丙</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_list">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">3</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_c">丙</field></block></value></block></value><value name="B"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_c">丙</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_c">丙</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">YES</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">NO</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-009",
+        "title": "購物免運費",
+        "description": "網路商店規定，購物金額大於或等於 1000 元可以免運費，否則需加收 80 元運費。請輸出最後應付金額。",
+        "inputDescription": "輸入一個整數 N，代表購物金額。",
+        "outputDescription": "輸出一個整數，代表最後應付金額。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "950",
+                    "output": "1030",
+                    "explanation": "950 未滿 1000，需加 80 元運費。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "950",
+                    "expectedOutput": "1030",
+                    "output": "1030",
+                    "score": 0
+                  },
+                  {
+                    "input": "1000",
+                    "expectedOutput": "1000",
+                    "output": "1000",
+                    "score": 0
+                  },
+                  {
+                    "input": "1200",
+                    "expectedOutput": "1200",
+                    "output": "1200",
+                    "score": 0
+                  },
+                  {
+                    "input": "80",
+                    "expectedOutput": "160",
+                    "output": "160",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L2",
+        "difficultyLabel": "L2｜進階",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">金額</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">金額</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入購物金額</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">金額</field></block></value><value name="B"><block type="math_number"><field name="NUM">1000</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_x">金額</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">金額</field></block></value><value name="B"><block type="math_number"><field name="NUM">80</field></block></value></block></value></block></statement></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-010",
+        "title": "電影院票價",
+        "description": "電影院票價規則：未滿 12 歲票價 150 元，12 到 64 歲票價 280 元，65 歲以上票價 120 元。請依年齡輸出票價。",
+        "inputDescription": "輸入一個整數 A，代表年齡。",
+        "outputDescription": "輸出一個整數，代表票價。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "8",
+                    "output": "150",
+                    "explanation": "8 歲未滿 12 歲，票價為 150 元。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "8",
+                    "expectedOutput": "150",
+                    "output": "150",
+                    "score": 0
+                  },
+                  {
+                    "input": "12",
+                    "expectedOutput": "280",
+                    "output": "280",
+                    "score": 0
+                  },
+                  {
+                    "input": "64",
+                    "expectedOutput": "280",
+                    "output": "280",
+                    "score": 0
+                  },
+                  {
+                    "input": "70",
+                    "expectedOutput": "120",
+                    "output": "120",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L2",
+        "difficultyLabel": "L2｜進階",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">年齡</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">年齡</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入年齡</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">12</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="math_number"><field name="NUM">150</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">64</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="math_number"><field name="NUM">280</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="math_number"><field name="NUM">120</field></block></value></block></statement></block></statement></block></next></block></xml>`
+      },
+      {
+        "id": "BSC01-011",
+        "title": "遊戲血量狀態",
+        "description": "給定角色目前血量，請判斷狀態。血量大於 70 為 SAFE，30 到 70 為 WARNING，低於 30 為 DANGER。",
+        "inputDescription": "輸入一個整數 H，代表血量。",
+        "outputDescription": "依規則輸出 SAFE、WARNING 或 DANGER。",
+        "requiresGreenFlag": true,
+        "examples": [
+                  {
+                    "input": "25",
+                    "output": "DANGER",
+                    "explanation": "25 低於 30，所以輸出 DANGER。"
+                  }
+                ],
+        "testCases": [
+                  {
+                    "input": "80",
+                    "expectedOutput": "SAFE",
+                    "output": "SAFE",
+                    "score": 0
+                  },
+                  {
+                    "input": "70",
+                    "expectedOutput": "WARNING",
+                    "output": "WARNING",
+                    "score": 0
+                  },
+                  {
+                    "input": "30",
+                    "expectedOutput": "WARNING",
+                    "output": "WARNING",
+                    "score": 0
+                  },
+                  {
+                    "input": "25",
+                    "expectedOutput": "DANGER",
+                    "output": "DANGER",
+                    "score": 0
+                  }
+                ],
+        "difficulty": "L2",
+        "difficultyLabel": "L2｜進階",
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_n">血量</variable></variables><block x="40" y="40" type="variables_set"><field name="VAR" id="v_x">血量</field><value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入血量</field></shadow></value></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">血量</field></block></value><value name="B"><block type="math_number"><field name="NUM">70</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">SAFE</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">血量</field></block></value><value name="B"><block type="math_number"><field name="NUM">30</field></block></value></block></value><statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">DANGER</field></block></value></block></statement><statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">WARNING</field></block></value></block></statement></block></statement></block></next></block></xml>`
+      }
   ]
 };
