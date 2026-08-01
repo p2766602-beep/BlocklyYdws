@@ -341,6 +341,7 @@ function buildTaskContext(task) {
     inputDescription: extractStatementField(task, 'input', ['inputDescription', 'input']),
     outputDescription: extractStatementField(task, 'output', ['outputDescription', 'output']),
     examples: extractExamples(task),
+    requiresGreenFlag: Boolean(task.requiresGreenFlag),
   };
 }
 

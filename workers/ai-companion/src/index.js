@@ -72,7 +72,7 @@ async function incrementCounter(kv, key, ttlSeconds) {
 
 function buildTaskContextText(taskContext) {
   if (!taskContext || typeof taskContext !== 'object') return '（目前沒有題目資料）';
-  const { title, description, inputDescription, outputDescription, examples } = taskContext;
+  const { title, description, inputDescription, outputDescription, examples, requiresGreenFlag } = taskContext;
   const lines = [];
   if (title) lines.push(`題目名稱：${title}`);
   if (description) lines.push(`題目說明：${description}`);
@@ -83,6 +83,9 @@ function buildTaskContextText(taskContext) {
     examples.slice(0, 5).forEach((ex, i) => {
       lines.push(`  範例${i + 1}：輸入「${ex.input ?? ''}」→ 輸出「${ex.output ?? ''}」${ex.explanation ? `（${ex.explanation}）` : ''}`);
     });
+  }
+  if (requiresGreenFlag) {
+    lines.push('本題採用當🚩被點擊規範（系統評分只認接在「當🚩被點擊」下方的「說出」積木內容）。');
   }
   return lines.join('\n');
 }
