@@ -976,6 +976,76 @@ button:disabled {
   background: #ecfdf5;
 }
 
+/* requiresGreenFlag課程「執行程式」輸出分區：上「系統/除錯訊息」、下「說出內容」，
+   對齊官方競賽平台「輸出」不列入評分、只有「說出」才列入評分的行為 */
+.dual-output-panes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.output-pane {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.output-pane h3 {
+  margin: 0;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  flex: none;
+}
+
+.output-pane-content {
+  margin: 0;
+  padding: 10px;
+  overflow: auto;
+  white-space: pre-wrap;
+  font-family:
+    "Cascadia Code",
+    Consolas,
+    "Courier New",
+    monospace;
+  font-size: 13px;
+  line-height: 1.55;
+  flex: 1;
+  min-height: 0;
+}
+
+.output-pane-system {
+  border: 1px solid #cbd5e1;
+}
+
+.output-pane-system h3 {
+  color: #475569;
+  background: #f1f5f9;
+}
+
+.output-pane-system .output-pane-content {
+  color: #334155;
+  background: #f8fafc;
+}
+
+.output-pane-say {
+  border: 1px solid #a7d7c5;
+}
+
+.output-pane-say h3 {
+  color: #ffffff;
+  background: #5ba58c;
+}
+
+.output-pane-say .output-pane-content {
+  color: #064e3b;
+  background: #ecfdf5;
+}
+
 .assessment-report,
 .score-upload-preview {
   font-family:

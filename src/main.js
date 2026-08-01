@@ -509,14 +509,16 @@ function createTokenReader(inputText = '') {
   };
 }
 
-async function executeGeneratedCode({ inputText = null, writeToOutput = false } = {}) {
+async function executeGeneratedCode({ inputText = null, writeToOutput = false, onLine = null } = {}) {
   if (!workspace) {
     return { ok: false, output: '', error: new Error('Blockly 工作區尚未初始化。') };
   }
 
   if (isUserProgramRunning) {
     const error = new Error('程式仍在執行中，請先按「中止程式」。');
-    if (writeToOutput) appendOutput(error.message);
+    if (writeToOutput) {
+      if (onLine) onLine(error.message, 'system'); else appendOutput(error.message);
+    }
     return { ok: false, output: '', error };
   }
 
@@ -524,7 +526,9 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
 
   if (!code.trim()) {
     const error = new Error('目前沒有可以執行的程式。');
-    if (writeToOutput) outputArea.textContent = error.message;
+    if (writeToOutput) {
+      if (onLine) onLine(error.message, 'system'); else outputArea.textContent = error.message;
+    }
     return { ok: false, output: '', error };
   }
 
@@ -542,11 +546,15 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
   const tokenReader = createTokenReader(inputText ?? '');
   const shouldMockInput = inputText !== null && inputText !== undefined;
 
-  const capture = (message = '') => {
+  const capture = (message = '', channel = 'system') => {
     const text = String(message);
     capturedOutput.push(text);
     if (writeToOutput) {
-      appendOutput(text);
+      if (onLine) {
+        onLine(text, channel);
+      } else {
+        appendOutput(text);
+      }
     }
   };
 
@@ -555,7 +563,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
 
   try {
     window.alert = (message) => {
-      capture(message);
+      capture(message, 'system');
     };
 
     if (shouldMockInput) {
@@ -563,13 +571,13 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
     }
 
     console.log = (...args) => {
-      capture(args.join(' '));
+      capture(args.join(' '), 'system');
       originalConsoleLog(...args);
     };
 
     const safePrint = (message) => {
       sayOutput.push(String(message));
-      capture(message);
+      capture(message, 'say');
     };
 
     const runner = new Function(
@@ -598,10 +606,13 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
     };
   } catch (error) {
     if (writeToOutput) {
-      if (error?.name === 'AbortError' || error?.message === '程式已中止。') {
-        outputArea.textContent = '程式已中止。';
+      const message = (error?.name === 'AbortError' || error?.message === '程式已中止。')
+        ? '程式已中止。'
+        : `程式執行發生錯誤：\n${error.message}`;
+      if (onLine) {
+        onLine(message, 'system');
       } else {
-        outputArea.textContent = `程式執行發生錯誤：\n${error.message}`;
+        outputArea.textContent = message;
       }
     }
 
@@ -620,10 +631,55 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
   }
 }
 
+// requiresGreenFlag課程「執行程式」時，把輸出畫面分成兩塊：上面是「系統／除錯訊息」
+// （輸出積木＝window.alert、console.log、系統狀態訊息），下面是「說出內容」（interaction_say＝
+// print()，也就是系統評分實際比對的內容）。讓學生一眼看出只用「輸出」積木寫的答案不會被評分。
+function renderSplitOutputPanes(systemLines, sayLines) {
+  const systemText = systemLines.length > 0 ? escapeHtml(systemLines.join('\n')) : '（無）';
+  const sayText = sayLines.length > 0 ? escapeHtml(sayLines.join('\n')) : '（尚無「說出」內容）';
+
+  outputArea.innerHTML = `
+    <div class="dual-output-panes">
+      <div class="output-pane output-pane-system">
+        <h3>系統／除錯訊息（不列入評分）</h3>
+        <pre class="output-pane-content">${systemText}</pre>
+      </div>
+      <div class="output-pane output-pane-say">
+        <h3>說出內容（系統評分依據）</h3>
+        <pre class="output-pane-content">${sayText}</pre>
+      </div>
+    </div>
+  `;
+}
+
 async function runUserCode() {
   if (!workspace) return;
 
   clearOutput();
+
+  if (currentTask?.requiresGreenFlag) {
+    const systemLines = [];
+    const sayLines = [];
+    renderSplitOutputPanes(systemLines, sayLines);
+
+    const result = await executeGeneratedCode({
+      writeToOutput: true,
+      onLine: (text, channel) => {
+        if (channel === 'say') {
+          sayLines.push(text);
+        } else {
+          systemLines.push(text);
+        }
+        renderSplitOutputPanes(systemLines, sayLines);
+      },
+    });
+
+    if (result.ok && systemLines.length === 0 && sayLines.length === 0) {
+      renderSplitOutputPanes(['程式執行完成：'], []);
+    }
+    return;
+  }
+
   const result = await executeGeneratedCode({ writeToOutput: true });
 
   if (result.ok && !result.output.trim()) {
@@ -1712,6 +1768,8 @@ function renderAssessmentCellPre(value, emptyText = '無') {
 function renderAssessmentResultHtml(assessment) {
   const total = Number(assessment?.total || 0);
   const isContestMode = normalizeCourseMode(assessment?.mode || currentCourseMode) === 'contest';
+  const requiresGreenFlag = Boolean(assessment?.requiresGreenFlag);
+  const actualOutputLabel = requiresGreenFlag ? '實際說出內容' : '實際輸出';
 
   const rows = (assessment?.cases || [])
     .map((item, index) => {
@@ -1756,7 +1814,7 @@ function renderAssessmentResultHtml(assessment) {
               <th>結果</th>
               <th>使用者輸入</th>
               <th>預期輸出</th>
-              <th>實際輸出</th>
+              <th>${actualOutputLabel}</th>
             </tr>
     `;
 
@@ -1764,9 +1822,14 @@ function renderAssessmentResultHtml(assessment) {
     ? '<p class="assessment-note">競賽模式僅顯示每筆測資是否通過，不顯示輸入、預期輸出與實際輸出。</p>'
     : '';
 
+  const greenFlagNote = requiresGreenFlag && !isContestMode
+    ? '<p class="assessment-note">這個課程比照官方競賽平台規範：系統評分只比對「說出」積木的內容，「輸出」積木只是顯示訊息，不會列入評分。</p>'
+    : '';
+
   const tableHtml = total > 0
     ? `
       ${contestNote}
+      ${greenFlagNote}
       <div class="assessment-table-wrap">
         <table class="assessment-table">
           <thead>${tableHeaderHtml}</thead>
@@ -1914,6 +1977,7 @@ async function runProgrammingTestCases() {
     taskTitle: currentTask.problemTitle || currentTask.title,
     mode: normalizeCourseMode(currentCourseMode),
     modeText: getModeText(),
+    requiresGreenFlag: useSayOutputOnly,
     total: totalCount,
     passed: passedCount,
     score: getAssessmentScore(passedCount, totalCount),
