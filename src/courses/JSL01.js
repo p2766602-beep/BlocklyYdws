@@ -9,21 +9,20 @@ const course = {
   "description": "以迴圈、累加、累乘與條件累計為核心的基礎解題課程。",
   "source": {
     "project": "YDWS-CodingBank",
-    "generatedAt": "2026-07-18T23:59:23+08:00",
-    "sourceCsv": "data\\problem_bank_master_tagged.csv",
+    "generatedAt": "2026-08-01T13:28:18+08:00",
+    "sourceCsv": "data\\problem_bank_master_complete.csv",
     "version": "PB05-4B"
   },
   "tasks": [
     {
       "id": "JSL01-D01",
-      "requiresGreenFlag": true,
       "title": "從 1 數到 N",
       "problemTitle": "從 1 數到 N",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "demo",
-      "difficulty": "L1",
       "blocklyFit": "高",
+      "requiresGreenFlag": true,
       "description": "輸入一個正整數 N，請依序輸出 1 到 N 的所有整數，每個數字各佔一行。本題用來示範最基本的計數迴圈。",
       "inputDescription": "第一行：一個正整數 N。",
       "outputDescription": "輸出 1 到 N，每個數字各佔一行。",
@@ -115,14 +114,13 @@ const course = {
     },
     {
       "id": "JSL01-D02",
-      "requiresGreenFlag": true,
       "title": "1 到 N 加總示範",
       "problemTitle": "1 到 N 加總示範",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "demo",
-      "difficulty": "L2",
       "blocklyFit": "高",
+      "requiresGreenFlag": true,
       "description": "輸入一個正整數 N，請計算 1 + 2 + 3 + ... + N 的總和。本題用來示範累加變數的初始化、更新與輸出。",
       "inputDescription": "第一行：一個正整數 N。",
       "outputDescription": "輸出 1 到 N 的總和。",
@@ -214,14 +212,13 @@ const course = {
     },
     {
       "id": "JSL01-P01",
-      "requiresGreenFlag": true,
       "title": "N 個數字累加",
       "problemTitle": "N 個數字累加",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "practice",
-      "difficulty": "L2",
       "blocklyFit": "高",
+      "requiresGreenFlag": true,
       "description": "第一行輸入一個整數 N，第二行輸入 N 個整數。請計算這 N 個整數的總和。本題用來練習重複讀取資料並累加。",
       "inputDescription": "第一行：一個整數 N。\n\n第二行：N 個整數，以空白分隔。",
       "outputDescription": "輸出 N 個整數的總和。",
@@ -313,14 +310,13 @@ const course = {
     },
     {
       "id": "JSL01-P02",
-      "requiresGreenFlag": true,
       "title": "只加偶數",
       "problemTitle": "只加偶數",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "practice",
-      "difficulty": "L2",
       "blocklyFit": "高",
+      "requiresGreenFlag": true,
       "description": "第一行輸入一個整數 N，第二行輸入 N 個整數。請只把其中的偶數加總後輸出。本題用來練習迴圈內加入條件判斷。",
       "inputDescription": "第一行：一個整數 N。\n\n第二行：N 個整數，以空白分隔。",
       "outputDescription": "輸出所有偶數的總和。若沒有偶數，輸出 0。",
@@ -412,14 +408,13 @@ const course = {
     },
     {
       "id": "JSL01-P03",
-      "requiresGreenFlag": true,
       "title": "簡化階乘",
       "problemTitle": "簡化階乘",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "practice",
-      "difficulty": "L2",
       "blocklyFit": "高",
+      "requiresGreenFlag": true,
       "description": "輸入一個正整數 N，請計算 1 × 2 × 3 × ... × N 的結果。本題用來練習累乘變數與迴圈結構。",
       "inputDescription": "第一行：一個正整數 N。",
       "outputDescription": "輸出 N 的階乘結果。",
@@ -510,18 +505,110 @@ const course = {
       }
     },
     {
-      "id": "A-06-0",
+      "id": "A-07-0",
+      "title": "九九乘法",
+      "problemTitle": "九九乘法",
+      "courseCode": "JSL01",
+      "courseName": "迴圈與累計",
+      "role": "challenge",
+      "blocklyFit": "中",
       "requiresGreenFlag": true,
+      "description": "請寫一個程式，輸入一個整數 N，輸出 1 到 9 的乘法表結果。\n例如輸入 3，輸出 1x3=3, 2x3=6, …, 9x3=27。\n\n程式輸出3 6 9 12 15 18 21 24 27\n\n這樣的練習能讓你熟悉迴圈的運用。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "statement": {
+        "description": "請寫一個程式，輸入一個整數 N，輸出 1 到 9 的乘法表結果。\n例如輸入 3，輸出 1x3=3, 2x3=6, …, 9x3=27。\n\n程式輸出3 6 9 12 15 18 21 24 27\n\n這樣的練習能讓你熟悉迴圈的運用。",
+        "input": "",
+        "output": ""
+      },
+      "examples": [
+        {
+          "input": "3",
+          "output": "3 6 9 12 15 18 21 24 27",
+          "explanation": "第一行輸入3，經過九九乘法計算後\n程式輸出3 6 9 12 15 18 21 24 27"
+        },
+        {
+          "input": "6",
+          "output": "6 12 18 24 30 36 42 48 54",
+          "explanation": "第一行輸入6，經過九九乘法計算後\n程式輸出6 12 18 24 30 36 42 48 54"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "3",
+          "expectedOutput": "3 6 9 12 15 18 21 24 27",
+          "output": "3 6 9 12 15 18 21 24 27",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "6",
+          "expectedOutput": "6 12 18 24 30 36 42 48 54",
+          "output": "6 12 18 24 30 36 42 48 54",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5",
+          "expectedOutput": "5 10 15 20 25 30 35 40 45",
+          "output": "5 10 15 20 25 30 35 40 45",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "9",
+          "expectedOutput": "9 18 27 36 45 54 63 72 81",
+          "output": "9 18 27 36 45 54 63 72 81",
+          "score": 10,
+          "hidden": false
+        }
+      ],
+      "starterXml": "",
+      "review": {
+        "needsManualReview": false,
+        "risk": "低",
+        "flags": [
+          "有多餘案例"
+        ],
+        "note": "",
+        "exportDecision": "輸出"
+      },
+      "tags": {
+        "mainConcepts": [
+          "迴圈與累計"
+        ],
+        "subConcepts": [
+          "重複運算"
+        ],
+        "algorithm": [
+          "迭代"
+        ],
+        "dataStructure": [],
+        "syntax": [
+          "for",
+          "while",
+          "累加變數"
+        ],
+        "math": [],
+        "context": []
+      },
+      "restrictions": {
+        "requiredBlocks": [],
+        "disabledBlocks": []
+      }
+    },
+    {
+      "id": "A-06-0",
       "title": "連續加總",
       "problemTitle": "連續加總",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "challenge",
-      "difficulty": "L2",
       "blocklyFit": "中",
+      "requiresGreenFlag": true,
       "description": "有時候我們需要計算從 1 到某個數字的總和。\n請寫一個程式，輸入一個整數 N，計算從 1 加到 N 的結果。\n\n例如 N=5 時，1+2+3+4+5=15。這樣的練習可以訓練你使用迴圈進行加總。",
-      "inputDescription": "請用「詢問並等待」讀取一個整數 N。",
-      "outputDescription": "請用「說出」印出 1 加到 N 的總和。",
+      "inputDescription": "",
+      "outputDescription": "",
       "statement": {
         "description": "有時候我們需要計算從 1 到某個數字的總和。\n請寫一個程式，輸入一個整數 N，計算從 1 加到 N 的結果。\n\n例如 N=5 時，1+2+3+4+5=15。這樣的練習可以訓練你使用迴圈進行加總。",
         "input": "",
@@ -605,17 +692,16 @@ const course = {
     },
     {
       "id": "A-06-1",
-      "requiresGreenFlag": true,
       "title": "連續乘積",
       "problemTitle": "連續乘積",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "challenge",
-      "difficulty": "L2",
       "blocklyFit": "中",
+      "requiresGreenFlag": true,
       "description": "輸入一個整數 N，計算從 1*2*3....*N 的結果。\n\n例如 N=5 時，1*2*3*4*5=120。\n這樣的練習可以訓練你使用迴圈計算。",
-      "inputDescription": "請用「詢問並等待」讀取一個整數 N。",
-      "outputDescription": "請用「說出」印出 1 乘到 N 的結果。",
+      "inputDescription": "",
+      "outputDescription": "",
       "statement": {
         "description": "輸入一個整數 N，計算從 1*2*3....*N 的結果。\n\n例如 N=5 時，1*2*3*4*5=120。\n這樣的練習可以訓練你使用迴圈計算。",
         "input": "",
@@ -698,112 +784,17 @@ const course = {
       }
     },
     {
-      "id": "A-07-0",
-      "requiresGreenFlag": true,
-      "title": "九九乘法",
-      "problemTitle": "九九乘法",
-      "courseCode": "JSL01",
-      "courseName": "迴圈與累計",
-      "role": "challenge",
-      "difficulty": "L1",
-      "blocklyFit": "中",
-      "description": "請寫一個程式，輸入一個整數 N，輸出 1 到 9 的乘法表結果。\n例如輸入 3，輸出 1x3=3, 2x3=6, …, 9x3=27。\n\n程式輸出3 6 9 12 15 18 21 24 27\n\n這樣的練習能讓你熟悉迴圈的運用。",
-      "inputDescription": "請用「詢問並等待」讀取一個整數 N。",
-      "outputDescription": "請用「說出」印出 1 到 9 乘以 N 的結果，數字之間以空白間隔、放在同一行印出。",
-      "statement": {
-        "description": "請寫一個程式，輸入一個整數 N，輸出 1 到 9 的乘法表結果。\n例如輸入 3，輸出 1x3=3, 2x3=6, …, 9x3=27。\n\n程式輸出3 6 9 12 15 18 21 24 27\n\n這樣的練習能讓你熟悉迴圈的運用。",
-        "input": "",
-        "output": ""
-      },
-      "examples": [
-        {
-          "input": "3",
-          "output": "3 6 9 12 15 18 21 24 27",
-          "explanation": "第一行輸入3，經過九九乘法計算後\n程式輸出3 6 9 12 15 18 21 24 27"
-        },
-        {
-          "input": "6",
-          "output": "6 12 18 24 30 36 42 48 54",
-          "explanation": "第一行輸入6，經過九九乘法計算後\n程式輸出6 12 18 24 30 36 42 48 54"
-        }
-      ],
-      "testCases": [
-        {
-          "input": "3",
-          "expectedOutput": "3 6 9 12 15 18 21 24 27",
-          "output": "3 6 9 12 15 18 21 24 27",
-          "score": 10,
-          "hidden": false
-        },
-        {
-          "input": "6",
-          "expectedOutput": "6 12 18 24 30 36 42 48 54",
-          "output": "6 12 18 24 30 36 42 48 54",
-          "score": 10,
-          "hidden": false
-        },
-        {
-          "input": "5",
-          "expectedOutput": "5 10 15 20 25 30 35 40 45",
-          "output": "5 10 15 20 25 30 35 40 45",
-          "score": 10,
-          "hidden": false
-        },
-        {
-          "input": "9",
-          "expectedOutput": "9 18 27 36 45 54 63 72 81",
-          "output": "9 18 27 36 45 54 63 72 81",
-          "score": 10,
-          "hidden": false
-        }
-      ],
-      "starterXml": "",
-      "review": {
-        "needsManualReview": false,
-        "risk": "低",
-        "flags": [
-          "有多餘案例"
-        ],
-        "note": "",
-        "exportDecision": "輸出"
-      },
-      "tags": {
-        "mainConcepts": [
-          "迴圈與累計"
-        ],
-        "subConcepts": [
-          "重複運算"
-        ],
-        "algorithm": [
-          "迭代"
-        ],
-        "dataStructure": [],
-        "syntax": [
-          "for",
-          "while",
-          "累加變數"
-        ],
-        "math": [],
-        "context": []
-      },
-      "restrictions": {
-        "requiredBlocks": [],
-        "disabledBlocks": []
-      }
-    },
-    {
       "id": "A-07-1",
-      "requiresGreenFlag": true,
       "title": "跳繩比賽法",
       "problemTitle": "跳繩比賽法",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "challenge",
-      "difficulty": "L2",
       "blocklyFit": "中",
+      "requiresGreenFlag": true,
       "description": "體育課上，學生進行跳繩小組競賽比賽，小組人數不定，每人跳的次數也不同。\n\n請設計一個程式，第一行輸入數字N，代表小組有N人，後續輸入N筆資料\n\n第二行輸入一串數列共N筆整數，序列的數字以空隔間格。\n\n程式輸出小組全部人員總共跳繩幾次？",
-      "inputDescription": "請先用「詢問並等待」讀取整數 N，代表小組人數。接著用「重複 N 次」，每次都用「詢問並等待」搭配「詢問的答案」依序讀取一個人的跳繩次數（總共讀 N 次）。",
-      "outputDescription": "請用「說出」印出小組全部人員的跳繩總次數。",
+      "inputDescription": "",
+      "outputDescription": "",
       "statement": {
         "description": "體育課上，學生進行跳繩小組競賽比賽，小組人數不定，每人跳的次數也不同。\n\n請設計一個程式，第一行輸入數字N，代表小組有N人，後續輸入N筆資料\n\n第二行輸入一串數列共N筆整數，序列的數字以空隔間格。\n\n程式輸出小組全部人員總共跳繩幾次？",
         "input": "",
@@ -887,14 +878,13 @@ const course = {
     },
     {
       "id": "A-08-0",
-      "requiresGreenFlag": true,
       "title": "找最大值",
       "problemTitle": "找最大值",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "challenge",
-      "difficulty": "L2",
       "blocklyFit": "中",
+      "requiresGreenFlag": true,
       "description": "老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分。\n\n輸入第一行是整數 N，代表有 N 筆成績\n\n第二行輸入 N 個數字，數字間以空白間隔\n\n程式輸出最大值。\n這樣的練習可以幫助你處理一串資料，並找出其中的最大值。",
       "inputDescription": "",
       "outputDescription": "",
@@ -981,17 +971,16 @@ const course = {
     },
     {
       "id": "A-08-1",
-      "requiresGreenFlag": true,
       "title": "找最大最小值",
       "problemTitle": "找最大最小值",
       "courseCode": "JSL01",
       "courseName": "迴圈與累計",
       "role": "challenge",
-      "difficulty": "L2",
       "blocklyFit": "中",
+      "requiresGreenFlag": true,
       "description": "老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分及最低分。\n\n輸入第一行是整數 N，代表有 N 筆成績\n\n第二行輸入 N 個數字，數字間以空白間隔\n\n程式輸出最大值及最小值。\n這樣的練習可以幫助你處理一串資料，並同時找出其中的最大值、最小值。",
-      "inputDescription": "請先用「詢問並等待」讀取整數 N，代表有 N 筆成績。接著用「重複 N 次」，每次都用「詢問並等待」搭配「詢問的答案」依序讀取一筆成績（總共讀 N 次）。",
-      "outputDescription": "請用「說出」印出最大值，再用另一個「說出」印出最小值。",
+      "inputDescription": "",
+      "outputDescription": "",
       "statement": {
         "description": "老師進行成績統計，老師輸入每位同學的成績，請你寫一個程式找出最高分及最低分。\n\n輸入第一行是整數 N，代表有 N 筆成績\n\n第二行輸入 N 個數字，數字間以空白間隔\n\n程式輸出最大值及最小值。\n這樣的練習可以幫助你處理一串資料，並同時找出其中的最大值、最小值。",
         "input": "",
