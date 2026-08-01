@@ -1,12 +1,12 @@
 var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mode:`learning`,description:`以運算、條件判斷、多條件流程與基礎控制結構為核心的基礎流程課程。`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-07-18T23:59:23+08:00`,sourceCsv:`data\\problem_bank_master_tagged.csv`,version:`PB05-4B`},tasks:[{id:`JSB02-D01`,title:`通過門檻`,problemTitle:`通過門檻`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`老師設定一次測驗的通過門檻為 60 分。請輸入一個整數分數，如果分數大於或等於 60，輸出 Pass；否則不輸出任何文字。本題用來示範單一 if 條件成立時才執行輸出的流程。`,inputDescription:`第一行：一個整數 S，代表測驗分數。`,outputDescription:`若 S 大於或等於 60，輸出 Pass。
 
-若 S 小於 60，不輸出。`,statement:{description:`老師設定一次測驗的通過門檻為 60 分。請輸入一個整數分數，如果分數大於或等於 60，輸出 Pass；否則不輸出任何文字。本題用來示範單一 if 條件成立時才執行輸出的流程。`,input:`第一行：一個整數 S，代表測驗分數。`,output:`若 S 大於或等於 60，輸出 Pass。
+若 S 小於 60，不輸出。`,requiresGreenFlag:!0,statement:{description:`老師設定一次測驗的通過門檻為 60 分。請輸入一個整數分數，如果分數大於或等於 60，輸出 Pass；否則不輸出任何文字。本題用來示範單一 if 條件成立時才執行輸出的流程。`,input:`第一行：一個整數 S，代表測驗分數。`,output:`若 S 大於或等於 60，輸出 Pass。
 
 若 S 小於 60，不輸出。`},examples:[{input:`75`,output:`Pass`,explanation:`75 大於等於 60，所以輸出 Pass。`},{input:`40`,output:``,explanation:`40 小於 60，所以不輸出任何文字。`}],testCases:[{input:`60`,expectedOutput:`Pass`,output:`Pass`,score:20,hidden:!1},{input:`59`,expectedOutput:``,output:``,score:20,hidden:!1},{input:`100`,expectedOutput:`Pass`,output:`Pass`,score:20,hidden:!1},{input:`0`,expectedOutput:``,output:``,score:20,hidden:!1},{input:`75`,expectedOutput:`Pass`,output:`Pass`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!0,risk:`中`,flags:[`正式測資有空白輸出`],note:`已人工確認空白輸出合理`,exportDecision:`保留：人工複核題，但屬已知合理空白輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSB02-D02`,title:`優惠或原價`,problemTitle:`優惠或原價`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`商店規定消費金額達到 100 元以上可以獲得優惠。請輸入消費金額，如果金額大於或等於 100，輸出 Discount；否則輸出 Normal。本題用來示範 if / else 的二選一流程。`,inputDescription:`第一行：一個整數 M，代表消費金額。`,outputDescription:`若 M 大於或等於 100，輸出 Discount。
 
-否則輸出 Normal。`,statement:{description:`商店規定消費金額達到 100 元以上可以獲得優惠。請輸入消費金額，如果金額大於或等於 100，輸出 Discount；否則輸出 Normal。本題用來示範 if / else 的二選一流程。`,input:`第一行：一個整數 M，代表消費金額。`,output:`若 M 大於或等於 100，輸出 Discount。
+否則輸出 Normal。`,requiresGreenFlag:!0,statement:{description:`商店規定消費金額達到 100 元以上可以獲得優惠。請輸入消費金額，如果金額大於或等於 100，輸出 Discount；否則輸出 Normal。本題用來示範 if / else 的二選一流程。`,input:`第一行：一個整數 M，代表消費金額。`,output:`若 M 大於或等於 100，輸出 Discount。
 
-否則輸出 Normal。`},examples:[{input:`120`,output:`Discount`,explanation:`120 達到優惠門檻。`},{input:`80`,output:`Normal`,explanation:`80 未達優惠門檻。`}],testCases:[{input:`100`,expectedOutput:`Discount`,output:`Discount`,score:20,hidden:!1},{input:`99`,expectedOutput:`Normal`,output:`Normal`,score:20,hidden:!1},{input:`250`,expectedOutput:`Discount`,output:`Discount`,score:20,hidden:!1},{input:`1`,expectedOutput:`Normal`,output:`Normal`,score:20,hidden:!1},{input:`150`,expectedOutput:`Discount`,output:`Discount`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSB02-D03`,title:`成績等第示範`,problemTitle:`成績等第示範`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`demo`,difficulty:`L2`,blocklyFit:`高`,description:`輸入一個整數成績，請依照分數輸出等第。90 分以上輸出 A，80 到 89 輸出 B，70 到 79 輸出 C，60 到 69 輸出 D，未滿 60 輸出 F。本題用來示範多條件判斷。`,inputDescription:`第一行：一個整數 S，代表成績。`,outputDescription:`輸出一個英文字母，代表成績等第。`,statement:{description:`輸入一個整數成績，請依照分數輸出等第。90 分以上輸出 A，80 到 89 輸出 B，70 到 79 輸出 C，60 到 69 輸出 D，未滿 60 輸出 F。本題用來示範多條件判斷。`,input:`第一行：一個整數 S，代表成績。`,output:`輸出一個英文字母，代表成績等第。`},examples:[{input:`95`,output:`A`,explanation:`95 分屬於 A。`},{input:`72`,output:`C`,explanation:`72 分屬於 C。`}],testCases:[{input:`90`,expectedOutput:`A`,output:`A`,score:20,hidden:!1},{input:`89`,expectedOutput:`B`,output:`B`,score:20,hidden:!1},{input:`70`,expectedOutput:`C`,output:`C`,score:20,hidden:!1},{input:`60`,expectedOutput:`D`,output:`D`,score:20,hidden:!1},{input:`59`,expectedOutput:`F`,output:`F`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`115J-01`,title:`考試獎勵`,problemTitle:`考試獎勵`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`強強的老師每週的週一到週五都會進行測驗。每位學生在每次測驗後，可以獲得其測驗分數「除以 10（無條件捨去）」的點數，老師會將點數持續累積。每週五老師會提供娃娃當作獎品讓學生用點數兌換。
+否則輸出 Normal。`},examples:[{input:`120`,output:`Discount`,explanation:`120 達到優惠門檻。`},{input:`80`,output:`Normal`,explanation:`80 未達優惠門檻。`}],testCases:[{input:`100`,expectedOutput:`Discount`,output:`Discount`,score:20,hidden:!1},{input:`99`,expectedOutput:`Normal`,output:`Normal`,score:20,hidden:!1},{input:`250`,expectedOutput:`Discount`,output:`Discount`,score:20,hidden:!1},{input:`1`,expectedOutput:`Normal`,output:`Normal`,score:20,hidden:!1},{input:`150`,expectedOutput:`Discount`,output:`Discount`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSB02-D03`,title:`成績等第示範`,problemTitle:`成績等第示範`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`demo`,difficulty:`L2`,blocklyFit:`高`,description:`輸入一個整數成績，請依照分數輸出等第。90 分以上輸出 A，80 到 89 輸出 B，70 到 79 輸出 C，60 到 69 輸出 D，未滿 60 輸出 F。本題用來示範多條件判斷。`,inputDescription:`第一行：一個整數 S，代表成績。`,outputDescription:`輸出一個英文字母，代表成績等第。`,requiresGreenFlag:!0,statement:{description:`輸入一個整數成績，請依照分數輸出等第。90 分以上輸出 A，80 到 89 輸出 B，70 到 79 輸出 C，60 到 69 輸出 D，未滿 60 輸出 F。本題用來示範多條件判斷。`,input:`第一行：一個整數 S，代表成績。`,output:`輸出一個英文字母，代表成績等第。`},examples:[{input:`95`,output:`A`,explanation:`95 分屬於 A。`},{input:`72`,output:`C`,explanation:`72 分屬於 C。`}],testCases:[{input:`90`,expectedOutput:`A`,output:`A`,score:20,hidden:!1},{input:`89`,expectedOutput:`B`,output:`B`,score:20,hidden:!1},{input:`70`,expectedOutput:`C`,output:`C`,score:20,hidden:!1},{input:`60`,expectedOutput:`D`,output:`D`,score:20,hidden:!1},{input:`59`,expectedOutput:`F`,output:`F`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`115J-01`,title:`考試獎勵`,problemTitle:`考試獎勵`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L3`,blocklyFit:`高`,description:`強強的老師每週的週一到週五都會進行測驗。每位學生在每次測驗後，可以獲得其測驗分數「除以 10（無條件捨去）」的點數，老師會將點數持續累積。每週五老師會提供娃娃當作獎品讓學生用點數兌換。
 
 【兌換規則】
 
@@ -20,7 +20,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 • 接下來有 N 個輸入（系統的第二至第六個輸入）：每個輸入包含 5 個整數，分別代表強強該週由週一至週五的考試分數（0 ≤ 分數 ≤ 100）。
 
-• 所有數字之間皆以單一空白隔開。`,outputDescription:`• 請輸出兩個整數（中間以空白隔開）：分別代表「總共兌換到的娃娃數量」以及「剩餘點數」。`,statement:{description:`強強的老師每週的週一到週五都會進行測驗。每位學生在每次測驗後，可以獲得其測驗分數「除以 10（無條件捨去）」的點數，老師會將點數持續累積。每週五老師會提供娃娃當作獎品讓學生用點數兌換。
+• 所有數字之間皆以單一空白隔開。`,outputDescription:`• 請輸出兩個整數（中間以空白隔開）：分別代表「總共兌換到的娃娃數量」以及「剩餘點數」。`,requiresGreenFlag:!0,statement:{description:`強強的老師每週的週一到週五都會進行測驗。每位學生在每次測驗後，可以獲得其測驗分數「除以 10（無條件捨去）」的點數，老師會將點數持續累積。每週五老師會提供娃娃當作獎品讓學生用點數兌換。
 
 【兌換規則】
 
@@ -56,7 +56,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 請你寫一個程式，輸入一個整數，如果這個數除以2的餘數為0，表示是偶數，輸出 Even，如果餘數是1，表示是奇數，輸出 Odd。
 
-這樣的練習可以幫助你熟悉條件判斷的應用。`,inputDescription:``,outputDescription:``,statement:{description:`程式設計中，常常需要根據數字的性質進行分類。
+這樣的練習可以幫助你熟悉條件判斷的應用。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`程式設計中，常常需要根據數字的性質進行分類。
 
 請你寫一個程式，輸入一個整數，如果這個數除以2的餘數為0，表示是偶數，輸出 Even，如果餘數是1，表示是奇數，輸出 Odd。
 
@@ -66,7 +66,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 請你寫一個程式，輸入一個整數(0~100)，輸出對應的成績等弟。
 
-這樣的練習可以幫助你熟悉條件判斷的應用。`,inputDescription:``,outputDescription:``,statement:{description:`不少學校成績採用等弟制，80~100為A，70~79為B，60~69為C，50~59為D，其餘49分以下為E
+這樣的練習可以幫助你熟悉條件判斷的應用。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`不少學校成績採用等弟制，80~100為A，70~79為B，60~69為C，50~59為D，其餘49分以下為E
 
 請你寫一個程式，輸入一個整數(0~100)，輸出對應的成績等弟。
 
@@ -80,7 +80,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。
 
-這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,inputDescription:``,outputDescription:``,statement:{description:`小明參加了數學、英文、自然三科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
+這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`小明參加了數學、英文、自然三科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
 
 請設計程式，輸入三科的成績，計算總分與平均。
 
@@ -108,7 +108,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 每件物品打折後價格以無條件捨去取整數
 
-程式最後輸出 定價加總總額、售價加總總額、優惠多少元`,inputDescription:``,outputDescription:``,statement:{description:`大南百貨進行第二、第三件優惠活動，購買3件物品，第2件9折，第3件8折。
+程式最後輸出 定價加總總額、售價加總總額、優惠多少元`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`大南百貨進行第二、第三件優惠活動，購買3件物品，第2件9折，第3件8折。
 
 請設計程式，依序輸入三件物品的定價，計算三件物品合計售價，以及最後優惠多少元。
 
@@ -136,7 +136,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 請寫一個程式，讀入各品項目前的庫存量，進行自動補貨後，輸出所有飲料的總罐數。`,inputDescription:`第一行：一個整數 N，代表飲料的種類數。
 
-第二行：輸入 N 個整數，代表各飲料目前的庫存量（以空格隔開）。`,outputDescription:`輸出一個整數（自動補貨後的飲料總罐數）。`,statement:{description:`自立國中販賣機販售多種飲料，每種飲料都有目前庫存量。為避免缺貨造成不便，系統規定：凡庫存低於10罐者，一律自動補貨至20罐；庫存大於等於10者不補貨。
+第二行：輸入 N 個整數，代表各飲料目前的庫存量（以空格隔開）。`,outputDescription:`輸出一個整數（自動補貨後的飲料總罐數）。`,requiresGreenFlag:!0,statement:{description:`自立國中販賣機販售多種飲料，每種飲料都有目前庫存量。為避免缺貨造成不便，系統規定：凡庫存低於10罐者，一律自動補貨至20罐；庫存大於等於10者不補貨。
 
 請寫一個程式，讀入各品項目前的庫存量，進行自動補貨後，輸出所有飲料的總罐數。`,input:`第一行：一個整數 N，代表飲料的種類數。
 
@@ -156,7 +156,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 第2行：角色的魔法防禦力
 
-第3行：第1、2、3件道具的攻擊力與防禦力（先列全部攻擊力，再列全部防禦力）`,outputDescription:`第1行：使用的道具編號（若多個，請以空白間隔；若無法達成則輸出0）`,statement:{description:`小麗在玩一款魔法戰鬥RPG手機遊戲。角色擁有「魔力攻擊」與「魔法防禦」兩種屬性。三件魔法道具會同時提升攻擊與防禦，道具效果可以疊加，但每件道具只能使用一次。
+第3行：第1、2、3件道具的攻擊力與防禦力（先列全部攻擊力，再列全部防禦力）`,outputDescription:`第1行：使用的道具編號（若多個，請以空白間隔；若無法達成則輸出0）`,requiresGreenFlag:!0,statement:{description:`小麗在玩一款魔法戰鬥RPG手機遊戲。角色擁有「魔力攻擊」與「魔法防禦」兩種屬性。三件魔法道具會同時提升攻擊與防禦，道具效果可以疊加，但每件道具只能使用一次。
 
 小麗希望使用最少的道具，使角色攻擊力與防禦力相等。請撰寫程式找出要使用哪些道具才能達成要求，若需要多個道具，請依道具編號由小到大輸出；若無法達成攻擊力等於防禦力則輸出0。`,input:`第1行：角色的魔法攻擊力
 
@@ -198,7 +198,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 4. 所得超過100萬，前100萬扣稅105000元，101萬元~以上，稅率為 20%。
 
-本題為教學用簡化模型，不考慮扣除額、免稅額或其他費用。`,inputDescription:`輸入一個整數，代表個人全年課稅所得（單位：萬元，1 以上）。`,outputDescription:`輸出一個整數，代表應繳的所得稅金額（單位：元）。`,statement:{description:`為了協助民眾了解所得稅的基本計算方式，財政單位設計了一個簡化的
+本題為教學用簡化模型，不考慮扣除額、免稅額或其他費用。`,inputDescription:`輸入一個整數，代表個人全年課稅所得（單位：萬元，1 以上）。`,outputDescription:`輸出一個整數，代表應繳的所得稅金額（單位：元）。`,requiresGreenFlag:!0,statement:{description:`為了協助民眾了解所得稅的基本計算方式，財政單位設計了一個簡化的
 個人綜合所得稅試算系統。
 
 假設某位民眾一整年的課稅所得為固定金額（以「萬元」為單位），
@@ -233,7 +233,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 第二行輸入 N 個整數（0 或 1），代表 1P 玩家每次投籃是否命中
 
-第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,outputDescription:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`,statement:{description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
+第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,outputDescription:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`,requiresGreenFlag:!0,statement:{description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
 
 每投進 1 球得 1 分，未投進得 0 分。
 
@@ -285,7 +285,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 • 最後一個數字為當天的總利潤。
 
-• 所有數字之間以一個半形空格隔開。`,statement:{description:`子題四：每日銷售數量結算
+• 所有數字之間以一個半形空格隔開。`,requiresGreenFlag:!0,statement:{description:`子題四：每日銷售數量結算
 
 到了晚上，小明需要結算一整天賣出了多少杯飲料，以及總共多少利潤。
 
@@ -352,7 +352,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 請你撰寫一個程式，計算阿倫在第 N 天寫了多少個程式。`,inputDescription:`輸入為一行，包含三個整數 N、A、B，
 
-分別代表要查詢的天數、第 1 天與第 2 天寫的程式數量。`,outputDescription:`輸出一個整數，代表阿倫在第 N 天寫的程式數量。`,statement:{description:`阿倫很喜歡寫程式，他每天都會寫好幾個程式。
+分別代表要查詢的天數、第 1 天與第 2 天寫的程式數量。`,outputDescription:`輸出一個整數，代表阿倫在第 N 天寫的程式數量。`,requiresGreenFlag:!0,statement:{description:`阿倫很喜歡寫程式，他每天都會寫好幾個程式。
 
 為了自我要求，他規定自己：
 
@@ -393,7 +393,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 在滿足所有「小明在房間」的時段冷氣都必須開著的條件下，請計算一整天最少總共要消耗多少度電。`,inputDescription:`第一行輸入一個整數 N，代表總時數。
 
-第二行輸入 N 個整數（0 或 1，以空白隔開），代表每個小時小明是否在房間。`,outputDescription:`輸出一個整數，代表最少的總耗電度數。`,statement:{description:`小明的房間有一台變頻冷氣，為了節省電費，他研究出冷氣的耗電規則如下：
+第二行輸入 N 個整數（0 或 1，以空白隔開），代表每個小時小明是否在房間。`,outputDescription:`輸出一個整數，代表最少的總耗電度數。`,requiresGreenFlag:!0,statement:{description:`小明的房間有一台變頻冷氣，為了節省電費，他研究出冷氣的耗電規則如下：
 
 【耗電規則】
 
@@ -437,7 +437,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 3. 若停車時間超過60分鐘，則在60分鐘以後的時間，每30分鐘加收30元，若剩餘不足 30 分鐘，也以 30分鐘計算。
 
-另外單日無論停車時間多長，單日最高收費上限為400元。若停車超過24小時，剩餘不足24小時部分一樣享有1小時優惠。小柔開車於此停車場停放，請計算本次停車應繳的費用。`,inputDescription:`第一行:停車分鐘數(整數)`,outputDescription:`第一行: 應繳納的費用(整數）`,statement:{description:`停車場採用階梯式收費方式。停車時會依照停放時間長短來計價，其中停車1小時內有優惠，超過 1小時後依半小時計費。計費方式如下：
+另外單日無論停車時間多長，單日最高收費上限為400元。若停車超過24小時，剩餘不足24小時部分一樣享有1小時優惠。小柔開車於此停車場停放，請計算本次停車應繳的費用。`,inputDescription:`第一行:停車分鐘數(整數)`,outputDescription:`第一行: 應繳納的費用(整數）`,requiresGreenFlag:!0,statement:{description:`停車場採用階梯式收費方式。停車時會依照停放時間長短來計價，其中停車1小時內有優惠，超過 1小時後依半小時計費。計費方式如下：
 
 1. 停車時間小於或等於30分鐘，收費20 元
 
@@ -471,7 +471,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 • 第二行輸入 N 個整數，分別代表每一天的測驗成績（0 ≤ 成績 ≤ 100），數字間以單一空白隔開。
 
-• 輸出一個整數，代表「連續成績進步」的最大連續次數。若完全沒有進步，請輸出 0。`,statement:{description:`老師連續記錄了你 N 天的測驗成績，依照時間順序存放在一份成績清單中。老師希望透過這些資料，了解你在學習過程中是否有持續進步的表現。
+• 輸出一個整數，代表「連續成績進步」的最大連續次數。若完全沒有進步，請輸出 0。`,requiresGreenFlag:!0,statement:{description:`老師連續記錄了你 N 天的測驗成績，依照時間順序存放在一份成績清單中。老師希望透過這些資料，了解你在學習過程中是否有持續進步的表現。
 
 請從第 2 天開始，將每天的成績與前一天的成績進行比較，並依下列規則判斷：
 
@@ -514,7 +514,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 第三行：一個整數，代表付款金額。`,outputDescription:`如果付款金額足夠，輸出一個整數（應找的金額）。
 
-如果不足，輸出 付款金額不足。`,statement:{description:`顧客到超商購物，收銀機會依序讀取購買的每樣商品價格。 最後顧客拿出一筆錢付款。
+如果不足，輸出 付款金額不足。`,requiresGreenFlag:!0,statement:{description:`顧客到超商購物，收銀機會依序讀取購買的每樣商品價格。 最後顧客拿出一筆錢付款。
 
 請你設計程式： 先計算所有商品的總金額。 如果付款金額大於或等於總金額，輸出應找的金額。
 
@@ -551,7 +551,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 
 第三行輸入有5個用空格隔開的非負整數，代表每種零錢剩餘的數量`,outputDescription:`若可找零，輸出五個整數，表示實際找出的 100、50、10、5、1 的枚數（以空格分隔）。
 
-若無法找零輸出：無法找零`,statement:{description:`收銀機內有 5 種面額的錢幣：100、50、10、5、1，且每種面額皆有有限數量。
+若無法找零輸出：無法找零`,requiresGreenFlag:!0,statement:{description:`收銀機內有 5 種面額的錢幣：100、50、10、5、1，且每種面額皆有有限數量。
 顧客付款後需要找零，請在不超過庫存的前提下，用最少的硬幣數完成找零。
 
 若無法剛好找出需要的金額，輸出 無法找零。若無法剛好找出需要的金額，輸出 無法找零。`,input:`3行
@@ -598,7 +598,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 第 2 行：N 個大寫英文字母，代表每一場播放的短片系列（以一個半形空格隔開）。
 
 第 3 行：一個整數 K 與一個大寫英文字母，
-分別代表可連續觀看的場次數，以及娜娜最喜歡的短片系列（以一個半形空格隔開）。`,outputDescription:`第 1 行：整數，代表最多可以看到幾次最喜歡的短片系列。`,statement:{description:`圖書館有一間媒體播放室，每週六會連續播放科學系列短片，
+分別代表可連續觀看的場次數，以及娜娜最喜歡的短片系列（以一個半形空格隔開）。`,outputDescription:`第 1 行：整數，代表最多可以看到幾次最喜歡的短片系列。`,requiresGreenFlag:!0,statement:{description:`圖書館有一間媒體播放室，每週六會連續播放科學系列短片，
 最多播放 20 個短片。每個短片以一個大寫英文字母表示，
 相同字母代表同一系列短片。
 
@@ -646,7 +646,7 @@ D E F G H
 
 4. 所得超過100萬，前100萬扣稅105000元，101萬元~以上，稅率為 20%。
 
-本題為教學用簡化模型，不考慮扣除額、免稅額或其他費用。`,inputDescription:`輸入一個整數，代表個人全年課稅所得（單位：萬元，1 以上）。`,outputDescription:`輸出一個整數，代表應繳的所得稅金額（單位：元）。`,statement:{description:`為了協助民眾了解所得稅的基本計算方式，財政單位設計了一個簡化的
+本題為教學用簡化模型，不考慮扣除額、免稅額或其他費用。`,inputDescription:`輸入一個整數，代表個人全年課稅所得（單位：萬元，1 以上）。`,outputDescription:`輸出一個整數，代表應繳的所得稅金額（單位：元）。`,requiresGreenFlag:!0,statement:{description:`為了協助民眾了解所得稅的基本計算方式，財政單位設計了一個簡化的
 個人綜合所得稅試算系統。
 
 假設某位民眾一整年的課稅所得為固定金額（以「萬元」為單位），
@@ -680,7 +680,7 @@ D E F G H
 
 3. 將剩餘分數取平均，並四捨五入取整數。
 
-請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終得分。`,inputDescription:`第一行輸入 5 個整數（0～10），代表評審分數，資料之間以一個半形空格分隔。`,outputDescription:`輸出一個數值，代表去除最高與最低分後的最終得分之平均(四捨五入)。`,statement:{description:`跳馬比賽為求公平性，決議去除評審中較極端的成績。
+請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終得分。`,inputDescription:`第一行輸入 5 個整數（0～10），代表評審分數，資料之間以一個半形空格分隔。`,outputDescription:`輸出一個數值，代表去除最高與最低分後的最終得分之平均(四捨五入)。`,requiresGreenFlag:!0,statement:{description:`跳馬比賽為求公平性，決議去除評審中較極端的成績。
 
 比賽會依賽制等級不同，聘用五位評審，
 各自給予參賽者 0 至 10 分的評價。
@@ -711,7 +711,7 @@ D E F G H
 
 請撰寫程式，依照上述規則輸出轉換後的密碼字串。`,inputDescription:`第一行輸入整數 N（0 ≤ N ≤ 100）。
 
-第二行輸入一個字串，僅包含小寫英文字母 a~z。`,outputDescription:`輸出一行字串，代表加密後的結果。`,statement:{description:`小明設計了一種英文字元密碼環編碼規則：
+第二行輸入一個字串，僅包含小寫英文字母 a~z。`,outputDescription:`輸出一行字串，代表加密後的結果。`,requiresGreenFlag:!0,statement:{description:`小明設計了一種英文字元密碼環編碼規則：
 
 密碼環為：abcdefghijklmnopqrstuvwxyz
 
@@ -748,7 +748,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 第二行輸入 N 個整數（0 或 1），代表 1P 玩家每次投籃是否命中
 
-第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,outputDescription:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`,statement:{description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
+第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,outputDescription:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`,requiresGreenFlag:!0,statement:{description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
 
 每投進 1 球得 1 分，未投進得 0 分。
 
@@ -785,7 +785,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 請根據輸入的零件重量資料，計算無人搬運車最少需要出發幾趟，才能將所有零件依序安全運送完成。`,inputDescription:`第一行：一個整數 N，代表零件的件數。
 
-第二行：N 個整數，代表每件零件的重量（公斤），資料間以一個半形空格隔開。`,outputDescription:`輸出一個整數，代表無人搬運車最少需要出發的趟數。`,statement:{description:`智慧工廠中使用一輛無人搬運車（AGV），負責將零件從倉庫運送到生產線。
+第二行：N 個整數，代表每件零件的重量（公斤），資料間以一個半形空格隔開。`,outputDescription:`輸出一個整數，代表無人搬運車最少需要出發的趟數。`,requiresGreenFlag:!0,statement:{description:`智慧工廠中使用一輛無人搬運車（AGV），負責將零件從倉庫運送到生產線。
 由於安全與設備限制，每一趟無人搬運車的最大可承載重量為 200 公斤。
 
 零件會依照完成檢驗的順序排隊裝載，無人搬運車會依序將零件放上車並累加重量。
@@ -818,7 +818,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 5. 輸出總剩餘量與需要補貨的格位數量。`,inputDescription:`第一行：一個整數 N，代表格位數量。
 
-第二行：N 個整數，代表每個格位的飲料剩餘量（以半形空格分隔）。`,outputDescription:`一行輸出二個整數，代表整台機器的飲料總剩餘量及需要補貨的格位數量（剩餘量小於 5）。`,statement:{description:`學校走廊上有一台受歡迎的自動販賣機。為了確保飲料隨時充足，管理員小華每天會查看 N 個飲料格位的剩餘數量。 請你幫小華寫一個程式，計算整台販賣機目前「總共還剩多少瓶飲料」，並且計算有幾個格位「缺貨」（剩餘數量低於 5 瓶），需要小華去補貨。
+第二行：N 個整數，代表每個格位的飲料剩餘量（以半形空格分隔）。`,outputDescription:`一行輸出二個整數，代表整台機器的飲料總剩餘量及需要補貨的格位數量（剩餘量小於 5）。`,requiresGreenFlag:!0,statement:{description:`學校走廊上有一台受歡迎的自動販賣機。為了確保飲料隨時充足，管理員小華每天會查看 N 個飲料格位的剩餘數量。 請你幫小華寫一個程式，計算整台販賣機目前「總共還剩多少瓶飲料」，並且計算有幾個格位「缺貨」（剩餘數量低於 5 瓶），需要小華去補貨。
 
 1. 給定一個整數 N，代表販賣機的格位數量。
 
@@ -857,7 +857,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 接著請回答以下問題
 
-問題（1）: 若規定「每 5 天至少要出現1次豆製（C）才算健康」，請檢查：第1～5天是否符合？第 6～10天是否符合？`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行:Y/N Y/N，Y代表符合，N代表不符合，字母間以1個半形空格區隔`,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+問題（1）: 若規定「每 5 天至少要出現1次豆製（C）才算健康」，請檢查：第1～5天是否符合？第 6～10天是否符合？`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行:Y/N Y/N，Y代表符合，N代表不符合，字母間以1個半形空格區隔`,requiresGreenFlag:!0,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
 
 其中每天的「主菜種類」用以下字母表示：
 
@@ -896,7 +896,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 接著請回答以下問題
 
-問題（2）: 營養師她想知道每週是否「紅肉攝取過量」。假設規則：「B 的總次數不可超過所有 A + C 次數的總和」。請檢查：第 1～5 天是否有超量？第 6～10 天是否有超量？`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行:Y/N Y/N，Y代表符合，N代表不符合，字母間以1個半形空格區隔`,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+問題（2）: 營養師她想知道每週是否「紅肉攝取過量」。假設規則：「B 的總次數不可超過所有 A + C 次數的總和」。請檢查：第 1～5 天是否有超量？第 6～10 天是否有超量？`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行:Y/N Y/N，Y代表符合，N代表不符合，字母間以1個半形空格區隔`,requiresGreenFlag:!0,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
 
 其中每天的「主菜種類」用以下字母表示：
 
@@ -935,7 +935,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 接著請回答以下問題
 
-問題（3）: 請分別統計：第 1～5 天共出現幾次「白肉（A）之後緊接著紅肉（B）」？第 6～10 天共出現幾次「白肉（A）之後緊接著紅肉（B）」？`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行: 第一週次數 第二週次數，中間使用1個半形空格分開`,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+問題（3）: 請分別統計：第 1～5 天共出現幾次「白肉（A）之後緊接著紅肉（B）」？第 6～10 天共出現幾次「白肉（A）之後緊接著紅肉（B）」？`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行: 第一週次數 第二週次數，中間使用1個半形空格分開`,requiresGreenFlag:!0,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
 
 其中每天的「主菜種類」用以下字母表示：
 
@@ -974,7 +974,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 接著請回答以下問題
 
-問題（4）: 在這10天裡，哪一種主菜出現次數最多？(假設不會出現重複狀況，也就是只有一種主菜是最多)`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行: 出現次數最多的主菜`,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
+問題（4）: 在這10天裡，哪一種主菜出現次數最多？(假設不會出現重複狀況，也就是只有一種主菜是最多)`,inputDescription:`第一行: 最近兩週的主菜記錄（第1天到第10天），例如輸入A B C A E C B A D C (每個字母以1個半形空格分隔)`,outputDescription:`第一行: 出現次數最多的主菜`,requiresGreenFlag:!0,statement:{description:`營養師負責規劃學校兩週（共10 天）的營養午餐菜單，她希望小朋友能從食物中獲得足夠均衡營養。因此她需要分析設計的菜單中是否符合規定。
 
 其中每天的「主菜種類」用以下字母表示：
 
@@ -1003,7 +1003,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 3. 若停車時間超過60分鐘，則在60分鐘以後的時間，每30分鐘加收30元，若剩餘不足 30 分鐘，也以 30分鐘計算。
 
-另外單日無論停車時間多長，單日最高收費上限為400元。若停車超過24小時，剩餘不足24小時部分一樣享有1小時優惠。小柔開車於此停車場停放，請計算本次停車應繳的費用。`,inputDescription:`第一行:停車分鐘數(整數)`,outputDescription:`第一行: 應繳納的費用(整數）`,statement:{description:`停車場採用階梯式收費方式。停車時會依照停放時間長短來計價，其中停車1小時內有優惠，超過 1小時後依半小時計費。計費方式如下：
+另外單日無論停車時間多長，單日最高收費上限為400元。若停車超過24小時，剩餘不足24小時部分一樣享有1小時優惠。小柔開車於此停車場停放，請計算本次停車應繳的費用。`,inputDescription:`第一行:停車分鐘數(整數)`,outputDescription:`第一行: 應繳納的費用(整數）`,requiresGreenFlag:!0,statement:{description:`停車場採用階梯式收費方式。停車時會依照停放時間長短來計價，其中停車1小時內有優惠，超過 1小時後依半小時計費。計費方式如下：
 
 1. 停車時間小於或等於30分鐘，收費20 元
 
@@ -1023,7 +1023,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 2.若最高票有多個地點同票，輸出全部最高票的地點編號，並依照地點編號大小，由小到大依序排列。`,inputDescription:`第一行:投票人數(整數)。
 
-第二行:每票選擇的活動地點編號(中間使用1個半形空格分開)。`,outputDescription:`第一行:輸出最高票活動地點編號或是全部並列最高票的活動地點編號(中間使用1個半形空格分開，同時依照地點編號大小，由小到大排列)。`,statement:{description:`班上將舉辦期末班級活動，本次活動地點有5個候選選項，編號為1、2、3、4、5，每位同學有1票。請設計一個程式讀取所有同學投票的地點編號，統計每個地點的得票數，並依下列規則輸出結果
+第二行:每票選擇的活動地點編號(中間使用1個半形空格分開)。`,outputDescription:`第一行:輸出最高票活動地點編號或是全部並列最高票的活動地點編號(中間使用1個半形空格分開，同時依照地點編號大小，由小到大排列)。`,requiresGreenFlag:!0,statement:{description:`班上將舉辦期末班級活動，本次活動地點有5個候選選項，編號為1、2、3、4、5，每位同學有1票。請設計一個程式讀取所有同學投票的地點編號，統計每個地點的得票數，並依下列規則輸出結果
 
 1.若只有一個地點得票最高，輸出該地點編號。
 
@@ -1053,7 +1053,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 第 2 行：總天數中每一天獲得的星星貼紙數量(中間使用1個半形空格分開)。
 
-第 3 行：要計算的連續天數(整數)`,outputDescription:`第 1 行：開始天數和最大星星總數(中間使用1個半形空格分開)`,statement:{description:`小波的班上規定，若學生表現良好，老師就會給學生一張星星貼紙。到學期末會統一結算貼紙數來進行兌換獎品。小波希望找出在哪個連續 K 天中，他得到的星星貼紙總數最多，這樣他就能知道自己在哪段時間表現最優秀！如果出現兩段或兩段以上的連續K天，星星總數一樣多，請選最早開始的那一段（以開始的第1天訂為 1）。`,input:`第 1 行：總天數(整數)
+第 3 行：要計算的連續天數(整數)`,outputDescription:`第 1 行：開始天數和最大星星總數(中間使用1個半形空格分開)`,requiresGreenFlag:!0,statement:{description:`小波的班上規定，若學生表現良好，老師就會給學生一張星星貼紙。到學期末會統一結算貼紙數來進行兌換獎品。小波希望找出在哪個連續 K 天中，他得到的星星貼紙總數最多，這樣他就能知道自己在哪段時間表現最優秀！如果出現兩段或兩段以上的連續K天，星星總數一樣多，請選最早開始的那一段（以開始的第1天訂為 1）。`,input:`第 1 行：總天數(整數)
 
 第 2 行：總天數中每一天獲得的星星貼紙數量(中間使用1個半形空格分開)。
 
@@ -1106,7 +1106,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 第 2 行：小火車行駛的總次數
 
-第 3 行：每次移動距離(骰子丟出的步數）(中間以1個半形空格分開)`,outputDescription:`第 1 行：代表所有行程結束後，火車上最終剩餘的能量糖果數量`,statement:{description:`小佳設計了一款桌遊遊戲，在森林裡有一列環狀小火車，繞著 5 個車站（編號 1 到 5）載客。小火車從 1 號站出發，一開始火車上有 10 顆能量糖果。
+第 3 行：每次移動距離(骰子丟出的步數）(中間以1個半形空格分開)`,outputDescription:`第 1 行：代表所有行程結束後，火車上最終剩餘的能量糖果數量`,requiresGreenFlag:!0,statement:{description:`小佳設計了一款桌遊遊戲，在森林裡有一列環狀小火車，繞著 5 個車站（編號 1 到 5）載客。小火車從 1 號站出發，一開始火車上有 10 顆能量糖果。
 
 遊戲規則
 
@@ -1179,7 +1179,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 請你幫小安計算，依照上述的步驟收納這些玩具，最少需要多少個標準收納箱？`,inputDescription:`第 1 行：玩具件數(整數，不大於6)
 
-第 2 行：分別代表每件玩具的重量(以1個半形空格分開）`,outputDescription:`第 1 行：最少需要的收納箱數`,statement:{description:`小安是「玩具夢工場」的義工，她負責為最近一次展覽活動的玩具進行裝箱，以便之後能有效率運送到下一個地方展出。工場裡有N件(N不大於6)大小不一的精美玩具，為了安全和節省運費，必須使用容量統一的標準收納箱，其中收納箱最大容量為20單位重量，放入的玩具每件重量不一定相同，且每個箱子的玩具總重量都不能超過20單位。
+第 2 行：分別代表每件玩具的重量(以1個半形空格分開）`,outputDescription:`第 1 行：最少需要的收納箱數`,requiresGreenFlag:!0,statement:{description:`小安是「玩具夢工場」的義工，她負責為最近一次展覽活動的玩具進行裝箱，以便之後能有效率運送到下一個地方展出。工場裡有N件(N不大於6)大小不一的精美玩具，為了安全和節省運費，必須使用容量統一的標準收納箱，其中收納箱最大容量為20單位重量，放入的玩具每件重量不一定相同，且每個箱子的玩具總重量都不能超過20單位。
 
 為了提高運輸車的空間使用率，小安決定採用以下步驟來裝箱
 
@@ -1228,7 +1228,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 第二行輸入 3×N 個整數，每 3 個為一組，依序代表：
 
-身高（公分）、年齡（歲）、縣民卡（1 表示有，0 表示無），資料間以空白分隔。`,outputDescription:`輸出一個整數，代表這一團遊客的門票總金額。`,statement:{description:`遊樂園引進了一套自動售票機系統，用來快速計算團體遊客的門票總金額。
+身高（公分）、年齡（歲）、縣民卡（1 表示有，0 表示無），資料間以空白分隔。`,outputDescription:`輸出一個整數，代表這一團遊客的門票總金額。`,requiresGreenFlag:!0,statement:{description:`遊樂園引進了一套自動售票機系統，用來快速計算團體遊客的門票總金額。
 
 每位遊客依據「是否持有縣民卡」、「年齡」、「身高」等條件，適用不同的票價。
 
@@ -1262,7 +1262,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 第二行：一個整數 N ( N 大於 0 )，代表發生了 N 個事件。
 
-第三行：輸入 N 個整數，代表 N 個事件造成的數值變化`,outputDescription:`輸出一個整數，代表最終血量。`,statement:{description:`勇者的挑戰
+第三行：輸入 N 個整數，代表 N 個事件造成的數值變化`,outputDescription:`輸出一個整數，代表最終血量。`,requiresGreenFlag:!0,statement:{description:`勇者的挑戰
 
 說明：勇者正在地下城探險。他會遇到怪物（扣血）或撿到藥水（補血）。請模擬他的血量變化。要注意的是，血量有上限，補血不能補超過上限；且一旦血量歸零或變負數，勇者就倒下了，血量歸零，勇者已經陣亡，立即停止事件處理，最終輸出為 0。`,input:`第一行：一個整數 H，代表初始血量 (同時也是血量上限)。
 
@@ -1305,7 +1305,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終成績。`,inputDescription:`第一行輸入一個整數 N（5 ≤ N ≤ 10），代表評審人數。
 
-第二行輸入 N 個整數（0～10），代表每位評審給的分數，資料間以空白隔開。`,outputDescription:`輸出一個整數，代表去除最高分與最低分後的總成績。`,statement:{description:`跳水比賽為求公平性，會去除評審中較極端的成績。
+第二行輸入 N 個整數（0～10），代表每位評審給的分數，資料間以空白隔開。`,outputDescription:`輸出一個整數，代表去除最高分與最低分後的總成績。`,requiresGreenFlag:!0,statement:{description:`跳水比賽為求公平性，會去除評審中較極端的成績。
 
 比賽共聘用 5～10 位評審，每位評審會給予參賽者 0～10 分的評價。
 
@@ -1341,7 +1341,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 第二行輸入 N 個整數（0 或 1），代表 1P 玩家每次投籃是否命中
 
-第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,outputDescription:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`,statement:{description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
+第三行輸入 N 個整數（0 或 1），代表 2P 玩家每次投籃是否命中`,outputDescription:`輸出一行，依序輸出：1P 總分、2P 總分、勝出玩家名稱，中間以一個半形空格分隔。`,requiresGreenFlag:!0,statement:{description:`雙打籃球機在每場遊戲中提供 1P、2P 兩位玩家 5～10 次不等的投籃機會。
 
 每投進 1 球得 1 分，未投進得 0 分。
 
@@ -1387,7 +1387,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 才能將所有玩具依序安全裝箱完成。`,inputDescription:`第一行：一個整數 N，代表玩具的件數。
 
-第二行：N 個整數，代表每件玩具的重量（公斤），資料之間以一個半形空格隔開。`,outputDescription:`輸出一個整數，代表最少需要的收納箱數量。`,statement:{description:`夢想玩具工坊每天需要將完成的玩具裝箱後，運送到展示倉庫。
+第二行：N 個整數，代表每件玩具的重量（公斤），資料之間以一個半形空格隔開。`,outputDescription:`輸出一個整數，代表最少需要的收納箱數量。`,requiresGreenFlag:!0,statement:{description:`夢想玩具工坊每天需要將完成的玩具裝箱後，運送到展示倉庫。
 
 為了確保運送安全，每一個標準收納箱最多只能承載 20 公斤 的玩具重量。
 
@@ -1441,7 +1441,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 第二行依序輸入想購買的飲料編號（1～5），編號以空白間隔
 
-程式需計算並輸出此次訂單的總金額。`,inputDescription:``,outputDescription:``,statement:{description:`小明家的巷口開了一間名叫「碼易丁」的飲料店，販賣好喝的飲料。身為資訊科技高手的你，決定要寫幾個小程式來幫助小明解決店裡遇到的各種計算問題，從計算單筆訂單金額、找錢，到最後計算每天的營業額。讓我們一步一步跟著小明，用程式解決飲料店的經營問題吧！
+程式需計算並輸出此次訂單的總金額。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`小明家的巷口開了一間名叫「碼易丁」的飲料店，販賣好喝的飲料。身為資訊科技高手的你，決定要寫幾個小程式來幫助小明解決店裡遇到的各種計算問題，從計算單筆訂單金額、找錢，到最後計算每天的營業額。讓我們一步一步跟著小明，用程式解決飲料店的經營問題吧！
 
 請根據下列四個子題，逐步完成整個課飲料店程式系統的設計。
 
@@ -1507,7 +1507,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 •付款足夠：總金額X 應找錢Y
 
-•付款不足：總金額X 付款不足Y`,inputDescription:``,outputDescription:``,statement:{description:`子題二：付款與找零-批次輸入
+•付款不足：總金額X 付款不足Y`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`子題二：付款與找零-批次輸入
 
 前一個程式計算金額時，相同飲料也需要一杯一杯分別計價，請修改程式，讓程式可以依序輸入飲料編號及數量，以加快輸入及計算速度！計算總金額後，下一步再處理收錢和找錢的問題了。請你修改剛剛的程式，除輸入方式改變及計算總金額改變外，還要讀取客人支付的金額，並計算應該找給客人多少錢。如果客人付的錢不夠，也要提醒小明喔！
 
@@ -1557,7 +1557,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 •輸入只有一個整數，代表需要找零的總金額 (Change)，範圍 0 ~ 999
 
-•程式運算，輸出找零組合1 3 1 3，共四`,inputDescription:``,outputDescription:``,statement:{description:`子題三：最少硬幣數找零
+•程式運算，輸出找零組合1 3 1 3，共四`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`子題三：最少硬幣數找零
 
 為了讓收銀機裡的零錢管理更方便，小明希望找錢時盡量使用最少數量的硬幣與鈔票。假設收銀機裡有充足的 50元、10元、5元、1元 硬幣（暫不考慮鈔票），請依序使用 50、10、5、1 元硬幣，由大到小進行找零，此幣值組合可保證找零所需的硬幣數量最少。請寫出一個計算出找零金額所需的最少硬幣組合。
 
@@ -1591,7 +1591,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 • 最後一個數字為當天的總利潤。
 
-• 所有數字之間以一個半形空格隔開。`,statement:{description:`子題四：每日銷售數量結算
+• 所有數字之間以一個半形空格隔開。`,requiresGreenFlag:!0,statement:{description:`子題四：每日銷售數量結算
 
 到了晚上，小明需要結算一整天賣出了多少杯飲料，以及總共多少利潤。
 
@@ -1656,7 +1656,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 請你寫一個程式，判斷是否需要交換，並輸出交換後的結果。
 
-（提示：交換時需要使用暫存變數）`,inputDescription:`一次輸入兩個整數 A、B（以空格隔開），代表目前卡片的順序。`,outputDescription:`輸出兩個整數，代表調整後由小到大的順序（以空格隔開）。`,statement:{description:`在學習排序之前，小安先練習一個重要的小任務。
+（提示：交換時需要使用暫存變數）`,inputDescription:`一次輸入兩個整數 A、B（以空格隔開），代表目前卡片的順序。`,outputDescription:`輸出兩個整數，代表調整後由小到大的順序（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`在學習排序之前，小安先練習一個重要的小任務。
 
 桌上有兩張數字卡片，依序放在第 1 個位置與第 2 個位置。
 
@@ -1684,7 +1684,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 第3行：輸入一個整數M，M固定為2
 
-第4行：輸入兩個整數 P、Q，代表要交換的清單位置（1 ≤ P,Q ≤ 5）。`,outputDescription:`輸出 5 個整數，代表交換完成後清單中的數字順序（以空格隔開）。`,statement:{description:`小安已經學會「兩個變數的交換」，現在他拿到一排固定 5 張的數字卡片，
+第4行：輸入兩個整數 P、Q，代表要交換的清單位置（1 ≤ P,Q ≤ 5）。`,outputDescription:`輸出 5 個整數，代表交換完成後清單中的數字順序（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`小安已經學會「兩個變數的交換」，現在他拿到一排固定 5 張的數字卡片，
 卡片依序放在第 1 到第 5 個位置中。
 
 老師指定清單中的兩個位置，小安需要把這兩個位置上的數字卡片進行交換，
@@ -1735,7 +1735,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 2. 若最小值出現多次，請輸出最前面出現的那一個位置。`,inputDescription:`第 1 行：輸入一個數N，N固定為整數5
 
-第 2 行：輸入5 個整數，代表清單內容（以空格隔開）。`,outputDescription:`輸出一個整數，代表最小值所在的位置（索引值）。`,statement:{description:`在進行排序之前，程式必須先知道「最大值或最小值在清單的哪一個位置」。
+第 2 行：輸入5 個整數，代表清單內容（以空格隔開）。`,outputDescription:`輸出一個整數，代表最小值所在的位置（索引值）。`,requiresGreenFlag:!0,statement:{description:`在進行排序之前，程式必須先知道「最大值或最小值在清單的哪一個位置」。
 
 小安已經可以找出清單中的最大值與最小值，
 但老師希望他進一步找出該數值所在的位置（索引值），
@@ -1773,7 +1773,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 3. 交換完成後，其餘位置的數字順序保持不變。`,inputDescription:`第1行：輸入一個整數N，N固定為5
 
-第2行：輸入5 個整數，代表清單中第 1 到第 5 個位置的數字（以空格隔開）。`,outputDescription:`輸出 5 個整數，代表完成「選擇排序第一回合」後的數字順序（以空格隔開）。`,statement:{description:`小安正在學習「選擇排序法」，老師請他先完成第一回合的任務。
+第2行：輸入5 個整數，代表清單中第 1 到第 5 個位置的數字（以空格隔開）。`,outputDescription:`輸出 5 個整數，代表完成「選擇排序第一回合」後的數字順序（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`小安正在學習「選擇排序法」，老師請他先完成第一回合的任務。
 
 桌上有一排固定 5 個的數字，依序放在第 1 到第 5 個位置中。
 請你找出這 5 個數字中最小的數字，並把它與第 1 個位置的數字交換。
@@ -1815,7 +1815,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 2. 若有相同數字，排序後相對位置不限。`,inputDescription:`第1行：輸入數字N，N固定為5
 
-第2行：輸入5 個整數，代表清單中的數字（以空格隔開）。`,outputDescription:`輸出 5 個整數，代表排序完成後的結果（以空格隔開）。`,statement:{description:`小安已經學會如何在清單中找出最小值，並進行兩數交換。
+第2行：輸入5 個整數，代表清單中的數字（以空格隔開）。`,outputDescription:`輸出 5 個整數，代表排序完成後的結果（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`小安已經學會如何在清單中找出最小值，並進行兩數交換。
 現在老師請他完成完整的選擇排序任務。
 
 桌上有一排固定 5 個整數，請你使用「選擇排序法」，
@@ -1856,7 +1856,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 請你寫一個程式，依照這個想法，將輸入的數字由小到大排序後輸出。`,inputDescription:`第1行：一個整數 N，代表卡片的數量。
 
-第2行：N 個整數，代表卡片上的數字（以空格隔開）。`,outputDescription:`輸出 N 個整數，依由小到大的順序排列（以空格隔開）。`,statement:{description:`資訊課中，老師給了小華一排數字卡片，每張卡片上都有一個整數。
+第2行：N 個整數，代表卡片上的數字（以空格隔開）。`,outputDescription:`輸出 N 個整數，依由小到大的順序排列（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`資訊課中，老師給了小華一排數字卡片，每張卡片上都有一個整數。
 
 小華想要把這些卡片由小到大排好，但老師規定：
 
@@ -1893,7 +1893,7 @@ a`,expectedOutput:`w`,output:`w`,score:30,hidden:!1}],starterXml:``,review:{need
 
 第3行：兩個整數 P、Q，代表要交換的位置（1 ≤ P, Q ≤ 5）。`,outputDescription:`第1行：交換完成後的 5 個姓名（以空格隔開）。
 
-第2行：交換完成後的 5 個分數（以空格隔開）。`,statement:{description:`在資訊課中，老師準備了兩排卡片，
+第2行：交換完成後的 5 個分數（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`在資訊課中，老師準備了兩排卡片，
 
 第一排是學生姓名，第二排是對應的分數。
 
@@ -1963,7 +1963,7 @@ One Two Three Four Five
 
 第2行：5 個整數，代表對應的分數（以空格隔開）。`,outputDescription:`輸出一行資料，依序輸出：
 
-最高分位置 最高分姓名 最低分位置 最低分姓名（以空格隔開）。`,statement:{description:`在整理成績資料時，小華發現每位學生的姓名與分數
+最高分位置 最高分姓名 最低分位置 最低分姓名（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`在整理成績資料時，小華發現每位學生的姓名與分數
 是分別存放在兩個清單中，但相同位置代表同一位學生。
 
 現在老師希望小華一次找出：
@@ -2020,7 +2020,7 @@ One Two Three Four Five
 
 第2行：5 個整數，代表對應的分數（以空格隔開）。`,outputDescription:`第1行：第一回合完成後的 5 個姓名（以空格隔開）。
 
-第2行：第一回合完成後的 5 個分數（以空格隔開）。`,statement:{description:`小華已經學會如何在成績清單中找出最高分與最低分的位置，
+第2行：第一回合完成後的 5 個分數（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`小華已經學會如何在成績清單中找出最高分與最低分的位置，
 現在老師要他進一步練習連動清單的排序操作。
 
 桌上有兩個清單：
@@ -2085,7 +2085,7 @@ One Two Three Four Five
 
 第2行：5 個整數，代表對應的分數（以空格隔開）。`,outputDescription:`第1行：排序完成後的 5 個姓名（以空格隔開）。
 
-第2行：排序完成後的 5 個分數（以空格隔開）。`,statement:{description:`小華已經完成「連動選擇排序第一回合」的練習，
+第2行：排序完成後的 5 個分數（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`小華已經完成「連動選擇排序第一回合」的練習，
 現在老師希望他能夠完成完整的連動排序任務。
 
 桌上有兩個清單：
@@ -2147,7 +2147,7 @@ One Two Three Four Five
 
 第2行：5 個整數，代表對應的分數（以空格隔開）。`,outputDescription:`輸出 5 行，每一行依序輸出：
 
-名次 姓名 分數（以空格隔開）。`,statement:{description:`小華已經完成「完整雙清單排序」，並且將學生依照分數由高到低
+名次 姓名 分數（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`小華已經完成「完整雙清單排序」，並且將學生依照分數由高到低
 排序完成。
 
 現在老師希望小華能夠應用排序後的結果，
@@ -2218,7 +2218,7 @@ One Two Three Four Five
 
 第3行：5 個整數，代表數學成績（以空格隔開）。`,outputDescription:`輸出 5 行，每一行依序輸出：
 
-姓名 總分（以空格隔開）。`,statement:{description:`在校務系統中，學生的資料常常分散存放在多個清單中。
+姓名 總分（以空格隔開）。`,requiresGreenFlag:!0,statement:{description:`在校務系統中，學生的資料常常分散存放在多個清單中。
 小華目前有三個清單，分別記錄：
 
 學生姓名清單

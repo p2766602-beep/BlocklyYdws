@@ -1,6 +1,6 @@
-var e={code:`JSS01`,title:`字串處理`,type:`programming`,mode:`learning`,description:`以字串長度、字元索引、逐字元遍歷與字串判斷為核心的文字處理課程。`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-07-18T23:59:23+08:00`,sourceCsv:`data\\problem_bank_master_tagged.csv`,version:`PB05-4B`},tasks:[{id:`JSS01-D01`,title:`字串長度`,problemTitle:`字串長度`,courseCode:`JSS01`,courseName:`字串處理`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`輸入一個字串，請輸出這個字串的長度。本題用來示範把文字視為資料並取得長度。`,inputDescription:`第一行：一個不含空白的字串 S。`,outputDescription:`輸出 S 的長度。`,statement:{description:`輸入一個字串，請輸出這個字串的長度。本題用來示範把文字視為資料並取得長度。`,input:`第一行：一個不含空白的字串 S。`,output:`輸出 S 的長度。`},examples:[{input:`apple`,output:`5`,explanation:`apple 有 5 個字元。`},{input:`A`,output:`1`,explanation:`A 有 1 個字元。`}],testCases:[{input:`apple`,expectedOutput:`5`,output:`5`,score:20,hidden:!1},{input:`A`,expectedOutput:`1`,output:`1`,score:20,hidden:!1},{input:`Blockly`,expectedOutput:`7`,output:`7`,score:20,hidden:!1},{input:`code123`,expectedOutput:`7`,output:`7`,score:20,hidden:!1},{input:`Taiwan`,expectedOutput:`6`,output:`6`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSS01-D02`,title:`第一個與最後一個字元`,problemTitle:`第一個與最後一個字元`,courseCode:`JSS01`,courseName:`字串處理`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`輸入一個字串，請輸出第一個字元與最後一個字元，兩個結果各佔一行。本題用來示範字串索引與位置概念。`,inputDescription:`第一行：一個不含空白的字串 S。`,outputDescription:`第一行：S 的第一個字元。
+var e={code:`JSS01`,title:`字串處理`,type:`programming`,mode:`learning`,description:`以字串長度、字元索引、逐字元遍歷與字串判斷為核心的文字處理課程。`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-07-18T23:59:23+08:00`,sourceCsv:`data\\problem_bank_master_tagged.csv`,version:`PB05-4B`},tasks:[{id:`JSS01-D01`,title:`字串長度`,problemTitle:`字串長度`,courseCode:`JSS01`,courseName:`字串處理`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`輸入一個字串，請輸出這個字串的長度。本題用來示範把文字視為資料並取得長度。`,inputDescription:`第一行：一個不含空白的字串 S。`,outputDescription:`輸出 S 的長度。`,requiresGreenFlag:!0,statement:{description:`輸入一個字串，請輸出這個字串的長度。本題用來示範把文字視為資料並取得長度。`,input:`第一行：一個不含空白的字串 S。`,output:`輸出 S 的長度。`},examples:[{input:`apple`,output:`5`,explanation:`apple 有 5 個字元。`},{input:`A`,output:`1`,explanation:`A 有 1 個字元。`}],testCases:[{input:`apple`,expectedOutput:`5`,output:`5`,score:20,hidden:!1},{input:`A`,expectedOutput:`1`,output:`1`,score:20,hidden:!1},{input:`Blockly`,expectedOutput:`7`,output:`7`,score:20,hidden:!1},{input:`code123`,expectedOutput:`7`,output:`7`,score:20,hidden:!1},{input:`Taiwan`,expectedOutput:`6`,output:`6`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSS01-D02`,title:`第一個與最後一個字元`,problemTitle:`第一個與最後一個字元`,courseCode:`JSS01`,courseName:`字串處理`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`輸入一個字串，請輸出第一個字元與最後一個字元，兩個結果各佔一行。本題用來示範字串索引與位置概念。`,inputDescription:`第一行：一個不含空白的字串 S。`,outputDescription:`第一行：S 的第一個字元。
 
-第二行：S 的最後一個字元。`,statement:{description:`輸入一個字串，請輸出第一個字元與最後一個字元，兩個結果各佔一行。本題用來示範字串索引與位置概念。`,input:`第一行：一個不含空白的字串 S。`,output:`第一行：S 的第一個字元。
+第二行：S 的最後一個字元。`,requiresGreenFlag:!0,statement:{description:`輸入一個字串，請輸出第一個字元與最後一個字元，兩個結果各佔一行。本題用來示範字串索引與位置概念。`,input:`第一行：一個不含空白的字串 S。`,output:`第一行：S 的第一個字元。
 
 第二行：S 的最後一個字元。`},examples:[{input:`apple`,output:`a
 e`,explanation:`apple 的第一個字元是 a，最後一個字元是 e。`},{input:`Z`,output:`Z
@@ -14,7 +14,7 @@ y`,score:20,hidden:!1},{input:`code123`,expectedOutput:`c
 3`,output:`c
 3`,score:20,hidden:!1},{input:`Taiwan`,expectedOutput:`T
 n`,output:`T
-n`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSS01-D03`,title:`逐字元輸出`,problemTitle:`逐字元輸出`,courseCode:`JSS01`,courseName:`字串處理`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`輸入一個字串，請依序輸出每一個字元，每個字元各佔一行。本題用來示範用迴圈逐一處理字元。`,inputDescription:`第一行：一個不含空白的字串 S。`,outputDescription:`依序輸出 S 的每一個字元，每個字元各佔一行。`,statement:{description:`輸入一個字串，請依序輸出每一個字元，每個字元各佔一行。本題用來示範用迴圈逐一處理字元。`,input:`第一行：一個不含空白的字串 S。`,output:`依序輸出 S 的每一個字元，每個字元各佔一行。`},examples:[{input:`cat`,output:`c
+n`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSS01-D03`,title:`逐字元輸出`,problemTitle:`逐字元輸出`,courseCode:`JSS01`,courseName:`字串處理`,role:`demo`,difficulty:`L1`,blocklyFit:`高`,description:`輸入一個字串，請依序輸出每一個字元，每個字元各佔一行。本題用來示範用迴圈逐一處理字元。`,inputDescription:`第一行：一個不含空白的字串 S。`,outputDescription:`依序輸出 S 的每一個字元，每個字元各佔一行。`,requiresGreenFlag:!0,statement:{description:`輸入一個字串，請依序輸出每一個字元，每個字元各佔一行。本題用來示範用迴圈逐一處理字元。`,input:`第一行：一個不含空白的字串 S。`,output:`依序輸出 S 的每一個字元，每個字元各佔一行。`},examples:[{input:`cat`,output:`c
 a
 t`,explanation:`依序輸出 c、a、t。`},{input:`Hi`,output:`H
 i`,explanation:`依序輸出 H、i。`}],testCases:[{input:`cat`,expectedOutput:`c
@@ -35,7 +35,7 @@ e`,score:20,hidden:!1},{input:`123`,expectedOutput:`1
 2
 3`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSS01-P01`,title:`指定字元出現次數`,problemTitle:`指定字元出現次數`,courseCode:`JSS01`,courseName:`字串處理`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`第一行輸入一個字串 S，第二行輸入一個字元 C。請計算 C 在 S 中出現幾次。本題用來練習字串遍歷與條件計數。`,inputDescription:`第一行：一個不含空白的字串 S。
 
-第二行：一個字元 C。`,outputDescription:`輸出 C 在 S 中出現的次數。`,statement:{description:`第一行輸入一個字串 S，第二行輸入一個字元 C。請計算 C 在 S 中出現幾次。本題用來練習字串遍歷與條件計數。`,input:`第一行：一個不含空白的字串 S。
+第二行：一個字元 C。`,outputDescription:`輸出 C 在 S 中出現的次數。`,requiresGreenFlag:!0,statement:{description:`第一行輸入一個字串 S，第二行輸入一個字元 C。請計算 C 在 S 中出現幾次。本題用來練習字串遍歷與條件計數。`,input:`第一行：一個不含空白的字串 S。
 
 第二行：一個字元 C。`,output:`輸出 C 在 S 中出現的次數。`},examples:[{input:`banana
 a`,output:`3`,explanation:`a 在 banana 中出現 3 次。`},{input:`code
@@ -44,7 +44,7 @@ a`,expectedOutput:`3`,output:`3`,score:20,hidden:!1},{input:`code
 z`,expectedOutput:`0`,output:`0`,score:20,hidden:!1},{input:`hello
 l`,expectedOutput:`2`,output:`2`,score:20,hidden:!1},{input:`aaaaa
 a`,expectedOutput:`5`,output:`5`,score:20,hidden:!1},{input:`Blockly
-o`,expectedOutput:`1`,output:`1`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSS01-P02`,title:`簡易格式檢查`,problemTitle:`簡易格式檢查`,courseCode:`JSS01`,courseName:`字串處理`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`輸入一個字串 S。若 S 的長度為 4，輸出 OK；否則輸出 NG。本題用來練習簡單的字串格式檢查。`,inputDescription:`第一行：一個不含空白的字串 S。`,outputDescription:`若 S 長度為 4，輸出 OK；否則輸出 NG。`,statement:{description:`輸入一個字串 S。若 S 的長度為 4，輸出 OK；否則輸出 NG。本題用來練習簡單的字串格式檢查。`,input:`第一行：一個不含空白的字串 S。`,output:`若 S 長度為 4，輸出 OK；否則輸出 NG。`},examples:[{input:`ABCD`,output:`OK`,explanation:`ABCD 長度為 4。`},{input:`ABC`,output:`NG`,explanation:`ABC 長度不是 4。`}],testCases:[{input:`ABCD`,expectedOutput:`OK`,output:`OK`,score:20,hidden:!1},{input:`ABC`,expectedOutput:`NG`,output:`NG`,score:20,hidden:!1},{input:`1234`,expectedOutput:`OK`,output:`OK`,score:20,hidden:!1},{input:`hello`,expectedOutput:`NG`,output:`NG`,score:20,hidden:!1},{input:`A`,expectedOutput:`NG`,output:`NG`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-10-0`,title:`多科成績計算`,problemTitle:`多科成績計算`,courseCode:`JSS01`,courseName:`字串處理`,role:`challenge`,difficulty:`L3`,blocklyFit:`中`,description:`小明參加了數學、英文、自然...等多科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
+o`,expectedOutput:`1`,output:`1`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`JSS01-P02`,title:`簡易格式檢查`,problemTitle:`簡易格式檢查`,courseCode:`JSS01`,courseName:`字串處理`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`輸入一個字串 S。若 S 的長度為 4，輸出 OK；否則輸出 NG。本題用來練習簡單的字串格式檢查。`,inputDescription:`第一行：一個不含空白的字串 S。`,outputDescription:`若 S 長度為 4，輸出 OK；否則輸出 NG。`,requiresGreenFlag:!0,statement:{description:`輸入一個字串 S。若 S 的長度為 4，輸出 OK；否則輸出 NG。本題用來練習簡單的字串格式檢查。`,input:`第一行：一個不含空白的字串 S。`,output:`若 S 長度為 4，輸出 OK；否則輸出 NG。`},examples:[{input:`ABCD`,output:`OK`,explanation:`ABCD 長度為 4。`},{input:`ABC`,output:`NG`,explanation:`ABC 長度不是 4。`}],testCases:[{input:`ABCD`,expectedOutput:`OK`,output:`OK`,score:20,hidden:!1},{input:`ABC`,expectedOutput:`NG`,output:`NG`,score:20,hidden:!1},{input:`1234`,expectedOutput:`OK`,output:`OK`,score:20,hidden:!1},{input:`hello`,expectedOutput:`NG`,output:`NG`,score:20,hidden:!1},{input:`A`,expectedOutput:`NG`,output:`NG`,score:20,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-10-0`,title:`多科成績計算`,problemTitle:`多科成績計算`,courseCode:`JSS01`,courseName:`字串處理`,role:`challenge`,difficulty:`L3`,blocklyFit:`中`,description:`小明參加了數學、英文、自然...等多科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
 
 請設計程式，輸入多科的成績，計算總分與平均。
 
@@ -56,7 +56,7 @@ o`,expectedOutput:`1`,output:`1`,score:20,hidden:!1}],starterXml:``,review:{need
 
 如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。
 
-這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,inputDescription:``,outputDescription:``,statement:{description:`小明參加了數學、英文、自然...等多科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
+這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`小明參加了數學、英文、自然...等多科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。
 
 請設計程式，輸入多科的成績，計算總分與平均。
 
@@ -100,7 +100,7 @@ o`,expectedOutput:`1`,output:`1`,score:20,hidden:!1}],starterXml:``,review:{need
 
 程式輸出加權總分、加權平均、等弟。
 
-這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,inputDescription:``,outputDescription:``,statement:{description:`大明綜合高中辦理考試，不同科系考試科目數量、每周上課時數不一定相同
+這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`大明綜合高中辦理考試，不同科系考試科目數量、每周上課時數不一定相同
 
 成績計算時，以每一科成績乘以該科上課時數為加權成績，將所有科目的加權成績加總，並除以全部科目總時數，即為學生加權平均成績
 
@@ -141,7 +141,7 @@ D`,explanation:`第一行輸入6，表示後面會有6科成績輸入
 55 90 99
 2 3 3`,expectedOutput:`677 85 A`,output:`677 85 A`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-11-0`,title:`計算字元出現次數`,problemTitle:`計算字元出現次數`,courseCode:`JSS01`,courseName:`字串處理`,role:`challenge`,difficulty:`L3`,blocklyFit:`中`,description:`請設計程式，輸入一個字串，並輸入一個英文字母輸出該字母在字串中出現的次數。
 
-這樣的練習可以訓練你操作字串與統計。`,inputDescription:``,outputDescription:``,statement:{description:`請設計程式，輸入一個字串，並輸入一個英文字母輸出該字母在字串中出現的次數。
+這樣的練習可以訓練你操作字串與統計。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`請設計程式，輸入一個字串，並輸入一個英文字母輸出該字母在字串中出現的次數。
 
 這樣的練習可以訓練你操作字串與統計。`,input:``,output:``},examples:[{input:`banana
 a`,output:`3`,explanation:`第一行輸入banana
@@ -159,7 +159,7 @@ e`,expectedOutput:`3`,output:`3`,score:10,hidden:!1}],starterXml:``,review:{need
 
 程式會統計該字串的字母中，出現最多的次數。
 
-這樣的練習可以訓練你循環計數迴圈與字串統計。`,inputDescription:``,outputDescription:``,statement:{description:`請設計程式，輸入一字串由小寫英文字母組合，長度1~50間的字串
+這樣的練習可以訓練你循環計數迴圈與字串統計。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`請設計程式，輸入一字串由小寫英文字母組合，長度1~50間的字串
 
 程式會統計該字串的字母中，出現最多的次數。
 
@@ -175,7 +175,7 @@ e`,expectedOutput:`3`,output:`3`,score:10,hidden:!1}],starterXml:``,review:{need
 
 請寫一個程式，輸入一個英文單字，輸出轉換後的字串。
 
-這樣的練習訓練你字元處理與條件轉換。`,inputDescription:``,outputDescription:``,statement:{description:`小明設計了一種簡單的密碼環密碼規則：將每個字母向後移二個字母（z 變 b）。
+這樣的練習訓練你字元處理與條件轉換。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`小明設計了一種簡單的密碼環密碼規則：將每個字母向後移二個字母（z 變 b）。
 
 密碼環：abcdefghijklmnopqrstuvwxyz
 
@@ -197,7 +197,7 @@ e`,expectedOutput:`3`,output:`3`,score:10,hidden:!1}],starterXml:``,review:{need
 
 請寫一個程式，輸入一個英文單字，程式輸出依照編碼規則轉換後的密碼字串。
 
-這樣的練習訓練你字元處理與條件轉換。`,inputDescription:``,outputDescription:``,statement:{description:`小明設計了一種英文字元密碼環編碼規則：
+這樣的練習訓練你字元處理與條件轉換。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`小明設計了一種英文字元密碼環編碼規則：
 
 密碼環為『abcdefghijklmnopqrstuvwxyz0123456789』
 
@@ -237,7 +237,7 @@ B20135 = 13+2+0+1+3+5 = 24 → 24÷5=4餘4 → 正確會員卡
 
 A15274 = 11+1+5+2+7+4 = 30 → 30÷5=6餘0 → 不正確會員卡
 
-請寫一個程式判斷會員卡號是否正確，若正確輸出 yes，否則輸出 no。`,inputDescription:``,outputDescription:``,statement:{description:`書店會員卡享有購書8折優惠，為避免有人偽造會員卡，書店老闆在卡號中加入檢查碼。
+請寫一個程式判斷會員卡號是否正確，若正確輸出 yes，否則輸出 no。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,statement:{description:`書店會員卡享有購書8折優惠，為避免有人偽造會員卡，書店老闆在卡號中加入檢查碼。
 
 會員卡編號格式為：一個英文字母 + 4個數字 + 1個檢查碼。
 
@@ -271,7 +271,7 @@ A15274 = 11+1+5+2+7+4 = 30 → 30÷5=6餘0 → 不正確會員卡
 
 請設計一個程式，找出在符合上述條件下「剛好用完所有 N 條 LED 燈條」時，可以組成的最大值。
 
-若無法用 1 位數或 2 位數剛好用完所有 N 條 LED 燈條，請輸出 -1。`,inputDescription:`一行輸入一個整數 N（2 ≤ N ≤ 30），代表可用的 LED 燈條數。`,outputDescription:`一行輸出可組成的最大值（最大值 < 100），若不存在則輸出 -1。`,statement:{description:`七段顯示器是一種常見的數字顯示裝置，由 7 條 LED 燈條組成，可用來顯示數字 0~9。
+若無法用 1 位數或 2 位數剛好用完所有 N 條 LED 燈條，請輸出 -1。`,inputDescription:`一行輸入一個整數 N（2 ≤ N ≤ 30），代表可用的 LED 燈條數。`,outputDescription:`一行輸出可組成的最大值（最大值 < 100），若不存在則輸出 -1。`,requiresGreenFlag:!0,statement:{description:`七段顯示器是一種常見的數字顯示裝置，由 7 條 LED 燈條組成，可用來顯示數字 0~9。
 
 每個數字所需點亮的 LED 燈條數量如下：
 
@@ -297,7 +297,7 @@ A=0, B=1, C=2, D=3, E=4，
 
 3. 將每個字母轉換為對應數值後，計算總和。`,inputDescription:`第一行：整數 L。
 
-第二行：L 個字元（以空格分隔，如 B C）。`,outputDescription:`一個整數（10 進位數值）。`,statement:{description:`程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：
+第二行：L 個字元（以空格分隔，如 B C）。`,outputDescription:`一個整數（10 進位數值）。`,requiresGreenFlag:!0,statement:{description:`程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：
 A=0, B=1, C=2, D=3, E=4，
 例如密碼 BC 代表 5進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。
 
@@ -318,7 +318,7 @@ B A A`,expectedOutput:`25`,output:`25`,score:20,hidden:!1},{input:`4
 B A A A`,expectedOutput:`125`,output:`125`,score:25,hidden:!1},{input:`5
 C D E A B`,expectedOutput:`1726`,output:`1726`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`W7-01`,title:`校園密室逃脫-書架的密碼`,problemTitle:`校園密室逃脫-書架的密碼`,courseCode:`JSS01`,courseName:`字串處理`,role:`challenge`,difficulty:`L2`,blocklyFit:`中`,description:`傳說在校園圖書館的深處，隱藏著一間百年前首任校長留下的「智慧密室」。今年校慶，學生會利用最新的 AR 技術重現了這個傳說，設計了四道關卡。只有解開所有謎題的小隊，才能獲得象徵最高榮譽的「智慧之鑰」。你的小隊現在正站在密室的入口。
 
-第一道關卡是一扇巨大的電子鐵門。門鎖的螢幕上並沒有數字鍵盤，只有一串閃爍的、由 0 與 1 組成的符號序列。門邊的銘牌刻著一行字：「只有通曉機器語言的人，才能將二元的虛幻轉化為十進的真實。」這顯然是一個二進位轉十進位的謎題。請將螢幕上的二進位字串解碼為十進位數字，輸入系統以開啟大門。`,inputDescription:`第一行：一個字串 S（只包含 0 與 1）。`,outputDescription:`第一行：一個整數，代表轉換後的十進位數值。`,statement:{description:`傳說在校園圖書館的深處，隱藏著一間百年前首任校長留下的「智慧密室」。今年校慶，學生會利用最新的 AR 技術重現了這個傳說，設計了四道關卡。只有解開所有謎題的小隊，才能獲得象徵最高榮譽的「智慧之鑰」。你的小隊現在正站在密室的入口。
+第一道關卡是一扇巨大的電子鐵門。門鎖的螢幕上並沒有數字鍵盤，只有一串閃爍的、由 0 與 1 組成的符號序列。門邊的銘牌刻著一行字：「只有通曉機器語言的人，才能將二元的虛幻轉化為十進的真實。」這顯然是一個二進位轉十進位的謎題。請將螢幕上的二進位字串解碼為十進位數字，輸入系統以開啟大門。`,inputDescription:`第一行：一個字串 S（只包含 0 與 1）。`,outputDescription:`第一行：一個整數，代表轉換後的十進位數值。`,requiresGreenFlag:!0,statement:{description:`傳說在校園圖書館的深處，隱藏著一間百年前首任校長留下的「智慧密室」。今年校慶，學生會利用最新的 AR 技術重現了這個傳說，設計了四道關卡。只有解開所有謎題的小隊，才能獲得象徵最高榮譽的「智慧之鑰」。你的小隊現在正站在密室的入口。
 
 第一道關卡是一扇巨大的電子鐵門。門鎖的螢幕上並沒有數字鍵盤，只有一串閃爍的、由 0 與 1 組成的符號序列。門邊的銘牌刻著一行字：「只有通曉機器語言的人，才能將二元的虛幻轉化為十進的真實。」這顯然是一個二進位轉十進位的謎題。請將螢幕上的二進位字串解碼為十進位數字，輸入系統以開啟大門。`,input:`第一行：一個字串 S（只包含 0 與 1）。`,output:`第一行：一個整數，代表轉換後的十進位數值。`},examples:[{input:`101`,output:`5`,explanation:`1x4 + 0x2 + 1x1 = 5`},{input:`1111`,output:`15`,explanation:`8 + 4 + 2 + 1 = 15`}],testCases:[{input:`10`,expectedOutput:`2`,output:`2`,score:10,hidden:!1},{input:`110`,expectedOutput:`6`,output:`6`,score:15,hidden:!1},{input:`1000`,expectedOutput:`8`,output:`8`,score:20,hidden:!1},{input:`11011`,expectedOutput:`27`,output:`27`,score:25,hidden:!1},{input:`1111101000`,expectedOutput:`1000`,output:`1000`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cycjunior-002`,title:`5進位解碼`,problemTitle:`5進位解碼`,courseCode:`JSS01`,courseName:`字串處理`,role:`challenge`,difficulty:`L3`,blocklyFit:`中`,description:`程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：
 A=0, B=1, C=2, D=3, E=4，
@@ -330,7 +330,7 @@ A=0, B=1, C=2, D=3, E=4，
 
 3. 將每個字母轉換為對應數值後，計算總和。`,inputDescription:`第一行：整數 L。
 
-第二行：L 個字元（以空格分隔，如 B C）。`,outputDescription:`一個整數（10 進位數值）。`,statement:{description:`程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：
+第二行：L 個字元（以空格分隔，如 B C）。`,outputDescription:`一個整數（10 進位數值）。`,requiresGreenFlag:!0,statement:{description:`程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：
 A=0, B=1, C=2, D=3, E=4，
 例如密碼 BC 代表 5進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。
 
@@ -369,7 +369,7 @@ Scratch與 Blockly 積木運算大於16位數字時已無法精確運算，因�
 
 第一行：兩個整數（0 或 1），中間以空格分隔，1代表「是」，0代表「非」。
 
-第一個數字代表是否為 5 的倍數，第二個代表是否為 11 的倍數。`,outputDescription:``,statement:{description:`考古社的社員們在整理學校老舊圖書館的地下倉庫時，意外在一個積滿灰塵的角落發現了一塊斷裂的古代石板。石板上刻著一串長得驚人的數字，根據碳十四定年法推測，這可能與百年前一位精通術數的隱士有關。
+第一個數字代表是否為 5 的倍數，第二個代表是否為 11 的倍數。`,outputDescription:``,requiresGreenFlag:!0,statement:{description:`考古社的社員們在整理學校老舊圖書館的地下倉庫時，意外在一個積滿灰塵的角落發現了一塊斷裂的古代石板。石板上刻著一串長得驚人的數字，根據碳十四定年法推測，這可能與百年前一位精通術數的隱士有關。
 
 隨同石板出土的還有一卷泛黃的羊皮紙，上面記載著開啟地下密室的線索：「當數字之河能同時通過『五行之神』與『十一星宿』的試煉時，真理之門將會開啟。」
 
@@ -394,7 +394,7 @@ Scratch與 Blockly 積木運算大於16位數字時已無法精確運算，因�
 奇位和4 - 偶位和6 = -2  (非11的倍數)。`},{input:`1651651651651651651651650a`,output:`1 1`,explanation:`尾數0                  (是5的倍數)。
 奇位和36 - 偶位和36 = 0 (是11的倍數)。`}],testCases:[{input:`35a`,expectedOutput:`1 0`,output:`1 0`,score:10,hidden:!1},{input:`121a`,expectedOutput:`0 1`,output:`0 1`,score:15,hidden:!1},{input:`123a`,expectedOutput:`0 0`,output:`0 0`,score:20,hidden:!1},{input:`55555555555555555555555555a`,expectedOutput:`1 1`,output:`1 1`,score:25,hidden:!1},{input:`5060506050605060506050605060a`,expectedOutput:`1 1`,output:`1 1`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`cyjunior-006`,title:`校園密室逃脫-書架的密碼(6-1)`,problemTitle:`校園密室逃脫-書架的密碼(6-1)`,courseCode:`JSS01`,courseName:`字串處理`,role:`challenge`,difficulty:`L2`,blocklyFit:`中`,description:`傳說在校園圖書館的深處，隱藏著一間百年前首任校長留下的「智慧密室」。今年校慶，學生會利用最新的 AR 技術重現了這個傳說，設計了四道關卡。只有解開所有謎題的小隊，才能獲得象徵最高榮譽的「智慧之鑰」。你的小隊現在正站在密室的入口。
 
-第一道關卡是一扇巨大的電子鐵門。門鎖的螢幕上並沒有數字鍵盤，只有一串閃爍的、由 0 與 1 組成的符號序列。門邊的銘牌刻著一行字：「只有通曉機器語言的人，才能將二元的虛幻轉化為十進的真實。」這顯然是一個二進位轉十進位的謎題。請將螢幕上的二進位字串解碼為十進位數字，輸入系統以開啟大門。`,inputDescription:`第一行：一個字串 S（只包含 0 與 1）。`,outputDescription:`第一行：一個整數，代表轉換後的十進位數值。`,statement:{description:`傳說在校園圖書館的深處，隱藏著一間百年前首任校長留下的「智慧密室」。今年校慶，學生會利用最新的 AR 技術重現了這個傳說，設計了四道關卡。只有解開所有謎題的小隊，才能獲得象徵最高榮譽的「智慧之鑰」。你的小隊現在正站在密室的入口。
+第一道關卡是一扇巨大的電子鐵門。門鎖的螢幕上並沒有數字鍵盤，只有一串閃爍的、由 0 與 1 組成的符號序列。門邊的銘牌刻著一行字：「只有通曉機器語言的人，才能將二元的虛幻轉化為十進的真實。」這顯然是一個二進位轉十進位的謎題。請將螢幕上的二進位字串解碼為十進位數字，輸入系統以開啟大門。`,inputDescription:`第一行：一個字串 S（只包含 0 與 1）。`,outputDescription:`第一行：一個整數，代表轉換後的十進位數值。`,requiresGreenFlag:!0,statement:{description:`傳說在校園圖書館的深處，隱藏著一間百年前首任校長留下的「智慧密室」。今年校慶，學生會利用最新的 AR 技術重現了這個傳說，設計了四道關卡。只有解開所有謎題的小隊，才能獲得象徵最高榮譽的「智慧之鑰」。你的小隊現在正站在密室的入口。
 
 第一道關卡是一扇巨大的電子鐵門。門鎖的螢幕上並沒有數字鍵盤，只有一串閃爍的、由 0 與 1 組成的符號序列。門邊的銘牌刻著一行字：「只有通曉機器語言的人，才能將二元的虛幻轉化為十進的真實。」這顯然是一個二進位轉十進位的謎題。請將螢幕上的二進位字串解碼為十進位數字，輸入系統以開啟大門。`,input:`第一行：一個字串 S（只包含 0 與 1）。`,output:`第一行：一個整數，代表轉換後的十進位數值。`},examples:[{input:`101`,output:`5`,explanation:`1x4 + 0x2 + 1x1 = 5`},{input:`1111`,output:`15`,explanation:`8 + 4 + 2 + 1 = 15`}],testCases:[{input:`10`,expectedOutput:`2`,output:`2`,score:10,hidden:!1},{input:`110`,expectedOutput:`6`,output:`6`,score:15,hidden:!1},{input:`1000`,expectedOutput:`8`,output:`8`,score:20,hidden:!1},{input:`11011`,expectedOutput:`27`,output:`27`,score:25,hidden:!1},{input:`1111101000`,expectedOutput:`1000`,output:`1000`,score:30,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元統計與格式判斷`],algorithm:[],dataStructure:[`字串`],syntax:[`字串`,`索引`,`len`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`nantoJS-002`,title:`熱門影片的流量密碼`,problemTitle:`熱門影片的流量密碼`,courseCode:`JSS01`,courseName:`字串處理`,role:`challenge`,difficulty:`L3`,blocklyFit:`中`,description:`小雅是一名熱愛經營頻道的國中生YouTuber，她非常在意自己影片的流量趨勢。她從後台導出了過去N天的每日觀看次數紀錄。為了找出最有效的發片節奏與演算法推播規律，她想要找出一段長度剛好為「連續K天」的黃金時期。
 
@@ -406,7 +406,7 @@ Scratch與 Blockly 積木運算大於16位數字時已無法精確運算，因�
 
 第二行：輸入整數K，代表欲分析的連續天數
 
-第三行：輸入N個整數，代表每天的影片觀看次數紀錄(以半形空格分隔)。`,outputDescription:`第一行：輸出一個整數，代表所有連續K天區間中最大的觀看總和。`,statement:{description:`小雅是一名熱愛經營頻道的國中生YouTuber，她非常在意自己影片的流量趨勢。她從後台導出了過去N天的每日觀看次數紀錄。為了找出最有效的發片節奏與演算法推播規律，她想要找出一段長度剛好為「連續K天」的黃金時期。
+第三行：輸入N個整數，代表每天的影片觀看次數紀錄(以半形空格分隔)。`,outputDescription:`第一行：輸出一個整數，代表所有連續K天區間中最大的觀看總和。`,requiresGreenFlag:!0,statement:{description:`小雅是一名熱愛經營頻道的國中生YouTuber，她非常在意自己影片的流量趨勢。她從後台導出了過去N天的每日觀看次數紀錄。為了找出最有效的發片節奏與演算法推播規律，她想要找出一段長度剛好為「連續K天」的黃金時期。
 
 在這連續的K天中，所有影片觀看次數的加總必須是所有可能區段中最高的。
 
@@ -436,7 +436,7 @@ Note: Scratch與 Blockly 積木運算大於16位的數字時已無法精確運�
 
 第二行：一個數字字串(含後置a)，代表第二塊石板上的數值 B。
 
-(註：字串長度介於 1 到 100 之間) 。`,outputDescription:`第一行：輸出計算結果字串(含後置a)，代表兩塊石板分別旋轉至最大值後相加的結果`,statement:{description:`考古學家在遺跡中發現了兩塊圓形的能量石板，上面刻著古老的數字代碼。根據解讀，這兩塊石板具有「相位旋轉」的特性。若想啟動遺跡的核心能源必須將這兩股最強的能量數值進行「大數加法」融合，所得的總和就是啟動核心的密碼。 請你編寫程式，根據考古學家輸入的兩塊石板數字，計算出融合後的最終能量數值 。
+(註：字串長度介於 1 到 100 之間) 。`,outputDescription:`第一行：輸出計算結果字串(含後置a)，代表兩塊石板分別旋轉至最大值後相加的結果`,requiresGreenFlag:!0,statement:{description:`考古學家在遺跡中發現了兩塊圓形的能量石板，上面刻著古老的數字代碼。根據解讀，這兩塊石板具有「相位旋轉」的特性。若想啟動遺跡的核心能源必須將這兩股最強的能量數值進行「大數加法」融合，所得的總和就是啟動核心的密碼。 請你編寫程式，根據考古學家輸入的兩塊石板數字，計算出融合後的最終能量數值 。
 
 Note: Scratch與 Blockly 積木運算大於16位的數字時已無法精確運算，因此輸入及輸出的數字字串最後方會強制加上一個英文字母 a (例如 12345a)， 請將其視為字串處理，讀取時請記得忽略最後一個字元，輸出時請用字串結合的方式在最後面結合一個英文字母a(詳見範例)。`,input:`第一行：一個數字字串(含後置a)，代表第一塊石板上的數值 A。
 
