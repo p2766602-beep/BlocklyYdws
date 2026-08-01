@@ -52,8 +52,11 @@
 
 ## 已知待辦（下一輪可以做，不急）
 
-- 教師後台目前KV裡是空的，還沒有人實際用過——如果要驗證整條路真的通，可以實際登入
-  `teacher.html`存一筆看看。
+- ~~教師後台目前KV裡是空的，還沒有人實際用過——如果要驗證整條路真的通，可以實際登入
+  `teacher.html`存一筆看看。~~ **2026-08-02已完成驗證**：用本機dev server打正式部署的
+  Worker，密碼解鎖→載入JSL01→編輯備註→儲存→重新載入確認「已覆寫」徽章與內容正確持久化，
+  端對端流程確認可用。測試資料已清空覆寫回空值（Worker沒有DELETE端點，徽章會留著但內容
+  已清乾淨）。細節見`專案規劃摘要.md`「目前決策現況」表新增列。
 - Vite主bundle 920KB，每次build都跳code-splitting建議，效能優化機會，不急。
 - AI伴學的課程白名單（`workers/ai-companion/wrangler.toml`的`PUBLIC_COURSE_CODES`）
   要跟前端`src/courses/index.js`的`publicCourseGroups`手動保持同步，容易漂移，可考慮
