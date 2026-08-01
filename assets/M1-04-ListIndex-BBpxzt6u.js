@@ -1,0 +1,141 @@
+var e={code:`M1-04-ListIndex`,title:`清單索引與位置`,type:`programming`,mode:`learning`,tier:`t1`,tasks:[{id:`IDX01-001`,title:`（指定位置的數字`,description:`給定 N 個整數與一個位置 P，請輸出第 P 個數字。位置從 1 開始計算。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 P。保證 1 <= P <= N。`,outputDescription:`輸出一個整數，代表第 P 個數字。`,requiresGreenFlag:!0,examples:[{input:`5 8 3 12 7 10 3`,output:`12`,explanation:`第 3 個數字是 12。`}],testCases:[{input:`5 8 3 12 7 10 3`,expectedOutput:`12`,output:`12`,score:0},{input:`4 1 2 3 4 1`,expectedOutput:`1`,output:`1`,score:0},{input:`4 1 2 3 4 4`,expectedOutput:`4`,output:`4`,score:0},{input:`6 -1 -2 -3 -4 -5 -6 5`,expectedOutput:`-5`,output:`-5`,score:0}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_p">P</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N與N個整數</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_all">全部數字</field>
+                <value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                    <statement name="DO">
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_x">數字</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="lists_setIndex">
+                                <mutation at="false"></mutation>
+                                <field name="MODE">INSERT</field>
+                                <field name="WHERE">LAST</field>
+                                <value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value>
+                                <value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT">請輸入位置P</field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_p">P</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="interaction_say">
+                                <value name="TEXT"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_p">P</field></block></value></block></value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`},{id:`IDX01-002`,title:`第一個目標位置`,description:`給定 N 個整數與目標值 X，請找出 X 第一次出現的位置。位置從 1 開始計算。若沒有出現，輸出 0。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 X。`,outputDescription:`輸出一個整數，代表 X 第一次出現的位置；若不存在則輸出 0。`,requiresGreenFlag:!0,examples:[{input:`6 4 8 3 8 5 8 8`,output:`2`,explanation:`目標值 8 第一次出現在第 2 個位置。`}],testCases:[{input:`6 4 8 3 8 5 8 8`,expectedOutput:`2`,output:`2`,score:0},{input:`5 1 2 3 4 5 9`,expectedOutput:`0`,output:`0`,score:0},{input:`4 7 7 7 7 7`,expectedOutput:`1`,output:`1`,score:0},{input:`3 -1 -2 -3 -3`,expectedOutput:`3`,output:`3`,score:0}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_target">目標值</variable><variable id="v_pos">位置</variable><variable id="v_i">i</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N、N個整數與目標值</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_all">全部數字</field>
+                <value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                    <statement name="DO">
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_x">數字</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="lists_setIndex">
+                                <mutation at="false"></mutation>
+                                <field name="MODE">INSERT</field>
+                                <field name="WHERE">LAST</field>
+                                <value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value>
+                                <value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT">請輸入目標值</field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_target">目標值</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="v_pos">位置</field>
+                                <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+                                <next>
+                                  <block type="controls_for">
+                                    <field name="VAR" id="v_i">i</field>
+                                    <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+                                    <value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                                    <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                                    <statement name="DO">
+                                      <block type="controls_if">
+                                        <value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_pos">位置</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_target">目標值</field></block></value></block></value></block></value>
+                                        <statement name="DO0"><block type="variables_set"><field name="VAR" id="v_pos">位置</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></statement>
+                                      </block>
+                                    </statement>
+                                    <next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_pos">位置</field></block></value></block></next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`},{id:`IDX01-003`,title:`最後一個目標位置`,description:`給定 N 個整數與目標值 X，請找出 X 最後一次出現的位置。位置從 1 開始計算。若沒有出現，輸出 0。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 X。`,outputDescription:`輸出一個整數，代表 X 最後一次出現的位置；若不存在則輸出 0。`,requiresGreenFlag:!0,examples:[{input:`6 4 8 3 8 5 8 8`,output:`6`,explanation:`目標值 8 最後一次出現在第 6 個位置。`}],testCases:[{input:`6 4 8 3 8 5 8 8`,expectedOutput:`6`,output:`6`,score:0},{input:`5 1 2 3 4 5 9`,expectedOutput:`0`,output:`0`,score:0},{input:`4 7 7 7 7 7`,expectedOutput:`4`,output:`4`,score:0},{input:`3 -1 -2 -3 -1`,expectedOutput:`1`,output:`1`,score:0}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:``},{id:`IDX01-004`,title:`最大值的位置`,description:`給定 N 個整數，請找出最大值第一次出現的位置。位置從 1 開始計算。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數。`,outputDescription:`輸出兩個整數，依序為最大值與最大值第一次出現的位置，中間以空白分隔。`,requiresGreenFlag:!0,examples:[{input:`6 5 9 3 9 7 2`,output:`9 2`,explanation:`最大值 9 第一次出現在第 2 個位置。`}],testCases:[{input:`6 5 9 3 9 7 2`,expectedOutput:`9 2`,output:`9 2`,score:0},{input:`4 1 2 3 4`,expectedOutput:`4 4`,output:`4 4`,score:0},{input:`5 10 10 9 8 7`,expectedOutput:`10 1`,output:`10 1`,score:0},{input:`3 -5 -1 -3`,expectedOutput:`-1 2`,output:`-1 2`,score:0}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:``},{id:`IDX01-005`,title:`最小值的位置`,description:`給定 N 個整數，請找出最小值最後一次出現的位置。位置從 1 開始計算。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數。`,outputDescription:`輸出兩個整數，依序為最小值與最小值最後一次出現的位置，中間以空白分隔。`,requiresGreenFlag:!0,examples:[{input:`6 5 2 3 2 7 2`,output:`2 6`,explanation:`最小值 2 最後一次出現在第 6 個位置。`}],testCases:[{input:`6 5 2 3 2 7 2`,expectedOutput:`2 6`,output:`2 6`,score:0},{input:`4 1 2 3 4`,expectedOutput:`1 1`,output:`1 1`,score:0},{input:`5 10 10 9 8 7`,expectedOutput:`7 5`,output:`7 5`,score:0},{input:`3 -5 -1 -5`,expectedOutput:`-5 3`,output:`-5 3`,score:0}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:``},{id:`IDX01-006`,title:`相鄰相同的位置`,description:`給定 N 個整數，請找出第一組相鄰且數值相同的位置。若第 i 個與第 i+1 個相同，輸出 i。若沒有相鄰相同，輸出 0。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。`,outputDescription:`輸出一個整數，代表第一組相鄰相同的左側位置；若不存在則輸出 0。`,requiresGreenFlag:!0,examples:[{input:`6 3 5 5 2 2 8`,output:`2`,explanation:`第 2 個與第 3 個都是 5，所以輸出 2。`}],testCases:[{input:`6 3 5 5 2 2 8`,expectedOutput:`2`,output:`2`,score:0},{input:`5 1 2 3 4 5`,expectedOutput:`0`,output:`0`,score:0},{input:`4 7 7 8 8`,expectedOutput:`1`,output:`1`,score:0},{input:`3 9 8 8`,expectedOutput:`2`,output:`2`,score:0}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:``},{id:`IDX01-007`,title:`左右鄰居總和`,description:`給定 N 個整數與位置 P，請計算第 P 個數字左右鄰居的總和。若沒有左鄰居或右鄰居，該側視為 0。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 P。保證 1 <= P <= N。`,outputDescription:`輸出一個整數，代表左右鄰居總和。`,requiresGreenFlag:!0,examples:[{input:`5 10 20 30 40 50 3`,output:`60`,explanation:`第 3 個數字的左鄰居是 20，右鄰居是 40，總和為 60。`}],testCases:[{input:`5 10 20 30 40 50 3`,expectedOutput:`60`,output:`60`,score:0},{input:`5 10 20 30 40 50 1`,expectedOutput:`20`,output:`20`,score:0},{input:`5 10 20 30 40 50 5`,expectedOutput:`40`,output:`40`,score:0},{input:`1 99 1`,expectedOutput:`0`,output:`0`,score:0}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:``},{id:`IDX01-008`,title:`兩個目標的距離）＋`,description:`給定 N 個整數，以及兩個目標值 A 與 B。請找出 A 第一次出現的位置與 B 第一次出現的位置，並輸出兩個位置的距離。保證 A 與 B 都會出現。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數，最後輸入兩個整數 A 與 B。`,outputDescription:`輸出一個整數，代表兩個位置的距離。距離一律用較大的位置減較小的位置。`,requiresGreenFlag:!0,examples:[{input:`6 4 8 3 9 5 8 8 9`,output:`2`,explanation:`8 第一次出現在第 2 個位置，9 第一次出現在第 4 個位置，距離為 2。`}],testCases:[{input:`6 4 8 3 9 5 8 8 9`,expectedOutput:`2`,output:`2`,score:0},{input:`5 1 2 3 4 5 1 5`,expectedOutput:`4`,output:`4`,score:0},{input:`4 7 8 7 8 8 7`,expectedOutput:`1`,output:`1`,score:0},{input:`3 -1 -2 -3 -3 -1`,expectedOutput:`2`,output:`2`,score:0}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:``},{id:`CNT01-022`,title:`第一個及格的位置`,description:`給定 N 位學生的成績，請找出第一個分數大於或等於 60 的位置。位置從 1 開始計算。保證至少有一位學生及格。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數代表成績。`,outputDescription:`輸出一個整數，代表第一個及格成績的位置。`,requiresGreenFlag:!0,examples:[{input:`5 40 55 60 80 30`,output:`3`,explanation:`第一個大於或等於 60 的分數是第 3 個。`}],testCases:[{input:`5 40 55 60 80 30`,expectedOutput:`3`,output:`3`,score:0},{input:`4 70 50 80 90`,expectedOutput:`1`,output:`1`,score:0},{input:`6 10 20 30 40 50 60`,expectedOutput:`6`,output:`6`,score:0},{input:`3 59 61 62`,expectedOutput:`2`,output:`2`,score:0}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:``},{id:`CNT01-023`,title:`相鄰差值最大`,description:`給定 N 個整數，請計算相鄰兩個數字之間差值的最大值。差值一律用較大的數減較小的數。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。`,outputDescription:`輸出一個整數，代表相鄰差值最大值。`,requiresGreenFlag:!0,examples:[{input:`5 3 8 6 15 10`,output:`9`,explanation:`相鄰差值依序為 5、2、9、5，最大值為 9。`}],testCases:[{input:`5 3 8 6 15 10`,expectedOutput:`9`,output:`9`,score:0},{input:`2 100 40`,expectedOutput:`60`,output:`60`,score:0},{input:`6 1 2 3 4 5 6`,expectedOutput:`1`,output:`1`,score:0},{input:`4 10 30 5 25`,expectedOutput:`25`,output:`25`,score:0}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:``}]};export{e as default};
