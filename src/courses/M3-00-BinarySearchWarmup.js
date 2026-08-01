@@ -64,65 +64,95 @@ export default {
         "difficultyLabel": "L2｜進階",
         "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
-    <variable id="var_n">N</variable>
-    <variable id="var_line">資料列</variable>
-    <variable id="var_values">數值清單</variable>
-    <variable id="var_target">目標</variable>
-    <variable id="var_found">找到</variable>
-    <variable id="var_i">i</variable>
-    <variable id="var_current">目前數值</variable>
+    <variable id="v_n">N</variable>
+    <variable id="v_x">數字</variable>
+    <variable id="v_values">數值清單</variable>
+    <variable id="v_target">目標</variable>
+    <variable id="v_found">找到</variable>
+    <variable id="v_i">i</variable>
   </variables>
-  <block type="variables_set" x="40" y="40">
-    <field name="VAR" id="var_n">N</field>
-    <value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入資料筆數</field></shadow></value></block></value>
-    <next><block type="variables_set">
-      <field name="VAR" id="var_line">資料列</field>
-      <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N個已排序的數字</field></shadow></value></block></value>
-      <next><block type="variables_set">
-        <field name="VAR" id="var_values">數值清單</field>
-        <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">資料列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
-        <next><block type="variables_set">
-          <field name="VAR" id="var_target">目標</field>
-          <value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入要查詢的目標數字</field></shadow></value></block></value>
-          <next><block type="variables_set">
-            <field name="VAR" id="var_found">找到</field>
-            <value name="VALUE"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value>
-            <next><block type="controls_for">
-              <field name="VAR" id="var_i">i</field>
-              <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
-              <value name="TO"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
-              <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
-              <statement name="DO"><block type="variables_set">
-                <field name="VAR" id="var_current">目前數值</field>
-                <value name="VALUE"><block type="math_arithmetic">
-  <field name="OP">MINUS</field>
-  <value name="A">
-    <block type="lists_getIndex">
-      <mutation statement="false" at="true"></mutation>
-      <field name="MODE">GET</field>
-      <field name="WHERE">FROM_START</field>
-      <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value>
-      <value name="AT"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value>
-    </block>
-  </value>
-  <value name="B"><block type="math_number"><field name="NUM">0</field></block></value>
-</block></value>
-                <next><block type="controls_if">
-                  <value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_current">目前數值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_target">目標</field></block></value></block></value>
-                  <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_found">找到</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value></block></statement>
-                </block></next>
-              </block></statement>
-              <next><block type="controls_if">
-                <mutation elseif="0" else="1"></mutation>
-                <value name="IF0"><block type="variables_get"><field name="VAR" id="var_found">找到</field></block></value>
-                <statement name="DO0"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">找到了</field></block></value></block></statement>
-                <statement name="ELSE"><block type="text_print"><value name="TEXT"><block type="text"><field name="TEXT">沒找到</field></block></value></block></statement>
-              </block></next>
-            </block></next>
-          </block></next>
-        </block></next>
-      </block></next>
-    </block></next>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="v_n">N</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="v_values">數值清單</field>
+                <value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                    <statement name="DO">
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT">請輸入已排序的N個數字</field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_x">數字</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="lists_setIndex">
+                                <mutation at="false"></mutation>
+                                <field name="MODE">INSERT</field>
+                                <field name="WHERE">LAST</field>
+                                <value name="LIST"><block type="variables_get"><field name="VAR" id="v_values">數值清單</field></block></value>
+                                <value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT">請輸入目標數字</field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="v_target">目標</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="v_found">找到</field>
+                                <value name="VALUE"><block type="logic_boolean"><field name="BOOL">FALSE</field></block></value>
+                                <next>
+                                  <block type="controls_for">
+                                    <field name="VAR" id="v_i">i</field>
+                                    <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+                                    <value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value>
+                                    <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+                                    <statement name="DO">
+                                      <block type="controls_if">
+                                        <value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_values">數值清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_target">目標</field></block></value></block></value>
+                                        <statement name="DO0"><block type="variables_set"><field name="VAR" id="v_found">找到</field><value name="VALUE"><block type="logic_boolean"><field name="BOOL">TRUE</field></block></value></block></statement>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="controls_if">
+                                        <mutation else="1"></mutation>
+                                        <value name="IF0"><block type="variables_get"><field name="VAR" id="v_found">找到</field></block></value>
+                                        <statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">找到了</field></block></value></block></statement>
+                                        <statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">沒找到</field></block></value></block></statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
   </block>
 </xml>`
       },
