@@ -7,6 +7,7 @@ import * as ZhHant from 'blockly/msg/zh-hant';
 
 import { competitionToolbox } from './blockly/toolbox.js';
 import { registerSmartRingBlocks } from './blockly/smartring-blocks.js';
+import { registerInteractionBlocks } from './blockly/interaction-blocks.js';
 import { smartRingRuntime } from './smartring/runtime.js';
 import {
   toggleSimulator,
@@ -26,6 +27,7 @@ import { initAiCompanion } from './aiCompanion.js';
 
 Blockly.setLocale(ZhHant);
 registerSmartRingBlocks();
+registerInteractionBlocks();
 
 
 // MVP-J08-1: SmartRing tasks use asynchronous hardware commands.
@@ -491,6 +493,22 @@ function createPromptReader(inputText = '') {
   };
 }
 
+// 「詢問並等待」積木專用的讀取器：比照官方競賽平台的行為，依「空白（含換行）」逐一斷詞讀取，
+// 不是逐行讀取——例如測資 "3\n9 6 8" 會被拆成 ["3", "9", "6", "8"] 四個詞，呼叫四次各拿一個。
+// 這跟既有給 text_prompt_ext 用的 createPromptReader（逐行）刻意分開，避免影響現有約59個課程。
+function createTokenReader(inputText = '') {
+  const tokens = String(inputText ?? '').trim().length > 0
+    ? String(inputText ?? '').trim().split(/\s+/)
+    : [];
+  let index = 0;
+
+  return () => {
+    const value = index < tokens.length ? tokens[index] : '';
+    index += 1;
+    return value;
+  };
+}
+
 async function executeGeneratedCode({ inputText = null, writeToOutput = false } = {}) {
   if (!workspace) {
     return { ok: false, output: '', error: new Error('Blockly 工作區尚未初始化。') };
@@ -515,6 +533,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
   const originalPrompt = window.prompt;
   const originalConsoleLog = console.log;
   const promptReader = createPromptReader(inputText ?? '');
+  const tokenReader = createTokenReader(inputText ?? '');
   const shouldMockInput = inputText !== null && inputText !== undefined;
 
   const capture = (message = '') => {
@@ -551,6 +570,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
       'SmartRing',
       'readLine',
       'prompt',
+      'askAndWait',
       `
       "use strict";
       return (async () => {
@@ -560,7 +580,8 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
     );
 
     const promptArgument = shouldMockInput ? promptReader : originalPrompt.bind(window);
-    await runner(safePrint, smartRingRuntime, promptReader, promptArgument);
+    const askAndWaitArgument = shouldMockInput ? tokenReader : originalPrompt.bind(window);
+    await runner(safePrint, smartRingRuntime, promptReader, promptArgument, askAndWaitArgument);
 
     return {
       ok: true,
@@ -1774,7 +1795,26 @@ async function requestServerGrading(courseId, taskId, cases) {
   return body;
 }
 
+function hasGreenFlagBlock() {
+  if (!workspace) return false;
+  return workspace
+    .getTopBlocks(true)
+    .some((block) => block.type === 'event_whenflagclicked');
+}
+
 async function runProgrammingTestCases() {
+  if (currentTask?.requiresGreenFlag && !hasGreenFlagBlock()) {
+    clearOutput();
+    writeOutput('請先加入「當🚩被點擊」積木，把要評分的程式接在它下面，再進行系統評分。');
+    return {
+      total: 0,
+      passed: 0,
+      score: 0,
+      allPassed: false,
+      cases: [],
+    };
+  }
+
   const testCases = getTaskTestCases(currentTask);
 
   if (testCases.length === 0) {

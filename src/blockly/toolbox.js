@@ -3,6 +3,43 @@ export const competitionToolbox = {
   contents: [
     {
       kind: 'category',
+      name: '專用',
+      colour: '#ffab19',
+      contents: [
+        { kind: 'block', type: 'event_whenflagclicked' },
+        {
+          kind: 'block',
+          type: 'interaction_ask_and_wait',
+          inputs: {
+            TEXT: {
+              shadow: {
+                type: 'text',
+                fields: {
+                  TEXT: '請輸入資料',
+                },
+              },
+            },
+          },
+        },
+        { kind: 'block', type: 'interaction_answer' },
+        {
+          kind: 'block',
+          type: 'interaction_say',
+          inputs: {
+            TEXT: {
+              shadow: {
+                type: 'text',
+                fields: {
+                  TEXT: 'Hello!',
+                },
+              },
+            },
+          },
+        },
+      ],
+    },
+    {
+      kind: 'category',
       name: '邏輯',
       categorystyle: 'logic_category',
       contents: [
