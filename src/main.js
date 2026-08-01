@@ -529,6 +529,12 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
   }
 
   const capturedOutput = [];
+  // 官方平台行為（使用者2026-08-01實測確認）：「輸出」積木（text_print，底層走
+  // window.alert）只是給學生看的顯示訊息，不列入評分；只有「說出」積木
+  // （interaction_say，底層走 print()）的內容才會被拿去跟 expectedOutput 比對。
+  // sayOutput 只收集 print() 的內容，供 requiresGreenFlag 課程評分用；capturedOutput
+  // 維持收集全部輸出（含 alert/console.log），給「執行程式」除錯顯示與舊課程評分沿用。
+  const sayOutput = [];
   const originalAlert = window.alert;
   const originalPrompt = window.prompt;
   const originalConsoleLog = console.log;
@@ -562,6 +568,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
     };
 
     const safePrint = (message) => {
+      sayOutput.push(String(message));
       capture(message);
     };
 
@@ -586,6 +593,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
     return {
       ok: true,
       output: capturedOutput.join('\n'),
+      sayOutput: sayOutput.join('\n'),
       error: null,
     };
   } catch (error) {
@@ -600,6 +608,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false } 
     return {
       ok: false,
       output: capturedOutput.join('\n'),
+      sayOutput: sayOutput.join('\n'),
       error,
     };
   } finally {
@@ -1836,6 +1845,9 @@ async function runProgrammingTestCases() {
   // 學生程式碼一律在瀏覽器本機執行（Blockly產生的JS本來就只能跑在瀏覽器裡）。
   // 這裡只是先跑出每筆測資的實際輸出，比對正確答案的方式依課程模式而不同。
   const runs = [];
+  // requiresGreenFlag課程比照官方平台規範，評分只認「說出」積木的內容，
+  // 「輸出」積木純粹是給學生看的顯示訊息，不計入比對（見executeGeneratedCode）。
+  const useSayOutputOnly = Boolean(currentTask?.requiresGreenFlag);
 
   for (const testCase of testCases) {
     const result = await executeGeneratedCode({
@@ -1843,7 +1855,8 @@ async function runProgrammingTestCases() {
       writeToOutput: false,
     });
 
-    runs.push({ testCase, result, actualOutput: result.output });
+    const actualOutput = useSayOutputOnly ? (result.sayOutput ?? '') : result.output;
+    runs.push({ testCase, result, actualOutput });
   }
 
   const isContestMode = normalizeCourseMode(currentCourseMode) === 'contest';
