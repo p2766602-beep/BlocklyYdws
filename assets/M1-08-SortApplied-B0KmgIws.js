@@ -498,13 +498,13 @@ Eric 125`,explanation:`先計算總分，
 80 90 70 85 60
 70 85 75 75 65`,expectedOutput:`Bob 175 Dora 160 Amy 150 Carl 145 Eric 125`,output:`Bob 175 Dora 160 Amy 150 Carl 145 Eric 125`,score:10},{input:`Tom May John Lily Ken
 90 80 85 70 60
-88 90 80 75 65`,expectedOutput:`Tom 178 May 170 John 165 Lily 145 Ken 125`,output:`Tom 178 May 170 John 165 Lily 145 Ken 125`,score:10},{input:`Tom May John Lily Ken
-90 80 85 70 60
-88 90 80 75 65`,expectedOutput:`Tom 178 May 170 John 165 Lily 145 Ken 125`,output:`Tom 178 May 170 John 165 Lily 145 Ken 125`,score:10},{input:`A B C
-80 60 60
-90 80 70`,expectedOutput:`A 170 B 140 C 130`,output:`A 170 B 140 C 130`,score:10},{input:`Ann Ben Cat
-95 90 85
-0 10 20`,expectedOutput:`Cat 105 Ben 100 Ann 95`,output:`Cat 105 Ben 100 Ann 95`,score:10}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+88 90 80 75 65`,expectedOutput:`Tom 178 May 170 John 165 Lily 145 Ken 125`,output:`Tom 178 May 170 John 165 Lily 145 Ken 125`,score:10},{input:`A B C D E
+80 60 60 50 65
+90 80 70 30 45`,expectedOutput:`A 170 B 140 C 130 E 110 D 80`,output:`A 170 B 140 C 130 E 110 D 80`,score:10},{input:`Ann Ben Cat Dee Eve
+95 90 85 70 60
+0 10 20 45 25`,expectedOutput:`Dee 115 Cat 105 Ben 100 Ann 95 Eve 85`,output:`Dee 115 Cat 105 Ben 100 Ann 95 Eve 85`,score:10},{input:`One Two Three Four Five
+30 50 70 90 10
+20 40 60 80 100`,expectedOutput:`Four 170 Three 130 Five 110 Two 90 One 50`,output:`Four 170 Three 130 Five 110 Two 90 One 50`,score:10}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="v_nx">姓名</variable><variable id="v_cx">國文</variable><variable id="v_mx">數學</variable><variable id="v_names">姓名清單</variable><variable id="v_chin">國文清單</variable><variable id="v_math">數學清單</variable><variable id="v_totals">總分清單</variable><variable id="v_i3">i3</variable><variable id="v_maxs">最大值</variable><variable id="v_maxp">最大位置</variable><variable id="v_i">i</variable><variable id="v_j">j</variable><variable id="v_i2">i2</variable><variable id="v_tmp">暫存</variable><variable id="v_tmp2">暫存2</variable><variable id="v_out">結果</variable>
   </variables>

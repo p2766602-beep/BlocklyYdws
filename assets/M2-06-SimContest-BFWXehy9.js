@@ -54,7 +54,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 5`,expectedOutput:`4000`,output:`4000`,score:10},{input:`6
 3`,expectedOutput:`3600`,output:`3600`,score:10},{input:`4
 1`,expectedOutput:`2000`,output:`2000`,score:10},{input:`2
-5`,expectedOutput:`3700`,output:`3700`,score:10},{input:`7
+5`,expectedOutput:`3100`,output:`3100`,score:10},{input:`7
 7`,expectedOutput:`5600`,output:`5600`,score:10}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="v_c">兒童</variable><variable id="v_a">成人</variable>

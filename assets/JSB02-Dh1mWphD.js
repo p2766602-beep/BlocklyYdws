@@ -130,7 +130,7 @@ var e={code:`JSB02`,title:`運算、判斷與基礎流程`,type:`programming`,mo
 第三筆60打8折再無條件捨去，共48元
 程式輸出定價加總總額240元，售價加總總額215元，共優惠25元`}],testCases:[{input:`3
 60 65 1999`,expectedOutput:`2124 1717 407`,output:`2124 1717 407`,score:10,hidden:!1},{input:`3
-70 90 965`,expectedOutput:`1125  923 202`,output:`1125  923 202`,score:10,hidden:!1},{input:`3
+70 90 965`,expectedOutput:`1125 923 202`,output:`1125 923 202`,score:10,hidden:!1},{input:`3
 45 65 80`,expectedOutput:`190 167 23`,output:`190 167 23`,score:10,hidden:!1},{input:`3
 90 100 284`,expectedOutput:`474 407 67`,output:`474 407 67`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[`有多餘案例`],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[`算術運算`],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`TYTN-09`,title:`Y-2-1-校園販賣機自動補貨`,problemTitle:`Y-2-1-校園販賣機自動補貨`,courseCode:`JSB02`,courseName:`運算、判斷與基礎流程`,role:`practice`,difficulty:`L2`,blocklyFit:`高`,description:`自立國中販賣機販售多種飲料，每種飲料都有目前庫存量。為避免缺貨造成不便，系統規定：凡庫存低於10罐者，一律自動補貨至20罐；庫存大於等於10者不補貨。
 

@@ -418,15 +418,29 @@ X 為最小邊界、Y 為最大邊界、A 為正確答案。
 150`,score:10},{input:`4 3 7 13 8 5
 1 1
 4 4
-1 4`,expectedOutput:`7 5 33`,output:`7 5 33`,score:15},{input:`5 2 0 0 0 0 0
+1 4`,expectedOutput:`7
+5
+33`,output:`7
+5
+33`,score:15},{input:`5 2 0 0 0 0 0
 1 5
-2 4`,expectedOutput:`0 0`,output:`0 0`,score:20},{input:`6 3 5 10 15 20 25 30
+2 4`,expectedOutput:`0
+0`,output:`0
+0`,score:20},{input:`6 3 5 10 15 20 25 30
 1 2
 3 6
-2 5`,expectedOutput:`15 90 70`,output:`15 90 70`,score:25},{input:`10 3 1 2 3 4 5 6 7 8 9 10
+2 5`,expectedOutput:`15
+90
+70`,output:`15
+90
+70`,score:25},{input:`10 3 1 2 3 4 5 6 7 8 9 10
 1 10
 5 5
-3 8`,expectedOutput:`55 5 33`,output:`55 5 33`,score:30}],difficulty:`L4`,difficultyLabel:`L4｜精熟`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+3 8`,expectedOutput:`55
+5
+33`,output:`55
+5
+33`,score:30}],difficulty:`L4`,difficultyLabel:`L4｜精熟`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="v_n">N</variable><variable id="v_q">Q</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_prefix">前綴和</variable><variable id="v_l">L</variable><variable id="v_r">R</variable><variable id="v_i">i</variable>
   </variables>

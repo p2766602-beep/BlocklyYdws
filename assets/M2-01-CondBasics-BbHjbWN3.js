@@ -189,7 +189,7 @@ var e={code:`M2-01-CondBasics`,title:`運算與條件判斷綜合練習：基礎
 第三筆60打8折再無條件捨去，共48元
 程式輸出定價加總總額240元，售價加總總額215元，共優惠25元`}],testCases:[{input:`3
 60 65 1999`,expectedOutput:`2124 1717 407`,output:`2124 1717 407`,score:10},{input:`3
-70 90 965`,expectedOutput:`1125  923 202`,output:`1125  923 202`,score:10},{input:`3
+70 90 965`,expectedOutput:`1125 923 202`,output:`1125 923 202`,score:10},{input:`3
 45 65 80`,expectedOutput:`190 167 23`,output:`190 167 23`,score:10},{input:`3
 90 100 284`,expectedOutput:`474 407 67`,output:`474 407 67`,score:10}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>

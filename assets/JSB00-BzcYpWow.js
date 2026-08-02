@@ -374,7 +374,7 @@ Susan`,expectedOutput:`Tom, Susan, 一起學習吧！`,output:`Tom, Susan, 一�
 第三筆60打8折再無條件捨去，共48元
 程式輸出定價加總總額240元，售價加總總額215元，共優惠25元`}],testCases:[{input:`3
 60 65 1999`,expectedOutput:`2124 1717 407`,output:`2124 1717 407`,score:10,hidden:!1},{input:`3
-70 90 965`,expectedOutput:`1125  923 202`,output:`1125  923 202`,score:10,hidden:!1},{input:`3
+70 90 965`,expectedOutput:`1125 923 202`,output:`1125 923 202`,score:10,hidden:!1},{input:`3
 45 65 80`,expectedOutput:`190 167 23`,output:`190 167 23`,score:10,hidden:!1},{input:`3
 90 100 284`,expectedOutput:`474 407 67`,output:`474 407 67`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`運算與條件判斷`],subConcepts:[`基本流程控制`],algorithm:[],dataStructure:[],syntax:[`四則運算`,`if`,`比較運算`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-07-0`,title:`乘法表`,problemTitle:`乘法表`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`請寫一個程式，輸入一個整數 N，輸出 1 到 9 的乘法表結果。
 例如輸入 3，輸出 1x3=3, 2x3=6, …, 9x3=27。

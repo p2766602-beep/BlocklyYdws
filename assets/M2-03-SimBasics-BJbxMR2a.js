@@ -50,7 +50,7 @@ var e={code:`M2-03-SimBasics`,title:`模擬與狀態：基礎`,type:`programming
 輸入格式：
 第一行：一個只包含 G 與 B 的字串 S。
 輸出格式：
-輸出最後分數。`,inputDescription:`第一行：一個只包含 G 與 B 的字串 S。`,outputDescription:`輸出最後分數。`,requiresGreenFlag:!0,examples:[{input:`GGB`,output:`15`,explanation:`10+10-5=15。`},{input:`BBB`,output:`-15`,explanation:`三次扣分共 -15。`}],testCases:[{input:`GGB`,expectedOutput:`15`,output:`15`,score:20},{input:`BBB`,expectedOutput:`-15`,output:`-15`,score:20},{input:`GGGG`,expectedOutput:`40`,output:`40`,score:20},{input:`BGBG`,expectedOutput:`10`,output:`10`,score:20},{input:`GBGBG`,expectedOutput:`25`,output:`25`,score:20}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+輸出最後分數。`,inputDescription:`第一行：一個只包含 G 與 B 的字串 S。`,outputDescription:`輸出最後分數。`,requiresGreenFlag:!0,examples:[{input:`GGB`,output:`15`,explanation:`10+10-5=15。`},{input:`BBB`,output:`-15`,explanation:`三次扣分共 -15。`}],testCases:[{input:`GGB`,expectedOutput:`15`,output:`15`,score:20},{input:`BBB`,expectedOutput:`-15`,output:`-15`,score:20},{input:`GGGG`,expectedOutput:`40`,output:`40`,score:20},{input:`BGBG`,expectedOutput:`10`,output:`10`,score:20},{input:`GBGBG`,expectedOutput:`20`,output:`20`,score:20}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="v_s">字串</variable><variable id="v_score">分數</variable><variable id="v_i">i</variable>
   </variables>

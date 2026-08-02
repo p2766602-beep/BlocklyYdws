@@ -133,7 +133,7 @@ A B`,expectedOutput:`4 1`,output:`4 1`,score:10}],difficulty:`L4`,difficultyLabe
 35.0 34.0 33.0 32.0 31.0`,expectedOutput:`0 0`,output:`0 0`,score:10},{input:`6 30.0
 31.0 32.0 33.0 20.0 33.0 33.0`,expectedOutput:`3 1`,output:`3 1`,score:10},{input:`6 30.0
 31.0 32.0 33.0 30.5 31.5 32.5`,expectedOutput:`3 1`,output:`3 1`,score:10},{input:`8 30.0
-31.0 25.0 25.0 25.0 39.0 32.0 33.0 34.0`,expectedOutput:`3 6`,output:`3 6`,score:10},{input:`10 25.0
+31.0 25.0 25.0 25.0 39.0 32.0 33.0 34.0`,expectedOutput:`8 1`,output:`8 1`,score:10},{input:`10 25.0
 26.0 27.0 28.0 25.0 25.1 25.2 25.3 25.4 25.5 25.6`,expectedOutput:`7 4`,output:`7 4`,score:10},{input:`5 30.0
 35.0 35.0 35.0 35.0 35.0`,expectedOutput:`0 0`,output:`0 0`,score:10},{input:`8 35.0
 36.0 34.0 37.0 34.0 38.0 34.0 39.0 34.0`,expectedOutput:`7 1`,output:`7 1`,score:10}],difficulty:`L5`,difficultyLabel:`L5｜競賽`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
