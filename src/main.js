@@ -2520,6 +2520,7 @@ bindEvents();
 initAiCompanion({
   getProfile: getStudentProfile,
   getCurrentTask: () => currentTask,
+  getCourseMode: () => normalizeCourseMode(currentCourseMode),
   workerUrl: AI_COMPANION_WORKER_URL,
 });
 bindSmartRingRuntimeEvents();

@@ -345,7 +345,7 @@ function buildTaskContext(task) {
   };
 }
 
-export function initAiCompanion({ getProfile, getCurrentTask, workerUrl }) {
+export function initAiCompanion({ getProfile, getCurrentTask, getCourseMode, workerUrl }) {
   const toggleBtn = document.getElementById('btnToggleAiCompanion');
   if (!toggleBtn) return;
 
@@ -437,6 +437,7 @@ export function initAiCompanion({ getProfile, getCurrentTask, workerUrl }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           courseCode: profile.courseCode,
+          courseMode: getCourseMode?.() || 'learning',
           studentId,
           taskContext: buildTaskContext(task),
           history: history.slice(-MAX_HISTORY_TURNS_SENT),

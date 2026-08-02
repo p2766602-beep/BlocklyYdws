@@ -57,10 +57,18 @@
   Worker，密碼解鎖→載入JSL01→編輯備註→儲存→重新載入確認「已覆寫」徽章與內容正確持久化，
   端對端流程確認可用。測試資料已清空覆寫回空值（Worker沒有DELETE端點，徽章會留著但內容
   已清乾淨）。細節見`專案規劃摘要.md`「目前決策現況」表新增列。
-- Vite主bundle 920KB，每次build都跳code-splitting建議，效能優化機會，不急。
-- AI伴學的課程白名單（`workers/ai-companion/wrangler.toml`的`PUBLIC_COURSE_CODES`）
+- **【新優先待辦，2026-08-02使用者提出】全題庫DEMO範例答案建置**：教師後台可以個別開關
+  每題「可載入範例」，使用者認為這對教學很實用——學生卡關時老師可臨時開放答案，或自行
+  取出來精講。下一輪目標：把題庫裡目前還沒有`starterXml`的題目全部補上demo答案，**預設
+  維持`loadable:false`**（不勾核，學生預設看不到「載入範例」按鈕），老師需要時再透過
+  `teacher.html`個別開放。範圍尚未評估（題庫有數百題），下次工作階段先盤點目前有/沒有
+  `starterXml`的題目清單，才能抓出實際工作量，可能需要用AI批次生成+人工抽查的方式。
+- ~~AI伴學的課程白名單（`workers/ai-companion/wrangler.toml`的`PUBLIC_COURSE_CODES`）
   要跟前端`src/courses/index.js`的`publicCourseGroups`手動保持同步，容易漂移，可考慮
-  自動化檢查。
+  自動化檢查。~~ **2026-08-02已用不同方式解決**：使用者提出新規則——除JSB00外，只要有
+  課程代碼（含隱藏課程）都能用AI伴學，但競賽模式（`mode: contest/competition`）課程
+  排除。改成「排除清單」模式後，`PUBLIC_COURSE_CODES`鏡射同步問題直接不存在了（見下方
+  「下一步建議」前的說明段落，已實作＋本機驗證，待使用者確認後push+deploy）。
 - YDWS-EscapeRoom：教師後台/學習歷程分析記錄仍是獨立待辦，MVP階段刻意沒做。
 - 題庫難度重評流程的checklist skill（`/audit-difficulty`）構想提過，還沒動工。
 

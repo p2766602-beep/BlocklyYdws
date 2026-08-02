@@ -24,26 +24,23 @@ function jsonResponse(body, status, headers) {
   });
 }
 
-function parsePublicCourseCodes(env) {
-  return (env.PUBLIC_COURSE_CODES || '')
+function parseExcludedCourseCodes(env) {
+  return (env.EXCLUDED_COURSE_CODES || '')
     .split(',')
     .map((s) => s.trim().toUpperCase())
     .filter(Boolean);
 }
 
-function parseAllowedPublicCourseCodes(env) {
-  return (env.ALLOWED_PUBLIC_COURSE_CODES || '')
-    .split(',')
-    .map((s) => s.trim().toUpperCase())
-    .filter(Boolean);
+function normalizeCourseMode(mode) {
+  return mode === 'contest' || mode === 'competition' ? 'contest' : 'learning';
 }
 
-// 公開課程只有白名單內的才開放AI伴學；不在公開清單裡的視為隱藏課程，
-// 前端載入時已經要求輸入正確代碼，這裡不重複把關，直接放行。
-function isCourseAllowed(env, courseCode) {
-  const publicCourseCodes = parsePublicCourseCodes(env);
-  if (!publicCourseCodes.includes(courseCode)) return true;
-  return parseAllowedPublicCourseCodes(env).includes(courseCode);
+// 除了EXCLUDED_COURSE_CODES明確排除的課程代碼，一律開放AI伴學（含隱藏課程）；
+// 但課程本身若是競賽模式（courseMode，由前端隨課程JS的mode欄位一起傳來，
+// 比照requiresGreenFlag的傳遞方式），一律拒絕，避免視同作弊。
+function isCourseAllowed(env, courseCode, courseMode) {
+  if (normalizeCourseMode(courseMode) === 'contest') return false;
+  return !parseExcludedCourseCodes(env).includes(courseCode);
 }
 
 function parseAllowedOrigins(env) {
@@ -167,12 +164,13 @@ export default {
     const message = String(body.message || '').trim();
     const taskContext = body.taskContext;
     const history = body.history;
+    const courseMode = String(body.courseMode || '').trim().toLowerCase();
 
     if (!courseCode || !studentId || !message) {
       return jsonResponse({ error: '缺少必要欄位（courseCode / studentId / message）' }, 400, headers);
     }
 
-    if (!isCourseAllowed(env, courseCode)) {
+    if (!isCourseAllowed(env, courseCode, courseMode)) {
       return jsonResponse({ error: '這個課程代碼尚未開放 AI 伴學功能' }, 403, headers);
     }
 
