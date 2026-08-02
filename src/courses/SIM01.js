@@ -367,14 +367,14 @@ export default {
       "examples": [
         {
           "input": "UUDDUD",
-          "output": "2",
-          "explanation": "從 1 樓開始，依序移動後最後在 2 樓。"
+          "output": "1",
+          "explanation": "從 1 樓開始：U→2、U→3、D→2、D→1、U→2、D→1，最後在 1 樓。"
         }
       ],
       "testCases": [
         {
           "input": "UUDDUD",
-          "output": "2"
+          "output": "1"
         },
         {
           "input": "DDD",

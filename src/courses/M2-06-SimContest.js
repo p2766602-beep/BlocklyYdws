@@ -109,8 +109,8 @@ export default {
                   },
                   {
                     "input": "2\n5",
-                    "expectedOutput": "3700",
-                    "output": "3700",
+                    "expectedOutput": "3100",
+                    "output": "3100",
                     "score": 10
                   },
                   {

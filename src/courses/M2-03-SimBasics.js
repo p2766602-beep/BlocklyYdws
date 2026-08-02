@@ -175,8 +175,8 @@ export default {
                   },
                   {
                     "input": "GBGBG",
-                    "expectedOutput": "25",
-                    "output": "25",
+                    "expectedOutput": "20",
+                    "output": "20",
                     "score": 20
                   }
                 ],

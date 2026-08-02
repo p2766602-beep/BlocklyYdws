@@ -247,8 +247,8 @@ export default {
                   },
                   {
                     "input": "8 30.0\n31.0 25.0 25.0 25.0 39.0 32.0 33.0 34.0",
-                    "expectedOutput": "3 6",
-                    "output": "3 6",
+                    "expectedOutput": "8 1",
+                    "output": "8 1",
                     "score": 10
                   },
                   {

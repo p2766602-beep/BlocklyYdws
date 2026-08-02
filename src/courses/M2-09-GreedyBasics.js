@@ -142,8 +142,8 @@ export default {
                   },
                   {
                     "input": "125",
-                    "expectedOutput": "4",
-                    "output": "4",
+                    "expectedOutput": "5",
+                    "output": "5",
                     "score": 0
                   }
                 ],

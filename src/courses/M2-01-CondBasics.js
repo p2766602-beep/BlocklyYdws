@@ -472,8 +472,8 @@ export default {
                   },
                   {
                     "input": "3\n70 90 965",
-                    "expectedOutput": "1125  923 202",
-                    "output": "1125  923 202",
+                    "expectedOutput": "1125 923 202",
+                    "output": "1125 923 202",
                     "score": 10
                   },
                   {

@@ -630,21 +630,21 @@ export default {
                     "score": 10
                   },
                   {
-                    "input": "Tom May John Lily Ken\n90 80 85 70 60\n88 90 80 75 65",
-                    "expectedOutput": "Tom 178 May 170 John 165 Lily 145 Ken 125",
-                    "output": "Tom 178 May 170 John 165 Lily 145 Ken 125",
+                    "input": "A B C D E\n80 60 60 50 65\n90 80 70 30 45",
+                    "expectedOutput": "A 170 B 140 C 130 E 110 D 80",
+                    "output": "A 170 B 140 C 130 E 110 D 80",
                     "score": 10
                   },
                   {
-                    "input": "A B C\n80 60 60\n90 80 70",
-                    "expectedOutput": "A 170 B 140 C 130",
-                    "output": "A 170 B 140 C 130",
+                    "input": "Ann Ben Cat Dee Eve\n95 90 85 70 60\n0 10 20 45 25",
+                    "expectedOutput": "Dee 115 Cat 105 Ben 100 Ann 95 Eve 85",
+                    "output": "Dee 115 Cat 105 Ben 100 Ann 95 Eve 85",
                     "score": 10
                   },
                   {
-                    "input": "Ann Ben Cat\n95 90 85\n0 10 20",
-                    "expectedOutput": "Cat 105 Ben 100 Ann 95",
-                    "output": "Cat 105 Ben 100 Ann 95",
+                    "input": "One Two Three Four Five\n30 50 70 90 10\n20 40 60 80 100",
+                    "expectedOutput": "Four 170 Three 130 Five 110 Two 90 One 50",
+                    "output": "Four 170 Three 130 Five 110 Two 90 One 50",
                     "score": 10
                   }
                 ],

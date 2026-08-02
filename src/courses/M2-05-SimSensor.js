@@ -676,26 +676,26 @@ export default {
                   },
                   {
                     "input": "4 3 7 13 8 5\n1 1\n4 4\n1 4",
-                    "expectedOutput": "7 5 33",
-                    "output": "7 5 33",
+                    "expectedOutput": "7\n5\n33",
+                    "output": "7\n5\n33",
                     "score": 15
                   },
                   {
                     "input": "5 2 0 0 0 0 0\n1 5\n2 4",
-                    "expectedOutput": "0 0",
-                    "output": "0 0",
+                    "expectedOutput": "0\n0",
+                    "output": "0\n0",
                     "score": 20
                   },
                   {
                     "input": "6 3 5 10 15 20 25 30\n1 2\n3 6\n2 5",
-                    "expectedOutput": "15 90 70",
-                    "output": "15 90 70",
+                    "expectedOutput": "15\n90\n70",
+                    "output": "15\n90\n70",
                     "score": 25
                   },
                   {
                     "input": "10 3 1 2 3 4 5 6 7 8 9 10\n1 10\n5 5\n3 8",
-                    "expectedOutput": "55 5 33",
-                    "output": "55 5 33",
+                    "expectedOutput": "55\n5\n33",
+                    "output": "55\n5\n33",
                     "score": 30
                   }
                 ],
