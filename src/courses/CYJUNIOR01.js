@@ -80,7 +80,58 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": "",
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_s">S</variable>
+    <variable id="var_n">N</variable>
+    <variable id="var_value">十進位值</variable>
+    <variable id="var_i">i</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_s">S</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入二進位字串</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_n">N</field>
+      <value name="VALUE"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_s">S</field></block></value></block></value>
+      <next><block type="variables_set">
+        <field name="VAR" id="var_value">十進位值</field>
+        <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+        <next><block type="controls_for">
+          <field name="VAR" id="var_i">i</field>
+          <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+          <value name="TO"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+          <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+          <statement name="DO"><block type="variables_set">
+            <field name="VAR" id="var_value">十進位值</field>
+            <value name="VALUE"><block type="math_arithmetic">
+              <field name="OP">ADD</field>
+              <value name="A"><block type="math_arithmetic">
+                <field name="OP">MULTIPLY</field>
+                <value name="A"><block type="variables_get"><field name="VAR" id="var_value">十進位值</field></block></value>
+                <value name="B"><block type="math_number"><field name="NUM">2</field></block></value>
+              </block></value>
+              <value name="B"><block type="logic_ternary">
+                <value name="IF"><block type="logic_compare">
+                  <field name="OP">EQ</field>
+                  <value name="A"><block type="text_charAt">
+                    <mutation at="true"></mutation>
+                    <field name="WHERE">FROM_START</field>
+                    <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_s">S</field></block></value>
+                    <value name="AT"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value>
+                  </block></value>
+                  <value name="B"><block type="text"><field name="TEXT">1</field></block></value>
+                </block></value>
+                <value name="THEN"><block type="math_number"><field name="NUM">1</field></block></value>
+                <value name="ELSE"><block type="math_number"><field name="NUM">0</field></block></value>
+              </block></value>
+            </block></value>
+          </block></statement>
+          <next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_value">十進位值</field></block></value></block></next>
+        </block></next>
+      </block></next>
+    </block></next>
+  </block>
+</xml>`,
       "review": {
         "needsManualReview": false,
         "risk": "",
@@ -178,7 +229,68 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": "",
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_n">N</variable>
+    <variable id="var_k">K</variable>
+    <variable id="var_pos">位置</variable>
+    <variable id="var_step">步伐</variable>
+    <variable id="var_r">r</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_n">N</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入社員人數 N</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_k">K</field>
+      <value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入回合數 K</field></shadow></value></block></value>
+      <next><block type="variables_set">
+        <field name="VAR" id="var_pos">位置</field>
+        <value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value>
+        <next><block type="controls_for">
+          <field name="VAR" id="var_r">r</field>
+          <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+          <value name="TO"><block type="variables_get"><field name="VAR" id="var_k">K</field></block></value>
+          <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+          <statement name="DO"><block type="variables_set">
+            <field name="VAR" id="var_step">步伐</field>
+            <value name="VALUE"><block type="logic_ternary">
+              <value name="IF"><block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A"><block type="math_modulo">
+                  <value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_pos">位置</field></block></value>
+                  <value name="DIVISOR"><block type="math_number"><field name="NUM">2</field></block></value>
+                </block></value>
+                <value name="B"><block type="math_number"><field name="NUM">1</field></block></value>
+              </block></value>
+              <value name="THEN"><block type="math_number"><field name="NUM">1</field></block></value>
+              <value name="ELSE"><block type="math_number"><field name="NUM">2</field></block></value>
+            </block></value>
+            <next><block type="variables_set">
+              <field name="VAR" id="var_pos">位置</field>
+              <value name="VALUE"><block type="math_arithmetic">
+                <field name="OP">ADD</field>
+                <value name="A"><block type="math_modulo">
+                  <value name="DIVIDEND"><block type="math_arithmetic">
+                    <field name="OP">ADD</field>
+                    <value name="A"><block type="math_arithmetic">
+                      <field name="OP">MINUS</field>
+                      <value name="A"><block type="variables_get"><field name="VAR" id="var_pos">位置</field></block></value>
+                      <value name="B"><block type="math_number"><field name="NUM">1</field></block></value>
+                    </block></value>
+                    <value name="B"><block type="variables_get"><field name="VAR" id="var_step">步伐</field></block></value>
+                  </block></value>
+                  <value name="DIVISOR"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+                </block></value>
+                <value name="B"><block type="math_number"><field name="NUM">1</field></block></value>
+              </block></value>
+            </block></next>
+          </block></statement>
+          <next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_pos">位置</field></block></value></block></next>
+        </block></next>
+      </block></next>
+    </block></next>
+  </block>
+</xml>`,
       "review": {
         "needsManualReview": false,
         "risk": "",
@@ -275,7 +387,71 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": "",
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_n">N</variable>
+    <variable id="var_a">a</variable>
+    <variable id="var_b">b</variable>
+    <variable id="var_c">c</variable>
+    <variable id="var_i">i</variable>
+    <variable id="var_answer">答案</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_n">N</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入樓梯階數 N</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_a">a</field>
+      <value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value>
+      <next><block type="variables_set">
+        <field name="VAR" id="var_b">b</field>
+        <value name="VALUE"><block type="math_number"><field name="NUM">2</field></block></value>
+        <next><block type="variables_set">
+          <field name="VAR" id="var_answer">答案</field>
+          <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_b">b</field></block></value>
+          <next><block type="controls_if">
+            <mutation else="1"></mutation>
+            <value name="IF0"><block type="logic_compare">
+              <field name="OP">EQ</field>
+              <value name="A"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+              <value name="B"><block type="math_number"><field name="NUM">1</field></block></value>
+            </block></value>
+            <statement name="DO0"><block type="variables_set">
+              <field name="VAR" id="var_answer">答案</field>
+              <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_a">a</field></block></value>
+            </block></statement>
+            <statement name="ELSE"><block type="controls_for">
+              <field name="VAR" id="var_i">i</field>
+              <value name="FROM"><block type="math_number"><field name="NUM">3</field></block></value>
+              <value name="TO"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+              <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+              <statement name="DO"><block type="variables_set">
+                <field name="VAR" id="var_c">c</field>
+                <value name="VALUE"><block type="math_arithmetic">
+                  <field name="OP">ADD</field>
+                  <value name="A"><block type="variables_get"><field name="VAR" id="var_a">a</field></block></value>
+                  <value name="B"><block type="variables_get"><field name="VAR" id="var_b">b</field></block></value>
+                </block></value>
+                <next><block type="variables_set">
+                  <field name="VAR" id="var_a">a</field>
+                  <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_b">b</field></block></value>
+                  <next><block type="variables_set">
+                    <field name="VAR" id="var_b">b</field>
+                    <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_c">c</field></block></value>
+                    <next><block type="variables_set">
+                      <field name="VAR" id="var_answer">答案</field>
+                      <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_b">b</field></block></value>
+                    </block></next>
+                  </block></next>
+                </block></next>
+              </block></statement>
+            </block></statement>
+            <next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_answer">答案</field></block></value></block></next>
+          </block></next>
+        </block></next>
+      </block></next>
+    </block></next>
+  </block>
+</xml>`,
       "review": {
         "needsManualReview": false,
         "risk": "",

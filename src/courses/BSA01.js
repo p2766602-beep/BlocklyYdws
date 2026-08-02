@@ -42,7 +42,22 @@ export default {
       ],
       "difficultyLevel": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_total">總金額</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入鉛筆單價 鉛筆數量 橡皮擦單價 橡皮擦數量，以空白分隔</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set"><field name="VAR" id="var_total">總金額</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">3</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">4</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value></block></value><next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_total">總金額</field></block></value></block></next></block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "BSA01-002",
@@ -80,7 +95,22 @@ export default {
       ],
       "difficultyLevel": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_total">總金額</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入紅茶單價 紅茶杯數 奶茶單價 奶茶杯數，以空白分隔</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set"><field name="VAR" id="var_total">總金額</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">3</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">4</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value></block></value><next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_total">總金額</field></block></value></block></next></block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "BSA01-003",
@@ -118,7 +148,22 @@ export default {
       ],
       "difficultyLevel": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_peri">周長</variable><variable id="var_area">面積</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入長 寬，以空白分隔</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set"><field name="VAR" id="var_peri">周長</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="var_area">面積</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_peri">周長</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_area">面積</field></block></value></block></value></block></next></block></next></block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "BSA01-004",
@@ -156,7 +201,18 @@ export default {
       ],
       "difficultyLevel": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_s">S</variable>
+    <variable id="var_min">分鐘</variable>
+    <variable id="var_sec">秒數</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+  <field name="VAR" id="var_s">S</field>
+  <value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入總秒數</field></shadow></value></block></value>
+  <next><block type="variables_set"><field name="VAR" id="var_min">分鐘</field><value name="VALUE"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="var_sec">秒數</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_s">S</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">60</field></block></value></block></value><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_min">分鐘</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_sec">秒數</field></block></value></block></value></block></next></block></next></block></next>
+</block>
+</xml>`
     },
     {
       "id": "BSA01-005",
@@ -194,7 +250,20 @@ export default {
       ],
       "difficultyLevel": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_n">N</variable>
+    <variable id="var_c50">50元枚數</variable>
+    <variable id="var_r1">剩餘1</variable>
+    <variable id="var_c10">10元枚數</variable>
+    <variable id="var_c1">1元枚數</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+  <field name="VAR" id="var_n">N</field>
+  <value name="VALUE"><block type="text_prompt_ext"><mutation type="NUMBER"></mutation><field name="TYPE">NUMBER</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入找零金額</field></shadow></value></block></value>
+  <next><block type="variables_set"><field name="VAR" id="var_c50">50元枚數</field><value name="VALUE"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">50</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="var_r1">剩餘1</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">50</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="var_c10">10元枚數</field><value name="VALUE"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_r1">剩餘1</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="var_c1">1元枚數</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_r1">剩餘1</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">10</field></block></value></block></value><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="5"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_c50">50元枚數</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_c10">10元枚數</field></block></value><value name="ADD3"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD4"><block type="variables_get"><field name="VAR" id="var_c1">1元枚數</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next>
+</block>
+</xml>`
     },
     {
       "id": "BSA01-006",
@@ -232,7 +301,22 @@ export default {
       ],
       "difficultyLevel": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_groups">組數</variable><variable id="var_rem">剩餘人數</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入學生總人數 N 與每組人數 K，以空白分隔</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set"><field name="VAR" id="var_groups">組數</field><value name="VALUE"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="var_rem">剩餘人數</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="DIVISOR"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_groups">組數</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_rem">剩餘人數</field></block></value></block></value></block></next></block></next></block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "BSA01-007",
@@ -271,7 +355,22 @@ export default {
       ],
       "difficultyLevel": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_sum">總分</variable><variable id="var_avg">平均</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入三科成績，以空白分隔</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set"><field name="VAR" id="var_sum">總分</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">3</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="var_avg">平均</field><value name="VALUE"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_sum">總分</field></block></value><value name="B"><block type="math_number"><field name="NUM">3</field></block></value></block></value></block></value><next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_sum">總分</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value></block></value></block></next></block></next></block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "BSA01-008",
@@ -309,7 +408,22 @@ export default {
       ],
       "difficultyLevel": "L1",
       "difficultyLabel": "L1｜基礎",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_total">總費用</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入人數 每人車票費 每人餐費 每人門票費，以空白分隔</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set"><field name="VAR" id="var_total">總費用</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">3</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">4</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value></block></value><next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_total">總費用</field></block></value></block></next></block></next>
+    </block></next>
+  </block>
+</xml>`
     }
   ]
 };

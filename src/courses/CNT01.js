@@ -43,7 +43,47 @@ export default {
       ],
       "difficultyLevel": "L2",
       "difficultyLabel": "L2｜進階",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_n">N</variable>
+    <variable id="var_sum">總和</variable>
+    <variable id="var_avg">平均</variable>
+    <variable id="var_i">i</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N個整數，以空白分隔，最前面接N</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set">
+        <field name="VAR" id="var_n">N</field>
+        <value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+        <next><block type="variables_set">
+          <field name="VAR" id="var_sum">總和</field>
+          <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+          <next><block type="controls_for">
+            <field name="VAR" id="var_i">i</field>
+            <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+            <value name="TO"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+            <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+            <statement name="DO"><block type="variables_set">
+              <field name="VAR" id="var_sum">總和</field>
+              <value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_sum">總和</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value>
+            </block></statement>
+            <next><block type="variables_set">
+              <field name="VAR" id="var_avg">平均</field>
+              <value name="VALUE"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_sum">總和</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value></block></value></block></value>
+              <next><block type="text_print"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_sum">總和</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value></block></value></block></next>
+            </block></next>
+          </block></next>
+        </block></next>
+      </block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "CNT01-020",
@@ -83,7 +123,50 @@ export default {
       ],
       "difficultyLevel": "L2",
       "difficultyLabel": "L2｜進階",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_n">N</variable>
+    <variable id="var_k">K</variable>
+    <variable id="var_count">數量</variable>
+    <variable id="var_i">i</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N K 及N個整數，以空白分隔</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set">
+        <field name="VAR" id="var_n">N</field>
+        <value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+        <next><block type="variables_set">
+          <field name="VAR" id="var_k">K</field>
+          <value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+          <next><block type="variables_set">
+            <field name="VAR" id="var_count">數量</field>
+            <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+            <next><block type="controls_for">
+              <field name="VAR" id="var_i">i</field>
+              <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+              <value name="TO"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+              <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+              <statement name="DO"><block type="controls_if">
+                <value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_k">K</field></block></value></block></value>
+                <statement name="DO0"><block type="variables_set">
+                  <field name="VAR" id="var_count">數量</field>
+                  <value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_count">數量</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value>
+                </block></statement>
+              </block></statement>
+              <next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_count">數量</field></block></value></block></next>
+            </block></next>
+          </block></next>
+        </block></next>
+      </block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "CNT01-021",
@@ -122,7 +205,45 @@ export default {
       ],
       "difficultyLevel": "L2",
       "difficultyLabel": "L2｜進階",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_n">N</variable>
+    <variable id="var_min">最小值</variable>
+    <variable id="var_i">i</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N個整數，以空白分隔，最前面接N</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set">
+        <field name="VAR" id="var_n">N</field>
+        <value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+        <next><block type="variables_set">
+          <field name="VAR" id="var_min">最小值</field>
+          <value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+          <next><block type="controls_for">
+            <field name="VAR" id="var_i">i</field>
+            <value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value>
+            <value name="TO"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+            <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+            <statement name="DO"><block type="controls_if">
+              <value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_min">最小值</field></block></value></block></value>
+              <statement name="DO0"><block type="variables_set">
+                <field name="VAR" id="var_min">最小值</field>
+                <value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+              </block></statement>
+            </block></statement>
+            <next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_min">最小值</field></block></value></block></next>
+          </block></next>
+        </block></next>
+      </block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "CNT01-022",
@@ -162,7 +283,48 @@ export default {
       ],
       "difficultyLevel": "L3",
       "difficultyLabel": "L3｜挑戰",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_n">N</variable>
+    <variable id="var_pos">位置</variable>
+    <variable id="var_i">i</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N個成績，以空白分隔，最前面接N</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set">
+        <field name="VAR" id="var_n">N</field>
+        <value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+        <next><block type="variables_set">
+          <field name="VAR" id="var_pos">位置</field>
+          <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+          <next><block type="controls_for">
+            <field name="VAR" id="var_i">i</field>
+            <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+            <value name="TO"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+            <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+            <statement name="DO"><block type="controls_if">
+              <value name="IF0"><block type="logic_operation"><field name="OP">AND</field>
+                <value name="A"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value>
+                <value name="B"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_pos">位置</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+              </block></value>
+              <statement name="DO0"><block type="variables_set">
+                <field name="VAR" id="var_pos">位置</field>
+                <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value>
+              </block></statement>
+            </block></statement>
+            <next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_pos">位置</field></block></value></block></next>
+          </block></next>
+        </block></next>
+      </block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "CNT01-023",
@@ -202,7 +364,50 @@ export default {
       ],
       "difficultyLevel": "L3",
       "difficultyLabel": "L3｜挑戰",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_n">N</variable>
+    <variable id="var_maxdiff">最大差值</variable>
+    <variable id="var_diff">差值</variable>
+    <variable id="var_i">i</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N個整數，以空白分隔，最前面接N</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set">
+        <field name="VAR" id="var_n">N</field>
+        <value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+        <next><block type="variables_set">
+          <field name="VAR" id="var_maxdiff">最大差值</field>
+          <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+          <next><block type="controls_for">
+            <field name="VAR" id="var_i">i</field>
+            <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
+            <value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value>
+            <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
+            <statement name="DO"><block type="variables_set">
+              <field name="VAR" id="var_diff">差值</field>
+              <value name="VALUE"><block type="math_single"><field name="OP">ABS</field><value name="NUM"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value></block></value>
+              <next><block type="controls_if">
+                <value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="var_diff">差值</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_maxdiff">最大差值</field></block></value></block></value>
+                <statement name="DO0"><block type="variables_set">
+                  <field name="VAR" id="var_maxdiff">最大差值</field>
+                  <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_diff">差值</field></block></value>
+                </block></statement>
+              </block></next>
+            </block></statement>
+            <next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_maxdiff">最大差值</field></block></value></block></next>
+          </block></next>
+        </block></next>
+      </block></next>
+    </block></next>
+  </block>
+</xml>`
     },
     {
       "id": "CNT01-024",
@@ -242,7 +447,59 @@ export default {
       ],
       "difficultyLevel": "L3",
       "difficultyLabel": "L3｜挑戰",
-      "starterXml": ""
+      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_line">輸入列</variable>
+    <variable id="var_values">數值清單</variable>
+    <variable id="var_n">N</variable>
+    <variable id="var_sum">累加值</variable>
+    <variable id="var_result">結果文字</variable>
+    <variable id="var_i">i</variable>
+  </variables>
+  <block type="variables_set" x="40" y="40">
+    <field name="VAR" id="var_line">輸入列</field>
+    <value name="VALUE"><block type="text_prompt_ext"><mutation type="TEXT"></mutation><field name="TYPE">TEXT</field><value name="TEXT"><shadow type="text"><field name="TEXT">請輸入N個整數，以空白分隔，最前面接N</field></shadow></value></block></value>
+    <next><block type="variables_set">
+      <field name="VAR" id="var_values">數值清單</field>
+      <value name="VALUE"><block type="lists_split"><mutation mode="SPLIT"></mutation><field name="MODE">SPLIT</field><value name="INPUT"><block type="variables_get"><field name="VAR" id="var_line">輸入列</field></block></value><value name="DELIM"><shadow type="text"><field name="TEXT"> </field></shadow></value></block></value>
+      <next><block type="variables_set">
+        <field name="VAR" id="var_n">N</field>
+        <value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>
+        <next><block type="variables_set">
+          <field name="VAR" id="var_sum">累加值</field>
+          <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+          <next><block type="variables_set">
+            <field name="VAR" id="var_result">結果文字</field>
+            <value name="VALUE"><block type="text"><field name="TEXT">(empty)</field></block></value>
+            <next><block type="controls_for">
+              <field name="VAR" id="var_i">i</field>
+              <value name="FROM"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
+              <value name="TO"><block type="math_number"><field name="NUM">1</field></block></value>
+              <value name="BY"><block type="math_number"><field name="NUM">-1</field></block></value>
+              <statement name="DO"><block type="variables_set">
+                <field name="VAR" id="var_sum">累加值</field>
+                <value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_sum">累加值</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_values">數值清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value>
+                <next><block type="controls_if">
+                  <mutation else="1"></mutation>
+                  <value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value></block></value>
+                  <statement name="DO0"><block type="variables_set">
+                    <field name="VAR" id="var_result">結果文字</field>
+                    <value name="VALUE"><block type="text_join"><mutation items="1"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_sum">累加值</field></block></value></block></value>
+                  </block></statement>
+                  <statement name="ELSE"><block type="variables_set">
+                    <field name="VAR" id="var_result">結果文字</field>
+                    <value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_result">結果文字</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_sum">累加值</field></block></value></block></value>
+                  </block></statement>
+                </block></next>
+              </block></statement>
+              <next><block type="text_print"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_result">結果文字</field></block></value></block></next>
+            </block></next>
+          </block></next>
+        </block></next>
+      </block></next>
+    </block></next>
+  </block>
+</xml>`
     }
   ]
 };
