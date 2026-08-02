@@ -62,7 +62,12 @@ export default {
                 ],
         "difficulty": "L1",
         "difficultyLabel": "L1｜基礎",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_s">S</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入S</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">S</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Pass</field></block></value></block></statement></block></next></block></next></block></next></block>
+</xml>`
       },
       {
         "id": "JSB02-D02",
@@ -117,7 +122,12 @@ export default {
                 ],
         "difficulty": "L1",
         "difficultyLabel": "L1｜基礎",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_m">M</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入M</field></block></value><next><block type="variables_set"><field name="VAR" id="v_m">M</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_m">M</field></block></value><value name="B"><block type="math_number"><field name="NUM">100</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Discount</field></block></value></block></statement><statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Normal</field></block></value></block></statement></block></next></block></next></block></next></block>
+</xml>`
       },
       {
         "id": "A-04-0",
@@ -166,7 +176,36 @@ export default {
                 ],
         "difficulty": "L1",
         "difficultyLabel": "L1｜基礎",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables><variable id="var_n">數字</variable></variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入一個整數</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_n">數字</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="controls_if">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare">
+                    <field name="OP">EQ</field>
+                    <value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_n">數字</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">2</field></block></value></block></value>
+                    <value name="B"><block type="math_number"><field name="NUM">0</field></block></value>
+                  </block>
+                </value>
+                <statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Even</field></block></value></block></statement>
+                <statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Odd</field></block></value></block></statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "JSB02-D03",
@@ -221,7 +260,12 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_s">S</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入S</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">S</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_say"><value name="TEXT"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">90</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">A</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">80</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">B</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">70</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">C</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">D</field></block></value><value name="ELSE"><block type="text"><field name="TEXT">F</field></block></value></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block>
+</xml>`
       },
       {
         "id": "A-04-1",
@@ -276,7 +320,12 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_s">S</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入S</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">S</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_say"><value name="TEXT"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">80</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">A</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">70</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">B</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">C</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">50</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">D</field></block></value><value name="ELSE"><block type="text"><field name="TEXT">E</field></block></value></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block>
+</xml>`
       },
       {
         "id": "A-05-0",
@@ -325,7 +374,75 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="var_count">筆數</variable>
+    <variable id="var_score">目前成績</variable>
+    <variable id="var_total">總分</variable>
+    <variable id="var_avg">平均</variable>
+    <variable id="var_result">結果</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40">
+    <next>
+      <block type="interaction_ask_and_wait">
+        <value name="TEXT"><block type="text"><field name="TEXT">請輸入筆數</field></block></value>
+        <next>
+          <block type="variables_set">
+            <field name="VAR" id="var_count">筆數</field>
+            <value name="VALUE"><block type="interaction_answer"></block></value>
+            <next>
+              <block type="variables_set">
+                <field name="VAR" id="var_total">總分</field>
+                <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
+                <next>
+                  <block type="controls_repeat_ext">
+                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="var_count">筆數</field></block></value>
+                    <statement name="DO">
+                      <block type="interaction_ask_and_wait">
+                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
+                        <next>
+                          <block type="variables_set">
+                            <field name="VAR" id="var_score">目前成績</field>
+                            <value name="VALUE"><block type="interaction_answer"></block></value>
+                            <next>
+                              <block type="variables_set">
+                                <field name="VAR" id="var_total">總分</field>
+                                <value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_score">目前成績</field></block></value></block></value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="variables_set">
+                        <field name="VAR" id="var_avg">平均</field>
+                        <value name="VALUE"><block type="math_round"><field name="OP">ROUND</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_count">筆數</field></block></value></block></value></block></value>
+                        <next>
+                          <block type="controls_if">
+                            <mutation else="1"></mutation>
+                            <value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value>
+                            <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_result">結果</field><value name="VALUE"><block type="text"><field name="TEXT">及格</field></block></value></block></statement>
+                            <statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_result">結果</field><value name="VALUE"><block type="text"><field name="TEXT">不及格</field></block></value></block></statement>
+                            <next>
+                              <block type="interaction_say">
+                                <value name="TEXT"><block type="text_join"><mutation items="5"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value><value name="ADD3"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD4"><block type="variables_get"><field name="VAR" id="var_result">結果</field></block></value></block></value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>`
       },
       {
         "id": "A-05-1",
@@ -374,7 +491,12 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_n">N</variable><variable id="v_p1">P1</variable><variable id="v_p2">P2</variable><variable id="v_p3">P3</variable><variable id="v_total">總額</variable><variable id="v_sale">售價</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入P1</field></block></value><next><block type="variables_set"><field name="VAR" id="v_p1">P1</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入P2</field></block></value><next><block type="variables_set"><field name="VAR" id="v_p2">P2</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入P3</field></block></value><next><block type="variables_set"><field name="VAR" id="v_p3">P3</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總額</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_p1">P1</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_p2">P2</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_p3">P3</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_sale">售價</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_p1">P1</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_p2">P2</field></block></value><value name="B"><block type="math_number"><field name="NUM">0.9</field></block></value></block></value></block></value><value name="B"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_p3">P3</field></block></value><value name="B"><block type="math_number"><field name="NUM">0.8</field></block></value></block></value></block></value></block></value></block></value><next><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="5"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_sale">售價</field></block></value><value name="ADD3"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD4"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_sale">售價</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
+</xml>`
       },
       {
         "id": "nanto-001",
@@ -429,7 +551,12 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_n">N</variable><variable id="v_h">身高</variable><variable id="v_age">年齡</variable><variable id="v_card">縣民卡</variable><variable id="v_total">總額</variable><variable id="v_i">i</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總額</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_h">身高</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_age">年齡</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_card">縣民卡</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總額</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="B"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_card">縣民卡</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="THEN"><block type="math_number"><field name="NUM">0</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_age">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">65</field></block></value></block></value><value name="THEN"><block type="math_number"><field name="NUM">150</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_operation"><field name="OP">OR</field><value name="A"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_h">身高</field></block></value><value name="B"><block type="math_number"><field name="NUM">120</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_age">年齡</field></block></value><value name="B"><block type="math_number"><field name="NUM">6</field></block></value></block></value></block></value><value name="THEN"><block type="math_number"><field name="NUM">180</field></block></value><value name="ELSE"><block type="math_number"><field name="NUM">300</field></block></value></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value></block></next></block></next></block></next></block></next></block></next></block>
+</xml>`
       },
       {
         "id": "nanto-003",
@@ -479,7 +606,12 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_sum">總和</variable><variable id="v_max">最大值</variable><variable id="v_min">最小值</variable><variable id="v_i">i</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_min">最小值</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></statement></block></next></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_min">最小值</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
+</xml>`
       },
       {
         "id": "nanto-006-1",
@@ -534,7 +666,12 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_n">N</variable><variable id="v_c">編號</variable><variable id="v_prices">價目表</variable><variable id="v_total">總額</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_prices">價目表</field><value name="VALUE"><block type="lists_create_with"><mutation items="5"></mutation><value name="ADD0"><block type="math_number"><field name="NUM">45</field></block></value><value name="ADD1"><block type="math_number"><field name="NUM">25</field></block></value><value name="ADD2"><block type="math_number"><field name="NUM">30</field></block></value><value name="ADD3"><block type="math_number"><field name="NUM">40</field></block></value><value name="ADD4"><block type="math_number"><field name="NUM">60</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總額</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_c">編號</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總額</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_prices">價目表</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_c">編號</field></block></value></block></value></block></value></block></next></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block>
+</xml>`
       },
       {
         "id": "nanto-006-2",
@@ -589,7 +726,12 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_n">N</variable><variable id="v_c">編號</variable><variable id="v_qty">數量</variable><variable id="v_prices">價目表</variable><variable id="v_total">總額</variable><variable id="v_pay">付款</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_prices">價目表</field><value name="VALUE"><block type="lists_create_with"><mutation items="5"></mutation><value name="ADD0"><block type="math_number"><field name="NUM">45</field></block></value><value name="ADD1"><block type="math_number"><field name="NUM">25</field></block></value><value name="ADD2"><block type="math_number"><field name="NUM">30</field></block></value><value name="ADD3"><block type="math_number"><field name="NUM">40</field></block></value><value name="ADD4"><block type="math_number"><field name="NUM">60</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總額</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_c">編號</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_qty">數量</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總額</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_prices">價目表</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_c">編號</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_qty">數量</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入付款金額</field></block></value><next><block type="variables_set"><field name="VAR" id="v_pay">付款</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_pay">付款</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="4"></mutation><value name="ADD0"><block type="text"><field name="TEXT">總金額</field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="ADD2"><block type="text"><field name="TEXT"> 應找錢</field></block></value><value name="ADD3"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_pay">付款</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="4"></mutation><value name="ADD0"><block type="text"><field name="TEXT">總金額</field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="ADD2"><block type="text"><field name="TEXT"> 付款不足</field></block></value><value name="ADD3"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_pay">付款</field></block></value></block></value></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
+</xml>`
       },
       {
         "id": "WP-01",
@@ -638,7 +780,12 @@ export default {
                 ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": ""
+        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_sum">總和</variable><variable id="v_pay">付款</variable><variable id="v_i">i</variable>
+  </variables>
+  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入付款金額</field></block></value><next><block type="variables_set"><field name="VAR" id="v_pay">付款</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_pay">付款</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_pay">付款</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value></block></value></block></statement><statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">付款金額不足</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
+</xml>`
       }
   ]
 };
