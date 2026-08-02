@@ -94,12 +94,31 @@ patchAsyncProcedureGenerators();
 // MVP-J08-1 fixed: Blockly procedure definitions are emitted through generator definitions,
 // so patching the procedure block generator alone may not change the final generated code.
 // Apply a final safety pass to the complete JavaScript code before preview/execution.
+//
+// 排序積木bug修正（2026-08-02）：這個regex原本是不分青紅皂白地把整份程式碼裡每一個
+// 頂層 function 宣告都轉成 async，結果連Blockly自己用provideFunction_注入的內建輔助
+// 函式（例如lists_sort積木用到的listsGetSortCompare）也被轉成async。這些輔助函式是
+// Blockly函式庫本身寫死的純同步工具函式，內容不可能包含任何學生積木（不會用到await），
+// 一旦被轉成async，呼叫端(list.slice().sort(listsGetSortCompare(...)))拿到的就是一個
+// Promise而不是真正的比較函式，導致.sort()噴錯「comparison function must be either
+// a function or undefined: #<Promise>」。修法：明確排除這些已知的Blockly內建輔助函式
+// 名稱（清單來自node_modules/blockly/javascript_compressed.js裡所有provideFunction_
+// 呼叫），只把其餘（學生自訂程序）的頂層function轉成async。
+const BLOCKLY_BUILTIN_HELPER_NAMES = new Set([
+  'listsGetRandomItem', 'listsGetSortCompare', 'listsRepeat',
+  'mathIsPrime', 'mathMean', 'mathMedian', 'mathModes', 'mathRandomInt', 'mathRandomList', 'mathStandardDeviation',
+  'subsequence', 'textCount', 'textRandomLetter', 'textReplace', 'textToTitleCase',
+]);
+
 function normalizeGeneratedAsyncProcedures(code) {
   if (typeof code !== 'string' || !code.trim()) return code;
 
   return code.replace(
     /(^|\n)(\s*)function\s+([A-Za-z_$][\w$]*)\s*\(/g,
-    '$1$2async function $3('
+    (match, prefix, indent, name) => {
+      if (BLOCKLY_BUILTIN_HELPER_NAMES.has(name)) return match;
+      return `${prefix}${indent}async function ${name}(`;
+    }
   );
 }
 
