@@ -1,4 +1,4 @@
-var e={code:`114ETaichung`,title:`114-臺中市國小`,type:`programming`,mode:`contest`,description:`臺中市114學年度國小組資訊科技教育競賽題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-07T11:01:54.415Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-臺中市國小`,version:`manual-transcription-verified`},tasks:[{id:`114ETaichung-1`,title:`以禮相待`,problemTitle:`以禮相待`,courseCode:`114ETaichung`,courseName:`114-臺中市國小`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`蘇洵為避免兩個兒子蘇軾、蘇轍彼此對中發票吵架，於是訂定了他們家的規則：
+var e={code:`114ETaichung`,title:`114-臺中市國小`,type:`programming`,mode:`learning`,description:`臺中市114學年度國小組資訊科技教育競賽題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-07T11:01:54.415Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-臺中市國小`,version:`manual-transcription-verified`},tasks:[{id:`114ETaichung-1`,title:`以禮相待`,problemTitle:`以禮相待`,courseCode:`114ETaichung`,courseName:`114-臺中市國小`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`蘇洵為避免兩個兒子蘇軾、蘇轍彼此對中發票吵架，於是訂定了他們家的規則：
 (1) 對中發票後，假如中獎金額先補貼中獎發票的花費金額。
 (2) 若還有盈餘（剩下），獎金由對中獎的人收下。
 (3) 盈餘的金額假如大於 200，要對手足以禮相待，分享 100 元。
