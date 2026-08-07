@@ -1,29 +1,33 @@
-// Hand-authored by Claude from data/problem_bank_master_complete.csv (tcelement-001~005)
+// Hand-authored by Claude from data/problem_bank_master_complete.csv (114ETaichung-1~5)
 // and cross-checked against every worked example in 114-E-Taichung.pdf via a JS reference
 // implementation before being written here. Not produced by export_course_js.py — that tool's
 // L1~L3-only "第一波" scope silently drops content (see MVP-J14 in blockly-lab/docs/MVP_LOG.md),
 // so re-running any CSV exporter against this file's course code is not safe without checking
 // its scope first.
+//
+// Naming convention for future 縣市/年度題組 (per user 2026-08-07 決定)：
+// id = {學年度}{組別代碼}{縣市}-{題序}，例如 114ETaichung-1（114學年度、E=國小、Taichung、第1題）。
+// course code = {學年度}{組別代碼}{縣市}，例如 114ETaichung。
 
 const course = {
-  "code": "TCELEMENT01",
+  "code": "114ETaichung",
   "title": "114-臺中市國小",
   "type": "programming",
   "mode": "contest",
   "description": "臺中市114學年度國小組資訊科技教育競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
-    "generatedAt": "2026-08-07T10:13:51.102Z",
+    "generatedAt": "2026-08-07T11:01:54.415Z",
     "sourceCsv": "data/problem_bank_master_complete.csv",
     "problemSetTitle": "114-臺中市國小",
     "version": "manual-transcription-verified"
   },
   "tasks": [
     {
-      "id": "tcelement-001",
+      "id": "114ETaichung-1",
       "title": "以禮相待",
       "problemTitle": "以禮相待",
-      "courseCode": "TCELEMENT01",
+      "courseCode": "114ETaichung",
       "courseName": "114-臺中市國小",
       "role": "contest",
       "difficulty": "L2",
@@ -129,10 +133,10 @@ const course = {
       }
     },
     {
-      "id": "tcelement-002",
+      "id": "114ETaichung-2",
       "title": "統一發票",
       "problemTitle": "統一發票",
-      "courseCode": "TCELEMENT01",
+      "courseCode": "114ETaichung",
       "courseName": "114-臺中市國小",
       "role": "contest",
       "difficulty": "L3",
@@ -246,10 +250,10 @@ const course = {
       }
     },
     {
-      "id": "tcelement-003",
+      "id": "114ETaichung-3",
       "title": "閃電十一人",
       "problemTitle": "閃電十一人",
-      "courseCode": "TCELEMENT01",
+      "courseCode": "114ETaichung",
       "courseName": "114-臺中市國小",
       "role": "contest",
       "difficulty": "L3",
@@ -349,10 +353,10 @@ const course = {
       }
     },
     {
-      "id": "tcelement-004",
+      "id": "114ETaichung-4",
       "title": "紅牌與黃牌",
       "problemTitle": "紅牌與黃牌",
-      "courseCode": "TCELEMENT01",
+      "courseCode": "114ETaichung",
       "courseName": "114-臺中市國小",
       "role": "contest",
       "difficulty": "L4",
@@ -452,10 +456,10 @@ const course = {
       }
     },
     {
-      "id": "tcelement-005",
+      "id": "114ETaichung-5",
       "title": "提前結束",
       "problemTitle": "提前結束",
-      "courseCode": "TCELEMENT01",
+      "courseCode": "114ETaichung",
       "courseName": "114-臺中市國小",
       "role": "contest",
       "difficulty": "L4",
