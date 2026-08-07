@@ -649,4 +649,81 @@ e`,expectedOutput:`3`,output:`3`,score:10,hidden:!1}],starterXml:`<xml xmlns="ht
       </block>
     </next>
   </block>
-</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`數學運算與數論`],subConcepts:[`整數性質`],algorithm:[`枚舉`,`輾轉相除`],dataStructure:[],syntax:[`取餘數`,`迴圈`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}}]};export{e as default};
+</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`數學運算與數論`],subConcepts:[`整數性質`],algorithm:[`枚舉`,`輾轉相除`],dataStructure:[],syntax:[`取餘數`,`迴圈`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-10-1`,title:`加權成績計算`,description:`大明綜合高中辦理考試，不同科系考試科目數量、每周上課時數不一定相同
+成績計算時，以每一科成績乘以該科上課時數為加權成績，將所有科目的加權成績加總，並除以全部科目總時數，即為學生加權平均成績
+請設計一個程式，輸入各科的成績、各科加權時數，程式運算後輸出加權總分、加權平均、等第。
+第一行輸入N，代表該科共有N科考試成績
+第二行依序輸入N筆各科成績，各科成績之間以空白間隔
+第三行依序輸入N筆各科對應加權時數，各科加權時數之間以空白間隔
+計算全部加權總分，加權平均成績以四捨五入取整數
+如果平均分數大於等於 80，就是「A」等第，小於80大於等於70則是「B」等第，小於70大於等於60則是「C」等第，否則是「D」等第。
+程式輸出加權總分、加權平均、等第。
+這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。`,examples:[{input:`3
+80 70 90
+1 2 1`,output:`310
+78
+B`,explanation:`第一行輸入3，表示後面會有3科成績輸入
+第二行輸入各科原始成績80 70 90
+第三行輸入各科加權時數1 2 1
+程式運算輸出加權總分310、平均78、等第B`},{input:`6
+50 41 60 55 70 65
+1 3 3 2 2 1`,output:`668
+56
+D`,explanation:`第一行輸入6，表示後面會有6科成績輸入
+第二行輸入各科原始成績50 41 60 55 70 65
+第三行輸入各科加權時數1 3 3 2 2 1
+程式運算輸出加權總分668、平均56、等第D`}],testCases:[{input:`1
+80
+3`,expectedOutput:`240 80 A`,score:10},{input:`6
+50 41 60 55 70 65
+1 3 3 2 2 1`,expectedOutput:`668 56 D`,score:10},{input:`5
+80 70 75 85 90
+1 1 3 2 1`,expectedOutput:`635 79 B`,score:10},{input:`3
+55 90 99
+2 3 3`,expectedOutput:`677 85 A`,score:10}],starterXml:``,requiresGreenFlag:!0},{id:`A-11-1`,title:`計算字元出現最多的次數`,description:`請設計程式，輸入一字串由小寫英文字母組合，長度1~50間的字串
+程式會統計該字串的字母中，出現最多的次數。
+這樣的練習可以訓練你循環計數迴圈與字串統計。`,examples:[{input:`banana`,output:`3`,explanation:`第一行輸入banana
+程式運算比對，出現最多為a，共出現3次
+程式輸出3`},{input:`student`,output:`2`,explanation:`第一行輸入student
+程式運算比對，出現最多為t，共出現2次
+程式輸出2`},{input:`spider`,output:`1`,explanation:`第一行輸入spider
+程式運算比對，全部字母都只出現1次
+程式輸出1`}],testCases:[{input:`goodmoning`,expectedOutput:`3`,score:10},{input:`chaiyicity`,expectedOutput:`3`,score:10},{input:`announment`,expectedOutput:`4`,score:10},{input:`experimen`,expectedOutput:`3`,score:10},{input:`junior`,expectedOutput:`1`,score:10}],starterXml:``,requiresGreenFlag:!0},{id:`A-12-1`,title:`動態密碼轉換`,description:`小明設計了一種英文字元密碼環編碼規則：
+密碼環為『abcdefghijklmnopqrstuvwxyz0123456789』
+第一行輸入數字N(N介於0~36)，N為編碼位移值
+編碼時，待編碼字串每個字元都按照密碼環『往前』移動N個位置
+如果轉換後密碼往前超過密碼環第一個字元a，則接續最後面9繼續接回密碼環
+請寫一個程式，輸入一個英文單字，程式輸出依照編碼規則轉換後的密碼字串。
+這樣的練習訓練你字元處理與條件轉換。`,examples:[{input:`2
+banana`,output:`98l8l8`,explanation:`第一行輸入2，表示編碼時要往前移動2個位置
+第二行輸入banana表示待編碼字串為banana
+程式運算，將字串往前移2個位置加密
+程式輸出98l8l8`},{input:`10
+student`,output:`ijk34dj`,explanation:`第一行輸入10，表示編碼時要往前10個位置
+第二行輸入student表示待編碼字串為student
+程式運算，將字串往前移10個位置加密
+程式輸出ijk34dj`}],testCases:[{input:`12
+goodmoning`,expectedOutput:`4cc1acb6b4`,score:10},{input:`29
+chaiyicity`,expectedOutput:`johp5pjp05`,score:10},{input:`9
+announcement`,expectedOutput:`1eefle35d5ek`,score:10},{input:`0
+experimen`,expectedOutput:`experimen`,score:10}],starterXml:``,requiresGreenFlag:!0},{id:`A-13-1`,title:`最大公因數`,description:`小明上學時，不太會找最大公因數，請寫個程式幫他找一下
+輸入一組整數，請計算這些數字的最大公因數
+輸入格式：輸入2行
+第一行輸入1個整數N，代表接下來要計算最大公因數的個數
+第二行輸入N個整數，用空格隔開，代表要計算最大公因數的N個整數`,examples:[{input:`2
+6 9`,output:`3`,explanation:`第一行輸入2，表示接下來要輸入2個數
+第二行輸入6 9，表示要找出6、9的最大公因數
+程式輸出最大公因數3`},{input:`3
+4 6 12`,output:`2`,explanation:`第一行輸入3，表示接下來要輸入3個數
+第二行輸入4 6 12，表示要找出4、6、12的最大公因數
+程式輸出最大公因數2`},{input:`2
+1 99`,output:`1`,explanation:`第一行輸入2，表示接下來要輸入2個數
+第二行輸入1 99，表示要找出1，99的最大公因數
+程式輸出最大公因數1`},{input:`1
+8`,output:`8`,explanation:`第一行輸入1，表示接下來要輸入1個數
+第二行輸入8，表示要找出8的最大公因數
+自己的最大公因數是自己，程式輸出最大公因數8`}],testCases:[{input:`3
+12 24 30`,expectedOutput:`6`,score:10},{input:`6
+2 5 24 15 36 54`,expectedOutput:`1`,score:10},{input:`3
+51 9 24`,expectedOutput:`3`,score:10},{input:`1
+8`,expectedOutput:`8`,score:10}],starterXml:``,requiresGreenFlag:!0}]};export{e as default};
