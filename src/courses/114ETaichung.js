@@ -15,7 +15,7 @@ const course = {
   "code": "114ETaichung",
   "title": "114-臺中市國小",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "臺中市114學年度國小組資訊科技教育競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",

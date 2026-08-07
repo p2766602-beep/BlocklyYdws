@@ -12,7 +12,7 @@ const course = {
   "code": "114JPenghu",
   "title": "114-澎湖縣國中",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "澎湖運算思維競賽-國中題庫",
   "source": {
     "project": "YDWS-CodingBank",
