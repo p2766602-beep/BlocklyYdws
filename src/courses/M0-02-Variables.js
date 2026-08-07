@@ -28,25 +28,25 @@ export default {
                     "input": "10 3 5 2",
                     "expectedOutput": "40",
                     "output": "40",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "12 4 8 3",
                     "expectedOutput": "72",
                     "output": "72",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "7 6 9 2",
                     "expectedOutput": "60",
                     "output": "60",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "15 1 20 4",
                     "expectedOutput": "95",
                     "output": "95",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
@@ -72,25 +72,25 @@ export default {
                     "input": "25 2 40 3",
                     "expectedOutput": "170",
                     "output": "170",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "30 4 45 2",
                     "expectedOutput": "210",
                     "output": "210",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "20 5 35 1",
                     "expectedOutput": "135",
                     "output": "135",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "18 10 30 6",
                     "expectedOutput": "360",
                     "output": "360",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
@@ -116,25 +116,25 @@ export default {
                     "input": "8 5",
                     "expectedOutput": "26 40",
                     "output": "26 40",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "10 3",
                     "expectedOutput": "26 30",
                     "output": "26 30",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "7 7",
                     "expectedOutput": "28 49",
                     "output": "28 49",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "15 4",
                     "expectedOutput": "38 60",
                     "output": "38 60",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
@@ -160,25 +160,25 @@ export default {
                     "input": "125",
                     "expectedOutput": "2 5",
                     "output": "2 5",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "59",
                     "expectedOutput": "0 59",
                     "output": "0 59",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "360",
                     "expectedOutput": "6 0",
                     "output": "6 0",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "754",
                     "expectedOutput": "12 34",
                     "output": "12 34",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
@@ -204,25 +204,25 @@ export default {
                     "input": "187",
                     "expectedOutput": "3 3 7",
                     "output": "3 3 7",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "49",
                     "expectedOutput": "0 4 9",
                     "output": "0 4 9",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "250",
                     "expectedOutput": "5 0 0",
                     "output": "5 0 0",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "96",
                     "expectedOutput": "1 4 6",
                     "output": "1 4 6",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
@@ -248,25 +248,25 @@ export default {
                     "input": "32 5",
                     "expectedOutput": "6 2",
                     "output": "6 2",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "40 8",
                     "expectedOutput": "5 0",
                     "output": "5 0",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "27 4",
                     "expectedOutput": "6 3",
                     "output": "6 3",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "18 7",
                     "expectedOutput": "2 4",
                     "output": "2 4",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
@@ -292,25 +292,25 @@ export default {
                     "input": "80 75 91",
                     "expectedOutput": "246 82",
                     "output": "246 82",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "100 90 80",
                     "expectedOutput": "270 90",
                     "output": "270 90",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "66 67 68",
                     "expectedOutput": "201 67",
                     "output": "201 67",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "59 72 83",
                     "expectedOutput": "214 71",
                     "output": "214 71",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
@@ -419,25 +419,25 @@ export default {
                     "input": "30 120 80 50",
                     "expectedOutput": "7500",
                     "output": "7500",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "25 100 70 40",
                     "expectedOutput": "5250",
                     "output": "5250",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "18 150 60 90",
                     "expectedOutput": "5400",
                     "output": "5400",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "40 80 85 35",
                     "expectedOutput": "8000",
                     "output": "8000",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
