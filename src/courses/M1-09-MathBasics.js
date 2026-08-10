@@ -9,387 +9,357 @@ export default {
   "mode": "learning",
   "tier": "t1",
   "tasks": [
-      {
-        "id": "MATH01-001",
-        "title": "倍數判斷",
-        "description": "給定兩個正整數 A 與 B，請判斷 A 是否為 B 的倍數。",
-        "inputDescription": "輸入兩個正整數 A 與 B。",
-        "outputDescription": "若 A 是 B 的倍數，輸出 YES；否則輸出 NO。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "24 6",
-                    "output": "YES",
-                    "explanation": "24 可以被 6 整除，所以是 6 的倍數。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "24 6",
-                    "expectedOutput": "YES",
-                    "output": "YES",
-                    "score": 0
-                  },
-                  {
-                    "input": "25 6",
-                    "expectedOutput": "NO",
-                    "output": "NO",
-                    "score": 0
-                  },
-                  {
-                    "input": "100 10",
-                    "expectedOutput": "YES",
-                    "output": "YES",
-                    "score": 0
-                  },
-                  {
-                    "input": "7 9",
-                    "expectedOutput": "NO",
-                    "output": "NO",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L1",
-        "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_a">A</variable><variable id="v_b">B</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_a">A</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入B</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">B</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_a">A</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_a">A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">B</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_a">A</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">YES</field></block></value></block></statement><statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">NO</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
-      },
-      {
-        "id": "MATH01-002",
-        "title": "因數個數",
-        "description": "給定一個正整數 N，請計算 N 有幾個正因數。",
-        "inputDescription": "輸入一個正整數 N。",
-        "outputDescription": "輸出一個整數，代表 N 的正因數個數。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "12",
-                    "output": "6",
-                    "explanation": "12 的正因數有 1、2、3、4、6、12，共 6 個。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "12",
-                    "expectedOutput": "6",
-                    "output": "6",
-                    "score": 0
-                  },
-                  {
-                    "input": "1",
-                    "expectedOutput": "1",
-                    "output": "1",
-                    "score": 0
-                  },
-                  {
-                    "input": "16",
-                    "expectedOutput": "5",
-                    "output": "5",
-                    "score": 0
-                  },
-                  {
-                    "input": "17",
-                    "expectedOutput": "2",
-                    "output": "2",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L2",
-        "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_x">N</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_count">次數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_count">次數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_count">次數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_count">次數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>`
-      },
-      {
-        "id": "MATH01-006",
-        "title": "位數和",
-        "description": "給定一個非負整數 N，請計算它的每一位數字總和。",
-        "inputDescription": "輸入一個非負整數 N。",
-        "outputDescription": "輸出一個整數，代表 N 的位數和。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "12345",
-                    "output": "15",
-                    "explanation": "1+2+3+4+5=15。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "12345",
-                    "expectedOutput": "15",
-                    "output": "15",
-                    "score": 0
-                  },
-                  {
-                    "input": "0",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 0
-                  },
-                  {
-                    "input": "1008",
-                    "expectedOutput": "9",
-                    "output": "9",
-                    "score": 0
-                  },
-                  {
-                    "input": "9999",
-                    "expectedOutput": "36",
-                    "output": "36",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L2",
-        "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_sum">總和</variable><variable id="v_ch">位數字元</variable><variable id="v_i">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_ch">位數字元</field><value name="VALUE"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_ch">位數字元</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "MATH01-008",
-        "title": "可被3整除的數量",
-        "description": "給定 N 個整數，請計算其中有幾個數字可以被 3 整除。",
-        "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
-        "outputDescription": "輸出一個整數，代表可以被 3 整除的數量。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "6 3 5 9 10 12 14",
-                    "output": "3",
-                    "explanation": "3、9、12 可以被 3 整除，共 3 個。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "6 3 5 9 10 12 14",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 1 2 4 5",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 0
-                  },
-                  {
-                    "input": "5 0 3 6 9 12",
-                    "expectedOutput": "5",
-                    "output": "5",
-                    "score": 0
-                  },
-                  {
-                    "input": "7 -3 -2 0 4 6 8 10",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L2",
-        "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_cnt">計數</variable><variable id="v_i">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_cnt">計數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">3</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_cnt">計數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cnt">計數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_cnt">計數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "MATH01-003",
-        "title": "質數判斷",
-        "description": "給定一個正整數 N，請判斷 N 是否為質數。質數是大於 1，且只有 1 和自己兩個正因數的數。",
-        "inputDescription": "輸入一個正整數 N。",
-        "outputDescription": "若 N 是質數，輸出 PRIME；否則輸出 NOT。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "17",
-                    "output": "PRIME",
-                    "explanation": "17 只有 1 和 17 兩個正因數，所以是質數。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "17",
-                    "expectedOutput": "PRIME",
-                    "output": "PRIME",
-                    "score": 0
-                  },
-                  {
-                    "input": "1",
-                    "expectedOutput": "NOT",
-                    "output": "NOT",
-                    "score": 0
-                  },
-                  {
-                    "input": "12",
-                    "expectedOutput": "NOT",
-                    "output": "NOT",
-                    "score": 0
-                  },
-                  {
-                    "input": "2",
-                    "expectedOutput": "PRIME",
-                    "output": "PRIME",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_found">found</variable><variable id="v_i">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">NOT</field></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="v_found">found</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_found">found</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_found">found</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">PRIME</field></block></value><value name="ELSE"><block type="text"><field name="TEXT">NOT</field></block></value></block></value></block></next></block></next></block></statement></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "MATH01-004",
-        "title": "最大公因數",
-        "description": "給定兩個正整數 A 與 B，請找出它們的最大公因數。",
-        "inputDescription": "輸入兩個正整數 A 與 B。",
-        "outputDescription": "輸出一個整數，代表 A 與 B 的最大公因數。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "12 18",
-                    "output": "6",
-                    "explanation": "12 與 18 的最大公因數是 6。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "12 18",
-                    "expectedOutput": "6",
-                    "output": "6",
-                    "score": 0
-                  },
-                  {
-                    "input": "7 13",
-                    "expectedOutput": "1",
-                    "output": "1",
-                    "score": 0
-                  },
-                  {
-                    "input": "24 36",
-                    "expectedOutput": "12",
-                    "output": "12",
-                    "score": 0
-                  },
-                  {
-                    "input": "100 25",
-                    "expectedOutput": "25",
-                    "output": "25",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_a">A</variable><variable id="v_b">B</variable><variable id="v_tmp">暫存</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_a">A</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入B</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">B</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_whileUntil"><field name="MODE">WHILE</field><value name="BOOL"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_tmp">暫存</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">B</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_a">A</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_a">A</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_tmp">暫存</field></block></value></block></next></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_a">A</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "MATH01-005",
-        "title": "最小公倍數",
-        "description": "給定兩個正整數 A 與 B，請找出它們的最小公倍數。",
-        "inputDescription": "輸入兩個正整數 A 與 B。",
-        "outputDescription": "輸出一個整數，代表 A 與 B 的最小公倍數。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "12 18",
-                    "output": "36",
-                    "explanation": "12 與 18 的最小公倍數是 36。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "12 18",
-                    "expectedOutput": "36",
-                    "output": "36",
-                    "score": 0
-                  },
-                  {
-                    "input": "7 13",
-                    "expectedOutput": "91",
-                    "output": "91",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 6",
-                    "expectedOutput": "12",
-                    "output": "12",
-                    "score": 0
-                  },
-                  {
-                    "input": "20 5",
-                    "expectedOutput": "20",
-                    "output": "20",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_a">A</variable><variable id="v_b">B</variable><variable id="v_ta">ta</variable><variable id="v_tb">tb</variable><variable id="v_tmp">暫存</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_a">A</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入B</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">B</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_ta">ta</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_a">A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_tb">tb</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value><next><block type="controls_whileUntil"><field name="MODE">WHILE</field><value name="BOOL"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_tb">tb</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_tmp">暫存</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_tb">tb</field></block></value><next><block type="variables_set"><field name="VAR" id="v_tb">tb</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_ta">ta</field></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="v_tb">tb</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_ta">ta</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_tmp">暫存</field></block></value></block></next></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">A</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_ta">ta</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "MATH01-007",
-        "title": "數字反轉",
-        "description": "給定一個非負整數 N，請將它的數字順序反轉後輸出。反轉後前導 0 不需要保留。",
-        "inputDescription": "輸入一個非負整數 N。",
-        "outputDescription": "輸出一個整數，代表反轉後的數字。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "12340",
-                    "output": "4321",
-                    "explanation": "12340 反轉為 04321，前導 0 不保留，所以輸出 4321。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "12340",
-                    "expectedOutput": "4321",
-                    "output": "4321",
-                    "score": 0
-                  },
-                  {
-                    "input": "0",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 0
-                  },
-                  {
-                    "input": "1000",
-                    "expectedOutput": "1",
-                    "output": "1",
-                    "score": 0
-                  },
-                  {
-                    "input": "9876",
-                    "expectedOutput": "6789",
-                    "output": "6789",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_res">結果</variable><variable id="v_i">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_res">結果</field><value name="VALUE"><block type="text"><field name="TEXT"></field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value></block></value><value name="TO"><block type="math_number"><field name="NUM">1</field></block></value><value name="BY"><block type="math_number"><field name="NUM">-1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_res">結果</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_res">結果</field></block></value><value name="ADD1"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_res">結果</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      }
+    {
+      "id": "MATH01-001",
+      "title": "倍數判斷",
+      "description": "給定兩個正整數 A 與 B，請判斷 A 是否為 B 的倍數。",
+      "inputDescription": "輸入兩個正整數 A 與 B。",
+      "outputDescription": "若 A 是 B 的倍數，輸出 YES；否則輸出 NO。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "24 6",
+          "output": "YES",
+          "explanation": "24 可以被 6 整除，所以是 6 的倍數。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "24 6",
+          "expectedOutput": "YES",
+          "output": "YES",
+          "score": 0
+        },
+        {
+          "input": "25 6",
+          "expectedOutput": "NO",
+          "output": "NO",
+          "score": 0
+        },
+        {
+          "input": "100 10",
+          "expectedOutput": "YES",
+          "output": "YES",
+          "score": 0
+        },
+        {
+          "input": "7 9",
+          "expectedOutput": "NO",
+          "output": "NO",
+          "score": 0
+        }
+      ],
+      "difficulty": "L1",
+      "difficultyLabel": "L1｜基礎",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v_a\">A</variable><variable id=\"v_b\">B</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">A</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入B</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">B</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">A</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">B</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">A</field></block></value><value name=\"DIVISOR\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">YES</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">NO</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>"
+    },
+    {
+      "id": "MATH01-002",
+      "title": "因數個數",
+      "description": "給定一個正整數 N，請計算 N 有幾個正因數。",
+      "inputDescription": "輸入一個正整數 N。",
+      "outputDescription": "輸出一個整數，代表 N 的正因數個數。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "12",
+          "output": "6",
+          "explanation": "12 的正因數有 1、2、3、4、6、12，共 6 個。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "12",
+          "expectedOutput": "6",
+          "output": "6",
+          "score": 0
+        },
+        {
+          "input": "1",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 0
+        },
+        {
+          "input": "16",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 0
+        },
+        {
+          "input": "17",
+          "expectedOutput": "2",
+          "output": "2",
+          "score": 0
+        }
+      ],
+      "difficulty": "L2",
+      "difficultyLabel": "L2｜進階",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v_x\">N</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_count\">次數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">N</field></block></value><value name=\"DIVISOR\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_count\">次數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_count\">次數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_count\">次數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>"
+    },
+    {
+      "id": "MATH01-006",
+      "title": "位數和",
+      "description": "給定一個非負整數 N，請計算它的每一位數字總和。",
+      "inputDescription": "輸入一個非負整數 N。",
+      "outputDescription": "輸出一個整數，代表 N 的位數和。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "12345",
+          "output": "15",
+          "explanation": "1+2+3+4+5=15。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "12345",
+          "expectedOutput": "15",
+          "output": "15",
+          "score": 0
+        },
+        {
+          "input": "0",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 0
+        },
+        {
+          "input": "1008",
+          "expectedOutput": "9",
+          "output": "9",
+          "score": 0
+        },
+        {
+          "input": "9999",
+          "expectedOutput": "36",
+          "output": "36",
+          "score": 0
+        }
+      ],
+      "difficulty": "L2",
+      "difficultyLabel": "L2｜進階",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_sum\">總和</variable><variable id=\"v_ch\">位數字元</variable><variable id=\"v_i\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum\">總和</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_ch\">位數字元</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum\">總和</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum\">總和</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_ch\">位數字元</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum\">總和</field></block></value></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "MATH01-008",
+      "title": "可被3整除的數量",
+      "description": "給定 N 個整數，請計算其中有幾個數字可以被 3 整除。",
+      "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+      "outputDescription": "輸出一個整數，代表可以被 3 整除的數量。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "6\n3 5 9 10 12 14",
+          "output": "3",
+          "explanation": "3、9、12 可以被 3 整除，共 3 個。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "6\n3 5 9 10 12 14",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 0
+        },
+        {
+          "input": "4\n1 2 4 5",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 0
+        },
+        {
+          "input": "5\n0 3 6 9 12",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 0
+        },
+        {
+          "input": "7\n-3 -2 0 4 6 8 10",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 0
+        }
+      ],
+      "difficulty": "L2",
+      "difficultyLabel": "L2｜進階",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_cnt\">計數</variable><variable id=\"v_i\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt\">計數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt\">計數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt\">計數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt\">計數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "MATH01-003",
+      "title": "質數判斷",
+      "description": "給定一個正整數 N，請判斷 N 是否為質數。質數是大於 1，且只有 1 和自己兩個正因數的數。",
+      "inputDescription": "輸入一個正整數 N。",
+      "outputDescription": "若 N 是質數，輸出 PRIME；否則輸出 NOT。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "17",
+          "output": "PRIME",
+          "explanation": "17 只有 1 和 17 兩個正因數，所以是質數。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "17",
+          "expectedOutput": "PRIME",
+          "output": "PRIME",
+          "score": 0
+        },
+        {
+          "input": "1",
+          "expectedOutput": "NOT",
+          "output": "NOT",
+          "score": 0
+        },
+        {
+          "input": "12",
+          "expectedOutput": "NOT",
+          "output": "NOT",
+          "score": 0
+        },
+        {
+          "input": "2",
+          "expectedOutput": "PRIME",
+          "output": "PRIME",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_found\">found</variable><variable id=\"v_i\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">NOT</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_found\">found</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"DIVISOR\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_found\">found</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_found\">found</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"THEN\"><block type=\"text\"><field name=\"TEXT\">PRIME</field></block></value><value name=\"ELSE\"><block type=\"text\"><field name=\"TEXT\">NOT</field></block></value></block></value></block></next></block></next></block></statement></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "MATH01-004",
+      "title": "最大公因數",
+      "description": "給定兩個正整數 A 與 B，請找出它們的最大公因數。",
+      "inputDescription": "輸入兩個正整數 A 與 B。",
+      "outputDescription": "輸出一個整數，代表 A 與 B 的最大公因數。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "12 18",
+          "output": "6",
+          "explanation": "12 與 18 的最大公因數是 6。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "12 18",
+          "expectedOutput": "6",
+          "output": "6",
+          "score": 0
+        },
+        {
+          "input": "7 13",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 0
+        },
+        {
+          "input": "24 36",
+          "expectedOutput": "12",
+          "output": "12",
+          "score": 0
+        },
+        {
+          "input": "100 25",
+          "expectedOutput": "25",
+          "output": "25",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_a\">A</variable><variable id=\"v_b\">B</variable><variable id=\"v_tmp\">暫存</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">A</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入B</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">B</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">WHILE</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_tmp\">暫存</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">B</field><value name=\"VALUE\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">A</field></block></value><value name=\"DIVISOR\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">A</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_tmp\">暫存</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">A</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "MATH01-005",
+      "title": "最小公倍數",
+      "description": "給定兩個正整數 A 與 B，請找出它們的最小公倍數。",
+      "inputDescription": "輸入兩個正整數 A 與 B。",
+      "outputDescription": "輸出一個整數，代表 A 與 B 的最小公倍數。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "12 18",
+          "output": "36",
+          "explanation": "12 與 18 的最小公倍數是 36。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "12 18",
+          "expectedOutput": "36",
+          "output": "36",
+          "score": 0
+        },
+        {
+          "input": "7 13",
+          "expectedOutput": "91",
+          "output": "91",
+          "score": 0
+        },
+        {
+          "input": "4 6",
+          "expectedOutput": "12",
+          "output": "12",
+          "score": 0
+        },
+        {
+          "input": "20 5",
+          "expectedOutput": "20",
+          "output": "20",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_a\">A</variable><variable id=\"v_b\">B</variable><variable id=\"v_ta\">ta</variable><variable id=\"v_tb\">tb</variable><variable id=\"v_tmp\">暫存</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">A</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入B</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">B</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_ta\">ta</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_tb\">tb</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">WHILE</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_tb\">tb</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_tmp\">暫存</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_tb\">tb</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_tb\">tb</field><value name=\"VALUE\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_ta\">ta</field></block></value><value name=\"DIVISOR\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_tb\">tb</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_ta\">ta</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_tmp\">暫存</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">A</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_ta\">ta</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "MATH01-007",
+      "title": "數字反轉",
+      "description": "給定一個非負整數 N，請將它的數字順序反轉後輸出。反轉後前導 0 不需要保留。",
+      "inputDescription": "輸入一個非負整數 N。",
+      "outputDescription": "輸出一個整數，代表反轉後的數字。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "12340",
+          "output": "4321",
+          "explanation": "12340 反轉為 04321，前導 0 不保留，所以輸出 4321。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "12340",
+          "expectedOutput": "4321",
+          "output": "4321",
+          "score": 0
+        },
+        {
+          "input": "0",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 0
+        },
+        {
+          "input": "1000",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 0
+        },
+        {
+          "input": "9876",
+          "expectedOutput": "6789",
+          "output": "6789",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_res\">結果</variable><variable id=\"v_i\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_res\">結果</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">-1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_res\">結果</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_res\">結果</field></block></value><value name=\"ADD1\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_res\">結果</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    }
   ]
 };

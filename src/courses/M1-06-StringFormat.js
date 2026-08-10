@@ -9,953 +9,640 @@ export default {
   "mode": "learning",
   "tier": "t1",
   "tasks": [
-      {
-        "id": "JSS01-D03",
-        "title": "逐字元輸出",
-        "description": "輸入一個字串，請依序輸出每一個字元，每個字元各佔一行。本題用來示範用迴圈逐一處理字元。\n輸入格式：\n第一行：一個不含空白的字串 S。\n輸出格式：\n依序輸出 S 的每一個字元，每個字元各佔一行。",
-        "inputDescription": "第一行：一個不含空白的字串 S。",
-        "outputDescription": "依序輸出 S 的每一個字元，每個字元各佔一行。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "cat",
-                    "output": "c\na\nt",
-                    "explanation": "依序輸出 c、a、t。"
-                  },
-                  {
-                    "input": "Hi",
-                    "output": "H\ni",
-                    "explanation": "依序輸出 H、i。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "cat",
-                    "expectedOutput": "c\na\nt",
-                    "output": "c\na\nt",
-                    "score": 20
-                  },
-                  {
-                    "input": "Hi",
-                    "expectedOutput": "H\ni",
-                    "output": "H\ni",
-                    "score": 20
-                  },
-                  {
-                    "input": "A",
-                    "expectedOutput": "A",
-                    "output": "A",
-                    "score": 20
-                  },
-                  {
-                    "input": "code",
-                    "expectedOutput": "c\no\nd\ne",
-                    "output": "c\no\nd\ne",
-                    "score": 20
-                  },
-                  {
-                    "input": "123",
-                    "expectedOutput": "1\n2\n3",
-                    "output": "1\n2\n3",
-                    "score": 20
-                  }
-                ],
-        "difficulty": "L1",
-        "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_s">字串</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入字串</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">字串</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="interaction_say"><value name="TEXT"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></xml>`
-      },
-      {
-        "id": "JSS01-P01",
-        "title": "指定字元出現次數",
-        "description": "第一行輸入一個字串 S，第二行輸入一個字元 C。請計算 C 在 S 中出現幾次。本題用來練習字串遍歷與條件計數。\n輸入格式：\n第一行：一個不含空白的字串 S。\n第二行：一個字元 C。\n輸出格式：\n輸出 C 在 S 中出現的次數。",
-        "inputDescription": "第一行：一個不含空白的字串 S。\n\n第二行：一個字元 C。",
-        "outputDescription": "輸出 C 在 S 中出現的次數。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "banana\na",
-                    "output": "3",
-                    "explanation": "a 在 banana 中出現 3 次。"
-                  },
-                  {
-                    "input": "code\nz",
-                    "output": "0",
-                    "explanation": "z 沒有出現。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "banana\na",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 20
-                  },
-                  {
-                    "input": "code\nz",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 20
-                  },
-                  {
-                    "input": "hello\nl",
-                    "expectedOutput": "2",
-                    "output": "2",
-                    "score": 20
-                  },
-                  {
-                    "input": "aaaaa\na",
-                    "expectedOutput": "5",
-                    "output": "5",
-                    "score": 20
-                  },
-                  {
-                    "input": "Blockly\no",
-                    "expectedOutput": "1",
-                    "output": "1",
-                    "score": 20
-                  }
-                ],
-        "difficulty": "L2",
-        "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_s">字串</variable><variable id="v_c">字元</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入字串S</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">字串</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入字元C</field></block></value><next><block type="variables_set"><field name="VAR" id="v_c">字元</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_count">次數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_ch">目前字元</field><value name="VALUE"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_ch">目前字元</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_c">字元</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_count">次數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_count">次數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></statement></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_count">次數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
-      },
-      {
-        "id": "JSS01-P02",
-        "title": "簡易格式檢查",
-        "description": "輸入一個字串 S。若 S 的長度為 4，輸出 OK；否則輸出 NG。本題用來練習簡單的字串格式檢查。\n輸入格式：\n第一行：一個不含空白的字串 S。\n輸出格式：\n若 S 長度為 4，輸出 OK；否則輸出 NG。",
-        "inputDescription": "第一行：一個不含空白的字串 S。",
-        "outputDescription": "若 S 長度為 4，輸出 OK；否則輸出 NG。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "ABCD",
-                    "output": "OK",
-                    "explanation": "ABCD 長度為 4。"
-                  },
-                  {
-                    "input": "ABC",
-                    "output": "NG",
-                    "explanation": "ABC 長度不是 4。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "ABCD",
-                    "expectedOutput": "OK",
-                    "output": "OK",
-                    "score": 20
-                  },
-                  {
-                    "input": "ABC",
-                    "expectedOutput": "NG",
-                    "output": "NG",
-                    "score": 20
-                  },
-                  {
-                    "input": "1234",
-                    "expectedOutput": "OK",
-                    "output": "OK",
-                    "score": 20
-                  },
-                  {
-                    "input": "hello",
-                    "expectedOutput": "NG",
-                    "output": "NG",
-                    "score": 20
-                  },
-                  {
-                    "input": "A",
-                    "expectedOutput": "NG",
-                    "output": "NG",
-                    "score": 20
-                  }
-                ],
-        "difficulty": "L2",
-        "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_s">字串</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入字串S</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">字串</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="interaction_say"><value name="TEXT"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">4</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">OK</field></block></value><value name="ELSE"><block type="text"><field name="TEXT">NG</field></block></value></block></value></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "A-10-0",
-        "title": "多科成績計算",
-        "description": "小明參加了數學、英文、自然...等多科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。\n\n請設計程式，輸入多科的成績，計算總分與平均。\n\n第一行輸入共有幾科\n\n第二行依序輸入各科成績，科成績之間以空白間隔\n\n計算總分，平均成績以四捨五入取整數\n\n如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。\n\n這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。",
-        "inputDescription": "",
-        "outputDescription": "",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "3\n80 70 90",
-                    "output": "240\n80\n及格",
-                    "explanation": "第一行輸入3，表示後面會有3個數字輸入\n第二行輸入80 70 90，經過計算後\n總分180、平均80、及格"
-                  },
-                  {
-                    "input": "6\n50 41 60 55 70 65",
-                    "output": "341\n57\n不及格",
-                    "explanation": "第一行輸入6，表示後面會有3個數字輸入\n第二行輸入50 41 60 55 70 65，經過計算後\n程式輸出總分341、平均57、不及格"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "3\n20 60 90",
-                    "expectedOutput": "170 57 不及格",
-                    "output": "170 57 不及格",
-                    "score": 10
-                  },
-                  {
-                    "input": "6\n50 41 60 55 70 65",
-                    "expectedOutput": "341 57 不及格",
-                    "output": "341 57 不及格",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n80 70 75 85 90",
-                    "expectedOutput": "400 80 及格",
-                    "output": "400 80 及格",
-                    "score": 10
-                  },
-                  {
-                    "input": "1\n55",
-                    "expectedOutput": "55 55 不及格",
-                    "output": "55 55 不及格",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="var_count">科目數</variable>
-    <variable id="var_score">目前成績</variable>
-    <variable id="var_total">總分</variable>
-    <variable id="var_avg">平均</variable>
-    <variable id="var_result">結果</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="interaction_ask_and_wait">
-        <value name="TEXT"><block type="text"><field name="TEXT">請輸入科目數</field></block></value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="var_count">科目數</field>
-            <value name="VALUE"><block type="interaction_answer"></block></value>
-            <next>
-              <block type="variables_set">
-                <field name="VAR" id="var_total">總分</field>
-                <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
-                <next>
-                  <block type="controls_repeat_ext">
-                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="var_count">科目數</field></block></value>
-                    <statement name="DO">
-                      <block type="interaction_ask_and_wait">
-                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
-                        <next>
-                          <block type="variables_set">
-                            <field name="VAR" id="var_score">目前成績</field>
-                            <value name="VALUE"><block type="interaction_answer"></block></value>
-                            <next>
-                              <block type="variables_set">
-                                <field name="VAR" id="var_total">總分</field>
-                                <value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_score">目前成績</field></block></value></block></value>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </statement>
-                    <next>
-                      <block type="variables_set">
-                        <field name="VAR" id="var_avg">平均</field>
-                        <value name="VALUE"><block type="math_round"><field name="OP">ROUND</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_count">科目數</field></block></value></block></value></block></value>
-                        <next>
-                          <block type="controls_if">
-                            <mutation else="1"></mutation>
-                            <value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value>
-                            <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_result">結果</field><value name="VALUE"><block type="text"><field name="TEXT">及格</field></block></value></block></statement>
-                            <statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_result">結果</field><value name="VALUE"><block type="text"><field name="TEXT">不及格</field></block></value></block></statement>
-                            <next>
-                              <block type="interaction_say">
-                                <value name="TEXT"><block type="text_join"><mutation items="5"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value><value name="ADD3"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD4"><block type="variables_get"><field name="VAR" id="var_result">結果</field></block></value></block></value>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`
-      },
-      {
-        "id": "A-11-0",
-        "title": "計算字元出現次數",
-        "description": "請設計程式，輸入一個字串，並輸入一個英文字母輸出該字母在字串中出現的次數。\n\n這樣的練習可以訓練你操作字串與統計。",
-        "inputDescription": "",
-        "outputDescription": "",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "banana\na",
-                    "output": "3",
-                    "explanation": "第一行輸入banana\n第二行輸入字元a\n程式運算比對a出現3次\n程式輸出3"
-                  },
-                  {
-                    "input": "student\nt",
-                    "output": "2",
-                    "explanation": "第一行輸入student\n第二行輸入字元t\n程式運算比對t出現2次\n程式輸出2"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "Goodmoning\no",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 10
-                  },
-                  {
-                    "input": "ChaiYiCity\ni",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 10
-                  },
-                  {
-                    "input": "announcement\nn",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 10
-                  },
-                  {
-                    "input": "experimen\ne",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="var_word">字串</variable>
-    <variable id="var_target">目標字元</variable>
-    <variable id="var_count">出現次數</variable>
-    <variable id="var_i">i</variable>
-    <variable id="var_char">目前字元</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="interaction_ask_and_wait">
-        <value name="TEXT"><block type="text"><field name="TEXT">請輸入字串</field></block></value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="var_word">字串</field>
-            <value name="VALUE"><block type="interaction_answer"></block></value>
-            <next>
-              <block type="interaction_ask_and_wait">
-                <value name="TEXT"><block type="text"><field name="TEXT">請輸入要統計的字元</field></block></value>
-                <next>
-                  <block type="variables_set">
-                    <field name="VAR" id="var_target">目標字元</field>
-                    <value name="VALUE"><block type="interaction_answer"></block></value>
-                    <next>
-                      <block type="variables_set">
-                        <field name="VAR" id="var_count">出現次數</field>
-                        <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
-                        <next>
-                          <block type="controls_for">
-                            <field name="VAR" id="var_i">i</field>
-                            <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
-                            <value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_word">字串</field></block></value></block></value>
-                            <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
-                            <statement name="DO">
-                              <block type="variables_set">
-                                <field name="VAR" id="var_char">目前字元</field>
-                                <value name="VALUE">
-                                  <block type="text_charAt">
-                                    <mutation at="true"></mutation>
-                                    <field name="WHERE">FROM_START</field>
-                                    <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_word">字串</field></block></value>
-                                    <value name="AT"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value>
-                                  </block>
-                                </value>
-                                <next>
-                                  <block type="controls_if">
-                                    <value name="IF0">
-                                      <block type="logic_compare">
-                                        <field name="OP">EQ</field>
-                                        <value name="A"><block type="variables_get"><field name="VAR" id="var_char">目前字元</field></block></value>
-                                        <value name="B"><block type="variables_get"><field name="VAR" id="var_target">目標字元</field></block></value>
-                                      </block>
-                                    </value>
-                                    <statement name="DO0">
-                                      <block type="variables_set">
-                                        <field name="VAR" id="var_count">出現次數</field>
-                                        <value name="VALUE">
-                                          <block type="math_arithmetic">
-                                            <field name="OP">ADD</field>
-                                            <value name="A"><block type="variables_get"><field name="VAR" id="var_count">出現次數</field></block></value>
-                                            <value name="B"><block type="math_number"><field name="NUM">1</field></block></value>
-                                          </block>
-                                        </value>
-                                      </block>
-                                    </statement>
-                                  </block>
-                                </next>
-                              </block>
-                            </statement>
-                            <next>
-                              <block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_count">出現次數</field></block></value></block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`
-      },
-      {
-        "id": "A-12-0",
-        "title": "簡易密碼轉換",
-        "description": "小明設計了一種簡單的密碼環密碼規則：將每個字母向後移二個字母（z 變 b）。\n\n密碼環：abcdefghijklmnopqrstuvwxyz\n\n請寫一個程式，輸入一個英文單字，輸出轉換後的字串。\n\n這樣的練習訓練你字元處理與條件轉換。",
-        "inputDescription": "",
-        "outputDescription": "",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "banana",
-                    "output": "dcpcpc",
-                    "explanation": "第一行輸入banana\n程式運算，將字串往後移2個位置加密\n程式輸出dcpcpc"
-                  },
-                  {
-                    "input": "student",
-                    "output": "uvwfgpv",
-                    "explanation": "第一行輸入student\n程式運算，將字串往後移2個位置加密\n程式輸出uvwfgpv"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "goodmoning",
-                    "expectedOutput": "iqqfoqpkpi",
-                    "output": "iqqfoqpkpi",
-                    "score": 10
-                  },
-                  {
-                    "input": "chaiyicity",
-                    "expectedOutput": "ejckakekva",
-                    "output": "ejckakekva",
-                    "score": 10
-                  },
-                  {
-                    "input": "announcement",
-                    "expectedOutput": "cppqwpegogpv",
-                    "output": "cppqwpegogpv",
-                    "score": 10
-                  },
-                  {
-                    "input": "experimen",
-                    "expectedOutput": "gzrgtkogp",
-                    "output": "gzrgtkogp",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="var_word">原始字串</variable>
-    <variable id="var_ring">密碼環</variable>
-    <variable id="var_result">轉換結果</variable>
-    <variable id="var_i">i</variable>
-    <variable id="var_char">目前字元</variable>
-    <variable id="var_pos">目前位置</variable>
-    <variable id="var_newpos">新位置</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="variables_set">
-        <field name="VAR" id="var_ring">密碼環</field>
-        <value name="VALUE"><block type="text"><field name="TEXT">abcdefghijklmnopqrstuvwxyz</field></block></value>
-        <next>
-          <block type="interaction_ask_and_wait">
-            <value name="TEXT"><block type="text"><field name="TEXT">請輸入英文單字</field></block></value>
-            <next>
-              <block type="variables_set">
-                <field name="VAR" id="var_word">原始字串</field>
-                <value name="VALUE"><block type="interaction_answer"></block></value>
-                <next>
-                  <block type="variables_set">
-                    <field name="VAR" id="var_result">轉換結果</field>
-                    <value name="VALUE"><block type="text"><field name="TEXT"></field></block></value>
-                    <next>
-                      <block type="controls_for">
-                        <field name="VAR" id="var_i">i</field>
-                        <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
-                        <value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_word">原始字串</field></block></value></block></value>
-                        <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
-                        <statement name="DO">
-                          <block type="variables_set">
-                            <field name="VAR" id="var_char">目前字元</field>
-                            <value name="VALUE">
-                              <block type="text_charAt">
-                                <mutation at="true"></mutation>
-                                <field name="WHERE">FROM_START</field>
-                                <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_word">原始字串</field></block></value>
-                                <value name="AT"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value>
-                              </block>
-                            </value>
-                            <next>
-                              <block type="variables_set">
-                                <field name="VAR" id="var_pos">目前位置</field>
-                                <value name="VALUE">
-                                  <block type="text_indexOf">
-                                    <field name="END">FIRST</field>
-                                    <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_ring">密碼環</field></block></value>
-                                    <value name="FIND"><block type="variables_get"><field name="VAR" id="var_char">目前字元</field></block></value>
-                                  </block>
-                                </value>
-                                <next>
-                                  <block type="variables_set">
-                                    <field name="VAR" id="var_newpos">新位置</field>
-                                    <value name="VALUE">
-                                      <block type="math_arithmetic">
-                                        <field name="OP">ADD</field>
-                                        <value name="A"><block type="variables_get"><field name="VAR" id="var_pos">目前位置</field></block></value>
-                                        <value name="B"><block type="math_number"><field name="NUM">2</field></block></value>
-                                      </block>
-                                    </value>
-                                    <next>
-                                      <block type="controls_if">
-                                        <value name="IF0">
-                                          <block type="logic_compare">
-                                            <field name="OP">GT</field>
-                                            <value name="A"><block type="variables_get"><field name="VAR" id="var_newpos">新位置</field></block></value>
-                                            <value name="B"><block type="math_number"><field name="NUM">26</field></block></value>
-                                          </block>
-                                        </value>
-                                        <statement name="DO0">
-                                          <block type="variables_set">
-                                            <field name="VAR" id="var_newpos">新位置</field>
-                                            <value name="VALUE">
-                                              <block type="math_arithmetic">
-                                                <field name="OP">MINUS</field>
-                                                <value name="A"><block type="variables_get"><field name="VAR" id="var_newpos">新位置</field></block></value>
-                                                <value name="B"><block type="math_number"><field name="NUM">26</field></block></value>
-                                              </block>
-                                            </value>
-                                          </block>
-                                        </statement>
-                                        <next>
-                                          <block type="variables_set">
-                                            <field name="VAR" id="var_result">轉換結果</field>
-                                            <value name="VALUE">
-                                              <block type="text_join">
-                                                <mutation items="2"></mutation>
-                                                <value name="ADD0"><block type="variables_get"><field name="VAR" id="var_result">轉換結果</field></block></value>
-                                                <value name="ADD1">
-                                                  <block type="text_charAt">
-                                                    <mutation at="true"></mutation>
-                                                    <field name="WHERE">FROM_START</field>
-                                                    <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_ring">密碼環</field></block></value>
-                                                    <value name="AT"><block type="variables_get"><field name="VAR" id="var_newpos">新位置</field></block></value>
-                                                  </block>
-                                                </value>
-                                              </block>
-                                            </value>
-                                          </block>
-                                        </next>
-                                      </block>
-                                    </next>
-                                  </block>
-                                </next>
-                              </block>
-                            </next>
-                          </block>
-                        </statement>
-                        <next>
-                          <block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_result">轉換結果</field></block></value></block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`
-      },
-      {
-        "id": "cycjunior-002",
-        "title": "5進位解碼",
-        "description": "程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：\nA=0, B=1, C=2, D=3, E=4，\n例如密碼 BC 代表 5進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。\n1. 輸入密碼長度 L 與密碼內容（由A-E組成）。\n2. 權重計算：最右邊位數是 5的0次方(任何數的0次方為1)，左邊一位是 5的1次方，以此類推。\n3. 將每個字母轉換為對應數值後，計算總和。\n輸入格式：\n第一行：整數 L。\n第二行：L 個字元（以空格分隔，如 B C）。\n輸出格式：\n一個整數（10 進位數值）。",
-        "inputDescription": "第一行：整數 L。\n\n第二行：L 個字元（以空格分隔，如 B C）。",
-        "outputDescription": "一個整數（10 進位數值）。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "2\nB C",
-                    "output": "7",
-                    "explanation": "B=1, C=2。\n1 × 5 + 2 = 7。"
-                  },
-                  {
-                    "input": "3\nB A E",
-                    "output": "29",
-                    "explanation": "B=1, A=0, E=4。\n1 × 25 + 0 × 5 + 4 × 1 = 29。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "1\nA",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 10
-                  },
-                  {
-                    "input": "2\nE E",
-                    "expectedOutput": "24",
-                    "output": "24",
-                    "score": 15
-                  },
-                  {
-                    "input": "3\nB A A",
-                    "expectedOutput": "25",
-                    "output": "25",
-                    "score": 20
-                  },
-                  {
-                    "input": "4\nB A A A",
-                    "expectedOutput": "125",
-                    "output": "125",
-                    "score": 25
-                  },
-                  {
-                    "input": "5\nC D E A B",
-                    "expectedOutput": "1726",
-                    "output": "1726",
-                    "score": 30
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_l">L</variable><variable id="v_c">字元</variable><variable id="v_all">字元清單</variable><variable id="v_total">總和</variable><variable id="v_i">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入L</field></block></value><next><block type="variables_set"><field name="VAR" id="v_l">L</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">字元清單</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_l">L</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_c">字元</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">字元清單</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_c">字元</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_total">總和</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_l">L</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_total">總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_total">總和</field></block></value><value name="B"><block type="math_number"><field name="NUM">5</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="text_indexOf"><field name="END">FIRST</field><value name="VALUE"><block type="text"><field name="TEXT">ABCDE</field></block></value><value name="FIND"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">字元清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_total">總和</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "TYTN-10",
-        "title": "檢查碼",
-        "description": "書店會員卡享有購書8折優惠，為避免有人偽造會員卡，書店老闆在卡號中加入檢查碼。\n\n會員卡編號格式為：一個英文字母 + 4個數字 + 1個檢查碼。\n\n英文字母對應的數字如下：\n\nA → 11 B → 13 C → 15 D → 17\n\n若為正確的會員卡號，則 (英文字母對應的數字 + 4個數字 + 檢查碼) 除以 5 的餘數會是 4，其餘情況皆為不正確。\n\n例如：\n\nB20135 = 13+2+0+1+3+5 = 24 → 24÷5=4餘4 → 正確會員卡\n\nA15274 = 11+1+5+2+7+4 = 30 → 30÷5=6餘0 → 不正確會員卡\n\n請寫一個程式判斷會員卡號是否正確，若正確輸出 yes，否則輸出 no。",
-        "inputDescription": "",
-        "outputDescription": "",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "C20351",
-                    "output": "no",
-                    "explanation": "C20351 = 15+2+0+3+5+1 = 26\n26÷5 = 5餘1 → 不正確會員卡。"
-                  },
-                  {
-                    "input": "D15713",
-                    "output": "yes",
-                    "explanation": "D15713 = 17+1+5+7+1+3 = 34\n34÷5 = 6餘4 → 正確會員卡。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "C20351",
-                    "expectedOutput": "no",
-                    "output": "no",
-                    "score": 10
-                  },
-                  {
-                    "input": "D15713",
-                    "expectedOutput": "yes",
-                    "output": "yes",
-                    "score": 10
-                  },
-                  {
-                    "input": "A40244",
-                    "expectedOutput": "no",
-                    "output": "no",
-                    "score": 10
-                  },
-                  {
-                    "input": "B99994",
-                    "expectedOutput": "no",
-                    "output": "no",
-                    "score": 10
-                  },
-                  {
-                    "input": "A22146",
-                    "expectedOutput": "no",
-                    "output": "no",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_s">卡號</variable><variable id="v_c2">字元2</variable><variable id="v_c3">字元3</variable><variable id="v_c4">字元4</variable><variable id="v_c5">字元5</variable><variable id="v_c6">字元6</variable><variable id="v_total">總和</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入會員卡號</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">卡號</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_c2">字元2</field><value name="VALUE"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">卡號</field></block></value><value name="AT"><block type="math_number"><field name="NUM">2</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_c3">字元3</field><value name="VALUE"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">卡號</field></block></value><value name="AT"><block type="math_number"><field name="NUM">3</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_c4">字元4</field><value name="VALUE"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">卡號</field></block></value><value name="AT"><block type="math_number"><field name="NUM">4</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_c5">字元5</field><value name="VALUE"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">卡號</field></block></value><value name="AT"><block type="math_number"><field name="NUM">5</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_c6">字元6</field><value name="VALUE"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">卡號</field></block></value><value name="AT"><block type="math_number"><field name="NUM">6</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_number"><field name="NUM">9</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_number"><field name="NUM">2</field></block></value><value name="B"><block type="text_indexOf"><field name="END">FIRST</field><value name="VALUE"><block type="text"><field name="TEXT">ABCD</field></block></value><value name="FIND"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">卡號</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_c2">字元2</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_c3">字元3</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_c4">字元4</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_c5">字元5</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_c6">字元6</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value></block></value></block></value></block></value></block></value><next><block type="interaction_say"><value name="TEXT"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_total">總和</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">5</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">4</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">yes</field></block></value><value name="ELSE"><block type="text"><field name="TEXT">no</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "W4-01",
-        "title": "數位顯示器",
-        "description": "七段顯示器是一種常見的數字顯示裝置，由 7 條 LED 燈條組成，可用來顯示數字 0~9。\n每個數字所需點亮的 LED 燈條數量如下：\n0→6條、1→2條、2→5條、3→5條、4→4條、5→5條、6→6條、7→3條、8→7條、9→6條。\n現在給定 N 條可用的 LED 燈條，請你使用這些燈條組成一個「數字（可為雙位數）」，並且必須符合以下規則：\n1. 數字（0~9）最多只能各使用一次（兩位數時十位與個位不能相同）。\n2. 組成的數字不可有前導零（除非答案本身就是 0）。\n3. 組成的數字最多只能有 2 位（0~99）。\n請設計一個程式，找出在符合上述條件下「剛好用完所有 N 條 LED 燈條」時，可以組成的最大值。\n若無法用 1 位數或 2 位數剛好用完所有 N 條 LED 燈條，請輸出 -1。\n【輸入格式】\n一行輸入一個整數 N（2 ≤ N ≤ 30），代表可用的 LED 燈條數。\n【輸出格式】\n一行輸出可組成的最大值（最大值 < 100），若不存在則輸出 -1。",
-        "inputDescription": "一行輸入一個整數 N（2 ≤ N ≤ 30），代表可用的 LED 燈條數。",
-        "outputDescription": "一行輸出可組成的最大值（最大值 < 100），若不存在則輸出 -1。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "3",
-                    "output": "7",
-                    "explanation": "3 條燈條可以組成數字 7（需要 3 條）。"
-                  },
-                  {
-                    "input": "7",
-                    "output": "74",
-                    "explanation": "7(3條)+4(4條)=7。可組成 74 或 47，最大為 74。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "3",
-                    "expectedOutput": "7",
-                    "output": "7",
-                    "score": 10
-                  },
-                  {
-                    "input": "7",
-                    "expectedOutput": "74",
-                    "output": "74",
-                    "score": 15
-                  },
-                  {
-                    "input": "6",
-                    "expectedOutput": "41",
-                    "output": "41",
-                    "score": 20
-                  },
-                  {
-                    "input": "8",
-                    "expectedOutput": "91",
-                    "output": "91",
-                    "score": 25
-                  },
-                  {
-                    "input": "14",
-                    "expectedOutput": "-1",
-                    "output": "-1",
-                    "score": 30
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_seg">燈條表</variable><variable id="v_result">結果</variable><variable id="v_found">已找到</variable><variable id="v_t">十位</variable><variable id="v_o">個位</variable><variable id="v_d">數字</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_seg">燈條表</field><value name="VALUE"><block type="lists_create_with"><mutation items="10"></mutation><value name="ADD0"><block type="math_number"><field name="NUM">6</field></block></value><value name="ADD1"><block type="math_number"><field name="NUM">2</field></block></value><value name="ADD2"><block type="math_number"><field name="NUM">5</field></block></value><value name="ADD3"><block type="math_number"><field name="NUM">5</field></block></value><value name="ADD4"><block type="math_number"><field name="NUM">4</field></block></value><value name="ADD5"><block type="math_number"><field name="NUM">5</field></block></value><value name="ADD6"><block type="math_number"><field name="NUM">6</field></block></value><value name="ADD7"><block type="math_number"><field name="NUM">3</field></block></value><value name="ADD8"><block type="math_number"><field name="NUM">7</field></block></value><value name="ADD9"><block type="math_number"><field name="NUM">6</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_result">結果</field><value name="VALUE"><block type="math_number"><field name="NUM">-1</field></block></value><next><block type="variables_set"><field name="VAR" id="v_found">已找到</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_t">十位</field><value name="FROM"><block type="math_number"><field name="NUM">9</field></block></value><value name="TO"><block type="math_number"><field name="NUM">1</field></block></value><value name="BY"><block type="math_number"><field name="NUM">-1</field></block></value><statement name="DO"><block type="controls_for"><field name="VAR" id="v_o">個位</field><value name="FROM"><block type="math_number"><field name="NUM">9</field></block></value><value name="TO"><block type="math_number"><field name="NUM">0</field></block></value><value name="BY"><block type="math_number"><field name="NUM">-1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_found">已找到</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_t">十位</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_o">個位</field></block></value></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_seg">燈條表</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_t">十位</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_seg">燈條表</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_o">個位</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_result">結果</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_t">十位</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_o">個位</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_found">已找到</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value></block></next></block></statement></block></statement></block></statement><next><block type="controls_for"><field name="VAR" id="v_d">數字</field><value name="FROM"><block type="math_number"><field name="NUM">9</field></block></value><value name="TO"><block type="math_number"><field name="NUM">0</field></block></value><value name="BY"><block type="math_number"><field name="NUM">-1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_found">已找到</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_seg">燈條表</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_d">數字</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_result">結果</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_d">數字</field></block></value><next><block type="variables_set"><field name="VAR" id="v_found">已找到</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value></block></next></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_result">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "A-10-1",
-        "title": "加權成績計算",
-        "description": "大明綜合高中辦理考試，不同科系考試科目數量、每周上課時數不一定相同\n\n成績計算時，以每一科成績乘以該科上課時數為加權成績，將所有科目的加權成績加總，並除以全部科目總時數，即為學生加權平均成績\n\n請設計一個程式，輸入各科的成績、各科加權時數，程式運算後輸出加權總分、加權平均、等弟。\n\n第一行輸入N，代表該科共有N科考試成績\n\n第二行依序輸入N筆各科成績，各科成績之間以空白間隔\n\n第三行依序輸入N筆各科對應加權時數，各科加權時數之間以空白間隔\n\n計算全部加權總分，加權平均成績以四捨五入取整數\n\n如果平均分數大於等於 80，就是「A」等第，小於80大於等於70則是「B」等第，小於70大於等於60則是「C」等第，否則是「D」等第。\n\n程式輸出加權總分、加權平均、等弟。\n\n這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。",
-        "inputDescription": "",
-        "outputDescription": "",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "3\n80 70 90\n1 2 1",
-                    "output": "310\n78\nB",
-                    "explanation": "第一行輸入3，表示後面會有3科成績輸入\n第二行輸入各科原始成績80 70 90\n第三行輸入各科加權時數1 2 1\n程式運算輸出加權總分310、平均78、等第B"
-                  },
-                  {
-                    "input": "6\n50 41 60 55 70 65",
-                    "output": "668\n56\nD",
-                    "explanation": "第一行輸入6，表示後面會有6科成績輸入\n第二行輸入各科原始成績50 41 60 55 70 65\n第三行輸入各科加權時數1 3 3 2 2 1\n程式運算輸出加權總分668、平均56、等第D"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "1\n80\n3",
-                    "expectedOutput": "240 80 A",
-                    "output": "240 80 A",
-                    "score": 10
-                  },
-                  {
-                    "input": "6\n50 41 60 55 70 65\n1 3 3 2 2 1",
-                    "expectedOutput": "668 56 D",
-                    "output": "668 56 D",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n80 70 75 85 90\n1 1 3 2 1",
-                    "expectedOutput": "635 79 B",
-                    "output": "635 79 B",
-                    "score": 10
-                  },
-                  {
-                    "input": "3\n55 90 99\n2 3 3",
-                    "expectedOutput": "677 85 A",
-                    "output": "677 85 A",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L4",
-        "difficultyLabel": "L4｜精熟",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">成績</variable><variable id="v_w">時數</variable><variable id="v_scores">成績清單</variable><variable id="v_weights">時數清單</variable><variable id="v_wsum">加權總分</variable><variable id="v_wtotal">總時數</variable><variable id="v_avg">加權平均</variable><variable id="v_i">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_scores">成績清單</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">成績</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_scores">成績清單</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">成績</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_weights">時數清單</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_w">時數</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_weights">時數清單</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_w">時數</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_wsum">加權總分</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_wtotal">總時數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_wsum">加權總分</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_wsum">加權總分</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_scores">成績清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_weights">時數清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_wtotal">總時數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_wtotal">總時數</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_weights">時數清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_avg">加權平均</field><value name="VALUE"><block type="math_round"><field name="OP">ROUND</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_wsum">加權總分</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_wtotal">總時數</field></block></value></block></value></block></value><next><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="5"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_wsum">加權總分</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_avg">加權平均</field></block></value><value name="ADD3"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD4"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_avg">加權平均</field></block></value><value name="B"><block type="math_number"><field name="NUM">80</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">A</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_avg">加權平均</field></block></value><value name="B"><block type="math_number"><field name="NUM">70</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">B</field></block></value><value name="ELSE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_avg">加權平均</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">C</field></block></value><value name="ELSE"><block type="text"><field name="TEXT">D</field></block></value></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "A-11-1",
-        "title": "計算字元出現最多次數",
-        "description": "請設計程式，輸入一字串由小寫英文字母組合，長度1~50間的字串\n\n程式會統計該字串的字母中，出現最多的次數。\n\n這樣的練習可以訓練你循環計數迴圈與字串統計。",
-        "inputDescription": "",
-        "outputDescription": "",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "banana",
-                    "output": "3",
-                    "explanation": "第一行輸入banana\n程式運算比對，出現最多為a，共出現3次\n程式輸出3"
-                  },
-                  {
-                    "input": "student",
-                    "output": "2",
-                    "explanation": "第一行輸入student\n程式運算比對，出現最多為t，共出現2次\n程式輸出2"
-                  },
-                  {
-                    "input": "spider",
-                    "output": "1",
-                    "explanation": "第一行輸入spider\n程式運算比對，全部字母都只出現1次\n程式輸出1"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "goodmoning",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 10
-                  },
-                  {
-                    "input": "ChaiYiCity",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 10
-                  },
-                  {
-                    "input": "announment",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 10
-                  },
-                  {
-                    "input": "experimen",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 10
-                  },
-                  {
-                    "input": "junior",
-                    "expectedOutput": "1",
-                    "output": "1",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L4",
-        "difficultyLabel": "L4｜精熟",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_s">字串</variable><variable id="v_max">最大值</variable><variable id="v_cnt">計數</variable><variable id="v_i">i</variable><variable id="v_j">j</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入字串S</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">字串</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_cnt">計數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_j">j</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_j">j</field></block></value></block></value><value name="B"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_s">字串</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_cnt">計數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cnt">計數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cnt">計數</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_max">最大值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_cnt">計數</field></block></value></block></statement></block></next></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_max">最大值</field></block></value></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "A-12-1",
-        "title": "動態密碼轉換",
-        "description": "小明設計了一種英文字元密碼環編碼規則：\n\n密碼環為『abcdefghijklmnopqrstuvwxyz0123456789』\n\n第一行輸入數字N(N介於0~36)，N為編碼位移值\n\n編碼時，待編碼字串每個字元都按照密碼環『往前』移動N個位置\n\n如果轉換後密碼超過密碼環最後一個字元9，則從回前面a繼續接回密碼環\n\n請寫一個程式，輸入一個英文單字，程式輸出依照編碼規則轉換後的密碼字串。\n\n這樣的練習訓練你字元處理與條件轉換。",
-        "inputDescription": "",
-        "outputDescription": "",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "2\nbanana",
-                    "output": "98l8l8",
-                    "explanation": "第一行輸入2，表示編碼時要往後前2個位置\n第二行輸入banana表示待編碼字串為banana\n程式運算，將字串往後移2個位置加密\n程式輸出98l8l8"
-                  },
-                  {
-                    "input": "10\nstudent",
-                    "output": "ijk34dj",
-                    "explanation": "第一行輸入10，表示編碼時要往後前10個位置\n第二行輸入student表示待編碼字串為student\n程式運算，將字串往後移10個位置加密\n程式輸出ijk34dj"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "12\ngoodmoning",
-                    "expectedOutput": "4cc1acb6b4",
-                    "output": "4cc1acb6b4",
-                    "score": 10
-                  },
-                  {
-                    "input": "29\nchaiyicity",
-                    "expectedOutput": "johp5pjp05",
-                    "output": "johp5pjp05",
-                    "score": 10
-                  },
-                  {
-                    "input": "9\nannouncement",
-                    "expectedOutput": "1eefle35d5ek",
-                    "output": "1eefle35d5ek",
-                    "score": 10
-                  },
-                  {
-                    "input": "0\nexperimen",
-                    "expectedOutput": "experimen",
-                    "output": "experimen",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L4",
-        "difficultyLabel": "L4｜精熟",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_word">原始字串</variable><variable id="v_ring">密碼環</variable><variable id="v_result">轉換結果</variable><variable id="v_i">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入英文單字</field></block></value><next><block type="variables_set"><field name="VAR" id="v_word">原始字串</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"></field></block></value><value name="ADD1"><block type="interaction_answer"></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_ring">密碼環</field><value name="VALUE"><block type="text"><field name="TEXT">abcdefghijklmnopqrstuvwxyz0123456789</field></block></value><next><block type="variables_set"><field name="VAR" id="v_result">轉換結果</field><value name="VALUE"><block type="text"><field name="TEXT"></field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="text_length"><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_word">原始字串</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_result">轉換結果</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_result">轉換結果</field></block></value><value name="ADD1"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_ring">密碼環</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="text_indexOf"><field name="END">FIRST</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_ring">密碼環</field></block></value><value name="FIND"><block type="text_charAt"><mutation at="true"></mutation><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_word">原始字串</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">36</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">36</field></block></value></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">36</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_result">轉換結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      }
+    {
+      "id": "JSS01-D03",
+      "title": "逐字元輸出",
+      "description": "輸入一個字串，請依序輸出每一個字元，每個字元各佔一行。本題用來示範用迴圈逐一處理字元",
+      "inputDescription": "第一行：一個不含空白的字串 S。",
+      "outputDescription": "依序輸出 S 的每一個字元，每個字元各佔一行。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "cat",
+          "output": "c\na\nt",
+          "explanation": "依序輸出 c、a、t。"
+        },
+        {
+          "input": "Hi",
+          "output": "H\ni",
+          "explanation": "依序輸出 H、i。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "cat",
+          "expectedOutput": "c\na\nt",
+          "output": "c\na\nt",
+          "score": 20
+        },
+        {
+          "input": "Hi",
+          "expectedOutput": "H\ni",
+          "output": "H\ni",
+          "score": 20
+        },
+        {
+          "input": "A",
+          "expectedOutput": "A",
+          "output": "A",
+          "score": 20
+        },
+        {
+          "input": "code",
+          "expectedOutput": "c\no\nd\ne",
+          "output": "c\no\nd\ne",
+          "score": 20
+        },
+        {
+          "input": "123",
+          "expectedOutput": "1\n2\n3",
+          "output": "1\n2\n3",
+          "score": 20
+        }
+      ],
+      "difficulty": "L1",
+      "difficultyLabel": "L1｜基礎",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v_s\">字串</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入字串</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_s\">字串</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">字串</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">字串</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></xml>"
+    },
+    {
+      "id": "JSS01-P01",
+      "title": "指定字元出現次數",
+      "description": "第一行輸入一個字串 S，第二行輸入一個字元 C。請計算 C 在 S 中出現幾次。本題用來練習字串遍歷與條件計數",
+      "inputDescription": "第一行：一個不含空白的字串 S。\n\n第二行：一個字元 C。",
+      "outputDescription": "輸出 C 在 S 中出現的次數。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "banana\na",
+          "output": "3",
+          "explanation": "a 在 banana 中出現 3 次。"
+        },
+        {
+          "input": "code\nz",
+          "output": "0",
+          "explanation": "z 沒有出現。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "banana\na",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 20
+        },
+        {
+          "input": "code\nz",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 20
+        },
+        {
+          "input": "hello\nl",
+          "expectedOutput": "2",
+          "output": "2",
+          "score": 20
+        },
+        {
+          "input": "aaaaa\na",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 20
+        },
+        {
+          "input": "Blockly\no",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 20
+        }
+      ],
+      "difficulty": "L2",
+      "difficultyLabel": "L2｜進階",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v_s\">字串</variable><variable id=\"v_c\">字元</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入字串S</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_s\">字串</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入字元C</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_c\">字元</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_count\">次數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">字串</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_ch\">目前字元</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">字串</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_ch\">目前字元</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_c\">字元</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_count\">次數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_count\">次數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_count\">次數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>"
+    },
+    {
+      "id": "JSS01-P02",
+      "title": "簡易格式檢查",
+      "description": "輸入一個字串 S。若 S 的長度為 4，輸出 OK；否則輸出 NG。本題用來練習簡單的字串格式檢查",
+      "inputDescription": "第一行：一個不含空白的字串 S。",
+      "outputDescription": "若 S 長度為 4，輸出 OK；否則輸出 NG。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "ABCD",
+          "output": "OK",
+          "explanation": "ABCD 長度為 4。"
+        },
+        {
+          "input": "ABC",
+          "output": "NG",
+          "explanation": "ABC 長度不是 4。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "ABCD",
+          "expectedOutput": "OK",
+          "output": "OK",
+          "score": 20
+        },
+        {
+          "input": "ABC",
+          "expectedOutput": "NG",
+          "output": "NG",
+          "score": 20
+        },
+        {
+          "input": "1234",
+          "expectedOutput": "OK",
+          "output": "OK",
+          "score": 20
+        },
+        {
+          "input": "hello",
+          "expectedOutput": "NG",
+          "output": "NG",
+          "score": 20
+        },
+        {
+          "input": "A",
+          "expectedOutput": "NG",
+          "output": "NG",
+          "score": 20
+        }
+      ],
+      "difficulty": "L2",
+      "difficultyLabel": "L2｜進階",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_s\">字串</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入字串S</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_s\">字串</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">字串</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">4</field></block></value></block></value><value name=\"THEN\"><block type=\"text\"><field name=\"TEXT\">OK</field></block></value><value name=\"ELSE\"><block type=\"text\"><field name=\"TEXT\">NG</field></block></value></block></value></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "A-10-0",
+      "title": "多科成績計算",
+      "description": "小明參加了數學、英文、自然...等多科的段考，老師希望能快速算出總分與平均分數，並判斷是否及格。\n\n請設計程式，輸入多科的成績，計算總分與平均。\n\n第一行輸入共有幾科\n\n第二行依序輸入各科成績，科成績之間以空白間隔\n\n計算總分，平均成績以四捨五入取整數\n\n如果平均分數大於等於 60，就輸出「及格」，否則輸出「不及格」。\n\n這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "3\n80 70 90",
+          "output": "240\n80\n及格",
+          "explanation": "第一行輸入3，表示後面會有3個數字輸入\n第二行輸入80 70 90，經過計算後\n總分180、平均80、及格"
+        },
+        {
+          "input": "6\n50 41 60 55 70 65",
+          "output": "341\n57\n不及格",
+          "explanation": "第一行輸入6，表示後面會有3個數字輸入\n第二行輸入50 41 60 55 70 65，經過計算後\n程式輸出總分341、平均57、不及格"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "3\n20 60 90",
+          "expectedOutput": "170 57 不及格",
+          "output": "170 57 不及格",
+          "score": 10
+        },
+        {
+          "input": "6\n50 41 60 55 70 65",
+          "expectedOutput": "341 57 不及格",
+          "output": "341 57 不及格",
+          "score": 10
+        },
+        {
+          "input": "5\n80 70 75 85 90",
+          "expectedOutput": "400 80 及格",
+          "output": "400 80 及格",
+          "score": 10
+        },
+        {
+          "input": "1\n55",
+          "expectedOutput": "55 55 不及格",
+          "output": "55 55 不及格",
+          "score": 10
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"var_count\">科目數</variable>\n    <variable id=\"var_score\">目前成績</variable>\n    <variable id=\"var_total\">總分</variable>\n    <variable id=\"var_avg\">平均</variable>\n    <variable id=\"var_result\">結果</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"interaction_ask_and_wait\">\n        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入科目數</field></block></value>\n        <next>\n          <block type=\"variables_set\">\n            <field name=\"VAR\" id=\"var_count\">科目數</field>\n            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n            <next>\n              <block type=\"variables_set\">\n                <field name=\"VAR\" id=\"var_total\">總分</field>\n                <value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value>\n                <next>\n                  <block type=\"controls_repeat_ext\">\n                    <value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_count\">科目數</field></block></value>\n                    <statement name=\"DO\">\n                      <block type=\"interaction_ask_and_wait\">\n                        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value>\n                        <next>\n                          <block type=\"variables_set\">\n                            <field name=\"VAR\" id=\"var_score\">目前成績</field>\n                            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n                            <next>\n                              <block type=\"variables_set\">\n                                <field name=\"VAR\" id=\"var_total\">總分</field>\n                                <value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_total\">總分</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_score\">目前成績</field></block></value></block></value>\n                              </block>\n                            </next>\n                          </block>\n                        </next>\n                      </block>\n                    </statement>\n                    <next>\n                      <block type=\"variables_set\">\n                        <field name=\"VAR\" id=\"var_avg\">平均</field>\n                        <value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_total\">總分</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_count\">科目數</field></block></value></block></value></block></value>\n                        <next>\n                          <block type=\"controls_if\">\n                            <mutation else=\"1\"></mutation>\n                            <value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_avg\">平均</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></value>\n                            <statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_result\">結果</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">及格</field></block></value></block></statement>\n                            <statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_result\">結果</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">不及格</field></block></value></block></statement>\n                            <next>\n                              <block type=\"interaction_say\">\n                                <value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"5\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_total\">總分</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_avg\">平均</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD4\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_result\">結果</field></block></value></block></value>\n                              </block>\n                            </next>\n                          </block>\n                        </next>\n                      </block>\n                    </next>\n                  </block>\n                </next>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>"
+    },
+    {
+      "id": "A-11-0",
+      "title": "計算字元出現次數",
+      "description": "請設計程式，輸入一個字串，並輸入一個英文字母輸出該字母在字串中出現的次數。\n\n這樣的練習可以訓練你操作字串與統計。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "banana\na",
+          "output": "3",
+          "explanation": "第一行輸入banana\n第二行輸入字元a\n程式運算比對a出現3次\n程式輸出3"
+        },
+        {
+          "input": "student\nt",
+          "output": "2",
+          "explanation": "第一行輸入student\n第二行輸入字元t\n程式運算比對t出現2次\n程式輸出2"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "Goodmoning\no",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 10
+        },
+        {
+          "input": "ChaiYiCity\ni",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 10
+        },
+        {
+          "input": "announcement\nn",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 10
+        },
+        {
+          "input": "experimen\ne",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 10
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"var_word\">字串</variable>\n    <variable id=\"var_target\">目標字元</variable>\n    <variable id=\"var_count\">出現次數</variable>\n    <variable id=\"var_i\">i</variable>\n    <variable id=\"var_char\">目前字元</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"interaction_ask_and_wait\">\n        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入字串</field></block></value>\n        <next>\n          <block type=\"variables_set\">\n            <field name=\"VAR\" id=\"var_word\">字串</field>\n            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n            <next>\n              <block type=\"interaction_ask_and_wait\">\n                <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入要統計的字元</field></block></value>\n                <next>\n                  <block type=\"variables_set\">\n                    <field name=\"VAR\" id=\"var_target\">目標字元</field>\n                    <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n                    <next>\n                      <block type=\"variables_set\">\n                        <field name=\"VAR\" id=\"var_count\">出現次數</field>\n                        <value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value>\n                        <next>\n                          <block type=\"controls_for\">\n                            <field name=\"VAR\" id=\"var_i\">i</field>\n                            <value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value>\n                            <value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_word\">字串</field></block></value></block></value>\n                            <value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value>\n                            <statement name=\"DO\">\n                              <block type=\"variables_set\">\n                                <field name=\"VAR\" id=\"var_char\">目前字元</field>\n                                <value name=\"VALUE\">\n                                  <block type=\"text_charAt\">\n                                    <mutation at=\"true\"></mutation>\n                                    <field name=\"WHERE\">FROM_START</field>\n                                    <value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_word\">字串</field></block></value>\n                                    <value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_i\">i</field></block></value>\n                                  </block>\n                                </value>\n                                <next>\n                                  <block type=\"controls_if\">\n                                    <value name=\"IF0\">\n                                      <block type=\"logic_compare\">\n                                        <field name=\"OP\">EQ</field>\n                                        <value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_char\">目前字元</field></block></value>\n                                        <value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_target\">目標字元</field></block></value>\n                                      </block>\n                                    </value>\n                                    <statement name=\"DO0\">\n                                      <block type=\"variables_set\">\n                                        <field name=\"VAR\" id=\"var_count\">出現次數</field>\n                                        <value name=\"VALUE\">\n                                          <block type=\"math_arithmetic\">\n                                            <field name=\"OP\">ADD</field>\n                                            <value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_count\">出現次數</field></block></value>\n                                            <value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value>\n                                          </block>\n                                        </value>\n                                      </block>\n                                    </statement>\n                                  </block>\n                                </next>\n                              </block>\n                            </statement>\n                            <next>\n                              <block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_count\">出現次數</field></block></value></block>\n                            </next>\n                          </block>\n                        </next>\n                      </block>\n                    </next>\n                  </block>\n                </next>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>"
+    },
+    {
+      "id": "A-12-0",
+      "title": "簡易密碼轉換",
+      "description": "小明設計了一種簡單的密碼環密碼規則：將每個字母向後移二個字母（z 變 b）。\n\n密碼環：abcdefghijklmnopqrstuvwxyz\n\n請寫一個程式，輸入一個英文單字，輸出轉換後的字串。\n\n這樣的練習訓練你字元處理與條件轉換。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "banana",
+          "output": "dcpcpc",
+          "explanation": "第一行輸入banana\n程式運算，將字串往後移2個位置加密\n程式輸出dcpcpc"
+        },
+        {
+          "input": "student",
+          "output": "uvwfgpv",
+          "explanation": "第一行輸入student\n程式運算，將字串往後移2個位置加密\n程式輸出uvwfgpv"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "goodmoning",
+          "expectedOutput": "iqqfoqpkpi",
+          "output": "iqqfoqpkpi",
+          "score": 10
+        },
+        {
+          "input": "chaiyicity",
+          "expectedOutput": "ejckakekva",
+          "output": "ejckakekva",
+          "score": 10
+        },
+        {
+          "input": "announcement",
+          "expectedOutput": "cppqwpegogpv",
+          "output": "cppqwpegogpv",
+          "score": 10
+        },
+        {
+          "input": "experimen",
+          "expectedOutput": "gzrgtkogp",
+          "output": "gzrgtkogp",
+          "score": 10
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"var_word\">原始字串</variable>\n    <variable id=\"var_ring\">密碼環</variable>\n    <variable id=\"var_result\">轉換結果</variable>\n    <variable id=\"var_i\">i</variable>\n    <variable id=\"var_char\">目前字元</variable>\n    <variable id=\"var_pos\">目前位置</variable>\n    <variable id=\"var_newpos\">新位置</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"variables_set\">\n        <field name=\"VAR\" id=\"var_ring\">密碼環</field>\n        <value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">abcdefghijklmnopqrstuvwxyz</field></block></value>\n        <next>\n          <block type=\"interaction_ask_and_wait\">\n            <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入英文單字</field></block></value>\n            <next>\n              <block type=\"variables_set\">\n                <field name=\"VAR\" id=\"var_word\">原始字串</field>\n                <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n                <next>\n                  <block type=\"variables_set\">\n                    <field name=\"VAR\" id=\"var_result\">轉換結果</field>\n                    <value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value>\n                    <next>\n                      <block type=\"controls_for\">\n                        <field name=\"VAR\" id=\"var_i\">i</field>\n                        <value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value>\n                        <value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_word\">原始字串</field></block></value></block></value>\n                        <value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value>\n                        <statement name=\"DO\">\n                          <block type=\"variables_set\">\n                            <field name=\"VAR\" id=\"var_char\">目前字元</field>\n                            <value name=\"VALUE\">\n                              <block type=\"text_charAt\">\n                                <mutation at=\"true\"></mutation>\n                                <field name=\"WHERE\">FROM_START</field>\n                                <value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_word\">原始字串</field></block></value>\n                                <value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_i\">i</field></block></value>\n                              </block>\n                            </value>\n                            <next>\n                              <block type=\"variables_set\">\n                                <field name=\"VAR\" id=\"var_pos\">目前位置</field>\n                                <value name=\"VALUE\">\n                                  <block type=\"text_indexOf\">\n                                    <field name=\"END\">FIRST</field>\n                                    <value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ring\">密碼環</field></block></value>\n                                    <value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_char\">目前字元</field></block></value>\n                                  </block>\n                                </value>\n                                <next>\n                                  <block type=\"variables_set\">\n                                    <field name=\"VAR\" id=\"var_newpos\">新位置</field>\n                                    <value name=\"VALUE\">\n                                      <block type=\"math_arithmetic\">\n                                        <field name=\"OP\">ADD</field>\n                                        <value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_pos\">目前位置</field></block></value>\n                                        <value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value>\n                                      </block>\n                                    </value>\n                                    <next>\n                                      <block type=\"controls_if\">\n                                        <value name=\"IF0\">\n                                          <block type=\"logic_compare\">\n                                            <field name=\"OP\">GT</field>\n                                            <value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_newpos\">新位置</field></block></value>\n                                            <value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">26</field></block></value>\n                                          </block>\n                                        </value>\n                                        <statement name=\"DO0\">\n                                          <block type=\"variables_set\">\n                                            <field name=\"VAR\" id=\"var_newpos\">新位置</field>\n                                            <value name=\"VALUE\">\n                                              <block type=\"math_arithmetic\">\n                                                <field name=\"OP\">MINUS</field>\n                                                <value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_newpos\">新位置</field></block></value>\n                                                <value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">26</field></block></value>\n                                              </block>\n                                            </value>\n                                          </block>\n                                        </statement>\n                                        <next>\n                                          <block type=\"variables_set\">\n                                            <field name=\"VAR\" id=\"var_result\">轉換結果</field>\n                                            <value name=\"VALUE\">\n                                              <block type=\"text_join\">\n                                                <mutation items=\"2\"></mutation>\n                                                <value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_result\">轉換結果</field></block></value>\n                                                <value name=\"ADD1\">\n                                                  <block type=\"text_charAt\">\n                                                    <mutation at=\"true\"></mutation>\n                                                    <field name=\"WHERE\">FROM_START</field>\n                                                    <value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ring\">密碼環</field></block></value>\n                                                    <value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_newpos\">新位置</field></block></value>\n                                                  </block>\n                                                </value>\n                                              </block>\n                                            </value>\n                                          </block>\n                                        </next>\n                                      </block>\n                                    </next>\n                                  </block>\n                                </next>\n                              </block>\n                            </next>\n                          </block>\n                        </statement>\n                        <next>\n                          <block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_result\">轉換結果</field></block></value></block>\n                        </next>\n                      </block>\n                    </next>\n                  </block>\n                </next>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>"
+    },
+    {
+      "id": "cycjunior-002",
+      "title": "5進位解碼",
+      "description": "程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：\nA=0, B=1, C=2, D=3, E=4，\n例如密碼 BC 代表 5進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。\n1. 輸入密碼長度 L 與密碼內容（由A-E組成）。\n2. 權重計算：最右邊位數是 5的0次方(任何數的0次方為1)，左邊一位是 5的1次方，以此類推。\n3. 將每個字母轉換為對應數值後，計算總和",
+      "inputDescription": "第一行：整數 L。\n\n第二行：L 個字元（以空格分隔，如 B C）。",
+      "outputDescription": "一個整數（10 進位數值）。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "2\nB C",
+          "output": "7",
+          "explanation": "B=1, C=2。\n1 × 5 + 2 = 7。"
+        },
+        {
+          "input": "3\nB A E",
+          "output": "29",
+          "explanation": "B=1, A=0, E=4。\n1 × 25 + 0 × 5 + 4 × 1 = 29。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "1\nA",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 10
+        },
+        {
+          "input": "2\nE E",
+          "expectedOutput": "24",
+          "output": "24",
+          "score": 15
+        },
+        {
+          "input": "3\nB A A",
+          "expectedOutput": "25",
+          "output": "25",
+          "score": 20
+        },
+        {
+          "input": "4\nB A A A",
+          "expectedOutput": "125",
+          "output": "125",
+          "score": 25
+        },
+        {
+          "input": "5\nC D E A B",
+          "expectedOutput": "1726",
+          "output": "1726",
+          "score": 30
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_l\">L</variable><variable id=\"v_c\">字元</variable><variable id=\"v_all\">字元清單</variable><variable id=\"v_total\">總和</variable><variable id=\"v_i\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入L</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_l\">L</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">字元清單</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_l\">L</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_c\">字元</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">字元清單</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_c\">字元</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_total\">總和</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_l\">L</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_total\">總和</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_total\">總和</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"text_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">ABCDE</field></block></value><value name=\"FIND\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">字元清單</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_total\">總和</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "TYTN-10",
+      "title": "檢查碼",
+      "description": "書店會員卡享有購書8折優惠，為避免有人偽造會員卡，書店老闆在卡號中加入檢查碼。\n\n會員卡編號格式為：一個英文字母 + 4個數字 + 1個檢查碼。\n\n英文字母對應的數字如下：\n\nA → 11 B → 13 C → 15 D → 17\n\n若為正確的會員卡號，則 (英文字母對應的數字 + 4個數字 + 檢查碼) 除以 5 的餘數會是 4，其餘情況皆為不正確。\n\n例如：\n\nB20135 = 13+2+0+1+3+5 = 24 → 24÷5=4餘4 → 正確會員卡\n\nA15274 = 11+1+5+2+7+4 = 30 → 30÷5=6餘0 → 不正確會員卡\n\n請寫一個程式判斷會員卡號是否正確，若正確輸出 yes，否則輸出 no。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "C20351",
+          "output": "no",
+          "explanation": "C20351 = 15+2+0+3+5+1 = 26\n26÷5 = 5餘1 → 不正確會員卡。"
+        },
+        {
+          "input": "D15713",
+          "output": "yes",
+          "explanation": "D15713 = 17+1+5+7+1+3 = 34\n34÷5 = 6餘4 → 正確會員卡。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "C20351",
+          "expectedOutput": "no",
+          "output": "no",
+          "score": 10
+        },
+        {
+          "input": "D15713",
+          "expectedOutput": "yes",
+          "output": "yes",
+          "score": 10
+        },
+        {
+          "input": "A40244",
+          "expectedOutput": "no",
+          "output": "no",
+          "score": 10
+        },
+        {
+          "input": "B99994",
+          "expectedOutput": "no",
+          "output": "no",
+          "score": 10
+        },
+        {
+          "input": "A22146",
+          "expectedOutput": "no",
+          "output": "no",
+          "score": 10
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_s\">卡號</variable><variable id=\"v_c2\">字元2</variable><variable id=\"v_c3\">字元3</variable><variable id=\"v_c4\">字元4</variable><variable id=\"v_c5\">字元5</variable><variable id=\"v_c6\">字元6</variable><variable id=\"v_total\">總和</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入會員卡號</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_s\">卡號</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_c2\">字元2</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">卡號</field></block></value><value name=\"AT\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_c3\">字元3</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">卡號</field></block></value><value name=\"AT\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_c4\">字元4</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">卡號</field></block></value><value name=\"AT\"><block type=\"math_number\"><field name=\"NUM\">4</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_c5\">字元5</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">卡號</field></block></value><value name=\"AT\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_c6\">字元6</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">卡號</field></block></value><value name=\"AT\"><block type=\"math_number\"><field name=\"NUM\">6</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_total\">總和</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">9</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><value name=\"B\"><block type=\"text_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">ABCD</field></block></value><value name=\"FIND\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">卡號</field></block></value><value name=\"AT\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_c2\">字元2</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_c3\">字元3</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_c4\">字元4</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_c5\">字元5</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_c6\">字元6</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value></block></value></block></value></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_total\">總和</field></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">4</field></block></value></block></value><value name=\"THEN\"><block type=\"text\"><field name=\"TEXT\">yes</field></block></value><value name=\"ELSE\"><block type=\"text\"><field name=\"TEXT\">no</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "W4-01",
+      "title": "數位顯示器",
+      "description": "七段顯示器是一種常見的數字顯示裝置，由 7 條 LED 燈條組成，可用來顯示數字 0~9。\n每個數字所需點亮的 LED 燈條數量如下：\n0→6條、1→2條、2→5條、3→5條、4→4條、5→5條、6→6條、7→3條、8→7條、9→6條。\n現在給定 N 條可用的 LED 燈條，請你使用這些燈條組成一個「數字（可為雙位數）」，並且必須符合以下規則：\n1. 數字（0~9）最多只能各使用一次（兩位數時十位與個位不能相同）。\n2. 組成的數字不可有前導零（除非答案本身就是 0）。\n3. 組成的數字最多只能有 2 位（0~99）。\n請設計一個程式，找出在符合上述條件下「剛好用完所有 N 條 LED 燈條」時，可以組成的最大值。\n若無法用 1 位數或 2 位數剛好用完所有 N 條 LED 燈條，請輸出 -1。",
+      "inputDescription": "一行輸入一個整數 N（2 ≤ N ≤ 30），代表可用的 LED 燈條數。",
+      "outputDescription": "一行輸出可組成的最大值（最大值 < 100），若不存在則輸出 -1。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "3",
+          "output": "7",
+          "explanation": "3 條燈條可以組成數字 7（需要 3 條）。"
+        },
+        {
+          "input": "7",
+          "output": "74",
+          "explanation": "7(3條)+4(4條)=7。可組成 74 或 47，最大為 74。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "3",
+          "expectedOutput": "7",
+          "output": "7",
+          "score": 10
+        },
+        {
+          "input": "7",
+          "expectedOutput": "74",
+          "output": "74",
+          "score": 15
+        },
+        {
+          "input": "6",
+          "expectedOutput": "41",
+          "output": "41",
+          "score": 20
+        },
+        {
+          "input": "8",
+          "expectedOutput": "91",
+          "output": "91",
+          "score": 25
+        },
+        {
+          "input": "14",
+          "expectedOutput": "-1",
+          "output": "-1",
+          "score": 30
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_seg\">燈條表</variable><variable id=\"v_result\">結果</variable><variable id=\"v_found\">已找到</variable><variable id=\"v_t\">十位</variable><variable id=\"v_o\">個位</variable><variable id=\"v_d\">數字</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_seg\">燈條表</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"10\"></mutation><value name=\"ADD0\"><block type=\"math_number\"><field name=\"NUM\">6</field></block></value><value name=\"ADD1\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><value name=\"ADD2\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value><value name=\"ADD3\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value><value name=\"ADD4\"><block type=\"math_number\"><field name=\"NUM\">4</field></block></value><value name=\"ADD5\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value><value name=\"ADD6\"><block type=\"math_number\"><field name=\"NUM\">6</field></block></value><value name=\"ADD7\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value><value name=\"ADD8\"><block type=\"math_number\"><field name=\"NUM\">7</field></block></value><value name=\"ADD9\"><block type=\"math_number\"><field name=\"NUM\">6</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_result\">結果</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">-1</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_found\">已找到</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_t\">十位</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">9</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">-1</field></block></value><statement name=\"DO\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_o\">個位</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">9</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">-1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">AND</field><value name=\"A\"><block type=\"logic_operation\"><field name=\"OP\">AND</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_found\">已找到</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_t\">十位</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_o\">個位</field></block></value></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_seg\">燈條表</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_t\">十位</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_seg\">燈條表</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_o\">個位</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_result\">結果</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_t\">十位</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">10</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_o\">個位</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_found\">已找到</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></next></block></statement></block></statement></block></statement><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_d\">數字</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">9</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">-1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">AND</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_found\">已找到</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_seg\">燈條表</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_d\">數字</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_result\">結果</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_d\">數字</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_found\">已找到</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></next></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_result\">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "A-10-1",
+      "title": "加權成績計算",
+      "description": "大明綜合高中辦理考試，不同科系考試科目數量、每周上課時數不一定相同\n\n成績計算時，以每一科成績乘以該科上課時數為加權成績，將所有科目的加權成績加總，並除以全部科目總時數，即為學生加權平均成績\n\n請設計一個程式，輸入各科的成績、各科加權時數，程式運算後輸出加權總分、加權平均、等弟。\n\n第一行輸入N，代表該科共有N科考試成績\n\n第二行依序輸入N筆各科成績，各科成績之間以空白間隔\n\n第三行依序輸入N筆各科對應加權時數，各科加權時數之間以空白間隔\n\n計算全部加權總分，加權平均成績以四捨五入取整數\n\n如果平均分數大於等於 80，就是「A」等第，小於80大於等於70則是「B」等第，小於70大於等於60則是「C」等第，否則是「D」等第。\n\n程式輸出加權總分、加權平均、等弟。\n\n這題可以訓練你如何處理多筆資料的加總、平均計算，並搭配條件判斷。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "3\n80 70 90\n1 2 1",
+          "output": "310\n78\nB",
+          "explanation": "第一行輸入3，表示後面會有3科成績輸入\n第二行輸入各科原始成績80 70 90\n第三行輸入各科加權時數1 2 1\n程式運算輸出加權總分310、平均78、等第B"
+        },
+        {
+          "input": "6\n50 41 60 55 70 65",
+          "output": "668\n56\nD",
+          "explanation": "第一行輸入6，表示後面會有6科成績輸入\n第二行輸入各科原始成績50 41 60 55 70 65\n第三行輸入各科加權時數1 3 3 2 2 1\n程式運算輸出加權總分668、平均56、等第D"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "1\n80\n3",
+          "expectedOutput": "240 80 A",
+          "output": "240 80 A",
+          "score": 10
+        },
+        {
+          "input": "6\n50 41 60 55 70 65\n1 3 3 2 2 1",
+          "expectedOutput": "668 56 D",
+          "output": "668 56 D",
+          "score": 10
+        },
+        {
+          "input": "5\n80 70 75 85 90\n1 1 3 2 1",
+          "expectedOutput": "635 79 B",
+          "output": "635 79 B",
+          "score": 10
+        },
+        {
+          "input": "3\n55 90 99\n2 3 3",
+          "expectedOutput": "677 85 A",
+          "output": "677 85 A",
+          "score": 10
+        }
+      ],
+      "difficulty": "L4",
+      "difficultyLabel": "L4｜精熟",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">成績</variable><variable id=\"v_w\">時數</variable><variable id=\"v_scores\">成績清單</variable><variable id=\"v_weights\">時數清單</variable><variable id=\"v_wsum\">加權總分</variable><variable id=\"v_wtotal\">總時數</variable><variable id=\"v_avg\">加權平均</variable><variable id=\"v_i\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_scores\">成績清單</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">成績</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_scores\">成績清單</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">成績</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_weights\">時數清單</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_w\">時數</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_weights\">時數清單</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_w\">時數</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_wsum\">加權總分</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_wtotal\">總時數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_wsum\">加權總分</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_wsum\">加權總分</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_scores\">成績清單</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_weights\">時數清單</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_wtotal\">總時數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_wtotal\">總時數</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_weights\">時數清單</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></value></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_avg\">加權平均</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_wsum\">加權總分</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_wtotal\">總時數</field></block></value></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"5\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_wsum\">加權總分</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_avg\">加權平均</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD4\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_avg\">加權平均</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">80</field></block></value></block></value><value name=\"THEN\"><block type=\"text\"><field name=\"TEXT\">A</field></block></value><value name=\"ELSE\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_avg\">加權平均</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">70</field></block></value></block></value><value name=\"THEN\"><block type=\"text\"><field name=\"TEXT\">B</field></block></value><value name=\"ELSE\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_avg\">加權平均</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></value><value name=\"THEN\"><block type=\"text\"><field name=\"TEXT\">C</field></block></value><value name=\"ELSE\"><block type=\"text\"><field name=\"TEXT\">D</field></block></value></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "A-11-1",
+      "title": "計算字元出現最多次數",
+      "description": "請設計程式，輸入一字串由小寫英文字母組合，長度1~50間的字串\n\n程式會統計該字串的字母中，出現最多的次數。\n\n這樣的練習可以訓練你循環計數迴圈與字串統計。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "banana",
+          "output": "3",
+          "explanation": "第一行輸入banana\n程式運算比對，出現最多為a，共出現3次\n程式輸出3"
+        },
+        {
+          "input": "student",
+          "output": "2",
+          "explanation": "第一行輸入student\n程式運算比對，出現最多為t，共出現2次\n程式輸出2"
+        },
+        {
+          "input": "spider",
+          "output": "1",
+          "explanation": "第一行輸入spider\n程式運算比對，全部字母都只出現1次\n程式輸出1"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "goodmoning",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 10
+        },
+        {
+          "input": "ChaiYiCity",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 10
+        },
+        {
+          "input": "announment",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 10
+        },
+        {
+          "input": "experimen",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 10
+        },
+        {
+          "input": "junior",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 10
+        }
+      ],
+      "difficulty": "L4",
+      "difficultyLabel": "L4｜精熟",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_s\">字串</variable><variable id=\"v_max\">最大值</variable><variable id=\"v_cnt\">計數</variable><variable id=\"v_i\">i</variable><variable id=\"v_j\">j</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入字串S</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_s\">字串</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_max\">最大值</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">字串</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt\">計數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_j\">j</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">字串</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">字串</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_j\">j</field></block></value></block></value><value name=\"B\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">字串</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt\">計數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt\">計數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt\">計數</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_max\">最大值</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_max\">最大值</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt\">計數</field></block></value></block></statement></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_max\">最大值</field></block></value></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "A-12-1",
+      "title": "動態密碼轉換",
+      "description": "小明設計了一種英文字元密碼環編碼規則：\n\n密碼環為『abcdefghijklmnopqrstuvwxyz0123456789』\n\n第一行輸入數字N(N介於0~36)，N為編碼位移值\n\n編碼時，待編碼字串每個字元都按照密碼環『往前』移動N個位置\n\n如果轉換後密碼超過密碼環最後一個字元9，則從回前面a繼續接回密碼環\n\n請寫一個程式，輸入一個英文單字，程式輸出依照編碼規則轉換後的密碼字串。\n\n這樣的練習訓練你字元處理與條件轉換。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "2\nbanana",
+          "output": "98l8l8",
+          "explanation": "第一行輸入2，表示編碼時要往後前2個位置\n第二行輸入banana表示待編碼字串為banana\n程式運算，將字串往後移2個位置加密\n程式輸出98l8l8"
+        },
+        {
+          "input": "10\nstudent",
+          "output": "ijk34dj",
+          "explanation": "第一行輸入10，表示編碼時要往後前10個位置\n第二行輸入student表示待編碼字串為student\n程式運算，將字串往後移10個位置加密\n程式輸出ijk34dj"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "12\ngoodmoning",
+          "expectedOutput": "4cc1acb6b4",
+          "output": "4cc1acb6b4",
+          "score": 10
+        },
+        {
+          "input": "29\nchaiyicity",
+          "expectedOutput": "johp5pjp05",
+          "output": "johp5pjp05",
+          "score": 10
+        },
+        {
+          "input": "9\nannouncement",
+          "expectedOutput": "1eefle35d5ek",
+          "output": "1eefle35d5ek",
+          "score": 10
+        },
+        {
+          "input": "0\nexperimen",
+          "expectedOutput": "experimen",
+          "output": "experimen",
+          "score": 10
+        }
+      ],
+      "difficulty": "L4",
+      "difficultyLabel": "L4｜精熟",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_word\">原始字串</variable><variable id=\"v_ring\">密碼環</variable><variable id=\"v_result\">轉換結果</variable><variable id=\"v_i\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入英文單字</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_word\">原始字串</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_ring\">密碼環</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">abcdefghijklmnopqrstuvwxyz0123456789</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_result\">轉換結果</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_word\">原始字串</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_result\">轉換結果</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_result\">轉換結果</field></block></value><value name=\"ADD1\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_ring\">密碼環</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"text_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_ring\">密碼環</field></block></value><value name=\"FIND\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_word\">原始字串</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">36</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">36</field></block></value></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">36</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_result\">轉換結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    }
   ]
 };

@@ -9,627 +9,577 @@ export default {
   "mode": "learning",
   "tier": "t1",
   "tasks": [
-      {
-        "id": "SORT01-001",
-        "title": "（兩數交換成升冪",
-        "description": "給定兩個整數，請將它們由小到大輸出。",
-        "inputDescription": "輸入兩個整數 A 與 B。",
-        "outputDescription": "輸出兩個整數，依序為較小值與較大值，中間以空白分隔。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "8 3",
-                    "output": "3 8",
-                    "explanation": "3 比 8 小，所以輸出 3 8。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "8 3",
-                    "expectedOutput": "3 8",
-                    "output": "3 8",
-                    "score": 0
-                  },
-                  {
-                    "input": "2 9",
-                    "expectedOutput": "2 9",
-                    "output": "2 9",
-                    "score": 0
-                  },
-                  {
-                    "input": "5 5",
-                    "expectedOutput": "5 5",
-                    "output": "5 5",
-                    "score": 0
-                  },
-                  {
-                    "input": "-1 -7",
-                    "expectedOutput": "-7 -1",
-                    "output": "-7 -1",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L1",
-        "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_a">A</variable><variable id="v_b">B</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_a">A</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入B</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">B</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_a">a</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_a">A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">b</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">a</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">b</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_a">a</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_b">b</field></block></value></block></value></block></statement><statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_b">b</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_a">a</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
-      },
-      {
-        "id": "seclect-001",
-        "title": "SWAP交換函數",
-        "description": "在學習排序之前，小安先練習一個重要的小任務。\n桌上有兩張數字卡片，依序放在第 1 個位置與第 2 個位置。\n小安希望讓「數字小的卡片在前面，數字大的卡片在後面」。\n如果前面的數字比較大，就需要把兩張卡片的位置交換；\n如果順序本來就正確，則不需要交換。\n請你寫一個程式，判斷是否需要交換，並輸出交換後的結果。\n（提示：交換時需要使用暫存變數）\n輸入格式：\n一次輸入兩個整數 A、B（以空格隔開），代表目前卡片的順序。\n輸出格式：\n輸出兩個整數，代表調整後由小到大的順序（以空格隔開）。",
-        "inputDescription": "一次輸入兩個整數 A、B（以空格隔開），代表目前卡片的順序。",
-        "outputDescription": "輸出兩個整數，代表調整後由小到大的順序（以空格隔開）。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "8 3",
-                    "output": "3 8",
-                    "explanation": "前面的數字 8 比後面的 3 大，\n需要交換兩個數字的位置。"
-                  },
-                  {
-                    "input": "4 9",
-                    "output": "4 9",
-                    "explanation": "前面的數字較小，順序正確，\n不需要交換。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "8 3",
-                    "expectedOutput": "3 8",
-                    "output": "3 8",
-                    "score": 10
-                  },
-                  {
-                    "input": "4 9",
-                    "expectedOutput": "4 9",
-                    "output": "4 9",
-                    "score": 10
-                  },
-                  {
-                    "input": "6 6",
-                    "expectedOutput": "6 6",
-                    "output": "6 6",
-                    "score": 10
-                  },
-                  {
-                    "input": "0 5",
-                    "expectedOutput": "0 5",
-                    "output": "0 5",
-                    "score": 10
-                  },
-                  {
-                    "input": "9 0",
-                    "expectedOutput": "0 9",
-                    "output": "0 9",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L1",
-        "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_a">A</variable><variable id="v_b">B</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_a">A</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入B</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">B</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_a">甲</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_a">A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">乙</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_tmp">暫存</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><next><block type="variables_set"><field name="VAR" id="v_a">甲</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">乙</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_tmp">暫存</field></block></value></block></next></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_a">甲</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_b">乙</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>`
-      },
-      {
-        "id": "SORT01-002",
-        "title": "三數升冪排序",
-        "description": "給定三個整數，請將它們由小到大輸出。這題可用多次相鄰比較與交換完成。",
-        "inputDescription": "輸入三個整數 A、B、C。",
-        "outputDescription": "輸出三個整數，由小到大排列，中間以空白分隔。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "9 2 5",
-                    "output": "2 5 9",
-                    "explanation": "三個數由小到大為 2、5、9。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "9 2 5",
-                    "expectedOutput": "2 5 9",
-                    "output": "2 5 9",
-                    "score": 0
-                  },
-                  {
-                    "input": "1 2 3",
-                    "expectedOutput": "1 2 3",
-                    "output": "1 2 3",
-                    "score": 0
-                  },
-                  {
-                    "input": "3 3 1",
-                    "expectedOutput": "1 3 3",
-                    "output": "1 3 3",
-                    "score": 0
-                  },
-                  {
-                    "input": "-1 8 0",
-                    "expectedOutput": "-1 0 8",
-                    "output": "-1 0 8",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L2",
-        "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_a">A</variable><variable id="v_b">B</variable><variable id="v_c">C</variable><variable id="v_all">全部數字</variable><variable id="v_si">si</variable><variable id="v_sj">sj</variable><variable id="v_smi">smi</variable><variable id="v_stmp">stmp</variable><variable id="var_jres">jres</variable><variable id="var_ji">ji</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入A</field></block></value><next><block type="variables_set"><field name="VAR" id="v_a">A</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入B</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b">B</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入C</field></block></value><next><block type="variables_set"><field name="VAR" id="v_c">C</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_a">A</field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_b">B</field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_c">C</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="math_number"><field name="NUM">3</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="math_number"><field name="NUM">3</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="math_number"><field name="NUM">3</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_number"><field name="NUM">3</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_ji">ji</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_number"><field name="NUM">3</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="1"></mutation><value name="ADD0"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "SORT01-003",
-        "title": "相鄰交換一次",
-        "description": "給定 N 個整數，請從左到右檢查每一組相鄰數字。如果左邊數字大於右邊數字，就交換兩者。整個清單只掃描一次。",
-        "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
-        "outputDescription": "輸出掃描一次後的 N 個整數，中間以空白分隔。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5 5 1 4 2 3",
-                    "output": "1 4 2 3 5",
-                    "explanation": "泡泡排序掃描一輪後，最大值 5 會移到最右邊。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5 5 1 4 2 3",
-                    "expectedOutput": "1 4 2 3 5",
-                    "output": "1 4 2 3 5",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 1 2 3 4",
-                    "expectedOutput": "1 2 3 4",
-                    "output": "1 2 3 4",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 4 3 2 1",
-                    "expectedOutput": "3 2 1 4",
-                    "output": "3 2 1 4",
-                    "score": 0
-                  },
-                  {
-                    "input": "6 2 9 1 8 3 7",
-                    "expectedOutput": "2 1 8 3 7 9",
-                    "output": "2 1 8 3 7 9",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_i">i</variable><variable id="v_tmp">暫存</variable><variable id="var_jres">jres</variable><variable id="var_ji">ji</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_tmp">暫存</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_tmp">暫存</field></block></value></block></next></block></next></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_ji">ji</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="1"></mutation><value name="ADD0"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "SORT01-004",
-        "title": "泡泡排序升冪",
-        "description": "給定 N 個整數，請使用排序概念將它們由小到大輸出。",
-        "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
-        "outputDescription": "輸出由小到大排序後的 N 個整數，中間以空白分隔。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5 5 1 4 2 3",
-                    "output": "1 2 3 4 5",
-                    "explanation": "排序後由小到大為 1 2 3 4 5。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5 5 1 4 2 3",
-                    "expectedOutput": "1 2 3 4 5",
-                    "output": "1 2 3 4 5",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 1 2 3 4",
-                    "expectedOutput": "1 2 3 4",
-                    "output": "1 2 3 4",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 4 3 2 1",
-                    "expectedOutput": "1 2 3 4",
-                    "output": "1 2 3 4",
-                    "score": 0
-                  },
-                  {
-                    "input": "6 -1 5 0 -3 2 2",
-                    "expectedOutput": "-3 -1 0 2 2 5",
-                    "output": "-3 -1 0 2 2 5",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_si">si</variable><variable id="v_sj">sj</variable><variable id="v_smi">smi</variable><variable id="v_stmp">stmp</variable><variable id="var_jres">jres</variable><variable id="var_ji">ji</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_ji">ji</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="1"></mutation><value name="ADD0"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "SORT01-005",
-        "title": "泡泡排序降冪",
-        "description": "給定 N 個整數，請將它們由大到小輸出。",
-        "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
-        "outputDescription": "輸出由大到小排序後的 N 個整數，中間以空白分隔。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5 5 1 4 2 3",
-                    "output": "5 4 3 2 1",
-                    "explanation": "排序後由大到小為 5 4 3 2 1。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5 5 1 4 2 3",
-                    "expectedOutput": "5 4 3 2 1",
-                    "output": "5 4 3 2 1",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 1 2 3 4",
-                    "expectedOutput": "4 3 2 1",
-                    "output": "4 3 2 1",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 4 3 2 1",
-                    "expectedOutput": "4 3 2 1",
-                    "output": "4 3 2 1",
-                    "score": 0
-                  },
-                  {
-                    "input": "6 -1 5 0 -3 2 2",
-                    "expectedOutput": "5 2 2 0 -1 -3",
-                    "output": "5 2 2 0 -1 -3",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_si">si</variable><variable id="v_sj">sj</variable><variable id="v_smi">smi</variable><variable id="v_stmp">stmp</variable><variable id="var_jres">jres</variable><variable id="var_ji">ji</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_ji">ji</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="1"></mutation><value name="ADD0"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "SORT01-006",
-        "title": "排序後的中間值",
-        "description": "給定奇數個整數，請將它們由小到大排序後，輸出中間位置的數字。位置從 1 開始計算。",
-        "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 為奇數。",
-        "outputDescription": "輸出一個整數，代表排序後的中間值。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5 9 1 5 3 7",
-                    "output": "5",
-                    "explanation": "排序後為 1 3 5 7 9，中間值是 5。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5 9 1 5 3 7",
-                    "expectedOutput": "5",
-                    "output": "5",
-                    "score": 0
-                  },
-                  {
-                    "input": "3 10 2 8",
-                    "expectedOutput": "8",
-                    "output": "8",
-                    "score": 0
-                  },
-                  {
-                    "input": "7 4 4 1 9 2 8 6",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 0
-                  },
-                  {
-                    "input": "1 99",
-                    "expectedOutput": "99",
-                    "output": "99",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_si">si</variable><variable id="v_sj">sj</variable><variable id="v_smi">smi</variable><variable id="v_stmp">stmp</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "SORT01-007",
-        "title": "排序後第K小",
-        "description": "給定 N 個整數與 K，請將數字由小到大排序後，輸出第 K 小的數字。位置從 1 開始計算。",
-        "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 K。保證 1 <= K <= N。",
-        "outputDescription": "輸出一個整數，代表第 K 小的數字。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "6 8 3 9 1 5 7 2",
-                    "output": "3",
-                    "explanation": "排序後為 1 3 5 7 8 9，第 2 小是 3。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "6 8 3 9 1 5 7 2",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 0
-                  },
-                  {
-                    "input": "5 5 4 3 2 1 5",
-                    "expectedOutput": "5",
-                    "output": "5",
-                    "score": 0
-                  },
-                  {
-                    "input": "5 5 4 3 2 1 1",
-                    "expectedOutput": "1",
-                    "output": "1",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 10 10 8 9 3",
-                    "expectedOutput": "10",
-                    "output": "10",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_k">K</variable><variable id="v_si">si</variable><variable id="v_sj">sj</variable><variable id="v_smi">smi</variable><variable id="v_stmp">stmp</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入K</field></block></value><next><block type="variables_set"><field name="VAR" id="v_k">K</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_k">K</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "SORT01-008",
-        "title": "排序後去除最高最低）＋",
-        "description": "給定 N 個整數，請排序後去除一個最低值與一個最高值，再計算剩下數字的總和。保證 N 大於或等於 3。",
-        "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
-        "outputDescription": "輸出一個整數，代表去除一個最低值與一個最高值後的總和。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5 80 90 70 100 60",
-                    "output": "240",
-                    "explanation": "排序後為 60 70 80 90 100，去除 60 和 100，剩下總和為 240。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5 80 90 70 100 60",
-                    "expectedOutput": "240",
-                    "output": "240",
-                    "score": 0
-                  },
-                  {
-                    "input": "3 10 20 30",
-                    "expectedOutput": "20",
-                    "output": "20",
-                    "score": 0
-                  },
-                  {
-                    "input": "6 5 5 5 5 5 5",
-                    "expectedOutput": "20",
-                    "output": "20",
-                    "score": 0
-                  },
-                  {
-                    "input": "7 9 1 8 2 7 3 6",
-                    "expectedOutput": "26",
-                    "output": "26",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_sum">總和</variable><variable id="v_i">i</variable><variable id="v_si">si</variable><variable id="v_sj">sj</variable><variable id="v_smi">smi</variable><variable id="v_stmp">stmp</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "seclect-004",
-        "title": "選擇排序第一回合",
-        "description": "小安正在學習「選擇排序法」，老師請他先完成第一回合的任務。\n桌上有一排固定 5 個的數字，依序放在第 1 到第 5 個位置中。\n請你找出這 5 個數字中最小的數字，並把它與第 1 個位置的數字交換。\n注意事項：\n1. 只進行「第一回合」，不需要完成整個排序。\n2. 若最小值有多個，請選擇最前面出現的那一個。\n3. 交換完成後，其餘位置的數字順序保持不變。\n輸入格式：\n第1行：輸入一個整數N，N固定為5\n第2行：輸入5 個整數，代表清單中第 1 到第 5 個位置的數字（以空格隔開）。\n輸出格式：\n輸出 5 個整數，代表完成「選擇排序第一回合」後的數字順序（以空格隔開）。",
-        "inputDescription": "第1行：輸入一個整數N，N固定為5\n\n第2行：輸入5 個整數，代表清單中第 1 到第 5 個位置的數字（以空格隔開）。",
-        "outputDescription": "輸出 5 個整數，代表完成「選擇排序第一回合」後的數字順序（以空格隔開）。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5\n8 3 5 1 6",
-                    "output": "1 3 5 8 6",
-                    "explanation": "最小值為 1（在第4個位置），\n與第1個位置的 8 交換。"
-                  },
-                  {
-                    "input": "5\n2 4 6 8 10",
-                    "output": "2 4 6 8 10",
-                    "explanation": "最小值已在第1個位置，\n不需交換。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5\n8 3 5 1 6",
-                    "expectedOutput": "1 3 5 8 6",
-                    "output": "1 3 5 8 6",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n2 4 6 8 10",
-                    "expectedOutput": "2 4 6 8 10",
-                    "output": "2 4 6 8 10",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n5 4 3 2 1",
-                    "expectedOutput": "1 4 3 2 5",
-                    "output": "1 4 3 2 5",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n7 2 2 9 5",
-                    "expectedOutput": "2 7 2 9 5",
-                    "output": "2 7 2 9 5",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n9 8 7 6 5",
-                    "expectedOutput": "5 8 7 6 9",
-                    "output": "5 8 7 6 9",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_mi">mi</variable><variable id="v_j">j</variable><variable id="v_tmp">暫存</variable><variable id="var_jres">jres</variable><variable id="var_ji">ji</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_mi">mi</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value><next><block type="controls_for"><field name="VAR" id="v_j">j</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_j">j</field></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_mi">mi</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_mi">mi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_j">j</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_mi">mi</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_tmp">暫存</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_mi">mi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_mi">mi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_tmp">暫存</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_ji">ji</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="1"></mutation><value name="ADD0"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "seclect-005",
-        "title": "完整選擇排序",
-        "description": "小安已經學會如何在清單中找出最小值，並進行兩數交換。\n現在老師請他完成完整的選擇排序任務。\n桌上有一排固定 5 個整數，請你使用「選擇排序法」，\n將這些數字由小到大排序。\n選擇排序說明：\n1. 從尚未排序的部分中找出最小值。\n2. 將最小值與目前排序位置的數字交換。\n3. 重複上述步驟，直到整個清單排序完成。\n注意事項：\n1. 不可使用排序相關的積木或指令。\n2. 若有相同數字，排序後相對位置不限。\n輸入格式：\n第1行：輸入數字N，N固定為5\n第2行：輸入5 個整數，代表清單中的數字（以空格隔開）。\n輸出格式：\n輸出 5 個整數，代表排序完成後的結果（以空格隔開）。",
-        "inputDescription": "第1行：輸入數字N，N固定為5\n\n第2行：輸入5 個整數，代表清單中的數字（以空格隔開）。",
-        "outputDescription": "輸出 5 個整數，代表排序完成後的結果（以空格隔開）。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5\n8 3 5 1 6",
-                    "output": "1 3 5 6 8",
-                    "explanation": "依序找出最小值並交換，\n完成由小到大的排序。"
-                  },
-                  {
-                    "input": "5\n2 4 6 8 10",
-                    "output": "2 4 6 8 10",
-                    "explanation": "原本已經排序完成，\n結果不變。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5\n8 3 5 1 6",
-                    "expectedOutput": "1 3 5 6 8",
-                    "output": "1 3 5 6 8",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n2 4 6 8 10",
-                    "expectedOutput": "2 4 6 8 10",
-                    "output": "2 4 6 8 10",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n5 4 3 2 1",
-                    "expectedOutput": "1 2 3 4 5",
-                    "output": "1 2 3 4 5",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n7 2 2 9 5",
-                    "expectedOutput": "2 2 5 7 9",
-                    "output": "2 2 5 7 9",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n9 1 8 1 7",
-                    "expectedOutput": "1 1 7 8 9",
-                    "output": "1 1 7 8 9",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_si">si</variable><variable id="v_sj">sj</variable><variable id="v_smi">smi</variable><variable id="v_stmp">stmp</variable><variable id="var_jres">jres</variable><variable id="var_ji">ji</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_ji">ji</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="1"></mutation><value name="ADD0"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "seclect-006",
-        "title": "排序演算法",
-        "description": "資訊課中，老師給了小華一排數字卡片，每張卡片上都有一個整數。\n小華想要把這些卡片由小到大排好，但老師規定：\n不能使用任何「排序」積木，只能使用重複、比較與變數。\n小華想到一個方法：\n每一回合從「還沒排好的卡片」中，找出最小的數字，依序放到前面。\n請你寫一個程式，依照這個想法，將輸入的數字由小到大排序後輸出。\n輸入格式：\n第1行：一個整數 N，代表卡片的數量。\n第2行：N 個整數，代表卡片上的數字（以空格隔開）。\n輸出格式：\n輸出 N 個整數，依由小到大的順序排列（以空格隔開）。",
-        "inputDescription": "第1行：一個整數 N，代表卡片的數量。\n\n第2行：N 個整數，代表卡片上的數字（以空格隔開）。",
-        "outputDescription": "輸出 N 個整數，依由小到大的順序排列（以空格隔開）。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5\n8 3 5 1 6",
-                    "output": "1 3 5 6 8",
-                    "explanation": "第1次找最小值為 1\n第2次在剩下的數中找最小值為 3\n依序完成排序。"
-                  },
-                  {
-                    "input": "4\n7 2 2 9",
-                    "output": "2 2 7 9",
-                    "explanation": "排序時需正確處理重複數字。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5\n8 3 5 1 6",
-                    "expectedOutput": "1 3 5 6 8",
-                    "output": "1 3 5 6 8",
-                    "score": 10
-                  },
-                  {
-                    "input": "4\n7 2 2 9",
-                    "expectedOutput": "2 2 7 9",
-                    "output": "2 2 7 9",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n1 2 3 4 5",
-                    "expectedOutput": "1 2 3 4 5",
-                    "output": "1 2 3 4 5",
-                    "score": 10
-                  },
-                  {
-                    "input": "5\n9 8 7 6 5",
-                    "expectedOutput": "5 6 7 8 9",
-                    "output": "5 6 7 8 9",
-                    "score": 10
-                  },
-                  {
-                    "input": "1\n4",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 10
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_si">si</variable><variable id="v_sj">sj</variable><variable id="v_smi">smi</variable><variable id="v_stmp">stmp</variable><variable id="var_jres">jres</variable><variable id="var_ji">ji</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_ji">ji</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="1"></mutation><value name="ADD0"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      }
+    {
+      "id": "SORT01-001",
+      "title": "（兩數交換成升冪",
+      "description": "給定兩個整數，請將它們由小到大輸出。",
+      "inputDescription": "輸入兩個整數 A 與 B。",
+      "outputDescription": "輸出兩個整數，依序為較小值與較大值，中間以空白分隔。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "8 3",
+          "output": "3 8",
+          "explanation": "3 比 8 小，所以輸出 3 8。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "8 3",
+          "expectedOutput": "3 8",
+          "output": "3 8",
+          "score": 0
+        },
+        {
+          "input": "2 9",
+          "expectedOutput": "2 9",
+          "output": "2 9",
+          "score": 0
+        },
+        {
+          "input": "5 5",
+          "expectedOutput": "5 5",
+          "output": "5 5",
+          "score": 0
+        },
+        {
+          "input": "-1 -7",
+          "expectedOutput": "-7 -1",
+          "output": "-7 -1",
+          "score": 0
+        }
+      ],
+      "difficulty": "L1",
+      "difficultyLabel": "L1｜基礎",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v_a\">A</variable><variable id=\"v_b\">B</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">A</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入B</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">B</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">a</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">b</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">a</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">b</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">a</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">b</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">b</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">a</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>"
+    },
+    {
+      "id": "seclect-001",
+      "title": "SWAP交換函數",
+      "description": "在學習排序之前，小安先練習一個重要的小任務。\n桌上有兩張數字卡片，依序放在第 1 個位置與第 2 個位置。\n小安希望讓「數字小的卡片在前面，數字大的卡片在後面」。\n如果前面的數字比較大，就需要把兩張卡片的位置交換；\n如果順序本來就正確，則不需要交換。\n請你寫一個程式，判斷是否需要交換，並輸出交換後的結果。\n（提示：交換時需要使用暫存變數）",
+      "inputDescription": "一次輸入兩個整數 A、B（以空格隔開），代表目前卡片的順序。",
+      "outputDescription": "輸出兩個整數，代表調整後由小到大的順序（以空格隔開）。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "8 3",
+          "output": "3 8",
+          "explanation": "前面的數字 8 比後面的 3 大，\n需要交換兩個數字的位置。"
+        },
+        {
+          "input": "4 9",
+          "output": "4 9",
+          "explanation": "前面的數字較小，順序正確，\n不需要交換。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "8 3",
+          "expectedOutput": "3 8",
+          "output": "3 8",
+          "score": 10
+        },
+        {
+          "input": "4 9",
+          "expectedOutput": "4 9",
+          "output": "4 9",
+          "score": 10
+        },
+        {
+          "input": "6 6",
+          "expectedOutput": "6 6",
+          "output": "6 6",
+          "score": 10
+        },
+        {
+          "input": "0 5",
+          "expectedOutput": "0 5",
+          "output": "0 5",
+          "score": 10
+        },
+        {
+          "input": "9 0",
+          "expectedOutput": "0 9",
+          "output": "0 9",
+          "score": 10
+        }
+      ],
+      "difficulty": "L1",
+      "difficultyLabel": "L1｜基礎",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v_a\">A</variable><variable id=\"v_b\">B</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">A</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入B</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">B</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">甲</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">乙</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">甲</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">乙</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_tmp\">暫存</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">甲</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">甲</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">乙</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">乙</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_tmp\">暫存</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">甲</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">乙</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>"
+    },
+    {
+      "id": "SORT01-002",
+      "title": "三數升冪排序",
+      "description": "給定三個整數，請將它們由小到大輸出。這題可用多次相鄰比較與交換完成。",
+      "inputDescription": "輸入三個整數 A、B、C。",
+      "outputDescription": "輸出三個整數，由小到大排列，中間以空白分隔。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "9 2 5",
+          "output": "2 5 9",
+          "explanation": "三個數由小到大為 2、5、9。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "9 2 5",
+          "expectedOutput": "2 5 9",
+          "output": "2 5 9",
+          "score": 0
+        },
+        {
+          "input": "1 2 3",
+          "expectedOutput": "1 2 3",
+          "output": "1 2 3",
+          "score": 0
+        },
+        {
+          "input": "3 3 1",
+          "expectedOutput": "1 3 3",
+          "output": "1 3 3",
+          "score": 0
+        },
+        {
+          "input": "-1 8 0",
+          "expectedOutput": "-1 0 8",
+          "output": "-1 0 8",
+          "score": 0
+        }
+      ],
+      "difficulty": "L2",
+      "difficultyLabel": "L2｜進階",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_a\">A</variable><variable id=\"v_b\">B</variable><variable id=\"v_c\">C</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_si\">si</variable><variable id=\"v_sj\">sj</variable><variable id=\"v_smi\">smi</variable><variable id=\"v_stmp\">stmp</variable><variable id=\"var_jres\">jres</variable><variable id=\"var_ji\">ji</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入A</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_a\">A</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入B</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b\">B</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入C</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_c\">C</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_a\">A</field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b\">B</field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_c\">C</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_si\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"var_sj\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_stmp\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_stmp\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_ji\">ji</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"1\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "SORT01-003",
+      "title": "相鄰交換一次",
+      "description": "給定 N 個整數，請從左到右檢查每一組相鄰數字。如果左邊數字大於右邊數字，就交換兩者。整個清單只掃描一次。",
+      "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
+      "outputDescription": "輸出掃描一次後的 N 個整數，中間以空白分隔。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n5 1 4 2 3",
+          "output": "1 4 2 3 5",
+          "explanation": "泡泡排序掃描一輪後，最大值 5 會移到最右邊。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n5 1 4 2 3",
+          "expectedOutput": "1 4 2 3 5",
+          "output": "1 4 2 3 5",
+          "score": 0
+        },
+        {
+          "input": "4\n1 2 3 4",
+          "expectedOutput": "1 2 3 4",
+          "output": "1 2 3 4",
+          "score": 0
+        },
+        {
+          "input": "4\n4 3 2 1",
+          "expectedOutput": "3 2 1 4",
+          "output": "3 2 1 4",
+          "score": 0
+        },
+        {
+          "input": "6\n2 9 1 8 3 7",
+          "expectedOutput": "2 1 8 3 7 9",
+          "output": "2 1 8 3 7 9",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_i\">i</variable><variable id=\"v_tmp\">暫存</variable><variable id=\"var_jres\">jres</variable><variable id=\"var_ji\">ji</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_tmp\">暫存</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_tmp\">暫存</field></block></value></block></next></block></next></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_ji\">ji</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"1\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "SORT01-004",
+      "title": "泡泡排序升冪",
+      "description": "給定 N 個整數，請使用排序概念將它們由小到大輸出。",
+      "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+      "outputDescription": "輸出由小到大排序後的 N 個整數，中間以空白分隔。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n5 1 4 2 3",
+          "output": "1 2 3 4 5",
+          "explanation": "排序後由小到大為 1 2 3 4 5。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n5 1 4 2 3",
+          "expectedOutput": "1 2 3 4 5",
+          "output": "1 2 3 4 5",
+          "score": 0
+        },
+        {
+          "input": "4\n1 2 3 4",
+          "expectedOutput": "1 2 3 4",
+          "output": "1 2 3 4",
+          "score": 0
+        },
+        {
+          "input": "4\n4 3 2 1",
+          "expectedOutput": "1 2 3 4",
+          "output": "1 2 3 4",
+          "score": 0
+        },
+        {
+          "input": "6\n-1 5 0 -3 2 2",
+          "expectedOutput": "-3 -1 0 2 2 5",
+          "output": "-3 -1 0 2 2 5",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_si\">si</variable><variable id=\"v_sj\">sj</variable><variable id=\"v_smi\">smi</variable><variable id=\"v_stmp\">stmp</variable><variable id=\"var_jres\">jres</variable><variable id=\"var_ji\">ji</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_si\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"var_sj\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_stmp\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_stmp\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_ji\">ji</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"1\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "SORT01-005",
+      "title": "泡泡排序降冪",
+      "description": "給定 N 個整數，請將它們由大到小輸出。",
+      "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+      "outputDescription": "輸出由大到小排序後的 N 個整數，中間以空白分隔。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n5 1 4 2 3",
+          "output": "5 4 3 2 1",
+          "explanation": "排序後由大到小為 5 4 3 2 1。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n5 1 4 2 3",
+          "expectedOutput": "5 4 3 2 1",
+          "output": "5 4 3 2 1",
+          "score": 0
+        },
+        {
+          "input": "4\n1 2 3 4",
+          "expectedOutput": "4 3 2 1",
+          "output": "4 3 2 1",
+          "score": 0
+        },
+        {
+          "input": "4\n4 3 2 1",
+          "expectedOutput": "4 3 2 1",
+          "output": "4 3 2 1",
+          "score": 0
+        },
+        {
+          "input": "6\n-1 5 0 -3 2 2",
+          "expectedOutput": "5 2 2 0 -1 -3",
+          "output": "5 2 2 0 -1 -3",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_si\">si</variable><variable id=\"v_sj\">sj</variable><variable id=\"v_smi\">smi</variable><variable id=\"v_stmp\">stmp</variable><variable id=\"var_jres\">jres</variable><variable id=\"var_ji\">ji</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_si\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"var_sj\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_stmp\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_stmp\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_ji\">ji</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"1\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "SORT01-006",
+      "title": "排序後的中間值",
+      "description": "給定奇數個整數，請將它們由小到大排序後，輸出中間位置的數字。位置從 1 開始計算。",
+      "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 為奇數。",
+      "outputDescription": "輸出一個整數，代表排序後的中間值。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n9 1 5 3 7",
+          "output": "5",
+          "explanation": "排序後為 1 3 5 7 9，中間值是 5。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n9 1 5 3 7",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 0
+        },
+        {
+          "input": "3\n10 2 8",
+          "expectedOutput": "8",
+          "output": "8",
+          "score": 0
+        },
+        {
+          "input": "7\n4 4 1 9 2 8 6",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 0
+        },
+        {
+          "input": "1\n99",
+          "expectedOutput": "99",
+          "output": "99",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_si\">si</variable><variable id=\"v_sj\">sj</variable><variable id=\"v_smi\">smi</variable><variable id=\"v_stmp\">stmp</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_si\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"var_sj\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_stmp\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_stmp\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "SORT01-007",
+      "title": "排序後第K小",
+      "description": "給定 N 個整數與 K，請將數字由小到大排序後，輸出第 K 小的數字。位置從 1 開始計算。",
+      "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入一個整數 K。保證 1 <= K <= N。",
+      "outputDescription": "輸出一個整數，代表第 K 小的數字。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "6\n8 3 9 1 5 7\n2",
+          "output": "3",
+          "explanation": "排序後為 1 3 5 7 8 9，第 2 小是 3。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "6\n8 3 9 1 5 7\n2",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 0
+        },
+        {
+          "input": "5\n5 4 3 2 1\n5",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 0
+        },
+        {
+          "input": "5\n5 4 3 2 1\n1",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 0
+        },
+        {
+          "input": "4\n10 10 8 9\n3",
+          "expectedOutput": "10",
+          "output": "10",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_k\">K</variable><variable id=\"v_si\">si</variable><variable id=\"v_sj\">sj</variable><variable id=\"v_smi\">smi</variable><variable id=\"v_stmp\">stmp</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入K</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_k\">K</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_si\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"var_sj\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_stmp\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_stmp\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k\">K</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "SORT01-008",
+      "title": "排序後去除最高最低）＋",
+      "description": "給定 N 個整數，請排序後去除一個最低值與一個最高值，再計算剩下數字的總和。保證 N 大於或等於 3。",
+      "inputDescription": "第一個整數為 N，接著輸入 N 個整數。",
+      "outputDescription": "輸出一個整數，代表去除一個最低值與一個最高值後的總和。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n80 90 70 100 60",
+          "output": "240",
+          "explanation": "排序後為 60 70 80 90 100，去除 60 和 100，剩下總和為 240。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n80 90 70 100 60",
+          "expectedOutput": "240",
+          "output": "240",
+          "score": 0
+        },
+        {
+          "input": "3\n10 20 30",
+          "expectedOutput": "20",
+          "output": "20",
+          "score": 0
+        },
+        {
+          "input": "6\n5 5 5 5 5 5",
+          "expectedOutput": "20",
+          "output": "20",
+          "score": 0
+        },
+        {
+          "input": "7\n9 1 8 2 7 3 6",
+          "expectedOutput": "26",
+          "output": "26",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_sum\">總和</variable><variable id=\"v_i\">i</variable><variable id=\"v_si\">si</variable><variable id=\"v_sj\">sj</variable><variable id=\"v_smi\">smi</variable><variable id=\"v_stmp\">stmp</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_si\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"var_sj\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_stmp\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_stmp\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum\">總和</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum\">總和</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum\">總和</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum\">總和</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "seclect-004",
+      "title": "選擇排序第一回合",
+      "description": "小安正在學習「選擇排序法」，老師請他先完成第一回合的任務。\n桌上有一排固定 5 個的數字，依序放在第 1 到第 5 個位置中。\n請你找出這 5 個數字中最小的數字，並把它與第 1 個位置的數字交換。\n注意事項：\n1. 只進行「第一回合」，不需要完成整個排序。\n2. 若最小值有多個，請選擇最前面出現的那一個。\n3. 交換完成後，其餘位置的數字順序保持不變",
+      "inputDescription": "第1行：輸入一個整數N，N固定為5\n\n第2行：輸入5 個整數，代表清單中第 1 到第 5 個位置的數字（以空格隔開）。",
+      "outputDescription": "輸出 5 個整數，代表完成「選擇排序第一回合」後的數字順序（以空格隔開）。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n8 3 5 1 6",
+          "output": "1 3 5 8 6",
+          "explanation": "最小值為 1（在第4個位置），\n與第1個位置的 8 交換。"
+        },
+        {
+          "input": "5\n2 4 6 8 10",
+          "output": "2 4 6 8 10",
+          "explanation": "最小值已在第1個位置，\n不需交換。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n8 3 5 1 6",
+          "expectedOutput": "1 3 5 8 6",
+          "output": "1 3 5 8 6",
+          "score": 10
+        },
+        {
+          "input": "5\n2 4 6 8 10",
+          "expectedOutput": "2 4 6 8 10",
+          "output": "2 4 6 8 10",
+          "score": 10
+        },
+        {
+          "input": "5\n5 4 3 2 1",
+          "expectedOutput": "1 4 3 2 5",
+          "output": "1 4 3 2 5",
+          "score": 10
+        },
+        {
+          "input": "5\n7 2 2 9 5",
+          "expectedOutput": "2 7 2 9 5",
+          "output": "2 7 2 9 5",
+          "score": 10
+        },
+        {
+          "input": "5\n9 8 7 6 5",
+          "expectedOutput": "5 8 7 6 9",
+          "output": "5 8 7 6 9",
+          "score": 10
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_mi\">mi</variable><variable id=\"v_j\">j</variable><variable id=\"v_tmp\">暫存</variable><variable id=\"var_jres\">jres</variable><variable id=\"var_ji\">ji</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_mi\">mi</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_j\">j</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_j\">j</field></block></value></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_mi\">mi</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_mi\">mi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_j\">j</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_mi\">mi</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_tmp\">暫存</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_mi\">mi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_mi\">mi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_tmp\">暫存</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_ji\">ji</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"1\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "seclect-005",
+      "title": "完整選擇排序",
+      "description": "小安已經學會如何在清單中找出最小值，並進行兩數交換。\n現在老師請他完成完整的選擇排序任務。\n桌上有一排固定 5 個整數，請你使用「選擇排序法」，\n將這些數字由小到大排序。\n選擇排序說明：\n1. 從尚未排序的部分中找出最小值。\n2. 將最小值與目前排序位置的數字交換。\n3. 重複上述步驟，直到整個清單排序完成。\n注意事項：\n1. 不可使用排序相關的積木或指令。\n2. 若有相同數字，排序後相對位置不限",
+      "inputDescription": "第1行：輸入數字N，N固定為5\n\n第2行：輸入5 個整數，代表清單中的數字（以空格隔開）。",
+      "outputDescription": "輸出 5 個整數，代表排序完成後的結果（以空格隔開）。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n8 3 5 1 6",
+          "output": "1 3 5 6 8",
+          "explanation": "依序找出最小值並交換，\n完成由小到大的排序。"
+        },
+        {
+          "input": "5\n2 4 6 8 10",
+          "output": "2 4 6 8 10",
+          "explanation": "原本已經排序完成，\n結果不變。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n8 3 5 1 6",
+          "expectedOutput": "1 3 5 6 8",
+          "output": "1 3 5 6 8",
+          "score": 10
+        },
+        {
+          "input": "5\n2 4 6 8 10",
+          "expectedOutput": "2 4 6 8 10",
+          "output": "2 4 6 8 10",
+          "score": 10
+        },
+        {
+          "input": "5\n5 4 3 2 1",
+          "expectedOutput": "1 2 3 4 5",
+          "output": "1 2 3 4 5",
+          "score": 10
+        },
+        {
+          "input": "5\n7 2 2 9 5",
+          "expectedOutput": "2 2 5 7 9",
+          "output": "2 2 5 7 9",
+          "score": 10
+        },
+        {
+          "input": "5\n9 1 8 1 7",
+          "expectedOutput": "1 1 7 8 9",
+          "output": "1 1 7 8 9",
+          "score": 10
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_si\">si</variable><variable id=\"v_sj\">sj</variable><variable id=\"v_smi\">smi</variable><variable id=\"v_stmp\">stmp</variable><variable id=\"var_jres\">jres</variable><variable id=\"var_ji\">ji</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_si\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"var_sj\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_stmp\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_stmp\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_ji\">ji</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"1\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "seclect-006",
+      "title": "排序演算法",
+      "description": "資訊課中，老師給了小華一排數字卡片，每張卡片上都有一個整數。\n小華想要把這些卡片由小到大排好，但老師規定：\n不能使用任何「排序」積木，只能使用重複、比較與變數。\n小華想到一個方法：\n每一回合從「還沒排好的卡片」中，找出最小的數字，依序放到前面。\n請你寫一個程式，依照這個想法，將輸入的數字由小到大排序後",
+      "inputDescription": "第1行：一個整數 N，代表卡片的數量。\n\n第2行：N 個整數，代表卡片上的數字（以空格隔開）。",
+      "outputDescription": "輸出 N 個整數，依由小到大的順序排列（以空格隔開）。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n8 3 5 1 6",
+          "output": "1 3 5 6 8",
+          "explanation": "第1次找最小值為 1\n第2次在剩下的數中找最小值為 3\n依序完成排序。"
+        },
+        {
+          "input": "4\n7 2 2 9",
+          "output": "2 2 7 9",
+          "explanation": "排序時需正確處理重複數字。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n8 3 5 1 6",
+          "expectedOutput": "1 3 5 6 8",
+          "output": "1 3 5 6 8",
+          "score": 10
+        },
+        {
+          "input": "4\n7 2 2 9",
+          "expectedOutput": "2 2 7 9",
+          "output": "2 2 7 9",
+          "score": 10
+        },
+        {
+          "input": "5\n1 2 3 4 5",
+          "expectedOutput": "1 2 3 4 5",
+          "output": "1 2 3 4 5",
+          "score": 10
+        },
+        {
+          "input": "5\n9 8 7 6 5",
+          "expectedOutput": "5 6 7 8 9",
+          "output": "5 6 7 8 9",
+          "score": 10
+        },
+        {
+          "input": "1\n4",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 10
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_x\">數字</variable><variable id=\"v_all\">全部數字</variable><variable id=\"v_si\">si</variable><variable id=\"v_sj\">sj</variable><variable id=\"v_smi\">smi</variable><variable id=\"v_stmp\">stmp</variable><variable id=\"var_jres\">jres</variable><variable id=\"var_ji\">ji</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_all\">全部數字</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">數字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">數字</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_si\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"var_sj\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_stmp\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_stmp\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_ji\">ji</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"1\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_jres\">jres</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_all\">全部數字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_ji\">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_jres\">jres</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    }
   ]
 };

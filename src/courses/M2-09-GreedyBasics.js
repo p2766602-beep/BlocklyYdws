@@ -9,397 +9,357 @@ export default {
   "mode": "learning",
   "tier": "t2",
   "tasks": [
-      {
-        "id": "GREEDY01-002",
-        "title": "最多可買幾瓶水",
-        "description": "每瓶水價格相同。給定身上的錢與每瓶水的價格，請計算最多可以買幾瓶水，以及剩下多少錢。",
-        "inputDescription": "輸入兩個整數 M 與 P，分別代表身上的錢與每瓶水的價格。",
-        "outputDescription": "輸出兩個整數，依序為最多可買瓶數與剩餘金額，中間以空白分隔。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "100 18",
-                    "output": "5 10",
-                    "explanation": "100 元最多可買 5 瓶，剩下 10 元。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "100 18",
-                    "expectedOutput": "5 10",
-                    "output": "5 10",
-                    "score": 0
-                  },
-                  {
-                    "input": "50 10",
-                    "expectedOutput": "5 0",
-                    "output": "5 0",
-                    "score": 0
-                  },
-                  {
-                    "input": "7 20",
-                    "expectedOutput": "0 7",
-                    "output": "0 7",
-                    "score": 0
-                  },
-                  {
-                    "input": "123 11",
-                    "expectedOutput": "11 2",
-                    "output": "11 2",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L1",
-        "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_m">M</variable><variable id="v_p">P</variable><variable id="v_bottles">瓶數</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入M</field></block></value><next><block type="variables_set"><field name="VAR" id="v_m">M</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入P</field></block></value><next><block type="variables_set"><field name="VAR" id="v_p">P</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_bottles">瓶數</field><value name="VALUE"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_m">M</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_p">P</field></block></value></block></value></block></value><next><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_bottles">瓶數</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_m">M</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_bottles">瓶數</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_p">P</field></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "GREEDY01-006",
-        "title": "最少箱子數",
-        "description": "每個箱子最多可裝 C 件物品。給定物品總數 N，請計算至少需要幾個箱子。",
-        "inputDescription": "輸入兩個整數 N 與 C，分別代表物品總數與每箱容量。",
-        "outputDescription": "輸出一個整數，代表至少需要的箱子數。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "23 5",
-                    "output": "5",
-                    "explanation": "前 4 箱裝 20 件，剩下 3 件還需要 1 箱，所以共 5 箱。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "23 5",
-                    "expectedOutput": "5",
-                    "output": "5",
-                    "score": 0
-                  },
-                  {
-                    "input": "20 5",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 0
-                  },
-                  {
-                    "input": "1 10",
-                    "expectedOutput": "1",
-                    "output": "1",
-                    "score": 0
-                  },
-                  {
-                    "input": "100 30",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L1",
-        "difficultyLabel": "L1｜基礎",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n">N</variable><variable id="v_c">C</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入C</field></block></value><next><block type="variables_set"><field name="VAR" id="v_c">C</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_say"><value name="TEXT"><block type="math_round"><field name="OP">ROUNDUP</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_c">C</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "GREEDY01-001",
-        "title": "最少硬幣數",
-        "description": "商店使用 50 元、10 元、5 元與 1 元硬幣找零。給定找零金額，請用最少硬幣數完成找零。",
-        "inputDescription": "輸入一個整數 N，代表找零金額。",
-        "outputDescription": "輸出一個整數，代表最少硬幣數。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "87",
-                    "output": "7",
-                    "explanation": "87 = 50×1 + 10×3 + 5×1 + 1×2，共 7 枚硬幣。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "87",
-                    "expectedOutput": "7",
-                    "output": "7",
-                    "score": 0
-                  },
-                  {
-                    "input": "0",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 0
-                  },
-                  {
-                    "input": "99",
-                    "expectedOutput": "10",
-                    "output": "10",
-                    "score": 0
-                  },
-                  {
-                    "input": "125",
-                    "expectedOutput": "5",
-                    "output": "5",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L2",
-        "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n2">N</variable><variable id="v_rem">剩餘</variable><variable id="v_coins">硬幣數</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n2">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_rem">剩餘</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_n2">N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_coins">硬幣數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_coins">硬幣數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_coins">硬幣數</field></block></value><value name="B"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_rem">剩餘</field></block></value><value name="B"><block type="math_number"><field name="NUM">50</field></block></value></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_rem">剩餘</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_rem">剩餘</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">50</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_coins">硬幣數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_coins">硬幣數</field></block></value><value name="B"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_rem">剩餘</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_rem">剩餘</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_rem">剩餘</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">10</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_coins">硬幣數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_coins">硬幣數</field></block></value><value name="B"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_rem">剩餘</field></block></value><value name="B"><block type="math_number"><field name="NUM">5</field></block></value></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_rem">剩餘</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_rem">剩餘</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">5</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_coins">硬幣數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_coins">硬幣數</field></block></value><value name="B"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_rem">剩餘</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_rem">剩餘</field><value name="VALUE"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="v_rem">剩餘</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_coins">硬幣數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "GREEDY01-007",
-        "title": "補到目標分數",
-        "description": "目前分數為 S，每次完成一題可增加 P 分。請計算至少還要完成幾題，才能達到或超過目標分數 T。",
-        "inputDescription": "輸入三個整數 S、T、P，分別代表目前分數、目標分數與每題增加分數。",
-        "outputDescription": "輸出一個整數，代表至少還要完成幾題。若目前已達標，輸出 0。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "65 100 12",
-                    "output": "3",
-                    "explanation": "65+12+12+12=101，至少需要 3 題。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "65 100 12",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 0
-                  },
-                  {
-                    "input": "100 100 10",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 0
-                  },
-                  {
-                    "input": "0 1 5",
-                    "expectedOutput": "1",
-                    "output": "1",
-                    "score": 0
-                  },
-                  {
-                    "input": "40 90 20",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L2",
-        "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_s">S</variable><variable id="v_t">T</variable><variable id="v_p2">P</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入S</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">S</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入T</field></block></value><next><block type="variables_set"><field name="VAR" id="v_t">T</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入P</field></block></value><next><block type="variables_set"><field name="VAR" id="v_p2">P</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_say"><value name="TEXT"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">LTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_t">T</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="THEN"><block type="math_number"><field name="NUM">0</field></block></value><value name="ELSE"><block type="math_round"><field name="OP">ROUNDUP</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_t">T</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_p2">P</field></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "GREEDY01-003",
-        "title": "優先完成短任務",
-        "description": "給定 N 個任務所需時間與可用時間 T。若每次都先做時間最短的任務，請計算最多能完成幾個任務。",
-        "inputDescription": "第一個整數為 N，第二個整數為 T，接著輸入 N 個整數代表每個任務所需時間。",
-        "outputDescription": "輸出一個整數，代表最多可完成任務數。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5 10 4 2 8 1 3",
-                    "output": "3",
-                    "explanation": "依時間排序為 1、2、3、4、8，可完成 1+2+3+4=10，共 4 個任務。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5 10 4 2 8 1 3",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 0
-                  },
-                  {
-                    "input": "3 5 6 7 8",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 10 5 5 5 5",
-                    "expectedOutput": "2",
-                    "output": "2",
-                    "score": 0
-                  },
-                  {
-                    "input": "6 12 1 2 3 4 5 6",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n3">N</variable><variable id="v_t3">T</variable><variable id="v_iv">任務值</variable><variable id="v_items">任務時間</variable><variable id="v_si">si</variable><variable id="v_sj">sj</variable><variable id="v_smi">smi</variable><variable id="v_stmp">stmp</variable><variable id="v_sum">累計</variable><variable id="v_cnt">完成數</variable><variable id="v_i">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n3">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入T</field></block></value><next><block type="variables_set"><field name="VAR" id="v_t3">T</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_items">任務時間</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n3">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_iv">任務值</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items">任務時間</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_iv">任務值</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n3">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n3">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n3">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items">任務時間</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items">任務時間</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items">任務時間</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items">任務時間</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items">任務時間</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items">任務時間</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="variables_set"><field name="VAR" id="v_sum">累計</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_cnt">完成數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n3">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n3">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LTE</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">累計</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items">任務時間</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_t3">T</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_sum">累計</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">累計</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items">任務時間</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_cnt">完成數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cnt">完成數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_cnt">完成數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "GREEDY01-004",
-        "title": "買最多便宜商品",
-        "description": "給定 N 個商品價格與預算 B。若想買到最多商品，應優先購買便宜商品。請計算最多可買幾件商品。",
-        "inputDescription": "第一個整數為 N，第二個整數為 B，接著輸入 N 個整數代表商品價格。",
-        "outputDescription": "輸出一個整數，代表最多可買商品數。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5 100 60 20 30 80 10",
-                    "output": "3",
-                    "explanation": "先買 10、20、30，共 60 元，可買 3 件；再買 60 會超過 100。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5 100 60 20 30 80 10",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 50 10 10 10 10",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 0
-                  },
-                  {
-                    "input": "3 5 6 7 8",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 0
-                  },
-                  {
-                    "input": "6 25 9 8 7 6 5 4",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n4">N</variable><variable id="v_b4">B</variable><variable id="v_iv4">商品值</variable><variable id="v_items4">商品價格</variable><variable id="v_si4">si</variable><variable id="v_sj4">sj</variable><variable id="v_smi4">smi</variable><variable id="v_stmp4">stmp</variable><variable id="v_sum4">累計</variable><variable id="v_cnt4">件數</variable><variable id="v_i4">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n4">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入B</field></block></value><next><block type="variables_set"><field name="VAR" id="v_b4">B</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_items4">商品價格</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n4">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_iv4">商品值</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items4">商品價格</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_iv4">商品值</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n4">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_si4">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n4">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_smi4">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_si4">si</field></block></value><next><block type="controls_for"><field name="VAR" id="v_sj4">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_si4">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n4">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items4">商品價格</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_sj4">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items4">商品價格</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_smi4">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_smi4">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_sj4">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_smi4">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_si4">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_stmp4">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items4">商品價格</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_si4">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items4">商品價格</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_si4">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items4">商品價格</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_smi4">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items4">商品價格</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_smi4">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_stmp4">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="variables_set"><field name="VAR" id="v_sum4">累計</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_cnt4">件數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n4">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i4">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n4">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LTE</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum4">累計</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items4">商品價格</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i4">i</field></block></value></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_b4">B</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_sum4">累計</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum4">累計</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items4">商品價格</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i4">i</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_cnt4">件數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cnt4">件數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_cnt4">件數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "GREEDY01-005",
-        "title": "最大總分選擇",
-        "description": "給定 N 個任務分數，請選出分數最高的 K 個任務，計算總分。",
-        "inputDescription": "第一個整數為 N，第二個整數為 K，接著輸入 N 個整數代表任務分數。保證 1 <= K <= N。",
-        "outputDescription": "輸出一個整數，代表最高 K 個分數的總和。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5 3 10 50 20 40 30",
-                    "output": "120",
-                    "explanation": "最高的 3 個分數是 50、40、30，總和為 120。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5 3 10 50 20 40 30",
-                    "expectedOutput": "120",
-                    "output": "120",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 2 1 2 3 4",
-                    "expectedOutput": "7",
-                    "output": "7",
-                    "score": 0
-                  },
-                  {
-                    "input": "3 3 5 5 5",
-                    "expectedOutput": "15",
-                    "output": "15",
-                    "score": 0
-                  },
-                  {
-                    "input": "6 1 9 8 7 6 5 4",
-                    "expectedOutput": "9",
-                    "output": "9",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n5">N</variable><variable id="v_k5">K</variable><variable id="v_iv5">分數值</variable><variable id="v_items5">分數</variable><variable id="v_si5">si</variable><variable id="v_sj5">sj</variable><variable id="v_smi5">smi</variable><variable id="v_stmp5">stmp</variable><variable id="v_sum5">總分</variable><variable id="v_i5">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n5">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入K</field></block></value><next><block type="variables_set"><field name="VAR" id="v_k5">K</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_items5">分數</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n5">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_iv5">分數值</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items5">分數</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_iv5">分數值</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n5">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_si5">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n5">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_smi5">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_si5">si</field></block></value><next><block type="controls_for"><field name="VAR" id="v_sj5">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_si5">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n5">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items5">分數</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_sj5">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items5">分數</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_smi5">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_smi5">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_sj5">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_smi5">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_si5">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_stmp5">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items5">分數</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_si5">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items5">分數</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_si5">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items5">分數</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_smi5">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items5">分數</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_smi5">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_stmp5">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="variables_set"><field name="VAR" id="v_sum5">總分</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_k5">K</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i5">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_k5">K</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum5">總分</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum5">總分</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items5">分數</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i5">i</field></block></value></block></value></block></value></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_sum5">總分</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "GREEDY01-008",
-        "title": "最多裝入背包",
-        "description": "背包容量為 W，給定 N 個物品重量。若想裝入最多物品，應優先選擇重量較輕的物品。請計算最多可裝入幾個物品。",
-        "inputDescription": "第一個整數為 N，第二個整數為 W，接著輸入 N 個整數代表物品重量。",
-        "outputDescription": "輸出一個整數，代表最多可裝入物品數。",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5 15 9 2 6 4 8",
-                    "output": "3",
-                    "explanation": "先選 2、4、6，總重 12，可裝 3 個；再選 8 會超過 15。"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5 15 9 2 6 4 8",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 0
-                  },
-                  {
-                    "input": "4 10 1 2 3 4",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 0
-                  },
-                  {
-                    "input": "3 5 6 7 8",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 0
-                  },
-                  {
-                    "input": "6 20 5 5 5 5 5 5",
-                    "expectedOutput": "4",
-                    "output": "4",
-                    "score": 0
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n8">N</variable><variable id="v_w8">W</variable><variable id="v_iv8">重量值</variable><variable id="v_items8">物品重量</variable><variable id="v_si8">si</variable><variable id="v_sj8">sj</variable><variable id="v_smi8">smi</variable><variable id="v_stmp8">stmp</variable><variable id="v_sum8">累計</variable><variable id="v_cnt8">件數</variable><variable id="v_i8">i</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n8">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入W</field></block></value><next><block type="variables_set"><field name="VAR" id="v_w8">W</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_items8">物品重量</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n8">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_iv8">重量值</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items8">物品重量</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_iv8">重量值</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n8">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_si8">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n8">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_smi8">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_si8">si</field></block></value><next><block type="controls_for"><field name="VAR" id="v_sj8">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_si8">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n8">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items8">物品重量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_sj8">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items8">物品重量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_smi8">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_smi8">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_sj8">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_smi8">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_si8">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_stmp8">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items8">物品重量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_si8">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items8">物品重量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_si8">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items8">物品重量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_smi8">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_items8">物品重量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_smi8">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_stmp8">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="variables_set"><field name="VAR" id="v_sum8">累計</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_cnt8">件數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n8">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i8">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n8">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LTE</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum8">累計</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items8">物品重量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i8">i</field></block></value></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_w8">W</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_sum8">累計</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum8">累計</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_items8">物品重量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i8">i</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_cnt8">件數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cnt8">件數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_cnt8">件數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      }
+    {
+      "id": "GREEDY01-002",
+      "title": "最多可買幾瓶水",
+      "description": "每瓶水價格相同。給定身上的錢與每瓶水的價格，請計算最多可以買幾瓶水，以及剩下多少錢。",
+      "inputDescription": "輸入兩個整數 M 與 P，分別代表身上的錢與每瓶水的價格。",
+      "outputDescription": "輸出兩個整數，依序為最多可買瓶數與剩餘金額，中間以空白分隔。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "100 18",
+          "output": "5 10",
+          "explanation": "100 元最多可買 5 瓶，剩下 10 元。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "100 18",
+          "expectedOutput": "5 10",
+          "output": "5 10",
+          "score": 0
+        },
+        {
+          "input": "50 10",
+          "expectedOutput": "5 0",
+          "output": "5 0",
+          "score": 0
+        },
+        {
+          "input": "7 20",
+          "expectedOutput": "0 7",
+          "output": "0 7",
+          "score": 0
+        },
+        {
+          "input": "123 11",
+          "expectedOutput": "11 2",
+          "output": "11 2",
+          "score": 0
+        }
+      ],
+      "difficulty": "L1",
+      "difficultyLabel": "L1｜基礎",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_m\">M</variable><variable id=\"v_p\">P</variable><variable id=\"v_bottles\">瓶數</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入M</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_m\">M</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入P</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_p\">P</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_bottles\">瓶數</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_m\">M</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_p\">P</field></block></value></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_bottles\">瓶數</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_m\">M</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_bottles\">瓶數</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_p\">P</field></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "GREEDY01-006",
+      "title": "最少箱子數",
+      "description": "每個箱子最多可裝 C 件物品。給定物品總數 N，請計算至少需要幾個箱子。",
+      "inputDescription": "輸入兩個整數 N 與 C，分別代表物品總數與每箱容量。",
+      "outputDescription": "輸出一個整數，代表至少需要的箱子數。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "23 5",
+          "output": "5",
+          "explanation": "前 4 箱裝 20 件，剩下 3 件還需要 1 箱，所以共 5 箱。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "23 5",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 0
+        },
+        {
+          "input": "20 5",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 0
+        },
+        {
+          "input": "1 10",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 0
+        },
+        {
+          "input": "100 30",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 0
+        }
+      ],
+      "difficulty": "L1",
+      "difficultyLabel": "L1｜基礎",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n\">N</variable><variable id=\"v_c\">C</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入C</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_c\">C</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"math_round\"><field name=\"OP\">ROUNDUP</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_c\">C</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "GREEDY01-001",
+      "title": "最少硬幣數",
+      "description": "商店使用 50 元、10 元、5 元與 1 元硬幣找零。給定找零金額，請用最少硬幣數完成找零。",
+      "inputDescription": "輸入一個整數 N，代表找零金額。",
+      "outputDescription": "輸出一個整數，代表最少硬幣數。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "87",
+          "output": "7",
+          "explanation": "87 = 50×1 + 10×3 + 5×1 + 1×2，共 7 枚硬幣。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "87",
+          "expectedOutput": "7",
+          "output": "7",
+          "score": 0
+        },
+        {
+          "input": "0",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 0
+        },
+        {
+          "input": "99",
+          "expectedOutput": "10",
+          "output": "10",
+          "score": 0
+        },
+        {
+          "input": "125",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 0
+        }
+      ],
+      "difficulty": "L2",
+      "difficultyLabel": "L2｜進階",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n2\">N</variable><variable id=\"v_rem\">剩餘</variable><variable id=\"v_coins\">硬幣數</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n2\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_rem\">剩餘</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n2\">N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field></block></value><value name=\"B\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_rem\">剩餘</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">50</field></block></value></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_rem\">剩餘</field><value name=\"VALUE\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_rem\">剩餘</field></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">50</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field></block></value><value name=\"B\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_rem\">剩餘</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">10</field></block></value></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_rem\">剩餘</field><value name=\"VALUE\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_rem\">剩餘</field></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">10</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field></block></value><value name=\"B\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_rem\">剩餘</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_rem\">剩餘</field><value name=\"VALUE\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_rem\">剩餘</field></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field></block></value><value name=\"B\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_rem\">剩餘</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_rem\">剩餘</field><value name=\"VALUE\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_rem\">剩餘</field></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_coins\">硬幣數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "GREEDY01-007",
+      "title": "補到目標分數",
+      "description": "目前分數為 S，每次完成一題可增加 P 分。請計算至少還要完成幾題，才能達到或超過目標分數 T。",
+      "inputDescription": "輸入三個整數 S、T、P，分別代表目前分數、目標分數與每題增加分數。",
+      "outputDescription": "輸出一個整數，代表至少還要完成幾題。若目前已達標，輸出 0。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "65 100 12",
+          "output": "3",
+          "explanation": "65+12+12+12=101，至少需要 3 題。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "65 100 12",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 0
+        },
+        {
+          "input": "100 100 10",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 0
+        },
+        {
+          "input": "0 1 5",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 0
+        },
+        {
+          "input": "40 90 20",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 0
+        }
+      ],
+      "difficulty": "L2",
+      "difficultyLabel": "L2｜進階",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_s\">S</variable><variable id=\"v_t\">T</variable><variable id=\"v_p2\">P</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入S</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_s\">S</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入T</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_t\">T</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入P</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_p2\">P</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_t\">T</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">S</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"THEN\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"ELSE\"><block type=\"math_round\"><field name=\"OP\">ROUNDUP</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_t\">T</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s\">S</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_p2\">P</field></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "GREEDY01-003",
+      "title": "優先完成短任務",
+      "description": "給定 N 個任務所需時間與可用時間 T。若每次都先做時間最短的任務，請計算最多能完成幾個任務。",
+      "inputDescription": "第一個整數為 N，第二個整數為 T，接著輸入 N 個整數代表每個任務所需時間。",
+      "outputDescription": "輸出一個整數，代表最多可完成任務數。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n10\n4 2 8 1 3",
+          "output": "3",
+          "explanation": "依時間排序為 1、2、3、4、8，可完成 1+2+3+4=10，共 4 個任務。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n10\n4 2 8 1 3",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 0
+        },
+        {
+          "input": "3\n5\n6 7 8",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 0
+        },
+        {
+          "input": "4\n10\n5 5 5 5",
+          "expectedOutput": "2",
+          "output": "2",
+          "score": 0
+        },
+        {
+          "input": "6\n12\n1 2 3 4 5 6",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n3\">N</variable><variable id=\"v_t3\">T</variable><variable id=\"v_iv\">任務值</variable><variable id=\"v_items\">任務時間</variable><variable id=\"v_si\">si</variable><variable id=\"v_sj\">sj</variable><variable id=\"v_smi\">smi</variable><variable id=\"v_stmp\">stmp</variable><variable id=\"v_sum\">累計</variable><variable id=\"v_cnt\">完成數</variable><variable id=\"v_i\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n3\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入T</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_t3\">T</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_items\">任務時間</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n3\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_iv\">任務值</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items\">任務時間</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_iv\">任務值</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n3\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"var_si\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n3\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"var_sj\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n3\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items\">任務時間</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items\">任務時間</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_smi\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sj\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_stmp\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items\">任務時間</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items\">任務時間</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_si\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items\">任務時間</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items\">任務時間</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_smi\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_stmp\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum\">累計</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt\">完成數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n3\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n3\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum\">累計</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items\">任務時間</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_t3\">T</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum\">累計</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum\">累計</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items\">任務時間</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i\">i</field></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt\">完成數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt\">完成數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt\">完成數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "GREEDY01-004",
+      "title": "買最多便宜商品",
+      "description": "給定 N 個商品價格與預算 B。若想買到最多商品，應優先購買便宜商品。請計算最多可買幾件商品。",
+      "inputDescription": "第一個整數為 N，第二個整數為 B，接著輸入 N 個整數代表商品價格。",
+      "outputDescription": "輸出一個整數，代表最多可買商品數。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n100\n60 20 30 80 10",
+          "output": "3",
+          "explanation": "先買 10、20、30，共 60 元，可買 3 件；再買 60 會超過 100。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n100\n60 20 30 80 10",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 0
+        },
+        {
+          "input": "4\n50\n10 10 10 10",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 0
+        },
+        {
+          "input": "3\n5\n6 7 8",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 0
+        },
+        {
+          "input": "6\n25\n9 8 7 6 5 4",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n4\">N</variable><variable id=\"v_b4\">B</variable><variable id=\"v_iv4\">商品值</variable><variable id=\"v_items4\">商品價格</variable><variable id=\"v_si4\">si</variable><variable id=\"v_sj4\">sj</variable><variable id=\"v_smi4\">smi</variable><variable id=\"v_stmp4\">stmp</variable><variable id=\"v_sum4\">累計</variable><variable id=\"v_cnt4\">件數</variable><variable id=\"v_i4\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n4\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入B</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_b4\">B</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_items4\">商品價格</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n4\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_iv4\">商品值</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items4\">商品價格</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_iv4\">商品值</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n4\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_si4\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n4\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_smi4\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si4\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_sj4\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si4\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n4\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items4\">商品價格</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sj4\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items4\">商品價格</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi4\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_smi4\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sj4\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi4\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si4\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_stmp4\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items4\">商品價格</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si4\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items4\">商品價格</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si4\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items4\">商品價格</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi4\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items4\">商品價格</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi4\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_stmp4\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum4\">累計</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt4\">件數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n4\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i4\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n4\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum4\">累計</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items4\">商品價格</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i4\">i</field></block></value></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_b4\">B</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum4\">累計</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum4\">累計</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items4\">商品價格</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i4\">i</field></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt4\">件數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt4\">件數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt4\">件數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "GREEDY01-005",
+      "title": "最大總分選擇",
+      "description": "給定 N 個任務分數，請選出分數最高的 K 個任務，計算總分。",
+      "inputDescription": "第一個整數為 N，第二個整數為 K，接著輸入 N 個整數代表任務分數。保證 1 <= K <= N。",
+      "outputDescription": "輸出一個整數，代表最高 K 個分數的總和。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n3\n10 50 20 40 30",
+          "output": "120",
+          "explanation": "最高的 3 個分數是 50、40、30，總和為 120。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n3\n10 50 20 40 30",
+          "expectedOutput": "120",
+          "output": "120",
+          "score": 0
+        },
+        {
+          "input": "4\n2\n1 2 3 4",
+          "expectedOutput": "7",
+          "output": "7",
+          "score": 0
+        },
+        {
+          "input": "3\n3\n5 5 5",
+          "expectedOutput": "15",
+          "output": "15",
+          "score": 0
+        },
+        {
+          "input": "6\n1\n9 8 7 6 5 4",
+          "expectedOutput": "9",
+          "output": "9",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n5\">N</variable><variable id=\"v_k5\">K</variable><variable id=\"v_iv5\">分數值</variable><variable id=\"v_items5\">分數</variable><variable id=\"v_si5\">si</variable><variable id=\"v_sj5\">sj</variable><variable id=\"v_smi5\">smi</variable><variable id=\"v_stmp5\">stmp</variable><variable id=\"v_sum5\">總分</variable><variable id=\"v_i5\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n5\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入K</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_k5\">K</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_items5\">分數</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n5\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_iv5\">分數值</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items5\">分數</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_iv5\">分數值</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n5\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_si5\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n5\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_smi5\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si5\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_sj5\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si5\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n5\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items5\">分數</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sj5\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items5\">分數</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi5\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_smi5\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sj5\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi5\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si5\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_stmp5\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items5\">分數</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si5\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items5\">分數</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si5\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items5\">分數</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi5\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items5\">分數</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi5\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_stmp5\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum5\">總分</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k5\">K</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i5\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k5\">K</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum5\">總分</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum5\">總分</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items5\">分數</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i5\">i</field></block></value></block></value></block></value></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum5\">總分</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "GREEDY01-008",
+      "title": "最多裝入背包",
+      "description": "背包容量為 W，給定 N 個物品重量。若想裝入最多物品，應優先選擇重量較輕的物品。請計算最多可裝入幾個物品。",
+      "inputDescription": "第一個整數為 N，第二個整數為 W，接著輸入 N 個整數代表物品重量。",
+      "outputDescription": "輸出一個整數，代表最多可裝入物品數。",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n15\n9 2 6 4 8",
+          "output": "3",
+          "explanation": "先選 2、4、6，總重 12，可裝 3 個；再選 8 會超過 15。"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n15\n9 2 6 4 8",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 0
+        },
+        {
+          "input": "4\n10\n1 2 3 4",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 0
+        },
+        {
+          "input": "3\n5\n6 7 8",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 0
+        },
+        {
+          "input": "6\n20\n5 5 5 5 5 5",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 0
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n8\">N</variable><variable id=\"v_w8\">W</variable><variable id=\"v_iv8\">重量值</variable><variable id=\"v_items8\">物品重量</variable><variable id=\"v_si8\">si</variable><variable id=\"v_sj8\">sj</variable><variable id=\"v_smi8\">smi</variable><variable id=\"v_stmp8\">stmp</variable><variable id=\"v_sum8\">累計</variable><variable id=\"v_cnt8\">件數</variable><variable id=\"v_i8\">i</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n8\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入W</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_w8\">W</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_items8\">物品重量</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n8\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_iv8\">重量值</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items8\">物品重量</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_iv8\">重量值</field></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n8\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_si8\">si</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n8\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_smi8\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si8\">si</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_sj8\">sj</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si8\">si</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n8\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items8\">物品重量</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sj8\">sj</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items8\">物品重量</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi8\">smi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_smi8\">smi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sj8\">sj</field></block></value></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi8\">smi</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si8\">si</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_stmp8\">stmp</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items8\">物品重量</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si8\">si</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items8\">物品重量</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_si8\">si</field></block></value><value name=\"TO\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items8\">物品重量</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi8\">smi</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items8\">物品重量</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_smi8\">smi</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_stmp8\">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum8\">累計</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt8\">件數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n8\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i8\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n8\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum8\">累計</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items8\">物品重量</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i8\">i</field></block></value></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_w8\">W</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum8\">累計</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum8\">累計</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_items8\">物品重量</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i8\">i</field></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_cnt8\">件數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt8\">件數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_cnt8\">件數</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    }
   ]
 };

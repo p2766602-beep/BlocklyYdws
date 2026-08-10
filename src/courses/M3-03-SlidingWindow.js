@@ -9,299 +9,269 @@ export default {
   "mode": "learning",
   "tier": "t3",
   "tasks": [
-      {
-        "id": "M3-03-01",
-        "title": "連續K天營收總和一覽",
-        "description": "商店記錄每天營收，請你算出所有『連續K天』區間的營收總和，依開始日期順序輸出。\n\n第一行輸入N，代表有N天\n\n第二行輸入N個數字，代表每天營收\n\n第三行輸入K\n\n輸出從第1天開始、第2天開始……一直到最後一個可能的K天區間，各自的總和，空白分隔。",
-        "inputDescription": "N、N個每日營收、K",
-        "outputDescription": "每個K天區間的總和，空白分隔",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5\n10 20 30 40 50\n3",
-                    "output": "60 90 120",
-                    "explanation": "第1~3天:10+20+30=60；第2~4天:20+30+40=90；第3~5天:30+40+50=120"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5\n10 20 30 40 50\n3",
-                    "expectedOutput": "60 90 120",
-                    "output": "60 90 120",
-                    "score": 25
-                  },
-                  {
-                    "input": "4\n1 2 3 4\n2",
-                    "expectedOutput": "3 5 7",
-                    "output": "3 5 7",
-                    "score": 25
-                  },
-                  {
-                    "input": "3\n5 5 5\n3",
-                    "expectedOutput": "15",
-                    "output": "15",
-                    "score": 25
-                  },
-                  {
-                    "input": "5\n1 1 1 1 1\n1",
-                    "expectedOutput": "1 1 1 1 1",
-                    "output": "1 1 1 1 1",
-                    "score": 25
-                  }
-                ],
-        "difficulty": "L2",
-        "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n0301">N</variable><variable id="v_vv0301">營收v</variable><variable id="v_vals0301">營收</variable><variable id="v_k0301">K</variable><variable id="v_s0301">s</variable><variable id="v_j0301">j</variable><variable id="v_sum0301">sum</variable><variable id="v_first0301">first</variable><variable id="v_res0301">結果</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n0301">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_vals0301">營收</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n0301">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_vv0301">營收v</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_vals0301">營收</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_vv0301">營收v</field></block></value></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入K</field></block></value><next><block type="variables_set"><field name="VAR" id="v_k0301">K</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_first0301">first</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0301">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k0301">K</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_s0301">s</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0301">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k0301">K</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0301">sum</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_j0301">j</field><value name="FROM"><block type="variables_get"><field name="VAR" id="v_s0301">s</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s0301">s</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_k0301">K</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0301">sum</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0301">sum</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_vals0301">營收</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_j0301">j</field></block></value></block></value></block></value></block></statement><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_first0301">first</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_res0301">結果</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_sum0301">sum</field></block></value><next><block type="variables_set"><field name="VAR" id="v_first0301">first</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value></block></next></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="v_res0301">結果</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_res0301">結果</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_sum0301">sum</field></block></value></block></value></block></statement></block></next></block></next></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_res0301">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "M3-03-02",
-        "title": "連續K天最大總營收",
-        "description": "同樣是每日營收紀錄，請你找出『連續K天』區間中，總營收最高的金額是多少。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K\n\n輸出所有連續K天區間中的最大總營收。",
-        "inputDescription": "N、N個每日營收、K",
-        "outputDescription": "最大總營收",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5\n10 20 30 40 50\n3",
-                    "output": "120",
-                    "explanation": "所有連續3天總和中，30+40+50=120最大"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5\n10 20 30 40 50\n3",
-                    "expectedOutput": "120",
-                    "output": "120",
-                    "score": 25
-                  },
-                  {
-                    "input": "4\n1 2 3 4\n2",
-                    "expectedOutput": "7",
-                    "output": "7",
-                    "score": 25
-                  },
-                  {
-                    "input": "6\n5 1 5 9 5 1\n2",
-                    "expectedOutput": "14",
-                    "output": "14",
-                    "score": 25
-                  },
-                  {
-                    "input": "5\n9 1 1 1 9\n2",
-                    "expectedOutput": "10",
-                    "output": "10",
-                    "score": 25
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n0302">N</variable><variable id="v_vv0302">營收v</variable><variable id="v_vals0302">營收</variable><variable id="v_k0302">K</variable><variable id="v_s0302">s</variable><variable id="v_j0302">j</variable><variable id="v_sum0302">sum</variable><variable id="v_best0302">最大值</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n0302">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_vals0302">營收</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n0302">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_vv0302">營收v</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_vals0302">營收</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_vv0302">營收v</field></block></value></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入K</field></block></value><next><block type="variables_set"><field name="VAR" id="v_k0302">K</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_best0302">最大值</field><value name="VALUE"><block type="math_number"><field name="NUM">-1</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0302">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k0302">K</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_s0302">s</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0302">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k0302">K</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0302">sum</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_j0302">j</field><value name="FROM"><block type="variables_get"><field name="VAR" id="v_s0302">s</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s0302">s</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_k0302">K</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0302">sum</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0302">sum</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_vals0302">營收</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_j0302">j</field></block></value></block></value></block></value></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0302">sum</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_best0302">最大值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_best0302">最大值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_sum0302">sum</field></block></value></block></statement></block></next></block></next></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_best0302">最大值</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "M3-03-03",
-        "title": "連續K天最小總營收",
-        "description": "同樣是每日營收紀錄，請你找出『連續K天』區間中，總營收最低的金額是多少。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K\n\n輸出所有連續K天區間中的最小總營收。",
-        "inputDescription": "N、N個每日營收、K",
-        "outputDescription": "最小總營收",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5\n10 20 30 40 50\n3",
-                    "output": "60",
-                    "explanation": "所有連續3天總和中，10+20+30=60最小"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5\n10 20 30 40 50\n3",
-                    "expectedOutput": "60",
-                    "output": "60",
-                    "score": 25
-                  },
-                  {
-                    "input": "4\n1 2 3 4\n2",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 25
-                  },
-                  {
-                    "input": "6\n5 1 5 9 5 1\n2",
-                    "expectedOutput": "6",
-                    "output": "6",
-                    "score": 25
-                  },
-                  {
-                    "input": "5\n9 1 1 1 9\n2",
-                    "expectedOutput": "2",
-                    "output": "2",
-                    "score": 25
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n0303">N</variable><variable id="v_vv0303">營收v</variable><variable id="v_vals0303">營收</variable><variable id="v_k0303">K</variable><variable id="v_s0303">s</variable><variable id="v_j0303">j</variable><variable id="v_sum0303">sum</variable><variable id="v_best0303">最小值</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n0303">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_vals0303">營收</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n0303">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_vv0303">營收v</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_vals0303">營收</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_vv0303">營收v</field></block></value></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入K</field></block></value><next><block type="variables_set"><field name="VAR" id="v_k0303">K</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_best0303">最小值</field><value name="VALUE"><block type="math_number"><field name="NUM">999999999</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0303">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k0303">K</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_s0303">s</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0303">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k0303">K</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0303">sum</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_j0303">j</field><value name="FROM"><block type="variables_get"><field name="VAR" id="v_s0303">s</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s0303">s</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_k0303">K</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0303">sum</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0303">sum</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_vals0303">營收</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_j0303">j</field></block></value></block></value></block></value></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0303">sum</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_best0303">最小值</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_best0303">最小值</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_sum0303">sum</field></block></value></block></statement></block></next></block></next></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_best0303">最小值</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "M3-03-04",
-        "title": "連續K天平均是否曾經達標",
-        "description": "請你判斷是否存在某一段連續K天，平均營收達到門檻threshold以上（整數除法，無條件捨去）。只要存在至少一段就輸出「有」，否則輸出「無」。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K threshold（空白分隔）\n\n輸出「有」或「無」。",
-        "inputDescription": "N、N個每日營收、K threshold",
-        "outputDescription": "有 或 無",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "5\n10 20 30 40 50\n3 35",
-                    "output": "有",
-                    "explanation": "第3~5天平均(30+40+50)/3=40，大於等於35，所以有"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "5\n10 20 30 40 50\n3 35",
-                    "expectedOutput": "有",
-                    "output": "有",
-                    "score": 25
-                  },
-                  {
-                    "input": "5\n10 20 30 40 50\n3 50",
-                    "expectedOutput": "無",
-                    "output": "無",
-                    "score": 25
-                  },
-                  {
-                    "input": "4\n1 2 3 4\n2 3",
-                    "expectedOutput": "有",
-                    "output": "有",
-                    "score": 25
-                  },
-                  {
-                    "input": "4\n1 2 3 4\n2 4",
-                    "expectedOutput": "無",
-                    "output": "無",
-                    "score": 25
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n0304">N</variable><variable id="v_vv0304">營收v</variable><variable id="v_vals0304">營收</variable><variable id="v_k0304">K</variable><variable id="v_th0304">threshold</variable><variable id="v_s0304">s</variable><variable id="v_j0304">j</variable><variable id="v_sum0304">sum</variable><variable id="v_hit0304">有達標</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n0304">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_vals0304">營收</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n0304">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_vv0304">營收v</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_vals0304">營收</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_vv0304">營收v</field></block></value></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入K</field></block></value><next><block type="variables_set"><field name="VAR" id="v_k0304">K</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入threshold</field></block></value><next><block type="variables_set"><field name="VAR" id="v_th0304">threshold</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_hit0304">有達標</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0304">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k0304">K</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_s0304">s</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0304">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k0304">K</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0304">sum</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_j0304">j</field><value name="FROM"><block type="variables_get"><field name="VAR" id="v_s0304">s</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s0304">s</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_k0304">K</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0304">sum</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0304">sum</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_vals0304">營收</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_j0304">j</field></block></value></block></value></block></value></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0304">sum</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k0304">K</field></block></value></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_th0304">threshold</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_hit0304">有達標</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value></block></statement></block></next></block></next></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_hit0304">有達標</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="THEN"><block type="text"><field name="TEXT">有</field></block></value><value name="ELSE"><block type="text"><field name="TEXT">無</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "M3-03-05",
-        "title": "最長連續達標天數",
-        "description": "請你找出最長一段『連續達標』的天數——只要每天的數值都大於等於門檻threshold，就算是達標；求最長連續達標的天數（如果完全沒有任何一天達標，輸出0）。\n\n第一行輸入N\n\n第二行輸入N個每日數值\n\n第三行輸入threshold\n\n輸出最長連續達標天數。",
-        "inputDescription": "N、N個每日數值、threshold",
-        "outputDescription": "最長連續達標天數",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "7\n5 8 9 3 10 12 11\n8",
-                    "output": "3",
-                    "explanation": "第2~3天(8,9)連續達標2天；第5~7天(10,12,11)連續達標3天最長"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "7\n5 8 9 3 10 12 11\n8",
-                    "expectedOutput": "3",
-                    "output": "3",
-                    "score": 25
-                  },
-                  {
-                    "input": "5\n1 2 3 4 5\n10",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 25
-                  },
-                  {
-                    "input": "5\n5 5 5 5 5\n5",
-                    "expectedOutput": "5",
-                    "output": "5",
-                    "score": 25
-                  },
-                  {
-                    "input": "6\n1 9 9 1 9 9\n9",
-                    "expectedOutput": "2",
-                    "output": "2",
-                    "score": 25
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n0305">N</variable><variable id="v_vv0305">數值v</variable><variable id="v_vals0305">數值</variable><variable id="v_th0305">threshold</variable><variable id="v_i0305">i</variable><variable id="v_streak0305">連續天數</variable><variable id="v_best0305">最長</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n0305">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_vals0305">數值</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n0305">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_vv0305">數值v</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_vals0305">數值</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_vv0305">數值v</field></block></value></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入threshold</field></block></value><next><block type="variables_set"><field name="VAR" id="v_th0305">threshold</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_streak0305">連續天數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_best0305">最長</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0305">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i0305">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n0305">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_vals0305">數值</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i0305">i</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_th0305">threshold</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_streak0305">連續天數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_streak0305">連續天數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_streak0305">連續天數</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_best0305">最長</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_best0305">最長</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_streak0305">連續天數</field></block></value></block></statement></block></next></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="v_streak0305">連續天數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_best0305">最長</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      },
-      {
-        "id": "M3-03-06",
-        "title": "最少連續幾天達到目標總量",
-        "description": "請你找出最短的一段連續天數，讓這段天數的總和達到（大於等於）目標值target；如果找不到這樣的連續天數，輸出0。\n\n第一行輸入N\n\n第二行輸入N個每日數值\n\n第三行輸入target\n\n輸出最短的連續天數；找不到輸出0。",
-        "inputDescription": "N、N個每日數值、target",
-        "outputDescription": "最短連續天數，找不到輸出0",
-        "requiresGreenFlag": true,
-        "examples": [
-                  {
-                    "input": "6\n2 3 1 2 4 3\n7",
-                    "output": "2",
-                    "explanation": "第5~6天4+3=7，只用2天就達標，是最短的"
-                  }
-                ],
-        "testCases": [
-                  {
-                    "input": "6\n2 3 1 2 4 3\n7",
-                    "expectedOutput": "2",
-                    "output": "2",
-                    "score": 25
-                  },
-                  {
-                    "input": "5\n1 1 1 1 1\n100",
-                    "expectedOutput": "0",
-                    "output": "0",
-                    "score": 25
-                  },
-                  {
-                    "input": "3\n10 2 3\n10",
-                    "expectedOutput": "1",
-                    "output": "1",
-                    "score": 25
-                  },
-                  {
-                    "input": "5\n1 4 4 1 5\n8",
-                    "expectedOutput": "2",
-                    "output": "2",
-                    "score": 25
-                  }
-                ],
-        "difficulty": "L3",
-        "difficultyLabel": "L3｜挑戰",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="v_n0306">N</variable><variable id="v_vv0306">數值v</variable><variable id="v_vals0306">數值</variable><variable id="v_target0306">target</variable><variable id="v_found0306">found</variable><variable id="v_best0306">最短天數</variable><variable id="v_st0306">st</variable><variable id="v_e0306">e</variable><variable id="v_sum0306">sum</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n0306">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_vals0306">數值</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n0306">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_vv0306">數值v</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_vals0306">數值</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_vv0306">數值v</field></block></value></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入target</field></block></value><next><block type="variables_set"><field name="VAR" id="v_target0306">target</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_found0306">found</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_best0306">最短天數</field><value name="VALUE"><block type="math_number"><field name="NUM">999999</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n0306">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_st0306">st</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n0306">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0306">sum</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_e0306">e</field><value name="FROM"><block type="variables_get"><field name="VAR" id="v_st0306">st</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n0306">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum0306">sum</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0306">sum</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_vals0306">數值</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_e0306">e</field></block></value></block></value></block></value><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0306">sum</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_target0306">target</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_found0306">found</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_found0306">found</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value><next><block type="variables_set"><field name="VAR" id="v_best0306">最短天數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_e0306">e</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_st0306">st</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></statement><statement name="ELSE"><block type="controls_if"><value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum0306">sum</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_target0306">target</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_e0306">e</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_st0306">st</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_best0306">最短天數</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_best0306">最短天數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_e0306">e</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_st0306">st</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></statement></block></statement></block></next></block></statement></block></next></block></statement></block></statement><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_found0306">found</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_best0306">最短天數</field></block></value></block></statement><statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="math_number"><field name="NUM">0</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`
-      }
+    {
+      "id": "M3-03-01",
+      "title": "連續K天營收總和一覽",
+      "description": "商店記錄每天營收，請你算出所有『連續K天』區間的營收總和，依開始日期順序輸出。\n\n第一行輸入N，代表有N天\n\n第二行輸入N個數字，代表每天營收\n\n第三行輸入K\n\n輸出從第1天開始、第2天開始……一直到最後一個可能的K天區間，各自的總和，空白分隔。",
+      "inputDescription": "N、N個每日營收、K",
+      "outputDescription": "每個K天區間的總和，空白分隔",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n10 20 30 40 50\n3",
+          "output": "60 90 120",
+          "explanation": "第1~3天:10+20+30=60；第2~4天:20+30+40=90；第3~5天:30+40+50=120"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n10 20 30 40 50\n3",
+          "expectedOutput": "60 90 120",
+          "output": "60 90 120",
+          "score": 25
+        },
+        {
+          "input": "4\n1 2 3 4\n2",
+          "expectedOutput": "3 5 7",
+          "output": "3 5 7",
+          "score": 25
+        },
+        {
+          "input": "3\n5 5 5\n3",
+          "expectedOutput": "15",
+          "output": "15",
+          "score": 25
+        },
+        {
+          "input": "5\n1 1 1 1 1\n1",
+          "expectedOutput": "1 1 1 1 1",
+          "output": "1 1 1 1 1",
+          "score": 25
+        }
+      ],
+      "difficulty": "L2",
+      "difficultyLabel": "L2｜進階",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n0301\">N</variable><variable id=\"v_vv0301\">營收v</variable><variable id=\"v_vals0301\">營收</variable><variable id=\"v_k0301\">K</variable><variable id=\"v_s0301\">s</variable><variable id=\"v_j0301\">j</variable><variable id=\"v_sum0301\">sum</variable><variable id=\"v_first0301\">first</variable><variable id=\"v_res0301\">結果</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n0301\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vals0301\">營收</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0301\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vv0301\">營收v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0301\">營收</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vv0301\">營收v</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入K</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_k0301\">K</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_first0301\">first</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0301\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0301\">K</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_s0301\">s</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0301\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0301\">K</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0301\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_j0301\">j</field><value name=\"FROM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s0301\">s</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s0301\">s</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0301\">K</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0301\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0301\">sum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0301\">營收</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_j0301\">j</field></block></value></block></value></block></value></block></statement><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_first0301\">first</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_res0301\">結果</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0301\">sum</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_first0301\">first</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></next></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_res0301\">結果</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_res0301\">結果</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0301\">sum</field></block></value></block></value></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_res0301\">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "M3-03-02",
+      "title": "連續K天最大總營收",
+      "description": "同樣是每日營收紀錄，請你找出『連續K天』區間中，總營收最高的金額是多少。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K\n\n輸出所有連續K天區間中的最大總營收。",
+      "inputDescription": "N、N個每日營收、K",
+      "outputDescription": "最大總營收",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n10 20 30 40 50\n3",
+          "output": "120",
+          "explanation": "所有連續3天總和中，30+40+50=120最大"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n10 20 30 40 50\n3",
+          "expectedOutput": "120",
+          "output": "120",
+          "score": 25
+        },
+        {
+          "input": "4\n1 2 3 4\n2",
+          "expectedOutput": "7",
+          "output": "7",
+          "score": 25
+        },
+        {
+          "input": "6\n5 1 5 9 5 1\n2",
+          "expectedOutput": "14",
+          "output": "14",
+          "score": 25
+        },
+        {
+          "input": "5\n9 1 1 1 9\n2",
+          "expectedOutput": "10",
+          "output": "10",
+          "score": 25
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n0302\">N</variable><variable id=\"v_vv0302\">營收v</variable><variable id=\"v_vals0302\">營收</variable><variable id=\"v_k0302\">K</variable><variable id=\"v_s0302\">s</variable><variable id=\"v_j0302\">j</variable><variable id=\"v_sum0302\">sum</variable><variable id=\"v_best0302\">最大值</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n0302\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vals0302\">營收</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0302\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vv0302\">營收v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0302\">營收</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vv0302\">營收v</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入K</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_k0302\">K</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_best0302\">最大值</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">-1</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0302\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0302\">K</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_s0302\">s</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0302\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0302\">K</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0302\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_j0302\">j</field><value name=\"FROM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s0302\">s</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s0302\">s</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0302\">K</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0302\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0302\">sum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0302\">營收</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_j0302\">j</field></block></value></block></value></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0302\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_best0302\">最大值</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_best0302\">最大值</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0302\">sum</field></block></value></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_best0302\">最大值</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "M3-03-03",
+      "title": "連續K天最小總營收",
+      "description": "同樣是每日營收紀錄，請你找出『連續K天』區間中，總營收最低的金額是多少。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K\n\n輸出所有連續K天區間中的最小總營收。",
+      "inputDescription": "N、N個每日營收、K",
+      "outputDescription": "最小總營收",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n10 20 30 40 50\n3",
+          "output": "60",
+          "explanation": "所有連續3天總和中，10+20+30=60最小"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n10 20 30 40 50\n3",
+          "expectedOutput": "60",
+          "output": "60",
+          "score": 25
+        },
+        {
+          "input": "4\n1 2 3 4\n2",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 25
+        },
+        {
+          "input": "6\n5 1 5 9 5 1\n2",
+          "expectedOutput": "6",
+          "output": "6",
+          "score": 25
+        },
+        {
+          "input": "5\n9 1 1 1 9\n2",
+          "expectedOutput": "2",
+          "output": "2",
+          "score": 25
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n0303\">N</variable><variable id=\"v_vv0303\">營收v</variable><variable id=\"v_vals0303\">營收</variable><variable id=\"v_k0303\">K</variable><variable id=\"v_s0303\">s</variable><variable id=\"v_j0303\">j</variable><variable id=\"v_sum0303\">sum</variable><variable id=\"v_best0303\">最小值</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n0303\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vals0303\">營收</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0303\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vv0303\">營收v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0303\">營收</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vv0303\">營收v</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入K</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_k0303\">K</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_best0303\">最小值</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">999999999</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0303\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0303\">K</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_s0303\">s</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0303\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0303\">K</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0303\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_j0303\">j</field><value name=\"FROM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s0303\">s</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s0303\">s</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0303\">K</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0303\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0303\">sum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0303\">營收</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_j0303\">j</field></block></value></block></value></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0303\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_best0303\">最小值</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_best0303\">最小值</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0303\">sum</field></block></value></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_best0303\">最小值</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "M3-03-04",
+      "title": "連續K天平均是否曾經達標",
+      "description": "請你判斷是否存在某一段連續K天，平均營收達到門檻threshold以上（整數除法，無條件捨去）。只要存在至少一段就輸出「有」，否則輸出「無」。\n\n第一行輸入N\n\n第二行輸入N個每日營收\n\n第三行輸入K threshold（空白分隔）\n\n輸出「有」或「無」。",
+      "inputDescription": "N、N個每日營收、K threshold",
+      "outputDescription": "有 或 無",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "5\n10 20 30 40 50\n3 35",
+          "output": "有",
+          "explanation": "第3~5天平均(30+40+50)/3=40，大於等於35，所以有"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "5\n10 20 30 40 50\n3 35",
+          "expectedOutput": "有",
+          "output": "有",
+          "score": 25
+        },
+        {
+          "input": "5\n10 20 30 40 50\n3 50",
+          "expectedOutput": "無",
+          "output": "無",
+          "score": 25
+        },
+        {
+          "input": "4\n1 2 3 4\n2 3",
+          "expectedOutput": "有",
+          "output": "有",
+          "score": 25
+        },
+        {
+          "input": "4\n1 2 3 4\n2 4",
+          "expectedOutput": "無",
+          "output": "無",
+          "score": 25
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n0304\">N</variable><variable id=\"v_vv0304\">營收v</variable><variable id=\"v_vals0304\">營收</variable><variable id=\"v_k0304\">K</variable><variable id=\"v_th0304\">threshold</variable><variable id=\"v_s0304\">s</variable><variable id=\"v_j0304\">j</variable><variable id=\"v_sum0304\">sum</variable><variable id=\"v_hit0304\">有達標</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n0304\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vals0304\">營收</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0304\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vv0304\">營收v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0304\">營收</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vv0304\">營收v</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入K</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_k0304\">K</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入threshold</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_th0304\">threshold</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_hit0304\">有達標</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0304\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0304\">K</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_s0304\">s</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0304\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0304\">K</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0304\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_j0304\">j</field><value name=\"FROM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s0304\">s</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_s0304\">s</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0304\">K</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0304\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0304\">sum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0304\">營收</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_j0304\">j</field></block></value></block></value></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0304\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_k0304\">K</field></block></value></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_th0304\">threshold</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_hit0304\">有達標</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></statement></block></next></block></next></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_hit0304\">有達標</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"THEN\"><block type=\"text\"><field name=\"TEXT\">有</field></block></value><value name=\"ELSE\"><block type=\"text\"><field name=\"TEXT\">無</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "M3-03-05",
+      "title": "最長連續達標天數",
+      "description": "請你找出最長一段『連續達標』的天數——只要每天的數值都大於等於門檻threshold，就算是達標；求最長連續達標的天數（如果完全沒有任何一天達標，輸出0）。\n\n第一行輸入N\n\n第二行輸入N個每日數值\n\n第三行輸入threshold",
+      "inputDescription": "N、N個每日數值、threshold",
+      "outputDescription": "最長連續達標天數",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "7\n5 8 9 3 10 12 11\n8",
+          "output": "3",
+          "explanation": "第2~3天(8,9)連續達標2天；第5~7天(10,12,11)連續達標3天最長"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "7\n5 8 9 3 10 12 11\n8",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 25
+        },
+        {
+          "input": "5\n1 2 3 4 5\n10",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 25
+        },
+        {
+          "input": "5\n5 5 5 5 5\n5",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 25
+        },
+        {
+          "input": "6\n1 9 9 1 9 9\n9",
+          "expectedOutput": "2",
+          "output": "2",
+          "score": 25
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n0305\">N</variable><variable id=\"v_vv0305\">數值v</variable><variable id=\"v_vals0305\">數值</variable><variable id=\"v_th0305\">threshold</variable><variable id=\"v_i0305\">i</variable><variable id=\"v_streak0305\">連續天數</variable><variable id=\"v_best0305\">最長</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n0305\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vals0305\">數值</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0305\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vv0305\">數值v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0305\">數值</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vv0305\">數值v</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入threshold</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_th0305\">threshold</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_streak0305\">連續天數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_best0305\">最長</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0305\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_i0305\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0305\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0305\">數值</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_i0305\">i</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_th0305\">threshold</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_streak0305\">連續天數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_streak0305\">連續天數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_streak0305\">連續天數</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_best0305\">最長</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_best0305\">最長</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_streak0305\">連續天數</field></block></value></block></statement></block></next></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_streak0305\">連續天數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_best0305\">最長</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    },
+    {
+      "id": "M3-03-06",
+      "title": "最少連續幾天達到目標總量",
+      "description": "請你找出最短的一段連續天數，讓這段天數的總和達到（大於等於）目標值target；如果找不到這樣的連續天數，輸出0。\n\n第一行輸入N\n\n第二行輸入N個每日數值\n\n第三行輸入target\n\n輸出最短的連續天數；找不到輸出0。",
+      "inputDescription": "N、N個每日數值、target",
+      "outputDescription": "最短連續天數，找不到輸出0",
+      "requiresGreenFlag": true,
+      "examples": [
+        {
+          "input": "6\n2 3 1 2 4 3\n7",
+          "output": "2",
+          "explanation": "第5~6天4+3=7，只用2天就達標，是最短的"
+        }
+      ],
+      "testCases": [
+        {
+          "input": "6\n2 3 1 2 4 3\n7",
+          "expectedOutput": "2",
+          "output": "2",
+          "score": 25
+        },
+        {
+          "input": "5\n1 1 1 1 1\n100",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 25
+        },
+        {
+          "input": "3\n10 2 3\n10",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 25
+        },
+        {
+          "input": "5\n1 4 4 1 5\n8",
+          "expectedOutput": "2",
+          "output": "2",
+          "score": 25
+        }
+      ],
+      "difficulty": "L3",
+      "difficultyLabel": "L3｜挑戰",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"v_n0306\">N</variable><variable id=\"v_vv0306\">數值v</variable><variable id=\"v_vals0306\">數值</variable><variable id=\"v_target0306\">target</variable><variable id=\"v_found0306\">found</variable><variable id=\"v_best0306\">最短天數</variable><variable id=\"v_st0306\">st</variable><variable id=\"v_e0306\">e</variable><variable id=\"v_sum0306\">sum</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_n0306\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vals0306\">數值</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0306\">N</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_vv0306\">數值v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0306\">數值</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vv0306\">數值v</field></block></value></block></next></block></next></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入target</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_target0306\">target</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_found0306\">found</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_best0306\">最短天數</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">999999</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0306\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v_st0306\">st</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0306\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0306\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v_e0306\">e</field><value name=\"FROM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_st0306\">st</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_n0306\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_sum0306\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0306\">sum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_vals0306\">數值</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_e0306\">e</field></block></value></block></value></block></value><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">AND</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0306\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_target0306\">target</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_found0306\">found</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_found0306\">found</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_best0306\">最短天數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_e0306\">e</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_st0306\">st</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></statement><statement name=\"ELSE\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">AND</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_sum0306\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_target0306\">target</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_e0306\">e</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_st0306\">st</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_best0306\">最短天數</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v_best0306\">最短天數</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_e0306\">e</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_st0306\">st</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></statement></block></next></block></statement></block></next></block></statement></block></statement><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_found0306\">found</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_best0306\">最短天數</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>\n</xml>"
+    }
   ]
 };
