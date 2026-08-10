@@ -275,7 +275,7 @@ export default {
     },
     {
       "id": "EXT01-007",
-      "title": "區間最大值",
+      "title": "相鄰最大差",
       "description": "給定 N 個整數，請找出相鄰兩個數字之間的最大差值。差值一律用較大的數減較小的數。",
       "inputDescription": "第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。",
       "outputDescription": "輸出一個整數，代表相鄰最大差值。",
@@ -319,7 +319,7 @@ export default {
     },
     {
       "id": "EXT01-008",
-      "title": "相鄰最大差",
+      "title": "區間最大值",
       "description": "給定 N 個整數，以及查詢區間 L 到 R，請找出第 L 個到第 R 個數字中的最大值。位置從 1 開始計算。",
       "inputDescription": "第一個整數為 N，接著輸入 N 個整數，最後輸入兩個整數 L 與 R。保證 1 <= L <= R <= N。",
       "outputDescription": "輸出一個整數，代表區間最大值。",
