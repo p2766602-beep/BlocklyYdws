@@ -375,7 +375,7 @@ var e={code:`M0-06-MinMaxExtra`,title:`找最大值/最小值延伸`,type:`progr
       </block>
     </next>
   </block>
-</xml>`},{id:`EXT01-007`,title:`區間最大值`,description:`給定 N 個整數，請找出相鄰兩個數字之間的最大差值。差值一律用較大的數減較小的數。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。`,outputDescription:`輸出一個整數，代表相鄰最大差值。`,requiresGreenFlag:!0,examples:[{input:`5
+</xml>`},{id:`EXT01-007`,title:`相鄰最大差`,description:`給定 N 個整數，請找出相鄰兩個數字之間的最大差值。差值一律用較大的數減較小的數。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數。保證 N 大於或等於 2。`,outputDescription:`輸出一個整數，代表相鄰最大差值。`,requiresGreenFlag:!0,examples:[{input:`5
 3 8 6 15 10`,output:`9`,explanation:`相鄰差值為 5、2、9、5，最大是 9。`}],testCases:[{input:`5
 3 8 6 15 10`,expectedOutput:`9`,output:`9`,score:0},{input:`2
 100 40`,expectedOutput:`60`,output:`60`,score:0},{input:`6
@@ -451,7 +451,7 @@ var e={code:`M0-06-MinMaxExtra`,title:`找最大值/最小值延伸`,type:`progr
       </block>
     </next>
   </block>
-</xml>`},{id:`EXT01-008`,title:`相鄰最大差`,description:`給定 N 個整數，以及查詢區間 L 到 R，請找出第 L 個到第 R 個數字中的最大值。位置從 1 開始計算。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數，最後輸入兩個整數 L 與 R。保證 1 <= L <= R <= N。`,outputDescription:`輸出一個整數，代表區間最大值。`,requiresGreenFlag:!0,examples:[{input:`6
+</xml>`},{id:`EXT01-008`,title:`區間最大值`,description:`給定 N 個整數，以及查詢區間 L 到 R，請找出第 L 個到第 R 個數字中的最大值。位置從 1 開始計算。`,inputDescription:`第一個整數為 N，接著輸入 N 個整數，最後輸入兩個整數 L 與 R。保證 1 <= L <= R <= N。`,outputDescription:`輸出一個整數，代表區間最大值。`,requiresGreenFlag:!0,examples:[{input:`6
 5 8 3 12 7 10
 2 5`,output:`12`,explanation:`第 2 到第 5 個數字是 8、3、12、7，最大值為 12。`}],testCases:[{input:`6
 5 8 3 12 7 10
