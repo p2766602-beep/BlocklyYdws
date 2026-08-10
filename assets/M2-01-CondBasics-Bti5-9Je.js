@@ -1,21 +1,11 @@
-var e={code:`M2-01-CondBasics`,title:`運算與條件判斷綜合練習：基礎`,type:`programming`,mode:`learning`,tier:`t2`,tasks:[{id:`JSB02-D01`,title:`通過門檻`,description:`老師設定一次測驗的通過門檻為 60 分。請輸入一個整數分數，如果分數大於或等於 60，輸出 Pass；否則不輸出任何文字。本題用來示範單一 if 條件成立時才執行輸出的流程。
-輸入格式：
-第一行：一個整數 S，代表測驗分數。
-輸出格式：
-若 S 大於或等於 60，輸出 Pass。
-若 S 小於 60，不輸出。`,inputDescription:`第一行：一個整數 S，代表測驗分數。`,outputDescription:`若 S 大於或等於 60，輸出 Pass。
+var e={code:`M2-01-CondBasics`,title:`運算與條件判斷綜合練習：基礎`,type:`programming`,mode:`learning`,tier:`t2`,tasks:[{id:`JSB02-D01`,title:`通過門檻`,description:`老師設定一次測驗的通過門檻為 60 分。請輸入一個整數分數，如果分數大於或等於 60，輸出 Pass；否則不輸出任何文字。本題用來示範單一 if 條件成立時才執行輸出的流程`,inputDescription:`第一行：一個整數 S，代表測驗分數。`,outputDescription:`若 S 大於或等於 60，輸出 Pass。
 
 若 S 小於 60，不輸出。`,requiresGreenFlag:!0,examples:[{input:`75`,output:`Pass`,explanation:`75 大於等於 60，所以輸出 Pass。`},{input:`40`,output:``,explanation:`40 小於 60，所以不輸出任何文字。`}],testCases:[{input:`60`,expectedOutput:`Pass`,output:`Pass`,score:20},{input:`59`,expectedOutput:``,output:``,score:20},{input:`100`,expectedOutput:`Pass`,output:`Pass`,score:20},{input:`0`,expectedOutput:``,output:``,score:20},{input:`75`,expectedOutput:`Pass`,output:`Pass`,score:20}],difficulty:`L1`,difficultyLabel:`L1｜基礎`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="v_s">S</variable>
   </variables>
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入S</field></block></value><next><block type="variables_set"><field name="VAR" id="v_s">S</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_s">S</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Pass</field></block></value></block></statement></block></next></block></next></block></next></block>
-</xml>`},{id:`JSB02-D02`,title:`優惠或原價`,description:`商店規定消費金額達到 100 元以上可以獲得優惠。請輸入消費金額，如果金額大於或等於 100，輸出 Discount；否則輸出 Normal。本題用來示範 if / else 的二選一流程。
-輸入格式：
-第一行：一個整數 M，代表消費金額。
-輸出格式：
-若 M 大於或等於 100，輸出 Discount。
-否則輸出 Normal。`,inputDescription:`第一行：一個整數 M，代表消費金額。`,outputDescription:`若 M 大於或等於 100，輸出 Discount。
+</xml>`},{id:`JSB02-D02`,title:`優惠或原價`,description:`商店規定消費金額達到 100 元以上可以獲得優惠。請輸入消費金額，如果金額大於或等於 100，輸出 Discount；否則輸出 Normal。本題用來示範 if / else 的二選一流程`,inputDescription:`第一行：一個整數 M，代表消費金額。`,outputDescription:`若 M 大於或等於 100，輸出 Discount。
 
 否則輸出 Normal。`,requiresGreenFlag:!0,examples:[{input:`120`,output:`Discount`,explanation:`120 達到優惠門檻。`},{input:`80`,output:`Normal`,explanation:`80 未達優惠門檻。`}],testCases:[{input:`100`,expectedOutput:`Discount`,output:`Discount`,score:20},{input:`99`,expectedOutput:`Normal`,output:`Normal`,score:20},{input:`250`,expectedOutput:`Discount`,output:`Discount`,score:20},{input:`1`,expectedOutput:`Normal`,output:`Normal`,score:20},{input:`150`,expectedOutput:`Discount`,output:`Discount`,score:20}],difficulty:`L1`,difficultyLabel:`L1｜基礎`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
@@ -57,11 +47,7 @@ var e={code:`M2-01-CondBasics`,title:`運算與條件判斷綜合練習：基礎
       </block>
     </next>
   </block>
-</xml>`},{id:`JSB02-D03`,title:`成績等第示範`,description:`輸入一個整數成績，請依照分數輸出等第。90 分以上輸出 A，80 到 89 輸出 B，70 到 79 輸出 C，60 到 69 輸出 D，未滿 60 輸出 F。本題用來示範多條件判斷。
-輸入格式：
-第一行：一個整數 S，代表成績。
-輸出格式：
-輸出一個英文字母，代表成績等第。`,inputDescription:`第一行：一個整數 S，代表成績。`,outputDescription:`輸出一個英文字母，代表成績等第。`,requiresGreenFlag:!0,examples:[{input:`95`,output:`A`,explanation:`95 分屬於 A。`},{input:`72`,output:`C`,explanation:`72 分屬於 C。`}],testCases:[{input:`90`,expectedOutput:`A`,output:`A`,score:20},{input:`89`,expectedOutput:`B`,output:`B`,score:20},{input:`70`,expectedOutput:`C`,output:`C`,score:20},{input:`60`,expectedOutput:`D`,output:`D`,score:20},{input:`59`,expectedOutput:`F`,output:`F`,score:20}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+</xml>`},{id:`JSB02-D03`,title:`成績等第示範`,description:`輸入一個整數成績，請依照分數輸出等第。90 分以上輸出 A，80 到 89 輸出 B，70 到 79 輸出 C，60 到 69 輸出 D，未滿 60 輸出 F。本題用來示範多條件判斷`,inputDescription:`第一行：一個整數 S，代表成績。`,outputDescription:`輸出一個英文字母，代表成績等第。`,requiresGreenFlag:!0,examples:[{input:`95`,output:`A`,explanation:`95 分屬於 A。`},{input:`72`,output:`C`,explanation:`72 分屬於 C。`}],testCases:[{input:`90`,expectedOutput:`A`,output:`A`,score:20},{input:`89`,expectedOutput:`B`,output:`B`,score:20},{input:`70`,expectedOutput:`C`,output:`C`,score:20},{input:`60`,expectedOutput:`D`,output:`D`,score:20},{input:`59`,expectedOutput:`F`,output:`F`,score:20}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="v_s">S</variable>
   </variables>
@@ -202,13 +188,7 @@ var e={code:`M2-01-CondBasics`,title:`運算與條件判斷綜合練習：基礎
 1. 縣民卡免費：持有縣民卡者，門票為 0 元。
 2. 敬老票：年齡大於等於 65 歲者，票價為 150 元。
 3. 兒童票：身高小於 120 公分 或 年齡小於 6 歲者，票價為 180 元。
-4. 全票：不符合以上條件者，票價為 300 元。
-【輸入格式】
-第一行輸入一個整數 N，代表遊客人數。
-第二行輸入 3×N 個整數，每 3 個為一組，依序代表：
-身高（公分）、年齡（歲）、縣民卡（1 表示有，0 表示無），資料間以空白分隔。
-【輸出格式】
-輸出一個整數，代表這一團遊客的門票總金額。`,inputDescription:`第一行輸入一個整數 N，代表遊客人數。
+4. 全票：不符合以上條件者，票價為 300 元。`,inputDescription:`第一行輸入一個整數 N，代表遊客人數。
 
 第二行輸入 3×N 個整數，每 3 個為一組，依序代表：
 
@@ -235,12 +215,7 @@ var e={code:`M2-01-CondBasics`,title:`運算與條件判斷綜合練習：基礎
 1. 讀入 N 位評審的分數（未排序）。
 2. 去除一個最高分與一個最低分。
 3. 剩餘評審分數的總和即為該選手的最終得分。
-請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終成績。
-輸入格式：
-第一行輸入一個整數 N（5 ≤ N ≤ 10），代表評審人數。
-第二行輸入 N 個整數（0～10），代表每位評審給的分數，資料間以空白隔開。
-輸出格式：
-輸出一個整數，代表去除最高分與最低分後的總成績。`,inputDescription:`第一行輸入一個整數 N（5 ≤ N ≤ 10），代表評審人數。
+請撰寫程式，依照輸入的評審分數，計算並輸出參賽者的最終成績`,inputDescription:`第一行輸入一個整數 N（5 ≤ N ≤ 10），代表評審人數。
 
 第二行輸入 N 個整數（0～10），代表每位評審給的分數，資料間以空白隔開。`,outputDescription:`輸出一個整數，代表去除最高分與最低分後的總成績。`,requiresGreenFlag:!0,examples:[{input:`5
 9 8 10 6 7`,output:`24`,explanation:`評審分數為 9、8、10、6、7
@@ -353,14 +328,7 @@ var e={code:`M2-01-CondBasics`,title:`運算與條件判斷綜合練習：基礎
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_prices">價目表</field><value name="VALUE"><block type="lists_create_with"><mutation items="5"></mutation><value name="ADD0"><block type="math_number"><field name="NUM">45</field></block></value><value name="ADD1"><block type="math_number"><field name="NUM">25</field></block></value><value name="ADD2"><block type="math_number"><field name="NUM">30</field></block></value><value name="ADD3"><block type="math_number"><field name="NUM">40</field></block></value><value name="ADD4"><block type="math_number"><field name="NUM">60</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總額</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_c">編號</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_qty">數量</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_total">總額</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_prices">價目表</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_c">編號</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_qty">數量</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入付款金額</field></block></value><next><block type="variables_set"><field name="VAR" id="v_pay">付款</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_pay">付款</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="4"></mutation><value name="ADD0"><block type="text"><field name="TEXT">總金額</field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="ADD2"><block type="text"><field name="TEXT"> 應找錢</field></block></value><value name="ADD3"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_pay">付款</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="4"></mutation><value name="ADD0"><block type="text"><field name="TEXT">總金額</field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="ADD2"><block type="text"><field name="TEXT"> 付款不足</field></block></value><value name="ADD3"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_total">總額</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_pay">付款</field></block></value></block></value></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
 </xml>`},{id:`WP-01`,title:`超商收銀`,description:`顧客到超商購物，收銀機會依序讀取購買的每樣商品價格。 最後顧客拿出一筆錢付款。
 請你設計程式： 先計算所有商品的總金額。 如果付款金額大於或等於總金額，輸出應找的金額。
-如果付款金額不足，輸出：付款金額不足
-輸入格式
-第一行：一個整數 N，代表購買的商品數量。
-第二行：輸入 N 個整數，代表每樣商品的價格。
-第三行：一個整數，代表付款金額。
-輸出格式
-如果付款金額足夠，輸出一個整數（應找的金額）。
-如果不足，輸出 付款金額不足。`,inputDescription:`第一行：一個整數 N，代表購買的商品數量。
+如果付款金額不足，輸出：付款金額不足`,inputDescription:`第一行：一個整數 N，代表購買的商品數量。
 
 第二行：輸入 N 個整數，代表每樣商品的價格。
 

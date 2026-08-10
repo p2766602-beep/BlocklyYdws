@@ -22,13 +22,7 @@ var e={code:`M2-05-SimSensor`,title:`模擬與狀態挑戰B：感測與監控系
 </xml>`},{id:`W0-01`,title:`智慧溫室的自動監控`,description:`隨著農業科技的發展，小明在學校的生物實驗室中參與了一項「智慧溫室」計畫。
 這個溫室利用高精度的感測器，每隔一小時會自動記錄一次溫室內的「溫度」與「濕度」。為了讓農作物在最適合的環境下生長，同時落實環境永續與節能減碳的目標，溫室內的自動噴霧灑水系統設定了一套嚴格的啟動規範。
 系統規則定義如下：假設在連續的N小時內，第i小時測得的溫度為T度，濕度為H%。只有當該小時同時滿足「溫度大於30度」且「濕度小於50%」這兩個條件時，噴霧系統才會自動開啟運作1次；若其中任一條件不滿足，系統將保持待機狀態以節省電力與水資源。
-請你編寫程式，根據小明提供的N小時觀測記錄，計算這段時間內噴霧系統總共被觸發了幾次。
-輸入格式：
-第一行：一個整數N,代表記錄的總小時數。
-第二行：N個整數，代表每小時測得的溫度數據，(以半形空格分隔)。
-第三行：N個整數，代表每小時測得的濕度數據，(以半形空格分隔)。
-輸出格式：
-第一行：輸出一個整數，代表在這N小時內系統開啟的總次數。`,inputDescription:`第一行：一個整數N,代表記錄的總小時數。
+請你編寫程式，根據小明提供的N小時觀測記錄，計算這段時間內噴霧系統總共被觸發了幾次`,inputDescription:`第一行：一個整數N,代表記錄的總小時數。
 
 第二行：N個整數，代表每小時測得的溫度數據，(以半形空格分隔)。
 
@@ -56,12 +50,7 @@ var e={code:`M2-05-SimSensor`,title:`模擬與狀態挑戰B：感測與監控系
 零件會依照完成檢驗的順序排隊裝載，無人搬運車會依序將零件放上車並累加重量。
 若某一件零件放上車後，累計重量超過 200 公斤，
 則該零件不放入本趟車次，無人搬運車立刻出發，該零件改由下一趟車次運送。
-請根據輸入的零件重量資料，計算無人搬運車最少需要出發幾趟，才能將所有零件依序安全運送完成。
-輸入格式：
-第一行：一個整數 N，代表零件的件數。
-第二行：N 個整數，代表每件零件的重量（公斤），資料間以一個半形空格隔開。
-輸出格式：
-輸出一個整數，代表無人搬運車最少需要出發的趟數。`,inputDescription:`第一行：一個整數 N，代表零件的件數。
+請根據輸入的零件重量資料，計算無人搬運車最少需要出發幾趟，才能將所有零件依序安全運送完成`,inputDescription:`第一行：一個整數 N，代表零件的件數。
 
 第二行：N 個整數，代表每件零件的重量（公斤），資料間以一個半形空格隔開。`,outputDescription:`輸出一個整數，代表無人搬運車最少需要出發的趟數。`,requiresGreenFlag:!0,examples:[{input:`6
 50 60 40 70 90 30`,output:`2`,explanation:`第一趟：50+60+40=150，下一件 70 加入會超過 200 → 出發。
@@ -125,12 +114,7 @@ var e={code:`M2-05-SimSensor`,title:`模擬與狀態挑戰B：感測與監控系
 • 完全同頻（三個相同）：累積能量乘以該點數。
 3. 無效運作與崩潰重置：
 • 不符合上述任何規則時，該輪能量不變。
-• 若連續三輪皆為無效組合，累積能量直接歸零。
-【輸入說明】
-• 第一行輸入整數 N，代表實驗輪數。
-• 接下來輸入 N×3 個整數，每三個一組，代表該輪方塊點數。
-【輸出說明】
-• 輸出一個整數，代表最終累積能量值（初始為 0）。`,inputDescription:`• 第一行輸入整數 N，代表實驗輪數。
+• 若連續三輪皆為無效組合，累積能量直接歸零。`,inputDescription:`• 第一行輸入整數 N，代表實驗輪數。
 
 • 接下來輸入 N×3 個整數，每三個一組，代表該輪方塊點數。`,outputDescription:`• 輸出一個整數，代表最終累積能量值（初始為 0）。`,requiresGreenFlag:!0,examples:[{input:`3
 2 1 3 6 4 5 2 2 4`,output:`4`,explanation:`第1輪 {1,2,3} → 能量 0 減半仍為 0
@@ -157,14 +141,7 @@ var e={code:`M2-05-SimSensor`,title:`模擬與狀態挑戰B：感測與監控系
 • 若血糖由高血糖區直接進入低血糖區（或反之），視為進入新的異常區間，需重新計次。
 【趨勢波動計算】
 • 找出過程中「連續上升」或「連續下降」所造成的最大差值（取絕對值）。
-• 若血糖變化方向改變，該段趨勢即結束，重新開始計算。
-【輸入說明】
-第一行：整數 N，代表觀察次數。
-第二行：整數 S，代表血糖起始值。
-第三行：N 個整數，代表每次的血糖變化量。
-【輸出說明】
-輸出三個整數：
-低血糖事件次數、高血糖事件次數、連續趨勢最大差值。`,inputDescription:`第一行：整數 N，代表觀察次數。
+• 若血糖變化方向改變，該段趨勢即結束，重新開始計算。`,inputDescription:`第一行：整數 N，代表觀察次數。
 
 第二行：整數 S，代表血糖起始值。
 
@@ -204,17 +181,7 @@ var e={code:`M2-05-SimSensor`,title:`模擬與狀態挑戰B：感測與監控系
 6. 如果對某件貨物來說，所有可使用的櫃子尺寸都已經用完（沒有空櫃可用），則該貨物無法被放入任何櫃子。
 請你依照上述規則，計算：
 • 各尺寸櫃子實際使用了多少個？
-• 共有幾件貨物無法放進任何櫃子？
-【輸入說明】
-• 第一行輸入三個非負整數 L, M, S，分別代表大、中、小櫃子的數量。
-• 第二行輸入一個正整數 N，代表貨物的件數。
-• 接下來共有 N 行，每行輸入三個正整數，依序為該貨物的長、寬、高（公分）。
-【輸出說明】
-輸出四個整數（以空格分隔），依序為：
-使用的大櫃子數量、使用的中櫃子數量、使用的小櫃子數量、無法放入任何櫃子的貨物件數。
-【注意】
-• 尺寸 30 公分屬於「小櫃子可放」的範圍；尺寸 80 公分屬於「中櫃子可放」的範圍。
-• 每件貨物必須依規則 5 優先使用可容納的最小尺寸櫃子（此規則可能導致後面的大型貨物沒有大櫃可用）。`,inputDescription:`• 第一行輸入三個非負整數 L, M, S，分別代表大、中、小櫃子的數量。
+• 共有幾件貨物無法放進任何櫃子？`,inputDescription:`• 第一行輸入三個非負整數 L, M, S，分別代表大、中、小櫃子的數量。
 
 • 第二行輸入一個正整數 N，代表貨物的件數。
 
@@ -263,12 +230,7 @@ L2：向左移動 2 步，X - 2
 R4：向右移動 4 步，X + 4
 【邊界限制】
 0 ≤ x ≤ 10，0 ≤ y ≤ 10。
-若某一步會超出邊界，則該「一步」不移動（但同一個指令的其他步仍需照順序嘗試）。
-【輸入格式】
-第一行輸入一個整數 N，代表指令數量。
-第二行輸入 N 個指令（由 U、D、L、R 與數字 1~9 組成），指令之間以空白間隔。
-【輸出格式】
-輸出最終位置座標 (x,y)。`,inputDescription:`第一行輸入一個整數 N，代表指令數量。
+若某一步會超出邊界，則該「一步」不移動（但同一個指令的其他步仍需照順序嘗試）。`,inputDescription:`第一行輸入一個整數 N，代表指令數量。
 
 第二行輸入 N 個指令（由 U、D、L、R 與數字 1~9 組成），指令之間以空白間隔。`,outputDescription:`輸出最終位置座標 (x,y)。`,requiresGreenFlag:!0,examples:[{input:`5
 U2 D3 D4 L5 R3`,output:`(3,0)`,explanation:`起點 (0,0)
@@ -306,15 +268,7 @@ R1 U1 R1 U1 R1 U1 R1 U1 R1`,expectedOutput:`(5,4)`,output:`(5,4)`,score:30}],dif
 【任務】
 請依照規定的猜數字流程進行模擬，並輸出：
 (1) 從開始到猜中為止，總共猜了幾次
-(2) 每一次猜的數字（依照猜測順序）
-【輸入格式】
-輸入三個整數 X、Y、A：
-X 為最小邊界、Y 為最大邊界、A 為正確答案。
-條件：0 < X < Y < 120，且 X ≤ A ≤ Y。
-【輸出格式】
-輸出一行：
-先輸出總猜測次數 K，接著依序輸出每次猜到的數字，共 K 個數字。
-各數字之間以「半形空白」間隔。（行尾不需要多餘空白）`,inputDescription:`輸入三個整數 X、Y、A：
+(2) 每一次猜的數字（依照猜測順序）`,inputDescription:`輸入三個整數 X、Y、A：
 
 X 為最小邊界、Y 為最大邊界、A 為正確答案。
 
@@ -346,13 +300,7 @@ X 為最小邊界、Y 為最大邊界、A 為正確答案。
 超過最後一隊會回到第 1 隊。
 請輸出：
 (1) 所有小隊中「隊伍能量」的最大值
-(2) K 回合後，令牌最後落在哪一隊（隊號）
-輸入格式
-第一行：一個整數 N（偶數）。
-第二行：N 個整數，代表各同學表現值（以半形空格分隔）。
-第三行：一個整數 K，代表回合數。
-輸出格式
-輸出兩個整數（以半形空白分隔）：最大隊伍能量 最後隊號`,inputDescription:`第一行：一個整數 N（偶數）。
+(2) K 回合後，令牌最後落在哪一隊（隊號）`,inputDescription:`第一行：一個整數 N（偶數）。
 
 第二行：N 個整數，代表各同學表現值（以半形空格分隔）。
 
@@ -388,12 +336,7 @@ X 為最小邊界、Y 為最大邊界、A 為正確答案。
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_si">si</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><next><block type="controls_for"><field name="VAR" id="var_sj">sj</field><value name="FROM"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_smi">smi</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="var_sj">sj</field></block></value></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_stmp">stmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_si">si</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_smi">smi</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="var_stmp">stmp</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></statement></block></statement><next><block type="variables_set"><field name="VAR" id="v_half">隊數</field><value name="VALUE"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_teams">隊伍能量</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_half">隊數</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_teams">隊伍能量</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value></block></statement><next><block type="variables_set"><field name="VAR" id="v_maxenergy">最大能量</field><value name="VALUE"><block type="math_number"><field name="NUM">-1000000</field></block></value><next><block type="controls_for"><field name="VAR" id="v_j">j</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_half">隊數</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_teams">隊伍能量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_j">j</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_maxenergy">最大能量</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_maxenergy">最大能量</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_teams">隊伍能量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_j">j</field></block></value></block></value></block></statement></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入K</field></block></value><next><block type="variables_set"><field name="VAR" id="v_k">K</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_pos">位置</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_k">K</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_move">移動</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_teams">隊伍能量</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_pos">位置</field></block></value></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">3</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_pos">位置</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_pos">位置</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_move">移動</field></block></value></block></value><value name="DIVISOR"><block type="variables_get"><field name="VAR" id="v_half">隊數</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_maxenergy">最大能量</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_pos">位置</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
 </xml>`},{id:`W9-06`,title:`遊戲關卡的積分計算`,description:`小明在玩一款闖關遊戲，共有 N 個關卡，每個關卡通過後都會獲得對應的分數。
 遊戲結束後，系統會進行多次「回顧分析」，頻繁詢問小明在「第 L 關 到 第 R 關」之間總共獲得了多少分。
-【提示】雖然查詢次數變少了，但依然請試著思考如何「先將資料整理好（例如使用前綴和）」，讓每一次的查詢都能更有效率地給出答案。
-【輸入說明】
-• 系統的第一個輸入包含：先是兩個整數 N、Q（1 ≤ N ≤ 100,000，1 ≤ Q ≤ 3），代表關卡總數與查詢次數。接著是 N 個整數，代表第 1 關到第 N 關的得分（0 ≤ 分數 ≤ 1,000）。所有數字之間皆以單一空白隔開。
-• 接下來有 Q 個輸入（系統的第二至第四個輸入），每個輸入包含兩個整數 L 與 R，代表要查詢「起始關卡」與「結束關卡」的區間（1 ≤ L ≤ R ≤ N）。
-【輸出說明】
-• 針對每一次的區間查詢，請輸出一個整數（該區間的總分），每個答案獨立換一行輸出。`,inputDescription:`• 系統的第一個輸入包含：先是兩個整數 N、Q（1 ≤ N ≤ 100,000，1 ≤ Q ≤ 3），代表關卡總數與查詢次數。接著是 N 個整數，代表第 1 關到第 N 關的得分（0 ≤ 分數 ≤ 1,000）。所有數字之間皆以單一空白隔開。
+【提示】雖然查詢次數變少了，但依然請試著思考如何「先將資料整理好（例如使用前綴和）」，讓每一次的查詢都能更有效率地給出答案。`,inputDescription:`• 系統的第一個輸入包含：先是兩個整數 N、Q（1 ≤ N ≤ 100,000，1 ≤ Q ≤ 3），代表關卡總數與查詢次數。接著是 N 個整數，代表第 1 關到第 N 關的得分（0 ≤ 分數 ≤ 1,000）。所有數字之間皆以單一空白隔開。
 
 • 接下來有 Q 個輸入（系統的第二至第四個輸入），每個輸入包含兩個整數 L 與 R，代表要查詢「起始關卡」與「結束關卡」的區間（1 ≤ L ≤ R ≤ N）。`,outputDescription:`• 針對每一次的區間查詢，請輸出一個整數（該區間的總分），每個答案獨立換一行輸出。`,requiresGreenFlag:!0,examples:[{input:`5 3 10 20 30 40 50
 1 3

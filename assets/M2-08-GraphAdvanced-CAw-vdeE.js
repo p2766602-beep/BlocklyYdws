@@ -8,13 +8,7 @@ var e={code:`M2-08-GraphAdvanced`,title:`圖論進階`,type:`programming`,mode:`
 若某站點的上游接收站編號為 0，
 則代表該站點本身就是主伺服器，其轉傳次數為 0。
 請根據輸入的系統設定，
-計算整個系統中，從任一站點出發所需的「最大轉傳次數」。
-輸入格式：
-第一行：一個整數 N，代表訊號站的總數。
-第二行：N 個整數，代表第 1 站至第 N 站的上游接收站編號。
-（若數值為 0，代表該站為主伺服器）
-輸出格式：
-第一行：輸出一個整數，代表整個系統中最大的轉傳次數。`,inputDescription:`第一行：一個整數 N，代表訊號站的總數。
+計算整個系統中，從任一站點出發所需的「最大轉傳次數」`,inputDescription:`第一行：一個整數 N，代表訊號站的總數。
 
 第二行：N 個整數，代表第 1 站至第 N 站的上游接收站編號。
 
@@ -44,13 +38,7 @@ TASA 國家太空中心預計在特定的軌道高度上，沿著預定路徑佈
 1. 模式 1（全線覆蓋）：可佈署段的「起點」與「終點」都必須佈署衛星。
 2. 模式 2（銜接佈署）：僅在「起點」佈署衛星，「終點」不佈署。
 3. 模式 3（受限區域）：起點與終點都不佈署衛星（只佈署中間點）。
-4. 模式 4（全球環繞軌道）：首尾相接的圓形封閉軌道。
-【輸入格式】
-第一行輸入整數 L，代表路段總長度（公里）。
-第二行輸入整數 D，代表衛星與衛星間的固定間隔（公里）。
-第三行輸入整數 M，代表佈署模式（1、2、3 或 4）。
-【輸出格式】
-輸出一個整數，代表該路段所需的衛星總數。`,inputDescription:`第一行輸入整數 L，代表路段總長度（公里）。
+4. 模式 4（全球環繞軌道）：首尾相接的圓形封閉軌道。`,inputDescription:`第一行輸入整數 L，代表路段總長度（公里）。
 
 第二行輸入整數 D，代表衛星與衛星間的固定間隔（公里）。
 
@@ -87,14 +75,7 @@ TASA 國家太空中心預計在特定的軌道高度上，沿著預定路徑佈
 (2) 纜線切段：你有 P 條纜線，每條長度為整數。你要把纜線切成「等長」的小段（長度為 L，且 L 必須是正整數），每條纜線最多可切出 ⌊纜線長度 ÷ L⌋ 段，且不能拼接。
 你需要至少「最大層數」段小纜線來完成架設，請找出最大的 L。
 （題目保證：當 L=1 時一定切得出足夠段數。）
-(3) 攀登方式：工程人員要爬上「最大層數」階的梯子，每一步可以爬 1 階或 2 階。請計算走到頂端共有幾種不同走法。
-輸入格式
-第一行：兩個整數 N P（基地台數量、纜線數量）。
-第二行：N-1 個整數，代表連線起點列表（上級站）。
-第三行：N-1 個整數，代表連線終點列表（下級站）。
-第四行：P 個整數，代表每條纜線長度。
-輸出格式
-輸出三個整數（以半形空白分隔）：最大層數 最大L 走法數`,inputDescription:`第一行：兩個整數 N P（基地台數量、纜線數量）。
+(3) 攀登方式：工程人員要爬上「最大層數」階的梯子，每一步可以爬 1 階或 2 階。請計算走到頂端共有幾種不同走法`,inputDescription:`第一行：兩個整數 N P（基地台數量、纜線數量）。
 
 第二行：N-1 個整數，代表連線起點列表（上級站）。
 
@@ -151,15 +132,7 @@ TASA 國家太空中心預計在特定的軌道高度上，沿著預定路徑佈
 • 訊號好：強度為 4 以上（含 4）。
 • 訊號普通：強度為 2 至 3。
 • 訊號弱：強度為 1。
-• 無訊號：強度為 0。
-【輸入說明】
-• 第 1 個輸入為整數 N，代表地圖大小為 N x N（1 ≤ N ≤ 20）。
-• 接下來有 N x N 個數字（0 或正整數）：
-o 0 代表該格沒有基地台。
-o 正整數代表該格設有基地台，且數字為其初始強度。
-o 讀取順序由左至右、由上至下。
-【輸出說明】
-• 請依序輸出四個整數，中間以單一空格隔開，分別代表：訊號好 訊號普通 訊號弱 無訊號 的格子總數。`,inputDescription:`• 第 1 個輸入為整數 N，代表地圖大小為 N x N（1 ≤ N ≤ 20）。
+• 無訊號：強度為 0。`,inputDescription:`• 第 1 個輸入為整數 N，代表地圖大小為 N x N（1 ≤ N ≤ 20）。
 
 • 接下來有 N x N 個數字（0 或正整數）：
 
@@ -227,15 +200,7 @@ o 讀取順序由左至右、由上至下。
     <variable id="v_n3">N</variable><variable id="v_uv2">上游值</variable><variable id="v_up2">上游</variable><variable id="v_q">Q</variable><variable id="v_cur2">cur</variable><variable id="v_steps2">steps</variable>
   </variables>
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n3">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_up2">上游</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n3">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_uv2">上游值</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_up2">上游</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_uv2">上游值</field></block></value></block></next></block></next></block></statement><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入查詢站點</field></block></value><next><block type="variables_set"><field name="VAR" id="v_q">Q</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_cur2">cur</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_q">Q</field></block></value><next><block type="variables_set"><field name="VAR" id="v_steps2">steps</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_whileUntil"><field name="MODE">WHILE</field><value name="BOOL"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_up2">上游</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_cur2">cur</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_cur2">cur</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_up2">上游</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_cur2">cur</field></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_steps2">steps</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_steps2">steps</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_steps2">steps</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`},{id:`cyjunior-009`,title:`社團聯絡網(6-4)`,description:`來到最後一層，主控電腦顯示了一張複雜的「社團關係網絡圖」。圖上有 N 個社團成員節點與 M 條單向連線（代表上級指揮下級）。系統會以「連線列表」的方式給你資料。每一條連線包含「起點（上級）」與「終點（下級）」。這是一個樹狀的分層結構，每一個人都只會有一個上級指導人，請找出從最高指揮（編號 1）傳到最底層的人，中間經過的層數最大是多少。
-輸入格式
-第一行：一個整數 N代表社團總人數（編號 1 ~ N）。
-第二行：一個整數 M（代表關係連線總數）。
-第三行：M 個整數，代表每條連線的「起點列表」。
-第四行：M 個整數，代表每條連線的「終點列表」。
-（例：第三行第 i 個數字(起點)與第四行第 i 個數字(終點)構成一條連線）
-輸出格式
-第一行：一個整數，輸出一個整數，代表聯絡網的最大層數。`,inputDescription:`第一行：一個整數 N代表社團總人數（編號 1 ~ N）。
+</xml>`},{id:`cyjunior-009`,title:`社團聯絡網(6-4)`,description:`來到最後一層，主控電腦顯示了一張複雜的「社團關係網絡圖」。圖上有 N 個社團成員節點與 M 條單向連線（代表上級指揮下級）。系統會以「連線列表」的方式給你資料。每一條連線包含「起點（上級）」與「終點（下級）」。這是一個樹狀的分層結構，每一個人都只會有一個上級指導人，請找出從最高指揮（編號 1）傳到最底層的人，中間經過的層數最大是多少`,inputDescription:`第一行：一個整數 N代表社團總人數（編號 1 ~ N）。
 
 第二行：一個整數 M（代表關係連線總數）。
 

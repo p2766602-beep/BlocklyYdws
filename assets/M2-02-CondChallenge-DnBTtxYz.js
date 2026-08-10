@@ -1,10 +1,5 @@
 var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type:`programming`,mode:`learning`,tier:`t2`,tasks:[{id:`TYTN-09`,title:`校園販賣機自動補貨`,description:`自立國中販賣機販售多種飲料，每種飲料都有目前庫存量。為避免缺貨造成不便，系統規定：凡庫存低於10罐者，一律自動補貨至20罐；庫存大於等於10者不補貨。
-請寫一個程式，讀入各品項目前的庫存量，進行自動補貨後，輸出所有飲料的總罐數。
-輸入格式：
-第一行：一個整數 N，代表飲料的種類數。
-第二行：輸入 N 個整數，代表各飲料目前的庫存量（以空格隔開）。
-輸出格式：
-輸出一個整數（自動補貨後的飲料總罐數）。`,inputDescription:`第一行：一個整數 N，代表飲料的種類數。
+請寫一個程式，讀入各品項目前的庫存量，進行自動補貨後，輸出所有飲料的總罐數`,inputDescription:`第一行：一個整數 N，代表飲料的種類數。
 
 第二行：輸入 N 個整數，代表各飲料目前的庫存量（以空格隔開）。`,outputDescription:`輸出一個整數（自動補貨後的飲料總罐數）。`,requiresGreenFlag:!0,examples:[{input:`5
 12 8 5 20 18`,output:`90`,explanation:`5 種飲料庫存為 12、8、5、20、18。
@@ -26,13 +21,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
 1. 第一週：所有學生都有資格兌換獎品。
 2. 第二週起：學生必須「該週五的成績」比「前一週五的成績」更高，才有資格兌換。
 3. 兌換限制：學生若有資格，且累積的點數足夠兌換該週的獎品，就可以扣除該週規定的點數換取一隻娃娃。每人每週最多只能兌換「一隻」娃娃。
-請撰寫一個程式，輸入強強每週的測驗成績與各週兌換娃娃所需的點數，計算 N 週後，強強總共兌換了幾隻娃娃，以及最後剩餘多少點數。
-【輸入說明】
-• 系統的第一個輸入包含：先是一個整數 N（1 ≤ N ≤ 5），代表測驗總共進行的週數。接著是 N 個整數，依序代表第 1 週到第 N 週兌換獎品所需的點數。
-• 接下來有 N 個輸入（系統的第二至第六個輸入）：每個輸入包含 5 個整數，分別代表強強該週由週一至週五的考試分數（0 ≤ 分數 ≤ 100）。
-• 所有數字之間皆以單一空白隔開。
-【輸出說明】
-• 請輸出兩個整數（中間以空白隔開）：分別代表「總共兌換到的娃娃數量」以及「剩餘點數」。`,inputDescription:`• 系統的第一個輸入包含：先是一個整數 N（1 ≤ N ≤ 5），代表測驗總共進行的週數。接著是 N 個整數，依序代表第 1 週到第 N 週兌換獎品所需的點數。
+請撰寫一個程式，輸入強強每週的測驗成績與各週兌換娃娃所需的點數，計算 N 週後，強強總共兌換了幾隻娃娃，以及最後剩餘多少點數。`,inputDescription:`• 系統的第一個輸入包含：先是一個整數 N（1 ≤ N ≤ 5），代表測驗總共進行的週數。接著是 N 個整數，依序代表第 1 週到第 N 週兌換獎品所需的點數。
 
 • 接下來有 N 個輸入（系統的第二至第六個輸入）：每個輸入包含 5 個整數，分別代表強強該週由週一至週五的考試分數（0 ≤ 分數 ≤ 100）。
 
@@ -60,13 +49,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
   </variables>
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_costs">點數表</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_c">cost</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_costs">點數表</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_c">cost</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_points">點數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_dolls">娃娃數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_prevfri">prevfri</field><value name="VALUE"><block type="math_number"><field name="NUM">-1</field></block></value><next><block type="controls_for"><field name="VAR" id="v_w">w</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_d1">d1</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_d2">d2</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_d3">d3</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_d4">d4</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_d5">d5</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_points">點數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_points">點數</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_d1">d1</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_d2">d2</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_d3">d3</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_d4">d4</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value><value name="B"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_d5">d5</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value></block></value></block></value></block></value></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_operation"><field name="OP">AND</field><value name="A"><block type="logic_operation"><field name="OP">OR</field><value name="A"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_w">w</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_d5">d5</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_prevfri">prevfri</field></block></value></block></value></block></value><value name="B"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_points">點數</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_costs">點數表</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_w">w</field></block></value></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_points">點數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_points">點數</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_costs">點數表</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_w">w</field></block></value></block></value></block></value><next><block type="variables_set"><field name="VAR" id="v_dolls">娃娃數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_dolls">娃娃數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_prevfri">prevfri</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_d5">d5</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_dolls">娃娃數</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_points">點數</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
 </xml>`},{id:`nanto-002`,title:`勇者的挑戰`,description:`勇者的挑戰
-說明：勇者正在地下城探險。他會遇到怪物（扣血）或撿到藥水（補血）。請模擬他的血量變化。要注意的是，血量有上限，補血不能補超過上限；且一旦血量歸零或變負數，勇者就倒下了，血量歸零，勇者已經陣亡，立即停止事件處理，最終輸出為 0。
-輸入格式：
-第一行：一個整數 H，代表初始血量 (同時也是血量上限)。
-第二行：一個整數 N ( N 大於 0 )，代表發生了 N 個事件。
-第三行：輸入 N 個整數，代表 N 個事件造成的數值變化
-輸出格式：
-輸出一個整數，代表最終血量。`,inputDescription:`第一行：一個整數 H，代表初始血量 (同時也是血量上限)。
+說明：勇者正在地下城探險。他會遇到怪物（扣血）或撿到藥水（補血）。請模擬他的血量變化。要注意的是，血量有上限，補血不能補超過上限；且一旦血量歸零或變負數，勇者就倒下了，血量歸零，勇者已經陣亡，立即停止事件處理，最終輸出為 0`,inputDescription:`第一行：一個整數 H，代表初始血量 (同時也是血量上限)。
 
 第二行：一個整數 N ( N 大於 0 )，代表發生了 N 個事件。
 
@@ -106,12 +89,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
 則該玩具不可放入此箱，該箱立即封箱，
 並改使用一個新的收納箱來放置該玩具。
 請根據輸入的玩具重量資料，計算最少需要多少個收納箱，
-才能將所有玩具依序安全裝箱完成。
-輸入格式：
-第一行：一個整數 N，代表玩具的件數。
-第二行：N 個整數，代表每件玩具的重量（公斤），資料之間以一個半形空格隔開。
-輸出格式：
-輸出一個整數，代表最少需要的收納箱數量。`,inputDescription:`第一行：一個整數 N，代表玩具的件數。
+才能將所有玩具依序安全裝箱完成`,inputDescription:`第一行：一個整數 N，代表玩具的件數。
 
 第二行：N 個整數，代表每件玩具的重量（公斤），資料之間以一個半形空格隔開。`,outputDescription:`輸出一個整數，代表最少需要的收納箱數量。`,requiresGreenFlag:!0,examples:[{input:`6
 5 6 4 7 9 3`,output:`3`,explanation:`第一箱：5＋6＋4＝15，加入 7 會超過 20 → 封箱。
@@ -152,17 +130,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
 今天共有 N 筆訂單，每筆訂單包含「飲料編號」與「購買杯數」。
 請你設計一個程式，依序讀取輸入資料，計算：
 1. 各種飲料的總銷售杯數（依照 1～K 順序）
-2. 當天的總利潤
-【輸入說明】
-• 第一行輸入一個整數 K（3 ≤ K ≤ 10），代表飲料種類數。
-• 第二行輸入 K 個整數，依序代表第 1 種到第 K 種飲料的「每杯利潤」。
-• 第三行輸入一個整數 N（1 ≤ N ≤ 20），代表今天共有 N 筆訂單。
-• 第四行輸入 2N 個整數，依序代表「飲料編號（1～K）」與「杯數（1～20）」。
-【輸出說明】
-• 輸出一行共 K+1 個整數。
-• 前 K 個數字依序為第 1～K 種飲料的總銷售杯數。
-• 最後一個數字為當天的總利潤。
-• 所有數字之間以一個半形空格隔開。`,inputDescription:`• 第一行輸入一個整數 K（3 ≤ K ≤ 10），代表飲料種類數。
+2. 當天的總利潤`,inputDescription:`• 第一行輸入一個整數 K（3 ≤ K ≤ 10），代表飲料種類數。
 
 • 第二行輸入 K 個整數，依序代表第 1 種到第 K 種飲料的「每杯利潤」。
 
@@ -214,12 +182,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
 以此作為自己持續進步的證明。
 已知阿倫：
 第 1 天寫了 A 個程式，第 2 天寫了 B 個程式。
-請你撰寫一個程式，計算阿倫在第 N 天寫了多少個程式。
-【輸入說明】
-輸入為一行，包含三個整數 N、A、B，
-分別代表要查詢的天數、第 1 天與第 2 天寫的程式數量。
-【輸出說明】
-輸出一個整數，代表阿倫在第 N 天寫的程式數量。`,inputDescription:`輸入為一行，包含三個整數 N、A、B，
+請你撰寫一個程式，計算阿倫在第 N 天寫了多少個程式。`,inputDescription:`輸入為一行，包含三個整數 N、A、B，
 
 分別代表要查詢的天數、第 1 天與第 2 天寫的程式數量。`,outputDescription:`輸出一個整數，代表阿倫在第 N 天寫的程式數量。`,requiresGreenFlag:!0,examples:[{input:`4 1 2`,output:`5`,explanation:`第 1 天：1
 第 2 天：2
@@ -237,15 +200,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
 
 • 若當天成績沒有比前一天高（小於或等於），則中斷連續進步的計算。
 
-• 請找出並輸出「連續成績進步」的最長次數。
-
-【輸入與輸出說明】
-
-• 第一行輸入一個整數 N，代表記錄成績的天數（1 ≤ N ≤ 50）。
-
-• 第二行輸入 N 個整數，分別代表每一天的測驗成績（0 ≤ 成績 ≤ 100），數字間以單一空白隔開。
-
-• 輸出一個整數，代表「連續成績進步」的最大連續次數。若完全沒有進步，請輸出 0。`,inputDescription:``,outputDescription:`• 第一行輸入一個整數 N，代表記錄成績的天數（1 ≤ N ≤ 50）。
+• 請找出並輸出「連續成績進步」的最長次數。`,inputDescription:``,outputDescription:`• 第一行輸入一個整數 N，代表記錄成績的天數（1 ≤ N ≤ 50）。
 
 • 第二行輸入 N 個整數，分別代表每一天的測驗成績（0 ≤ 成績 ≤ 100），數字間以單一空白隔開。
 
@@ -268,13 +223,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
   </variables>
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_cur">目前連續</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_best">最佳</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_cur">目前連續</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cur">目前連續</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cur">目前連續</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_best">最佳</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_best">最佳</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_cur">目前連續</field></block></value></block></statement></block></next></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="v_cur">目前連續</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_best">最佳</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
 </xml>`},{id:`TYTN-11`,title:`攻擊防禦力平衡`,description:`小麗在玩一款魔法戰鬥RPG手機遊戲。角色擁有「魔力攻擊」與「魔法防禦」兩種屬性。三件魔法道具會同時提升攻擊與防禦，道具效果可以疊加，但每件道具只能使用一次。
-小麗希望使用最少的道具，使角色攻擊力與防禦力相等。請撰寫程式找出要使用哪些道具才能達成要求，若需要多個道具，請依道具編號由小到大輸出；若無法達成攻擊力等於防禦力則輸出0。
-輸入格式：
-第1行：角色的魔法攻擊力
-第2行：角色的魔法防禦力
-第3行：第1、2、3件道具的攻擊力與防禦力（先列全部攻擊力，再列全部防禦力）
-輸出格式：
-第1行：使用的道具編號（若多個，請以空白間隔；若無法達成則輸出0）`,inputDescription:`第1行：角色的魔法攻擊力
+小麗希望使用最少的道具，使角色攻擊力與防禦力相等。請撰寫程式找出要使用哪些道具才能達成要求，若需要多個道具，請依道具編號由小到大輸出；若無法達成攻擊力等於防禦力則輸出0`,inputDescription:`第1行：角色的魔法攻擊力
 
 第2行：角色的魔法防禦力
 
@@ -314,12 +263,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
 1：代表小明在房間，該小時冷氣必須是開著的。
 0：代表小明不在房間，你可以選擇讓冷氣關掉（省運轉費），或維持開著（避免下次再付啟動費 5 度）。
 【任務】
-在滿足所有「小明在房間」的時段冷氣都必須開著的條件下，請計算一整天最少總共要消耗多少度電。
-【輸入格式】
-第一行輸入一個整數 N，代表總時數。
-第二行輸入 N 個整數（0 或 1，以空白隔開），代表每個小時小明是否在房間。
-【輸出格式】
-輸出一個整數，代表最少的總耗電度數。`,inputDescription:`第一行輸入一個整數 N，代表總時數。
+在滿足所有「小明在房間」的時段冷氣都必須開著的條件下，請計算一整天最少總共要消耗多少度電。`,inputDescription:`第一行輸入一個整數 N，代表總時數。
 
 第二行輸入 N 個整數（0 或 1，以空白隔開），代表每個小時小明是否在房間。`,outputDescription:`輸出一個整數，代表最少的總耗電度數。`,requiresGreenFlag:!0,examples:[{input:`5
 1 1 1 1 1`,output:`10`,explanation:`一直都在房間。
@@ -340,14 +284,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_cnt1">開機時數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_cnt1">開機時數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cnt1">開機時數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></statement></block></statement><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cnt1">開機時數</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="math_number"><field name="NUM">0</field></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="v_prev">上次位置</field><value name="VALUE"><block type="math_number"><field name="NUM">-1</field></block></value><next><block type="variables_set"><field name="VAR" id="v_gapsum">間隔總和</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">NEQ</field><value name="A"><block type="variables_get"><field name="VAR" id="v_prev">上次位置</field></block></value><value name="B"><block type="math_number"><field name="NUM">-1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_gapsum">間隔總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_gapsum">間隔總和</field></block></value><value name="B"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_prev">上次位置</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">5</field></block></value></block></value><value name="THEN"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_prev">上次位置</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="ELSE"><block type="math_number"><field name="NUM">5</field></block></value></block></value></block></value></block></statement><next><block type="variables_set"><field name="VAR" id="v_prev">上次位置</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></next></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_number"><field name="NUM">5</field></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cnt1">開機時數</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_gapsum">間隔總和</field></block></value></block></value></block></value></block></next></block></next></block></next></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
 </xml>`},{id:`WP-07`,title:`找零錢計算`,description:`收銀機內有 5 種面額的錢幣：100、50、10、5、1，且每種面額皆有有限數量。
 顧客付款後需要找零，請在不超過庫存的前提下，用最少的硬幣數完成找零。
-若無法剛好找出需要的金額，輸出 無法找零。若無法剛好找出需要的金額，輸出 無法找零。
-輸入格式：3行
-第一行輸入代表購物金額。
-第二行輸入代表付款金額
-第三行輸入有5個用空格隔開的非負整數，代表每種零錢剩餘的數量
-輸出格式：
-若可找零，輸出五個整數，表示實際找出的 100、50、10、5、1 的枚數（以空格分隔）。
-若無法找零輸出：無法找零`,inputDescription:`3行
+若無法剛好找出需要的金額，輸出 無法找零。若無法剛好找出需要的金額，輸出 無法找零`,inputDescription:`3行
 
 第一行輸入代表購物金額。
 
@@ -389,14 +326,7 @@ var e={code:`M2-02-CondChallenge`,title:`運算與條件判斷綜合挑戰`,type
 娜娜有特別喜歡的系列短片，但她每天能夠待在圖書館的時間有限，
 只能連續觀看 K 場短片。她可以自由選擇從哪一場開始觀看。
 請你幫娜娜找出，在連續觀看 K 場短片的情況下，
-最多可以看到幾次她最喜歡的系列短片。
-輸入格式：
-第 1 行：整數 N，代表播放的短片總場次。
-第 2 行：N 個大寫英文字母，代表每一場播放的短片系列（以一個半形空格隔開）。
-第 3 行：一個整數 K 與一個大寫英文字母，
-分別代表可連續觀看的場次數，以及娜娜最喜歡的短片系列（以一個半形空格隔開）。
-輸出格式：
-第 1 行：整數，代表最多可以看到幾次最喜歡的短片系列。`,inputDescription:`第 1 行：整數 N，代表播放的短片總場次。
+最多可以看到幾次她最喜歡的系列短片`,inputDescription:`第 1 行：整數 N，代表播放的短片總場次。
 
 第 2 行：N 個大寫英文字母，代表每一場播放的短片系列（以一個半形空格隔開）。
 

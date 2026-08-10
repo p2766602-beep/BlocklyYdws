@@ -1,8 +1,4 @@
-var e={code:`M0-04-LoopsAndSum`,title:`迴圈與累計`,type:`programming`,mode:`learning`,tier:`t0`,tasks:[{id:`JSL01-D01`,title:`從1數到N`,description:`輸入一個正整數 N，請依序輸出 1 到 N 的所有整數，每個數字各佔一行。本題用來示範最基本的計數迴圈。
-輸入格式：
-第一行：一個正整數 N。
-輸出格式：
-輸出 1 到 N，每個數字各佔一行。`,inputDescription:`第一行：一個正整數 N。`,outputDescription:`輸出 1 到 N，每個數字各佔一行。`,requiresGreenFlag:!0,examples:[{input:`3`,output:`1
+var e={code:`M0-04-LoopsAndSum`,title:`迴圈與累計`,type:`programming`,mode:`learning`,tier:`t0`,tasks:[{id:`JSL01-D01`,title:`從1數到N`,description:`輸入一個正整數 N，請依序輸出 1 到 N 的所有整數，每個數字各佔一行。本題用來示範最基本的計數迴圈`,inputDescription:`第一行：一個正整數 N。`,outputDescription:`輸出 1 到 N，每個數字各佔一行。`,requiresGreenFlag:!0,examples:[{input:`3`,output:`1
 2
 3`,explanation:`依序輸出 1、2、3。`},{input:`1`,output:`1`,explanation:`N 為 1，只輸出 1。`}],testCases:[{input:`1`,expectedOutput:`1`,output:`1`,score:20},{input:`3`,expectedOutput:`1
 2
@@ -108,11 +104,7 @@ var e={code:`M0-04-LoopsAndSum`,title:`迴圈與累計`,type:`programming`,mode:
       </block>
     </next>
   </block>
-</xml>`},{id:`JSL01-D02`,title:`1到N加總示範`,description:`輸入一個正整數 N，請計算 1 + 2 + 3 + ... + N 的總和。本題用來示範累加變數的初始化、更新與輸出。
-輸入格式：
-第一行：一個正整數 N。
-輸出格式：
-輸出 1 到 N 的總和。`,inputDescription:`第一行：一個正整數 N。`,outputDescription:`輸出 1 到 N 的總和。`,requiresGreenFlag:!0,examples:[{input:`5`,output:`15`,explanation:`1+2+3+4+5=15。`},{input:`10`,output:`55`,explanation:`1 到 10 的總和為 55。`}],testCases:[{input:`1`,expectedOutput:`1`,output:`1`,score:20},{input:`3`,expectedOutput:`6`,output:`6`,score:20},{input:`5`,expectedOutput:`15`,output:`15`,score:20},{input:`10`,expectedOutput:`55`,output:`55`,score:20},{input:`100`,expectedOutput:`5050`,output:`5050`,score:20}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+</xml>`},{id:`JSL01-D02`,title:`1到N加總示範`,description:`輸入一個正整數 N，請計算 1 + 2 + 3 + ... + N 的總和。本題用來示範累加變數的初始化、更新與輸出。`,inputDescription:`第一行：一個正整數 N。`,outputDescription:`輸出 1 到 N 的總和。`,requiresGreenFlag:!0,examples:[{input:`5`,output:`15`,explanation:`1+2+3+4+5=15。`},{input:`10`,output:`55`,explanation:`1 到 10 的總和為 55。`}],testCases:[{input:`1`,expectedOutput:`1`,output:`1`,score:20},{input:`3`,expectedOutput:`6`,output:`6`,score:20},{input:`5`,expectedOutput:`15`,output:`15`,score:20},{input:`10`,expectedOutput:`55`,output:`55`,score:20},{input:`100`,expectedOutput:`5050`,output:`5050`,score:20}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables><variable id="var_n">N</variable><variable id="var_sum">總和</variable><variable id="var_i">i</variable></variables>
   <block type="event_whenflagclicked" x="40" y="40">
     <next>
@@ -143,12 +135,7 @@ var e={code:`M0-04-LoopsAndSum`,title:`迴圈與累計`,type:`programming`,mode:
       </block>
     </next>
   </block>
-</xml>`},{id:`JSL01-P01`,title:`N個數字累加`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請計算這 N 個整數的總和。本題用來練習重複讀取資料並累加。
-輸入格式：
-第一行：一個整數 N。
-第二行：N 個整數，以空白分隔。
-輸出格式：
-輸出 N 個整數的總和。`,inputDescription:`第一行：一個整數 N。
+</xml>`},{id:`JSL01-P01`,title:`N個數字累加`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請計算這 N 個整數的總和。本題用來練習重複讀取資料並累加`,inputDescription:`第一行：一個整數 N。
 
 第二行：N 個整數，以空白分隔。`,outputDescription:`輸出 N 個整數的總和。`,requiresGreenFlag:!0,examples:[{input:`3
 10 20 30`,output:`60`,explanation:`10+20+30=60。`},{input:`5
@@ -205,12 +192,7 @@ var e={code:`M0-04-LoopsAndSum`,title:`迴圈與累計`,type:`programming`,mode:
       </block>
     </next>
   </block>
-</xml>`},{id:`JSL01-P02`,title:`只加偶數`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請只把其中的偶數加總後輸出。本題用來練習迴圈內加入條件判斷。
-輸入格式：
-第一行：一個整數 N。
-第二行：N 個整數，以空白分隔。
-輸出格式：
-輸出所有偶數的總和。若沒有偶數，輸出 0。`,inputDescription:`第一行：一個整數 N。
+</xml>`},{id:`JSL01-P02`,title:`只加偶數`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請只把其中的偶數加總後輸出。本題用來練習迴圈內加入條件判斷`,inputDescription:`第一行：一個整數 N。
 
 第二行：N 個整數，以空白分隔。`,outputDescription:`輸出所有偶數的總和。若沒有偶數，輸出 0。`,requiresGreenFlag:!0,examples:[{input:`5
 1 2 3 4 5`,output:`6`,explanation:`偶數為 2 與 4，總和為 6。`},{input:`3
@@ -274,11 +256,7 @@ var e={code:`M0-04-LoopsAndSum`,title:`迴圈與累計`,type:`programming`,mode:
       </block>
     </next>
   </block>
-</xml>`},{id:`JSL01-P03`,title:`簡化階乘`,description:`輸入一個正整數 N，請計算 1 × 2 × 3 × ... × N 的結果。本題用來練習累乘變數與迴圈結構。
-輸入格式：
-第一行：一個正整數 N。
-輸出格式：
-輸出 N 的階乘結果。`,inputDescription:`第一行：一個正整數 N。`,outputDescription:`輸出 N 的階乘結果。`,requiresGreenFlag:!0,examples:[{input:`4`,output:`24`,explanation:`1×2×3×4=24。`},{input:`5`,output:`120`,explanation:`1×2×3×4×5=120。`}],testCases:[{input:`1`,expectedOutput:`1`,output:`1`,score:20},{input:`3`,expectedOutput:`6`,output:`6`,score:20},{input:`4`,expectedOutput:`24`,output:`24`,score:20},{input:`5`,expectedOutput:`120`,output:`120`,score:20},{input:`7`,expectedOutput:`5040`,output:`5040`,score:20}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+</xml>`},{id:`JSL01-P03`,title:`簡化階乘`,description:`輸入一個正整數 N，請計算 1 × 2 × 3 × ... × N 的結果。本題用來練習累乘變數與迴圈結構`,inputDescription:`第一行：一個正整數 N。`,outputDescription:`輸出 N 的階乘結果。`,requiresGreenFlag:!0,examples:[{input:`4`,output:`24`,explanation:`1×2×3×4=24。`},{input:`5`,output:`120`,explanation:`1×2×3×4×5=120。`}],testCases:[{input:`1`,expectedOutput:`1`,output:`1`,score:20},{input:`3`,expectedOutput:`6`,output:`6`,score:20},{input:`4`,expectedOutput:`24`,output:`24`,score:20},{input:`5`,expectedOutput:`120`,output:`120`,score:20},{input:`7`,expectedOutput:`5040`,output:`5040`,score:20}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables><variable id="var_n">N</variable><variable id="var_prod">乘積</variable><variable id="var_i">i</variable></variables>
   <block type="event_whenflagclicked" x="40" y="40">
     <next>

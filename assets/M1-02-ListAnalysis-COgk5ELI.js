@@ -3,13 +3,7 @@ var e={code:`M1-02-ListAnalysis`,title:`清單資料分析挑戰`,type:`programm
 輸入共有兩行。第一行是一個整數 N，代表密碼長度。
 第二行輸入 N 個整數，代表N個數字的密碼組合。
 程式反序輸 N 筆密碼數字資料，中間以空白間隔
-(提示：循環計數迴圈起點設為清單長度，終點設為 1，間隔設為 -1)`,inputDescription:`輸入共有兩行。第一行是一個整數 N，代表密碼長度。
-
-第二行輸入 N 個整數，代表N個數字的密碼組合。
-
-程式反序輸 N 筆密碼數字資料，中間以空白間隔
-
-(提示：循環計數迴圈起點設為清單長度，終點設為 1，間隔設為 -1)`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`4
+(提示：循環計數迴圈起點設為清單長度，終點設為 1，間隔設為 -1)`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`4
 10 20 30 40`,output:`40 30 20 10`,explanation:`第一行輸入數字4，代表密碼有4筆資料
 第二行有4筆整數資料，10 20 30 40
 程式反敘輸出密碼資料：40 30 20 10`},{input:`3
@@ -92,11 +86,7 @@ var e={code:`M1-02-ListAnalysis`,title:`清單資料分析挑戰`,type:`programm
 輸入格式
 輸入共有兩行。第一行是一個整數 N，代表天數。
 第二行輸入 N 個整數，代表每天怪物的數量。
-程式依序輸出 N 天資料，每天格式為 Day-i-數量 不同天中間以空白間隔。`,inputDescription:`輸入共有兩行。第一行是一個整數 N，代表天數。
-
-第二行輸入 N 個整數，代表每天怪物的數量。
-
-程式依序輸出 N 天資料，每天格式為 Day-i-數量 不同天中間以空白間隔。`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`2
+程式依序輸出 N 天資料，每天格式為 Day-i-數量 不同天中間以空白間隔。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`2
 15 5`,output:`Day-1-15 Day-2-5`,explanation:`第一行輸入數字2，代表有2天資料
 第二行有2筆整數資料，15 5
 程式依序輸出所有天數資料：Day-1-15 Day-2-5`},{input:`3
@@ -170,13 +160,7 @@ var e={code:`M1-02-ListAnalysis`,title:`清單資料分析挑戰`,type:`programm
 輸入共有兩行。第一行是一個整數 N，代表裝備數量。
 第二行輸入 N 個整數，代表每個裝備重量。
 程式依序輸出小於 10 的數字，中間以空白隔開。
-如果都沒有小於 10 的數字，則什麼都不輸出。`,inputDescription:`輸入共有兩行。第一行是一個整數 N，代表裝備數量。
-
-第二行輸入 N 個整數，代表每個裝備重量。
-
-程式依序輸出小於 10 的數字，中間以空白隔開。
-
-如果都沒有小於 10 的數字，則什麼都不輸出。`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5
+如果都沒有小於 10 的數字，則什麼都不輸出。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5
 15 5 20 8 3`,output:`5 8 3`,explanation:`第一行輸入數字5，代表5筆裝備資料
 第二行有5筆整數裝備資料，15 5 20 8 3
 程式依序輸出小於10裝備重量：5 8 3`},{input:`3
@@ -194,12 +178,7 @@ var e={code:`M1-02-ListAnalysis`,title:`清單資料分析挑戰`,type:`programm
 </xml>`},{id:`TYTN-05`,title:`班服投票`,description:`可愛國小601班要製作紀念班服，本次班服設計共有3個款式，分別編號為1、2、3。
 每位同學可在選票上寫下自己選擇的班服款式編號，最後以得票數最高者為班服樣式。
 請先計算每款班服的得票數（依1→3順序），並輸出最高票的班服編號。
-若有兩款或以上的票數相同且為最高票，則輸出：請重新投票。
-輸入格式：
-第一行：整數 N，代表投票數。
-第二行：N 個整數（介於 1~3），代表每張選票的班服設計編號。
-輸出格式：
-若票數最高者唯一，輸出該款式編號；若最高票出現同票數，輸出「請重新投票」。`,inputDescription:`第一行：整數 N，代表投票數。
+若有兩款或以上的票數相同且為最高票，則輸出：請重新投票`,inputDescription:`第一行：整數 N，代表投票數。
 
 第二行：N 個整數（介於 1~3），代表每張選票的班服設計編號。`,outputDescription:`若票數最高者唯一，輸出該款式編號；若最高票出現同票數，輸出「請重新投票」。`,requiresGreenFlag:!0,examples:[{input:`8
 1 2 2 3 2 1 3 2`,output:`2`,explanation:`8 位同學投票，各自選擇的班服編號如上。
@@ -220,11 +199,7 @@ var e={code:`M1-02-ListAnalysis`,title:`清單資料分析挑戰`,type:`programm
 第1區（普通區）：2250 席，每排 25 人，共 90 排。
 第2區（搖滾區）：4500 席，每排 50 人，共 90 排。
 第3區（普通區）：2250 席，每排 25 人，共 90 排。
-座位編號從第1區開始，由左至右、由前至後依序編號，接著接續第2、3區。
-輸入格式：
-輸入一個整數 seat（座位號碼）。
-輸出格式：
-輸出 3 個整數，分別為：大區區號、排數、由左數的第幾個座位。`,inputDescription:`輸入一個整數 seat（座位號碼）。`,outputDescription:`輸出 3 個整數，分別為：大區區號、排數、由左數的第幾個座位。`,requiresGreenFlag:!0,examples:[{input:`1881`,output:`1 76 6`,explanation:`座位 1881 位於第1區。
+座位編號從第1區開始，由左至右、由前至後依序編號，接著接續第2、3區`,inputDescription:`輸入一個整數 seat（座位號碼）。`,outputDescription:`輸出 3 個整數，分別為：大區區號、排數、由左數的第幾個座位。`,requiresGreenFlag:!0,examples:[{input:`1881`,output:`1 76 6`,explanation:`座位 1881 位於第1區。
 第1區每排25人，因此計算後位於第76排、第6個座位。`},{input:`3045`,output:`2 16 45`,explanation:`座位 3045 位於第2區。
 第2區每排50人，因此計算後位於第16排、第45個座位。`}],testCases:[{input:`1881`,expectedOutput:`1 76 6`,output:`1 76 6`,score:10},{input:`3045`,expectedOutput:`2 16 45`,output:`2 16 45`,score:10},{input:`25`,expectedOutput:`1 1 25`,output:`1 1 25`,score:10},{input:`4501`,expectedOutput:`2 46 1`,output:`2 46 1`,score:10},{input:`8999`,expectedOutput:`3 90 24`,output:`3 90 24`,score:10}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
@@ -248,13 +223,7 @@ var e={code:`M1-02-ListAnalysis`,title:`清單資料分析挑戰`,type:`programm
 第 1 回合依序比較 (1,2)、(2,3)、(3,4)
 第 2 回合依序比較 (1,2)、(2,3)、(3,4)
 第 3 回合依序比較 (1,2)、(2,3)、(3,4)
-每次比較時只要符合交換規則就交換，並將交換次數 +1。
-【輸入格式】
-第一行輸入一個整數 4（代表有 4 尊風獅爺）。
-第二行輸入 4 個整數，代表 4 尊風獅爺的身高，數字之間以空白隔開。
-【輸出格式】
-輸出兩個資訊（同一行輸出）：
-先輸出排序後由小到大的 4 個身高（以空白隔開），再以一個空白接著輸出總交換次數。`,inputDescription:`第一行輸入一個整數 4（代表有 4 尊風獅爺）。
+每次比較時只要符合交換規則就交換，並將交換次數 +1。`,inputDescription:`第一行輸入一個整數 4（代表有 4 尊風獅爺）。
 
 第二行輸入 4 個整數，代表 4 尊風獅爺的身高，數字之間以空白隔開。`,outputDescription:`輸出兩個資訊（同一行輸出）：
 
@@ -272,12 +241,7 @@ var e={code:`M1-02-ListAnalysis`,title:`清單資料分析挑戰`,type:`programm
   </variables>
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入4</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_h">身高清單</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="variables_set"><field name="VAR" id="v_swaps">交換次數</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_tmp">tmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_tmp">tmp</field></block></value><next><block type="variables_set"><field name="VAR" id="v_swaps">交換次數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_swaps">交換次數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></next></block></next></block></statement></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_tmp">tmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_tmp">tmp</field></block></value><next><block type="variables_set"><field name="VAR" id="v_swaps">交換次數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_swaps">交換次數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></next></block></next></block></statement></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_tmp">tmp</field><value name="VALUE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="TO"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></value><next><block type="lists_setIndex"><mutation at="true"></mutation><field name="MODE">SET</field><field name="WHERE">FROM_START</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_tmp">tmp</field></block></value><next><block type="variables_set"><field name="VAR" id="v_swaps">交換次數</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_swaps">交換次數</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></next></block></next></block></next></block></statement></block></statement></block></statement><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="var_ji">ji</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="1"></mutation><value name="ADD0"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_jres">jres</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_jres">jres</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_h">身高清單</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="var_ji">ji</field></block></value></block></value></block></value></block></statement></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_jres">jres</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="v_swaps">交換次數</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
 </xml>`},{id:`W5-01`,title:`安靜值巡查器`,description:`學校自習室裝了「安靜值巡查器」，每小時會量測一次安靜值（數值越大代表越安靜）。系統設定一個門檻值 K：
-- 若某小時的安靜值 輸入格式
-第一行：一個整數 N，代表紀錄的總時數。
-第二行：一個整數 K，代表安靜值門檻。
-第三行：N 個整數，代表每小時的安靜值（以半形空格分隔）。
-輸出格式
-第一行：一個整數，代表總提醒次數。`,inputDescription:`第一行：一個整數 N，代表紀錄的總時數。
+- 若某小時的安靜值`,inputDescription:`第一行：一個整數 N，代表紀錄的總時數。
 
 第二行：一個整數 K，代表安靜值門檻。
 
@@ -321,18 +285,9 @@ var e={code:`M1-02-ListAnalysis`,title:`清單資料分析挑戰`,type:`programm
 
 第二行：輸入 M，代表有M個空段落。
 
-第三行：輸入序列X，依序代表每個空段落的座位數。
-
-輸出格式：輸出一個整數，有幾種方式。`,inputDescription:``,outputDescription:`輸出一個整數，有幾種方式。`,requiresGreenFlag:!0,examples:[{input:`小華一家人要去看電影，他們希望能找到連續的K個空座位。整排座位中，某些座位已經有人坐了，因此剩下的空位會形成幾段「連續空位」。
-現在給你每一段連續空位的座位數，請你計算小華一家人共有幾種方式 可以在這一排中坐下。
-第一行：整數 N，代表有N個人。
-第二行：輸入 M，代表有M個空段落。
-第三行：輸入序列X，依序代表每個空段落的座位數。
-輸出格式：輸出一個整數，有幾種方式。
-使用者輸入`,output:`輸出`,explanation:`範例說明`},{input:`3
+第三行：輸入序列X，依序代表每個空段落的座位數。`,inputDescription:``,outputDescription:`輸出一個整數，有幾種方式。`,requiresGreenFlag:!0,examples:[{input:`3
 2
-6 2`,output:`4`,explanation:`//第三欄範例說明
-有3個人
+6 2`,output:`4`,explanation:`有3個人
 有2段空位：6 與 2。
 長度 6 的那段，能讓 3 人連坐的起點有 4 種。
 長度 2 的那段不夠 3 人連坐，0 種。
@@ -359,13 +314,7 @@ var e={code:`M1-02-ListAnalysis`,title:`清單資料分析挑戰`,type:`programm
 </xml>`},{id:`cycjunior-004`,title:`校車廣播系統熱血指數統計`,description:`快樂國中一年級的戶外教學日終於到了！全班同學興高采烈地搭上了前往遊樂園的校車。然而，去程的高速公路意外地塞車了，原本歡樂的氣氛隨著車窗外的景色靜止，車內的空氣也開始變得沉悶，同學們一個個開始打哈欠，甚至有人睡著了。
 身為康樂股長的小明，手中掌握著一份班上同學投票選出的「熱門歌曲清單」。這份清單上的每一首歌，根據節奏快慢與受歡迎程度，都有一個對應的「熱血指數」。指數越高，代表這首歌越能讓大家High起來（當然，如果是抒情歌，指數可能就很低，甚至如果是老師愛聽的老歌，指數可能是負的，會讓大家更想睡覺）。
 校車的廣播系統有一個特殊的限制：一次設定只能連續播放 K 首歌曲。一旦開始播放，就必須把這 K 首歌依序播完才能切換模式。小明的任務非常重要，他需要從這份落落長的歌單中，挑選出連續的 K 首歌，使得這段時間內的「熱血指數總和」達到最高，以此來喚醒全班同學的靈魂，把車內的氣氛炒到最高點！
-請你寫一個程式幫助小明，在給定的歌單順序中，找出那一段連續 K 首歌的熱血總和最大是多少。
-輸入格式：
-第一行：整數 K代表廣播系統一次必須連續播放的歌曲數量。
-第二行：整數 N代表歌單中總共有 N首歌。
-第三行：N 個整數依序代表歌單中第 1 首到第 N首歌的「熱血指數」。
-輸出格式：
-一個整數（最大總和）。`,inputDescription:`第一行：整數 K代表廣播系統一次必須連續播放的歌曲數量。
+請你寫一個程式幫助小明，在給定的歌單順序中，找出那一段連續 K 首歌的熱血總和最大是多少`,inputDescription:`第一行：整數 K代表廣播系統一次必須連續播放的歌曲數量。
 
 第二行：整數 N代表歌單中總共有 N首歌。
 

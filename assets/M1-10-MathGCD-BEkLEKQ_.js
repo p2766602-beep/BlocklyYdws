@@ -102,10 +102,7 @@ var e={code:`M1-10-MathGCD`,title:`數學規則進階：GCD與應用`,type:`prog
 輸入格式：輸入2行
 第一行輸入第1個整數N
 第二行輸入地2個整數M
-程式運算找出二數的最大公因數並輸出`,inputDescription:`輸入2行
-第一行輸入第1個整數N
-第二行輸入地2個整數M
-程式運算找出二數的最大公因數並輸出`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`9
+程式運算找出二數的最大公因數並輸出`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`9
 6`,output:`3`,explanation:`第一行輸入9，
 第二行輸入6，
 程式輸出6、9二個數的最大公因數3`},{input:`30
@@ -128,12 +125,7 @@ var e={code:`M1-10-MathGCD`,title:`數學規則進階：GCD與應用`,type:`prog
 3. 3 是質數，刪除大於 3 的所有 3 的倍數
 4. 5 是質數，刪除大於 5 的所有 5 的倍數
 5. 7 是質數，刪除大於 7 的所有 7 的倍數
-最後留下的數即為質數
-輸入格式：
-第一行：正整數 A（起始值）
-第二行：正整數 B（結束值，且 B ≥ A）
-輸出格式：
-輸出 A 至 B 之間所有質數的總和（若沒有質數則輸出 0）。`,inputDescription:`第一行：正整數 A（起始值）
+最後留下的數即為質數`,inputDescription:`第一行：正整數 A（起始值）
 
 第二行：正整數 B（結束值，且 B ≥ A）`,outputDescription:`輸出 A 至 B 之間所有質數的總和（若沒有質數則輸出 0）。`,requiresGreenFlag:!0,examples:[{input:`21
 30`,output:`52`,explanation:`21～30 的質數為 23、29
@@ -158,11 +150,7 @@ F(2)=2               ,2階樓梯有 2種走法
 F(3)=F(2)+F(1)=1+2=3 ,3階樓梯有 3種走法
 F(4)=F(3)+F(2)=3+2=5 ,4階樓梯有 5種走法
 …
-請你幫小明計算出所有可能的走法總數。
-輸入格式
-第一行：一個整數 N，代表樓梯的總階數。
-輸出格式
-第一行： 一個整數，代表走法的總數。`,inputDescription:`第一行：一個整數 N，代表樓梯的總階數。`,outputDescription:`第一行： 一個整數，代表走法的總數。`,requiresGreenFlag:!0,examples:[{input:`3`,output:`3`,explanation:`走法：(1,1,1), (1,2), (2,1) 共 3 種。`},{input:`4`,output:`5`,explanation:`走法：(1,1,1,1), (1,1,2), (1,2,1), (2,1,1), (2,2) 共 5 種。`}],testCases:[{input:`1`,expectedOutput:`1`,output:`1`,score:10},{input:`5`,expectedOutput:`8`,output:`8`,score:15},{input:`10`,expectedOutput:`89`,output:`89`,score:20},{input:`15`,expectedOutput:`987`,output:`987`,score:25},{input:`20`,expectedOutput:`10946`,output:`10946`,score:30}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+請你幫小明計算出所有可能的走法總數`,inputDescription:`第一行：一個整數 N，代表樓梯的總階數。`,outputDescription:`第一行： 一個整數，代表走法的總數。`,requiresGreenFlag:!0,examples:[{input:`3`,output:`3`,explanation:`走法：(1,1,1), (1,2), (2,1) 共 3 種。`},{input:`4`,output:`5`,explanation:`走法：(1,1,1,1), (1,1,2), (1,2,1), (2,1,1), (2,2) 共 5 種。`}],testCases:[{input:`1`,expectedOutput:`1`,output:`1`,score:10},{input:`5`,expectedOutput:`8`,output:`8`,score:15},{input:`10`,expectedOutput:`89`,output:`89`,score:20},{input:`15`,expectedOutput:`987`,output:`987`,score:25},{input:`20`,expectedOutput:`10946`,output:`10946`,score:30}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="v_n">N</variable><variable id="v_a">a</variable><variable id="v_b">b</variable><variable id="v_c">c</variable><variable id="v_i">i</variable>
   </variables>
@@ -171,9 +159,7 @@ F(4)=F(3)+F(2)=3+2=5 ,4階樓梯有 5種走法
 輸入一組整數，請計算這些數字的最大公因數
 輸入格式：輸入2行
 第一行輸入1個整數N，代表接下來要計算最大公因數的個數
-第二行輸入N個整數，用空格隔開，代表要計算最大公因數的N個整數`,inputDescription:`輸入2行
-第一行輸入1個整數N，代表接下來要計算最大公因數的個數
-第二行輸入N個整數，用空格隔開，代表要計算最大公因數的N個整數`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`2
+第二行輸入N個整數，用空格隔開，代表要計算最大公因數的N個整數`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`2
 6 9`,output:`3`,explanation:`第一行輸入2，表示接下來要輸入2個數
 第二行輸入6 9，表示要找出6、9的最大公因數
 程式輸出最大公因數3`},{input:`3

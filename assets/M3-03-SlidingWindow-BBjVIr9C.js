@@ -96,9 +96,7 @@ var e={code:`M3-03-SlidingWindow`,title:`滑動視窗(sliding window)`,type:`pro
 
 第二行輸入N個每日數值
 
-第三行輸入threshold
-
-輸出最長連續達標天數。`,inputDescription:`N、N個每日數值、threshold`,outputDescription:`最長連續達標天數`,requiresGreenFlag:!0,examples:[{input:`7
+第三行輸入threshold`,inputDescription:`N、N個每日數值、threshold`,outputDescription:`最長連續達標天數`,requiresGreenFlag:!0,examples:[{input:`7
 5 8 9 3 10 12 11
 8`,output:`3`,explanation:`第2~3天(8,9)連續達標2天；第5~7天(10,12,11)連續達標3天最長`}],testCases:[{input:`7
 5 8 9 3 10 12 11

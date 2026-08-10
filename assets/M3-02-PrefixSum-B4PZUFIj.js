@@ -45,9 +45,7 @@ var e={code:`M3-02-PrefixSum`,title:`前綴和(prefix sum)`,type:`programming`,m
 
 第三行輸入Q，代表要查詢的組數
 
-第四行輸入2×Q個數字，依序是每組查詢的L R（例如「1 3 2 5」代表第一組查詢L=1,R=3、第二組查詢L=2,R=5）
-
-依序輸出每組查詢的區間總額，空白分隔。`,inputDescription:`N、N個每日募款金額、Q、2×Q個L R數字`,outputDescription:`依序輸出每組查詢的區間總額，空白分隔`,requiresGreenFlag:!0,examples:[{input:`5
+第四行輸入2×Q個數字，依序是每組查詢的L R（例如「1 3 2 5」代表第一組查詢L=1,R=3、第二組查詢L=2,R=5）`,inputDescription:`N、N個每日募款金額、Q、2×Q個L R數字`,outputDescription:`依序輸出每組查詢的區間總額，空白分隔`,requiresGreenFlag:!0,examples:[{input:`5
 100 200 150 50 300
 2
 1 3 2 5`,output:`450 700`,explanation:`第1組1~3天：100+200+150=450；第2組2~5天：200+150+50+300=700`}],testCases:[{input:`5

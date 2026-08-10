@@ -1,9 +1,4 @@
-var e={code:`M0-05-ListBasics`,title:`清單走訪與讀取`,type:`programming`,mode:`learning`,tier:`t0`,tasks:[{id:`JSA01-D01`,title:`清單逐一讀取`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請依照原本順序逐一輸出每個數字，每個數字各佔一行。本題用來示範清單逐一讀取與輸出。
-輸入格式：
-第一行：一個整數 N。
-第二行：N 個整數，以空白分隔。
-輸出格式：
-依序輸出每個數字，每個數字各佔一行。`,inputDescription:`第一行：一個整數 N。
+var e={code:`M0-05-ListBasics`,title:`清單走訪與讀取`,type:`programming`,mode:`learning`,tier:`t0`,tasks:[{id:`JSA01-D01`,title:`清單逐一讀取`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請依照原本順序逐一輸出每個數字，每個數字各佔一行。本題用來示範清單逐一讀取與輸出。`,inputDescription:`第一行：一個整數 N。
 
 第二行：N 個整數，以空白分隔。`,outputDescription:`依序輸出每個數字，每個數字各佔一行。`,requiresGreenFlag:!0,examples:[{input:`3
 5 8 2`,output:`5
@@ -73,19 +68,13 @@ var e={code:`M0-05-ListBasics`,title:`清單走訪與讀取`,type:`programming`,
 勇者一邊跑，必須一邊大聲數出目前是第幾圈，直到跑完為止。
 輸入格式
 第一行：輸入一個整數 N ，代表總共要跑的圈數。 N 為大於 0 的整數
-程式依照順序輸出從 1 到 N 的數字。數字之間以空白隔開。`,inputDescription:`第一行：輸入一個整數 N ，代表總共要跑的圈數。 N 為大於 0 的整數
-
-程式依照順序輸出從 1 到 N 的數字。數字之間以空白隔開。`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5`,output:`1 2 3 4 5`,explanation:`第一行輸入數字5
+程式依照順序輸出從 1 到 N 的數字。數字之間以空白隔開。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5`,output:`1 2 3 4 5`,explanation:`第一行輸入數字5
 程式輸出數字序列1 2 3 4 5`},{input:`3`,output:`1 2 3`,explanation:`第一行輸入數字3
 程式輸出數字序列1 2 3`}],testCases:[{input:`9`,expectedOutput:`1 2 3 4 5 6 7 8 9`,output:`1 2 3 4 5 6 7 8 9`,score:10},{input:`5`,expectedOutput:`1 2 3 4 5`,output:`1 2 3 4 5`,score:10},{input:`7`,expectedOutput:`1 2 3 4 5 6 7`,output:`1 2 3 4 5 6 7`,score:10},{input:`1`,expectedOutput:`1`,output:`1`,score:10}],difficulty:`L1`,difficultyLabel:`L1｜基礎`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_x">N</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="math_number"><field name="NUM">1</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value><value name="ADD1"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD1"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>`},{id:`count-002`,title:`跳石過河-間隔計數`,description:`勇者來到了一條充滿鱷魚的河流，河面上有一排標有號碼的石頭（1, 2, 3, 4...）。為了安全，勇者決定施展「輕功」，從第 1 塊石頭開始，每次跳躍都跳過 1 個石頭（也就是每次號碼 +2），直到超過或剛好到達指定的目標號碼 N 為止。請印出勇者踩到的所有石頭號碼。
 輸入格式
 第一行：輸入一個整數 N ，代表河岸對面的目標號碼。 N 為大於 0 的整數
 程式依照順序輸出勇者踩到的石頭編號，從 1 開始，每次加 2。
-數字之間以空白隔開。`,inputDescription:`第一行：輸入一個整數 N ，代表河岸對面的目標號碼。 N 為大於 0 的整數
-
-程式依照順序輸出勇者踩到的石頭編號，從 1 開始，每次加 2。
-
-數字之間以空白隔開。`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`6`,output:`1 3 5`,explanation:`第一行輸入數字6
+數字之間以空白隔開。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`6`,output:`1 3 5`,explanation:`第一行輸入數字6
 從 1 開始跳，下一個是 3，再來是 5。再跳就是 7 (超過 6 了)，所以停在 5。
 程式輸出數字序列1 3 5`},{input:`7`,output:`1 3 5 7`,explanation:`第一行輸入數字7
 從 1 開始跳，下一個是 3、5、7剛好到達7
@@ -93,11 +82,7 @@ var e={code:`M0-05-ListBasics`,title:`清單走訪與讀取`,type:`programming`,
 輸入格式
 第一行：輸入一個整數 S ，代表倒數的起始秒數。
 程式依照順序輸出S到0的編號，每次減1。
-數字之間以空白隔開。`,inputDescription:`第一行：輸入一個整數 S ，代表倒數的起始秒數。
-
-程式依照順序輸出S到0的編號，每次減1。
-
-數字之間以空白隔開。`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5`,output:`5 4 3 2 1 0`,explanation:`第一行輸入數字5
+數字之間以空白隔開。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5`,output:`5 4 3 2 1 0`,explanation:`第一行輸入數字5
 從 5 開始倒數，下一個是4、3、2、1、0
 程式輸出數字序列5 4 3 2 1 0`},{input:`7`,output:`7 6 5 4 3 2 1 0`,explanation:`第一行輸入數字7
 從 7開始倒數，下一個是6、5、4、3、2、1、0
@@ -105,19 +90,9 @@ var e={code:`M0-05-ListBasics`,title:`清單走訪與讀取`,type:`programming`,
 輸入格式
 第一行：輸入一個整數 N ，代表勇者最後唸出的數字。
 利用迴圈變數 i 進行計算，輸出從 1 到 N 每個數字乘以 10 的結果。
-數字之間以空白隔開。`,inputDescription:`第一行：輸入一個整數 N ，代表勇者最後唸出的數字。
-
-利用迴圈變數 i 進行計算，輸出從 1 到 N 每個數字乘以 10 的結果。
-
-數字之間以空白隔開。`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5`,output:`10 20 30 40 50`,explanation:`第一行輸入數字5
+數字之間以空白隔開。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5`,output:`10 20 30 40 50`,explanation:`第一行輸入數字5
 程式輸出數字序列10 20 30 40 50`},{input:`7`,output:`10 20 30 40 50 60 70`,explanation:`第一行輸入數字7
-程式輸出數字序列10 20 30 40 50 60 70`}],testCases:[{input:`1`,expectedOutput:`10`,output:`10`,score:10},{input:`4`,expectedOutput:`10 20 30 40`,output:`10 20 30 40`,score:10},{input:`10`,expectedOutput:`10 20 30 40 50 60 70 80 90 100`,output:`10 20 30 40 50 60 70 80 90 100`,score:10},{input:`3`,expectedOutput:`10 20 30`,output:`10 20 30`,score:10}],difficulty:`L1`,difficultyLabel:`L1｜基礎`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_x">N</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="math_number"><field name="NUM">10</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value><value name="ADD1"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD1"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value></block></value></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>`},{id:`JSA01-D02`,title:`清單加總與平均示範`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請輸出這 N 個數字的總和與整數平均，兩個結果各佔一行。平均值請使用整數除法，只保留整數部分。
-輸入格式：
-第一行：一個整數 N。
-第二行：N 個整數，以空白分隔。
-輸出格式：
-第一行：總和。
-第二行：整數平均。`,inputDescription:`第一行：一個整數 N。
+程式輸出數字序列10 20 30 40 50 60 70`}],testCases:[{input:`1`,expectedOutput:`10`,output:`10`,score:10},{input:`4`,expectedOutput:`10 20 30 40`,output:`10 20 30 40`,score:10},{input:`10`,expectedOutput:`10 20 30 40 50 60 70 80 90 100`,output:`10 20 30 40 50 60 70 80 90 100`,score:10},{input:`3`,expectedOutput:`10 20 30`,output:`10 20 30`,score:10}],difficulty:`L1`,difficultyLabel:`L1｜基礎`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_x">N</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="math_number"><field name="NUM">10</field></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_out">結果</field><value name="VALUE"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value><value name="ADD1"><block type="text_join"><mutation items="2"></mutation><value name="ADD0"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD1"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value><value name="B"><block type="math_number"><field name="NUM">10</field></block></value></block></value></block></value></block></value></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_out">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>`},{id:`JSA01-D02`,title:`清單加總與平均示範`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請輸出這 N 個數字的總和與整數平均，兩個結果各佔一行。平均值請使用整數除法，只保留整數部分。`,inputDescription:`第一行：一個整數 N。
 
 第二行：N 個整數，以空白分隔。`,outputDescription:`第一行：總和。
 
@@ -193,13 +168,7 @@ var e={code:`M0-05-ListBasics`,title:`清單走訪與讀取`,type:`programming`,
       </block>
     </next>
   </block>
-</xml>`},{id:`JSA01-D03`,title:`清單最大最小值示範`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請找出其中的最大值與最小值，兩個結果各佔一行。本題用來示範比較與更新最大最小值。
-輸入格式：
-第一行：一個整數 N。
-第二行：N 個整數，以空白分隔。
-輸出格式：
-第一行：最大值。
-第二行：最小值。`,inputDescription:`第一行：一個整數 N。
+</xml>`},{id:`JSA01-D03`,title:`清單最大最小值示範`,description:`第一行輸入一個整數 N，第二行輸入 N 個整數。請找出其中的最大值與最小值，兩個結果各佔一行。本題用來示範比較與更新最大最小值。`,inputDescription:`第一行：一個整數 N。
 
 第二行：N 個整數，以空白分隔。`,outputDescription:`第一行：最大值。
 
@@ -292,11 +261,7 @@ var e={code:`M0-05-ListBasics`,title:`清單走訪與讀取`,type:`programming`,
 輸入格式
 第一行：輸入一個整數 N ，代表存錢的天數。
 輸出一個整數，代表從第 1 天到第 N 天存下的金額總和（Sum）。
-(提示：你需要一個變數來當作「存錢筒」，在迴圈中把每天的錢加進去)。`,inputDescription:`第一行：輸入一個整數 N ，代表存錢的天數。
-
-輸出一個整數，代表從第 1 天到第 N 天存下的金額總和（Sum）。
-
-(提示：你需要一個變數來當作「存錢筒」，在迴圈中把每天的錢加進去)。`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`3`,output:`6`,explanation:`第一行輸入數字3
+(提示：你需要一個變數來當作「存錢筒」，在迴圈中把每天的錢加進去)。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`3`,output:`6`,explanation:`第一行輸入數字3
 1+2+3=6，程式輸出6`},{input:`7`,output:`28`,explanation:`第一行輸入數字7
 1+2+3+4+5+6+7=28，程式輸出28`}],testCases:[{input:`9`,expectedOutput:`45`,output:`45`,score:10},{input:`20`,expectedOutput:`210`,output:`210`,score:10},{input:`10`,expectedOutput:`55`,output:`55`,score:10},{input:`100`,expectedOutput:`5050`,output:`5050`,score:10}],difficulty:`L2`,difficultyLabel:`L2｜進階`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_x">N</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入天數</field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>`},{id:`count-006`,title:`萬能傳送門`,description:`勇者發現了一個萬能傳送門。這個傳送門可以讓勇者自由設定「起點」、「終點」以及每次傳送的「跨度（距離）」。 請設計一個程式，讀取三個數字，分別代表：起點 (Start)、終點 (End)、跨度 (Step)。 請依序印出傳送過程中經過的所有座標點。
 輸入格式
@@ -304,15 +269,7 @@ var e={code:`M0-05-ListBasics`,title:`清單走訪與讀取`,type:`programming`,
 第二行：輸入一個整數 N ，代表終點。
 第三行：輸入一個整數 O ，代表跨度。
 (N>M，O>0)。
-輸出從起點開始，每次增加跨度，直到超過終點為止的所有數字。`,inputDescription:`第一行：輸入一個整數 M ，代表起點。
-
-第二行：輸入一個整數 N ，代表終點。
-
-第三行：輸入一個整數 O ，代表跨度。
-
-(N>M，O>0)。
-
-輸出從起點開始，每次增加跨度，直到超過終點為止的所有數字。`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`2
+輸出從起點開始，每次增加跨度，直到超過終點為止的所有數字。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`2
 10
 2`,output:`2 4 6 8 10`,explanation:`第一行輸入數字2，代表起點2
 第二行輸入數字10，代表終點10
@@ -337,13 +294,7 @@ var e={code:`M0-05-ListBasics`,title:`清單走訪與讀取`,type:`programming`,
 第二行：輸入一個整數 N ，第二個數字N代表倍數，M大於等於N(N>M)。
 輸出從 1 到 M 之間，所有 N 的倍數。
 數字之間以空白隔開。
-(提示：想一想，迴圈的「間隔 (Step)」應該設為多少？起點應該是 1 還是 K？)`,inputDescription:`第一行：輸入一個整數 M ，第一個數字M代表地磚總數，
-
-第二行：輸入一個整數 N ，第二個數字N代表倍數，M大於等於N(N>M)。
-
-輸出從 1 到 M 之間，所有 N 的倍數。
-數字之間以空白隔開。
-(提示：想一想，迴圈的「間隔 (Step)」應該設為多少？起點應該是 1 還是 K？)`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`10
+(提示：想一想，迴圈的「間隔 (Step)」應該設為多少？起點應該是 1 還是 K？)`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`10
 3`,output:`3 6 9`,explanation:`第一行輸入數字10，代表統計範圍從1到10
 第二行輸入數字3，代表要找出小於等於10且為3的倍數
 程式輸出：3 6 9`},{input:`20

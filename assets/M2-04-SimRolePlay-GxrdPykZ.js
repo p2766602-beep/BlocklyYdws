@@ -26,12 +26,7 @@ var e={code:`M2-04-SimRolePlay`,title:`模擬與狀態挑戰A：角色扮演系�
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_sum">總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="math_round"><field name="OP">ROUNDDOWN</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_sum">總和</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
 </xml>`},{id:`cycelement-006-2-寶可夢訓練師-2`,title:`2-寶可夢訓練師-2`,description:`子題二：最高等級的寶可夢
 請設計一個程式，輸入多隻寶可夢的名稱與等級，找出等級最高的寶可夢名稱。
-（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）
-【輸入說明】
-• 第一行輸入一個整數 N，代表寶可夢的數量（1 ≤ N ≤ 20）。
-• 第二行輸入 2N 筆資料，依序為「寶可夢名稱 等級」，資料之間以一個半形空格分隔。
-【輸出說明】
-• 輸出一行，所有寶可夢的最高等級。`,inputDescription:`• 第一行輸入一個整數 N，代表寶可夢的數量（1 ≤ N ≤ 20）。
+（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）`,inputDescription:`• 第一行輸入一個整數 N，代表寶可夢的數量（1 ≤ N ≤ 20）。
 
 • 第二行輸入 2N 筆資料，依序為「寶可夢名稱 等級」，資料之間以一個半形空格分隔。`,outputDescription:`• 輸出一行，所有寶可夢的最高等級。`,requiresGreenFlag:!0,examples:[{input:`3
 皮卡丘 25 小火龍 12 妙蛙種子 18`,output:`25`,explanation:`共有 3 隻寶可夢，等級最高的是皮卡丘（25）。`},{input:`4
@@ -55,11 +50,7 @@ P1 3 P2 6 P3 9 P4 12 P5 15 P6 18`,expectedOutput:`18`,output:`18`,score:30}],dif
 2. 若該房間螢幕數字是正值（+i），就要前往「順時針」方向的第 i 個房間；若為負值（-i），就要前往「逆時針」方向的第 i 個房間。
 3. 終止條件：若進入的房間螢幕數字是 0，或者「已累計進入正確房間共 11 次」，則闖關成功，遊戲結束。
 4. 狀態更新：每次離開一個房間後，該房間螢幕上的數字就會「正負交換」，也就是 +i 變 -i，或 -i 變 +i。
-請寫一個程式，依序輸出闖關過程中所進入的房間編號，直到闖關成功。
-【輸入說明】
-• 輸入為單行，包含一個大寫英文字母（A、B 或 C）與一個整數 N（1 ≤ N ≤ 12），分別代表「起始設定組別」與「第一個進入的房間編號」，兩者以單一空白隔開。
-【輸出說明】
-• 請依序輸出進入的房間編號（包含第一個進入的房間），數字之間以單一空白隔開。`,inputDescription:`• 輸入為單行，包含一個大寫英文字母（A、B 或 C）與一個整數 N（1 ≤ N ≤ 12），分別代表「起始設定組別」與「第一個進入的房間編號」，兩者以單一空白隔開。`,outputDescription:`• 請依序輸出進入的房間編號（包含第一個進入的房間），數字之間以單一空白隔開。`,requiresGreenFlag:!0,examples:[{input:`A 2`,output:`2 4 3 6 3 12 11 9 12 1 2`,explanation:`2 號房數字為 +2，前往 4 號房（2 號房變為 -2）；
+請寫一個程式，依序輸出闖關過程中所進入的房間編號，直到闖關成功。`,inputDescription:`• 輸入為單行，包含一個大寫英文字母（A、B 或 C）與一個整數 N（1 ≤ N ≤ 12），分別代表「起始設定組別」與「第一個進入的房間編號」，兩者以單一空白隔開。`,outputDescription:`• 請依序輸出進入的房間編號（包含第一個進入的房間），數字之間以單一空白隔開。`,requiresGreenFlag:!0,examples:[{input:`A 2`,output:`2 4 3 6 3 12 11 9 12 1 2`,explanation:`2 號房數字為 +2，前往 4 號房（2 號房變為 -2）；
 4 號房數字為 -1，前往 3 號房（4 號房變為 +1）；
 依此類推，進入 11 個房間後達到終止條件，闖關成功。`},{input:`B 12`,output:`12 9 6 3 12 3 6 9 12 9 6`,explanation:`依據規則走訪。已累計進入房間共 11 次，達到終止條件，闖關成功。`},{input:`C 5`,output:`5 6 4`,explanation:`依序進入 5, 6, 4 三個房間。
 進入 4 號房間時螢幕數字為 0，達到終止條件，闖關成功。`}],testCases:[{input:`A 2`,expectedOutput:`2 4 3 6 3 12 11 9 12 1 2`,output:`2 4 3 6 3 12 11 9 12 1 2`,score:10},{input:`B 12`,expectedOutput:`12 9 6 3 12 3 6 9 12 9 6`,output:`12 9 6 3 12 3 6 9 12 9 6`,score:10},{input:`C 5`,expectedOutput:`5 6 4`,output:`5 6 4`,score:10},{input:`C 1`,expectedOutput:`1 2 4`,output:`1 2 4`,score:10},{input:`A 1`,expectedOutput:`1 2 4 3 6 3 12 11 9 12 1`,output:`1 2 4 3 6 3 12 11 9 12 1`,score:10},{input:`B 1`,expectedOutput:`1 11 9 6 3 12 9 12 3 6 9`,output:`1 11 9 6 3 12 9 12 3 6 9`,score:10},{input:`C 7`,expectedOutput:`7 9 8 9 10 12`,output:`7 9 8 9 10 12`,score:10},{input:`C 11`,expectedOutput:`11 9 8 9 10 12`,output:`11 9 8 9 10 12`,score:10},{input:`A 6`,expectedOutput:`6 3 6 9 12 11 9 6 3 12 1`,output:`6 3 6 9 12 11 9 6 3 12 1`,score:10},{input:`C 2`,expectedOutput:`2 4`,output:`2 4`,score:10}],difficulty:`L3`,difficultyLabel:`L3｜挑戰`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
@@ -120,15 +111,7 @@ P1 3 P2 6 P3 9 P4 12 P5 15 P6 18`,expectedOutput:`18`,output:`18`,score:30}],dif
 </xml>`},{id:`cycjunior-006`,title:`1-園遊會攤位熱度分析`,description:`園遊會地圖由「路口」和「走道」組成。學生會想知道哪個路口連接了最多條走道（最熱門交會點），以便安排引導人員。
 1. 給定路口數 N 與走道數 E。
 2. 統計每個路口連接的走道數量（分支量）。
-3. 輸出連接數最多的路口編號（若數量相同，輸出編號較小的）。
-輸入格式：
-第一行：整數 N (路口數)。
-第二行：整數 E (走道數)。
-第三行：E 個整數，代表每條走道的一端（起點列表）。
-第四行：E 個整數，代表每條走道的另一端（終點列表）。
-(說明：第三行的第 i 個數字與第四行的第 i 個數字代表一條連接的走道。例如：第三行是 1 2 3，第四行是 2 3 4，代表連接為 1-2、2-3、3-4)
-輸出格式：
-一個整數 (最熱門路口編號)。`,inputDescription:`第一行：整數 N (路口數)。
+3. 輸出連接數最多的路口編號（若數量相同，輸出編號較小的）`,inputDescription:`第一行：整數 N (路口數)。
 
 第二行：整數 E (走道數)。
 
@@ -178,11 +161,7 @@ F(1)=1                ,停在第1格有1種走法
 F(2)=2                ,停在第2格有2種走法
 F(3)=F(2)+F(1)=1+2=3   ,停在第3格有3種走法
 F(4)=F(3)+F(2)=3+2=5   ,停在第4格有5種走法
-…
-輸入格式：
-一個整數 N，代表目標格子。
-輸出格式：
-一個整數，代表到達第 N 格的總跳法數。`,inputDescription:`一個整數 N，代表目標格子。`,outputDescription:`一個整數，代表到達第 N 格的總跳法數。`,requiresGreenFlag:!0,examples:[{input:`3`,output:`3`,explanation:`共有3種跳法：
+…`,inputDescription:`一個整數 N，代表目標格子。`,outputDescription:`一個整數，代表到達第 N 格的總跳法數。`,requiresGreenFlag:!0,examples:[{input:`3`,output:`3`,explanation:`共有3種跳法：
 1. (1, 1, 1)
 2. (1, 2)
 3. (2, 1)`},{input:`4`,output:`5`,explanation:`共有5種跳法：
@@ -197,12 +176,7 @@ F(4)=F(3)+F(2)=3+2=5   ,停在第4格有5種走法
 第 2 輪：從 3 號開始數 (3, 4)，4 號淘汰。剩下：1, 3, 5。
 第 3 輪：從 5 號開始數 (5, 1)，因為繞回開頭，1 號淘汰。剩下：3, 5。
 第 4 輪：從 3 號開始數 (3, 5)，5 號淘汰。剩下：3。
-結果：最後贏家是 3 號。
-輸入格式：
-第一行：整數 N (人數)。
-第二行：整數 M (間隔)。
-輸出格式：
-一個整數 (贏家編號)。。`,inputDescription:`第一行：整數 N (人數)。
+結果：最後贏家是 3 號`,inputDescription:`第一行：整數 N (人數)。
 
 第二行：整數 M (間隔)。`,outputDescription:`一個整數 (贏家編號)。。`,requiresGreenFlag:!0,examples:[{input:`5
 2`,output:`3`,explanation:`初始: 1 2 3 4 5
@@ -227,13 +201,7 @@ F(4)=F(3)+F(2)=3+2=5   ,停在第4格有5種走法
 •	如果是 正數 (例如 +50)：代表進來的人比出去的人多，人潮正在累積。
 •	如果是 負數 (例如 -30)：代表離開的人比進來的人多，人潮正在消散。
 學生會會長小華拿到了一長串的數據清單，他想要找出一段連續的時間區間，這段時間內的「淨流量總和」是最大的。這個最大的數值就代表了今年園遊會最「盛況空前」時累積的人氣指數。請注意，如果算出來的最大總和是負數（代表整場活動人都一直在變少，或是沒人來），為了報表好看，請直接將結果歸零，輸出 0。
-請你幫忙寫一個程式，找出這個傳說中的「最大熱門指數」！
-輸入格式：
-第一行：一個整數 N代表總共記錄了 N 筆時段的數據。
-第二行：N 個整數，依序代表第 1 個時段到第 N 個時段的人潮淨流量（有正有負）。
-輸出格式：
-第一行：一個整數 (最大和)。
-特別規則：如果所有可能的區間總和都是負數，請輸出 0`,inputDescription:`第一行：一個整數 N代表總共記錄了 N 筆時段的數據。
+請你幫忙寫一個程式，找出這個傳說中的「最大熱門指數」！`,inputDescription:`第一行：一個整數 N代表總共記錄了 N 筆時段的數據。
 
 第二行：N 個整數，依序代表第 1 個時段到第 N 個時段的人潮淨流量（有正有負）。`,outputDescription:`第一行：一個整數 (最大和)。
 特別規則：如果所有可能的區間總和都是負數，請輸出 0`,requiresGreenFlag:!0,examples:[{input:`3
@@ -254,15 +222,7 @@ F(4)=F(3)+F(2)=3+2=5   ,停在第4格有5種走法
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_cur">目前和</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_best">最佳</field><value name="VALUE"><block type="math_number"><field name="NUM">-1000000</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="variables_set"><field name="VAR" id="v_cur">目前和</field><value name="VALUE"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cur">目前和</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><value name="THEN"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cur">目前和</field></block></value><value name="B"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><value name="ELSE"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value></block></value><next><block type="controls_if"><value name="IF0"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_cur">目前和</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_best">最佳</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_best">最佳</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_cur">目前和</field></block></value></block></statement></block></next></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_best">最佳</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value><value name="THEN"><block type="variables_get"><field name="VAR" id="v_best">最佳</field></block></value><value name="ELSE"><block type="math_number"><field name="NUM">0</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
 </xml>`},{id:`115J-04`,title:`火星探測車`,description:`火星探測車「玉山號」是一台專門執行火星上各種探測任務（如氣候觀測、岩石採樣等）的車輛，每個任務都有不同的「電力需求」與「科學價值」。
 探測車出發執行任務前，都會先充滿電力至 100 單位。任務無法部分執行，且每個任務最多只能執行一次。請在電力可負擔的範圍內（總消耗電力 ≤ 100），幫玉山號挑選出能獲得最高總科學價值的任務組合。
-請寫一個程式，計算探測車可獲得的最高總科學價值。
-【輸入說明】
-• 系統的第一個輸入為一個整數 N（1 ≤ N ≤ 20），代表共有 N 個探測任務可供選擇。
-• 系統的第二個輸入包含 2N 個整數。每兩個整數為一組，依序代表第 1 個到第 N 個任務的「電力需求」與「科學價值」。
-o 電力需求範圍：0 ≤ 電力 ≤ 200
-o 科學價值範圍：0 ≤ 價值 ≤ 1,000
-• 所有數字之間皆以單一空白隔開。
-【輸出說明】
-• 請輸出一個整數，代表探測車在 100 單位電力限制下，可獲得的最高總科學價值。`,inputDescription:`• 系統的第一個輸入為一個整數 N（1 ≤ N ≤ 20），代表共有 N 個探測任務可供選擇。
+請寫一個程式，計算探測車可獲得的最高總科學價值。`,inputDescription:`• 系統的第一個輸入為一個整數 N（1 ≤ N ≤ 20），代表共有 N 個探測任務可供選擇。
 
 • 系統的第二個輸入包含 2N 個整數。每兩個整數為一組，依序代表第 1 個到第 N 個任務的「電力需求」與「科學價值」。
 

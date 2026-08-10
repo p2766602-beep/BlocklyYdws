@@ -6,13 +6,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 每離箭靶 10 公尺，箭會受到一次風力偏移，其偏移量即為「風速的數字」（往風吹的方向偏移，未滿 10 公尺不計）。
 例如：風速為 3 → 每 10 公尺箭向右偏 3 公分；風速為 -2 → 每 10 公尺箭向左偏 2 公分。
 【任務】
-請撰寫程式，根據風速與距離計算出弓箭手應瞄準的座標位置 (x,y)，以公分為單位，使箭最終能擊中靶心 (0,0)。
-【輸入格式】
-輸入為 2 行：
-第 1 行為整數 W，代表風速（正代表往右吹，負代表往左吹）。
-第 2 行為整數 D，代表距離（單位：公尺）。
-【輸出格式】
-輸出兩個整數 x y（以半形空白分隔），分別代表瞄準點的水平與垂直座標（單位：公分）。`,inputDescription:`輸入為 2 行：
+請撰寫程式，根據風速與距離計算出弓箭手應瞄準的座標位置 (x,y)，以公分為單位，使箭最終能擊中靶心 (0,0)。`,inputDescription:`輸入為 2 行：
 
 第 1 行為整數 W，代表風速（正代表往右吹，負代表往左吹）。
 
@@ -38,12 +32,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 兒童票：每張 400 元
 成人票：每張 500 元
 親子套票組：包含 1 張兒童票 + 1 張成人票，每組 800 元
-請設計一個程式，輸入兒童人數、成人人數，計算最優惠的總票價。可先盡量購買親子套票組，再補足剩餘的兒童或成人個別票。
-輸入格式：
-第一行：兒童人數
-第二行：成人人數
-輸出格式：
-輸出最優惠價格（整數）。`,inputDescription:`第一行：兒童人數
+請設計一個程式，輸入兒童人數、成人人數，計算最優惠的總票價。可先盡量購買親子套票組，再補足剩餘的兒童或成人個別票`,inputDescription:`第一行：兒童人數
 
 第二行：成人人數`,outputDescription:`輸出最優惠價格（整數）。`,requiresGreenFlag:!0,examples:[{input:`5
 5`,output:`4000`,explanation:`可購買 5 組親子套票組：5×800=4000
@@ -60,12 +49,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
     <variable id="v_c">兒童</variable><variable id="v_a">成人</variable>
   </variables>
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入兒童人數</field></block></value><next><block type="variables_set"><field name="VAR" id="v_c">兒童</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入成人人數</field></block></value><next><block type="variables_set"><field name="VAR" id="v_a">成人</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_say"><value name="TEXT"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_c">兒童</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_a">成人</field></block></value></block></value><value name="THEN"><block type="variables_get"><field name="VAR" id="v_c">兒童</field></block></value><value name="ELSE"><block type="variables_get"><field name="VAR" id="v_a">成人</field></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">800</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_c">兒童</field></block></value><value name="B"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_c">兒童</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_a">成人</field></block></value></block></value><value name="THEN"><block type="variables_get"><field name="VAR" id="v_c">兒童</field></block></value><value name="ELSE"><block type="variables_get"><field name="VAR" id="v_a">成人</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">400</field></block></value></block></value><value name="B"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="math_arithmetic"><field name="OP">MINUS</field><value name="A"><block type="variables_get"><field name="VAR" id="v_a">成人</field></block></value><value name="B"><block type="logic_ternary"><value name="IF"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="v_c">兒童</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_a">成人</field></block></value></block></value><value name="THEN"><block type="variables_get"><field name="VAR" id="v_c">兒童</field></block></value><value name="ELSE"><block type="variables_get"><field name="VAR" id="v_a">成人</field></block></value></block></value></block></value><value name="B"><block type="math_number"><field name="NUM">500</field></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`},{id:`cyjunior-005`,title:`變速傳球的特訓`,description:`康輔社為了訓練社員的反應速度，社長發明了一種忽快忽慢的「變速傳球」遊戲。N 位社員圍成一圈，編號依序為 1 到 N。遊戲從 1 號社員開始持球。遊戲總共進行 K 回合，每一回合的傳球距離取決於「目前持球者的編號」：如果目前持球者的編號是奇數：他必須向順時針方向傳 1 個人（傳給下一位）。如果目前持球者的編號是偶數：他必須向順時針方向傳 2 個人（跳過一位傳給下下位）。請注意，如果傳球後的位置超過了 N，就會回到 1 號繼續數（例如：在 5 人小組中，5 號傳 1 人會變成 1 號）。請你計算在經過 K回合的傳球後，最後球會落在幾號社員的手上？
-輸入格式
-第一行：一個整數 N，代表社員人數。
-第二行：一個整數 K，代表總共進行的回合數。
-輸出格式
-第一行：一個整數，一個整數，代表最後拿到球的社員編號。`,inputDescription:`第一行：一個整數 N，代表社員人數。
+</xml>`},{id:`cyjunior-005`,title:`變速傳球的特訓`,description:`康輔社為了訓練社員的反應速度，社長發明了一種忽快忽慢的「變速傳球」遊戲。N 位社員圍成一圈，編號依序為 1 到 N。遊戲從 1 號社員開始持球。遊戲總共進行 K 回合，每一回合的傳球距離取決於「目前持球者的編號」：如果目前持球者的編號是奇數：他必須向順時針方向傳 1 個人（傳給下一位）。如果目前持球者的編號是偶數：他必須向順時針方向傳 2 個人（跳過一位傳給下下位）。請注意，如果傳球後的位置超過了 N，就會回到 1 號繼續數（例如：在 5 人小組中，5 號傳 1 人會變成 1 號）。請你計算在經過 K回合的傳球後，最後球會落在幾號社員的手上？`,inputDescription:`第一行：一個整數 N，代表社員人數。
 
 第二行：一個整數 K，代表總共進行的回合數。`,outputDescription:`第一行：一個整數，一個整數，代表最後拿到球的社員編號。`,requiresGreenFlag:!0,examples:[{input:`5
 3`,output:`1`,explanation:`初始：在 1 號。
@@ -89,12 +73,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 請設計一個程式，讀入 5 位評審的分數後，進行以下運算：
 1. 將分數排序
 2. 去除「一個最高分」與「一個最低分」
-3. 計算剩餘 3 個分數的平均值
-輸入格式：
-第1行：整數 5（評審人數固定為 5）
-第2行：5 個整數，為 5 位評審的分數（以空格隔開）
-輸出格式：
-輸出計算後的平均成績（整數）。`,inputDescription:`第1行：整數 5（評審人數固定為 5）
+3. 計算剩餘 3 個分數的平均值`,inputDescription:`第1行：整數 5（評審人數固定為 5）
 
 第2行：5 個整數，為 5 位評審的分數（以空格隔開）`,outputDescription:`輸出計算後的平均成績（整數）。`,requiresGreenFlag:!0,examples:[{input:`5
 10 8 9 9 9`,output:`9`,explanation:`排序後分數：10, 9, 9, 9, 8
@@ -123,7 +102,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 傳球會一直持續，直到球再次回到 1 號同學手上，比賽才結束。
 請你模擬這個傳球遊戲，輸出整個過程中，球依序落在誰的手上（包含最初的 1 號）。
 輸入格式：2行，每行1個整數： N：同學人數（2 > N <t 1000） K：每次傳球要隔的人數（1 < K < 1000） 輸出格式：1行，輸出一串整數，用空格間隔開。 輸出結果代表傳球過程中球依序落在誰的手上。
-第一個數字必定是 1（表示起始位置），最後一個數字也會是 1（回到起點）。`,inputDescription:`2行，每行1個整數： N：同學人數（2 > N`,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5
+第一個數字必定是 1（表示起始位置），最後一個數字也會是 1（回到起點）。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`5
 2`,output:`1 3 5 2 4 1`,explanation:`第一行輸入5，共有 5 個人，起始在 1。
 第二行輸入2，傳球每隔 2 人 → 傳到第 3 人。
 傳球過程：1 → 3 → 5 → 2 → 4 → 1
@@ -157,13 +136,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 • 使用 2 顆白球：二獎
 • 使用 3 顆白球：三獎
 • 若無法組成 7 的倍數：未中獎
-請撰寫程式，判斷同學最終可獲得的獎項等級（以使用白球數量最少為優先）。
-【輸入格式】
-輸入為 2 行：
-第 1 行為 1 個整數 R，代表紅球上的數字。
-第 2 行為 3 個以空白分隔的整數，代表三顆白球上的數字。
-【輸出格式】
-輸出一行文字，表示中獎結果，可能的輸出為：特獎、頭獎、二獎、三獎、未中獎。`,inputDescription:`輸入為 2 行：
+請撰寫程式，判斷同學最終可獲得的獎項等級（以使用白球數量最少為優先）。`,inputDescription:`輸入為 2 行：
 
 第 1 行為 1 個整數 R，代表紅球上的數字。
 
@@ -187,13 +160,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 若該格需要失去金錢，但玩家的金額不足，則只會扣到 0 元，不會變成負數。
 棋盤是環形的，當超過第 N 格時，會回到第 1 格繼續往前走。
 注意：玩家剛開始站在第 1 格時，不會結算金額，只有移動後才會結算。
-請計算所有骰子點數執行完畢後，玩家的最終金額。
-輸入格式
-第一行：整數 N，代表棋盤的格數。
-第二行：輸入 N 個整數的序列，依序代表第 1 格到第 N 格的金錢變化。
-第三行：整數 S，代表骰子的次數。
-第四行：輸入 S 個整數，代表每次骰到的點數。
-輸出格式：輸出一個整數，代表玩家最後的金額。`,inputDescription:`第一行：整數 N，代表棋盤的格數。
+請計算所有骰子點數執行完畢後，玩家的最終金額`,inputDescription:`第一行：整數 N，代表棋盤的格數。
 
 第二行：輸入 N 個整數的序列，依序代表第 1 格到第 N 格的金錢變化。
 
@@ -237,9 +204,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 傳球方式：每次傳球都固定「隔 K 個人」，把球傳給下一位同學。
 例如：K=1 代表傳給下一個人，K=2 代表跳過 1 人後傳給下一個人。
 傳球會一直持續，直到球再次回到 1 號同學手上，比賽才結束。
-請你模擬這個傳球遊戲，輸出整個過程中，球依序落在誰的手上（包含最初的 1 號）。
-輸入格式：2行，每行1個整數： N：同學人數（2 < N < 1000） K：每次傳球要隔的人數（1 < K < 1000） 輸出格式：1行，輸出一串整數，用空格間隔開。 輸出結果代表傳球過程中球依序落在誰的手上。
-第一個數字必定是 1（表示起始位置），最後一個數字也會是 1（回到起點）。`,inputDescription:`2行，每行1個整數： N：同學人數（2 < N < 1000） K：每次傳球要隔的人數（1 < K < 1000）`,outputDescription:`1行，輸出一串整數，用空格間隔開。 輸出結果代表傳球過程中球依序落在誰的手上。
+請你模擬這個傳球遊戲，輸出整個過程中，球依序落在誰的手上（包含最初的 1 號）`,inputDescription:`2行，每行1個整數： N：同學人數（2 < N < 1000） K：每次傳球要隔的人數（1 < K < 1000）`,outputDescription:`1行，輸出一串整數，用空格間隔開。 輸出結果代表傳球過程中球依序落在誰的手上。
 
 第一個數字必定是 1（表示起始位置），最後一個數字也會是 1（回到起點）。`,requiresGreenFlag:!0,examples:[{input:`5
 2`,output:`1 3 5 2 4 1`,explanation:`第一行輸入5，共有 5 個人，起始在 1。
@@ -269,13 +234,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 </xml>`},{id:`cyjunior-001`,title:`智慧手環的健康挑戰`,description:`為了響應教育部推廣的「新世代健康校園」計畫，學校本學期發給每位同學一支「智慧運動手環」。這支手環不僅能顯示時間，還內建了高精度的三軸加速規，能夠以「小時」為單位，記錄使用者的步數活動量。
 主角小華為了爭取期末的「健康小鐵人」獎章，立志要嚴格執行運動計畫。根據手環的說明書，系統設定了一個「活躍門檻值 (K)」。如果某一小時內的步數低於這個門檻，該小時就會被系統判定為「靜態時段」，並記上一筆「久坐警告」。
 然而，為了避免學生長時間維持靜態，系統設計了一套嚴厲的連續懲罰機制：如果手環偵測到使用者連續兩個小時（含）以上都處於「靜態時段」，系統會判定這是極不健康的行為。因此，從連續違規的第二個小時開始，該次警告將會被加倍懲罰（也就是該小時會被記 2 次警告）。只有當某一小時的步數成功達到門檻時，這個連續違規的狀態才會解除，計數器才會重置。
-請你根據小華手環中匯出的 N 小時歷史數據，幫他計算這段時間內，系統累計發出了幾次警告訊號。
-輸入格式
-第一行：一個整數 N，代表紀錄的總時數。
-第二行：一個整數 K，代表活躍門檻值。
-第三行：N 個整數，代表每小時測得的步數（以半形空格分隔）。
-輸出格式
-第一行：一個整數，代表總警告次數。`,inputDescription:`第一行：一個整數 N，代表紀錄的總時數。
+請你根據小華手環中匯出的 N 小時歷史數據，幫他計算這段時間內，系統累計發出了幾次警告訊號`,inputDescription:`第一行：一個整數 N，代表紀錄的總時數。
 
 第二行：一個整數 K，代表活躍門檻值。
 
@@ -300,13 +259,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
     <variable id="v_n">N</variable><variable id="v_k">K</variable><variable id="v_x">數字</variable><variable id="v_all">全部數字</variable><variable id="v_streak">連續</variable><variable id="v_warn">警告</variable><variable id="v_i">i</variable>
   </variables>
   <block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入N</field></block></value><next><block type="variables_set"><field name="VAR" id="v_n">N</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入K</field></block></value><next><block type="variables_set"><field name="VAR" id="v_k">K</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="variables_set"><field name="VAR" id="v_all">全部數字</field><value name="VALUE"><block type="lists_create_with"><mutation items="0"></mutation></block></value><next><block type="controls_repeat_ext"><value name="TIMES"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><statement name="DO"><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT"></field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">數字</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="lists_setIndex"><mutation at="false"></mutation><field name="MODE">INSERT</field><field name="WHERE">LAST</field><value name="LIST"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_x">數字</field></block></value></block></next></block></next></block></statement><next><block type="variables_set"><field name="VAR" id="v_streak">連續</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="variables_set"><field name="VAR" id="v_warn">警告</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value><next><block type="controls_for"><field name="VAR" id="v_i">i</field><value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value><value name="TO"><block type="variables_get"><field name="VAR" id="v_n">N</field></block></value><value name="BY"><block type="math_number"><field name="NUM">1</field></block></value><statement name="DO"><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="lists_getIndex"><mutation statement="false" at="true"></mutation><field name="MODE">GET</field><field name="WHERE">FROM_START</field><value name="VALUE"><block type="variables_get"><field name="VAR" id="v_all">全部數字</field></block></value><value name="AT"><block type="variables_get"><field name="VAR" id="v_i">i</field></block></value></block></value><value name="B"><block type="variables_get"><field name="VAR" id="v_k">K</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_streak">連續</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_streak">連續</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value><next><block type="controls_if"><mutation else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_streak">連續</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value><statement name="DO0"><block type="variables_set"><field name="VAR" id="v_warn">警告</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_warn">警告</field></block></value><value name="B"><block type="math_number"><field name="NUM">2</field></block></value></block></value></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="v_warn">警告</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="v_warn">警告</field></block></value><value name="B"><block type="math_number"><field name="NUM">1</field></block></value></block></value></block></statement></block></next></block></statement><statement name="ELSE"><block type="variables_set"><field name="VAR" id="v_streak">連續</field><value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value></block></statement></block></statement><next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="v_warn">警告</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block>
-</xml>`},{id:`cyjunior-003`,title:`資源回收車的極限挑戰`,description:`每週的資源回收工作結束後，回收車準備將垃圾運走。但是，回收車的剩餘空間有限，只剩下 K 的容量單位。 待清運的回收物還有 N包，每包的大小不一。為了讓校園看起來最整潔，衛生組長希望盡可能載走「最多包」的回收物（數量越多越好，而不是體積最大）。 請你運用「貪婪法則」，幫忙計算在容量 K 的限制下，這台回收車最多能載走幾包回收物？ (提示：為了拿走最多包，我們應該優先選擇體積小的，還是體積大的呢？)
-輸入格式
-第一行：一個整數 N，代表待清運的回收物數量。
-第二行：一個整數 K，代表回收車的剩餘容量。
-第三行：N 個整數，代表每包回收物的體積。
-輸出格式
-第一行：一個整數，代表最多能載走的數量。`,inputDescription:`第一行：一個整數 N，代表待清運的回收物數量。
+</xml>`},{id:`cyjunior-003`,title:`資源回收車的極限挑戰`,description:`每週的資源回收工作結束後，回收車準備將垃圾運走。但是，回收車的剩餘空間有限，只剩下 K 的容量單位。 待清運的回收物還有 N包，每包的大小不一。為了讓校園看起來最整潔，衛生組長希望盡可能載走「最多包」的回收物（數量越多越好，而不是體積最大）。 請你運用「貪婪法則」，幫忙計算在容量 K 的限制下，這台回收車最多能載走幾包回收物？ (提示：為了拿走最多包，我們應該優先選擇體積小的，還是體積大的呢？)`,inputDescription:`第一行：一個整數 N，代表待清運的回收物數量。
 
 第二行：一個整數 K，代表回收車的剩餘容量。
 
@@ -340,14 +293,7 @@ var e={code:`M2-06-SimContest`,title:`模擬與狀態挑戰C：競賽綜合系�
 1. 若總能量 > 50，觸發「能源過載」，能量強制維持在 50。
 2. 若總能量 ≤ 0，觸發「環境危機」，系統將能量自動補助為 5。
 3. 地圖為環狀，超過第 N 格後會回到第 1 格。
-請計算所有移動結束後的「最終能量值」，並輸出過程中曾達到的「最高能量值」。
-輸入格式：
-第1行：整數 N，地圖格數。
-第2行：N 個整數，每格的能量變化值。
-第3行：整數 M，骰子的次數。
-第4行：M 個整數，每次骰到的點數。
-輸出格式：
-輸出兩個整數，分別為最終能量值與最高能量值，中間以空格隔開。`,inputDescription:`第1行：整數 N，地圖格數。
+請計算所有移動結束後的「最終能量值」，並輸出過程中曾達到的「最高能量值」`,inputDescription:`第1行：整數 N，地圖格數。
 
 第2行：N 個整數，每格的能量變化值。
 
