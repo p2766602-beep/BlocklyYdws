@@ -1,0 +1,48 @@
+[
+  {
+    "id": "Taitung-J-1",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t1_start\">start</variable><variable id=\"t1_end\">end</variable><variable id=\"t1_age\">age</variable><variable id=\"t1_mn\">mn</variable><variable id=\"t1_mx\">mx</variable><variable id=\"t1_fare\">fare</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入上車站號</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_start\">start</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入下車站號</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_end\">end</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入年齡</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_age\">age</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_mn\">mn</field><value name=\"VALUE\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_start\">start</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_end\">end</field></block></value></block></value><value name=\"THEN\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_start\">start</field></block></value><value name=\"ELSE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_end\">end</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_mx\">mx</field><value name=\"VALUE\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_start\">start</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_end\">end</field></block></value></block></value><value name=\"THEN\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_end\">end</field></block></value><value name=\"ELSE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_start\">start</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">OR</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_mn\">mn</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">10</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_mx\">mx</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">10</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_fare\">fare</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">10</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_fare\">fare</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">20</field></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_age\">age</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">12</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_fare\">fare</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_fare\">fare</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_fare\">fare</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "1\n9\n30",
+        "expectedOutput": "10"
+      },
+      {
+        "input": "2\n11\n15",
+        "expectedOutput": "20"
+      },
+      {
+        "input": "10\n15\n40",
+        "expectedOutput": "10"
+      },
+      {
+        "input": "15\n1\n7",
+        "expectedOutput": "10"
+      },
+      {
+        "input": "9\n10\n5",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "1\n15\n10",
+        "expectedOutput": "10"
+      },
+      {
+        "input": "1\n10\n20",
+        "expectedOutput": "10"
+      },
+      {
+        "input": "10\n1\n12",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "11\n15\n11",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "12\n8\n35",
+        "expectedOutput": "20"
+      }
+    ]
+  }
+]

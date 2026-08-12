@@ -1,0 +1,140 @@
+[
+  {
+    "id": "Tainan-J-1",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t1_c\">c</variable><variable id=\"t1_a\">a</variable><variable id=\"t1_combo\">combo</variable><variable id=\"t1_total\">total</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入兒童人數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_c\">c</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入成人人數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_a\">a</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_combo\">combo</field><value name=\"VALUE\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_c\">c</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_a\">a</field></block></value></block></value><value name=\"THEN\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_c\">c</field></block></value><value name=\"ELSE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_a\">a</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_total\">total</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_combo\">combo</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">800</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_c\">c</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_combo\">combo</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">400</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_a\">a</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_combo\">combo</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">500</field></block></value></block></value></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_total\">total</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "5\n5",
+        "expectedOutput": "4000"
+      },
+      {
+        "input": "6\n3",
+        "expectedOutput": "3600"
+      },
+      {
+        "input": "0\n10",
+        "expectedOutput": "5000"
+      },
+      {
+        "input": "8\n4",
+        "expectedOutput": "4800"
+      },
+      {
+        "input": "10\n10",
+        "expectedOutput": "8000"
+      },
+      {
+        "input": "2\n5",
+        "expectedOutput": "3100"
+      },
+      {
+        "input": "0\n0",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "10\n0",
+        "expectedOutput": "4000"
+      },
+      {
+        "input": "3\n4",
+        "expectedOutput": "2900"
+      },
+      {
+        "input": "1\n1",
+        "expectedOutput": "800"
+      }
+    ]
+  },
+  {
+    "id": "Tainan-J-2",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t2_v\">v</variable><variable id=\"t2_i\">i</variable><variable id=\"t2_sum\">sum</variable><variable id=\"t2_max\">maxv</variable><variable id=\"t2_min\">minv</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_max\">maxv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">-999999999</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_min\">minv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">999999999</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t2_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入5位評審分數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_v\">v</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_v\">v</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_max\">maxv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_max\">maxv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_v\">v</field></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_v\">v</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_min\">minv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_min\">minv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_v\">v</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_max\">maxv</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_min\">minv</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "10 8 9 9 9",
+        "expectedOutput": "9"
+      },
+      {
+        "input": "6 6 9 10 9",
+        "expectedOutput": "8"
+      },
+      {
+        "input": "7 7 7 7 7",
+        "expectedOutput": "7"
+      },
+      {
+        "input": "5 7 8 9 6",
+        "expectedOutput": "7"
+      },
+      {
+        "input": "8 10 8 9 10",
+        "expectedOutput": "9"
+      },
+      {
+        "input": "10 10 10 10 10",
+        "expectedOutput": "10"
+      },
+      {
+        "input": "0 0 0 0 0",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "1 2 3 4 5",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "8 8 8 10 0",
+        "expectedOutput": "8"
+      },
+      {
+        "input": "4 5 6 7 8",
+        "expectedOutput": "6"
+      }
+    ]
+  },
+  {
+    "id": "Tainan-J-3",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t3_a\">A</variable><variable id=\"t3_b\">B</variable><variable id=\"t3_i\">i</variable><variable id=\"t3_j\">j</variable><variable id=\"t3_sum\">sum</variable><variable id=\"t3_isprime\">isprime</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入起始數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_a\">A</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入結束數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_b\">B</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t3_i\">i</field><value name=\"FROM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_a\">A</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_b\">B</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_isprime\">isprime</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"t3_j\">j</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value><value name=\"DIVISOR\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_j\">j</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_isprime\">isprime</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></statement></block></statement></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">AND</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_isprime\">isprime</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value></block></value></block></statement></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_sum\">sum</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "21\n30",
+        "expectedOutput": "52"
+      },
+      {
+        "input": "13\n19",
+        "expectedOutput": "49"
+      },
+      {
+        "input": "54\n58",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "1\n20",
+        "expectedOutput": "77"
+      },
+      {
+        "input": "91\n95",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "61\n90",
+        "expectedOutput": "523"
+      },
+      {
+        "input": "2\n10",
+        "expectedOutput": "17"
+      },
+      {
+        "input": "1\n100",
+        "expectedOutput": "1060"
+      },
+      {
+        "input": "97\n100",
+        "expectedOutput": "97"
+      },
+      {
+        "input": "10\n10",
+        "expectedOutput": "0"
+      }
+    ]
+  }
+]

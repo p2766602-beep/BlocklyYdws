@@ -1,0 +1,278 @@
+[
+  {
+    "id": "Taipei-E-1",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t1_s\">S</variable><variable id=\"t1_len\">len</variable><variable id=\"t1_namelen\">namelen</variable><variable id=\"t1_name\">name</variable><variable id=\"t1_i\">i</variable><variable id=\"t1_ch\">ch</variable><variable id=\"t1_absent\">absent</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入出缺席紀錄</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_s\">S</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_len\">len</field><value name=\"VALUE\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_s\">S</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_namelen\">namelen</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_len\">len</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_name\">name</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t1_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_namelen\">namelen</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_name\">name</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_name\">name</field></block></value><value name=\"ADD1\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_s\">S</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_i\">i</field></block></value></block></value></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_absent\">absent</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t1_i\">i</field><value name=\"FROM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_namelen\">namelen</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_len\">len</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_ch\">ch</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_s\">S</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_i\">i</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_ch\">ch</field></block></value><value name=\"B\"><block type=\"text\"><field name=\"TEXT\">缺</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_absent\">absent</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_absent\">absent</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"4\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_name\">name</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">缺席</field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_absent\">absent</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\">天</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "小明到到缺到到",
+        "expectedOutput": "小明缺席1天"
+      },
+      {
+        "input": "小美到缺缺到到",
+        "expectedOutput": "小美缺席2天"
+      },
+      {
+        "input": "阿宏到到到到到",
+        "expectedOutput": "阿宏缺席0天"
+      },
+      {
+        "input": "小安缺缺缺到缺",
+        "expectedOutput": "小安缺席4天"
+      },
+      {
+        "input": "小明缺缺缺到到",
+        "expectedOutput": "小明缺席3天"
+      },
+      {
+        "input": "大雄缺缺缺缺缺",
+        "expectedOutput": "大雄缺席5天"
+      },
+      {
+        "input": "靜香到到到到到",
+        "expectedOutput": "靜香缺席0天"
+      },
+      {
+        "input": "胖虎缺到缺到缺",
+        "expectedOutput": "胖虎缺席3天"
+      },
+      {
+        "input": "小夫到缺到缺到",
+        "expectedOutput": "小夫缺席2天"
+      },
+      {
+        "input": "王同學到到到到缺",
+        "expectedOutput": "王同學缺席1天"
+      }
+    ]
+  },
+  {
+    "id": "Taipei-E-2",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t2_code\">code</variable><variable id=\"t2_sum\">sum</variable><variable id=\"t2_v\">v</variable><variable id=\"t2_j\">j</variable><variable id=\"t2_msg1\">msg1</variable><variable id=\"t2_msg2\">msg2</variable><variable id=\"t2_msg3\">msg3</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_code\">code</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t2_j\">j</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_v\">v</field></block></value></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">20</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_msg1\">msg1</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_code\">code</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">車超載</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_msg1\">msg1</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"4\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_code\">code</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">車</field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\">人</field></block></value></block></value></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_code\">code</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t2_j\">j</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_v\">v</field></block></value></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">20</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_msg2\">msg2</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_code\">code</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">車超載</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_msg2\">msg2</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"4\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_code\">code</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">車</field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\">人</field></block></value></block></value></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_code\">code</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t2_j\">j</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_v\">v</field></block></value></block></value></block></next></block></next></block></statement><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">20</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_msg3\">msg3</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_code\">code</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">車超載</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_msg3\">msg3</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"4\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_code\">code</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">車</field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_sum\">sum</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\">人</field></block></value></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_msg1\">msg1</field></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_msg2\">msg2</field></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_msg3\">msg3</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "A\n5 3 2 4 6\nB\n6 6 5 5 4\nC\n4 3 2 3 4",
+        "expectedOutput": "A車20人\nB車超載\nC車16人"
+      },
+      {
+        "input": "A\n4 4 4 4 3\nB\n5 5 4 3 3\nC\n5 4 4 4 4",
+        "expectedOutput": "A車19人\nB車20人\nC車超載"
+      },
+      {
+        "input": "A\n3 4 4 4 4\nB\n4 4 4 4 4\nC\n5 3 4 4 3",
+        "expectedOutput": "A車19人\nB車20人\nC車19人"
+      },
+      {
+        "input": "A\n5 5 4 4 4\nB\n6 5 5 3 3\nC\n4 4 4 4 5",
+        "expectedOutput": "A車超載\nB車超載\nC車超載"
+      },
+      {
+        "input": "A\n3 4 3 4 6\nB\n4 4 4 4 3\nC\n2 6 6 4 3",
+        "expectedOutput": "A車20人\nB車19人\nC車超載"
+      },
+      {
+        "input": "A\n0 0 0 0 0\nB\n1 1 1 1 1\nC\n2 2 2 2 2",
+        "expectedOutput": "A車0人\nB車5人\nC車10人"
+      },
+      {
+        "input": "A\n4 4 4 4 4\nB\n5 5 5 5 5\nC\n6 6 6 6 6",
+        "expectedOutput": "A車20人\nB車超載\nC車超載"
+      },
+      {
+        "input": "X\n1 2 3 4 5\nY\n5 5 5 5 5\nZ\n5 5 5 5 1",
+        "expectedOutput": "X車15人\nY車超載\nZ車超載"
+      },
+      {
+        "input": "P\n10 10 1 0 0\nQ\n0 0 0 0 21\nR\n10 10 0 0 0",
+        "expectedOutput": "P車超載\nQ車超載\nR車20人"
+      },
+      {
+        "input": "M\n3 3 3 3 3\nN\n2 2 2 2 2\nO\n1 1 1 1 1",
+        "expectedOutput": "M車15人\nN車10人\nO車5人"
+      }
+    ]
+  },
+  {
+    "id": "Taipei-E-3",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t3_n\">N</variable><variable id=\"t3_all\">all</variable><variable id=\"t3_cnt\">cnt</variable><variable id=\"t3_done\">done</variable><variable id=\"t3_ans\">ans</variable><variable id=\"t3_k\">k</variable><variable id=\"t3_r\">r</variable><variable id=\"t3_c\">c</variable><variable id=\"t3_idx\">idx</variable><variable id=\"t3_val\">val</variable><variable id=\"t3_rowout\">rowout</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入學生數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_all\">all</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"math_number\"><field name=\"NUM\">300</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">UNTIL</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_done\">done</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_ans\">ans</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_ans\">ans</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_all\">all</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_ans\">ans</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></statement></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_k\">k</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_n\">N</field></block></value></block></value></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t3_r\">r</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t3_c\">c</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_k\">k</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_idx\">idx</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_r\">r</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_k\">k</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_c\">c</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_val\">val</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_all\">all</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_idx\">idx</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_val\">val</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_val\">val</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></statement><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_val\">val</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_val\">val</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "1\n10 20 30",
+        "expectedOutput": "60 60 60"
+      },
+      {
+        "input": "2\n100 100\n59 60",
+        "expectedOutput": "100 100\n60 60"
+      },
+      {
+        "input": "3\n10 10\n80 80\n5 95",
+        "expectedOutput": "60 60\n80 80\n60 95"
+      },
+      {
+        "input": "1\n60 60 60",
+        "expectedOutput": "60 60 60"
+      },
+      {
+        "input": "2\n59 58 57\n61 62 63",
+        "expectedOutput": "60 60 60\n61 62 63"
+      },
+      {
+        "input": "1\n0 0 0 0 0",
+        "expectedOutput": "60 60 60 60 60"
+      },
+      {
+        "input": "4\n99\n100\n0\n60",
+        "expectedOutput": "99\n100\n60\n60"
+      },
+      {
+        "input": "1\n59 99",
+        "expectedOutput": "60 99"
+      },
+      {
+        "input": "2\n80 80\n40 40",
+        "expectedOutput": "80 80\n60 60"
+      },
+      {
+        "input": "3\n30\n40\n50",
+        "expectedOutput": "60\n60\n60"
+      }
+    ]
+  },
+  {
+    "id": "Taipei-E-4",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t4_all\">all</variable><variable id=\"t4_cnt\">cnt</variable><variable id=\"t4_done\">done</variable><variable id=\"t4_ans\">ans</variable><variable id=\"t4_k\">k</variable><variable id=\"t4_listlen\">listlen</variable><variable id=\"t4_start\">start</variable><variable id=\"t4_c\">c</variable><variable id=\"t4_sum\">sum</variable><variable id=\"t4_avg\">avg</variable><variable id=\"t4_out\">out</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_all\">all</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"math_number\"><field name=\"NUM\">300</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">UNTIL</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_done\">done</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入數列與區間大小K</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_ans\">ans</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_ans\">ans</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_all\">all</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_ans\">ans</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></statement></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_k\">k</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_all\">all</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_listlen\">listlen</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_out\">out</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_start\">start</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_listlen\">listlen</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_k\">k</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_c\">c</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_k\">k</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_sum\">sum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_all\">all</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_start\">start</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_c\">c</field></block></value></block></value></block></value></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_avg\">avg</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_k\">k</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_out\">out</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_avg\">avg</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_out\">out</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_avg\">avg</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_out\">out</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "2 4 6 8\n2",
+        "expectedOutput": "3 5 7"
+      },
+      {
+        "input": "10 20 30\n3",
+        "expectedOutput": "20"
+      },
+      {
+        "input": "5 5 5 5\n1",
+        "expectedOutput": "5 5 5 5"
+      },
+      {
+        "input": "10 20 30 40 50\n2",
+        "expectedOutput": "15 25 35 45"
+      },
+      {
+        "input": "1 2 3 4 5 6\n3",
+        "expectedOutput": "2 3 4 5"
+      },
+      {
+        "input": "10 10 10 10 10\n4",
+        "expectedOutput": "10 10"
+      },
+      {
+        "input": "0 10 20 30 40\n5",
+        "expectedOutput": "20"
+      },
+      {
+        "input": "100 200 300\n2",
+        "expectedOutput": "150 250"
+      },
+      {
+        "input": "5 15 25 35\n2",
+        "expectedOutput": "10 20 30"
+      },
+      {
+        "input": "2 2 2 2 2 2 2\n7",
+        "expectedOutput": "2"
+      }
+    ]
+  },
+  {
+    "id": "Taipei-E-5",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t5_s\">S</variable><variable id=\"t5_i\">i</variable><variable id=\"t5_ch\">ch</variable><variable id=\"t5_curch\">curch</variable><variable id=\"t5_curlen\">curlen</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入字串</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_s\">S</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_curch\">curch</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_curlen\">curlen</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t5_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_s\">S</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_ch\">ch</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_s\">S</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_i\">i</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_ch\">ch</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_curch\">curch</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_curlen\">curlen</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_curlen\">curlen</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_curlen\">curlen</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_curch\">curch</field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_curlen\">curlen</field></block></value></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_curch\">curch</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_ch\">ch</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_curlen\">curlen</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></next></block></next></block></statement></block></next></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_curlen\">curlen</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_curch\">curch</field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_curlen\">curlen</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "aaabbcddd",
+        "expectedOutput": "a3\nb2\nc1\nd3"
+      },
+      {
+        "input": "aabcccddd",
+        "expectedOutput": "a2\nb1\nc3\nd3"
+      },
+      {
+        "input": "abc",
+        "expectedOutput": "a1\nb1\nc1"
+      },
+      {
+        "input": "aaaaa",
+        "expectedOutput": "a5"
+      },
+      {
+        "input": "aabbcc",
+        "expectedOutput": "a2\nb2\nc2"
+      },
+      {
+        "input": "xxyyzz",
+        "expectedOutput": "x2\ny2\nz2"
+      },
+      {
+        "input": "mississippi",
+        "expectedOutput": "m1\ni1\ns2\ni1\ns2\ni1\np2\ni1"
+      },
+      {
+        "input": "hello",
+        "expectedOutput": "h1\ne1\nl2\no1"
+      },
+      {
+        "input": "wwwwwxxxxxyyyyyzzzzz",
+        "expectedOutput": "w5\nx5\ny5\nz5"
+      },
+      {
+        "input": "z",
+        "expectedOutput": "z1"
+      }
+    ]
+  },
+  {
+    "id": "Taipei-E-6",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t6_s\">S</variable><variable id=\"t6_target\">target</variable><variable id=\"t6_i\">i</variable><variable id=\"t6_ch\">ch</variable><variable id=\"t6_out\">out</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入字串</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_s\">S</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入目標字元</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_target\">target</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_out\">out</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t6_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_s\">S</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_ch\">ch</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_s\">S</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_i\">i</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_ch\">ch</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_target\">target</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_out\">out</field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_ch\">ch</field></block></value></block></value></block></statement></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_out\">out</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "banana\na",
+        "expectedOutput": "bnn"
+      },
+      {
+        "input": "roblox\no",
+        "expectedOutput": "rblx"
+      },
+      {
+        "input": "apple\np",
+        "expectedOutput": "ale"
+      },
+      {
+        "input": "hello\nl",
+        "expectedOutput": "heo"
+      },
+      {
+        "input": "mississippi\ns",
+        "expectedOutput": "miiippi"
+      },
+      {
+        "input": "programming\ng",
+        "expectedOutput": "prorammin"
+      },
+      {
+        "input": "abc\nd",
+        "expectedOutput": "abc"
+      },
+      {
+        "input": "abcdef\nc",
+        "expectedOutput": "abdef"
+      },
+      {
+        "input": "xyzxyz\ny",
+        "expectedOutput": "xzxz"
+      },
+      {
+        "input": "google\no",
+        "expectedOutput": "ggle"
+      }
+    ]
+  }
+]

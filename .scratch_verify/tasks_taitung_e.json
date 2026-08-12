@@ -1,0 +1,186 @@
+[
+  {
+    "id": "Taitung-E-1",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"e1_n\">N</variable><variable id=\"e1_rate\">rate</variable><variable id=\"e1_disc\">disc</variable><variable id=\"e1_total\">total</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入購買蛋糕數量</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e1_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><mutation elseif=\"2\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e1_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e1_rate\">rate</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0.9</field></block></value></block></statement><value name=\"IF1\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e1_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">10</field></block></value></block></value><statement name=\"DO1\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e1_rate\">rate</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0.8</field></block></value></block></statement><value name=\"IF2\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e1_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">15</field></block></value></block></value><statement name=\"DO2\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e1_rate\">rate</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0.7</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e1_rate\">rate</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0.6</field></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e1_disc\">disc</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e1_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">300</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e1_rate\">rate</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e1_disc\">disc</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1200</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e1_total\">total</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e1_disc\">disc</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e1_total\">total</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e1_disc\">disc</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">80</field></block></value></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e1_total\">total</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "3",
+        "expectedOutput": "890"
+      },
+      {
+        "input": "8",
+        "expectedOutput": "1920"
+      },
+      {
+        "input": "12",
+        "expectedOutput": "2520"
+      },
+      {
+        "input": "17",
+        "expectedOutput": "3060"
+      },
+      {
+        "input": "2",
+        "expectedOutput": "620"
+      },
+      {
+        "input": "1",
+        "expectedOutput": "350"
+      },
+      {
+        "input": "5",
+        "expectedOutput": "1350"
+      },
+      {
+        "input": "6",
+        "expectedOutput": "1440"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "2400"
+      },
+      {
+        "input": "11",
+        "expectedOutput": "2310"
+      }
+    ]
+  },
+  {
+    "id": "Taitung-E-2",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"e2_h\">H</variable><variable id=\"e2_w\">W</variable><variable id=\"e2_bmi\">bmi</variable><variable id=\"e2_cat\">cat</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入身高(cm)</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e2_h\">H</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入體重(kg)</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e2_w\">W</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e2_bmi\">bmi</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_w\">W</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_h\">H</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_h\">H</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">10</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">10</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"4\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_bmi\">bmi</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">18.5</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e2_cat\">cat</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">體重過輕(Underweight)</field></block></value></block></statement><value name=\"IF1\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_bmi\">bmi</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">24.9</field></block></value></block></value><statement name=\"DO1\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e2_cat\">cat</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">正常範圍(Normal range)</field></block></value></block></statement><value name=\"IF2\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_bmi\">bmi</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">29.9</field></block></value></block></value><statement name=\"DO2\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e2_cat\">cat</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">體重過重(Overweight)</field></block></value></block></statement><value name=\"IF3\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_bmi\">bmi</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">34.9</field></block></value></block></value><statement name=\"DO3\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e2_cat\">cat</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">輕度肥胖(Obesity Class I)</field></block></value></block></statement><value name=\"IF4\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_bmi\">bmi</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">39.9</field></block></value></block></value><statement name=\"DO4\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e2_cat\">cat</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">中度肥胖(Obesity Class II)</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e2_cat\">cat</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">重度肥胖(Obesity Class III)</field></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_bmi\">bmi</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e2_cat\">cat</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "165\n45",
+        "expectedOutput": "16.5 體重過輕(Underweight)"
+      },
+      {
+        "input": "170\n60",
+        "expectedOutput": "20.8 正常範圍(Normal range)"
+      },
+      {
+        "input": "180\n85",
+        "expectedOutput": "26.2 體重過重(Overweight)"
+      },
+      {
+        "input": "168\n90",
+        "expectedOutput": "31.9 輕度肥胖(Obesity Class I)"
+      },
+      {
+        "input": "160\n120",
+        "expectedOutput": "46.9 重度肥胖(Obesity Class III)"
+      },
+      {
+        "input": "150\n80",
+        "expectedOutput": "35.6 中度肥胖(Obesity Class II)"
+      },
+      {
+        "input": "175\n75",
+        "expectedOutput": "24.5 正常範圍(Normal range)"
+      },
+      {
+        "input": "180\n95",
+        "expectedOutput": "29.3 體重過重(Overweight)"
+      },
+      {
+        "input": "170\n50",
+        "expectedOutput": "17.3 體重過輕(Underweight)"
+      },
+      {
+        "input": "170\n120",
+        "expectedOutput": "41.5 重度肥胖(Obesity Class III)"
+      }
+    ]
+  },
+  {
+    "id": "Taitung-E-3",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"e3_v\">v</variable><variable id=\"e3_i\">i</variable><variable id=\"e3_sum\">sum</variable><variable id=\"e3_max\">maxv</variable><variable id=\"e3_min\">minv</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e3_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e3_max\">maxv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">-999999999</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e3_min\">minv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">999999999</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"e3_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">7</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入評審分數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e3_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e3_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_v\">v</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_v\">v</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_max\">maxv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e3_max\">maxv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_v\">v</field></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_v\">v</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_min\">minv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e3_min\">minv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_v\">v</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_max\">maxv</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e3_min\">minv</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "6\n6\n6\n6\n6\n6 6",
+        "expectedOutput": "30"
+      },
+      {
+        "input": "7\n8\n9\n8\n7\n8\n9",
+        "expectedOutput": "40"
+      },
+      {
+        "input": "9\n9.1\n9.2\n9.3\n9.4\n9.5 9.6",
+        "expectedOutput": "46.5"
+      },
+      {
+        "input": "10\n5\n7\n8\n10\n9 6",
+        "expectedOutput": "40"
+      },
+      {
+        "input": "4\n8\n4\n8\n6\n6 7",
+        "expectedOutput": "31"
+      },
+      {
+        "input": "1\n2\n3\n4\n5\n6 7",
+        "expectedOutput": "20"
+      },
+      {
+        "input": "10\n10\n10\n10\n10\n10 10",
+        "expectedOutput": "50"
+      },
+      {
+        "input": "0\n0\n0\n0\n0\n0 0",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "9.5\n8.5\n7.5\n9\n8\n10 6",
+        "expectedOutput": "42.5"
+      },
+      {
+        "input": "2.2\n3.3\n4.4\n5.5\n6.6\n7.7 8.8",
+        "expectedOutput": "27.5"
+      }
+    ]
+  },
+  {
+    "id": "Taitung-E-4",
+    "xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"e4_lucky\">lucky</variable><variable id=\"e4_pick\">pick</variable><variable id=\"e4_hits\">hits</variable><variable id=\"e4_prize\">prize</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_lucky\">lucky</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"10\"></mutation><value name=\"ADD0\"><block type=\"math_number\"><field name=\"NUM\">7</field></block></value><value name=\"ADD1\"><block type=\"math_number\"><field name=\"NUM\">24</field></block></value><value name=\"ADD2\"><block type=\"math_number\"><field name=\"NUM\">31</field></block></value><value name=\"ADD3\"><block type=\"math_number\"><field name=\"NUM\">42</field></block></value><value name=\"ADD4\"><block type=\"math_number\"><field name=\"NUM\">45</field></block></value><value name=\"ADD5\"><block type=\"math_number\"><field name=\"NUM\">56</field></block></value><value name=\"ADD6\"><block type=\"math_number\"><field name=\"NUM\">63</field></block></value><value name=\"ADD7\"><block type=\"math_number\"><field name=\"NUM\">78</field></block></value><value name=\"ADD8\"><block type=\"math_number\"><field name=\"NUM\">80</field></block></value><value name=\"ADD9\"><block type=\"math_number\"><field name=\"NUM\">99</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_hits\">hits</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_pick\">pick</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"lists_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_lucky\">lucky</field></block></value><value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_pick\">pick</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_hits\">hits</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_pick\">pick</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"lists_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_lucky\">lucky</field></block></value><value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_pick\">pick</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_hits\">hits</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_pick\">pick</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"lists_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_lucky\">lucky</field></block></value><value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_pick\">pick</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_hits\">hits</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_pick\">pick</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"lists_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_lucky\">lucky</field></block></value><value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_pick\">pick</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_hits\">hits</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_pick\">pick</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">NEQ</field><value name=\"A\"><block type=\"lists_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_lucky\">lucky</field></block></value><value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_pick\">pick</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_hits\">hits</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement><next><block type=\"controls_if\"><mutation elseif=\"4\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_prize\">prize</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">100000</field></block></value></block></statement><value name=\"IF1\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">4</field></block></value></block></value><statement name=\"DO1\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_prize\">prize</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">10000</field></block></value></block></statement><value name=\"IF2\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value></block></value><statement name=\"DO2\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_prize\">prize</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">2000</field></block></value></block></statement><value name=\"IF3\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value><statement name=\"DO3\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_prize\">prize</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">500</field></block></value></block></statement><value name=\"IF4\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO4\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_prize\">prize</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">200</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"e4_prize\">prize</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"5\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\">猜中</field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_hits\">hits</field></block></value><value name=\"ADD2\"><block type=\"text\"><field name=\"TEXT\">個號碼,獎金</field></block></value><value name=\"ADD3\"><block type=\"variables_get\"><field name=\"VAR\" id=\"e4_prize\">prize</field></block></value><value name=\"ADD4\"><block type=\"text\"><field name=\"TEXT\">元</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+    "testCases": [
+      {
+        "input": "7 24 31 42 45",
+        "expectedOutput": "猜中5個號碼,獎金100000元"
+      },
+      {
+        "input": "1 2 3 4 5",
+        "expectedOutput": "猜中0個號碼,獎金0元"
+      },
+      {
+        "input": "7 24 1 2 3",
+        "expectedOutput": "猜中2個號碼,獎金500元"
+      },
+      {
+        "input": "42 56 63 78 80",
+        "expectedOutput": "猜中5個號碼,獎金100000元"
+      },
+      {
+        "input": "7 24 31 42 10",
+        "expectedOutput": "猜中4個號碼,獎金10000元"
+      },
+      {
+        "input": "7 2 3 4 5",
+        "expectedOutput": "猜中1個號碼,獎金200元"
+      },
+      {
+        "input": "56 63 78 80 1",
+        "expectedOutput": "猜中4個號碼,獎金10000元"
+      },
+      {
+        "input": "56 63 78 2 3",
+        "expectedOutput": "猜中3個號碼,獎金2000元"
+      },
+      {
+        "input": "99 2 3 4 5",
+        "expectedOutput": "猜中1個號碼,獎金200元"
+      },
+      {
+        "input": "7 24 31 2 3",
+        "expectedOutput": "猜中3個號碼,獎金2000元"
+      }
+    ]
+  }
+]

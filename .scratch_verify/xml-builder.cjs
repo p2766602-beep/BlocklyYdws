@@ -99,6 +99,10 @@ function say(valueXml, nextXml) {
 function numLit(n) {
   return block('math_number', field('NUM', n));
 }
+// 重要平台限定行為（實測確認）：text積木用FieldTextInput(單行文字輸入框)，XML載入時
+// 會把欄位值裡的實際換行字元過濾掉——textLit('\n')塞進textJoin()組字串，換行會憑空消失
+// （"A\nB"變成"AB"，不報錯）。多行輸出不要塞\n常數，改成呼叫多次say()，
+// verify.mjs的測試harness會自動把多次say()輸出用'\n'接起來比對(sayOutput.join('\n'))。
 function textLit(s) {
   return block('text', field('TEXT', s));
 }
@@ -131,6 +135,9 @@ function round_(opMode, numXml) {
 function mathSingle(opMode, numXml) {
   // math_single: ROOT/ABS/NEG/LN/LOG10/EXP/POW10 — 這裡主要用ABS
   return block('math_single', field('OP', opMode) + valueWrap('NUM', numXml));
+}
+function sqrt_(numXml) {
+  return mathSingle('ROOT', numXml);
 }
 function abs_(numXml) {
   return mathSingle('ABS', numXml);
@@ -218,6 +225,12 @@ function isEmptyText(varGetXml) {
 // （例如"999"、"666"）就會在Number上呼叫.length/.charAt得到undefined，讓迴圈完全不執行
 // 卻不會報錯，非常隱蔽。只要這題的輸入語意是「字串」（即使測資剛好長得像純數字），
 // 一律用這個包裝，成本很低但能徹底避免這個陷阱。
+// **限制**：這個包裝只能救「型別」，救不了「已經遺失的資訊」——Number()轉換發生在
+// interaction_answer內部、textJoin接手之前，若原始輸入有前導0(例如"0907")或超過
+// 2^53精度(約16位數的長數字字串)，數值在轉型當下就已經失真("0907"→907的字串
+// 表示法變成"907"，前導0回不來了)。這種情況不能靠answerAsText()挽救，要嘛
+// 改用純數字語意直接運算(例如HHMM時間格式用HH=floor(val/100)還原，不必依賴前導0
+// 字元)，要嘛換一組不落在陷阱範圍內的等效測資。
 function answerAsText() {
   return textJoin([textLit(''), answerBlock()]);
 }
@@ -291,7 +304,7 @@ function assembleXml(reg, topBlockXml) {
 module.exports = {
   createVarRegistry, whenFlagClicked, askAndWait, answerBlock, say,
   numLit, textLit, getVar, setVar,
-  add, sub, mul, div, modulo, round_, abs_,
+  add, sub, mul, div, modulo, round_, abs_, sqrt_, mathSingle,
   eq, neq, lt, lte, gt, gte, and_, or_, not_, ternary,
   ifElseChain, repeatExt, whileUntil, controlsFor,
   textJoin, textLength, charAt, charAtAsNumber, isEmptyText, answerAsText,

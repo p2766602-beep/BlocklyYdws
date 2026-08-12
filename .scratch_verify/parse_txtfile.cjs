@@ -40,20 +40,33 @@ function parseCaseBlocks(raw) {
     if (!/^案例\d+/.test(block)) continue;
     const lines = block.split(/\r?\n/);
     const inputs = [];
-    let expected = null;
+    const answerLines = [];
     let score = null;
+    // 注意：預期答案可能跨多行(例如「A車20人\nB車超載\nC車16人」)，不能只抓
+    // 「預期答案：」那一行本身；要一路累積到「分數：」那一行為止才停止。
+    let inAnswer = false;
     for (const line of lines) {
+      if (inAnswer) {
+        const scoreMatch = line.match(/^分數[：:]\s*(.*)$/);
+        if (scoreMatch) { score = Number(scoreMatch[1].trim()); inAnswer = false; continue; }
+        answerLines.push(line);
+        continue;
+      }
       const inputMatch = line.match(/^第[一二三四五六七八九十]個輸入[：:]\s*(.*)$/);
       if (inputMatch) {
         if (inputMatch[1].trim().length > 0) inputs.push(inputMatch[1].trim());
         continue;
       }
       const ansMatch = line.match(/^預期答案[：:]\s*(.*)$/);
-      if (ansMatch) { expected = ansMatch[1].trim(); continue; }
+      if (ansMatch) {
+        if (ansMatch[1].trim().length > 0) answerLines.push(ansMatch[1].trim());
+        inAnswer = true;
+        continue;
+      }
       const scoreMatch = line.match(/^分數[：:]\s*(.*)$/);
       if (scoreMatch) { score = Number(scoreMatch[1].trim()); continue; }
     }
-    cases.push({ input: inputs.join('\n'), expectedOutput: expected, score });
+    cases.push({ input: inputs.join('\n'), expectedOutput: answerLines.join('\n'), score });
   }
   return cases;
 }
