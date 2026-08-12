@@ -207,14 +207,21 @@ function task(parsed, taskId, meta, T) {
 })();
 
 // ============ 臺東縣國中 114JTaitung ============
+// 注意：114JTaitung.txt實際有4題，早期parse_txtfile.cjs的一次執行結果只抓到1題並被寫入
+// parsed_114JTaitung.json快照（原因不明，可能是當時檔案尚未同步完成），後續處理都沿用了
+// 這份不完整的快照，直到最後比對raw/master/個別題目檔案時才發現題數不符並修正
+// （parsed_114JTaitung.json已用重新執行parseFile()的正確結果覆蓋）。
 (function () {
   const parsed = loadJson('parsed_114JTaitung.json');
   const T = byId(loadJson('tasks_taitung_j.json'));
   const tasks = [
     task(parsed[0], 'Taitung-J-1', { title: '魔法公車車票計算', difficulty: 'L2', note: '跨界判斷(是否跨越分隔站)加上年齡折扣，與新北市國中「兩段票計算」同款規則。', mainConcepts: ['條件判斷'], subConcepts: ['公式計算'], algorithm: ['分段計費'], dataStructure: ['變數'], syntax: ['多層if'], math: [], context: ['生活情境', '交通'] }, T),
+    task(parsed[1], 'Taitung-J-2', { title: '幸運數字彩虹樂透', difficulty: 'L1', note: '6/49對獎，與新北市/臺東縣國小的樂透題同概念，此處輸出格式多一個逗號。', mainConcepts: ['清單'], subConcepts: ['條件判斷'], algorithm: ['清單搜尋'], dataStructure: ['清單'], syntax: ['清單搜尋'], math: [], context: ['生活情境', '彩券'] }, T),
+    task(parsed[2], 'Taitung-J-3', { title: '我的健康小管家', difficulty: 'L2', note: '與新北市國中同款BMR公式，此處固定取整數(不留小數)。', mainConcepts: ['公式計算'], subConcepts: ['條件判斷'], algorithm: ['級距判斷'], dataStructure: ['變數'], syntax: ['四捨五入', '多層if'], math: ['BMR公式'], context: ['健康情境'] }, T),
+    task(parsed[3], 'Taitung-J-4', { title: '東台線上3C購物平台', difficulty: 'L2', note: '固定7項商品價目表，讀取購買清單直到-1結束並判斷結帳結果，練習不定長度輸入與查表加總。', mainConcepts: ['迴圈'], subConcepts: ['條件判斷'], algorithm: ['累加'], dataStructure: ['變數'], syntax: ['while迴圈', '多層if'], math: [], context: ['生活情境', '購物'] }, T),
   ];
   writeCourse('114JTaitung.js', '114JTaitung', '114-臺東縣國中',
-    '臺東縣114學年度國中組資訊科技競賽練習題，與新北市國中「兩段票計算」規則相同。', tasks);
+    '臺東縣114學年度國中組資訊科技競賽練習題，涵蓋分段計費、清單搜尋、公式計算與不定長度輸入處理。', tasks);
 })();
 
 console.log('\nAll 11 new course files assembled.');
