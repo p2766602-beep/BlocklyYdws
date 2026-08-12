@@ -210,15 +210,15 @@ function writeCourse(filename, code, title, description, tasks, sourceNote) {
     }),
     buildTask({
       id: 'ChaiyiC-2', title: '跳馬比賽成績計算',
-      description: '跳馬比賽為求公平性，決議去除評審中較極端的成績。比賽會依賽制等級不同，聘用五至十位不等的評審，各自給予參賽者0至10分的評價。參賽者的最終得分計算方式：讀入五至十位評審的分數（未排序），扣除最高分與最低分各一筆（若有多筆，只刪除其中一筆），將剩餘分數取平均，四捨五入至整數。',
+      description: '跳馬比賽為求公平性，決議去除評審中較極端的成績。比賽會依賽制等級不同，聘用五至十位不等的評審，各自給予參賽者0至10分的評價。參賽者的最終得分計算方式：讀入五至十位評審的分數（未排序），扣除最高分與最低分各一筆（若有多筆，只刪除其中一筆），將剩餘分數取平均，四捨五入至小數點第三位。',
       inputDescription: '第一行輸入整數N（5≤N≤10），第二行輸入N個整數（0～10）代表評審分數。',
-      outputDescription: '輸出一個數值，代表去除最高與最低分後、四捨五入至整數的最終得分。',
+      outputDescription: '輸出一個數值，代表去除最高與最低分後、四捨五入至小數點第三位的最終得分。',
       examples: [
         { input: '5\n9 8 10 6 7', output: '8', explanation: '刪除最高分10與最低分6，剩下9、8、7，平均為(9+8+7)/3=8。' },
-        { input: '5\n5 5 8 9 10', output: '7', explanation: '刪除最高分10與最低分5（僅一筆），剩下5、8、9，平均為7.33，四捨五入為7。' },
+        { input: '5\n5 5 8 9 10', output: '7.333', explanation: '刪除最高分10與最低分5，剩下5、8、9，平均為(5+8+9)/3=7.333，四捨五入至小數點第三位仍為7.333。' },
       ],
       difficulty: 'L2',
-      note: '【PDF題目文字與實際資料不符，已記錄於PDF題目來源勘誤紀錄.md】題目文字寫「四捨五入至小數點第三位」，但全部評審資料與範例一都是整數輸出；範例二的說明文字算式本身也有誤（除以4而非3）。判定實際規則是「四捨五入到整數」，已用全部評審資料交叉驗證確認。',
+      note: '【已修正】原先依舊版PDF判例資料誤判為「四捨五入到整數」（見PDF題目來源勘誤紀錄.md舊條目）；比對114EChaiyiC.txt新版10筆評審資料後確認題目文字「四捨五入至小數點第三位」本身沒有錯，舊版PDF判例資料剛好全部整除、誤導成整數規則，此次已更正演算法與測資。',
       mainConcepts: ['統計'], subConcepts: ['公式計算'], algorithm: ['最大最小值'], dataStructure: ['變數'], syntax: ['四捨五入'], math: ['平均值'], context: ['體育競賽'],
     }),
     buildTask({
@@ -275,15 +275,15 @@ function writeCourse(filename, code, title, description, tasks, sourceNote) {
     }),
     buildTask({
       id: 'ChaiyiC-6-2', title: '寶可夢訓練師-找最高等級',
-      description: '請設計一個程式，輸入多隻寶可夢的名稱與等級，找出等級最高的數值（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）。',
+      description: '請設計一個程式，輸入多隻寶可夢的名稱與等級，找出等級最高的寶可夢名稱（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）。',
       inputDescription: '第一行輸入整數N（1≤N≤20），第二行輸入2N筆資料，依序為「寶可夢名稱 等級」。',
-      outputDescription: '輸出一個整數，代表最高的等級數值。',
+      outputDescription: '輸出一行文字，代表等級最高的寶可夢名稱。',
       examples: [
-        { input: '3\n皮卡丘 25 小火龍 12 妙蛙種子 18', output: '25', explanation: '共有3隻寶可夢，最高等級是25（皮卡丘）。' },
-        { input: '4\n傑尼龜 10 伊布 15 卡比獸 35 胖丁 2', output: '35', explanation: '共有4隻寶可夢，卡比獸等級最高（35）。' },
+        { input: '3\n皮卡丘 25 小火龍 12 妙蛙種子 18', output: '皮卡丘', explanation: '共有3隻寶可夢，等級最高的是皮卡丘（25）。' },
+        { input: '4\n傑尼龜 10 伊布 15 卡比獸 35 胖丁 2', output: '卡比獸', explanation: '共有4隻寶可夢，卡比獸等級最高（35）。' },
       ],
       difficulty: 'L1',
-      note: '【PDF題目文字與實際資料不符，已記錄於PDF題目來源勘誤紀錄.md】題目文字要求輸出「等級最高的寶可夢名稱」，但全部7筆資料（2則範例＋5筆評審）實際輸出的都是等級數字本身，不是名稱。判定以資料為準，輸出最高等級的數值。',
+      note: '【已修正】原先依舊版PDF判例資料誤判為「輸出等級數字」（見PDF題目來源勘誤紀錄.md舊條目）；比對114EChaiyiC.txt新版10筆評審資料後確認題目文字「找出等級最高的寶可夢名稱」本身沒有錯，此次已更正演算法（改為同步追蹤名稱）與測資。',
       mainConcepts: ['統計'], subConcepts: ['最大值'], algorithm: ['最大值'], dataStructure: ['變數'], syntax: ['比較運算'], math: [], context: ['遊戲情境'],
     }),
     buildTask({
@@ -301,21 +301,21 @@ function writeCourse(filename, code, title, description, tasks, sourceNote) {
     }),
     buildTask({
       id: 'ChaiyiC-6-4', title: '寶可夢訓練師-統計屬性數量',
-      description: '請設計一個程式，輸入多隻寶可夢的屬性，輸出各屬性寶可夢的數量統計結果。程式需依照屬性第一次出現的順序，輸出每個屬性與該屬性寶可夢數量，格式為「屬性 數量」，屬性之間以一個空白隔開；若屬性重複，只輸出一次。',
+      description: '請設計一個程式，輸入多隻寶可夢的屬性，輸出各屬性寶可夢的數量統計結果。程式需依照屬性第一次出現的順序，輸出每個屬性與該屬性寶可夢數量，格式為「屬性數量」（屬性與數量間不留空白）；不同組別之間以一個空白隔開；若屬性重複，只輸出一次。',
       inputDescription: '第一行輸入整數N，第二行輸入N個寶可夢屬性名稱，以空白間隔。',
-      outputDescription: '依首次出現順序輸出「屬性 數量」配對，以空白分隔。',
+      outputDescription: '依首次出現順序輸出「屬性數量」配對（屬性與數量間不留空白），組別之間以空白分隔。',
       examples: [
-        { input: '5\n火 水 火 電 水', output: '火 2 水 2 電 1', explanation: '依首次出現順序統計後輸出：火2 水2 電1。' },
-        { input: '4\n草 草 毒 草', output: '草 3 毒 1', explanation: '輸出結果為：草3 毒1。' },
+        { input: '5\n火 水 火 電 水', output: '火2 水2 電1', explanation: '依首次出現順序統計後輸出：火2 水2 電1。' },
+        { input: '4\n草 草 毒 草', output: '草3 毒1', explanation: '輸出結果為：草3 毒1。' },
       ],
       difficulty: 'L3',
-      note: '依首次出現順序做分組計數，練習用清單搜尋（indexOf）判斷是否為新類別。',
+      note: '【已修正】原先誤用「屬性 數量」（中間留空白）的輸出格式；比對114EChaiyiC.txt新版評審資料的說明文字「格式為『屬性數量』（屬性與數量間不留空白）」後更正為無空白格式。依首次出現順序做分組計數，練習用清單搜尋（indexOf）判斷是否為新類別。',
       mainConcepts: ['清單'], subConcepts: ['分組計數'], algorithm: ['計數統計'], dataStructure: ['清單'], syntax: ['清單搜尋'], math: [], context: ['遊戲情境'],
     }),
   ];
   writeCourse('114EChaiyiC.js', '114EChaiyiC', '114-嘉義縣國小',
     '嘉義縣114學年度國小組資訊科技競賽練習題，涵蓋公式計算、密碼學、貪婪演算法與清單分組統計。',
-    tasks, 'ChaiyiC-2/ChaiyiC-5/ChaiyiC-6-2三題PDF原文與實際評審資料有出入，已交叉驗證並記錄於docs/PDF題目來源勘誤紀錄.md。');
+    tasks, 'ChaiyiC-2/ChaiyiC-6-2兩題原先依舊版PDF判例資料的誤判結論，已比對114EChaiyiC.txt新版10筆評審資料後更正回題目文字原意；ChaiyiC-5的原PDF範例文字錯誤結論則經新資料重新確認仍然成立；ChaiyiC-6-4新發現輸出格式應無空白。詳見docs/PDF題目來源勘誤紀錄.md。');
 })();
 
 // ============ 新北市 114ENewTaipei ============
@@ -344,7 +344,7 @@ function writeCourse(filename, code, title, description, tasks, sourceNote) {
         { input: '1.5 2.5 3.5 4.5 5.5 6.5 7.5', output: '22.5', explanation: '最高分7.5最低分1.5，剩餘總和2.5+3.5+4.5+5.5+6.5=22.5。' },
       ],
       difficulty: 'L1',
-      note: '固定7個分數扣除一個最高一個最低後加總，可用「總和-最大值-最小值」的算術等價法。',
+      note: '固定7個分數扣除一個最高一個最低後加總，可用「總和-最大值-最小值」的算術等價法。【資料備註】114ENewTaipei.txt評審資料第7筆原文預期答案為「15」，與其餘9筆完全吻合的演算法算出的「20」不符，判定為來源資料獨立輸入錯誤，題庫依演算法結果收錄為20。',
       mainConcepts: ['統計'], subConcepts: ['公式計算'], algorithm: ['最大最小值'], dataStructure: ['變數'], syntax: ['比較運算'], math: [], context: ['競賽情境'],
     }),
     buildTask({
@@ -376,7 +376,7 @@ function writeCourse(filename, code, title, description, tasks, sourceNote) {
   ];
   writeCourse('114ENewTaipei.js', '114ENewTaipei', '114-新北市國小',
     '新北市114學年度資訊科技組參考題目，涵蓋公式計算、清單搜尋與迴圈加總。',
-    tasks);
+    tasks, 'NewTaipei-2第7筆評審資料判定為獨立輸入錯誤，依演算法結果收錄，詳見docs/PDF題目來源勘誤紀錄.md。');
 })();
 
 // ============ 新竹市 114EHsinchu ============
@@ -423,7 +423,7 @@ function writeCourse(filename, code, title, description, tasks, sourceNote) {
     }),
     buildTask({
       id: 'Hsinchu-4', title: '寶可夢聯盟大挑戰',
-      description: '小智的隊伍中共有N隻寶可夢，每隻都有名字、攻擊力、防禦力。戰鬥力=(攻擊力+防禦力)×戰技加成，其中攻擊力>防禦力時加成為2，攻擊力=防禦力時加成為3，攻擊力<防禦力時加成為1。小智要把最強的寶可夢保留到最後，因此現在只能派出戰鬥力排名第二高的寶可夢（已保證每隻寶可夢的戰鬥力值皆不相同）。',
+      description: '小智的隊伍中共有N隻寶可夢，每隻都有名字、攻擊力、防禦力。戰鬥力=(攻擊力+防禦力)×戰技加成，其中攻擊力>防禦力時加成為2，攻擊力=防禦力時加成為3，攻擊力<防禦力時加成為1。小智要把最強的寶可夢保留到最後，因此現在只能派出戰鬥力排名第二高的寶可夢。若有戰鬥力相同並列最高的情況，以「後輸入者視為真正最高、先輸入者視為第二高」的規則處理。',
       inputDescription: '第一行輸入整數N，接下來N筆資料依序為「寶可夢名稱 攻擊力 防禦力」。',
       outputDescription: '輸出戰鬥力第二高的寶可夢資訊：名稱、攻擊力、防禦力、戰鬥力，以空白分隔。',
       examples: [
@@ -431,7 +431,7 @@ function writeCourse(filename, code, title, description, tasks, sourceNote) {
         { input: '5\n妙蛙種子 6 6 波波 5 3 可達鴨 4 7 尼多力諾 9 4 喵喵 3 3', output: '尼多力諾 9 4 26', explanation: '妙蛙種子戰鬥力36最高，尼多力諾戰鬥力26第二高。' },
       ],
       difficulty: 'L3',
-      note: '需要同時記錄名稱/攻擊/防禦/戰鬥力四組平行清單，並找出「第二大值」而非最大值，是本次題組中較複雜的一題。',
+      note: '需要同時記錄名稱/攻擊/防禦/戰鬥力四組平行清單，並找出「第二大值」而非最大值。【已修正】原先假設「戰鬥力保證皆不相同」，但比對114EHsinchu.txt新版10筆評審資料才發現實際存在平手案例；改用單一輪次「跑動最大值/次大值」寫法（新數值≥目前最大值時降級目前最大值為次大值），可自然且正確處理平手，已用全部10筆資料驗證一致，是本次題組中較複雜的一題。',
       mainConcepts: ['清單'], subConcepts: ['公式計算'], algorithm: ['第二大值'], dataStructure: ['清單'], syntax: ['for迴圈', '比較運算'], math: [], context: ['遊戲情境'],
     }),
     buildTask({
@@ -444,7 +444,7 @@ function writeCourse(filename, code, title, description, tasks, sourceNote) {
         { input: '8\n1 0 0 1 0 1 0 0', output: '11', explanation: '在房間時段為第1、4、6小時，中間空檔都小於5小時故保持開機，最後無行程直接關機，總計11度。' },
       ],
       difficulty: 'L4',
-      note: '需要先反向掃描算出「每個時刻之後下一個必須開機的時刻」，再正向決定每個空檔要不要關機（比較保持開機的耗電與重新啟動的5度何者划算），是本次題組中演算法設計難度最高的一題。',
+      note: '需要先反向掃描算出「每個時刻之後下一個必須開機的時刻」，再正向決定每個空檔要不要關機（比較保持開機的耗電與重新啟動的5度何者划算），是本次題組中演算法設計難度最高的一題。【已修正】原先誤用「空檔<5小時才保持開機」的門檻（僅依2則PDF範例推導）；比對114EHsinchu.txt新版10筆評審資料後確認正確門檻是「空檔<4小時才保持開機，≥4小時則關機」，已用全部10筆資料驗證一致（注意：此門檻在單點數學上並非嚴格最省電的選擇，但為官方標準答案實際採用的規則，題庫依此為準）。',
       mainConcepts: ['貪婪演算法'], subConcepts: ['清單'], algorithm: ['貪婪法'], dataStructure: ['清單'], syntax: ['反向迴圈', '條件判斷'], math: [], context: ['生活情境', '節能'],
     }),
     buildTask({
@@ -457,13 +457,13 @@ function writeCourse(filename, code, title, description, tasks, sourceNote) {
         { input: '7', output: '74', explanation: '7(3條)+4(4條)=7條，可組成74或47，最大為74。' },
       ],
       difficulty: 'L3',
-      note: '窮舉1位數與2位數（十位不可為0、十位個位不可重複）所有組合比對燈條數，找最大值。',
+      note: '窮舉1位數與2位數（十位不可為0、十位個位不可重複）所有組合比對燈條數，找最大值。【資料備註】114EHsinchu.txt評審資料第6筆（N=6）原文預期答案為「9」，但窮舉演算法（其餘9筆全數吻合）找到「41」是恰好用完6條燈條、更大的合法候選值，判定為來源資料獨立缺漏，題庫依演算法結果收錄為41。',
       mainConcepts: ['窮舉'], subConcepts: ['清單查表'], algorithm: ['窮舉法'], dataStructure: ['清單'], syntax: ['雙層迴圈', '比較運算'], math: [], context: ['生活情境'],
     }),
   ];
   writeCourse('114EHsinchu.js', '114EHsinchu', '114-新竹市國小',
     '新竹市114學年度資訊科技組參考題目，涵蓋公式計算、排序、清單雙層迴圈與貪婪演算法，難度略高於其他縣市題組。',
-    tasks);
+    tasks, 'Hsinchu-4（平手處理）、Hsinchu-5（省電門檻）演算法經114EHsinchu.txt新版10筆評審資料重新驗證後修正；Hsinchu-6第6筆評審資料判定為獨立缺漏，依演算法結果收錄。詳見docs/PDF題目來源勘誤紀錄.md。');
 })();
 
 console.log('\nAll 5 course files assembled.');

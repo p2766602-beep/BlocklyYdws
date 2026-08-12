@@ -1,0 +1,219 @@
+[
+  {
+    "fullTitle": "1-偶數和",
+    "description": "請設計一個程式，輸入二個正整數（由小到大），計算出二個正整數之間，所有偶數的和（包含起訖數字，若其為偶數）。\n【輸入格式】\n第一行輸入起始數。\n第二行輸入結束數。\n【輸出格式】\n輸出一個整數，代表兩數之間所有偶數的總和。",
+    "examples": [
+      {
+        "input": "10\n20",
+        "output": "90",
+        "explanation": "輸入起始數：10\n輸入結束數：20\n10至20間的偶數有10、12、14、16、18、20\n偶數的和為90"
+      },
+      {
+        "input": "31\n39",
+        "output": "140",
+        "explanation": "輸入起始數：31\n輸入結束數：39\n31至39間的偶數有 32、34、36、38\n偶數的和為140"
+      }
+    ],
+    "declaredCount": 10,
+    "testCases": [
+      {
+        "input": "10\n20",
+        "expectedOutput": "90",
+        "score": 10
+      },
+      {
+        "input": "31\n39",
+        "expectedOutput": "140",
+        "score": 10
+      },
+      {
+        "input": "1\n20",
+        "expectedOutput": "110",
+        "score": 10
+      },
+      {
+        "input": "20\n41",
+        "expectedOutput": "330",
+        "score": 10
+      },
+      {
+        "input": "99\n111",
+        "expectedOutput": "630",
+        "score": 10
+      },
+      {
+        "input": "2\n2",
+        "expectedOutput": "2",
+        "score": 10
+      },
+      {
+        "input": "3\n3",
+        "expectedOutput": "0",
+        "score": 10
+      },
+      {
+        "input": "100\n100",
+        "expectedOutput": "100",
+        "score": 10
+      },
+      {
+        "input": "1\n5",
+        "expectedOutput": "6",
+        "score": 10
+      },
+      {
+        "input": "1000\n1010",
+        "expectedOutput": "6030",
+        "score": 10
+      }
+    ]
+  },
+  {
+    "fullTitle": "2-三角形",
+    "description": "已知一個三角形的任意兩邊和必定大於第三邊。\n請寫一個程式，一次輸入三個正整數，判斷能否組成一個三角形。\n【輸入格式】\n單一行輸入三個正整數，數字間以單一半形空格間隔。\n【輸出格式】\n判斷結果，如果可以組成三角形，輸出 yes；如果不可以組成三角形，輸出 no。",
+    "examples": [
+      {
+        "input": "9 6 8",
+        "output": "yes",
+        "explanation": "符合「任意兩邊和必定大於第三邊」\n可以組成一個三角形\n輸出：yes"
+      },
+      {
+        "input": "1 2 3",
+        "output": "no",
+        "explanation": "不符合「任意兩邊和必定大於第三邊」\n不可以組成一個三角形\n輸出：no"
+      }
+    ],
+    "declaredCount": 10,
+    "testCases": [
+      {
+        "input": "9 6 8",
+        "expectedOutput": "yes",
+        "score": 10
+      },
+      {
+        "input": "1 2 3",
+        "expectedOutput": "no",
+        "score": 10
+      },
+      {
+        "input": "10 10 8",
+        "expectedOutput": "yes",
+        "score": 10
+      },
+      {
+        "input": "30 60 100",
+        "expectedOutput": "no",
+        "score": 10
+      },
+      {
+        "input": "8 8 8",
+        "expectedOutput": "yes",
+        "score": 10
+      },
+      {
+        "input": "5 5 10",
+        "expectedOutput": "no",
+        "score": 10
+      },
+      {
+        "input": "100 2 3",
+        "expectedOutput": "no",
+        "score": 10
+      },
+      {
+        "input": "3 4 5",
+        "expectedOutput": "yes",
+        "score": 10
+      },
+      {
+        "input": "12 5 13",
+        "expectedOutput": "yes",
+        "score": 10
+      },
+      {
+        "input": "5 10 5",
+        "expectedOutput": "no",
+        "score": 10
+      }
+    ]
+  },
+  {
+    "fullTitle": "3-刮刮樂",
+    "description": "小哲彩券公司推出一種六六大順的刮刮樂，規則如下：\n每張刮刮樂上面有三個 0~9 的數字。\n• 如果出現一個數字 6，則可以得到 100 元。\n• 如果出現二個數字 6，則可以得到 200 元。\n• 如果出現三個數字 6，則可以得到 500 元。\n以上三種得獎方式，你只能選擇獎金最高的一種來領取。\n現在給你一張刮刮樂上的三個數字，請問你可以得到多少獎金。\n【輸入格式】\n單一行輸入一個由三個數字組成的字串。\n【輸出格式】\n輸出一個整數，代表可獲得的獎金。",
+    "examples": [
+      {
+        "input": "666",
+        "output": "500",
+        "explanation": "出現三個數字 6，可以得到 500 元。"
+      },
+      {
+        "input": "600",
+        "output": "100",
+        "explanation": "出現一個數字 6，可以得到 100 元。"
+      },
+      {
+        "input": "266",
+        "output": "200",
+        "explanation": "出現二個數字 6，可以得到 200 元。"
+      },
+      {
+        "input": "123",
+        "output": "0",
+        "explanation": "出現 0 個數字 6，沒有中獎，輸出 0。"
+      }
+    ],
+    "declaredCount": 10,
+    "testCases": [
+      {
+        "input": "666",
+        "expectedOutput": "500",
+        "score": 10
+      },
+      {
+        "input": "600",
+        "expectedOutput": "100",
+        "score": 10
+      },
+      {
+        "input": "266",
+        "expectedOutput": "200",
+        "score": 10
+      },
+      {
+        "input": "123",
+        "expectedOutput": "0",
+        "score": 10
+      },
+      {
+        "input": "616",
+        "expectedOutput": "200",
+        "score": 10
+      },
+      {
+        "input": "911",
+        "expectedOutput": "0",
+        "score": 10
+      },
+      {
+        "input": "336",
+        "expectedOutput": "100",
+        "score": 10
+      },
+      {
+        "input": "060",
+        "expectedOutput": "100",
+        "score": 10
+      },
+      {
+        "input": "661",
+        "expectedOutput": "200",
+        "score": 10
+      },
+      {
+        "input": "000",
+        "expectedOutput": "0",
+        "score": 10
+      }
+    ]
+  }
+]

@@ -30,9 +30,14 @@ const tasks = [];
     testCases: [
       { input: '5 4\n7', expectedOutput: '2 3' },
       { input: '3 5\n13', expectedOutput: '3 3' },
-      { input: '1 1\n1', expectedOutput: '1 1' },
-      { input: '10 10\n100', expectedOutput: '10 10' },
-      { input: '4 3\n1', expectedOutput: '1 1' },
+      { input: '1 10\n5', expectedOutput: '1 5' },
+      { input: '10 1\n8', expectedOutput: '8 1' },
+      { input: '100 100\n10000', expectedOutput: '100 100' },
+      { input: '10 10\n1', expectedOutput: '1 1' },
+      { input: '10 5\n15', expectedOutput: '3 5' },
+      { input: '6 7\n42', expectedOutput: '6 7' },
+      { input: '20 30\n599', expectedOutput: '20 29' },
+      { input: '5 5\n21', expectedOutput: '5 1' },
     ],
   });
 })();
@@ -63,8 +68,14 @@ const tasks = [];
     testCases: [
       { input: '5\n10 50 30 20 40', expectedOutput: '40' },
       { input: '6\n5 8 12 3 9 3', expectedOutput: '9' },
-      { input: '1\n7', expectedOutput: '0' },
-      { input: '3\n-5 0 5', expectedOutput: '10' },
+      { input: '1\n25', expectedOutput: '0' },
+      { input: '3\n-10 -5 -20', expectedOutput: '15' },
+      { input: '4\n0 0 0 0', expectedOutput: '0' },
+      { input: '5\n-100 100 0 50 -50', expectedOutput: '200' },
+      { input: '10\n1 2 3 4 5 6 7 8 9 10', expectedOutput: '9' },
+      { input: '2\n10 -10', expectedOutput: '20' },
+      { input: '5\n1000 1000 -1000 -1000 0', expectedOutput: '2000' },
+      { input: '3\n1 10000 5000', expectedOutput: '9999' },
     ],
   });
 })();
@@ -149,8 +160,13 @@ const tasks = [];
       { input: '6\n5 12 3 8 7 10', expectedOutput: '3 5 7 12 10 8' },
       { input: '8\n15 20 11 6 9 14 2 13', expectedOutput: '9 11 13 15 20 14 6 2' },
       { input: '3\n1 3 5', expectedOutput: '1 3 5' },
-      { input: '3\n2 4 6', expectedOutput: '6 4 2' },
-      { input: '1\n7', expectedOutput: '7' },
+      { input: '4\n2 4 6 8', expectedOutput: '8 6 4 2' },
+      { input: '1\n10', expectedOutput: '10' },
+      { input: '5\n0 1 2 3 4', expectedOutput: '1 3 4 2 0' },
+      { input: '6\n9 9 9 10 10 10', expectedOutput: '9 9 9 10 10 10' },
+      { input: '10\n10 9 8 7 6 5 4 3 2 1', expectedOutput: '1 3 5 7 9 10 8 6 4 2' },
+      { input: '5\n100 0 100 0 100', expectedOutput: '100 100 100 0 0' },
+      { input: '7\n11 22 33 44 55 66 77', expectedOutput: '11 33 55 77 66 44 22' },
     ],
   });
 })();
@@ -170,6 +186,7 @@ const tasks = [];
   const I = reg.declare('s4_i', 'i');
   const MAX1 = reg.declare('s4_max1', 'max1');
   const MAX2 = reg.declare('s4_max2', 'max2');
+  const IDX1 = reg.declare('s4_idx1', 'idx1');
   const IDX2 = reg.declare('s4_idx2', 'idx2');
 
   const askN = B.askAndWait(reg, '請輸入N', null);
@@ -196,18 +213,31 @@ const tasks = [];
   const setCombatIdx = B.listsSetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I), B.mul(B.add(B.getVar(reg, ATK), B.getVar(reg, DEF)), B.getVar(reg, MULT)), null);
   const readLoop = B.controlsFor(reg, I, B.numLit(1), B.getVar(reg, N), B.numLit(1), B.chain(askName, setName, askAtk, setAtk, askDef, setDef, multIf, setNameIdx, setAtkIdx, setDefIdx, setCombatIdx));
 
-  const setMax1_0 = B.setVar(reg, MAX1, B.numLit(-999999999), null);
-  const findMax1 = B.ifElseChain([B.gt(B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I)), B.getVar(reg, MAX1))], [B.setVar(reg, MAX1, B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I)), null)], null);
-  const loopMax1 = B.controlsFor(reg, I, B.numLit(1), B.getVar(reg, N), B.numLit(1), findMax1);
-
-  const setMax2_0 = B.setVar(reg, MAX2, B.numLit(-999999999), null);
+  // 修正（比對114EHsinchu.txt新版10筆評審資料才發現）：題目保證「戰鬥力皆不相同」但實際
+  // 評審資料裡有平手的案例（例如P2/P3戰鬥力都是6），原本「找嚴格小於MAX1的最大值」在平手
+  // 時會整個跳過並列最高的那些，答案錯誤。改成單一輪次的「跑動最大值/次大值」寫法：
+  // 新數值>=目前MAX時，把目前MAX降級成新的次大值（次大值IDX也跟著換成舊的最大值IDX），
+  // 再把新數值升格為MAX；新數值只是>目前次大值（但不到MAX）時，只更新次大值。這種寫法
+  // 在平手時會把「後來才平手追上的那個」自然降格成次大值，跟評審資料10筆全部一致。
+  const setMax0 = B.setVar(reg, MAX1, B.numLit(-999999999), null);
+  const setSecond0 = B.setVar(reg, MAX2, B.numLit(-999999999), null);
+  const setIdx1_0 = B.setVar(reg, IDX1, B.numLit(0), null);
   const setIdx2_0 = B.setVar(reg, IDX2, B.numLit(0), null);
-  const findMax2 = B.ifElseChain(
-    [B.and_(B.lt(B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I)), B.getVar(reg, MAX1)), B.gt(B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I)), B.getVar(reg, MAX2)))],
-    [B.chain(B.setVar(reg, MAX2, B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I)), null), B.setVar(reg, IDX2, B.getVar(reg, I), null))],
-    null
+  const findTop2 = B.ifElseChain(
+    [B.gte(B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I)), B.getVar(reg, MAX1))],
+    [B.chain(
+      B.setVar(reg, MAX2, B.getVar(reg, MAX1), null),
+      B.setVar(reg, IDX2, B.getVar(reg, IDX1), null),
+      B.setVar(reg, MAX1, B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I)), null),
+      B.setVar(reg, IDX1, B.getVar(reg, I), null)
+    )],
+    B.ifElseChain(
+      [B.gt(B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I)), B.getVar(reg, MAX2))],
+      [B.chain(B.setVar(reg, MAX2, B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, I)), null), B.setVar(reg, IDX2, B.getVar(reg, I), null))],
+      null
+    )
   );
-  const loopMax2 = B.controlsFor(reg, I, B.numLit(1), B.getVar(reg, N), B.numLit(1), findMax2);
+  const loopTop2 = B.controlsFor(reg, I, B.numLit(1), B.getVar(reg, N), B.numLit(1), findTop2);
 
   const sayResult = B.say(B.textJoin([
     B.listsGetIndex(B.getVar(reg, NAMES), B.getVar(reg, IDX2)), B.textLit(' '),
@@ -216,14 +246,21 @@ const tasks = [];
     B.listsGetIndex(B.getVar(reg, COMBATS), B.getVar(reg, IDX2)),
   ]), null);
 
-  const top = B.whenFlagClicked(B.chain(askN, setN, initNames, initAtks, initDefs, initCombats, readLoop, setMax1_0, loopMax1, setMax2_0, setIdx2_0, loopMax2, sayResult));
+  const top = B.whenFlagClicked(B.chain(askN, setN, initNames, initAtks, initDefs, initCombats, readLoop, setMax0, setSecond0, setIdx1_0, setIdx2_0, loopTop2, sayResult));
   tasks.push({
     id: 'Hsinchu-4',
     xml: B.assembleXml(reg, top),
     testCases: [
-      { input: '4\n皮卡丘 10 5 小火龍 7 7 傑尼龜 6 9 伊布 8 8', expectedOutput: '小火龍 7 7 42' },
-      { input: '5\n妙蛙種子 6 6 波波 5 3 可達鴨 4 7 尼多力諾 9 4 喵喵 3 3', expectedOutput: '尼多力諾 9 4 26' },
-      { input: '2\nA 1 1 B 2 2', expectedOutput: 'A 1 1 6' },
+      { input: '4\n皮卡丘 10 5\n小火龍 7 7\n傑尼龜 6 9\n伊布 8 8', expectedOutput: '小火龍 7 7 42' },
+      { input: '5\n妙蛙種子 6 6\n波波 5 3\n可達鴨 4 7\n尼多力諾 9 4\n喵喵 3 3', expectedOutput: '尼多力諾 9 4 26' },
+      { input: '2\nA 10 5\nB 5 10', expectedOutput: 'B 5 10 15' },
+      { input: '3\nP1 1 2\nP2 2 1\nP3 1 1', expectedOutput: 'P2 2 1 6' },
+      { input: '3\nX 10 10\nY 20 10\nZ 10 20', expectedOutput: 'X 10 10 60' },
+      { input: '4\nA 100 1\nB 1 100\nC 50 50\nD 51 50', expectedOutput: 'A 100 1 202' },
+      { input: '5\nA 10 10\nB 20 20\nC 30 30\nD 40 40\nE 50 50', expectedOutput: 'D 40 40 240' },
+      { input: '3\nP1 1 100\nP2 2 100\nP3 3 100', expectedOutput: 'P2 2 100 102' },
+      { input: '4\nOne 10 5\nTwo 10 6\nThree 10 7\nFour 10 8', expectedOutput: 'Three 10 7 34' },
+      { input: '3\nM 10 10\nN 15 10\nO 10 15', expectedOutput: 'N 15 10 50' },
     ],
   });
 })();
@@ -275,7 +312,7 @@ const tasks = [];
   const turnOff = B.setVar(reg, STATE, B.numLit(0), null);
   const ifOptional = B.ifElseChain(
     [B.eq(B.getVar(reg, STATE), B.numLit(1))],
-    [B.chain(setGap, B.ifElseChain([B.lt(B.getVar(reg, GAP), B.numLit(5))], [stayOnGap], turnOff))],
+    [B.chain(setGap, B.ifElseChain([B.lt(B.getVar(reg, GAP), B.numLit(4))], [stayOnGap], turnOff))],
     null
   );
 
@@ -289,10 +326,14 @@ const tasks = [];
     testCases: [
       { input: '5\n1 1 1 1 1', expectedOutput: '10' },
       { input: '8\n1 0 0 1 0 1 0 0', expectedOutput: '11' },
+      { input: '3\n0 0 0', expectedOutput: '0' },
       { input: '1\n1', expectedOutput: '6' },
-      { input: '1\n0', expectedOutput: '0' },
-      { input: '6\n1 0 0 0 0 0', expectedOutput: '6' },
-      { input: '6\n1 0 0 0 0 1', expectedOutput: '11' },
+      { input: '7\n1 0 0 0 0 0 1', expectedOutput: '12' },
+      { input: '6\n1 0 0 0 0 1', expectedOutput: '12' },
+      { input: '5\n1 0 0 0 1', expectedOutput: '10' },
+      { input: '10\n1 0 1 0 1 0 1 0 1 0', expectedOutput: '14' },
+      { input: '15\n1 0 0 0 0 0 0 1 0 0 0 0 0 0 1', expectedOutput: '18' },
+      { input: '8\n0 1 0 0 0 0 1 0', expectedOutput: '12' },
     ],
   });
 })();
@@ -344,9 +385,14 @@ const tasks = [];
     testCases: [
       { input: '3', expectedOutput: '7' },
       { input: '7', expectedOutput: '74' },
-      { input: '6', expectedOutput: '41' },
-      { input: '8', expectedOutput: '91' },
+      { input: '2', expectedOutput: '1' },
       { input: '14', expectedOutput: '-1' },
+      { input: '13', expectedOutput: '98' },
+      { input: '6', expectedOutput: '41' },
+      { input: '4', expectedOutput: '4' },
+      { input: '12', expectedOutput: '96' },
+      { input: '5', expectedOutput: '71' },
+      { input: '9', expectedOutput: '97' },
     ],
   });
 })();

@@ -34,13 +34,16 @@ const tasks = [];
     id: 'ChaiyiC-1',
     xml: B.assembleXml(reg, top),
     testCases: [
-      { input: '20', expectedOutput: '10000' },
-      { input: '55', expectedOutput: '40000' },
       { input: '10', expectedOutput: '5000' },
       { input: '30', expectedOutput: '15000' },
       { input: '40', expectedOutput: '25000' },
       { input: '80', expectedOutput: '75000' },
       { input: '120', expectedOutput: '145000' },
+      { input: '60', expectedOutput: '45000' },
+      { input: '100', expectedOutput: '105000' },
+      { input: '31', expectedOutput: '16000' },
+      { input: '61', expectedOutput: '46500' },
+      { input: '200', expectedOutput: '305000' },
     ],
   });
 })();
@@ -72,7 +75,11 @@ const tasks = [];
 
   const remainSum = B.sub(B.sub(B.getVar(reg, SUM), B.getVar(reg, MAXV)), B.getVar(reg, MINV));
   const remainCount = B.sub(B.getVar(reg, N), B.numLit(2));
-  const avgRounded = B.round_('ROUND', B.div(remainSum, remainCount));
+  // 修正（比對114EChaiyiC.txt新版10筆評審資料才發現）：題目文字「四捨五入至小數點第三位」
+  // 是對的，不是四捨五入到整數——舊版PDF的判例資料剛好全部整除、誤導成整數規則。
+  // 用「乘1000取整再除1000」湊出3位小數精度，JS原生數字轉字串會自動去掉多餘的尾端0
+  // （例如6333/1000印出"6.333"不是"6.3330"，3500/1000印出"3.5"不是"3.500"）。
+  const avgRounded = B.div(B.round_('ROUND', B.mul(B.div(remainSum, remainCount), B.numLit(1000))), B.numLit(1000));
 
   const top = B.whenFlagClicked(B.chain(askN, setN, setSum0, setMax0, setMin0, readLoop, B.say(avgRounded, null)));
   tasks.push({
@@ -80,12 +87,15 @@ const tasks = [];
     xml: B.assembleXml(reg, top),
     testCases: [
       { input: '5\n9 8 10 6 7', expectedOutput: '8' },
-      { input: '5\n5 5 8 9 10', expectedOutput: '7' },
-      { input: '5\n9 8 10 6 7', expectedOutput: '8' },
       { input: '5\n10 10 10 10 10', expectedOutput: '10' },
-      { input: '5\n5 5 7 7 10', expectedOutput: '6' },
-      { input: '5\n9 9 9 10 10', expectedOutput: '9' },
-      { input: '5\n7 7 8 8 6', expectedOutput: '7' },
+      { input: '5\n5 5 7 7 10', expectedOutput: '6.333' },
+      { input: '5\n9 9 9 10 10', expectedOutput: '9.333' },
+      { input: '5\n7 7 8 8 6', expectedOutput: '7.333' },
+      { input: '6\n1 2 3 4 5 6', expectedOutput: '3.5' },
+      { input: '6\n0 0 1 1 2 2', expectedOutput: '1' },
+      { input: '7\n10 9 8 7 6 5 4', expectedOutput: '7' },
+      { input: '8\n10 10 0 0 5 5 5 5', expectedOutput: '5' },
+      { input: '10\n10 9 9 9 9 9 9 9 9 0', expectedOutput: '9' },
     ],
   });
 })();
@@ -122,12 +132,16 @@ const tasks = [];
     id: 'ChaiyiC-3',
     xml: B.assembleXml(reg, top),
     testCases: [
-      { input: '2\nbanana', expectedOutput: 'dcpcpc' },
       { input: '0\nabc', expectedOutput: 'abc' },
       { input: '1\nxyz', expectedOutput: 'yza' },
       { input: '26\nhello', expectedOutput: 'hello' },
       { input: '28\naz', expectedOutput: 'cb' },
       { input: '100\na', expectedOutput: 'w' },
+      { input: '5\npokemon', expectedOutput: 'utpjrts' },
+      { input: '25\na', expectedOutput: 'z' },
+      { input: '13\nnop', expectedOutput: 'abc' },
+      { input: '52\ncat', expectedOutput: 'cat' },
+      { input: '10\napple', expectedOutput: 'kzzvo' },
     ],
   });
 })();
@@ -181,13 +195,16 @@ const tasks = [];
     id: 'ChaiyiC-4',
     xml: B.assembleXml(reg, top),
     testCases: [
-      { input: '5\n1 0 1 1 0\n0 1 1 1 1', expectedOutput: '5 10 2P' },
-      { input: '7\n1 0 1 1 0 1 0\n0 1 1 0 1 0 1', expectedOutput: '6 6 不分勝負' },
       { input: '5\n0 1 0 1 0\n0 0 0 0 0', expectedOutput: '2 0 1P' },
       { input: '6\n1 1 1 0 1 0\n0 1 1 1 1 0', expectedOutput: '8 10 2P' },
       { input: '9\n0 1 0 1 0 1 0 1 0\n0 0 0 0 0 0 0 0 0', expectedOutput: '4 0 1P' },
       { input: '8\n1 1 0 1 1 0 1 1\n1 1 1 0 1 1 1 0', expectedOutput: '12 14 2P' },
       { input: '7\n1 1 0 1 1 0 1\n1 1 0 1 1 0 1', expectedOutput: '9 9 不分勝負' },
+      { input: '5\n1 1 1 1 1\n1 0 1 0 1', expectedOutput: '13 3 1P' },
+      { input: '10\n0 0 0 0 0 0 0 0 0 0\n1 1 1 1 1 1 1 1 1 1', expectedOutput: '0 28 2P' },
+      { input: '6\n1 0 0 0 0 1\n1 0 0 0 0 1', expectedOutput: '2 2 不分勝負' },
+      { input: '7\n0 1 1 0 1 1 0\n1 1 0 0 0 1 1', expectedOutput: '8 8 不分勝負' },
+      { input: '8\n1 0 1 0 1 0 1 0\n0 1 0 1 0 1 0 1', expectedOutput: '4 4 不分勝負' },
     ],
   });
 })();
@@ -225,11 +242,16 @@ const tasks = [];
     id: 'ChaiyiC-5',
     xml: B.assembleXml(reg, top),
     testCases: [
-      { input: '5\n80 90 60 30 40', expectedOutput: '2' },
       { input: '9\n50 60 40 70 90 30 80 90 60', expectedOutput: '4' },
+      { input: '5\n80 90 60 30 40', expectedOutput: '2' },
       { input: '5\n100 50 60 70 80', expectedOutput: '3' },
       { input: '3\n100 100 100', expectedOutput: '2' },
       { input: '1\n100', expectedOutput: '1' },
+      { input: '5\n200 200 200 200 200', expectedOutput: '5' },
+      { input: '8\n10 20 30 40 50 60 70 80', expectedOutput: '3' },
+      { input: '6\n199 1 199 1 199 1', expectedOutput: '3' },
+      { input: '4\n150 150 150 150', expectedOutput: '4' },
+      { input: '10\n50 50 50 50 50 50 50 50 50 50', expectedOutput: '3' },
     ],
   });
 })();
@@ -256,19 +278,23 @@ const tasks = [];
     id: 'ChaiyiC-6-1',
     xml: B.assembleXml(reg, top),
     testCases: [
-      { input: '4\n10 20 30 40', expectedOutput: '25' },
-      { input: '3\n7 8 10', expectedOutput: '8' },
       { input: '1\n50', expectedOutput: '50' },
       { input: '3\n10 20 30', expectedOutput: '20' },
       { input: '4\n7 8 9 10', expectedOutput: '8' },
       { input: '5\n1 100 100 100 100', expectedOutput: '80' },
       { input: '20\n10 10 10 10 10 10 10 10 10 10 20 20 20 20 20 20 20 20 20 20', expectedOutput: '15' },
+      { input: '2\n1 2', expectedOutput: '1' },
+      { input: '3\n33 33 33', expectedOutput: '33' },
+      { input: '5\n10 11 12 13 14', expectedOutput: '12' },
+      { input: '6\n99 99 99 99 99 99', expectedOutput: '99' },
+      { input: '4\n1 1 1 1', expectedOutput: '1' },
     ],
   });
 })();
 
-// 6-2. 找最高等級的寶可夢——（已驗證：全部7筆資料實際輸出的是「等級數字」，不是名稱，
-// 題目文字本身寫錯，判定以資料為準，見PDF題目來源勘誤紀錄）。
+// 6-2. 找最高等級的寶可夢——輸出名稱（比對114EChaiyiC.txt新版10筆評審資料才發現：
+// 之前用PDF判例資料誤判成「輸出等級數字」，這批新資料10筆全部一致輸出名稱，題目文字
+// 「找出等級最高的寶可夢名稱」本身沒有錯，是舊PDF判例資料的問題，這次予以修正）。
 (function () {
   const reg = B.createVarRegistry();
   const N = reg.declare('c62_n', 'N');
@@ -276,6 +302,7 @@ const tasks = [];
   const NAME = reg.declare('c62_name', 'name');
   const LV = reg.declare('c62_lv', 'lv');
   const MAXV = reg.declare('c62_max', 'maxv');
+  const MAXNAME = reg.declare('c62_maxname', 'maxname');
 
   const askN = B.askAndWait(reg, '請輸入N', null);
   const setN = B.setVar(reg, N, B.answerBlock(), null);
@@ -285,21 +312,25 @@ const tasks = [];
   const setName = B.setVar(reg, NAME, B.answerBlock(), null);
   const askLv = B.askAndWait(reg, '', null);
   const setLv = B.setVar(reg, LV, B.answerBlock(), null);
-  const ifMax = B.ifElseChain([B.gt(B.getVar(reg, LV), B.getVar(reg, MAXV))], [B.setVar(reg, MAXV, B.getVar(reg, LV), null)], null);
+  const ifMax = B.ifElseChain([B.gt(B.getVar(reg, LV), B.getVar(reg, MAXV))],
+    [B.chain(B.setVar(reg, MAXV, B.getVar(reg, LV), null), B.setVar(reg, MAXNAME, B.getVar(reg, NAME), null))], null);
   const forLoop = B.controlsFor(reg, I, B.numLit(1), B.getVar(reg, N), B.numLit(1), B.chain(askName, setName, askLv, setLv, ifMax));
 
-  const top = B.whenFlagClicked(B.chain(askN, setN, setMax0, forLoop, B.say(B.getVar(reg, MAXV), null)));
+  const top = B.whenFlagClicked(B.chain(askN, setN, setMax0, forLoop, B.say(B.getVar(reg, MAXNAME), null)));
   tasks.push({
     id: 'ChaiyiC-6-2',
     xml: B.assembleXml(reg, top),
     testCases: [
-      { input: '3\n皮卡丘 25 小火龍 12 妙蛙種子 18', expectedOutput: '25' },
-      { input: '4\n傑尼龜 10 伊布 15 卡比獸 35 胖丁 2', expectedOutput: '35' },
-      { input: '1\n皮卡丘 10', expectedOutput: '10' },
-      { input: '3\n小火龍 12 妙蛙種子 18 傑尼龜 15', expectedOutput: '18' },
-      { input: '4\nA 5 B 20 C 15 D 8', expectedOutput: '20' },
-      { input: '5\n皮卡丘 22 伊布 30 卡比獸 28 超夢 100 胖丁 18', expectedOutput: '100' },
-      { input: '6\nP1 3 P2 6 P3 9 P4 12 P5 15 P6 18', expectedOutput: '18' },
+      { input: '1\n皮卡丘 10', expectedOutput: '皮卡丘' },
+      { input: '3\n小火龍 12 妙蛙種子 18 傑尼龜 15', expectedOutput: '妙蛙種子' },
+      { input: '4\nA 5 B 20 C 15 D 8', expectedOutput: 'B' },
+      { input: '5\n皮卡丘 22 伊布 30 卡比獸 28 超夢 100 胖丁 18', expectedOutput: '超夢' },
+      { input: '6\nP1 3 P2 6 P3 9 P4 12 P5 15 P6 18', expectedOutput: 'P6' },
+      { input: '2\nX 50 Y 49', expectedOutput: 'X' },
+      { input: '3\nBulbasaur 5 Charmander 10 Squirtle 7', expectedOutput: 'Charmander' },
+      { input: '4\nA 1 B 2 C 3 D 4', expectedOutput: 'D' },
+      { input: '5\nZ 99 Y 98 X 97 W 96 V 95', expectedOutput: 'Z' },
+      { input: '2\nFirst 10 Second 20', expectedOutput: 'Second' },
     ],
   });
 })();
@@ -350,13 +381,16 @@ const tasks = [];
     id: 'ChaiyiC-6-3',
     xml: B.assembleXml(reg, top),
     testCases: [
-      { input: '3\n皮卡丘 25 小火龍 12 妙蛙種子 18', expectedOutput: '皮卡丘' },
-      { input: '4\n傑尼龜 10 伊布 15 卡比獸 20 胖丁 20', expectedOutput: '卡比獸 胖丁' },
       { input: '1\n皮卡丘 10', expectedOutput: '' },
       { input: '5\n伊布 15 胖丁 15 乘龍 10 卡比獸 20 妙蛙種子 15', expectedOutput: '卡比獸' },
       { input: '4\n妙蛙種子 30 皮卡丘 30 小火龍 30 傑尼龜 30', expectedOutput: '' },
       { input: '6\n小火龍 100 皮卡丘 0 伊布 50 卡比獸 50 胖丁 50 超夢 100', expectedOutput: '小火龍 超夢' },
       { input: '8\n皮卡丘 25 皮卡丘 30 妙蛙種子 18 小火龍 12 傑尼龜 40 伊布 35 卡比獸 28 胖丁 28', expectedOutput: '皮卡丘 傑尼龜 伊布 卡比獸 胖丁' },
+      { input: '3\nA 10 B 20 C 30', expectedOutput: 'C' },
+      { input: '2\nX 1 Y 100', expectedOutput: 'Y' },
+      { input: '4\nP1 10 P2 11 P3 10 P4 10', expectedOutput: 'P2' },
+      { input: '5\nA 100 B 10 C 10 D 10 E 10', expectedOutput: 'A' },
+      { input: '4\nM1 50 M2 51 M3 50 M4 49', expectedOutput: 'M2' },
     ],
   });
 })();
@@ -391,11 +425,14 @@ const tasks = [];
   const ifElseFound = B.ifElseChain([B.eq(B.getVar(reg, FOUND), B.numLit(0))], [newEntry], bumpExisting);
   const readLoop = B.controlsFor(reg, I, B.numLit(1), B.getVar(reg, N), B.numLit(1), B.chain(askAttr, setAttr, setFound, ifElseFound));
 
+  // 修正（比對114EChaiyiC.txt新版才發現）：題目文字明確要求「格式為『屬性數量』（屬性與
+  // 數量間不留空白）」——屬性名稱跟數量直接接在一起不留空白，不同組別之間才用一個空白隔開。
   const setOut0 = B.setVar(reg, OUT, B.textLit(''), null);
+  const pairBuilder = (id) => B.textJoin([B.listsGetIndex(B.getVar(reg, ATTRS), B.getVar(reg, I)), B.listsGetIndex(B.getVar(reg, COUNTS), B.getVar(reg, I))]);
   const appendOut = B.ifElseChain(
     [B.isEmptyText(B.getVar(reg, OUT))],
-    [B.setVar(reg, OUT, B.textJoin([B.listsGetIndex(B.getVar(reg, ATTRS), B.getVar(reg, I)), B.textLit(' '), B.listsGetIndex(B.getVar(reg, COUNTS), B.getVar(reg, I))]), null)],
-    B.setVar(reg, OUT, B.textJoin([B.getVar(reg, OUT), B.textLit(' '), B.listsGetIndex(B.getVar(reg, ATTRS), B.getVar(reg, I)), B.textLit(' '), B.listsGetIndex(B.getVar(reg, COUNTS), B.getVar(reg, I))]), null)
+    [B.setVar(reg, OUT, pairBuilder(), null)],
+    B.setVar(reg, OUT, B.textJoin([B.getVar(reg, OUT), B.textLit(' '), pairBuilder()]), null)
   );
   const outLoop = B.controlsFor(reg, I, B.numLit(1), B.getVar(reg, DISTINCT), B.numLit(1), appendOut);
 
@@ -404,13 +441,16 @@ const tasks = [];
     id: 'ChaiyiC-6-4',
     xml: B.assembleXml(reg, top),
     testCases: [
-      { input: '5\n火 水 火 電 水', expectedOutput: '火 2 水 2 電 1' },
-      { input: '4\n草 草 毒 草', expectedOutput: '草 3 毒 1' },
-      { input: '9\n火 水 火 電 水 草 草 毒 草', expectedOutput: '火 2 水 2 電 1 草 3 毒 1' },
-      { input: '8\n水 火 電 水 草 水 電 草', expectedOutput: '水 3 火 1 電 2 草 2' },
-      { input: '1\n草', expectedOutput: '草 1' },
-      { input: '5\n水 水 水 水 水', expectedOutput: '水 5' },
-      { input: '6\n電 火 草 電 火 水', expectedOutput: '電 2 火 2 草 1 水 1' },
+      { input: '9\n火 水 火 電 水 草 草 毒 草', expectedOutput: '火2 水2 電1 草3 毒1' },
+      { input: '8\n水 火 電 水 草 水 電 草', expectedOutput: '水3 火1 電2 草2' },
+      { input: '1\n草', expectedOutput: '草1' },
+      { input: '5\n水 水 水 水 水', expectedOutput: '水5' },
+      { input: '6\n電 火 草 電 火 水', expectedOutput: '電2 火2 草1 水1' },
+      { input: '4\n冰 龍 冰 龍', expectedOutput: '冰2 龍2' },
+      { input: '5\n光 暗 光 暗 無', expectedOutput: '光2 暗2 無1' },
+      { input: '3\n超能 格鬥 超能', expectedOutput: '超能2 格鬥1' },
+      { input: '7\nA B C A B C D', expectedOutput: 'A2 B2 C2 D1' },
+      { input: '10\nX Y Z X Y Z X Y Z W', expectedOutput: 'X3 Y3 Z3 W1' },
     ],
   });
 })();

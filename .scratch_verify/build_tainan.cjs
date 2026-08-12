@@ -35,6 +35,11 @@ const tasks = [];
       { input: '1\n20', expectedOutput: '110' },
       { input: '20\n41', expectedOutput: '330' },
       { input: '99\n111', expectedOutput: '630' },
+      { input: '2\n2', expectedOutput: '2' },
+      { input: '3\n3', expectedOutput: '0' },
+      { input: '100\n100', expectedOutput: '100' },
+      { input: '1\n5', expectedOutput: '6' },
+      { input: '1000\n1010', expectedOutput: '6030' },
     ],
   });
 })();
@@ -71,6 +76,10 @@ const tasks = [];
       { input: '30 60 100', expectedOutput: 'no' },
       { input: '8 8 8', expectedOutput: 'yes' },
       { input: '5 5 10', expectedOutput: 'no' },
+      { input: '100 2 3', expectedOutput: 'no' },
+      { input: '3 4 5', expectedOutput: 'yes' },
+      { input: '12 5 13', expectedOutput: 'yes' },
+      { input: '5 10 5', expectedOutput: 'no' },
     ],
   });
 })();
@@ -118,6 +127,9 @@ const tasks = [];
       { input: '616', expectedOutput: '200' },
       { input: '911', expectedOutput: '0' },
       { input: '336', expectedOutput: '100' },
+      { input: '060', expectedOutput: '100' },
+      { input: '661', expectedOutput: '200' },
+      { input: '000', expectedOutput: '0' },
     ],
   });
 })();

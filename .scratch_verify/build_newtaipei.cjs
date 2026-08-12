@@ -48,9 +48,13 @@ const tasks = [];
       { input: '165\n45', expectedOutput: '16.5 體重過輕' },
       { input: '180\n85', expectedOutput: '26.2 體重過重' },
       { input: '170\n60', expectedOutput: '20.8 正常範圍' },
-      { input: '160\n90', expectedOutput: '35.2 中度肥胖' },
-      { input: '175\n130', expectedOutput: '42.4 重度肥胖' },
-      { input: '190\n100', expectedOutput: '27.7 體重過重' },
+      { input: '160\n81', expectedOutput: '31.6 輕度肥胖' },
+      { input: '150\n85', expectedOutput: '37.8 中度肥胖' },
+      { input: '150\n100', expectedOutput: '44.4 重度肥胖' },
+      { input: '170\n50', expectedOutput: '17.3 體重過輕' },
+      { input: '175\n75', expectedOutput: '24.5 正常範圍' },
+      { input: '180\n95', expectedOutput: '29.3 體重過重' },
+      { input: '170\n120', expectedOutput: '41.5 重度肥胖' },
     ],
   });
 })();
@@ -83,8 +87,16 @@ const tasks = [];
     testCases: [
       { input: '8 9 7 9 8 10 7', expectedOutput: '41' },
       { input: '1.5 2.5 3.5 4.5 5.5 6.5 7.5', expectedOutput: '22.5' },
-      { input: '1 1 1 1 1 1 1', expectedOutput: '5' },
-      { input: '10 10 10 10 10 10 1', expectedOutput: '50' },
+      { input: '10 10 10 10 10 10 10', expectedOutput: '50' },
+      { input: '0 0 0 0 0 0 0', expectedOutput: '0' },
+      { input: '5 5 5 5 5 10 0', expectedOutput: '25' },
+      { input: '9.5 8.5 7.5 9 8 10 6', expectedOutput: '42.5' },
+      // 來源TXT此筆預期答案寫「15」，但sum-max-min演算法（其餘9筆全數吻合）算出應為20，
+      // 判定為來源資料獨立輸入錯誤（見PDF題目來源勘誤紀錄），依演算法結果收錄為20。
+      { input: '1 2 3 4 5 6 7', expectedOutput: '20' },
+      { input: '10 9 8 7 6 5 4', expectedOutput: '35' },
+      { input: '100 10 10 10 10 10 1', expectedOutput: '50' },
+      { input: '2.2 3.3 4.4 5.5 6.6 7.7 8.8', expectedOutput: '27.5' },
     ],
   });
 })();
@@ -136,8 +148,12 @@ const tasks = [];
       { input: '1 2 3 4 5', expectedOutput: '猜中0個號碼獎金0元' },
       { input: '7 24 31 42 45', expectedOutput: '猜中5個號碼獎金100000元' },
       { input: '7 24 31 42 1', expectedOutput: '猜中4個號碼獎金10000元' },
-      { input: '7 24 31 1 2', expectedOutput: '猜中3個號碼獎金2000元' },
-      { input: '7 1 2 3 4', expectedOutput: '猜中1個號碼獎金200元' },
+      { input: '7 24 31 2 3', expectedOutput: '猜中3個號碼獎金2000元' },
+      { input: '7 2 3 4 5', expectedOutput: '猜中1個號碼獎金200元' },
+      { input: '56 63 78 80 99', expectedOutput: '猜中5個號碼獎金100000元' },
+      { input: '56 63 78 80 1', expectedOutput: '猜中4個號碼獎金10000元' },
+      { input: '56 63 78 2 3', expectedOutput: '猜中3個號碼獎金2000元' },
+      { input: '99 2 3 4 5', expectedOutput: '猜中1個號碼獎金200元' },
     ],
   });
 })();
@@ -170,9 +186,14 @@ const tasks = [];
     testCases: [
       { input: '10\n20', expectedOutput: '75' },
       { input: '31\n39', expectedOutput: '175' },
-      { input: '1\n1', expectedOutput: '1' },
-      { input: '2\n2', expectedOutput: '0' },
-      { input: '5\n1', expectedOutput: '9' },
+      { input: '1\n10', expectedOutput: '25' },
+      { input: '10\n10', expectedOutput: '0' },
+      { input: '11\n11', expectedOutput: '11' },
+      { input: '1\n5', expectedOutput: '9' },
+      { input: '2\n8', expectedOutput: '15' },
+      { input: '100\n200', expectedOutput: '7500' },
+      { input: '21\n25', expectedOutput: '69' },
+      { input: '0\n9', expectedOutput: '25' },
     ],
   });
 })();

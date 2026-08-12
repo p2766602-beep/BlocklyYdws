@@ -9,6 +9,8 @@
 // （BlocklyYdws/.scratch_verify/verify.mjs，真正的Blockly.Xml.domToWorkspace+javascriptGenerator）
 // 對每一筆testCases實際跑過，不是憑印象手刻。
 // mode: 'learning'（比照2026-08-07既有決定：新題組一律採學習模式）。
+//
+// NewTaipei-2第7筆評審資料判定為獨立輸入錯誤，依演算法結果收錄，詳見docs/PDF題目來源勘誤紀錄.md。
 
 export default {
   "code": "114ENewTaipei",
@@ -50,42 +52,70 @@ export default {
           "input": "165\n45",
           "expectedOutput": "16.5 體重過輕",
           "output": "16.5 體重過輕",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "180\n85",
           "expectedOutput": "26.2 體重過重",
           "output": "26.2 體重過重",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "170\n60",
           "expectedOutput": "20.8 正常範圍",
           "output": "20.8 正常範圍",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "160\n90",
-          "expectedOutput": "35.2 中度肥胖",
-          "output": "35.2 中度肥胖",
-          "score": 16,
+          "input": "160\n81",
+          "expectedOutput": "31.6 輕度肥胖",
+          "output": "31.6 輕度肥胖",
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "175\n130",
-          "expectedOutput": "42.4 重度肥胖",
-          "output": "42.4 重度肥胖",
-          "score": 16,
+          "input": "150\n85",
+          "expectedOutput": "37.8 中度肥胖",
+          "output": "37.8 中度肥胖",
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "190\n100",
-          "expectedOutput": "27.7 體重過重",
-          "output": "27.7 體重過重",
-          "score": 16,
+          "input": "150\n100",
+          "expectedOutput": "44.4 重度肥胖",
+          "output": "44.4 重度肥胖",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "170\n50",
+          "expectedOutput": "17.3 體重過輕",
+          "output": "17.3 體重過輕",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "175\n75",
+          "expectedOutput": "24.5 正常範圍",
+          "output": "24.5 正常範圍",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "180\n95",
+          "expectedOutput": "29.3 體重過重",
+          "output": "29.3 體重過重",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "170\n120",
+          "expectedOutput": "41.5 重度肥胖",
+          "output": "41.5 重度肥胖",
+          "score": 10,
           "hidden": false
         }
       ],
@@ -159,28 +189,70 @@ export default {
           "input": "8 9 7 9 8 10 7",
           "expectedOutput": "41",
           "output": "41",
-          "score": 25,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "1.5 2.5 3.5 4.5 5.5 6.5 7.5",
           "expectedOutput": "22.5",
           "output": "22.5",
-          "score": 25,
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "1 1 1 1 1 1 1",
-          "expectedOutput": "5",
-          "output": "5",
-          "score": 25,
-          "hidden": false
-        },
-        {
-          "input": "10 10 10 10 10 10 1",
+          "input": "10 10 10 10 10 10 10",
           "expectedOutput": "50",
           "output": "50",
-          "score": 25,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "0 0 0 0 0 0 0",
+          "expectedOutput": "0",
+          "output": "0",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5 5 5 5 5 10 0",
+          "expectedOutput": "25",
+          "output": "25",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "9.5 8.5 7.5 9 8 10 6",
+          "expectedOutput": "42.5",
+          "output": "42.5",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "1 2 3 4 5 6 7",
+          "expectedOutput": "20",
+          "output": "20",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "10 9 8 7 6 5 4",
+          "expectedOutput": "35",
+          "output": "35",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "100 10 10 10 10 10 1",
+          "expectedOutput": "50",
+          "output": "50",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "2.2 3.3 4.4 5.5 6.6 7.7 8.8",
+          "expectedOutput": "27.5",
+          "output": "27.5",
+          "score": 10,
           "hidden": false
         }
       ],
@@ -189,7 +261,7 @@ export default {
         "needsManualReview": false,
         "risk": "低",
         "flags": [],
-        "note": "固定7個分數扣除一個最高一個最低後加總，可用「總和-最大值-最小值」的算術等價法。",
+        "note": "固定7個分數扣除一個最高一個最低後加總，可用「總和-最大值-最小值」的算術等價法。【資料備註】114ENewTaipei.txt評審資料第7筆原文預期答案為「15」，與其餘9筆完全吻合的演算法算出的「20」不符，判定為來源資料獨立輸入錯誤，題庫依演算法結果收錄為20。",
         "exportDecision": "Claude 依使用者提供的PDF手動轉錄、用JS參考實作逐題驗證，starterXml另外用headless Blockly harness對真正的javascript generator驗證過"
       },
       "tags": {
@@ -251,42 +323,70 @@ export default {
           "input": "7 18 29 31 35",
           "expectedOutput": "猜中2個號碼獎金500元",
           "output": "猜中2個號碼獎金500元",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "1 2 3 4 5",
           "expectedOutput": "猜中0個號碼獎金0元",
           "output": "猜中0個號碼獎金0元",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "7 24 31 42 45",
           "expectedOutput": "猜中5個號碼獎金100000元",
           "output": "猜中5個號碼獎金100000元",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "7 24 31 42 1",
           "expectedOutput": "猜中4個號碼獎金10000元",
           "output": "猜中4個號碼獎金10000元",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "7 24 31 1 2",
+          "input": "7 24 31 2 3",
           "expectedOutput": "猜中3個號碼獎金2000元",
           "output": "猜中3個號碼獎金2000元",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "7 1 2 3 4",
+          "input": "7 2 3 4 5",
           "expectedOutput": "猜中1個號碼獎金200元",
           "output": "猜中1個號碼獎金200元",
-          "score": 16,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "56 63 78 80 99",
+          "expectedOutput": "猜中5個號碼獎金100000元",
+          "output": "猜中5個號碼獎金100000元",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "56 63 78 80 1",
+          "expectedOutput": "猜中4個號碼獎金10000元",
+          "output": "猜中4個號碼獎金10000元",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "56 63 78 2 3",
+          "expectedOutput": "猜中3個號碼獎金2000元",
+          "output": "猜中3個號碼獎金2000元",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "99 2 3 4 5",
+          "expectedOutput": "猜中1個號碼獎金200元",
+          "output": "猜中1個號碼獎金200元",
+          "score": 10,
           "hidden": false
         }
       ],
@@ -358,35 +458,70 @@ export default {
           "input": "10\n20",
           "expectedOutput": "75",
           "output": "75",
-          "score": 20,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "31\n39",
           "expectedOutput": "175",
           "output": "175",
-          "score": 20,
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "1\n1",
-          "expectedOutput": "1",
-          "output": "1",
-          "score": 20,
+          "input": "1\n10",
+          "expectedOutput": "25",
+          "output": "25",
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "2\n2",
+          "input": "10\n10",
           "expectedOutput": "0",
           "output": "0",
-          "score": 20,
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "5\n1",
+          "input": "11\n11",
+          "expectedOutput": "11",
+          "output": "11",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "1\n5",
           "expectedOutput": "9",
           "output": "9",
-          "score": 20,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "2\n8",
+          "expectedOutput": "15",
+          "output": "15",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "100\n200",
+          "expectedOutput": "7500",
+          "output": "7500",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "21\n25",
+          "expectedOutput": "69",
+          "output": "69",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "0\n9",
+          "expectedOutput": "25",
+          "output": "25",
+          "score": 10,
           "hidden": false
         }
       ],

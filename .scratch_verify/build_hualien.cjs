@@ -40,7 +40,13 @@ const tasks = [];
       { input: '100\n20 30 40 20', expectedOutput: '第4天不夠用' },
       { input: '100\n10 20 30 40', expectedOutput: '錢剛好或有剩' },
       { input: '50\n60 10 10 10', expectedOutput: '第1天不夠用' },
+      { input: '50\n30 30 10 10', expectedOutput: '第2天不夠用' },
+      { input: '50\n20 20 20 10', expectedOutput: '第3天不夠用' },
       { input: '100\n25 25 25 25', expectedOutput: '錢剛好或有剩' },
+      { input: '1000\n100 200 300 500', expectedOutput: '第4天不夠用' },
+      { input: '50\n0 0 0 0', expectedOutput: '錢剛好或有剩' },
+      { input: '60\n20 20 20 10', expectedOutput: '第4天不夠用' },
+      { input: '40\n20 20 10 10', expectedOutput: '第3天不夠用' },
     ],
   });
 })();
@@ -92,8 +98,14 @@ const tasks = [];
     testCases: [
       { input: '3\n10 50 30', expectedOutput: '0 2 1' },
       { input: '3\n10 20 30', expectedOutput: '0 1 2' },
-      { input: '1\n5', expectedOutput: '0' },
-      { input: '4\n5 5 5 5', expectedOutput: '0 0 0 0' },
+      { input: '4\n10 10 10 10', expectedOutput: '0 0 0 0' },
+      { input: '5\n50 40 30 20 10', expectedOutput: '4 3 2 1 0' },
+      { input: '5\n10 20 20 30 30', expectedOutput: '0 1 1 3 3' },
+      { input: '1\n100', expectedOutput: '0' },
+      { input: '10\n1 2 3 4 5 6 7 8 9 10', expectedOutput: '0 1 2 3 4 5 6 7 8 9' },
+      { input: '4\n15 15 20 10', expectedOutput: '1 1 3 0' },
+      { input: '6\n100 0 50 50 25 75', expectedOutput: '5 0 2 2 1 4' },
+      { input: '2\n10 10', expectedOutput: '0 0' },
     ],
   });
 })();
@@ -123,8 +135,14 @@ const tasks = [];
     testCases: [
       { input: 'A1B2C3', expectedOutput: '6' },
       { input: 'Key5Word2', expectedOutput: '7' },
-      { input: 'NoDigitsHere', expectedOutput: '0' },
-      { input: '999', expectedOutput: '27' },
+      { input: 'HelloWorld', expectedOutput: '0' },
+      { input: '123456789', expectedOutput: '45' },
+      { input: 'a12b34', expectedOutput: '10' },
+      { input: '0a0b0c0', expectedOutput: '0' },
+      { input: 'a1b2c3d4e5f6g7h8i9j0', expectedOutput: '45' },
+      { input: '!@1#$2%^3&*', expectedOutput: '6' },
+      { input: 'abc9xyz9', expectedOutput: '18' },
+      { input: '5', expectedOutput: '5' },
     ],
   });
 })();
@@ -176,8 +194,14 @@ const tasks = [];
     testCases: [
       { input: '3\n2 10 5', expectedOutput: '5 8' },
       { input: '3\n1 9 3', expectedOutput: '3 8' },
-      { input: '2\n1 1', expectedOutput: '1 0' },
-      { input: '4\n1 2 3 100', expectedOutput: '2 100' },
+      { input: '4\n1 2 3 4', expectedOutput: '2 4' },
+      { input: '4\n10 10 20 20', expectedOutput: '10 20' },
+      { input: '1\n100', expectedOutput: '100 0' },
+      { input: '5\n100 0 50 25 75', expectedOutput: '50 150' },
+      { input: '6\n10 20 30 40 50 60', expectedOutput: '30 90' },
+      { input: '5\n1 1 1 1 100', expectedOutput: '1 99' },
+      { input: '2\n10 5', expectedOutput: '5 5' },
+      { input: '7\n7 1 4 2 8 5 9', expectedOutput: '5 17' },
     ],
   });
 })();

@@ -10,7 +10,7 @@
 // 對每一筆testCases實際跑過，不是憑印象手刻。
 // mode: 'learning'（比照2026-08-07既有決定：新題組一律採學習模式）。
 //
-// ChaiyiC-2/ChaiyiC-5/ChaiyiC-6-2三題PDF原文與實際評審資料有出入，已交叉驗證並記錄於docs/PDF題目來源勘誤紀錄.md。
+// ChaiyiC-2/ChaiyiC-6-2兩題原先依舊版PDF判例資料的誤判結論，已比對114EChaiyiC.txt新版10筆評審資料後更正回題目文字原意；ChaiyiC-5的原PDF範例文字錯誤結論則經新資料重新確認仍然成立；ChaiyiC-6-4新發現輸出格式應無空白。詳見docs/PDF題目來源勘誤紀錄.md。
 
 export default {
   "code": "114EChaiyiC",
@@ -49,52 +49,73 @@ export default {
       ],
       "testCases": [
         {
-          "input": "20",
-          "expectedOutput": "10000",
-          "output": "10000",
-          "score": 14,
-          "hidden": false
-        },
-        {
-          "input": "55",
-          "expectedOutput": "40000",
-          "output": "40000",
-          "score": 14,
-          "hidden": false
-        },
-        {
           "input": "10",
           "expectedOutput": "5000",
           "output": "5000",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "30",
           "expectedOutput": "15000",
           "output": "15000",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "40",
           "expectedOutput": "25000",
           "output": "25000",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "80",
           "expectedOutput": "75000",
           "output": "75000",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "120",
           "expectedOutput": "145000",
           "output": "145000",
-          "score": 14,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "60",
+          "expectedOutput": "45000",
+          "output": "45000",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "100",
+          "expectedOutput": "105000",
+          "output": "105000",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "31",
+          "expectedOutput": "16000",
+          "output": "16000",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "61",
+          "expectedOutput": "46500",
+          "output": "46500",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "200",
+          "expectedOutput": "305000",
+          "output": "305000",
+          "score": 10,
           "hidden": false
         }
       ],
@@ -143,13 +164,13 @@ export default {
       "difficulty": "L2",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "跳馬比賽為求公平性，決議去除評審中較極端的成績。比賽會依賽制等級不同，聘用五至十位不等的評審，各自給予參賽者0至10分的評價。參賽者的最終得分計算方式：讀入五至十位評審的分數（未排序），扣除最高分與最低分各一筆（若有多筆，只刪除其中一筆），將剩餘分數取平均，四捨五入至整數。",
+      "description": "跳馬比賽為求公平性，決議去除評審中較極端的成績。比賽會依賽制等級不同，聘用五至十位不等的評審，各自給予參賽者0至10分的評價。參賽者的最終得分計算方式：讀入五至十位評審的分數（未排序），扣除最高分與最低分各一筆（若有多筆，只刪除其中一筆），將剩餘分數取平均，四捨五入至小數點第三位。",
       "inputDescription": "第一行輸入整數N（5≤N≤10），第二行輸入N個整數（0～10）代表評審分數。",
-      "outputDescription": "輸出一個數值，代表去除最高與最低分後、四捨五入至整數的最終得分。",
+      "outputDescription": "輸出一個數值，代表去除最高與最低分後、四捨五入至小數點第三位的最終得分。",
       "statement": {
-        "description": "跳馬比賽為求公平性，決議去除評審中較極端的成績。比賽會依賽制等級不同，聘用五至十位不等的評審，各自給予參賽者0至10分的評價。參賽者的最終得分計算方式：讀入五至十位評審的分數（未排序），扣除最高分與最低分各一筆（若有多筆，只刪除其中一筆），將剩餘分數取平均，四捨五入至整數。",
+        "description": "跳馬比賽為求公平性，決議去除評審中較極端的成績。比賽會依賽制等級不同，聘用五至十位不等的評審，各自給予參賽者0至10分的評價。參賽者的最終得分計算方式：讀入五至十位評審的分數（未排序），扣除最高分與最低分各一筆（若有多筆，只刪除其中一筆），將剩餘分數取平均，四捨五入至小數點第三位。",
         "input": "第一行輸入整數N（5≤N≤10），第二行輸入N個整數（0～10）代表評審分數。",
-        "output": "輸出一個數值，代表去除最高與最低分後、四捨五入至整數的最終得分。"
+        "output": "輸出一個數值，代表去除最高與最低分後、四捨五入至小數點第三位的最終得分。"
       },
       "examples": [
         {
@@ -159,8 +180,8 @@ export default {
         },
         {
           "input": "5\n5 5 8 9 10",
-          "output": "7",
-          "explanation": "刪除最高分10與最低分5（僅一筆），剩下5、8、9，平均為7.33，四捨五入為7。"
+          "output": "7.333",
+          "explanation": "刪除最高分10與最低分5，剩下5、8、9，平均為(5+8+9)/3=7.333，四捨五入至小數點第三位仍為7.333。"
         }
       ],
       "testCases": [
@@ -168,58 +189,79 @@ export default {
           "input": "5\n9 8 10 6 7",
           "expectedOutput": "8",
           "output": "8",
-          "score": 14,
-          "hidden": false
-        },
-        {
-          "input": "5\n5 5 8 9 10",
-          "expectedOutput": "7",
-          "output": "7",
-          "score": 14,
-          "hidden": false
-        },
-        {
-          "input": "5\n9 8 10 6 7",
-          "expectedOutput": "8",
-          "output": "8",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "5\n10 10 10 10 10",
           "expectedOutput": "10",
           "output": "10",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "5\n5 5 7 7 10",
-          "expectedOutput": "6",
-          "output": "6",
-          "score": 14,
+          "expectedOutput": "6.333",
+          "output": "6.333",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "5\n9 9 9 10 10",
-          "expectedOutput": "9",
-          "output": "9",
-          "score": 14,
+          "expectedOutput": "9.333",
+          "output": "9.333",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "5\n7 7 8 8 6",
+          "expectedOutput": "7.333",
+          "output": "7.333",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "6\n1 2 3 4 5 6",
+          "expectedOutput": "3.5",
+          "output": "3.5",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "6\n0 0 1 1 2 2",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "7\n10 9 8 7 6 5 4",
           "expectedOutput": "7",
           "output": "7",
-          "score": 14,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "8\n10 10 0 0 5 5 5 5",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "10\n10 9 9 9 9 9 9 9 9 0",
+          "expectedOutput": "9",
+          "output": "9",
+          "score": 10,
           "hidden": false
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"c2_n\">N</variable><variable id=\"c2_v\">v</variable><variable id=\"c2_i\">i</variable><variable id=\"c2_sum\">sum</variable><variable id=\"c2_max\">maxv</variable><variable id=\"c2_min\">minv</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_max\">maxv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">-999999999</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_min\">minv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">999999999</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"c2_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_max\">maxv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_max\">maxv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_min\">minv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_min\">minv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_max\">maxv</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_min\">minv</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"c2_n\">N</variable><variable id=\"c2_v\">v</variable><variable id=\"c2_i\">i</variable><variable id=\"c2_sum\">sum</variable><variable id=\"c2_max\">maxv</variable><variable id=\"c2_min\">minv</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_max\">maxv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">-999999999</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_min\">minv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">999999999</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"c2_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_max\">maxv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_max\">maxv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_min\">minv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c2_min\">minv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_v\">v</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_max\">maxv</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_min\">minv</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c2_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
       "review": {
         "needsManualReview": false,
         "risk": "低",
         "flags": [],
-        "note": "【PDF題目文字與實際資料不符，已記錄於PDF題目來源勘誤紀錄.md】題目文字寫「四捨五入至小數點第三位」，但全部評審資料與範例一都是整數輸出；範例二的說明文字算式本身也有誤（除以4而非3）。判定實際規則是「四捨五入到整數」，已用全部評審資料交叉驗證確認。",
+        "note": "【已修正】原先依舊版PDF判例資料誤判為「四捨五入到整數」（見PDF題目來源勘誤紀錄.md舊條目）；比對114EChaiyiC.txt新版10筆評審資料後確認題目文字「四捨五入至小數點第三位」本身沒有錯，舊版PDF判例資料剛好全部整除、誤導成整數規則，此次已更正演算法與測資。",
         "exportDecision": "Claude 依使用者提供的PDF手動轉錄、用JS參考實作逐題驗證，starterXml另外用headless Blockly harness對真正的javascript generator驗證過"
       },
       "tags": {
@@ -280,45 +322,73 @@ export default {
       ],
       "testCases": [
         {
-          "input": "2\nbanana",
-          "expectedOutput": "dcpcpc",
-          "output": "dcpcpc",
-          "score": 16,
-          "hidden": false
-        },
-        {
           "input": "0\nabc",
           "expectedOutput": "abc",
           "output": "abc",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "1\nxyz",
           "expectedOutput": "yza",
           "output": "yza",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "26\nhello",
           "expectedOutput": "hello",
           "output": "hello",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "28\naz",
           "expectedOutput": "cb",
           "output": "cb",
-          "score": 16,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "100\na",
           "expectedOutput": "w",
           "output": "w",
-          "score": 16,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5\npokemon",
+          "expectedOutput": "utpjrts",
+          "output": "utpjrts",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "25\na",
+          "expectedOutput": "z",
+          "output": "z",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "13\nnop",
+          "expectedOutput": "abc",
+          "output": "abc",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "52\ncat",
+          "expectedOutput": "cat",
+          "output": "cat",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "10\napple",
+          "expectedOutput": "kzzvo",
+          "output": "kzzvo",
+          "score": 10,
           "hidden": false
         }
       ],
@@ -390,52 +460,73 @@ export default {
       ],
       "testCases": [
         {
-          "input": "5\n1 0 1 1 0\n0 1 1 1 1",
-          "expectedOutput": "5 10 2P",
-          "output": "5 10 2P",
-          "score": 14,
-          "hidden": false
-        },
-        {
-          "input": "7\n1 0 1 1 0 1 0\n0 1 1 0 1 0 1",
-          "expectedOutput": "6 6 不分勝負",
-          "output": "6 6 不分勝負",
-          "score": 14,
-          "hidden": false
-        },
-        {
           "input": "5\n0 1 0 1 0\n0 0 0 0 0",
           "expectedOutput": "2 0 1P",
           "output": "2 0 1P",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "6\n1 1 1 0 1 0\n0 1 1 1 1 0",
           "expectedOutput": "8 10 2P",
           "output": "8 10 2P",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "9\n0 1 0 1 0 1 0 1 0\n0 0 0 0 0 0 0 0 0",
           "expectedOutput": "4 0 1P",
           "output": "4 0 1P",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "8\n1 1 0 1 1 0 1 1\n1 1 1 0 1 1 1 0",
           "expectedOutput": "12 14 2P",
           "output": "12 14 2P",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "7\n1 1 0 1 1 0 1\n1 1 0 1 1 0 1",
           "expectedOutput": "9 9 不分勝負",
           "output": "9 9 不分勝負",
-          "score": 14,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5\n1 1 1 1 1\n1 0 1 0 1",
+          "expectedOutput": "13 3 1P",
+          "output": "13 3 1P",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "10\n0 0 0 0 0 0 0 0 0 0\n1 1 1 1 1 1 1 1 1 1",
+          "expectedOutput": "0 28 2P",
+          "output": "0 28 2P",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "6\n1 0 0 0 0 1\n1 0 0 0 0 1",
+          "expectedOutput": "2 2 不分勝負",
+          "output": "2 2 不分勝負",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "7\n0 1 1 0 1 1 0\n1 1 0 0 0 1 1",
+          "expectedOutput": "8 8 不分勝負",
+          "output": "8 8 不分勝負",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "8\n1 0 1 0 1 0 1 0\n0 1 0 1 0 1 0 1",
+          "expectedOutput": "4 4 不分勝負",
+          "output": "4 4 不分勝負",
+          "score": 10,
           "hidden": false
         }
       ],
@@ -504,38 +595,73 @@ export default {
       ],
       "testCases": [
         {
-          "input": "5\n80 90 60 30 40",
-          "expectedOutput": "2",
-          "output": "2",
-          "score": 20,
-          "hidden": false
-        },
-        {
           "input": "9\n50 60 40 70 90 30 80 90 60",
           "expectedOutput": "4",
           "output": "4",
-          "score": 20,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5\n80 90 60 30 40",
+          "expectedOutput": "2",
+          "output": "2",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "5\n100 50 60 70 80",
           "expectedOutput": "3",
           "output": "3",
-          "score": 20,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "3\n100 100 100",
           "expectedOutput": "2",
           "output": "2",
-          "score": 20,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "1\n100",
           "expectedOutput": "1",
           "output": "1",
-          "score": 20,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5\n200 200 200 200 200",
+          "expectedOutput": "5",
+          "output": "5",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "8\n10 20 30 40 50 60 70 80",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "6\n199 1 199 1 199 1",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "4\n150 150 150 150",
+          "expectedOutput": "4",
+          "output": "4",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "10\n50 50 50 50 50 50 50 50 50 50",
+          "expectedOutput": "3",
+          "output": "3",
+          "score": 10,
           "hidden": false
         }
       ],
@@ -604,52 +730,73 @@ export default {
       ],
       "testCases": [
         {
-          "input": "4\n10 20 30 40",
-          "expectedOutput": "25",
-          "output": "25",
-          "score": 14,
-          "hidden": false
-        },
-        {
-          "input": "3\n7 8 10",
-          "expectedOutput": "8",
-          "output": "8",
-          "score": 14,
-          "hidden": false
-        },
-        {
           "input": "1\n50",
           "expectedOutput": "50",
           "output": "50",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "3\n10 20 30",
           "expectedOutput": "20",
           "output": "20",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "4\n7 8 9 10",
           "expectedOutput": "8",
           "output": "8",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "5\n1 100 100 100 100",
           "expectedOutput": "80",
           "output": "80",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "20\n10 10 10 10 10 10 10 10 10 10 20 20 20 20 20 20 20 20 20 20",
           "expectedOutput": "15",
           "output": "15",
-          "score": 14,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "2\n1 2",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "3\n33 33 33",
+          "expectedOutput": "33",
+          "output": "33",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5\n10 11 12 13 14",
+          "expectedOutput": "12",
+          "output": "12",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "6\n99 99 99 99 99 99",
+          "expectedOutput": "99",
+          "output": "99",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "4\n1 1 1 1",
+          "expectedOutput": "1",
+          "output": "1",
+          "score": 10,
           "hidden": false
         }
       ],
@@ -697,83 +844,104 @@ export default {
       "difficulty": "L1",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "請設計一個程式，輸入多隻寶可夢的名稱與等級，找出等級最高的數值（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）。",
+      "description": "請設計一個程式，輸入多隻寶可夢的名稱與等級，找出等級最高的寶可夢名稱（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）。",
       "inputDescription": "第一行輸入整數N（1≤N≤20），第二行輸入2N筆資料，依序為「寶可夢名稱 等級」。",
-      "outputDescription": "輸出一個整數，代表最高的等級數值。",
+      "outputDescription": "輸出一行文字，代表等級最高的寶可夢名稱。",
       "statement": {
-        "description": "請設計一個程式，輸入多隻寶可夢的名稱與等級，找出等級最高的數值（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）。",
+        "description": "請設計一個程式，輸入多隻寶可夢的名稱與等級，找出等級最高的寶可夢名稱（本題保證不會有等級相同的情況，寶可夢名稱不包含空白字元）。",
         "input": "第一行輸入整數N（1≤N≤20），第二行輸入2N筆資料，依序為「寶可夢名稱 等級」。",
-        "output": "輸出一個整數，代表最高的等級數值。"
+        "output": "輸出一行文字，代表等級最高的寶可夢名稱。"
       },
       "examples": [
         {
           "input": "3\n皮卡丘 25 小火龍 12 妙蛙種子 18",
-          "output": "25",
-          "explanation": "共有3隻寶可夢，最高等級是25（皮卡丘）。"
+          "output": "皮卡丘",
+          "explanation": "共有3隻寶可夢，等級最高的是皮卡丘（25）。"
         },
         {
           "input": "4\n傑尼龜 10 伊布 15 卡比獸 35 胖丁 2",
-          "output": "35",
+          "output": "卡比獸",
           "explanation": "共有4隻寶可夢，卡比獸等級最高（35）。"
         }
       ],
       "testCases": [
         {
-          "input": "3\n皮卡丘 25 小火龍 12 妙蛙種子 18",
-          "expectedOutput": "25",
-          "output": "25",
-          "score": 14,
-          "hidden": false
-        },
-        {
-          "input": "4\n傑尼龜 10 伊布 15 卡比獸 35 胖丁 2",
-          "expectedOutput": "35",
-          "output": "35",
-          "score": 14,
-          "hidden": false
-        },
-        {
           "input": "1\n皮卡丘 10",
-          "expectedOutput": "10",
-          "output": "10",
-          "score": 14,
+          "expectedOutput": "皮卡丘",
+          "output": "皮卡丘",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "3\n小火龍 12 妙蛙種子 18 傑尼龜 15",
-          "expectedOutput": "18",
-          "output": "18",
-          "score": 14,
+          "expectedOutput": "妙蛙種子",
+          "output": "妙蛙種子",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "4\nA 5 B 20 C 15 D 8",
-          "expectedOutput": "20",
-          "output": "20",
-          "score": 14,
+          "expectedOutput": "B",
+          "output": "B",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "5\n皮卡丘 22 伊布 30 卡比獸 28 超夢 100 胖丁 18",
-          "expectedOutput": "100",
-          "output": "100",
-          "score": 14,
+          "expectedOutput": "超夢",
+          "output": "超夢",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "6\nP1 3 P2 6 P3 9 P4 12 P5 15 P6 18",
-          "expectedOutput": "18",
-          "output": "18",
-          "score": 14,
+          "expectedOutput": "P6",
+          "output": "P6",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "2\nX 50 Y 49",
+          "expectedOutput": "X",
+          "output": "X",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "3\nBulbasaur 5 Charmander 10 Squirtle 7",
+          "expectedOutput": "Charmander",
+          "output": "Charmander",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "4\nA 1 B 2 C 3 D 4",
+          "expectedOutput": "D",
+          "output": "D",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5\nZ 99 Y 98 X 97 W 96 V 95",
+          "expectedOutput": "Z",
+          "output": "Z",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "2\nFirst 10 Second 20",
+          "expectedOutput": "Second",
+          "output": "Second",
+          "score": 10,
           "hidden": false
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"c62_n\">N</variable><variable id=\"c62_i\">i</variable><variable id=\"c62_name\">name</variable><variable id=\"c62_lv\">lv</variable><variable id=\"c62_max\">maxv</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_max\">maxv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">-999999999</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"c62_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_name\">name</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_lv\">lv</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_lv\">lv</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_max\">maxv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_max\">maxv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_lv\">lv</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_max\">maxv</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"c62_n\">N</variable><variable id=\"c62_i\">i</variable><variable id=\"c62_name\">name</variable><variable id=\"c62_lv\">lv</variable><variable id=\"c62_max\">maxv</variable><variable id=\"c62_maxname\">maxname</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_max\">maxv</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">-999999999</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"c62_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_name\">name</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_lv\">lv</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_lv\">lv</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_max\">maxv</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_max\">maxv</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_lv\">lv</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c62_maxname\">maxname</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_name\">name</field></block></value></block></next></block></statement></block></next></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c62_maxname\">maxname</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>",
       "review": {
         "needsManualReview": false,
         "risk": "低",
         "flags": [],
-        "note": "【PDF題目文字與實際資料不符，已記錄於PDF題目來源勘誤紀錄.md】題目文字要求輸出「等級最高的寶可夢名稱」，但全部7筆資料（2則範例＋5筆評審）實際輸出的都是等級數字本身，不是名稱。判定以資料為準，輸出最高等級的數值。",
+        "note": "【已修正】原先依舊版PDF判例資料誤判為「輸出等級數字」（見PDF題目來源勘誤紀錄.md舊條目）；比對114EChaiyiC.txt新版10筆評審資料後確認題目文字「找出等級最高的寶可夢名稱」本身沒有錯，此次已更正演算法（改為同步追蹤名稱）與測資。",
         "exportDecision": "Claude 依使用者提供的PDF手動轉錄、用JS參考實作逐題驗證，starterXml另外用headless Blockly harness對真正的javascript generator驗證過"
       },
       "tags": {
@@ -832,52 +1000,73 @@ export default {
       ],
       "testCases": [
         {
-          "input": "3\n皮卡丘 25 小火龍 12 妙蛙種子 18",
-          "expectedOutput": "皮卡丘",
-          "output": "皮卡丘",
-          "score": 14,
-          "hidden": false
-        },
-        {
-          "input": "4\n傑尼龜 10 伊布 15 卡比獸 20 胖丁 20",
-          "expectedOutput": "卡比獸 胖丁",
-          "output": "卡比獸 胖丁",
-          "score": 14,
-          "hidden": false
-        },
-        {
           "input": "1\n皮卡丘 10",
           "expectedOutput": "",
           "output": "",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "5\n伊布 15 胖丁 15 乘龍 10 卡比獸 20 妙蛙種子 15",
           "expectedOutput": "卡比獸",
           "output": "卡比獸",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "4\n妙蛙種子 30 皮卡丘 30 小火龍 30 傑尼龜 30",
           "expectedOutput": "",
           "output": "",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "6\n小火龍 100 皮卡丘 0 伊布 50 卡比獸 50 胖丁 50 超夢 100",
           "expectedOutput": "小火龍 超夢",
           "output": "小火龍 超夢",
-          "score": 14,
+          "score": 10,
           "hidden": false
         },
         {
           "input": "8\n皮卡丘 25 皮卡丘 30 妙蛙種子 18 小火龍 12 傑尼龜 40 伊布 35 卡比獸 28 胖丁 28",
           "expectedOutput": "皮卡丘 傑尼龜 伊布 卡比獸 胖丁",
           "output": "皮卡丘 傑尼龜 伊布 卡比獸 胖丁",
-          "score": 14,
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "3\nA 10 B 20 C 30",
+          "expectedOutput": "C",
+          "output": "C",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "2\nX 1 Y 100",
+          "expectedOutput": "Y",
+          "output": "Y",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "4\nP1 10 P2 11 P3 10 P4 10",
+          "expectedOutput": "P2",
+          "output": "P2",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5\nA 100 B 10 C 10 D 10 E 10",
+          "expectedOutput": "A",
+          "output": "A",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "4\nM1 50 M2 51 M3 50 M4 49",
+          "expectedOutput": "M2",
+          "output": "M2",
+          "score": 10,
           "hidden": false
         }
       ],
@@ -926,83 +1115,104 @@ export default {
       "difficulty": "L3",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "請設計一個程式，輸入多隻寶可夢的屬性，輸出各屬性寶可夢的數量統計結果。程式需依照屬性第一次出現的順序，輸出每個屬性與該屬性寶可夢數量，格式為「屬性 數量」，屬性之間以一個空白隔開；若屬性重複，只輸出一次。",
+      "description": "請設計一個程式，輸入多隻寶可夢的屬性，輸出各屬性寶可夢的數量統計結果。程式需依照屬性第一次出現的順序，輸出每個屬性與該屬性寶可夢數量，格式為「屬性數量」（屬性與數量間不留空白）；不同組別之間以一個空白隔開；若屬性重複，只輸出一次。",
       "inputDescription": "第一行輸入整數N，第二行輸入N個寶可夢屬性名稱，以空白間隔。",
-      "outputDescription": "依首次出現順序輸出「屬性 數量」配對，以空白分隔。",
+      "outputDescription": "依首次出現順序輸出「屬性數量」配對（屬性與數量間不留空白），組別之間以空白分隔。",
       "statement": {
-        "description": "請設計一個程式，輸入多隻寶可夢的屬性，輸出各屬性寶可夢的數量統計結果。程式需依照屬性第一次出現的順序，輸出每個屬性與該屬性寶可夢數量，格式為「屬性 數量」，屬性之間以一個空白隔開；若屬性重複，只輸出一次。",
+        "description": "請設計一個程式，輸入多隻寶可夢的屬性，輸出各屬性寶可夢的數量統計結果。程式需依照屬性第一次出現的順序，輸出每個屬性與該屬性寶可夢數量，格式為「屬性數量」（屬性與數量間不留空白）；不同組別之間以一個空白隔開；若屬性重複，只輸出一次。",
         "input": "第一行輸入整數N，第二行輸入N個寶可夢屬性名稱，以空白間隔。",
-        "output": "依首次出現順序輸出「屬性 數量」配對，以空白分隔。"
+        "output": "依首次出現順序輸出「屬性數量」配對（屬性與數量間不留空白），組別之間以空白分隔。"
       },
       "examples": [
         {
           "input": "5\n火 水 火 電 水",
-          "output": "火 2 水 2 電 1",
+          "output": "火2 水2 電1",
           "explanation": "依首次出現順序統計後輸出：火2 水2 電1。"
         },
         {
           "input": "4\n草 草 毒 草",
-          "output": "草 3 毒 1",
+          "output": "草3 毒1",
           "explanation": "輸出結果為：草3 毒1。"
         }
       ],
       "testCases": [
         {
-          "input": "5\n火 水 火 電 水",
-          "expectedOutput": "火 2 水 2 電 1",
-          "output": "火 2 水 2 電 1",
-          "score": 14,
-          "hidden": false
-        },
-        {
-          "input": "4\n草 草 毒 草",
-          "expectedOutput": "草 3 毒 1",
-          "output": "草 3 毒 1",
-          "score": 14,
-          "hidden": false
-        },
-        {
           "input": "9\n火 水 火 電 水 草 草 毒 草",
-          "expectedOutput": "火 2 水 2 電 1 草 3 毒 1",
-          "output": "火 2 水 2 電 1 草 3 毒 1",
-          "score": 14,
+          "expectedOutput": "火2 水2 電1 草3 毒1",
+          "output": "火2 水2 電1 草3 毒1",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "8\n水 火 電 水 草 水 電 草",
-          "expectedOutput": "水 3 火 1 電 2 草 2",
-          "output": "水 3 火 1 電 2 草 2",
-          "score": 14,
+          "expectedOutput": "水3 火1 電2 草2",
+          "output": "水3 火1 電2 草2",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "1\n草",
-          "expectedOutput": "草 1",
-          "output": "草 1",
-          "score": 14,
+          "expectedOutput": "草1",
+          "output": "草1",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "5\n水 水 水 水 水",
-          "expectedOutput": "水 5",
-          "output": "水 5",
-          "score": 14,
+          "expectedOutput": "水5",
+          "output": "水5",
+          "score": 10,
           "hidden": false
         },
         {
           "input": "6\n電 火 草 電 火 水",
-          "expectedOutput": "電 2 火 2 草 1 水 1",
-          "output": "電 2 火 2 草 1 水 1",
-          "score": 14,
+          "expectedOutput": "電2 火2 草1 水1",
+          "output": "電2 火2 草1 水1",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "4\n冰 龍 冰 龍",
+          "expectedOutput": "冰2 龍2",
+          "output": "冰2 龍2",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "5\n光 暗 光 暗 無",
+          "expectedOutput": "光2 暗2 無1",
+          "output": "光2 暗2 無1",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "3\n超能 格鬥 超能",
+          "expectedOutput": "超能2 格鬥1",
+          "output": "超能2 格鬥1",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "7\nA B C A B C D",
+          "expectedOutput": "A2 B2 C2 D1",
+          "output": "A2 B2 C2 D1",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "10\nX Y Z X Y Z X Y Z W",
+          "expectedOutput": "X3 Y3 Z3 W1",
+          "output": "X3 Y3 Z3 W1",
+          "score": 10,
           "hidden": false
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"c64_n\">N</variable><variable id=\"c64_attrs\">attrs</variable><variable id=\"c64_counts\">counts</variable><variable id=\"c64_distinct\">distinct</variable><variable id=\"c64_i\">i</variable><variable id=\"c64_attr\">attr</variable><variable id=\"c64_found\">found</variable><variable id=\"c64_out\">out</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_n\">N</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_counts\">counts</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_n\">N</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"c64_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_attr\">attr</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_found\">found</field><value name=\"VALUE\"><block type=\"lists_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field></block></value><value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attr\">attr</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_found\">found</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attr\">attr</field></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></next></block></next></block></statement><statement name=\"ELSE\"><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_found\">found</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_found\">found</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_out\">out</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"c64_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_out\">out</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_i\">i</field></block></value></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_i\">i</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"5\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_out\">out</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_i\">i</field></block></value></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD4\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_i\">i</field></block></value></block></value></block></value></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_out\">out</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"c64_n\">N</variable><variable id=\"c64_attrs\">attrs</variable><variable id=\"c64_counts\">counts</variable><variable id=\"c64_distinct\">distinct</variable><variable id=\"c64_i\">i</variable><variable id=\"c64_attr\">attr</variable><variable id=\"c64_found\">found</variable><variable id=\"c64_out\">out</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_n\">N</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_counts\">counts</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_n\">N</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"c64_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_attr\">attr</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_found\">found</field><value name=\"VALUE\"><block type=\"lists_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field></block></value><value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attr\">attr</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_found\">found</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attr\">attr</field></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></next></block></next></block></statement><statement name=\"ELSE\"><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_found\">found</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_found\">found</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_out\">out</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"c64_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_distinct\">distinct</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_out\">out</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_i\">i</field></block></value></block></value><value name=\"ADD1\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_i\">i</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"c64_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_out\">out</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_attrs\">attrs</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_i\">i</field></block></value></block></value><value name=\"ADD1\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_counts\">counts</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_i\">i</field></block></value></block></value></block></value></block></value></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"c64_out\">out</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
       "review": {
         "needsManualReview": false,
         "risk": "低",
         "flags": [],
-        "note": "依首次出現順序做分組計數，練習用清單搜尋（indexOf）判斷是否為新類別。",
+        "note": "【已修正】原先誤用「屬性 數量」（中間留空白）的輸出格式；比對114EChaiyiC.txt新版評審資料的說明文字「格式為『屬性數量』（屬性與數量間不留空白）」後更正為無空白格式。依首次出現順序做分組計數，練習用清單搜尋（indexOf）判斷是否為新類別。",
         "exportDecision": "Claude 依使用者提供的PDF手動轉錄、用JS參考實作逐題驗證，starterXml另外用headless Blockly harness對真正的javascript generator驗證過"
       },
       "tags": {
