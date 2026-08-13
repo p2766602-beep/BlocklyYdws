@@ -1,4 +1,16 @@
-var e={code:`JSB00`,title:`基礎練習1`,type:`programming`,mode:`learning`,description:``,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-01T13:28:18+08:00`,sourceCsv:`data\\problem_bank_master_complete.csv`,version:`PB05-4B`},tasks:[{id:`A-01-0`,title:`Hello world`,problemTitle:`Hello world`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`在程式設計的第一步，最重要的是能夠讀取`,inputDescription:``,outputDescription:``,statement:{description:`在程式設計的第一步，最重要的是能夠讀取`,input:``,output:``},examples:[{input:`Amy`,output:`Hello, Amy`,explanation:`第一個輸入 Amy，代表名字為 Amy
+var e={code:`JSB00`,title:`基礎練習1`,type:`programming`,mode:`learning`,description:``,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-01T13:28:18+08:00`,sourceCsv:`data\\problem_bank_master_complete.csv`,version:`PB05-4B`},tasks:[{id:`A-01-0`,title:`Hello world`,problemTitle:`Hello world`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。
+
+請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。
+
+Hello後面會接小寫逗號，還有一個空白輸入
+
+這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。`,inputDescription:``,outputDescription:``,statement:{description:`在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。
+
+請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。
+
+Hello後面會接小寫逗號，還有一個空白輸入
+
+這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。`,input:``,output:``},examples:[{input:`Amy`,output:`Hello, Amy`,explanation:`第一個輸入 Amy，代表名字為 Amy
 程式輸出 Hello, Amy`},{input:`Tom`,output:`Hello, Tom`,explanation:`第一個輸入 Tom，代表名字為 Tom
 程式輸出 Hello, Amy`}],testCases:[{input:`Amy`,expectedOutput:`Hello, Amy`,output:`Hello, Amy`,score:50,hidden:!1},{input:`Tom`,expectedOutput:`Hello, Tom`,output:`Hello, Tom`,score:50,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
@@ -28,7 +40,19 @@ var e={code:`JSB00`,title:`基礎練習1`,type:`programming`,mode:`learning`,des
       </block>
     </next>
   </block>
-</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[],subConcepts:[],algorithm:[],dataStructure:[],syntax:[],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-01-1`,title:`一起學習吧`,problemTitle:`一起學習吧`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`在程式設計的第一步，最重要的是能夠讀取`,inputDescription:``,outputDescription:``,statement:{description:`在程式設計的第一步，最重要的是能夠讀取`,input:``,output:``},examples:[{input:`Amy
+</xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[],subConcepts:[],algorithm:[],dataStructure:[],syntax:[],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-01-1`,title:`一起學習吧`,problemTitle:`一起學習吧`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。
+
+請你寫一個小程式，讓使用者輸入好朋友一的名字、接著輸入好朋友二的名字，然後程式要輸出一行「朋友一名字,朋友二名字, 一起學習吧！」。
+
+朋友一名字後面、朋友二名字後面都會接小寫逗號，還有一個空白輸入
+
+這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。`,inputDescription:``,outputDescription:``,statement:{description:`在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。
+
+請你寫一個小程式，讓使用者輸入好朋友一的名字、接著輸入好朋友二的名字，然後程式要輸出一行「朋友一名字,朋友二名字, 一起學習吧！」。
+
+朋友一名字後面、朋友二名字後面都會接小寫逗號，還有一個空白輸入
+
+這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。`,input:``,output:``},examples:[{input:`Amy
 John`,output:`Amy, John, 一起學習吧！`,explanation:`第一個輸入 Amy，代表朋友一名字為 Amy
 第二個輸入 John，代表朋友二名字為 John
 程式輸出 Amy, John, 一起學習吧！`},{input:`Tom
@@ -38,9 +62,13 @@ Susan`,output:`Tom, Susan, 一起學習吧！`,explanation:`第一個輸入 Tom�
 John`,expectedOutput:`Amy, John, 一起學習吧！`,output:`Amy, John, 一起學習吧！`,score:50,hidden:!1},{input:`Tom
 Susan`,expectedOutput:`Tom, Susan, 一起學習吧！`,output:`Tom, Susan, 一起學習吧！`,score:50,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[],subConcepts:[],algorithm:[],dataStructure:[],syntax:[],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-02-0`,title:`數字加總`,problemTitle:`數字加總`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`當我們要處理數字時，常常需要加總。
 
-請設計一個程式，讓`,inputDescription:``,outputDescription:``,statement:{description:`當我們要處理數字時，常常需要加總。
+請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的總和。
 
-請設計一個程式，讓`,input:``,output:``},examples:[{input:`9
+這樣的題目能幫助你熟悉數字資料處理。`,inputDescription:``,outputDescription:``,statement:{description:`當我們要處理數字時，常常需要加總。
+
+請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的總和。
+
+這樣的題目能幫助你熟悉數字資料處理。`,input:``,output:``},examples:[{input:`9
 4`,output:`13`,explanation:`第一個輸入9
 第二個輸入4
 程式輸出9+4總和13`},{input:`6
@@ -90,9 +118,13 @@ Susan`,expectedOutput:`Tom, Susan, 一起學習吧！`,output:`Tom, Susan, 一�
   </block>
 </xml>`,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[],subConcepts:[],algorithm:[],dataStructure:[],syntax:[],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-02-1`,title:`數字平均`,problemTitle:`數字平均`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`當我們要處理數字時，常常需計算平均。
 
-請設計一個程式，讓`,inputDescription:``,outputDescription:``,statement:{description:`當我們要處理數字時，常常需計算平均。
+請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的平均(四捨五入取整數)。
 
-請設計一個程式，讓`,input:``,output:``},examples:[{input:`9
+這樣的題目能幫助你熟悉數字資料處理。`,inputDescription:``,outputDescription:``,statement:{description:`當我們要處理數字時，常常需計算平均。
+
+請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的平均(四捨五入取整數)。
+
+這樣的題目能幫助你熟悉數字資料處理。`,input:``,output:``},examples:[{input:`9
 4`,output:`7`,explanation:`第一個輸入9
 第二個輸入4
 程式輸出9、4的平均四捨五入取整數7`},{input:`6
