@@ -23,11 +23,11 @@ const course = {
       "role": "practice",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "在程式設計的第一步，最重要的是能夠讀取",
+      "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n\n請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。\n\nHello後面會接小寫逗號，還有一個空白輸入\n\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "在程式設計的第一步，最重要的是能夠讀取",
+        "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n\n請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。\n\nHello後面會接小寫逗號，還有一個空白輸入\n\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
         "input": "",
         "output": ""
       },
@@ -59,35 +59,7 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="var_name">名字</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="interaction_ask_and_wait">
-        <value name="TEXT"><block type="text"><field name="TEXT">請輸入名字</field></block></value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="var_name">名字</field>
-            <value name="VALUE"><block type="interaction_answer"></block></value>
-            <next>
-              <block type="interaction_say">
-                <value name="TEXT">
-                  <block type="text_join">
-                    <mutation items="2"></mutation>
-                    <value name="ADD0"><block type="text"><field name="TEXT">Hello, </field></block></value>
-                    <value name="ADD1"><block type="variables_get"><field name="VAR" id="var_name">名字</field></block></value>
-                  </block>
-                </value>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`,
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"var_name\">名字</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"interaction_ask_and_wait\">\n        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入名字</field></block></value>\n        <next>\n          <block type=\"variables_set\">\n            <field name=\"VAR\" id=\"var_name\">名字</field>\n            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n            <next>\n              <block type=\"interaction_say\">\n                <value name=\"TEXT\">\n                  <block type=\"text_join\">\n                    <mutation items=\"2\"></mutation>\n                    <value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\">Hello, </field></block></value>\n                    <value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_name\">名字</field></block></value>\n                  </block>\n                </value>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>",
       "review": {
         "needsManualReview": false,
         "risk": "",
@@ -118,11 +90,11 @@ const course = {
       "role": "practice",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "在程式設計的第一步，最重要的是能夠讀取",
+      "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n\n請你寫一個小程式，讓使用者輸入好朋友一的名字、接著輸入好朋友二的名字，然後程式要輸出一行「朋友一名字,朋友二名字, 一起學習吧！」。\n\n朋友一名字後面、朋友二名字後面都會接小寫逗號，還有一個空白輸入\n\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "在程式設計的第一步，最重要的是能夠讀取",
+        "description": "在程式設計的第一步，最重要的是能夠讀取使用者輸入，並將結果正確輸出。\n\n請你寫一個小程式，讓使用者輸入好朋友一的名字、接著輸入好朋友二的名字，然後程式要輸出一行「朋友一名字,朋友二名字, 一起學習吧！」。\n\n朋友一名字後面、朋友二名字後面都會接小寫逗號，還有一個空白輸入\n\n這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。",
         "input": "",
         "output": ""
       },
@@ -185,11 +157,11 @@ const course = {
       "role": "practice",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "當我們要處理數字時，常常需要加總。\n\n請設計一個程式，讓",
+      "description": "當我們要處理數字時，常常需要加總。\n\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的總和。\n\n這樣的題目能幫助你熟悉數字資料處理。",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "當我們要處理數字時，常常需要加總。\n\n請設計一個程式，讓",
+        "description": "當我們要處理數字時，常常需要加總。\n\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的總和。\n\n這樣的題目能幫助你熟悉數字資料處理。",
         "input": "",
         "output": ""
       },
@@ -221,47 +193,7 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="var_a">數字一</variable>
-    <variable id="var_b">數字二</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="interaction_ask_and_wait">
-        <value name="TEXT"><block type="text"><field name="TEXT">請輸入第一個數字</field></block></value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="var_a">數字一</field>
-            <value name="VALUE"><block type="interaction_answer"></block></value>
-            <next>
-              <block type="interaction_ask_and_wait">
-                <value name="TEXT"><block type="text"><field name="TEXT">請輸入第二個數字</field></block></value>
-                <next>
-                  <block type="variables_set">
-                    <field name="VAR" id="var_b">數字二</field>
-                    <value name="VALUE"><block type="interaction_answer"></block></value>
-                    <next>
-                      <block type="interaction_say">
-                        <value name="TEXT">
-                          <block type="math_arithmetic">
-                            <field name="OP">ADD</field>
-                            <value name="A"><block type="variables_get"><field name="VAR" id="var_a">數字一</field></block></value>
-                            <value name="B"><block type="variables_get"><field name="VAR" id="var_b">數字二</field></block></value>
-                          </block>
-                        </value>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`,
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"var_a\">數字一</variable>\n    <variable id=\"var_b\">數字二</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"interaction_ask_and_wait\">\n        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入第一個數字</field></block></value>\n        <next>\n          <block type=\"variables_set\">\n            <field name=\"VAR\" id=\"var_a\">數字一</field>\n            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n            <next>\n              <block type=\"interaction_ask_and_wait\">\n                <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入第二個數字</field></block></value>\n                <next>\n                  <block type=\"variables_set\">\n                    <field name=\"VAR\" id=\"var_b\">數字二</field>\n                    <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n                    <next>\n                      <block type=\"interaction_say\">\n                        <value name=\"TEXT\">\n                          <block type=\"math_arithmetic\">\n                            <field name=\"OP\">ADD</field>\n                            <value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_a\">數字一</field></block></value>\n                            <value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_b\">數字二</field></block></value>\n                          </block>\n                        </value>\n                      </block>\n                    </next>\n                  </block>\n                </next>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>",
       "review": {
         "needsManualReview": false,
         "risk": "",
@@ -292,11 +224,11 @@ const course = {
       "role": "practice",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "當我們要處理數字時，常常需計算平均。\n\n請設計一個程式，讓",
+      "description": "當我們要處理數字時，常常需計算平均。\n\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的平均(四捨五入取整數)。\n\n這樣的題目能幫助你熟悉數字資料處理。",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "當我們要處理數字時，常常需計算平均。\n\n請設計一個程式，讓",
+        "description": "當我們要處理數字時，常常需計算平均。\n\n請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的平均(四捨五入取整數)。\n\n這樣的題目能幫助你熟悉數字資料處理。",
         "input": "",
         "output": ""
       },
@@ -395,50 +327,7 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="var_a">數字一</variable>
-    <variable id="var_b">數字二</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="interaction_ask_and_wait">
-        <value name="TEXT"><block type="text"><field name="TEXT">請輸入第一個數字</field></block></value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="var_a">數字一</field>
-            <value name="VALUE"><block type="interaction_answer"></block></value>
-            <next>
-              <block type="interaction_ask_and_wait">
-                <value name="TEXT"><block type="text"><field name="TEXT">請輸入第二個數字</field></block></value>
-                <next>
-                  <block type="variables_set">
-                    <field name="VAR" id="var_b">數字二</field>
-                    <value name="VALUE"><block type="interaction_answer"></block></value>
-                    <next>
-                      <block type="controls_if">
-                        <mutation elseif="1" else="1"></mutation>
-                        <value name="IF0">
-                          <block type="logic_compare"><field name="OP">GT</field><value name="A"><block type="variables_get"><field name="VAR" id="var_a">數字一</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_b">數字二</field></block></value></block>
-                        </value>
-                        <statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_a">數字一</field></block></value></block></statement>
-                        <value name="IF1">
-                          <block type="logic_compare"><field name="OP">LT</field><value name="A"><block type="variables_get"><field name="VAR" id="var_a">數字一</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_b">數字二</field></block></value></block>
-                        </value>
-                        <statement name="DO1"><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_b">數字二</field></block></value></block></statement>
-                        <statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">一樣大</field></block></value></block></statement>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`,
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"var_a\">數字一</variable>\n    <variable id=\"var_b\">數字二</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"interaction_ask_and_wait\">\n        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入第一個數字</field></block></value>\n        <next>\n          <block type=\"variables_set\">\n            <field name=\"VAR\" id=\"var_a\">數字一</field>\n            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n            <next>\n              <block type=\"interaction_ask_and_wait\">\n                <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入第二個數字</field></block></value>\n                <next>\n                  <block type=\"variables_set\">\n                    <field name=\"VAR\" id=\"var_b\">數字二</field>\n                    <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n                    <next>\n                      <block type=\"controls_if\">\n                        <mutation elseif=\"1\" else=\"1\"></mutation>\n                        <value name=\"IF0\">\n                          <block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_a\">數字一</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_b\">數字二</field></block></value></block>\n                        </value>\n                        <statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_a\">數字一</field></block></value></block></statement>\n                        <value name=\"IF1\">\n                          <block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_a\">數字一</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_b\">數字二</field></block></value></block>\n                        </value>\n                        <statement name=\"DO1\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_b\">數字二</field></block></value></block></statement>\n                        <statement name=\"ELSE\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">一樣大</field></block></value></block></statement>\n                      </block>\n                    </next>\n                  </block>\n                </next>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>",
       "review": {
         "needsManualReview": false,
         "risk": "",
@@ -519,36 +408,7 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables><variable id="var_n">數字</variable></variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="interaction_ask_and_wait">
-        <value name="TEXT"><block type="text"><field name="TEXT">請輸入一個整數</field></block></value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="var_n">數字</field>
-            <value name="VALUE"><block type="interaction_answer"></block></value>
-            <next>
-              <block type="controls_if">
-                <mutation else="1"></mutation>
-                <value name="IF0">
-                  <block type="logic_compare">
-                    <field name="OP">EQ</field>
-                    <value name="A"><block type="math_modulo"><value name="DIVIDEND"><block type="variables_get"><field name="VAR" id="var_n">數字</field></block></value><value name="DIVISOR"><block type="math_number"><field name="NUM">2</field></block></value></block></value>
-                    <value name="B"><block type="math_number"><field name="NUM">0</field></block></value>
-                  </block>
-                </value>
-                <statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Even</field></block></value></block></statement>
-                <statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">Odd</field></block></value></block></statement>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`,
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables><variable id=\"var_n\">數字</variable></variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"interaction_ask_and_wait\">\n        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入一個整數</field></block></value>\n        <next>\n          <block type=\"variables_set\">\n            <field name=\"VAR\" id=\"var_n\">數字</field>\n            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n            <next>\n              <block type=\"controls_if\">\n                <mutation else=\"1\"></mutation>\n                <value name=\"IF0\">\n                  <block type=\"logic_compare\">\n                    <field name=\"OP\">EQ</field>\n                    <value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_n\">數字</field></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value>\n                    <value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value>\n                  </block>\n                </value>\n                <statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">Even</field></block></value></block></statement>\n                <statement name=\"ELSE\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">Odd</field></block></value></block></statement>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>",
       "review": {
         "needsManualReview": false,
         "risk": "",
@@ -812,75 +672,7 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables>
-    <variable id="var_count">筆數</variable>
-    <variable id="var_score">目前成績</variable>
-    <variable id="var_total">總分</variable>
-    <variable id="var_avg">平均</variable>
-    <variable id="var_result">結果</variable>
-  </variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="interaction_ask_and_wait">
-        <value name="TEXT"><block type="text"><field name="TEXT">請輸入筆數</field></block></value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="var_count">筆數</field>
-            <value name="VALUE"><block type="interaction_answer"></block></value>
-            <next>
-              <block type="variables_set">
-                <field name="VAR" id="var_total">總分</field>
-                <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
-                <next>
-                  <block type="controls_repeat_ext">
-                    <value name="TIMES"><block type="variables_get"><field name="VAR" id="var_count">筆數</field></block></value>
-                    <statement name="DO">
-                      <block type="interaction_ask_and_wait">
-                        <value name="TEXT"><block type="text"><field name="TEXT"></field></block></value>
-                        <next>
-                          <block type="variables_set">
-                            <field name="VAR" id="var_score">目前成績</field>
-                            <value name="VALUE"><block type="interaction_answer"></block></value>
-                            <next>
-                              <block type="variables_set">
-                                <field name="VAR" id="var_total">總分</field>
-                                <value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_score">目前成績</field></block></value></block></value>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </statement>
-                    <next>
-                      <block type="variables_set">
-                        <field name="VAR" id="var_avg">平均</field>
-                        <value name="VALUE"><block type="math_round"><field name="OP">ROUND</field><value name="NUM"><block type="math_arithmetic"><field name="OP">DIVIDE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_count">筆數</field></block></value></block></value></block></value>
-                        <next>
-                          <block type="controls_if">
-                            <mutation else="1"></mutation>
-                            <value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value>
-                            <statement name="DO0"><block type="variables_set"><field name="VAR" id="var_result">結果</field><value name="VALUE"><block type="text"><field name="TEXT">及格</field></block></value></block></statement>
-                            <statement name="ELSE"><block type="variables_set"><field name="VAR" id="var_result">結果</field><value name="VALUE"><block type="text"><field name="TEXT">不及格</field></block></value></block></statement>
-                            <next>
-                              <block type="interaction_say">
-                                <value name="TEXT"><block type="text_join"><mutation items="5"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_total">總分</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="variables_get"><field name="VAR" id="var_avg">平均</field></block></value><value name="ADD3"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD4"><block type="variables_get"><field name="VAR" id="var_result">結果</field></block></value></block></value>
-                              </block>
-                            </next>
-                          </block>
-                        </next>
-                      </block>
-                    </next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`,
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables>\n    <variable id=\"var_count\">筆數</variable>\n    <variable id=\"var_score\">目前成績</variable>\n    <variable id=\"var_total\">總分</variable>\n    <variable id=\"var_avg\">平均</variable>\n    <variable id=\"var_result\">結果</variable>\n  </variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"interaction_ask_and_wait\">\n        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入筆數</field></block></value>\n        <next>\n          <block type=\"variables_set\">\n            <field name=\"VAR\" id=\"var_count\">筆數</field>\n            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n            <next>\n              <block type=\"variables_set\">\n                <field name=\"VAR\" id=\"var_total\">總分</field>\n                <value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value>\n                <next>\n                  <block type=\"controls_repeat_ext\">\n                    <value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_count\">筆數</field></block></value>\n                    <statement name=\"DO\">\n                      <block type=\"interaction_ask_and_wait\">\n                        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value>\n                        <next>\n                          <block type=\"variables_set\">\n                            <field name=\"VAR\" id=\"var_score\">目前成績</field>\n                            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n                            <next>\n                              <block type=\"variables_set\">\n                                <field name=\"VAR\" id=\"var_total\">總分</field>\n                                <value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_total\">總分</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_score\">目前成績</field></block></value></block></value>\n                              </block>\n                            </next>\n                          </block>\n                        </next>\n                      </block>\n                    </statement>\n                    <next>\n                      <block type=\"variables_set\">\n                        <field name=\"VAR\" id=\"var_avg\">平均</field>\n                        <value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_total\">總分</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_count\">筆數</field></block></value></block></value></block></value>\n                        <next>\n                          <block type=\"controls_if\">\n                            <mutation else=\"1\"></mutation>\n                            <value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_avg\">平均</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></value>\n                            <statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_result\">結果</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">及格</field></block></value></block></statement>\n                            <statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_result\">結果</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">不及格</field></block></value></block></statement>\n                            <next>\n                              <block type=\"interaction_say\">\n                                <value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"5\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_total\">總分</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_avg\">平均</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD4\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_result\">結果</field></block></value></block></value>\n                              </block>\n                            </next>\n                          </block>\n                        </next>\n                      </block>\n                    </next>\n                  </block>\n                </next>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>",
       "review": {
         "needsManualReview": false,
         "risk": "",
@@ -1058,38 +850,7 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables><variable id="var_n">N</variable><variable id="var_i">i</variable><variable id="var_output">輸出文字</variable></variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="interaction_ask_and_wait">
-        <value name="TEXT"><block type="text"><field name="TEXT">請輸入 N</field></block></value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="var_n">N</field>
-            <value name="VALUE"><block type="interaction_answer"></block></value>
-            <next>
-              <block type="variables_set">
-                <field name="VAR" id="var_output">輸出文字</field>
-                <value name="VALUE"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
-                <next>
-                  <block type="controls_for">
-                    <field name="VAR" id="var_i">i</field>
-                    <value name="FROM"><block type="math_number"><field name="NUM">2</field></block></value>
-                    <value name="TO"><block type="math_number"><field name="NUM">9</field></block></value>
-                    <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
-                    <statement name="DO"><block type="variables_set"><field name="VAR" id="var_output">輸出文字</field><value name="VALUE"><block type="text_join"><mutation items="3"></mutation><value name="ADD0"><block type="variables_get"><field name="VAR" id="var_output">輸出文字</field></block></value><value name="ADD1"><block type="text"><field name="TEXT"> </field></block></value><value name="ADD2"><block type="math_arithmetic"><field name="OP">MULTIPLY</field><value name="A"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value></block></value></block></value></block></statement>
-                    <next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_output">輸出文字</field></block></value></block></next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`,
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables><variable id=\"var_n\">N</variable><variable id=\"var_i\">i</variable><variable id=\"var_output\">輸出文字</variable></variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"interaction_ask_and_wait\">\n        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入 N</field></block></value>\n        <next>\n          <block type=\"variables_set\">\n            <field name=\"VAR\" id=\"var_n\">N</field>\n            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n            <next>\n              <block type=\"variables_set\">\n                <field name=\"VAR\" id=\"var_output\">輸出文字</field>\n                <value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_n\">N</field></block></value>\n                <next>\n                  <block type=\"controls_for\">\n                    <field name=\"VAR\" id=\"var_i\">i</field>\n                    <value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value>\n                    <value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">9</field></block></value>\n                    <value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value>\n                    <statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_output\">輸出文字</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_output\">輸出文字</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_i\">i</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_n\">N</field></block></value></block></value></block></value></block></statement>\n                    <next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_output\">輸出文字</field></block></value></block></next>\n                  </block>\n                </next>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>",
       "review": {
         "needsManualReview": false,
         "risk": "",
@@ -1180,38 +941,7 @@ const course = {
           "hidden": false
         }
       ],
-      "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml">
-  <variables><variable id="var_n">N</variable><variable id="var_sum">總和</variable><variable id="var_i">i</variable></variables>
-  <block type="event_whenflagclicked" x="40" y="40">
-    <next>
-      <block type="interaction_ask_and_wait">
-        <value name="TEXT"><block type="text"><field name="TEXT">請輸入 N</field></block></value>
-        <next>
-          <block type="variables_set">
-            <field name="VAR" id="var_n">N</field>
-            <value name="VALUE"><block type="interaction_answer"></block></value>
-            <next>
-              <block type="variables_set">
-                <field name="VAR" id="var_sum">總和</field>
-                <value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>
-                <next>
-                  <block type="controls_for">
-                    <field name="VAR" id="var_i">i</field>
-                    <value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>
-                    <value name="TO"><block type="variables_get"><field name="VAR" id="var_n">N</field></block></value>
-                    <value name="BY"><block type="math_number"><field name="NUM">1</field></block></value>
-                    <statement name="DO"><block type="variables_set"><field name="VAR" id="var_sum">總和</field><value name="VALUE"><block type="math_arithmetic"><field name="OP">ADD</field><value name="A"><block type="variables_get"><field name="VAR" id="var_sum">總和</field></block></value><value name="B"><block type="variables_get"><field name="VAR" id="var_i">i</field></block></value></block></value></block></statement>
-                    <next><block type="interaction_say"><value name="TEXT"><block type="variables_get"><field name="VAR" id="var_sum">總和</field></block></value></block></next>
-                  </block>
-                </next>
-              </block>
-            </next>
-          </block>
-        </next>
-      </block>
-    </next>
-  </block>
-</xml>`,
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\">\n  <variables><variable id=\"var_n\">N</variable><variable id=\"var_sum\">總和</variable><variable id=\"var_i\">i</variable></variables>\n  <block type=\"event_whenflagclicked\" x=\"40\" y=\"40\">\n    <next>\n      <block type=\"interaction_ask_and_wait\">\n        <value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入 N</field></block></value>\n        <next>\n          <block type=\"variables_set\">\n            <field name=\"VAR\" id=\"var_n\">N</field>\n            <value name=\"VALUE\"><block type=\"interaction_answer\"></block></value>\n            <next>\n              <block type=\"variables_set\">\n                <field name=\"VAR\" id=\"var_sum\">總和</field>\n                <value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value>\n                <next>\n                  <block type=\"controls_for\">\n                    <field name=\"VAR\" id=\"var_i\">i</field>\n                    <value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value>\n                    <value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_n\">N</field></block></value>\n                    <value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value>\n                    <statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"var_sum\">總和</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sum\">總和</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_i\">i</field></block></value></block></value></block></statement>\n                    <next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"var_sum\">總和</field></block></value></block></next>\n                  </block>\n                </next>\n              </block>\n            </next>\n          </block>\n        </next>\n      </block>\n    </next>\n  </block>\n</xml>",
       "review": {
         "needsManualReview": false,
         "risk": "",
