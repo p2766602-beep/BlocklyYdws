@@ -1,0 +1,19 @@
+import{c as e,n as t}from"./courses-CgpubN1T.js";var n=`https://blocklyydws-starter-editor.tnjboxing.workers.dev`,r=``;document.getElementById(`lockSection`);var i=document.getElementById(`courseSection`),a=document.getElementById(`taskListSection`),o=document.getElementById(`teacherToken`),s=document.getElementById(`btnUnlock`),c=document.getElementById(`lockStatus`),l=document.getElementById(`courseCodeInput`),u=document.getElementById(`btnLoadCourse`),d=document.getElementById(`courseStatus`),f=document.getElementById(`bulkActionsSection`),p=document.getElementById(`btnBulkLoadableOn`),m=document.getElementById(`btnBulkLoadableOff`),h=document.getElementById(`bulkStatus`),g=[];function _(e,t,n){e.textContent=t,e.classList.remove(`error`,`ok`),n&&e.classList.add(n)}async function v(e){try{let t=await fetch(`${n}/overrides?courseCode=${encodeURIComponent(e)}`);return t.ok&&(await t.json())?.overrides||{}}catch{return{}}}async function y(e,t,{starterXml:i,loadable:a,note:o}){let s=await fetch(`${n}/overrides`,{method:`POST`,headers:{"Content-Type":`application/json`},body:JSON.stringify({courseCode:e,taskId:t,starterXml:i,loadable:a,note:o,token:r})}),c=await s.json().catch(()=>({}));if(!s.ok)throw Error(c?.error||`儲存失敗（HTTP ${s.status}）`);return c}function b(e,t){let n=document.createElement(`div`);n.className=`teacher-task-card`;let r=!!t,i=t?t.loadable!==!1:!!e.starterXml,a=t?.starterXml??e.starterXml??``,o=t?.note??``;return n.innerHTML=`
+    <div class="teacher-task-card-head">
+      <span class="task-id">${e.id}</span>
+      <span class="task-title">${e.title||``}</span>
+      ${r?`<span class="override-badge">已覆寫</span>`:``}
+      <label class="loadable-toggle">
+        <input type="checkbox" class="loadable-checkbox" ${i?`checked`:``} />
+        可載入範例
+      </label>
+    </div>
+    <p class="field-label">範例答案 XML（starterXml，可直接貼Blockly匯出的XML）</p>
+    <textarea class="starter-xml-field" spellcheck="false">${C(a)}</textarea>
+    <p class="field-label">教師備註（例如：回報此題題敘/測資有誤，之後回頭修YDWS-CodingBank）</p>
+    <textarea class="note-field" spellcheck="false">${C(o)}</textarea>
+    <div class="task-save-row">
+      <button type="button" class="btnSaveTask">儲存</button>
+      <span class="task-save-status"></span>
+    </div>
+  `,n.querySelector(`.btnSaveTask`).addEventListener(`click`,()=>x(n,e)),n}async function x(t,n,r){let i=t.querySelector(`.task-save-status`),a=t.querySelector(`.starter-xml-field`),o=t.querySelector(`.note-field`),s=t.querySelector(`.loadable-checkbox`);r!==void 0&&(s.checked=r),i.textContent=`儲存中...`;try{return await y(e(l.value),n.id,{starterXml:a.value,loadable:s.checked,note:o.value}),i.textContent=`已儲存。`,!0}catch(e){return i.textContent=`儲存失敗：${e.message}`,!1}}async function S(e){if(g.length===0)return;p.disabled=!0,m.disabled=!0,_(h,`批次儲存中...`,null);let t=0;for(let{task:n,card:r}of g)await x(r,n,e)&&(t+=1);let n=t===g.length;_(h,`批次${e?`開啟`:`關閉`}完成：${t}/${g.length} 題成功。`,n?`ok`:`error`),p.disabled=!1,m.disabled=!1}p.addEventListener(`click`,()=>S(!0)),m.addEventListener(`click`,()=>S(!1));function C(e){return String(e||``).replace(/[&<>"]/g,e=>({"&":`&amp;`,"<":`&lt;`,">":`&gt;`,'"':`&quot;`})[e])}s.addEventListener(`click`,()=>{let e=o.value.trim();if(!e){_(c,`請輸入密碼。`,`error`);return}r=e,_(c,`已解鎖。`,`ok`),i.hidden=!1}),u.addEventListener(`click`,async()=>{let n=e(l.value);if(!n){_(d,`請輸入課程代碼。`,`error`);return}_(d,`載入中...`,null),a.innerHTML=``,g=[],f.hidden=!0,_(h,``,null);try{let[e,r]=await Promise.all([t(n),v(n)]);if(!e){_(d,`找不到課程代碼：${n}`,`error`);return}_(d,`已載入 ${e.title||n}，共 ${e.tasks.length} 題。`,`ok`),e.tasks.forEach(e=>{let t=b(e,r[e.id]);g.push({task:e,card:t}),a.appendChild(t)}),f.hidden=g.length===0}catch(e){_(d,`載入失敗：${e.message}`,`error`)}});
