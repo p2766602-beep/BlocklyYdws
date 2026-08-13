@@ -16,6 +16,13 @@ const lockStatus = document.getElementById('lockStatus');
 const courseCodeInput = document.getElementById('courseCodeInput');
 const btnLoadCourse = document.getElementById('btnLoadCourse');
 const courseStatus = document.getElementById('courseStatus');
+const bulkActionsSection = document.getElementById('bulkActionsSection');
+const btnBulkLoadableOn = document.getElementById('btnBulkLoadableOn');
+const btnBulkLoadableOff = document.getElementById('btnBulkLoadableOff');
+const bulkStatus = document.getElementById('bulkStatus');
+
+// 目前畫面上已載入的題卡清單，供批次全選/全不選按鈕使用。每次重新載入課程時會被清空重建。
+let currentTaskCards = [];
 
 function setStatus(el, text, kind) {
   el.textContent = text;
@@ -91,28 +98,71 @@ function renderTaskCard(task, override) {
   `;
 
   const saveButton = card.querySelector('.btnSaveTask');
+
+  saveButton.addEventListener('click', () => saveCardOverride(card, task));
+
+  return card;
+}
+
+// 儲存單一題卡目前狀態。targetLoadable有帶值時（批次按鈕呼叫）會先覆蓋checkbox勾選狀態
+// 再儲存；不帶值時（教師個別按「儲存」）沿用checkbox目前勾選狀態，行為不變。
+// 一定要先讀出xmlField/noteField目前值，因為Worker的POST /overrides是整包覆蓋、
+// 不是單欄位patch，漏帶等於把starterXml或教師備註清空。
+async function saveCardOverride(card, task, targetLoadable) {
   const saveStatus = card.querySelector('.task-save-status');
   const xmlField = card.querySelector('.starter-xml-field');
   const noteField = card.querySelector('.note-field');
   const loadableCheckbox = card.querySelector('.loadable-checkbox');
 
-  saveButton.addEventListener('click', async () => {
-    saveStatus.textContent = '儲存中...';
-    try {
-      const currentCourseCode = normalizeCourseCode(courseCodeInput.value);
-      await saveOverride(currentCourseCode, task.id, {
-        starterXml: xmlField.value,
-        loadable: loadableCheckbox.checked,
-        note: noteField.value,
-      });
-      saveStatus.textContent = '已儲存。';
-    } catch (error) {
-      saveStatus.textContent = `儲存失敗：${error.message}`;
-    }
-  });
+  if (targetLoadable !== undefined) {
+    loadableCheckbox.checked = targetLoadable;
+  }
 
-  return card;
+  saveStatus.textContent = '儲存中...';
+  try {
+    const currentCourseCode = normalizeCourseCode(courseCodeInput.value);
+    await saveOverride(currentCourseCode, task.id, {
+      starterXml: xmlField.value,
+      loadable: loadableCheckbox.checked,
+      note: noteField.value,
+    });
+    saveStatus.textContent = '已儲存。';
+    return true;
+  } catch (error) {
+    saveStatus.textContent = `儲存失敗：${error.message}`;
+    return false;
+  }
 }
+
+// 批次把目前載入的每一題都設成同一個loadable值。逐題循序送出（不是Promise.all並發），
+// 因為Worker端是「整包GET現況→改一題→整包PUT回去」，同課程底下並發送出會互相蓋掉彼此的結果。
+async function bulkSetLoadable(targetLoadable) {
+  if (currentTaskCards.length === 0) return;
+
+  btnBulkLoadableOn.disabled = true;
+  btnBulkLoadableOff.disabled = true;
+  setStatus(bulkStatus, '批次儲存中...', null);
+
+  let successCount = 0;
+  for (const { task, card } of currentTaskCards) {
+    // eslint-disable-next-line no-await-in-loop
+    const ok = await saveCardOverride(card, task, targetLoadable);
+    if (ok) successCount += 1;
+  }
+
+  const allOk = successCount === currentTaskCards.length;
+  setStatus(
+    bulkStatus,
+    `批次${targetLoadable ? '開啟' : '關閉'}完成：${successCount}/${currentTaskCards.length} 題成功。`,
+    allOk ? 'ok' : 'error'
+  );
+
+  btnBulkLoadableOn.disabled = false;
+  btnBulkLoadableOff.disabled = false;
+}
+
+btnBulkLoadableOn.addEventListener('click', () => bulkSetLoadable(true));
+btnBulkLoadableOff.addEventListener('click', () => bulkSetLoadable(false));
 
 function escapeHtml(value) {
   return String(value || '').replace(/[&<>"]/g, (c) => (
@@ -140,6 +190,9 @@ btnLoadCourse.addEventListener('click', async () => {
 
   setStatus(courseStatus, '載入中...', null);
   taskListSection.innerHTML = '';
+  currentTaskCards = [];
+  bulkActionsSection.hidden = true;
+  setStatus(bulkStatus, '', null);
 
   try {
     const [courseGroup, overrides] = await Promise.all([
@@ -155,8 +208,12 @@ btnLoadCourse.addEventListener('click', async () => {
     setStatus(courseStatus, `已載入 ${courseGroup.title || courseCode}，共 ${courseGroup.tasks.length} 題。`, 'ok');
 
     courseGroup.tasks.forEach((task) => {
-      taskListSection.appendChild(renderTaskCard(task, overrides[task.id]));
+      const card = renderTaskCard(task, overrides[task.id]);
+      currentTaskCards.push({ task, card });
+      taskListSection.appendChild(card);
     });
+
+    bulkActionsSection.hidden = currentTaskCards.length === 0;
   } catch (error) {
     setStatus(courseStatus, `載入失敗：${error.message}`, 'error');
   }
