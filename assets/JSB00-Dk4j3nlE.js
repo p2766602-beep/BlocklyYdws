@@ -12,7 +12,7 @@ Hello後面會接小寫逗號，還有一個空白輸入
 
 這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。`,input:``,output:``},examples:[{input:`Amy`,output:`Hello, Amy`,explanation:`第一個輸入 Amy，代表名字為 Amy
 程式輸出 Hello, Amy`},{input:`Tom`,output:`Hello, Tom`,explanation:`第一個輸入 Tom，代表名字為 Tom
-程式輸出 Hello, Amy`}],testCases:[{input:`Amy`,expectedOutput:`Hello, Amy`,output:`Hello, Amy`,score:50,hidden:!1},{input:`Tom`,expectedOutput:`Hello, Tom`,output:`Hello, Tom`,score:50,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+程式輸出 Hello, Amy`}],testCases:[{input:`John`,expectedOutput:`Hello, John`,output:`Hello, John`,score:10,hidden:!1},{input:`Marry`,expectedOutput:`Hello, Marry`,output:`Hello, Marry`,score:10,hidden:!1},{input:`Sam`,expectedOutput:`Hello, Sam`,output:`Hello, Sam`,score:10,hidden:!1},{input:`Tom`,expectedOutput:`Hello, Tom`,output:`Hello, Tom`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="var_name">名字</variable>
   </variables>
@@ -58,9 +58,11 @@ John`,output:`Amy, John, 一起學習吧！`,explanation:`第一個輸入 Amy，
 程式輸出 Amy, John, 一起學習吧！`},{input:`Tom
 Susan`,output:`Tom, Susan, 一起學習吧！`,explanation:`第一個輸入 Tom，代表第一個名字為 Tom
 第二個輸入 Susan，代表第二個名字為 Susan
-程式輸出 Tom, Susan, 一起學習吧！`}],testCases:[{input:`Amy
-John`,expectedOutput:`Amy, John, 一起學習吧！`,output:`Amy, John, 一起學習吧！`,score:50,hidden:!1},{input:`Tom
-Susan`,expectedOutput:`Tom, Susan, 一起學習吧！`,output:`Tom, Susan, 一起學習吧！`,score:50,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[],subConcepts:[],algorithm:[],dataStructure:[],syntax:[],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-02-0`,title:`數字加總`,problemTitle:`數字加總`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`當我們要處理數字時，常常需要加總。
+程式輸出 Tom, Susan, 一起學習吧！`}],testCases:[{input:`John
+Amy`,expectedOutput:`John, Amy, 一起學習吧！`,output:`John, Amy, 一起學習吧！`,score:10,hidden:!1},{input:`Tom
+Susan`,expectedOutput:`Tom, Susan, 一起學習吧！`,output:`Tom, Susan, 一起學習吧！`,score:10,hidden:!1},{input:`Sam
+Brown`,expectedOutput:`Sam, Brown, 一起學習吧！`,output:`Sam, Brown, 一起學習吧！`,score:10,hidden:!1},{input:`Justin
+Louise`,expectedOutput:`Justin, Louise, 一起學習吧！`,output:`Justin, Louise, 一起學習吧！`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[],subConcepts:[],algorithm:[],dataStructure:[],syntax:[],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-02-0`,title:`數字加總`,problemTitle:`數字加總`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`當我們要處理數字時，常常需要加總。
 
 請設計一個程式，讓使用者輸入兩個數字，程式要輸出這兩個數字的總和。
 
@@ -74,9 +76,11 @@ Susan`,expectedOutput:`Tom, Susan, 一起學習吧！`,output:`Tom, Susan, 一�
 程式輸出9+4總和13`},{input:`6
 5`,output:`11`,explanation:`第一個輸入6
 第二個輸入5
-程式輸出6+5總和11`}],testCases:[{input:`9
-4`,expectedOutput:`13`,output:`13`,score:50,hidden:!1},{input:`6
-5`,expectedOutput:`11`,output:`11`,score:50,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+程式輸出6+5總和11`}],testCases:[{input:`3
+7`,expectedOutput:`10`,output:`10`,score:10,hidden:!1},{input:`99
+100`,expectedOutput:`199`,output:`199`,score:10,hidden:!1},{input:`78
+22`,expectedOutput:`100`,output:`100`,score:10,hidden:!1},{input:`21
+35`,expectedOutput:`56`,output:`56`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="var_a">數字一</variable>
     <variable id="var_b">數字二</variable>
@@ -130,9 +134,11 @@ Susan`,expectedOutput:`Tom, Susan, 一起學習吧！`,output:`Tom, Susan, 一�
 程式輸出9、4的平均四捨五入取整數7`},{input:`6
 5`,output:`6`,explanation:`第一個輸入6
 第二個輸入5
-程式輸出6、5的平均四捨五入取整數6`}],testCases:[{input:`9
-4`,expectedOutput:`7`,output:`7`,score:50,hidden:!1},{input:`6
-5`,expectedOutput:`6`,output:`6`,score:50,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[],subConcepts:[],algorithm:[],dataStructure:[],syntax:[],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-03-0`,title:`比較大小`,problemTitle:`比較大小`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`在生活中常常會需要比較兩個數字誰比較大。
+程式輸出6、5的平均四捨五入取整數6`}],testCases:[{input:`3
+7`,expectedOutput:`5`,output:`5`,score:10,hidden:!1},{input:`99
+100`,expectedOutput:`100`,output:`100`,score:10,hidden:!1},{input:`78
+22`,expectedOutput:`50`,output:`50`,score:10,hidden:!1},{input:`21
+35`,expectedOutput:`28`,output:`28`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[],subConcepts:[],algorithm:[],dataStructure:[],syntax:[],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-03-0`,title:`比較大小`,problemTitle:`比較大小`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`practice`,blocklyFit:`高`,requiresGreenFlag:!0,description:`在生活中常常會需要比較兩個數字誰比較大。
 
 請寫一個程式，輸入兩個整數，輸出較大的數字。
 
