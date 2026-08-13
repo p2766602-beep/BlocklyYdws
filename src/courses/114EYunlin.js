@@ -1,0 +1,411 @@
+// Hand-authored by Claude from YDWS-CodingBank/txtFile/114EYunlin.txt，每題starterXml皆用
+// headless Blockly harness（verify.mjs）驗證過100%通過，學習模式（含範例答案）。
+
+const course = {
+  "code": "114EYunlin",
+  "title": "114-雲林縣國小",
+  "type": "programming",
+  "mode": "learning",
+  "description": "114-雲林縣國小114學年度科技教育創意實作競賽題庫",
+  "source": {
+    "project": "YDWS-CodingBank",
+    "generatedAt": "2026-08-13T08:59:31.917Z",
+    "sourceTxt": "txtFile/114EYunlin.txt",
+    "version": "manual-blockly-build-verified"
+  },
+  "tasks": [
+    {
+      "id": "114EYunlin-1",
+      "title": "1-圓柱體積計算",
+      "problemTitle": "1-圓柱體積計算",
+      "courseCode": "114EYunlin",
+      "courseName": "114-雲林縣國小",
+      "role": "contest",
+      "difficulty": "L2",
+      "blocklyFit": "中",
+      "description": "小明正在學習幾何，他知道圓柱體積的計算是測量一個立體形狀容積的重要方法。為了驗證計算結果，他想寫一個程式來計算圓柱體的體積。\n圓柱體積的計算公式為：圓柱體積 = 半徑 × 半徑 × 3.14 × 高\n【輸入格式】\n程式依序輸入\n1. 輸入圓柱體的底面半徑\n2. 輸入圓柱體的高度\n【輸出格式】\n程式會根據公式計算並輸出圓柱體體積。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "statement": {
+        "description": "小明正在學習幾何，他知道圓柱體積的計算是測量一個立體形狀容積的重要方法。為了驗證計算結果，他想寫一個程式來計算圓柱體的體積。\n圓柱體積的計算公式為：圓柱體積 = 半徑 × 半徑 × 3.14 × 高\n【輸入格式】\n程式依序輸入\n1. 輸入圓柱體的底面半徑\n2. 輸入圓柱體的高度\n【輸出格式】\n程式會根據公式計算並輸出圓柱體體積。",
+        "input": "",
+        "output": ""
+      },
+      "examples": [
+        {
+          "input": "3\n5",
+          "output": "141.3",
+          "explanation": "底面半徑：3\n高度：5\n體積 = 3 * 3 * 3.14 * 5 = 141.3"
+        }
+      ],
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t1_r\">R</variable><variable id=\"t1_h\">H</variable><variable id=\"t1_v\">V</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入半徑</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_r\">R</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入高度</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_h\">H</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_v\">V</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_r\">R</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_r\">R</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">3.14</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_h\">H</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_v\">V</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_v\">V</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_v\">V</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "testCases": [
+        {
+          "input": "2\n10",
+          "expectedOutput": "125.6",
+          "score": 10
+        },
+        {
+          "input": "3\n15",
+          "expectedOutput": "423.9",
+          "score": 10
+        },
+        {
+          "input": "1\n1",
+          "expectedOutput": "3.14",
+          "score": 10
+        },
+        {
+          "input": "10\n10",
+          "expectedOutput": "3140",
+          "score": 10
+        },
+        {
+          "input": "5\n20",
+          "expectedOutput": "1570",
+          "score": 10
+        },
+        {
+          "input": "20\n5",
+          "expectedOutput": "6280",
+          "score": 10
+        },
+        {
+          "input": "1.5\n4",
+          "expectedOutput": "28.26",
+          "score": 10
+        },
+        {
+          "input": "0.5\n10",
+          "expectedOutput": "7.85",
+          "score": 10
+        },
+        {
+          "input": "100\n1",
+          "expectedOutput": "31400",
+          "score": 10
+        },
+        {
+          "input": "8\n8",
+          "expectedOutput": "1607.68",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "id": "114EYunlin-2",
+      "title": "2-身體質量指數計算與健康判斷",
+      "problemTitle": "2-身體質量指數計算與健康判斷",
+      "courseCode": "114EYunlin",
+      "courseName": "114-雲林縣國小",
+      "role": "contest",
+      "difficulty": "L2",
+      "blocklyFit": "中",
+      "description": "小康非常注重身體健康，他知道身體質量指數(BMI)是一個常用的健康指標。為了方便計算，他想寫一個程式來快速算出自己的 BMI 值，並能判斷肥胖程度是標準、過輕還是過重。\nBMI 的計算公式為： BMI = 體重(公斤) / [身高(公尺) × 身高(公尺)]\n肥胖狀態判斷標準：\n• BMI &lt; 18.5 → 過輕\n• 18.5 ≤ BMI &lt; 24 → 標準\n• BMI ≥ 24 → 過重\n【輸入格式】\n程式依序輸入\n1. 輸入體重(公斤)\n2. 輸入身高(公尺)\n【輸出格式】\n程式會根據公式計算並輸出 BMI 值 (通常建議四捨五入到小數點後兩位)，並判斷並輸出對應的肥胖狀態。(以空白分隔)",
+      "inputDescription": "",
+      "outputDescription": "",
+      "statement": {
+        "description": "小康非常注重身體健康，他知道身體質量指數(BMI)是一個常用的健康指標。為了方便計算，他想寫一個程式來快速算出自己的 BMI 值，並能判斷肥胖程度是標準、過輕還是過重。\nBMI 的計算公式為： BMI = 體重(公斤) / [身高(公尺) × 身高(公尺)]\n肥胖狀態判斷標準：\n• BMI &lt; 18.5 → 過輕\n• 18.5 ≤ BMI &lt; 24 → 標準\n• BMI ≥ 24 → 過重\n【輸入格式】\n程式依序輸入\n1. 輸入體重(公斤)\n2. 輸入身高(公尺)\n【輸出格式】\n程式會根據公式計算並輸出 BMI 值 (通常建議四捨五入到小數點後兩位)，並判斷並輸出對應的肥胖狀態。(以空白分隔)",
+        "input": "",
+        "output": ""
+      },
+      "examples": [
+        {
+          "input": "60\n1.65",
+          "output": "22.04 標準",
+          "explanation": "體重(公斤)：60\n身高(公尺)：1.65\nBMI = 60 / (1.65 * 1.65) = 22.04，標準"
+        }
+      ],
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t2_w\">W</variable><variable id=\"t2_hgt\">HGT</variable><variable id=\"t2_bmi\">BMI</variable><variable id=\"t2_status\">status</variable><variable id=\"t2_out\">out</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入體重(公斤)</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_w\">W</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入身高(公尺)</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_hgt\">HGT</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_bmi\">BMI</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_w\">W</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_hgt\">HGT</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_hgt\">HGT</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"1\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_bmi\">BMI</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">18.5</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_status\">status</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">過輕</field></block></value></block></statement><value name=\"IF1\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_bmi\">BMI</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">24</field></block></value></block></value><statement name=\"DO1\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_status\">status</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">標準</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_status\">status</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">過重</field></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_bmi\">BMI</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_status\">status</field></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_out\">out</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "testCases": [
+        {
+          "input": "88\n1.8",
+          "expectedOutput": "27.16 過重",
+          "score": 10
+        },
+        {
+          "input": "35\n1.65",
+          "expectedOutput": "12.86 過輕",
+          "score": 10
+        },
+        {
+          "input": "65\n1.7",
+          "expectedOutput": "22.49 標準",
+          "score": 10
+        },
+        {
+          "input": "75\n1.75",
+          "expectedOutput": "24.49 過重",
+          "score": 10
+        },
+        {
+          "input": "50\n1.6",
+          "expectedOutput": "19.53 標準",
+          "score": 10
+        },
+        {
+          "input": "40\n1.5",
+          "expectedOutput": "17.78 過輕",
+          "score": 10
+        },
+        {
+          "input": "100\n2.0",
+          "expectedOutput": "25 過重",
+          "score": 10,
+          "output": "25 過重"
+        },
+        {
+          "input": "55\n1.75",
+          "expectedOutput": "17.96 過輕",
+          "score": 10
+        },
+        {
+          "input": "70\n1.75",
+          "expectedOutput": "22.86 標準",
+          "score": 10
+        },
+        {
+          "input": "80\n1.8",
+          "expectedOutput": "24.69 過重",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "id": "114EYunlin-3",
+      "title": "3-房間木地板的購買計算",
+      "problemTitle": "3-房間木地板的購買計算",
+      "courseCode": "114EYunlin",
+      "courseName": "114-雲林縣國小",
+      "role": "contest",
+      "difficulty": "L2",
+      "blocklyFit": "中",
+      "description": "雲雲是一位室內設計師，想要為客戶把房間的地板換成木地板。他挑選的木地板規格是：長 60 公分、寬 20 公分。已知每包木地板有 20 片，且木地板可以切割拼鋪。客戶房間地板的長、寬皆不相同是以公尺計算，雲雲需要計算「最少要購買幾包貼片」才能鋪滿整個房間。(註：一定要買整包的數量，不可以買 3.5 包)\n【輸入格式】\n程式依序輸入：\n1. 輸入房間的長度(公尺)\n2. 輸入房間的寬度(公尺)\n【輸出格式】\n程式會計算並輸出雲雲最少需要購買的木地板包數。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "statement": {
+        "description": "雲雲是一位室內設計師，想要為客戶把房間的地板換成木地板。他挑選的木地板規格是：長 60 公分、寬 20 公分。已知每包木地板有 20 片，且木地板可以切割拼鋪。客戶房間地板的長、寬皆不相同是以公尺計算，雲雲需要計算「最少要購買幾包貼片」才能鋪滿整個房間。(註：一定要買整包的數量，不可以買 3.5 包)\n【輸入格式】\n程式依序輸入：\n1. 輸入房間的長度(公尺)\n2. 輸入房間的寬度(公尺)\n【輸出格式】\n程式會計算並輸出雲雲最少需要購買的木地板包數。",
+        "input": "",
+        "output": ""
+      },
+      "examples": [
+        {
+          "input": "3\n4",
+          "output": "5",
+          "explanation": "房間的長度(公尺)：3\n房間的寬度(公尺)：4\n面積 = 300 * 400 = 120000 平方公分\n每包面積 = 60 * 20 * 20 = 24000 平方公分\n120000 / 24000 = 5 包。"
+        }
+      ],
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t3_l\">L</variable><variable id=\"t3_w\">W</variable><variable id=\"t3_area\">area</variable><variable id=\"t3_tiles\">tiles</variable><variable id=\"t3_packs\">packs</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入房間長度(公尺)</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_l\">L</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入房間寬度(公尺)</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_w\">W</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_area\">area</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_l\">L</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_w\">W</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_tiles\">tiles</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUNDUP</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_area\">area</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0.12</field></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_packs\">packs</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUNDUP</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_tiles\">tiles</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">20</field></block></value></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_packs\">packs</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "testCases": [
+        {
+          "input": "5\n3.5",
+          "expectedOutput": "8",
+          "score": 10
+        },
+        {
+          "input": "7\n4",
+          "expectedOutput": "12",
+          "score": 10
+        },
+        {
+          "input": "6\n4",
+          "expectedOutput": "10",
+          "score": 10
+        },
+        {
+          "input": "4\n4",
+          "expectedOutput": "7",
+          "score": 10
+        },
+        {
+          "input": "1\n2.4",
+          "expectedOutput": "1",
+          "score": 10
+        },
+        {
+          "input": "10\n10",
+          "expectedOutput": "42",
+          "score": 10
+        },
+        {
+          "input": "2.5\n2.5",
+          "expectedOutput": "3",
+          "score": 10
+        },
+        {
+          "input": "3.6\n4.8",
+          "expectedOutput": "8",
+          "score": 10
+        },
+        {
+          "input": "8\n5",
+          "expectedOutput": "17",
+          "score": 10
+        },
+        {
+          "input": "5.5\n4.5",
+          "expectedOutput": "11",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "id": "114EYunlin-4",
+      "title": "4-美味餐車三明治多重折扣與利潤計算",
+      "problemTitle": "4-美味餐車三明治多重折扣與利潤計算",
+      "courseCode": "114EYunlin",
+      "courseName": "114-雲林縣國小",
+      "role": "contest",
+      "difficulty": "L2",
+      "blocklyFit": "中",
+      "description": "美味餐車販售三明治。老闆決定讓三明治的成本可以彈性輸入。餐車制定售價的方式保持不變：三明治的售價是成本再加 50% 來制定。(售價 = 成本 * 1.5)\n為了促銷，餐車設有兩段折扣：每日上午 11 點過後(包含 11 點)實施打八折優惠，而上午 12 點過後(包含 12 點)則會實施更低的打六折優惠。\n老闆想知道，在不同折扣時段，三明治是否仍有利潤，以及具體賺或是賠多少錢。(有利潤就是賺錢；無利潤就是賠錢)\n【輸入格式】\n程式依序輸入\n1. 輸入三明治的成本\n2. 輸入折扣時段 (如 11、12)\n【輸出格式】\n程式會計算並輸出不同時段有無利潤及賺或賠的金額。例如：「有利潤賺4元」或「無利潤賠X元」。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "statement": {
+        "description": "美味餐車販售三明治。老闆決定讓三明治的成本可以彈性輸入。餐車制定售價的方式保持不變：三明治的售價是成本再加 50% 來制定。(售價 = 成本 * 1.5)\n為了促銷，餐車設有兩段折扣：每日上午 11 點過後(包含 11 點)實施打八折優惠，而上午 12 點過後(包含 12 點)則會實施更低的打六折優惠。\n老闆想知道，在不同折扣時段，三明治是否仍有利潤，以及具體賺或是賠多少錢。(有利潤就是賺錢；無利潤就是賠錢)\n【輸入格式】\n程式依序輸入\n1. 輸入三明治的成本\n2. 輸入折扣時段 (如 11、12)\n【輸出格式】\n程式會計算並輸出不同時段有無利潤及賺或賠的金額。例如：「有利潤賺4元」或「無利潤賠X元」。",
+        "input": "",
+        "output": ""
+      },
+      "examples": [
+        {
+          "input": "20\n11",
+          "output": "有利潤賺4元",
+          "explanation": "三明治的成本：20\n折扣時段：11\n售價 = 20 * 1.5 = 30\n11點打八折 = 30 * 0.8 = 24\n利潤 = 24 - 20 = 4\n故輸出有利潤賺4元。"
+        }
+      ],
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t4_cost\">cost</variable><variable id=\"t4_hour\">hour</variable><variable id=\"t4_price\">price</variable><variable id=\"t4_sell\">sell</variable><variable id=\"t4_profit\">profit</variable><variable id=\"t4_out\">out</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入成本</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_cost\">cost</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入時段</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_hour\">hour</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_price\">price</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cost\">cost</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1.5</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"1\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_hour\">hour</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">12</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_sell\">sell</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_price\">price</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0.6</field></block></value></block></value></block></statement><value name=\"IF1\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_hour\">hour</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">11</field></block></value></block></value><statement name=\"DO1\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_sell\">sell</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_price\">price</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0.8</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_sell\">sell</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_price\">price</field></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_profit\">profit</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_sell\">sell</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cost\">cost</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_profit\">profit</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\">有利潤賺</field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_profit\">profit</field></block></value><value name=\"ADD2\"><block type=\"text\"><field name=\"TEXT\">元</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\">無利潤賠</field></block></value><value name=\"ADD1\"><block type=\"math_single\"><field name=\"OP\">ABS</field><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_profit\">profit</field></block></value></block></value><value name=\"ADD2\"><block type=\"text\"><field name=\"TEXT\">元</field></block></value></block></value></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_out\">out</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "testCases": [
+        {
+          "input": "40\n11",
+          "expectedOutput": "有利潤賺8元",
+          "score": 10
+        },
+        {
+          "input": "35\n12",
+          "expectedOutput": "無利潤賠3.5元",
+          "score": 10
+        },
+        {
+          "input": "50\n10",
+          "expectedOutput": "有利潤賺25元",
+          "score": 10
+        },
+        {
+          "input": "100\n12",
+          "expectedOutput": "無利潤賠10元",
+          "score": 10
+        },
+        {
+          "input": "30\n11",
+          "expectedOutput": "有利潤賺6元",
+          "score": 10
+        },
+        {
+          "input": "60\n12",
+          "expectedOutput": "無利潤賠6元",
+          "score": 10
+        },
+        {
+          "input": "25\n11",
+          "expectedOutput": "有利潤賺5元",
+          "score": 10
+        },
+        {
+          "input": "80\n9",
+          "expectedOutput": "有利潤賺40元",
+          "score": 10
+        },
+        {
+          "input": "45\n12",
+          "expectedOutput": "無利潤賠4.5元",
+          "score": 10
+        },
+        {
+          "input": "10\n11",
+          "expectedOutput": "有利潤賺2元",
+          "score": 10
+        }
+      ]
+    },
+    {
+      "id": "114EYunlin-5",
+      "title": "5-電費分段計價",
+      "problemTitle": "5-電費分段計價",
+      "courseCode": "114EYunlin",
+      "courseName": "114-雲林縣國小",
+      "role": "contest",
+      "difficulty": "L2",
+      "blocklyFit": "中",
+      "description": "為了鼓勵節約用電，電力公司實施分段計價(或稱累進費率)制度，電費會依照不同使用量有不同的費率。小蔡想了解他家用電量對應的總電費，因此需要一個程式來進行計算。\n假設分段計價標準如下(僅為範例)：\n1. 0~120度：每度電費 1.63 元。\n2. 121~330度：超出120度至330度的部分電費率為每度 2.38 元。\n3. 331度以上：超出330度的部分電費率為每度 3.52 元。\n例如：\n用電度數為290度，則\n前120度：120(度) × 1.63(元) = 195.6元\n121度至290度：170(度) × 2.38(元) = 404.6元\n總電費 = 195.6 + 404.6 = 600.2，四捨五入至整數，故輸出總電費 600。\n【輸入格式】\n程式輸入該期總用電度數。\n【輸出格式】\n程式會根據分段計價標準計算總電費並輸出計算後的總電費(四捨五入取整數)。",
+      "inputDescription": "",
+      "outputDescription": "",
+      "statement": {
+        "description": "為了鼓勵節約用電，電力公司實施分段計價(或稱累進費率)制度，電費會依照不同使用量有不同的費率。小蔡想了解他家用電量對應的總電費，因此需要一個程式來進行計算。\n假設分段計價標準如下(僅為範例)：\n1. 0~120度：每度電費 1.63 元。\n2. 121~330度：超出120度至330度的部分電費率為每度 2.38 元。\n3. 331度以上：超出330度的部分電費率為每度 3.52 元。\n例如：\n用電度數為290度，則\n前120度：120(度) × 1.63(元) = 195.6元\n121度至290度：170(度) × 2.38(元) = 404.6元\n總電費 = 195.6 + 404.6 = 600.2，四捨五入至整數，故輸出總電費 600。\n【輸入格式】\n程式輸入該期總用電度數。\n【輸出格式】\n程式會根據分段計價標準計算總電費並輸出計算後的總電費(四捨五入取整數)。",
+        "input": "",
+        "output": ""
+      },
+      "examples": [
+        {
+          "input": "100",
+          "output": "163",
+          "explanation": "該期總用電度數 100。\n100 * 1.63 = 163。"
+        }
+      ],
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t5_d\">D</variable><variable id=\"t5_tier1\">tier1</variable><variable id=\"t5_tier2\">tier2</variable><variable id=\"t5_tier3\">tier3</variable><variable id=\"t5_total\">total</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入用電度數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_d\">D</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_d\">D</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">120</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_tier1\">tier1</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_d\">D</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1.63</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_tier1\">tier1</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">120</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1.63</field></block></value></block></value></block></statement><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_d\">D</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">120</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_tier2\">tier2</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_d\">D</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">330</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_tier2\">tier2</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_d\">D</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">120</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2.38</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_tier2\">tier2</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">210</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2.38</field></block></value></block></value></block></statement></block></statement><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_d\">D</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">330</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_tier3\">tier3</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_d\">D</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">330</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">3.52</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_tier3\">tier3</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_total\">total</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_tier1\">tier1</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_tier2\">tier2</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_tier3\">tier3</field></block></value></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_total\">total</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "testCases": [
+        {
+          "input": "350",
+          "expectedOutput": "766",
+          "score": 10
+        },
+        {
+          "input": "240",
+          "expectedOutput": "481",
+          "score": 10
+        },
+        {
+          "input": "120",
+          "expectedOutput": "196",
+          "score": 10
+        },
+        {
+          "input": "330",
+          "expectedOutput": "695",
+          "score": 10
+        },
+        {
+          "input": "50",
+          "expectedOutput": "82",
+          "score": 10
+        },
+        {
+          "input": "121",
+          "expectedOutput": "198",
+          "score": 10
+        },
+        {
+          "input": "331",
+          "expectedOutput": "699",
+          "score": 10
+        },
+        {
+          "input": "500",
+          "expectedOutput": "1294",
+          "score": 10
+        },
+        {
+          "input": "1000",
+          "expectedOutput": "3054",
+          "score": 10
+        },
+        {
+          "input": "0",
+          "expectedOutput": "0",
+          "score": 10
+        }
+      ]
+    }
+  ]
+};
+
+export default course;
