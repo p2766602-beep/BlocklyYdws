@@ -1,4 +1,4 @@
-var e={code:`114TCPE16`,title:`114-雲林縣國小（競賽模式）`,type:`programming`,mode:`contest`,description:`114-雲林縣國小114學年度科技教育創意實作競賽題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-13T09:14:56.834Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-雲林縣國小`,version:`manual-transcription-verified`,convertedFrom:`114EYunlin`,convertedAt:`2026-08-13T09:14:56.834Z`,note:`競賽模式版本：由對應學習模式課程複製轉換而來（原課程仍以學習模式繼續上架，互不影響）。starterXml已清空，測資正確答案僅保留在這份canonical檔案與各平台Worker的私密answerKeys.json，兩平台公開JS檔案已移除。`},tasks:[{id:`114TCPE16-1`,title:`1-圓柱體積計算`,problemTitle:`1-圓柱體積計算`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,description:`小明正在學習幾何，他知道圓柱體積的計算是測量一個立體形狀容積的重要方法。為了驗證計算結果，他想寫一個程式來計算圓柱體的體積。
+var e={code:`114TCPE16`,title:`114-雲林縣國小（競賽模式）`,type:`programming`,mode:`contest`,description:`114-雲林縣國小114學年度科技教育創意實作競賽題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-13T09:14:56.834Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-雲林縣國小`,version:`manual-transcription-verified`,convertedFrom:`114EYunlin`,convertedAt:`2026-08-13T09:14:56.834Z`,note:`競賽模式版本：由對應學習模式課程複製轉換而來（原課程仍以學習模式繼續上架，互不影響）。starterXml已清空，測資正確答案僅保留在這份canonical檔案與各平台Worker的私密answerKeys.json，兩平台公開JS檔案已移除。`},tasks:[{id:`114TCPE16-1`,title:`1-圓柱體積計算`,problemTitle:`1-圓柱體積計算`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,requiresGreenFlag:!0,description:`小明正在學習幾何，他知道圓柱體積的計算是測量一個立體形狀容積的重要方法。為了驗證計算結果，他想寫一個程式來計算圓柱體的體積。
 圓柱體積的計算公式為：圓柱體積 = 半徑 × 半徑 × 3.14 × 高
 【輸入格式】
 程式依序輸入
@@ -25,7 +25,7 @@ var e={code:`114TCPE16`,title:`114-雲林縣國小（競賽模式）`,type:`prog
 4`,score:10},{input:`0.5
 10`,score:10},{input:`100
 1`,score:10},{input:`8
-8`,score:10}]},{id:`114TCPE16-2`,title:`2-身體質量指數計算與健康判斷`,problemTitle:`2-身體質量指數計算與健康判斷`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,description:`小康非常注重身體健康，他知道身體質量指數(BMI)是一個常用的健康指標。為了方便計算，他想寫一個程式來快速算出自己的 BMI 值，並能判斷肥胖程度是標準、過輕還是過重。
+8`,score:10}]},{id:`114TCPE16-2`,title:`2-身體質量指數計算與健康判斷`,problemTitle:`2-身體質量指數計算與健康判斷`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,requiresGreenFlag:!0,description:`小康非常注重身體健康，他知道身體質量指數(BMI)是一個常用的健康指標。為了方便計算，他想寫一個程式來快速算出自己的 BMI 值，並能判斷肥胖程度是標準、過輕還是過重。
 BMI 的計算公式為： BMI = 體重(公斤) / [身高(公尺) × 身高(公尺)]
 肥胖狀態判斷標準：
 • BMI &lt; 18.5 → 過輕
@@ -60,7 +60,7 @@ BMI = 60 / (1.65 * 1.65) = 22.04，標準`}],starterXml:``,testCases:[{input:`88
 2.0`,score:10},{input:`55
 1.75`,score:10},{input:`70
 1.75`,score:10},{input:`80
-1.8`,score:10}]},{id:`114TCPE16-3`,title:`3-房間木地板的購買計算`,problemTitle:`3-房間木地板的購買計算`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,description:`雲雲是一位室內設計師，想要為客戶把房間的地板換成木地板。他挑選的木地板規格是：長 60 公分、寬 20 公分。已知每包木地板有 20 片，且木地板可以切割拼鋪。客戶房間地板的長、寬皆不相同是以公尺計算，雲雲需要計算「最少要購買幾包貼片」才能鋪滿整個房間。(註：一定要買整包的數量，不可以買 3.5 包)
+1.8`,score:10}]},{id:`114TCPE16-3`,title:`3-房間木地板的購買計算`,problemTitle:`3-房間木地板的購買計算`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,requiresGreenFlag:!0,description:`雲雲是一位室內設計師，想要為客戶把房間的地板換成木地板。他挑選的木地板規格是：長 60 公分、寬 20 公分。已知每包木地板有 20 片，且木地板可以切割拼鋪。客戶房間地板的長、寬皆不相同是以公尺計算，雲雲需要計算「最少要購買幾包貼片」才能鋪滿整個房間。(註：一定要買整包的數量，不可以買 3.5 包)
 【輸入格式】
 程式依序輸入：
 1. 輸入房間的長度(公尺)
@@ -87,7 +87,7 @@ BMI = 60 / (1.65 * 1.65) = 22.04，標準`}],starterXml:``,testCases:[{input:`88
 2.5`,score:10},{input:`3.6
 4.8`,score:10},{input:`8
 5`,score:10},{input:`5.5
-4.5`,score:10}]},{id:`114TCPE16-4`,title:`4-美味餐車三明治多重折扣與利潤計算`,problemTitle:`4-美味餐車三明治多重折扣與利潤計算`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,description:`美味餐車販售三明治。老闆決定讓三明治的成本可以彈性輸入。餐車制定售價的方式保持不變：三明治的售價是成本再加 50% 來制定。(售價 = 成本 * 1.5)
+4.5`,score:10}]},{id:`114TCPE16-4`,title:`4-美味餐車三明治多重折扣與利潤計算`,problemTitle:`4-美味餐車三明治多重折扣與利潤計算`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,requiresGreenFlag:!0,description:`美味餐車販售三明治。老闆決定讓三明治的成本可以彈性輸入。餐車制定售價的方式保持不變：三明治的售價是成本再加 50% 來制定。(售價 = 成本 * 1.5)
 為了促銷，餐車設有兩段折扣：每日上午 11 點過後(包含 11 點)實施打八折優惠，而上午 12 點過後(包含 12 點)則會實施更低的打六折優惠。
 老闆想知道，在不同折扣時段，三明治是否仍有利潤，以及具體賺或是賠多少錢。(有利潤就是賺錢；無利潤就是賠錢)
 【輸入格式】
@@ -119,7 +119,7 @@ BMI = 60 / (1.65 * 1.65) = 22.04，標準`}],starterXml:``,testCases:[{input:`88
 11`,score:10},{input:`80
 9`,score:10},{input:`45
 12`,score:10},{input:`10
-11`,score:10}]},{id:`114TCPE16-5`,title:`5-電費分段計價`,problemTitle:`5-電費分段計價`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,description:`為了鼓勵節約用電，電力公司實施分段計價(或稱累進費率)制度，電費會依照不同使用量有不同的費率。小蔡想了解他家用電量對應的總電費，因此需要一個程式來進行計算。
+11`,score:10}]},{id:`114TCPE16-5`,title:`5-電費分段計價`,problemTitle:`5-電費分段計價`,courseCode:`114TCPE16`,courseName:`114-雲林縣國小（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,requiresGreenFlag:!0,description:`為了鼓勵節約用電，電力公司實施分段計價(或稱累進費率)制度，電費會依照不同使用量有不同的費率。小蔡想了解他家用電量對應的總電費，因此需要一個程式來進行計算。
 假設分段計價標準如下(僅為範例)：
 1. 0~120度：每度電費 1.63 元。
 2. 121~330度：超出120度至330度的部分電費率為每度 2.38 元。

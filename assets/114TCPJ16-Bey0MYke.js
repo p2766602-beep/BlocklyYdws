@@ -1,4 +1,4 @@
-var e={code:`114TCPJ16`,title:`114-雲林縣國中（競賽模式）`,type:`programming`,mode:`contest`,description:`114-雲林縣國中114學年度科技教育創意實作競賽題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-18T10:13:03.450Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-雲林縣國中`,version:`manual-transcription-verified`,convertedFrom:`114JYunlin`,convertedAt:`2026-08-18T10:13:03.451Z`,note:`競賽模式版本：由對應學習模式課程複製轉換而來（原課程仍以學習模式繼續上架，互不影響）。starterXml已清空，測資正確答案僅保留在這份canonical檔案與各平台Worker的私密answerKeys.json，兩平台公開JS檔案已移除。2026-08修正版：取代原本誤植為嘉義縣重複內容的舊版。`},tasks:[{id:`114TCPJ16-1`,title:`1-秒數轉換`,problemTitle:`1-秒數轉換`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L1`,blocklyFit:`高`,description:`體育課跑步計時器會記錄「總秒數」，但老師希望顯示成「幾分幾秒」的格式。
+var e={code:`114TCPJ16`,title:`114-雲林縣國中（競賽模式）`,type:`programming`,mode:`contest`,description:`114-雲林縣國中114學年度科技教育創意實作競賽題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-18T10:13:03.450Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-雲林縣國中`,version:`manual-transcription-verified`,convertedFrom:`114JYunlin`,convertedAt:`2026-08-18T10:13:03.451Z`,note:`競賽模式版本：由對應學習模式課程複製轉換而來（原課程仍以學習模式繼續上架，互不影響）。starterXml已清空，測資正確答案僅保留在這份canonical檔案與各平台Worker的私密answerKeys.json，兩平台公開JS檔案已移除。2026-08修正版：取代原本誤植為嘉義縣重複內容的舊版。`},tasks:[{id:`114TCPJ16-1`,title:`1-秒數轉換`,problemTitle:`1-秒數轉換`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L1`,blocklyFit:`高`,requiresGreenFlag:!0,description:`體育課跑步計時器會記錄「總秒數」，但老師希望顯示成「幾分幾秒」的格式。
 請輸入一個整數，代表「總秒數」。
 再將其轉換為：
 • X 分鐘數（整數）
@@ -14,7 +14,7 @@ var e={code:`114TCPJ16`,title:`114-雲林縣國中（競賽模式）`,type:`prog
 【輸入格式】
 一個整數代表總秒數。
 【輸出格式】
-輸出格式：X 分 Y 秒。(請注意格式中含空格，例如「2 分 5 秒」)`,input:``,output:``},examples:[{input:`125`,output:`2 分 5 秒`,explanation:`125 秒 = 2 分 5 秒。所以輸出 2 分 5 秒。`}],starterXml:``,testCases:[{input:`125`,score:10},{input:`360`,score:10},{input:`59`,score:10},{input:`60`,score:10},{input:`0`,score:10},{input:`3599`,score:10},{input:`3600`,score:10},{input:`7325`,score:10},{input:`1`,score:10},{input:`10000`,score:10}]},{id:`114TCPJ16-2`,title:`2-分段費率計算`,problemTitle:`2-分段費率計算`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,description:`某城市推出新的「用電費率計算器」。
+輸出格式：X 分 Y 秒。(請注意格式中含空格，例如「2 分 5 秒」)`,input:``,output:``},examples:[{input:`125`,output:`2 分 5 秒`,explanation:`125 秒 = 2 分 5 秒。所以輸出 2 分 5 秒。`}],starterXml:``,testCases:[{input:`125`,score:10},{input:`360`,score:10},{input:`59`,score:10},{input:`60`,score:10},{input:`0`,score:10},{input:`3599`,score:10},{input:`3600`,score:10},{input:`7325`,score:10},{input:`1`,score:10},{input:`10000`,score:10}]},{id:`114TCPJ16-2`,title:`2-分段費率計算`,problemTitle:`2-分段費率計算`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`某城市推出新的「用電費率計算器」。
 電費會依照不同使用量有不同費率：
 • 0–100 度：每度 1.68 元
 • 101–300 度：超過 100 度的部分，每度 2.45 元
@@ -44,7 +44,7 @@ var e={code:`114TCPJ16`,title:`114-雲林縣國中（競賽模式）`,type:`prog
 【輸入格式】
 一個整數代表本月用電度數。
 【輸出格式】
-一個整數代表總電費，或字串 ERROR。`,input:``,output:``},examples:[{input:`250`,output:`536`,explanation:`因使用 250 度，故前 100 度→1.68×100=168，接著 150 度→2.45×150=367.5，總計 535.5。所以輸出 536。`}],starterXml:``,testCases:[{input:`250`,score:10},{input:`50`,score:10},{input:`350`,score:10},{input:`100`,score:10},{input:`300`,score:10},{input:`0`,score:10},{input:`-1`,score:10},{input:`-50`,score:10},{input:`400`,score:10},{input:`101`,score:10}]},{id:`114TCPJ16-3`,title:`3-BMI 健康判定`,problemTitle:`3-BMI 健康判定`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,description:`利用程式計算 BMI，並根據 BMI 判斷健康狀態。
+一個整數代表總電費，或字串 ERROR。`,input:``,output:``},examples:[{input:`250`,output:`536`,explanation:`因使用 250 度，故前 100 度→1.68×100=168，接著 150 度→2.45×150=367.5，總計 535.5。所以輸出 536。`}],starterXml:``,testCases:[{input:`250`,score:10},{input:`50`,score:10},{input:`350`,score:10},{input:`100`,score:10},{input:`300`,score:10},{input:`0`,score:10},{input:`-1`,score:10},{input:`-50`,score:10},{input:`400`,score:10},{input:`101`,score:10}]},{id:`114TCPJ16-3`,title:`3-BMI 健康判定`,problemTitle:`3-BMI 健康判定`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`利用程式計算 BMI，並根據 BMI 判斷健康狀態。
 BMI 的計算方式為：
 BMI = 體重(公斤) ÷ (身高(公尺))²
 健康狀態判定如下：
@@ -90,7 +90,7 @@ BMI = 體重(公斤) ÷ (身高(公尺))²
 1.6`,score:10},{input:`45
 1.6`,score:10},{input:`61.44
 1.6`,score:10},{input:`69.12
-1.6`,score:10}]},{id:`114TCPJ16-4`,title:`4-成績統計`,problemTitle:`4-成績統計`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,description:`老師要統計班上這次月考的成績情形。
+1.6`,score:10}]},{id:`114TCPJ16-4`,title:`4-成績統計`,problemTitle:`4-成績統計`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`老師要統計班上這次月考的成績情形。
 請先輸入學生人數，接著輸入 N 個整數（每位學生的分數）。
 你的程式需要：
 1. 計算 平均分數（四捨五入到整數位）
@@ -128,7 +128,7 @@ BMI = 體重(公斤) ÷ (身高(公尺))²
 90 90 90 92`,score:10},{input:`5
 0 0 0 0 0`,score:10},{input:`1
 100`,score:10},{input:`5
-10 20 30 40 50`,score:10}]},{id:`114TCPJ16-5`,title:`5-手機電量充電模擬`,problemTitle:`5-手機電量充電模擬`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L1`,blocklyFit:`高`,description:`小華的手機目前電量為 B%。
+10 20 30 40 50`,score:10}]},{id:`114TCPJ16-5`,title:`5-手機電量充電模擬`,problemTitle:`5-手機電量充電模擬`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L1`,blocklyFit:`高`,requiresGreenFlag:!0,description:`小華的手機目前電量為 B%。
 他將手機接上充電器，充電速度如下：
 • 每分鐘增加 2% 電量
 • 最高只能充到 100%

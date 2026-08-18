@@ -1,4 +1,4 @@
-var e={code:`114TCPJ15`,title:`114-桃園市國中（競賽模式）`,type:`programming`,mode:`contest`,description:`114-桃園市國中114學年度科技教育創意實作競賽題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-13T09:14:56.828Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-桃園市國中`,version:`manual-transcription-verified`,convertedFrom:`114JTaoyuan`,convertedAt:`2026-08-13T09:14:56.828Z`,note:`競賽模式版本：由對應學習模式課程複製轉換而來（原課程仍以學習模式繼續上架，互不影響）。starterXml已清空，測資正確答案僅保留在這份canonical檔案與各平台Worker的私密answerKeys.json，兩平台公開JS檔案已移除。`},tasks:[{id:`114TCPJ15-1`,title:`第1題-購買紀念品`,problemTitle:`第1題-購買紀念品`,courseCode:`114TCPJ15`,courseName:`114-桃園市國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`中`,description:`小明趁日幣貶值特別飛去日本旅遊，準備回國時，發現還有一些日幣還沒花完，於是想要去紀念品店買紀念品來送給他的好朋友。他想要盡量把身上的日幣都花完，來買到最多的紀念品。請你寫一個程式幫他判斷，如何盡量花完所有剩下的日幣情況下，可以買到最多幾件紀念品。
+var e={code:`114TCPJ15`,title:`114-桃園市國中（競賽模式）`,type:`programming`,mode:`contest`,description:`114-桃園市國中114學年度科技教育創意實作競賽題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-13T09:14:56.828Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-桃園市國中`,version:`manual-transcription-verified`,convertedFrom:`114JTaoyuan`,convertedAt:`2026-08-13T09:14:56.828Z`,note:`競賽模式版本：由對應學習模式課程複製轉換而來（原課程仍以學習模式繼續上架，互不影響）。starterXml已清空，測資正確答案僅保留在這份canonical檔案與各平台Worker的私密answerKeys.json，兩平台公開JS檔案已移除。`},tasks:[{id:`114TCPJ15-1`,title:`第1題-購買紀念品`,problemTitle:`第1題-購買紀念品`,courseCode:`114TCPJ15`,courseName:`114-桃園市國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`中`,requiresGreenFlag:!0,description:`小明趁日幣貶值特別飛去日本旅遊，準備回國時，發現還有一些日幣還沒花完，於是想要去紀念品店買紀念品來送給他的好朋友。他想要盡量把身上的日幣都花完，來買到最多的紀念品。請你寫一個程式幫他判斷，如何盡量花完所有剩下的日幣情況下，可以買到最多幾件紀念品。
 【輸入格式】
 第一行：一個整數 N，代表小明剩下的日幣總數。
 第二行：一個整數 M，代表商品的數量。
@@ -58,7 +58,7 @@ var e={code:`114TCPJ15`,title:`114-桃園市國中（競賽模式）`,type:`prog
 100`,score:10},{input:`1000
 4
 5 10 15 20
-100 100 100 100`,score:10}]},{id:`114TCPJ15-2`,title:`第2題-攻擊防禦力平衡`,problemTitle:`第2題-攻擊防禦力平衡`,courseCode:`114TCPJ15`,courseName:`114-桃園市國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`中`,description:`小麗在玩一款魔法戰鬥 RPG 手機遊戲。角色擁有「魔力攻擊」與「魔法防禦」兩種屬性。兩種數值決定在該場戰鬥中的表現，小麗有 3 件「魔法道具」，每件道具會同時提升攻擊與防禦。例如有一種隱形斗篷可以增加角色的攻擊力 5、防禦力 20，如果使用在初始攻擊力為 20、防禦力為 10 的角色身上，該角色的攻擊力就會變成 5+20=25，而防禦力會變成 20+10=30。道具的效果可以進行疊加，但是每個道具只能使用 1 次。
+100 100 100 100`,score:10}]},{id:`114TCPJ15-2`,title:`第2題-攻擊防禦力平衡`,problemTitle:`第2題-攻擊防禦力平衡`,courseCode:`114TCPJ15`,courseName:`114-桃園市國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`中`,requiresGreenFlag:!0,description:`小麗在玩一款魔法戰鬥 RPG 手機遊戲。角色擁有「魔力攻擊」與「魔法防禦」兩種屬性。兩種數值決定在該場戰鬥中的表現，小麗有 3 件「魔法道具」，每件道具會同時提升攻擊與防禦。例如有一種隱形斗篷可以增加角色的攻擊力 5、防禦力 20，如果使用在初始攻擊力為 20、防禦力為 10 的角色身上，該角色的攻擊力就會變成 5+20=25，而防禦力會變成 20+10=30。道具的效果可以進行疊加，但是每個道具只能使用 1 次。
 小麗希望使用最少道具使得角色的攻擊力數值等於防禦力數值以對抗魔法騎士，請寫一個程式幫忙判斷現有的道具要使用那幾號道具才能達成要求，若需要多個道具，請依道具編號依序輸出，若無法達成攻擊力等於防禦力則顯示 0。
 【輸入格式】
 第 1 行：角色的魔法攻擊力
@@ -132,7 +132,7 @@ var e={code:`114TCPJ15`,title:`114-桃園市國中（競賽模式）`,type:`prog
 30
 5 0
 10 0
-5 0`,score:10}]},{id:`114TCPJ15-3`,title:`第3題-檢查碼`,problemTitle:`第3題-檢查碼`,courseCode:`114TCPJ15`,courseName:`114-桃園市國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`中`,description:`書店的會員卡買書可以 8 折優惠，書店老闆為了避免有人偽造會員卡，於是在會員卡號上加入檢查碼。
+5 0`,score:10}]},{id:`114TCPJ15-3`,title:`第3題-檢查碼`,problemTitle:`第3題-檢查碼`,courseCode:`114TCPJ15`,courseName:`114-桃園市國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`中`,requiresGreenFlag:!0,description:`書店的會員卡買書可以 8 折優惠，書店老闆為了避免有人偽造會員卡，於是在會員卡號上加入檢查碼。
 會員卡的編號格式：一個英文字母 + 4 個數字 + 一個檢查碼
 英文字母對應的數字如下表：
 A: 11
@@ -164,7 +164,7 @@ A15274 = 11+1+5+2+7+4=30，30÷5=6 餘 0，所以這是一個不正確的會員�
 【輸入格式】
 輸入一組字串，代表會員卡號。
 【輸出格式】
-輸出 yes 或 no。`,input:``,output:``},examples:[{input:`C20351`,output:`no`,explanation:`C20351 = 15+2+0+3+5+1=26，26÷5=5 餘 1，所以這不是一個正確的會員卡`},{input:`D15713`,output:`yes`,explanation:`D15713 = 17+1+5+7+1+3=34，34÷5=6 餘 4，所以這是一個正確的會員卡`}],starterXml:``,testCases:[{input:`C20351`,score:10},{input:`D15713`,score:10},{input:`B20135`,score:10},{input:`A15274`,score:10},{input:`A00003`,score:10},{input:`A00000`,score:10},{input:`B11112`,score:10},{input:`C22220`,score:10},{input:`D99990`,score:10},{input:`A12343`,score:10}]},{id:`114TCPJ15-4`,title:`第4題-校園販賣機自動補貨`,problemTitle:`第4題-校園販賣機自動補貨`,courseCode:`114TCPJ15`,courseName:`114-桃園市國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`中`,description:`自立國中學校販賣機販售多種飲料，每種飲料都有目前庫存量。為了避免缺貨造成不便，系統規定：凡庫存低於 10 罐者，一律自動補貨至 20 罐；庫存大於等於 10 者不補貨。請你寫一個程式，讀入各品項的庫存，進行自動補貨後，輸出所有飲料的總罐數。
+輸出 yes 或 no。`,input:``,output:``},examples:[{input:`C20351`,output:`no`,explanation:`C20351 = 15+2+0+3+5+1=26，26÷5=5 餘 1，所以這不是一個正確的會員卡`},{input:`D15713`,output:`yes`,explanation:`D15713 = 17+1+5+7+1+3=34，34÷5=6 餘 4，所以這是一個正確的會員卡`}],starterXml:``,testCases:[{input:`C20351`,score:10},{input:`D15713`,score:10},{input:`B20135`,score:10},{input:`A15274`,score:10},{input:`A00003`,score:10},{input:`A00000`,score:10},{input:`B11112`,score:10},{input:`C22220`,score:10},{input:`D99990`,score:10},{input:`A12343`,score:10}]},{id:`114TCPJ15-4`,title:`第4題-校園販賣機自動補貨`,problemTitle:`第4題-校園販賣機自動補貨`,courseCode:`114TCPJ15`,courseName:`114-桃園市國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`中`,requiresGreenFlag:!0,description:`自立國中學校販賣機販售多種飲料，每種飲料都有目前庫存量。為了避免缺貨造成不便，系統規定：凡庫存低於 10 罐者，一律自動補貨至 20 罐；庫存大於等於 10 者不補貨。請你寫一個程式，讀入各品項的庫存，進行自動補貨後，輸出所有飲料的總罐數。
 【輸入格式】
 第一行：一個整數 N，代表飲料的種類數。
 第二行：輸入 N 個整數，代表各飲料目前的庫存量，用空格隔開。
