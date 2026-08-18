@@ -1,5 +1,7 @@
 // Hand-authored by Claude from YDWS-CodingBank/txtFile/114JYunlin.txt，每題starterXml皆用
 // headless Blockly harness（verify.mjs）驗證過100%通過，學習模式（含範例答案）。
+// 2026-08修正版：取代原本誤植為嘉義縣（114JChaiyiC）重複內容的舊版9題，改為使用者提供的
+// 正確雲林縣5題內容。
 
 const course = {
   "code": "114JYunlin",
@@ -9,756 +11,398 @@ const course = {
   "description": "114-雲林縣國中114學年度科技教育創意實作競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
-    "generatedAt": "2026-08-13T08:59:31.920Z",
+    "generatedAt": "2026-08-18T10:12:38.973Z",
     "sourceTxt": "txtFile/114JYunlin.txt",
-    "version": "manual-blockly-build-verified"
+    "version": "manual-blockly-build-verified",
+    "note": "2026-08批次修正：原5題被誤植為與114JChaiyiC（嘉義縣）幾乎完全重複的內容（txtFile源頭複製錯，非本平台轉換流程造成），經使用者提供正確txtFile重新製作，starterXml皆用headless Blockly harness（verify.mjs）驗證100%通過。"
   },
   "tasks": [
     {
       "id": "114JYunlin-1",
-      "title": "1-自動販賣機的補貨通知",
-      "problemTitle": "1-自動販賣機的補貨通知",
+      "title": "1-秒數轉換",
+      "problemTitle": "1-秒數轉換",
       "courseCode": "114JYunlin",
       "courseName": "114-雲林縣國中",
       "role": "contest",
-      "difficulty": "L3",
-      "blocklyFit": "中",
-      "description": "學校走廊上有一台受歡迎的自動販賣機。為了確保飲料隨時充足，管理員小華每天會查看 N 個飲料格位的剩餘數量。請你幫小華寫一個程式，計算整台販賣機目前「總共還剩多少瓶飲料」，並且計算有幾個格位「缺貨」（剩餘數量低於 5 瓶），需要小華去補貨。\n1. 給定一個整數 N，代表販賣機的格位數量。\n2. 給定 N 個整數，代表每個格位目前的飲料剩餘量。\n3. 任務一：把所有格位的剩餘量加起來，得到總數。\n4. 任務二：檢查每個格位，如果剩餘量小於 5，則補貨次數加 1。\n5. 輸出總剩餘量與需要補貨的格位數量。\n【輸入格式】\n第一行：一個整數 N，代表格位數量。\n第二行：N 個整數，代表每個格位的飲料剩餘量（以半形空格分隔）。\n【輸出格式】\n一行輸出二個整數，代表整台機器的飲料總剩餘量及需要補貨的格位數量（剩餘量小於 5），中間以半形空格分隔。",
+      "difficulty": "L1",
+      "blocklyFit": "高",
+      "description": "體育課跑步計時器會記錄「總秒數」，但老師希望顯示成「幾分幾秒」的格式。\n請輸入一個整數，代表「總秒數」。\n再將其轉換為：\n• X 分鐘數（整數）\n• Y 剩餘秒數\n【輸入格式】\n一個整數代表總秒數。\n【輸出格式】\n輸出格式：X 分 Y 秒。(請注意格式中含空格，例如「2 分 5 秒」)",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "學校走廊上有一台受歡迎的自動販賣機。為了確保飲料隨時充足，管理員小華每天會查看 N 個飲料格位的剩餘數量。請你幫小華寫一個程式，計算整台販賣機目前「總共還剩多少瓶飲料」，並且計算有幾個格位「缺貨」（剩餘數量低於 5 瓶），需要小華去補貨。\n1. 給定一個整數 N，代表販賣機的格位數量。\n2. 給定 N 個整數，代表每個格位目前的飲料剩餘量。\n3. 任務一：把所有格位的剩餘量加起來，得到總數。\n4. 任務二：檢查每個格位，如果剩餘量小於 5，則補貨次數加 1。\n5. 輸出總剩餘量與需要補貨的格位數量。\n【輸入格式】\n第一行：一個整數 N，代表格位數量。\n第二行：N 個整數，代表每個格位的飲料剩餘量（以半形空格分隔）。\n【輸出格式】\n一行輸出二個整數，代表整台機器的飲料總剩餘量及需要補貨的格位數量（剩餘量小於 5），中間以半形空格分隔。",
+        "description": "體育課跑步計時器會記錄「總秒數」，但老師希望顯示成「幾分幾秒」的格式。\n請輸入一個整數，代表「總秒數」。\n再將其轉換為：\n• X 分鐘數（整數）\n• Y 剩餘秒數\n【輸入格式】\n一個整數代表總秒數。\n【輸出格式】\n輸出格式：X 分 Y 秒。(請注意格式中含空格，例如「2 分 5 秒」)",
         "input": "",
         "output": ""
       },
       "examples": [
         {
-          "input": "5\n10 2 8 3 20",
-          "output": "43 2",
-          "explanation": "總剩餘量：10+2+8+3+20 = 43\n缺貨判斷：2 和 3 小於 5，共有 2 個格位需要補貨。"
-        },
-        {
-          "input": "3\n0 4 0",
-          "output": "4 3",
-          "explanation": "總剩餘量：4。\n缺貨判斷：0, 4, 0 皆小於 5，全部 3 個格位都需要補貨。"
+          "input": "125",
+          "output": "2 分 5 秒",
+          "explanation": "125 秒 = 2 分 5 秒。所以輸出 2 分 5 秒。"
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t1_n\">N</variable><variable id=\"t1_i\">i</variable><variable id=\"t1_v\">v</variable><variable id=\"t1_total\">total</variable><variable id=\"t1_lowcount\">lowcount</variable><variable id=\"t1_out\">out</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入格位數量N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_total\">total</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_lowcount\">lowcount</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t1_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入格位剩餘量</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_total\">total</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_total\">total</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_v\">v</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_v\">v</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_lowcount\">lowcount</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_lowcount\">lowcount</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_total\">total</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_lowcount\">lowcount</field></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_out\">out</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t1_n\">N</variable><variable id=\"t1_mins\">mins</variable><variable id=\"t1_secs\">secs</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入總秒數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_mins\">mins</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t1_secs\">secs</field><value name=\"VALUE\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_n\">N</field></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"4\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_mins\">mins</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> 分 </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t1_secs\">secs</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\"> 秒</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>",
       "testCases": [
         {
-          "input": "3\n10 10 10",
-          "expectedOutput": "30 0",
+          "input": "125",
+          "expectedOutput": "2 分 5 秒",
           "score": 10
         },
         {
-          "input": "4\n4 4 4 4",
-          "expectedOutput": "16 4",
+          "input": "360",
+          "expectedOutput": "6 分 0 秒",
           "score": 10
         },
         {
-          "input": "5\n1 2 3 4 5",
-          "expectedOutput": "15 4",
+          "input": "59",
+          "expectedOutput": "0 分 59 秒",
           "score": 10
         },
         {
-          "input": "6\n0 10 0 10 0 10",
-          "expectedOutput": "30 3",
+          "input": "60",
+          "expectedOutput": "1 分 0 秒",
           "score": 10
         },
         {
-          "input": "5\n20 20 1 20 20",
-          "expectedOutput": "81 1",
+          "input": "0",
+          "expectedOutput": "0 分 0 秒",
           "score": 10
         },
         {
-          "input": "4\n0 0 0 0",
-          "expectedOutput": "0 4",
+          "input": "3599",
+          "expectedOutput": "59 分 59 秒",
           "score": 10
         },
         {
-          "input": "3\n10 20 30",
-          "expectedOutput": "60 0",
+          "input": "3600",
+          "expectedOutput": "60 分 0 秒",
           "score": 10
         },
         {
-          "input": "5\n5 5 5 5 5",
-          "expectedOutput": "25 0",
+          "input": "7325",
+          "expectedOutput": "122 分 5 秒",
           "score": 10
         },
         {
-          "input": "2\n4 4",
-          "expectedOutput": "8 2",
+          "input": "1",
+          "expectedOutput": "0 分 1 秒",
           "score": 10
         },
         {
-          "input": "1\n2",
-          "expectedOutput": "2 1",
+          "input": "10000",
+          "expectedOutput": "166 分 40 秒",
           "score": 10
         }
       ]
     },
     {
       "id": "114JYunlin-2",
-      "title": "2-5進位解碼",
-      "problemTitle": "2-5進位解碼",
+      "title": "2-分段費率計算",
+      "problemTitle": "2-分段費率計算",
       "courseCode": "114JYunlin",
       "courseName": "114-雲林縣國中",
       "role": "contest",
-      "difficulty": "L3",
-      "blocklyFit": "中",
-      "description": "程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：\nA=0, B=1, C=2, D=3, E=4\n例如密碼 BC 代表 5 進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。\n1. 輸入密碼長度 L 與密碼內容（由 A-E 組成）。\n2. 權重計算：最右邊位數是 5 的 0 次方（任何數的 0 次方為 1），左邊一位是 5 的 1 次方，以此類推。\n3. 將每個字母轉換為對應數值後，計算總和。\n【輸入格式】\n第一行：整數 L。\n第二行：L 個字元（以空格分隔，如 BC）。(註：此處依據範例，可視為連在一起的字串)\n【輸出格式】\n一個整數（10 進位數值）。",
+      "difficulty": "L2",
+      "blocklyFit": "高",
+      "description": "某城市推出新的「用電費率計算器」。\n電費會依照不同使用量有不同費率：\n• 0–100 度：每度 1.68 元\n• 101–300 度：超過 100 度的部分，每度 2.45 元\n• 301 度以上：超過 300 度的部分，每度 3.70 元\n例如：\n用電 350 度 →\n• 前 100 度：1.68 × 100\n• 接著 200 度（101–300）：2.45 × 200\n• 最後 50 度（超過 300）：3.70 × 50\n請輸一個整數，代表「本月用電度數」，輸出本月總電費（四捨五入至整數）。\n若輸入小於 0，輸出 \"ERROR\"。\n【輸入格式】\n一個整數代表本月用電度數。\n【輸出格式】\n一個整數代表總電費，或字串 ERROR。",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：\nA=0, B=1, C=2, D=3, E=4\n例如密碼 BC 代表 5 進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。\n1. 輸入密碼長度 L 與密碼內容（由 A-E 組成）。\n2. 權重計算：最右邊位數是 5 的 0 次方（任何數的 0 次方為 1），左邊一位是 5 的 1 次方，以此類推。\n3. 將每個字母轉換為對應數值後，計算總和。\n【輸入格式】\n第一行：整數 L。\n第二行：L 個字元（以空格分隔，如 BC）。(註：此處依據範例，可視為連在一起的字串)\n【輸出格式】\n一個整數（10 進位數值）。",
+        "description": "某城市推出新的「用電費率計算器」。\n電費會依照不同使用量有不同費率：\n• 0–100 度：每度 1.68 元\n• 101–300 度：超過 100 度的部分，每度 2.45 元\n• 301 度以上：超過 300 度的部分，每度 3.70 元\n例如：\n用電 350 度 →\n• 前 100 度：1.68 × 100\n• 接著 200 度（101–300）：2.45 × 200\n• 最後 50 度（超過 300）：3.70 × 50\n請輸一個整數，代表「本月用電度數」，輸出本月總電費（四捨五入至整數）。\n若輸入小於 0，輸出 \"ERROR\"。\n【輸入格式】\n一個整數代表本月用電度數。\n【輸出格式】\n一個整數代表總電費，或字串 ERROR。",
         "input": "",
         "output": ""
       },
       "examples": [
         {
-          "input": "2\nBC",
-          "output": "7",
-          "explanation": "B=1, C=2。\n1 × 5 + 2 = 7。"
-        },
-        {
-          "input": "3\nBAE",
-          "output": "29",
-          "explanation": "B=1, A=0, E=4。\n1 × 25 + 0 × 5 + 4 × 1 = 29。"
+          "input": "250",
+          "output": "536",
+          "explanation": "因使用 250 度，故前 100 度→1.68×100=168，接著 150 度→2.45×150=367.5，總計 535.5。所以輸出 536。"
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t2_l\">L</variable><variable id=\"t2_str\">str</variable><variable id=\"t2_alpha\">alpha</variable><variable id=\"t2_total\">total</variable><variable id=\"t2_i\">i</variable><variable id=\"t2_chv\">chv</variable><variable id=\"t2_val\">val</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入密碼長度L</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_l\">L</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入密碼內容</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_str\">str</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_alpha\">alpha</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"5\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\">A</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">B</field></block></value><value name=\"ADD2\"><block type=\"text\"><field name=\"TEXT\">C</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\">D</field></block></value><value name=\"ADD4\"><block type=\"text\"><field name=\"TEXT\">E</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_total\">total</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t2_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_l\">L</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_chv\">chv</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_str\">str</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_i\">i</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_val\">val</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"lists_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_alpha\">alpha</field></block></value><value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_chv\">chv</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_total\">total</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_total\">total</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">5</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_val\">val</field></block></value></block></value></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_total\">total</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t2_n\">N</variable><variable id=\"t2_fee\">fee</variable><variable id=\"t2_feer\">feer</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入本月用電度數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">ERROR</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"controls_if\"><mutation elseif=\"1\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_fee\">fee</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1.68</field></block></value></block></value></block></statement><value name=\"IF1\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">300</field></block></value></block></value><statement name=\"DO1\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_fee\">fee</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1.68</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2.45</field></block></value></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_fee\">fee</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1.68</field></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">200</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2.45</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">300</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">3.7</field></block></value></block></value></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t2_feer\">feer</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_fee\">fee</field></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t2_feer\">feer</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></next></block></xml>",
       "testCases": [
         {
-          "input": "1\nA",
+          "input": "250",
+          "expectedOutput": "536",
+          "score": 10
+        },
+        {
+          "input": "50",
+          "expectedOutput": "84",
+          "score": 10
+        },
+        {
+          "input": "350",
+          "expectedOutput": "843",
+          "score": 10
+        },
+        {
+          "input": "100",
+          "expectedOutput": "168",
+          "score": 10
+        },
+        {
+          "input": "300",
+          "expectedOutput": "658",
+          "score": 10
+        },
+        {
+          "input": "0",
           "expectedOutput": "0",
           "score": 10
         },
         {
-          "input": "2\nEE",
-          "expectedOutput": "24",
+          "input": "-1",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "3\nBAA",
-          "expectedOutput": "25",
+          "input": "-50",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "4\nBAAA",
-          "expectedOutput": "125",
+          "input": "400",
+          "expectedOutput": "1028",
           "score": 10
         },
         {
-          "input": "5\nCDEAB",
-          "expectedOutput": "1726",
-          "score": 10
-        },
-        {
-          "input": "5\nAAAAA",
-          "expectedOutput": "0",
-          "score": 10
-        },
-        {
-          "input": "1\nE",
-          "expectedOutput": "4",
-          "score": 10
-        },
-        {
-          "input": "4\nBCDE",
-          "expectedOutput": "194",
-          "score": 10
-        },
-        {
-          "input": "5\nABCDE",
-          "expectedOutput": "194",
-          "score": 10
-        },
-        {
-          "input": "5\nEEEEE",
-          "expectedOutput": "3124",
+          "input": "101",
+          "expectedOutput": "170",
           "score": 10
         }
       ]
     },
     {
       "id": "114JYunlin-3",
-      "title": "3-圖書館的舊書打包",
-      "problemTitle": "3-圖書館的舊書打包",
+      "title": "3-BMI 健康判定",
+      "problemTitle": "3-BMI 健康判定",
       "courseCode": "114JYunlin",
       "courseName": "114-雲林縣國中",
       "role": "contest",
-      "difficulty": "L3",
-      "blocklyFit": "中",
-      "description": "學校圖書館正在進行舊書義賣，小華負責將舊書裝箱。為了節省箱子，小華決定採用一個策略：先把書按重量「由重到輕」排好。\n每次拿出一個新箱子時，優先嘗試放入最重的書，箱子剩下的空間如果放得下就放進去，放不下就跳過這本，試下一本較輕的書，直到所有書都檢查過一輪，這個箱子就封箱。\n接著拿新箱子重複上述步驟，直到所有書都裝完。\nNote：箱子在封箱前要由重到輕，確認已經裝不下任何一本未裝箱的書了。\n【輸入格式】\n第一行：一個整數 W（箱子最大承重）。\n第二行：一個整數 N（書本數量）。\n第三行：N 個整數（每本書重量，已由重到輕排序）。\n【輸出格式】\n一個整數，代表總共需要的箱子數量。",
+      "difficulty": "L2",
+      "blocklyFit": "高",
+      "description": "利用程式計算 BMI，並根據 BMI 判斷健康狀態。\nBMI 的計算方式為：\nBMI = 體重(公斤) ÷ (身高(公尺))²\n健康狀態判定如下：\n• BMI &lt; 18.5 → 輸出「過輕」\n• 18.5 ≤ BMI &lt; 24 → 輸出「正常」\n• 24 ≤ BMI &lt; 27 → 輸出「過重」\n• BMI ≥ 27 → 輸出「肥胖」\n請讀入兩個數字：\n第一個為體重（公斤），第二個為身高（公尺）。\n輸出對應的健康狀態。\n若輸入的體重或身高 ≤ 0，輸出 \"ERROR\"。\n※ 小數點運算後 可直接用計算結果判斷，不必四捨五入。\n【輸入格式】\n第一行：體重(公斤)\n第二行：身高(公尺)\n【輸出格式】\n健康狀態，或 ERROR。",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "學校圖書館正在進行舊書義賣，小華負責將舊書裝箱。為了節省箱子，小華決定採用一個策略：先把書按重量「由重到輕」排好。\n每次拿出一個新箱子時，優先嘗試放入最重的書，箱子剩下的空間如果放得下就放進去，放不下就跳過這本，試下一本較輕的書，直到所有書都檢查過一輪，這個箱子就封箱。\n接著拿新箱子重複上述步驟，直到所有書都裝完。\nNote：箱子在封箱前要由重到輕，確認已經裝不下任何一本未裝箱的書了。\n【輸入格式】\n第一行：一個整數 W（箱子最大承重）。\n第二行：一個整數 N（書本數量）。\n第三行：N 個整數（每本書重量，已由重到輕排序）。\n【輸出格式】\n一個整數，代表總共需要的箱子數量。",
+        "description": "利用程式計算 BMI，並根據 BMI 判斷健康狀態。\nBMI 的計算方式為：\nBMI = 體重(公斤) ÷ (身高(公尺))²\n健康狀態判定如下：\n• BMI &lt; 18.5 → 輸出「過輕」\n• 18.5 ≤ BMI &lt; 24 → 輸出「正常」\n• 24 ≤ BMI &lt; 27 → 輸出「過重」\n• BMI ≥ 27 → 輸出「肥胖」\n請讀入兩個數字：\n第一個為體重（公斤），第二個為身高（公尺）。\n輸出對應的健康狀態。\n若輸入的體重或身高 ≤ 0，輸出 \"ERROR\"。\n※ 小數點運算後 可直接用計算結果判斷，不必四捨五入。\n【輸入格式】\n第一行：體重(公斤)\n第二行：身高(公尺)\n【輸出格式】\n健康狀態，或 ERROR。",
         "input": "",
         "output": ""
       },
       "examples": [
         {
-          "input": "10\n5\n8 5 4 3 2",
-          "output": "3",
-          "explanation": "箱1：裝 8 (剩2)，5(X)，4(X)，3(X)，裝 2(OK)。(內容：8, 2)\n箱2：剩 5, 4, 3。裝 5 (剩5)，裝 4(剩1)，3(X)。(內容：5, 4)\n箱3：剩 3。裝 3。(內容：3)\n共 3 箱。"
-        },
-        {
-          "input": "20\n3\n10 10 10",
-          "output": "2",
-          "explanation": "箱1：裝 10，裝 10(滿)。\n箱2：裝 10。\n共 2 箱。"
+          "input": "58\n1.50",
+          "output": "過重",
+          "explanation": "BMI = 58 / (1.5 * 1.5) = 25.77...\n24 ≤ 25.77... &lt; 27，為「過重」"
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t3_w\">W</variable><variable id=\"t3_n\">N</variable><variable id=\"t3_weight\">weight</variable><variable id=\"t3_used\">used</variable><variable id=\"t3_i\">i</variable><variable id=\"t3_v\">v</variable><variable id=\"t3_boxes\">boxes</variable><variable id=\"t3_remain\">remain</variable><variable id=\"t3_cap\">cap</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入箱子最大承重W</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_w\">W</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入書本數量N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_weight\">weight</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_n\">N</field></block></value></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t3_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入書本重量</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_v\">v</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_used\">used</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_n\">N</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_boxes\">boxes</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_remain\">remain</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_n\">N</field></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">WHILE</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_remain\">remain</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_boxes\">boxes</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_boxes\">boxes</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_cap\">cap</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_w\">W</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t3_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">AND</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_used\">used</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_cap\">cap</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_used\">used</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_cap\">cap</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_cap\">cap</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_i\">i</field></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_remain\">remain</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_remain\">remain</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></next></block></statement></block></statement></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_boxes\">boxes</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t3_w\">W</variable><variable id=\"t3_h\">H</variable><variable id=\"t3_bmi\">bmi</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入體重(公斤)</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_w\">W</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入身高(公尺)</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_h\">H</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">OR</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_w\">W</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_h\">H</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">ERROR</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_bmi\">bmi</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_w\">W</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_h\">H</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_h\">H</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"2\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_bmi\">bmi</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">18.5</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">過輕</field></block></value></block></statement><value name=\"IF1\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_bmi\">bmi</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">24</field></block></value></block></value><statement name=\"DO1\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">正常</field></block></value></block></statement><value name=\"IF2\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_bmi\">bmi</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">27</field></block></value></block></value><statement name=\"DO2\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">過重</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">肥胖</field></block></value></block></statement></block></next></block></statement></block></next></block></next></block></next></block></next></block></next></block></xml>",
       "testCases": [
         {
-          "input": "5\n3\n2 2 2",
-          "expectedOutput": "2",
+          "input": "58\n1.50",
+          "expectedOutput": "過重",
           "score": 10
         },
         {
-          "input": "10\n5\n9 9 5 1 1",
-          "expectedOutput": "3",
+          "input": "68\n1.70",
+          "expectedOutput": "正常",
           "score": 10
         },
         {
-          "input": "100\n4\n60 50 40 15 30",
-          "expectedOutput": "2",
+          "input": "-5\n1.5",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "15\n6\n8 7 6 5 4 3",
-          "expectedOutput": "3",
+          "input": "50\n-1.5",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "25\n13\n20 19 18 17 16 10 9 8 7 6 3 2 1",
-          "expectedOutput": "6",
+          "input": "0\n1.5",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "10\n5\n10 10 10 10 10",
-          "expectedOutput": "5",
+          "input": "50\n0",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "20\n5\n19 18 1 1 1",
-          "expectedOutput": "2",
+          "input": "100\n1.6",
+          "expectedOutput": "肥胖",
           "score": 10
         },
         {
-          "input": "10\n8\n6 6 6 5 4 4 4 4",
-          "expectedOutput": "4",
+          "input": "45\n1.6",
+          "expectedOutput": "過輕",
           "score": 10
         },
         {
-          "input": "50\n10\n50 49 48 47 10 3 2 1 1 1",
-          "expectedOutput": "5",
+          "input": "61.44\n1.6",
+          "expectedOutput": "過重",
           "score": 10
         },
         {
-          "input": "100\n1\n50",
-          "expectedOutput": "1",
+          "input": "69.12\n1.6",
+          "expectedOutput": "肥胖",
           "score": 10
         }
       ]
     },
     {
       "id": "114JYunlin-4",
-      "title": "4-校車廣播系統熱血指數統計",
-      "problemTitle": "4-校車廣播系統熱血指數統計",
+      "title": "4-成績統計",
+      "problemTitle": "4-成績統計",
       "courseCode": "114JYunlin",
       "courseName": "114-雲林縣國中",
       "role": "contest",
-      "difficulty": "L3",
-      "blocklyFit": "中",
-      "description": "快樂國中一年級的戶外教學日終於到了！全班同學興高采烈地搭上了前往遊樂園的校車。然而，去程的高速公路意外地塞車了，原本歡樂的氣氛隨著車窗外的景色靜止，車內的空氣也開始變得沉悶，同學們一個個開始打哈欠，甚至有人睡著了。\n身為康樂股長的小明，手中掌握著一份班上同學投票選出的「熱門歌曲清單」。這份清單上的每一首歌，根據節奏快慢與受歡迎程度，都有一個對應的「熱血指數」。指數越高，代表這首歌越能讓大家 High 起來 (當然，如果是抒情歌，指數可能就很低，甚至如果是老師愛聽的老歌，指數可能是負的，會讓大家更想睡覺)。\n校車的廣播系統有一個特殊的限制：一次設定只能連續播放 K 首歌曲。一旦開始播放，就必須把這首歌依序播完才能切換模式。\n小明的任務非常重要，他需要從這份落落長的歌單中，挑選出「連續」的 K 首歌，使得這段時間內的「熱血指數總和」達到最高，以此來喚醒全班同學的靈魂，把車內的氣氛炒到最高點！\n請你寫一個程式幫助小明，在給定的歌單順序中，找出那一段連續 K 首歌的熱血總和最大是多少。\n【輸入格式】\n第一行：整數 K 代表廣播系統一次必須連續播放的歌曲數量。\n第二行：整數 N 代表歌單中總共有 N 首歌。\n第三行：N 個整數依序代表歌單中第 1 首到第 N 首歌的「熱血指數」。\n【輸出格式】\n一個整數（最大總和）。",
+      "difficulty": "L2",
+      "blocklyFit": "高",
+      "description": "老師要統計班上這次月考的成績情形。\n請先輸入學生人數，接著輸入 N 個整數（每位學生的分數）。\n你的程式需要：\n1. 計算 平均分數（四捨五入到整數位）\n2. 計算 低於平均分的學生數\n輸出格式為：\n平均分數和低於平均的人數 (中間以半形空白隔開)。\n若 N ≤ 0，或資料中出現負分，輸出 \"ERROR\"。\n【輸入格式】\n第一行輸入學生人數 N。\n接下來依序輸入每一位學生的分數。\n【輸出格式】\n輸出平均分數及低於平均的人數，或 ERROR。",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "快樂國中一年級的戶外教學日終於到了！全班同學興高采烈地搭上了前往遊樂園的校車。然而，去程的高速公路意外地塞車了，原本歡樂的氣氛隨著車窗外的景色靜止，車內的空氣也開始變得沉悶，同學們一個個開始打哈欠，甚至有人睡著了。\n身為康樂股長的小明，手中掌握著一份班上同學投票選出的「熱門歌曲清單」。這份清單上的每一首歌，根據節奏快慢與受歡迎程度，都有一個對應的「熱血指數」。指數越高，代表這首歌越能讓大家 High 起來 (當然，如果是抒情歌，指數可能就很低，甚至如果是老師愛聽的老歌，指數可能是負的，會讓大家更想睡覺)。\n校車的廣播系統有一個特殊的限制：一次設定只能連續播放 K 首歌曲。一旦開始播放，就必須把這首歌依序播完才能切換模式。\n小明的任務非常重要，他需要從這份落落長的歌單中，挑選出「連續」的 K 首歌，使得這段時間內的「熱血指數總和」達到最高，以此來喚醒全班同學的靈魂，把車內的氣氛炒到最高點！\n請你寫一個程式幫助小明，在給定的歌單順序中，找出那一段連續 K 首歌的熱血總和最大是多少。\n【輸入格式】\n第一行：整數 K 代表廣播系統一次必須連續播放的歌曲數量。\n第二行：整數 N 代表歌單中總共有 N 首歌。\n第三行：N 個整數依序代表歌單中第 1 首到第 N 首歌的「熱血指數」。\n【輸出格式】\n一個整數（最大總和）。",
+        "description": "老師要統計班上這次月考的成績情形。\n請先輸入學生人數，接著輸入 N 個整數（每位學生的分數）。\n你的程式需要：\n1. 計算 平均分數（四捨五入到整數位）\n2. 計算 低於平均分的學生數\n輸出格式為：\n平均分數和低於平均的人數 (中間以半形空白隔開)。\n若 N ≤ 0，或資料中出現負分，輸出 \"ERROR\"。\n【輸入格式】\n第一行輸入學生人數 N。\n接下來依序輸入每一位學生的分數。\n【輸出格式】\n輸出平均分數及低於平均的人數，或 ERROR。",
         "input": "",
         "output": ""
       },
       "examples": [
         {
-          "input": "3\n5\n10 20 30 10 50",
-          "output": "90",
-          "explanation": "(10+20+30)=60\n(20+30+10)=60\n(30+10+50)=90 (最大)"
-        },
-        {
-          "input": "2\n4\n5 100 100 5",
-          "output": "200",
-          "explanation": "連續 2 首的組合：(5+100)=105, (100+100)=200, (100+5)=105\n最大值為 200"
+          "input": "5\n80\n75\n90\n60\n100",
+          "output": "81 3",
+          "explanation": "平均：405 ÷ 5 = 81\n低於 81 的有 80、75、60 共 3 人。所以輸出 81 3。"
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t4_k\">K</variable><variable id=\"t4_n\">N</variable><variable id=\"t4_score\">score</variable><variable id=\"t4_i\">i</variable><variable id=\"t4_j\">j</variable><variable id=\"t4_v\">v</variable><variable id=\"t4_s\">s</variable><variable id=\"t4_cur\">cur</variable><variable id=\"t4_best\">best</variable><variable id=\"t4_found\">found</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入連續播放數K</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_k\">K</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入歌曲總數N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_score\">score</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_n\">N</field></block></value></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入熱血指數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_score\">score</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_i\">i</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_v\">v</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_found\">found</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_s\">s</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_n\">N</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_k\">K</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_cur\">cur</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_j\">j</field><value name=\"FROM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_s\">s</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_s\">s</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_k\">K</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_cur\">cur</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cur\">cur</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_score\">score</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_j\">j</field></block></value></block></value></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">OR</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_found\">found</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cur\">cur</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_best\">best</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_best\">best</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cur\">cur</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_found\">found</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></next></block></statement></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_best\">best</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t4_n\">N</variable><variable id=\"t4_scores\">scores</variable><variable id=\"t4_hasneg\">hasneg</variable><variable id=\"t4_i\">i</variable><variable id=\"t4_v\">v</variable><variable id=\"t4_j\">j</variable><variable id=\"t4_sum\">sum</variable><variable id=\"t4_avg\">avg</variable><variable id=\"t4_k\">k</variable><variable id=\"t4_cnt\">cnt</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入學生人數N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">ERROR</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_scores\">scores</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_n\">N</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_hasneg\">hasneg</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入分數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_scores\">scores</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_i\">i</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_v\">v</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_v\">v</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_hasneg\">hasneg</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_hasneg\">hasneg</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">ERROR</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_j\">j</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_sum\">sum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_scores\">scores</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_j\">j</field></block></value></block></value></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_avg\">avg</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_n\">N</field></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_k\">k</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_scores\">scores</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_k\">k</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_avg\">avg</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_avg\">avg</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value></block></value></block></next></block></next></block></next></block></next></block></next></block></statement></block></next></block></next></block></next></block></statement></block></next></block></next></block></next></block></xml>",
       "testCases": [
         {
-          "input": "2\n4\n1 2 3 4",
-          "expectedOutput": "7",
+          "input": "5\n80 75 90 60 100",
+          "expectedOutput": "81 3",
           "score": 10
         },
         {
-          "input": "3\n5\n5 5 5 5 5",
-          "expectedOutput": "15",
+          "input": "4\n50 40 50 41",
+          "expectedOutput": "45 2",
           "score": 10
         },
         {
-          "input": "2\n5\n10 100 10 10 100",
-          "expectedOutput": "110",
+          "input": "0",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "4\n8\n100 100 1 2 100 2 1 1",
-          "expectedOutput": "203",
-          "score": 10,
-          "output": "203"
-        },
-        {
-          "input": "3\n6\n50 10 10 50 50 10",
-          "expectedOutput": "110",
+          "input": "-1",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "1\n5\n1 2 3 4 5",
-          "expectedOutput": "5",
+          "input": "3\n100 -5 50",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "5\n5\n1 -2 3 -4 5",
-          "expectedOutput": "3",
+          "input": "3\n80 80 80",
+          "expectedOutput": "80 0",
           "score": 10
         },
         {
-          "input": "2\n6\n-1 -2 -3 -4 -5 -6",
-          "expectedOutput": "-3",
+          "input": "4\n90 90 90 92",
+          "expectedOutput": "91 3",
           "score": 10
         },
         {
-          "input": "3\n7\n10 -10 10 -10 10 -10 10",
-          "expectedOutput": "10",
+          "input": "5\n0 0 0 0 0",
+          "expectedOutput": "0 0",
           "score": 10
         },
         {
-          "input": "2\n4\n0 0 0 0",
-          "expectedOutput": "0",
+          "input": "1\n100",
+          "expectedOutput": "100 0",
+          "score": 10
+        },
+        {
+          "input": "5\n10 20 30 40 50",
+          "expectedOutput": "30 2",
           "score": 10
         }
       ]
     },
     {
       "id": "114JYunlin-5",
-      "title": "5-大風吹搶位子",
-      "problemTitle": "5-大風吹搶位子",
+      "title": "5-手機電量充電模擬",
+      "problemTitle": "5-手機電量充電模擬",
       "courseCode": "114JYunlin",
       "courseName": "114-雲林縣國中",
       "role": "contest",
-      "difficulty": "L3",
-      "blocklyFit": "中",
-      "description": "隔宿露營的晚會高潮，班聯會設計了一個刺激的「電子傳球大風吹」遊戲。\n全班 N 位同學圍繞營火坐成一圈，每個人身上都有一個原本的號碼牌（從 1 號到 N 號）。遊戲開始時，音樂響起，一顆發光的電子球從 1 號同學手中開始順時針傳遞。\n這顆電子球設定了爆炸秒數，相當於傳遞 M 次。也就是說，從目前拿球的人開始算第 1 次，傳給下一位算第 2 次...一直數到第 M 個人，球就會變色發出「嗶！」的聲音，這時候持有球的那個人就被淘汰，必須立刻離開圓圈。\n被淘汰的人離開後，圓圈會縮小，球交給下一位還在圈子裡的同學，重新開始從 1 數到 M。遊戲持續進行，直到圓圈只剩下最後一位同學，該名同學就是今晚的「大風吹之王」。請設計一個程式，模擬這個過程，算出最後留下的那位同學原本的號碼是多少。\n【輸入格式】\n第一行：整數 N（人數）。\n第二行：整數 M（間隔）。\n【輸出格式】\n一個整數（贏家編號）。",
+      "difficulty": "L1",
+      "blocklyFit": "高",
+      "description": "小華的手機目前電量為 B%。\n他將手機接上充電器，充電速度如下：\n• 每分鐘增加 2% 電量\n• 最高只能充到 100%\n請輸入兩個整數：\n1. B：目前電量（0~100）\n2. T：充電時間（分鐘，0~300）\n經過 T 分鐘後，輸出最終電量，格式為：X%\n如果輸入的電量(0~100)或時間(0~300)不在範圍內（例如：負數、超過上限），輸出 \"ERROR\"。\n【輸入格式】\n第一行：目前電量 B\n第二行：充電時間 T\n【輸出格式】\n最終電量 X% 或 ERROR。",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "隔宿露營的晚會高潮，班聯會設計了一個刺激的「電子傳球大風吹」遊戲。\n全班 N 位同學圍繞營火坐成一圈，每個人身上都有一個原本的號碼牌（從 1 號到 N 號）。遊戲開始時，音樂響起，一顆發光的電子球從 1 號同學手中開始順時針傳遞。\n這顆電子球設定了爆炸秒數，相當於傳遞 M 次。也就是說，從目前拿球的人開始算第 1 次，傳給下一位算第 2 次...一直數到第 M 個人，球就會變色發出「嗶！」的聲音，這時候持有球的那個人就被淘汰，必須立刻離開圓圈。\n被淘汰的人離開後，圓圈會縮小，球交給下一位還在圈子裡的同學，重新開始從 1 數到 M。遊戲持續進行，直到圓圈只剩下最後一位同學，該名同學就是今晚的「大風吹之王」。請設計一個程式，模擬這個過程，算出最後留下的那位同學原本的號碼是多少。\n【輸入格式】\n第一行：整數 N（人數）。\n第二行：整數 M（間隔）。\n【輸出格式】\n一個整數（贏家編號）。",
+        "description": "小華的手機目前電量為 B%。\n他將手機接上充電器，充電速度如下：\n• 每分鐘增加 2% 電量\n• 最高只能充到 100%\n請輸入兩個整數：\n1. B：目前電量（0~100）\n2. T：充電時間（分鐘，0~300）\n經過 T 分鐘後，輸出最終電量，格式為：X%\n如果輸入的電量(0~100)或時間(0~300)不在範圍內（例如：負數、超過上限），輸出 \"ERROR\"。\n【輸入格式】\n第一行：目前電量 B\n第二行：充電時間 T\n【輸出格式】\n最終電量 X% 或 ERROR。",
         "input": "",
         "output": ""
       },
       "examples": [
         {
-          "input": "5\n2",
-          "output": "3",
-          "explanation": "初始：1 2 3 4 5\n淘汰 2（剩 1 3 4 5）\n淘汰 4（剩 1 3 5）\n淘汰 1（剩 3 5）\n淘汰 5（剩 3）\n最後贏家是 3 號。"
-        },
-        {
-          "input": "4\n1",
-          "output": "4",
-          "explanation": "每次數 1 人（即立刻淘汰當前的人）。\n淘汰順序：1 → 2 → 3\n最後剩下 4"
+          "input": "50\n10",
+          "output": "70%",
+          "explanation": "充電 10 分鐘 → 增加 20%，變成 70%。"
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t5_n\">N</variable><variable id=\"t5_m\">M</variable><variable id=\"t5_alive\">alive</variable><variable id=\"t5_i\">i</variable><variable id=\"t5_pos\">pos</variable><variable id=\"t5_remaining\">remaining</variable><variable id=\"t5_count\">count</variable><variable id=\"t5_winner\">winner</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入人數N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入間隔M</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_m\">M</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_alive\">alive</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_n\">N</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_pos\">pos</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_remaining\">remaining</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_n\">N</field></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">WHILE</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_remaining\">remaining</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_count\">count</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">WHILE</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_count\">count</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_m\">M</field></block></value></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_alive\">alive</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_pos\">pos</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_count\">count</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_count\">count</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_count\">count</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_m\">M</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_pos\">pos</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_pos\">pos</field></block></value><value name=\"DIVISOR\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_n\">N</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></next></block></statement><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_alive\">alive</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_pos\">pos</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_remaining\">remaining</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_remaining\">remaining</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_pos\">pos</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_pos\">pos</field></block></value><value name=\"DIVISOR\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_n\">N</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></next></block></next></block></next></block></statement><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t5_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_alive\">alive</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_i\">i</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_winner\">winner</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_i\">i</field></block></value></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_winner\">winner</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t5_b\">B</variable><variable id=\"t5_t\">T</variable><variable id=\"t5_final\">final</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入目前電量B</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_b\">B</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入充電時間T</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_t\">T</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_operation\"><field name=\"OP\">OR</field><value name=\"A\"><block type=\"logic_operation\"><field name=\"OP\">OR</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_b\">B</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_b\">B</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value></block></value></block></value><value name=\"B\"><block type=\"logic_operation\"><field name=\"OP\">OR</field><value name=\"A\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_t\">T</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"B\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_t\">T</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">300</field></block></value></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">ERROR</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t5_final\">final</field><value name=\"VALUE\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_b\">B</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_t\">T</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value></block></value><value name=\"THEN\"><block type=\"math_number\"><field name=\"NUM\">100</field></block></value><value name=\"ELSE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_b\">B</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_t\">T</field></block></value></block></value></block></value></block></value><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t5_final\">final</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">%</field></block></value></block></value></block></next></block></statement></block></next></block></next></block></next></block></next></block></next></block></xml>",
       "testCases": [
         {
-          "input": "3\n1",
-          "expectedOutput": "3",
+          "input": "50\n10",
+          "expectedOutput": "70%",
           "score": 10
         },
         {
-          "input": "4\n2",
-          "expectedOutput": "1",
+          "input": "90\n20",
+          "expectedOutput": "100%",
           "score": 10
         },
         {
-          "input": "5\n3",
-          "expectedOutput": "4",
+          "input": "-1\n10",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "7\n4",
-          "expectedOutput": "2",
+          "input": "101\n10",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "10\n3",
-          "expectedOutput": "4",
+          "input": "50\n-1",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "10\n1",
-          "expectedOutput": "10",
+          "input": "50\n301",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
-          "input": "2\n2",
-          "expectedOutput": "1",
+          "input": "0\n0",
+          "expectedOutput": "0%",
           "score": 10
         },
         {
-          "input": "10\n5",
-          "expectedOutput": "3",
+          "input": "0\n50",
+          "expectedOutput": "100%",
           "score": 10
         },
         {
-          "input": "20\n3",
-          "expectedOutput": "20",
+          "input": "100\n0",
+          "expectedOutput": "100%",
           "score": 10
         },
         {
-          "input": "6\n6",
-          "expectedOutput": "4",
-          "score": 10
-        }
-      ]
-    },
-    {
-      "id": "114JYunlin-6",
-      "title": "6-1-園遊會攤位熱度分析",
-      "problemTitle": "6-1-園遊會攤位熱度分析",
-      "courseCode": "114JYunlin",
-      "courseName": "114-雲林縣國中",
-      "role": "contest",
-      "difficulty": "L3",
-      "blocklyFit": "中",
-      "description": "園遊會地圖由「路口」和「走道」組成。學生會想知道哪個路口連接了最多條走道（最熱門交會點），以便安排引導人員。\n1. 給定路口數 N 與走道數 E。\n2. 統計每個路口連接的走道數量（分支量）。\n3. 輸出連接數最多的路口編號（若數量相同，輸出編號較小的）。\n【輸入格式】\n第一行：整數 N（路口數）。\n第二行：整數 E（走道數）。\n第三行：E 個整數，代表每條走道的一端（起點列表）。\n第四行：E 個整數，代表每條走道的另一端（終點列表）。\n（說明：第三行的第 i 個數字與第四行的第 i 個數字代表一條連接的走道。）\n【輸出格式】\n一個整數（最熱門路口編號）。",
-      "inputDescription": "",
-      "outputDescription": "",
-      "statement": {
-        "description": "園遊會地圖由「路口」和「走道」組成。學生會想知道哪個路口連接了最多條走道（最熱門交會點），以便安排引導人員。\n1. 給定路口數 N 與走道數 E。\n2. 統計每個路口連接的走道數量（分支量）。\n3. 輸出連接數最多的路口編號（若數量相同，輸出編號較小的）。\n【輸入格式】\n第一行：整數 N（路口數）。\n第二行：整數 E（走道數）。\n第三行：E 個整數，代表每條走道的一端（起點列表）。\n第四行：E 個整數，代表每條走道的另一端（終點列表）。\n（說明：第三行的第 i 個數字與第四行的第 i 個數字代表一條連接的走道。）\n【輸出格式】\n一個整數（最熱門路口編號）。",
-        "input": "",
-        "output": ""
-      },
-      "examples": [
-        {
-          "input": "3\n2\n1 1\n2 3",
-          "output": "1",
-          "explanation": "走道：(1-2), (1-3)\n路口 1：連了 2 條通道, (1-2), (1-3)\n路口 2：連了 1 條通道, (1-2)\n路口 3：連了 1 條通道, (1-3)\n由上可知路口 1 較熱門，輸出 1。"
-        },
-        {
-          "input": "4\n3\n1 2 3\n2 3 4",
-          "output": "2",
-          "explanation": "連線：(1-2), (2-3), (3-4)\n路口 2 和 3 都連了 2 條，輸出較小的 2。"
-        }
-      ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t6_n\">N</variable><variable id=\"t6_e\">E</variable><variable id=\"t6_from\">from</variable><variable id=\"t6_to\">to</variable><variable id=\"t6_degree\">degree</variable><variable id=\"t6_i\">i</variable><variable id=\"t6_v\">v</variable><variable id=\"t6_bestnode\">bestnode</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入路口數N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入走道數E</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_e\">E</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_from\">from</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_e\">E</field></block></value></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t6_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_e\">E</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入走道起點</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_from\">from</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_i\">i</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_v\">v</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_to\">to</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_e\">E</field></block></value></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t6_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_e\">E</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入走道終點</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_to\">to</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_i\">i</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_v\">v</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_degree\">degree</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_n\">N</field></block></value></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t6_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_e\">E</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_degree\">degree</field></block></value><value name=\"AT\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_from\">from</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_i\">i</field></block></value></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_degree\">degree</field></block></value><value name=\"AT\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_from\">from</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_i\">i</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_degree\">degree</field></block></value><value name=\"AT\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_to\">to</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_i\">i</field></block></value></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_degree\">degree</field></block></value><value name=\"AT\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_to\">to</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_i\">i</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_bestnode\">bestnode</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"t6_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_degree\">degree</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_i\">i</field></block></value></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_degree\">degree</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_bestnode\">bestnode</field></block></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t6_bestnode\">bestnode</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_i\">i</field></block></value></block></statement></block></statement></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t6_bestnode\">bestnode</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
-      "testCases": [
-        {
-          "input": "3\n2\n1 2\n2 3",
-          "expectedOutput": "2",
-          "score": 10
-        },
-        {
-          "input": "4\n3\n1 1 1\n2 3 4",
-          "expectedOutput": "1",
-          "score": 10
-        },
-        {
-          "input": "5\n4\n1 2 3 4\n2 3 4 5",
-          "expectedOutput": "2",
-          "score": 10
-        },
-        {
-          "input": "5\n5\n1 2 3 4 5\n2 3 4 5 1",
-          "expectedOutput": "1",
-          "score": 10
-        },
-        {
-          "input": "6\n4\n1 3 4 6\n2 2 5 5",
-          "expectedOutput": "2",
-          "score": 10
-        },
-        {
-          "input": "2\n1\n1\n2",
-          "expectedOutput": "1",
-          "score": 10
-        },
-        {
-          "input": "3\n3\n1 2 3\n2 3 1",
-          "expectedOutput": "1",
-          "score": 10
-        },
-        {
-          "input": "4\n6\n1 1 1 2 2 3\n2 3 4 3 4 4",
-          "expectedOutput": "1",
-          "score": 10
-        },
-        {
-          "input": "5\n4\n3 3 3 3\n1 2 4 5",
-          "expectedOutput": "3",
-          "score": 10
-        },
-        {
-          "input": "4\n2\n4 4\n1 2",
-          "expectedOutput": "4",
-          "score": 10
-        }
-      ]
-    },
-    {
-      "id": "114JYunlin-7",
-      "title": "6-2-園遊會尋找幸運抽獎號",
-      "problemTitle": "6-2-園遊會尋找幸運抽獎號",
-      "courseCode": "114JYunlin",
-      "courseName": "114-雲林縣國中",
-      "role": "contest",
-      "difficulty": "L3",
-      "blocklyFit": "中",
-      "description": "園遊會中最熱門的攤位是「幸運跳格子」挑戰賽。地上畫了一排共有 N 格的格子（編號從 1 到 N）。為了增加遊戲的趣味性與挑戰性，主辦單位規定：參賽者從起點（第 0 格）出發，每次跳躍只能選擇「跳 1 格」或「跳 2 格」。\n例如：要跳到第 3 格，可以有三種跳法：\n1. 跳 1 格 → 跳 1 格 → 跳 1 格 (1, 1, 1)\n2. 跳 1 格 → 跳 2 格 (1, 2)\n3. 跳 2 格 → 跳 1 格 (2, 1)\n學生會長想知道，如果要剛好停在第 N 格領取大獎，總共有多少種不同的跳法組合？\n這正是經典的費氏數列問題，若剛好停在第 N 格可能的走法數為 F(N) 種，我們可觀察到：\nF(1) = 1，停在第 1 格有 1 種走法\nF(2) = 2，停在第 2 格有 2 種走法\nF(3) = F(2) + F(1) = 1 + 2 = 3，停在第 3 格有 3 種走法\nF(4) = F(3) + F(2) = 3 + 2 = 5，停在第 4 格有 5 種走法\n【輸入格式】\n一個整數，代表目標格子。\n【輸出格式】\n一個整數，代表到達第 N 格的總跳法數。",
-      "inputDescription": "",
-      "outputDescription": "",
-      "statement": {
-        "description": "園遊會中最熱門的攤位是「幸運跳格子」挑戰賽。地上畫了一排共有 N 格的格子（編號從 1 到 N）。為了增加遊戲的趣味性與挑戰性，主辦單位規定：參賽者從起點（第 0 格）出發，每次跳躍只能選擇「跳 1 格」或「跳 2 格」。\n例如：要跳到第 3 格，可以有三種跳法：\n1. 跳 1 格 → 跳 1 格 → 跳 1 格 (1, 1, 1)\n2. 跳 1 格 → 跳 2 格 (1, 2)\n3. 跳 2 格 → 跳 1 格 (2, 1)\n學生會長想知道，如果要剛好停在第 N 格領取大獎，總共有多少種不同的跳法組合？\n這正是經典的費氏數列問題，若剛好停在第 N 格可能的走法數為 F(N) 種，我們可觀察到：\nF(1) = 1，停在第 1 格有 1 種走法\nF(2) = 2，停在第 2 格有 2 種走法\nF(3) = F(2) + F(1) = 1 + 2 = 3，停在第 3 格有 3 種走法\nF(4) = F(3) + F(2) = 3 + 2 = 5，停在第 4 格有 5 種走法\n【輸入格式】\n一個整數，代表目標格子。\n【輸出格式】\n一個整數，代表到達第 N 格的總跳法數。",
-        "input": "",
-        "output": ""
-      },
-      "examples": [
-        {
-          "input": "3",
-          "output": "3",
-          "explanation": "共有 3 種跳法：\n1. (1, 1, 1)\n2. (1, 2)\n3. (2, 1)"
-        },
-        {
-          "input": "4",
-          "output": "5",
-          "explanation": "共有 5 種跳法：\n(1,1,1,1), (1,1,2), (1,2,1), (2,1,1), (2,2)"
-        }
-      ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t7_n\">N</variable><variable id=\"t7_a\">a</variable><variable id=\"t7_b\">b</variable><variable id=\"t7_tmp\">tmp</variable><variable id=\"t7_i\">i</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入目標格子N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t7_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t7_a\">a</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t7_b\">b</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t7_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"t7_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">3</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t7_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t7_tmp\">tmp</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t7_a\">a</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t7_b\">b</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t7_a\">a</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t7_b\">b</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t7_b\">b</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t7_tmp\">tmp</field></block></value></block></next></block></next></block></statement></block></statement><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t7_n\">N</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t7_a\">a</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t7_b\">b</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
-      "testCases": [
-        {
-          "input": "1",
-          "expectedOutput": "1",
-          "score": 10
-        },
-        {
-          "input": "5",
-          "expectedOutput": "8",
-          "score": 10
-        },
-        {
-          "input": "7",
-          "expectedOutput": "21",
-          "score": 10
-        },
-        {
-          "input": "10",
-          "expectedOutput": "89",
-          "score": 10
-        },
-        {
-          "input": "20",
-          "expectedOutput": "10946",
-          "score": 10
-        },
-        {
-          "input": "2",
-          "expectedOutput": "2",
-          "score": 10
-        },
-        {
-          "input": "3",
-          "expectedOutput": "3",
-          "score": 10
-        },
-        {
-          "input": "4",
-          "expectedOutput": "5",
-          "score": 10
-        },
-        {
-          "input": "6",
-          "expectedOutput": "13",
-          "score": 10
-        },
-        {
-          "input": "15",
-          "expectedOutput": "987",
-          "score": 10
-        }
-      ]
-    },
-    {
-      "id": "114JYunlin-8",
-      "title": "6-3-園遊會人潮高峰期",
-      "problemTitle": "6-3-園遊會人潮高峰期",
-      "courseCode": "114JYunlin",
-      "courseName": "114-雲林縣國中",
-      "role": "contest",
-      "difficulty": "L3",
-      "blocklyFit": "中",
-      "description": "一年一度的校慶園遊會順利落幕了！今年學生會為了讓明年的活動辦得更好，決定用數據來說話。他們在校門口和各個攤位區安裝了「人流感測器」。感測器每隔一段時間（例如每10分鐘）就會記錄一次數據，這個數據稱為「人潮淨流量」：\n• 如果是正數（例如 +50）：代表進來的人比出去的人多，人潮正在累積。\n• 如果是負數（例如 -30）：代表離開的人比進來的人多，人潮正在消散。\n學生會會長小華拿到了一長串的數據清單，他想要找出一段連續的時間區間，這段時間內的「淨流量總和」是最大的。這個最大的數值就代表了今年園遊會最「盛況空前」時累積的人氣指數。\n請注意，如果算出來的最大總和是負數（代表整場活動人都一直在變少，或是沒人來），為了報表好看，請直接將結果歸零，輸出 0。\n請你幫忙寫一個程式，找出這個傳說中的「最大熱門指數」！\n【輸入格式】\n第一行：一個整數 N 代表總共記錄了 N 筆時段的數據。\n第二行：N 個整數，依序代表第 1 個時段到第 N 個時段的人潮淨流量（有正有負）。\n【輸出格式】\n第一行：一個整數（最大和）。\n特別規則：如果所有可能的區間總和都是負數，請輸出 0。",
-      "inputDescription": "",
-      "outputDescription": "",
-      "statement": {
-        "description": "一年一度的校慶園遊會順利落幕了！今年學生會為了讓明年的活動辦得更好，決定用數據來說話。他們在校門口和各個攤位區安裝了「人流感測器」。感測器每隔一段時間（例如每10分鐘）就會記錄一次數據，這個數據稱為「人潮淨流量」：\n• 如果是正數（例如 +50）：代表進來的人比出去的人多，人潮正在累積。\n• 如果是負數（例如 -30）：代表離開的人比進來的人多，人潮正在消散。\n學生會會長小華拿到了一長串的數據清單，他想要找出一段連續的時間區間，這段時間內的「淨流量總和」是最大的。這個最大的數值就代表了今年園遊會最「盛況空前」時累積的人氣指數。\n請注意，如果算出來的最大總和是負數（代表整場活動人都一直在變少，或是沒人來），為了報表好看，請直接將結果歸零，輸出 0。\n請你幫忙寫一個程式，找出這個傳說中的「最大熱門指數」！\n【輸入格式】\n第一行：一個整數 N 代表總共記錄了 N 筆時段的數據。\n第二行：N 個整數，依序代表第 1 個時段到第 N 個時段的人潮淨流量（有正有負）。\n【輸出格式】\n第一行：一個整數（最大和）。\n特別規則：如果所有可能的區間總和都是負數，請輸出 0。",
-        "input": "",
-        "output": ""
-      },
-      "examples": [
-        {
-          "input": "3\n-1 2 -1",
-          "output": "2",
-          "explanation": "可能組合及其和如下：\n由第 1 個時段開始 -1, -1+2, -1+2+(-1)\n由第 2 個時段開始 2, 2+(-1)\n由第 3 個時段開始 -1\n以上最大為 2"
-        },
-        {
-          "input": "4\n-5 -2 -9 -1",
-          "output": "0",
-          "explanation": "所有人流皆為負成長，沒有人潮高峰，輸出 0"
-        }
-      ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t8_n\">N</variable><variable id=\"t8_v\">v</variable><variable id=\"t8_i\">i</variable><variable id=\"t8_cur\">cur</variable><variable id=\"t8_best\">best</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入時段數N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t8_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t8_cur\">cur</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t8_best\">best</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t8_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t8_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入淨流量</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t8_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t8_cur\">cur</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t8_cur\">cur</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t8_v\">v</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t8_cur\">cur</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t8_cur\">cur</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></statement><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t8_cur\">cur</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t8_best\">best</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t8_best\">best</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t8_cur\">cur</field></block></value></block></statement></block></next></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t8_best\">best</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
-      "testCases": [
-        {
-          "input": "3\n1 2 3",
-          "expectedOutput": "6",
-          "score": 10
-        },
-        {
-          "input": "4\n-1 -2 -3 -4",
-          "expectedOutput": "0",
-          "score": 10
-        },
-        {
-          "input": "5\n2 -1 2 -1 2",
-          "expectedOutput": "4",
-          "score": 10
-        },
-        {
-          "input": "6\n-2 5 -1 5 -10 2",
-          "expectedOutput": "9",
-          "score": 10
-        },
-        {
-          "input": "5\n10 -20 30 -5 10",
-          "expectedOutput": "35",
-          "score": 10
-        },
-        {
-          "input": "3\n0 0 0",
-          "expectedOutput": "0",
-          "score": 10
-        },
-        {
-          "input": "4\n1 2 3 4",
-          "expectedOutput": "10",
-          "score": 10
-        },
-        {
-          "input": "5\n10 -5 10 -5 10",
-          "expectedOutput": "20",
-          "score": 10,
-          "output": "20"
-        },
-        {
-          "input": "3\n-100 50 -100",
-          "expectedOutput": "50",
-          "score": 10
-        },
-        {
-          "input": "10\n1 2 3 -10 5 6 -20 10 10 10",
-          "expectedOutput": "30",
-          "score": 10
-        }
-      ]
-    },
-    {
-      "id": "114JYunlin-9",
-      "title": "6-4-園遊會場地復原大作戰",
-      "problemTitle": "6-4-園遊會場地復原大作戰",
-      "courseCode": "114JYunlin",
-      "courseName": "114-雲林縣國中",
-      "role": "contest",
-      "difficulty": "L3",
-      "blocklyFit": "中",
-      "description": "熱鬧的園遊會終於圓滿落幕了！現在是最後的場地復原時間。雖然大家都累壞了，但幾位熱心的志工同學自願留下來幫忙清理最後的垃圾。\n現在在操場的跑道旁，整齊地排列著 N 堆分類好的垃圾包。因為垃圾已經打包好了，而且按照順序排成一列，為了避免混亂，每位志工必須負責清理「連續」的幾堆垃圾，不能跳著拿（例如：小明不能拿了第 1 堆又跑去拿第 3 堆，他必須拿第 1、2、3 堆這樣連續的一段）。\n你是衛生組長，你有 M 位志工可以調度。為了公平起見，你不希望任何一位志工累壞，所以你的目標是：「讓工作量最重的那位志工，搬運的重量越輕越好」。\n換句話說，你要把這一列垃圾切成 M 段，分配給 M 個人，請你計算出在最完美的分配策略下，那個「搬最多重量的人」，他最少只需要搬多少公斤？\n【輸入格式】\n第一行：整數 M（志工人數）。\n第二行：整數 N（垃圾堆數）。\n第三行：N 個整數（垃圾重量）。\n【輸出格式】\n一個整數（最小化的最大工作量）。",
-      "inputDescription": "",
-      "outputDescription": "",
-      "statement": {
-        "description": "熱鬧的園遊會終於圓滿落幕了！現在是最後的場地復原時間。雖然大家都累壞了，但幾位熱心的志工同學自願留下來幫忙清理最後的垃圾。\n現在在操場的跑道旁，整齊地排列著 N 堆分類好的垃圾包。因為垃圾已經打包好了，而且按照順序排成一列，為了避免混亂，每位志工必須負責清理「連續」的幾堆垃圾，不能跳著拿（例如：小明不能拿了第 1 堆又跑去拿第 3 堆，他必須拿第 1、2、3 堆這樣連續的一段）。\n你是衛生組長，你有 M 位志工可以調度。為了公平起見，你不希望任何一位志工累壞，所以你的目標是：「讓工作量最重的那位志工，搬運的重量越輕越好」。\n換句話說，你要把這一列垃圾切成 M 段，分配給 M 個人，請你計算出在最完美的分配策略下，那個「搬最多重量的人」，他最少只需要搬多少公斤？\n【輸入格式】\n第一行：整數 M（志工人數）。\n第二行：整數 N（垃圾堆數）。\n第三行：N 個整數（垃圾重量）。\n【輸出格式】\n一個整數（最小化的最大工作量）。",
-        "input": "",
-        "output": ""
-      },
-      "examples": [
-        {
-          "input": "2\n5\n2 4 3 6 5",
-          "output": "11",
-          "explanation": "最理想的狀況為分成 2 4 3 和 6 5 兩堆讓兩個志工處理。重量分別為：\n2+4+3=9\n6+5=11\n最小化最大工作量為 11"
-        },
-        {
-          "input": "3\n3\n10 20 30",
-          "output": "30",
-          "explanation": "3 個志工，剛好每人負責一堆，工作量分別為 10, 20, 30。最小化最大工作量為 30。"
-        }
-      ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t9_m\">M</variable><variable id=\"t9_n\">N</variable><variable id=\"t9_weight\">weight</variable><variable id=\"t9_i\">i</variable><variable id=\"t9_v\">v</variable><variable id=\"t9_lo\">lo</variable><variable id=\"t9_hi\">hi</variable><variable id=\"t9_mid\">mid</variable><variable id=\"t9_parts\">parts</variable><variable id=\"t9_cursum\">cursum</variable><variable id=\"t9_feasible\">feasible</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入志工人數M</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_m\">M</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入垃圾堆數N</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_weight\">weight</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_n\">N</field></block></value></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t9_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入垃圾重量</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_v\">v</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_i\">i</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_v\">v</field></block></value></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_lo\">lo</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_weight\">weight</field></block></value><value name=\"AT\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_hi\">hi</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t9_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_i\">i</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_lo\">lo</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_lo\">lo</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_i\">i</field></block></value></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_hi\">hi</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_hi\">hi</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_i\">i</field></block></value></block></value></block></value></block></next></block></statement><next><block type=\"controls_whileUntil\"><field name=\"MODE\">WHILE</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_lo\">lo</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_hi\">hi</field></block></value></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_mid\">mid</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_lo\">lo</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_hi\">hi</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">2</field></block></value></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_parts\">parts</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_cursum\">cursum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t9_i\">i</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_cursum\">cursum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_i\">i</field></block></value></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_mid\">mid</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_parts\">parts</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_parts\">parts</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_cursum\">cursum</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_i\">i</field></block></value></block></value></block></next></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_cursum\">cursum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_cursum\">cursum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_weight\">weight</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_i\">i</field></block></value></block></value></block></value></block></statement></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_feasible\">feasible</field><value name=\"VALUE\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_parts\">parts</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_m\">M</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_feasible\">feasible</field></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_hi\">hi</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_mid\">mid</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t9_lo\">lo</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_mid\">mid</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t9_lo\">lo</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
-      "testCases": [
-        {
-          "input": "2\n3\n1 1 1",
-          "expectedOutput": "2",
-          "score": 10
-        },
-        {
-          "input": "3\n3\n10 20 30",
-          "expectedOutput": "30",
-          "score": 10
-        },
-        {
-          "input": "2\n4\n10 20 30 40",
-          "expectedOutput": "60",
-          "score": 10
-        },
-        {
-          "input": "3\n6\n1 2 3 4 5 6",
-          "expectedOutput": "9",
-          "score": 10
-        },
-        {
-          "input": "1\n5\n1 2 3 4 5",
-          "expectedOutput": "15",
-          "score": 10
-        },
-        {
-          "input": "4\n4\n10 10 10 10",
-          "expectedOutput": "10",
-          "score": 10
-        },
-        {
-          "input": "2\n5\n1 2 3 4 5",
-          "expectedOutput": "9",
-          "score": 10
-        },
-        {
-          "input": "3\n5\n5 5 5 5 5",
-          "expectedOutput": "10",
-          "score": 10
-        },
-        {
-          "input": "2\n6\n10 10 10 10 10 10",
-          "expectedOutput": "30",
-          "score": 10
-        },
-        {
-          "input": "5\n5\n1 2 3 4 5",
-          "expectedOutput": "5",
+          "input": "10\n10",
+          "expectedOutput": "30%",
           "score": 10
         }
       ]
