@@ -88,8 +88,8 @@ BMI = 體重(公斤) ÷ (身高(公尺))²
 1.5`,score:10},{input:`50
 0`,score:10},{input:`100
 1.6`,score:10},{input:`45
-1.6`,score:10},{input:`61.44
-1.6`,score:10},{input:`69.12
+1.6`,score:10},{input:`61.94
+1.6`,score:10},{input:`69.62
 1.6`,score:10}]},{id:`114TCPJ16-4`,title:`4-成績統計`,problemTitle:`4-成績統計`,courseCode:`114TCPJ16`,courseName:`114-雲林縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`老師要統計班上這次月考的成績情形。
 請先輸入學生人數，接著輸入 N 個整數（每位學生的分數）。
 你的程式需要：
