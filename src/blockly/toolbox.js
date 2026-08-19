@@ -6,7 +6,6 @@ export const competitionToolbox = {
       name: '專用',
       colour: '#ffab19',
       contents: [
-        { kind: 'block', type: 'event_whenflagclicked' },
         {
           kind: 'block',
           type: 'interaction_ask_and_wait',

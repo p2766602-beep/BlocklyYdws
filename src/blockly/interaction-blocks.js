@@ -18,7 +18,7 @@ Blockly.Blocks.event_whenflagclicked = {
     this.appendDummyInput().appendField('當').appendField('🚩').appendField('被點擊');
     this.setNextStatement(true, null);
     this.setColour(COLOUR_EVENT);
-    this.setTooltip('系統評分只會執行接在這個積木下方的程式。沒有接在這裡的積木仍然會被執行，但不代表評分入口。');
+    this.setTooltip('比照Scratch介面的示意積木，Blockly不需要這顆積木也能執行程式（已從積木選單移除，僅為相容舊檔案保留）。');
     this.setHelpUrl('');
   },
 };
