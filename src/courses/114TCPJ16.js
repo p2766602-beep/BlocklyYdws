@@ -224,11 +224,11 @@ const course = {
           "score": 10
         },
         {
-          "input": "61.44\n1.6",
+          "input": "61.94\n1.6",
           "score": 10
         },
         {
-          "input": "69.12\n1.6",
+          "input": "69.62\n1.6",
           "score": 10
         }
       ]
