@@ -14,6 +14,8 @@ import {
   isSimulatorOpen,
 } from './smartring/simulator-bridge.js';
 
+import { scaffoldUrlForCourse } from './lib/scaffold-content.js';
+
 import {
   getPublicCourseGroupListHtml,
   getCourseGroup,
@@ -1167,7 +1169,18 @@ function getStudentChallenges(task) {
   return [];
 }
 
-function renderStudentTaskContent(task, { compact = false } = {}) {
+function renderScaffoldLink(courseGroup) {
+  const url = courseGroup ? scaffoldUrlForCourse(courseGroup.id) : null;
+  if (!url) return '';
+
+  return `
+    <a class="scaffold-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">
+      📘 延伸學習：這個主題的概念補充文件
+    </a>
+  `;
+}
+
+function renderStudentTaskContent(task, { compact = false, courseGroup = null } = {}) {
   const description = getStudentTaskDescription(task);
   const passConditions = getStudentPassConditions(task);
   const hints = getStudentHints(task);
@@ -1188,6 +1201,7 @@ function renderStudentTaskContent(task, { compact = false } = {}) {
   return `
     <article class="student-task-content">
       <h2>${escapeHtml(task.title || '未命名任務')}</h2>
+      ${renderScaffoldLink(courseGroup)}
       ${compactSections}
     </article>
   `;
@@ -1365,7 +1379,7 @@ function getProblemExamples(task) {
   ];
 }
 
-function renderProblemTaskContent(task) {
+function renderProblemTaskContent(task, courseGroup = null) {
   const problemTitle = task.problemTitle || task.title || '未命名題目';
   const statement = getProblemDescription(task);
   const inputDescription = getProblemInputDescription(task);
@@ -1375,6 +1389,7 @@ function renderProblemTaskContent(task) {
   return `
     <article class="problem-task-content">
       <h2 class="problem-title">${escapeHtml(problemTitle)}</h2>
+      ${renderScaffoldLink(courseGroup)}
       ${renderProblemTextSection('題目說明', statement)}
       ${renderProblemTextSection('輸入說明', inputDescription)}
       ${renderProblemTextSection('輸出說明', outputDescription)}
@@ -1484,15 +1499,15 @@ function updateModeStatus({ announce = false } = {}) {
   }
 }
 
-function renderProblemTaskModal(task) {
+function renderProblemTaskModal(task, courseGroup = null) {
   taskModalTitle.textContent = task.problemTitle || task.title || '競賽題目';
-  taskModalBody.innerHTML = renderProblemTaskContent(task);
+  taskModalBody.innerHTML = renderProblemTaskContent(task, courseGroup);
 }
 
 function renderLearningTaskModal(task, courseGroup) {
   taskModalTitle.textContent = `${task.id}｜${task.title}`;
   taskModalBody.innerHTML = `
-    ${renderStudentTaskContent(task)}
+    ${renderStudentTaskContent(task, { courseGroup })}
   `;
 }
 
@@ -1524,15 +1539,15 @@ function renderTaskInfo(task, courseGroup) {
   if (isProblemTask) {
     taskInfo.innerHTML = `
       <div class="problem-task-fixed-panel">
-        ${renderProblemTaskContent(task)}
+        ${renderProblemTaskContent(task, courseGroup)}
       </div>
     `;
-    renderProblemTaskModal(task);
+    renderProblemTaskModal(task, courseGroup);
     return;
   }
 
   taskInfo.innerHTML = `
-    ${renderStudentTaskContent(task, { compact: true })}
+    ${renderStudentTaskContent(task, { compact: true, courseGroup })}
     <p class="summary-note">需要提示或延伸挑戰時，請按右上角「查看完整任務」。</p>
   `;
 
