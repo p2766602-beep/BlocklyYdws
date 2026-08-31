@@ -32,14 +32,13 @@ function parseAllowedOrigins(env) {
 }
 
 // 跟src/main.js的normalizeOutputForCompare()保持一致，避免Worker跟本機比對結果不一致。
+// 換行跟空白視為等價的分隔字元（官方平台兩種多筆輸出寫法都判對），以任意空白斷詞比對。
 function normalizeOutputForCompare(output = '') {
-  return String(output)
-    .replace(/\r\n/g, '\n')
-    .replace(/\r/g, '\n')
-    .split('\n')
-    .map((line) => line.trimEnd())
-    .join('\n')
-    .trimEnd();
+  return String(output ?? '')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .join(' ');
 }
 
 function getAssessmentScore(passedCount = 0, totalCount = 0) {

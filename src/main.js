@@ -1685,14 +1685,15 @@ function changeTask() {
 }
 
 
+// 官方參考平台（demo.csie.ntnu.edu.tw）對多筆輸出值的判定，不管學生是分開多次輸出
+// （換行分隔）還是串成一次輸出（空白分隔），只要token內容與順序一致就算對——換行跟
+// 空白視為等價的分隔字元，因此改用「以任意空白斷詞」比對，而非要求逐行完全一致。
 function normalizeOutputForCompare(output = '') {
-  return String(output)
-    .replace(/\r\n/g, '\n')
-    .replace(/\r/g, '\n')
-    .split('\n')
-    .map((line) => line.trimEnd())
-    .join('\n')
-    .trimEnd();
+  return String(output ?? '')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .join(' ');
 }
 
 
