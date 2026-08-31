@@ -1650,11 +1650,7 @@ function ${t.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
       <p>找不到課程組代碼：${r}</p>
       <p>請先確認課程代碼，或測試以下公開基礎課程：</p>
       ${e()}
-    `,Q.textContent=`找不到課程組代碼：${r}`;return}u_=i,d_=y_(i.mode),Ov(i),Nv({announce:!0});let a=t(i);if(!a){$=null,h_=!1,D_(),Bv(),E_(),Rg?.classList.remove(`programming-problem`),zg&&(zg.textContent=`課程任務摘要`),Q.textContent=`課程組 ${i.id} 尚未建立子任務。`;return}Vv(a,i)}function Uv(){if(!u_)return;let e=r(u_,Mg.value);if(!e){Q.textContent=`找不到子任務：${Mg.value}`;return}Vv(e,u_)}function Wv(e=``){return String(e).replace(/\r\n/g,`
-`).replace(/\r/g,`
-`).split(`
-`).map(e=>e.trimEnd()).join(`
-`).trimEnd()}function Gv(e=[]){let t=[...e];for(;t.length>0&&String(t[t.length-1]).trim()===``;)t.pop();return t}function Kv(e=``){let t=String(e??``).replace(/\r\n/g,`
+    `,Q.textContent=`找不到課程組代碼：${r}`;return}u_=i,d_=y_(i.mode),Ov(i),Nv({announce:!0});let a=t(i);if(!a){$=null,h_=!1,D_(),Bv(),E_(),Rg?.classList.remove(`programming-problem`),zg&&(zg.textContent=`課程任務摘要`),Q.textContent=`課程組 ${i.id} 尚未建立子任務。`;return}Vv(a,i)}function Uv(){if(!u_)return;let e=r(u_,Mg.value);if(!e){Q.textContent=`找不到子任務：${Mg.value}`;return}Vv(e,u_)}function Wv(e=``){return String(e??``).trim().split(/\s+/).filter(Boolean).join(` `)}function Gv(e=[]){let t=[...e];for(;t.length>0&&String(t[t.length-1]).trim()===``;)t.pop();return t}function Kv(e=``){let t=String(e??``).replace(/\r\n/g,`
 `).replace(/\r/g,`
 `).split(`
 `),n=[];for(let e of t){let t=String(e??``),r=t.trim();if(/^(預期答案|參考答案|正確答案|答案|分數)\s*[:：]/.test(r))break;let i=r.match(/^第[一二三四五六七八九十0-9]+個輸入\s*[:：]\s*(.*)$/);if(i){let e=i[1].trim();e&&n.push(e);continue}n.push(t)}return Gv(n).join(`
