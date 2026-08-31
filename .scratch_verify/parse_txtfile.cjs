@@ -52,7 +52,10 @@ function parseCaseBlocks(raw) {
         answerLines.push(line);
         continue;
       }
-      const inputMatch = line.match(/^第[一二三四五六七八九十]個輸入[：:]\s*(.*)$/);
+      // 注意：原本用[一二三四五六七八九十]（無+）只吃單一中文數字字元，「第十一個輸入」
+      // 「第十二個輸入」這種兩字組合會match失敗、整行被漏掉——114EMiaoli第4題案例7
+      // 就因此被靜默截斷成只剩前10個輸入。改成[一二三四五六七八九十百]+支援多字組合。
+      const inputMatch = line.match(/^第[一二三四五六七八九十百]+個輸入[：:]\s*(.*)$/);
       if (inputMatch) {
         if (inputMatch[1].trim().length > 0) inputs.push(inputMatch[1].trim());
         continue;
