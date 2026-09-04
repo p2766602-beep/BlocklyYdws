@@ -1582,7 +1582,12 @@ function resetTaskSelector() {
 function loadTask(task, courseGroup, { shouldLoadStarter = false } = {}) {
   if (!task || !courseGroup) return;
 
-  hasLoadedStarterForCurrentTask = false;
+  // 安全性修正（2026-09-05）：這裡以前會無條件把hasLoadedStarterForCurrentTask重設為false，
+  // 但單純切換子任務並不會清空/重灌工作區積木（見下方shouldLoadStarter分支與其後的說明文字
+  // 「工作區積木未變更」）——若旗標在這裡被重置，學生可以載入範例→切到別題→切回來，畫布仍是
+  // 範例答案，但旗標已顯示「未載入範例」，就能繞過submitScore()裡的擋上傳成績檢查。旗標只能
+  // 在畫布內容真的被替換/清空的地方改（loadCourseStarter成功載入範例時設true、clearWorkspace
+  // 清空工作區時設false），不能跟著「目前選哪一題」連動。
   resetCompetitionAssessmentResult();
   currentTask = task;
   renderTaskSelector(courseGroup, task.id);
