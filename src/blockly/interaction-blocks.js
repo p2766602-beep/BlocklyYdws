@@ -74,7 +74,7 @@ Blockly.Blocks.interaction_say = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(COLOUR_LOOKS);
-    this.setTooltip('輸出內容。系統評分只會比對這個積木輸出的內容，「顯示訊息」積木不會列入評分。');
+    this.setTooltip('輸出內容。系統評分只會比對這個積木輸出的內容，「輸出至訊息視窗」積木不會列入評分。');
     this.setHelpUrl('');
   },
 };

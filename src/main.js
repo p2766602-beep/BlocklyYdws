@@ -28,6 +28,15 @@ import {
 import { initAiCompanion } from './aiCompanion.js';
 
 Blockly.setLocale(ZhHant);
+// 2026-09-10：對齊官方競賽平台的積木命名——內建text_print積木zh-hant預設顯示「輸出」，
+// 但這個字眼跟旁邊「說出」（真正列入評分的積木）容易搞混，改成「輸出至訊息視窗」比照官方
+// 平台，讓學生一眼看出這是印出來看的訊息，不是系統評分依據。
+Blockly.Msg['TEXT_PRINT_TITLE'] = '輸出至訊息視窗 %1';
+// Blockly內建zh-hant語系裡variables_set／math_change這兩個積木的翻譯用字很拗口
+//（「賦值 %1 成 %2」「修改 %1 自 %2」），跟官方競賽平台的措辭不一致，改成官方平台的
+// 「將 %1 設為 %2」「將 %1 的值加 %2」。
+Blockly.Msg['VARIABLES_SET'] = '將 %1 設為 %2';
+Blockly.Msg['MATH_CHANGE_TITLE'] = '將 %1 的值加 %2';
 registerSmartRingBlocks();
 registerInteractionBlocks();
 
@@ -554,7 +563,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false, o
   }
 
   const capturedOutput = [];
-  // 官方平台行為（使用者2026-08-01實測確認）：「輸出」積木（text_print，底層走
+  // 官方平台行為（使用者2026-08-01實測確認）：「輸出至訊息視窗」積木（text_print，底層走
   // window.alert）只是給學生看的顯示訊息，不列入評分；只有「說出」積木
   // （interaction_say，底層走 print()）的內容才會被拿去跟 expectedOutput 比對。
   // sayOutput 只收集 print() 的內容，供 requiresGreenFlag 課程評分用；capturedOutput
@@ -652,22 +661,24 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false, o
   }
 }
 
-// requiresGreenFlag課程「執行程式」時，把輸出畫面分成兩塊：上面是「系統／除錯訊息」
-// （輸出積木＝window.alert、console.log、系統狀態訊息），下面是「說出內容」（interaction_say＝
-// print()，也就是系統評分實際比對的內容）。讓學生一眼看出只用「輸出」積木寫的答案不會被評分。
-function renderSplitOutputPanes(systemLines, sayLines) {
-  const systemText = systemLines.length > 0 ? escapeHtml(systemLines.join('\n')) : '（無）';
-  const sayText = sayLines.length > 0 ? escapeHtml(sayLines.join('\n')) : '（尚無「說出」內容）';
+// 2026-09-10：對齊官方競賽平台的「自行測試」畫面——「執行程式」的輸出一律分成兩塊：
+// 上面「輸出：」是說出內容（interaction_say＝print()，系統評分實際比對的內容），
+// 下面「訊息：」是輸出至訊息視窗積木＝window.alert、console.log、系統狀態訊息（不列入
+// 評分）。以前只有requiresGreenFlag課程才會分開顯示，其餘課程（例如SmartRing課程）兩種
+// 內容會混在一起、無法分辨哪些有算分，現在不分課程類型一律套用同一套分區顯示。
+function renderSplitOutputPanes(sayLines, systemLines) {
+  const sayText = sayLines.length > 0 ? escapeHtml(sayLines.join('\n')) : '（尚無內容）';
+  const systemText = systemLines.length > 0 ? escapeHtml(systemLines.join('\n')) : '（尚無內容）';
 
   outputArea.innerHTML = `
     <div class="dual-output-panes">
-      <div class="output-pane output-pane-system">
-        <h3>系統／除錯訊息（不列入評分）</h3>
-        <pre class="output-pane-content">${systemText}</pre>
-      </div>
       <div class="output-pane output-pane-say">
-        <h3>說出內容（系統評分依據）</h3>
+        <h3>輸出：</h3>
         <pre class="output-pane-content">${sayText}</pre>
+      </div>
+      <div class="output-pane output-pane-system">
+        <h3>訊息：</h3>
+        <pre class="output-pane-content">${systemText}</pre>
       </div>
     </div>
   `;
@@ -678,33 +689,24 @@ async function runUserCode() {
 
   clearOutput();
 
-  if (currentTask?.requiresGreenFlag) {
-    const systemLines = [];
-    const sayLines = [];
-    renderSplitOutputPanes(systemLines, sayLines);
+  const sayLines = [];
+  const systemLines = [];
+  renderSplitOutputPanes(sayLines, systemLines);
 
-    const result = await executeGeneratedCode({
-      writeToOutput: true,
-      onLine: (text, channel) => {
-        if (channel === 'say') {
-          sayLines.push(text);
-        } else {
-          systemLines.push(text);
-        }
-        renderSplitOutputPanes(systemLines, sayLines);
-      },
-    });
+  const result = await executeGeneratedCode({
+    writeToOutput: true,
+    onLine: (text, channel) => {
+      if (channel === 'say') {
+        sayLines.push(text);
+      } else {
+        systemLines.push(text);
+      }
+      renderSplitOutputPanes(sayLines, systemLines);
+    },
+  });
 
-    if (result.ok && systemLines.length === 0 && sayLines.length === 0) {
-      renderSplitOutputPanes(['程式執行完成：'], []);
-    }
-    return;
-  }
-
-  const result = await executeGeneratedCode({ writeToOutput: true });
-
-  if (result.ok && !result.output.trim()) {
-    outputArea.textContent = '程式執行完成：';
+  if (result.ok && systemLines.length === 0 && sayLines.length === 0) {
+    renderSplitOutputPanes([], ['程式執行完成：']);
   }
 }
 
@@ -1863,7 +1865,7 @@ function renderAssessmentResultHtml(assessment) {
     : '';
 
   const greenFlagNote = requiresGreenFlag && !isContestMode
-    ? '<p class="assessment-note">這個課程比照官方競賽平台規範：系統評分只比對「說出」積木的內容，「輸出」積木只是顯示訊息，不會列入評分。</p>'
+    ? '<p class="assessment-note">這個課程比照官方競賽平台規範：系統評分只比對「說出」積木的內容，「輸出至訊息視窗」積木只是顯示訊息，不會列入評分。</p>'
     : '';
 
   const tableHtml = total > 0
@@ -1930,7 +1932,7 @@ async function runProgrammingTestCases() {
   // 這裡只是先跑出每筆測資的實際輸出，比對正確答案的方式依課程模式而不同。
   const runs = [];
   // requiresGreenFlag課程比照官方平台規範，評分只認「說出」積木的內容，
-  // 「輸出」積木純粹是給學生看的顯示訊息，不計入比對（見executeGeneratedCode）。
+  // 「輸出至訊息視窗」積木純粹是給學生看的顯示訊息，不計入比對（見executeGeneratedCode）。
   const useSayOutputOnly = Boolean(currentTask?.requiresGreenFlag);
 
   for (const testCase of testCases) {
