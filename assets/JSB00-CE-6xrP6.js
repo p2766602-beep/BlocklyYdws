@@ -156,9 +156,11 @@ Louise`,expectedOutput:`Justin, Louise, 一起學習吧！`,output:`Justin, Loui
 較大的是數字8，程式輸出8`},{input:`7
 7`,output:`一樣大`,explanation:`第一個輸入7
 第二個輸入7
-二個數一樣大，程式輸出一樣大`}],testCases:[{input:`8
-5`,expectedOutput:`8`,output:`8`,score:50,hidden:!1},{input:`7
-7`,expectedOutput:`一樣大`,output:`一樣大`,score:50,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+二個數一樣大，程式輸出一樣大`}],testCases:[{input:`3
+7`,expectedOutput:`7`,output:`7`,score:10,hidden:!1},{input:`99
+100`,expectedOutput:`100`,output:`100`,score:10,hidden:!1},{input:`78
+22`,expectedOutput:`78`,output:`78`,score:10,hidden:!1},{input:`21
+21`,expectedOutput:`一樣大`,output:`一樣大`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="var_a">數字一</variable>
     <variable id="var_b">數字二</variable>
