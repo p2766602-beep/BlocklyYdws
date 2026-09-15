@@ -369,17 +369,31 @@ const course = {
       ],
       "testCases": [
         {
-          "input": "8\n5",
-          "expectedOutput": "8",
-          "output": "8",
-          "score": 50,
+          "input": "3\n7",
+          "expectedOutput": "7",
+          "output": "7",
+          "score": 10,
           "hidden": false
         },
         {
-          "input": "7\n7",
+          "input": "99\n100",
+          "expectedOutput": "100",
+          "output": "100",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "78\n22",
+          "expectedOutput": "78",
+          "output": "78",
+          "score": 10,
+          "hidden": false
+        },
+        {
+          "input": "21\n21",
           "expectedOutput": "一樣大",
           "output": "一樣大",
-          "score": 50,
+          "score": 10,
           "hidden": false
         }
       ],
