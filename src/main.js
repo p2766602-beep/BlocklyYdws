@@ -1893,22 +1893,6 @@ function showAssessmentResult(assessment) {
   outputArea.innerHTML = renderAssessmentResultHtml(assessment);
 }
 
-async function requestServerGrading(courseId, taskId, cases) {
-  const resp = await fetch(`${SCORE_GRADER_WORKER_URL}/grade`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ courseId, taskId, cases }),
-  });
-
-  const body = await resp.json().catch(() => ({}));
-
-  if (!resp.ok) {
-    throw new Error(body.error || `評分伺服器錯誤（狀態碼 ${resp.status}）`);
-  }
-
-  return body;
-}
-
 async function runProgrammingTestCases() {
   const testCases = getTaskTestCases(currentTask);
 
@@ -1945,50 +1929,27 @@ async function runProgrammingTestCases() {
     runs.push({ testCase, result, actualOutput });
   }
 
-  const isContestMode = normalizeCourseMode(currentCourseMode) === 'contest';
+  // 2026-09-21：評分比對一律走本機（不分mode是'learning'還是'contest'），不再打
+  // score-grader Worker——mode:'contest'課程原本設計成比對要送去Worker（本機JS故意不含
+  // expectedOutput，防止洩題），但Worker私密的answerKeys.json產生腳本讀錯資料夾，導致
+  // 「正確答案」全部變成空字串，系統評分永遠判定失敗，不管學生寫得多正確都一樣。
+  // testCases現在已經補回YDWS-CodingBank正本的真正expectedOutput/output，本機自己就能
+  // 比對，不用再依賴容易忘記重新產生/部署的Worker私密資料。mode欄位還是保留
+  // 'contest'/'learning'的區分，但只用來控制showAssessmentResult()結果顯示要不要隱藏
+  // 細節（見該函式的isContestMode），不再影響「比對去哪裡做」這件事。
+  const results = runs.map(({ testCase, result, actualOutput }) => {
+    const expectedOutput = testCase.expectedOutput;
+    const passed =
+      result.ok &&
+      normalizeOutputForCompare(actualOutput) === normalizeOutputForCompare(expectedOutput);
 
-  let results;
-
-  if (isContestMode) {
-    // competition模式課程的本機JS已經不含expectedOutput（見src/courses/CPB00.js等），
-    // 正確答案只存在score-grader Worker那一側，必須送去給Worker比對，本機無從得知答案。
-    let graded;
-
-    try {
-      graded = await requestServerGrading(
-        currentCourseGroup.id,
-        currentTask.id,
-        runs.map(({ testCase, actualOutput }) => ({ caseId: testCase.id, actualOutput })),
-      );
-    } catch (error) {
-      writeOutput('');
-      writeOutput(`評分伺服器連線失敗，請稍後再試：${error.message}`);
-      return { total: 0, passed: 0, score: 0, allPassed: false, cases: [] };
-    }
-
-    const passedByCaseId = new Map(graded.results.map((item) => [item.caseId, item.passed]));
-
-    results = runs.map(({ testCase, result, actualOutput }) => ({
+    return {
       ...testCase,
       actualOutput,
-      passed: Boolean(result.ok && passedByCaseId.get(testCase.id)),
+      passed,
       errorMessage: result.error ? result.error.message : '',
-    }));
-  } else {
-    results = runs.map(({ testCase, result, actualOutput }) => {
-      const expectedOutput = testCase.expectedOutput;
-      const passed =
-        result.ok &&
-        normalizeOutputForCompare(actualOutput) === normalizeOutputForCompare(expectedOutput);
-
-      return {
-        ...testCase,
-        actualOutput,
-        passed,
-        errorMessage: result.error ? result.error.message : '',
-      };
-    });
-  }
+    };
+  });
 
   const passedCount = results.filter((item) => item.passed).length;
   const totalCount = results.length;
