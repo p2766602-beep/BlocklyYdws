@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，由 114JPingtung.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（來源本來就沒有starterXml，維持空字串）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -11,7 +24,7 @@ const course = {
   "code": "114TCPJ19",
   "title": "114-屏東縣國中（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "114-屏東縣國中114學年度科技教育創意實作競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
@@ -57,42 +70,52 @@ const course = {
       "testCases": [
         {
           "input": "3\n0 0 0 0 3 0 0 0 0",
+          "expectedOutput": "0 5 4 0",
           "score": 10
         },
         {
           "input": "4\n5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4",
+          "expectedOutput": "4 12 0 0",
           "score": 10
         },
         {
           "input": "2\n0 0 0 0",
+          "expectedOutput": "0 0 0 4",
           "score": 10
         },
         {
           "input": "2\n5 5 5 5",
+          "expectedOutput": "4 0 0 0",
           "score": 10
         },
         {
           "input": "3\n1 0 0 0 1 0 0 0 1",
+          "expectedOutput": "0 0 3 6",
           "score": 10
         },
         {
           "input": "5\n0 0 0 0 0 0 0 0 0 0 0 0 9 0 0 0 0 0 0 0 0 0 0 0 0",
+          "expectedOutput": "25 0 0 0",
           "score": 10
         },
         {
           "input": "3\n2 0 0 0 0 0 0 0 2",
+          "expectedOutput": "0 2 4 3",
           "score": 10
         },
         {
           "input": "4\n0 0 0 0 0 4 0 0 0 0 0 0 0 0 0 0",
+          "expectedOutput": "1 10 4 1",
           "score": 10
         },
         {
           "input": "3\n4 0 4 0 0 0 4 0 4",
+          "expectedOutput": "4 5 0 0",
           "score": 10
         },
         {
           "input": "5\n0 0 3 0 0 0 0 0 0 0 3 0 0 0 3 0 0 0 0 0 0 0 3 0 0",
+          "expectedOutput": "0 16 9 0",
           "score": 10
         }
       ]

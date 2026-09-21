@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，2026-08-13由 114ETaichung.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -9,7 +22,7 @@ const course = {
   "code": "114TCPE10",
   "title": "114-臺中市國小（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "臺中市114學年度國小組資訊科技教育競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
@@ -60,26 +73,36 @@ const course = {
       "testCases": [
         {
           "input": "10\n500",
+          "expectedOutput": "390 元",
+          "output": "390 元",
           "score": 10,
           "hidden": false
         },
         {
           "input": "400\n200",
+          "expectedOutput": "無盈餘",
+          "output": "無盈餘",
           "score": 10,
           "hidden": false
         },
         {
           "input": "100\n200",
+          "expectedOutput": "100 元",
+          "output": "100 元",
           "score": 10,
           "hidden": false
         },
         {
           "input": "50\n250",
+          "expectedOutput": "200 元",
+          "output": "200 元",
           "score": 10,
           "hidden": false
         },
         {
           "input": "300\n300",
+          "expectedOutput": "無盈餘",
+          "output": "無盈餘",
           "score": 10,
           "hidden": false
         }
@@ -159,31 +182,43 @@ const course = {
       "testCases": [
         {
           "input": "47887495",
+          "expectedOutput": "無中獎",
+          "output": "無中獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "451232",
+          "expectedOutput": "非統一編號",
+          "output": "非統一編號",
           "score": 10,
           "hidden": false
         },
         {
           "input": "25834483",
+          "expectedOutput": "特別獎",
+          "output": "特別獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "46587380",
+          "expectedOutput": "特獎",
+          "output": "特獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "41016094",
+          "expectedOutput": "頭獎",
+          "output": "頭獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "00007261",
+          "expectedOutput": "六獎",
+          "output": "六獎",
           "score": 10,
           "hidden": false
         }
@@ -264,21 +299,29 @@ const course = {
       "testCases": [
         {
           "input": "7\nGA\nFA\nGA\nFB\nFB\nFB\nGB",
+          "expectedOutput": "2\n0\nA Win",
+          "output": "2\n0\nA Win",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\nGA\nGB\nFA\nFA\nFA\nGB",
+          "expectedOutput": "0\n2\nB Win",
+          "output": "0\n2\nB Win",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\nGA\nGB\nFA\nFB",
+          "expectedOutput": "1\n1\nDraw",
+          "output": "1\n1\nDraw",
           "score": 10,
           "hidden": false
         },
         {
           "input": "9\nFA\nFA\nFA\nFA\nFA\nFA\nFA\nFA\nFA",
+          "expectedOutput": "0\n0\nDraw",
+          "output": "0\n0\nDraw",
           "score": 10,
           "hidden": false
         }
@@ -359,21 +402,29 @@ const course = {
       "testCases": [
         {
           "input": "6\nGA\nFA\nFA\nFA\nFA\nGB",
+          "expectedOutput": "0\n1\nB Win",
+          "output": "0\n1\nB Win",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\nGA\nFA\nFA\nGB\nFB",
+          "expectedOutput": "1\n1\nDraw",
+          "output": "1\n1\nDraw",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\nGA\nGA\nFA\nFA\nFA\nFA\nGB\nGB",
+          "expectedOutput": "0\n2\nB Win",
+          "output": "0\n2\nB Win",
           "score": 10,
           "hidden": false
         },
         {
           "input": "9\nFA\nFA\nFA\nFA\nFA\nFA\nFA\nFA\nFA",
+          "expectedOutput": "0\n0\nDraw",
+          "output": "0\n0\nDraw",
           "score": 10,
           "hidden": false
         }
@@ -454,21 +505,29 @@ const course = {
       "testCases": [
         {
           "input": "7\nGA\nFA\nFA\nFA\nGB\nFA\nGB",
+          "expectedOutput": "0\n1\nB Win",
+          "output": "0\n1\nB Win",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\nGB\nFB\nFB\nFB\nFB\nGA",
+          "expectedOutput": "0\n0\nDraw",
+          "output": "0\n0\nDraw",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\nGA\nGA\nFA\nFA\nFA\nFA\nGB\nGB",
+          "expectedOutput": "0\n0\nDraw",
+          "output": "0\n0\nDraw",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\nGA\nGB\nFA\nGB\nGA",
+          "expectedOutput": "2\n2\nDraw",
+          "output": "2\n2\nDraw",
           "score": 10,
           "hidden": false
         }

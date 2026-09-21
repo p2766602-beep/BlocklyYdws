@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，由 114JKinmen.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入，即使
 // 來源這次確實有真的starterXml範例答案，仍比照114TCPE01~16既有政策不外露）、課程代碼/
@@ -12,7 +25,7 @@ const course = {
   "code": "114TCPJ17",
   "title": "114-金門縣國中（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "114-金門縣國中114學年度科技教育創意實作競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
@@ -58,42 +71,52 @@ const course = {
       "testCases": [
         {
           "input": "6\n92\n55\n80\n90\n72\n65",
+          "expectedOutput": "2,1,1,1",
           "score": 10
         },
         {
           "input": "3\n45\n60\n59",
+          "expectedOutput": "0,0,0,1",
           "score": 10
         },
         {
           "input": "5\n100\n100\n100\n100\n100",
+          "expectedOutput": "5,0,0,0",
           "score": 10
         },
         {
           "input": "4\n85\n88\n80\n89",
+          "expectedOutput": "0,4,0,0",
           "score": 10
         },
         {
           "input": "3\n75\n70\n79",
+          "expectedOutput": "0,0,3,0",
           "score": 10
         },
         {
           "input": "2\n60\n69",
+          "expectedOutput": "0,0,0,2",
           "score": 10
         },
         {
           "input": "5\n0\n10\n20\n30\n40",
+          "expectedOutput": "0,0,0,0",
           "score": 10
         },
         {
           "input": "8\n95\n85\n75\n65\n55\n45\n99\n81",
+          "expectedOutput": "2,2,1,1",
           "score": 10
         },
         {
           "input": "1\n90",
+          "expectedOutput": "1,0,0,0",
           "score": 10
         },
         {
           "input": "10\n60\n60\n70\n70\n80\n80\n90\n90\n50",
+          "expectedOutput": "2,2,2,2",
           "score": 10
         }
       ]
@@ -141,42 +164,52 @@ const course = {
       "testCases": [
         {
           "input": "1000\n200\n1",
+          "expectedOutput": "6",
           "score": 10
         },
         {
           "input": "1000\n200\n3",
+          "expectedOutput": "4",
           "score": 10
         },
         {
           "input": "1050\n200\n2",
+          "expectedOutput": "5",
           "score": 10
         },
         {
           "input": "800\n200\n4",
+          "expectedOutput": "4",
           "score": 10
         },
         {
           "input": "2000\n500\n1",
+          "expectedOutput": "5",
           "score": 10
         },
         {
           "input": "2000\n500\n2",
+          "expectedOutput": "4",
           "score": 10
         },
         {
           "input": "2000\n500\n3",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "2000\n500\n4",
+          "expectedOutput": "4",
           "score": 10
         },
         {
           "input": "750\n100\n1",
+          "expectedOutput": "8",
           "score": 10
         },
         {
           "input": "750\n100\n3",
+          "expectedOutput": "6",
           "score": 10
         }
       ]
@@ -214,42 +247,52 @@ const course = {
       "testCases": [
         {
           "input": "B,120\nJ,120\nT,110\nM,110\nF,90",
+          "expectedOutput": "B,J,T,M,F",
           "score": 10
         },
         {
           "input": "F,100\nM,110\nT,110\nJ,110\nB,120",
+          "expectedOutput": "B,M,T,J,F",
           "score": 10
         },
         {
           "input": "B,10\nM,20\nT,30\nJ,40\nF,50",
+          "expectedOutput": "F,J,T,M,B",
           "score": 10
         },
         {
           "input": "M,50\nB,40\nT,60\nF,30\nJ,70",
+          "expectedOutput": "J,T,M,B,F",
           "score": 10
         },
         {
           "input": "B,100\nM,100\nT,100\nF,100\nJ,100",
+          "expectedOutput": "B,M,T,F,J",
           "score": 10
         },
         {
           "input": "T,10\nM,10\nB,10\nF,10\nJ,10",
+          "expectedOutput": "T,M,B,F,J",
           "score": 10
         },
         {
           "input": "B,99\nM,98\nT,97\nF,96\nJ,95",
+          "expectedOutput": "B,M,T,F,J",
           "score": 10
         },
         {
           "input": "F,50\nJ,50\nT,30\nM,30\nB,20",
+          "expectedOutput": "F,J,T,M,B",
           "score": 10
         },
         {
           "input": "J,20\nB,30\nT,40\nM,50\nF,60",
+          "expectedOutput": "F,M,T,B,J",
           "score": 10
         },
         {
           "input": "B,30\nJ,10\nT,30\nF,10\nM,30",
+          "expectedOutput": "B,T,M,J,F",
           "score": 10
         }
       ]
@@ -287,42 +330,52 @@ const course = {
       "testCases": [
         {
           "input": "12\n12",
+          "expectedOutput": "外層12瓣,內層12瓣",
           "score": 10
         },
         {
           "input": "10\n8",
+          "expectedOutput": "外層10瓣,內層8瓣",
           "score": 10
         },
         {
           "input": "4\n4",
+          "expectedOutput": "外層4瓣,內層4瓣",
           "score": 10
         },
         {
           "input": "5\n5",
+          "expectedOutput": "外層5瓣,內層5瓣",
           "score": 10
         },
         {
           "input": "6\n3",
+          "expectedOutput": "外層6瓣,內層3瓣",
           "score": 10
         },
         {
           "input": "8\n4",
+          "expectedOutput": "外層8瓣,內層4瓣",
           "score": 10
         },
         {
           "input": "15\n10",
+          "expectedOutput": "外層15瓣,內層10瓣",
           "score": 10
         },
         {
           "input": "20\n15",
+          "expectedOutput": "外層20瓣,內層15瓣",
           "score": 10
         },
         {
           "input": "36\n18",
+          "expectedOutput": "外層36瓣,內層18瓣",
           "score": 10
         },
         {
           "input": "72\n36",
+          "expectedOutput": "外層72瓣,內層36瓣",
           "score": 10
         }
       ]
@@ -360,42 +413,52 @@ const course = {
       "testCases": [
         {
           "input": "4\n150,120,180,110",
+          "expectedOutput": "120 150 110 180\n120 110 150 180\n110 120 150 180\n4",
           "score": 10
         },
         {
           "input": "5\n160,140,170,130,150",
+          "expectedOutput": "140 160 130 150 170\n140 130 150 160 170\n130 140 150 160 170\n130 140 150 160 170\n6",
           "score": 10
         },
         {
           "input": "3\n30,20,10",
+          "expectedOutput": "20 10 30\n10 20 30\n3",
           "score": 10
         },
         {
           "input": "4\n10,20,30,40",
+          "expectedOutput": "10 20 30 40\n10 20 30 40\n10 20 30 40\n0",
           "score": 10
         },
         {
           "input": "5\n50,40,30,20,10",
+          "expectedOutput": "40 30 20 10 50\n30 20 10 40 50\n20 10 30 40 50\n10 20 30 40 50\n10",
           "score": 10
         },
         {
           "input": "4\n40,10,20,30",
+          "expectedOutput": "10 20 30 40\n10 20 30 40\n10 20 30 40\n3",
           "score": 10
         },
         {
           "input": "4\n20,30,40,10",
+          "expectedOutput": "20 30 10 40\n20 10 30 40\n10 20 30 40\n3",
           "score": 10
         },
         {
           "input": "3\n10,30,20",
+          "expectedOutput": "10 20 30\n10 20 30\n1",
           "score": 10
         },
         {
           "input": "6\n20,10,60,50,40,30",
+          "expectedOutput": "10 20 50 40 30 60\n10 20 40 30 50 60\n10 20 30 40 50 60\n10 20 30 40 50 60\n10 20 30 40 50 60\n7",
           "score": 10
         },
         {
           "input": "2\n20,10",
+          "expectedOutput": "10 20\n1",
           "score": 10
         }
       ]
@@ -433,42 +496,52 @@ const course = {
       "testCases": [
         {
           "input": "5\n8,9,9,9,8\n2\n9,8",
+          "expectedOutput": "9,9,9,8,8",
           "score": 10
         },
         {
           "input": "7\n3,1,4,1,5,9,3\n5\n1,9,4,3,5",
+          "expectedOutput": "1,1,9,4,3,3,5",
           "score": 10
         },
         {
           "input": "3\n1,2,3\n3\n3,2,1",
+          "expectedOutput": "3,2,1",
           "score": 10
         },
         {
           "input": "4\n5,5,5,5\n1\n5",
+          "expectedOutput": "5,5,5,5",
           "score": 10
         },
         {
           "input": "6\n1,2,1,2,1,2\n2\n2,1",
+          "expectedOutput": "2,2,2,1,1,1",
           "score": 10
         },
         {
           "input": "10\n1,2,3,4,5,1,2,3,4,5\n5\n5,4,3,2,1",
+          "expectedOutput": "5,5,4,4,3,3,2,2,1,1",
           "score": 10
         },
         {
           "input": "5\n7,7,8,8,9\n3\n8,7,9",
+          "expectedOutput": "8,8,7,7,9",
           "score": 10
         },
         {
           "input": "8\n9,8,7,6,5,4,3,2\n8\n2,3,4,5,6,7,8,9",
+          "expectedOutput": "2,3,4,5,6,7,8,9",
           "score": 10
         },
         {
           "input": "4\n3,3,4,4\n2\n4,3",
+          "expectedOutput": "4,4,3,3",
           "score": 10
         },
         {
           "input": "10\n1,1,1,2,2,2,3,3,3,4\n4\n4,3,2,1",
+          "expectedOutput": "4,3,3,3,2,2,2,1,1,1",
           "score": 10
         }
       ]
@@ -501,42 +574,52 @@ const course = {
       "testCases": [
         {
           "input": "1",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         },
         {
           "input": "2",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         },
         {
           "input": "3",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         },
         {
           "input": "4",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         },
         {
           "input": "5",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         },
         {
           "input": "6",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         },
         {
           "input": "7",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         },
         {
           "input": "8",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         },
         {
           "input": "9",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         },
         {
           "input": "10",
+          "expectedOutput": "依實際迷宮步數而定",
           "score": 10
         }
       ]

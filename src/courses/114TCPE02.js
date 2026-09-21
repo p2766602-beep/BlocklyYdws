@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，2026-08-13由 114EChaiyiC.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -9,7 +22,7 @@ const course = {
   "code": "114TCPE02",
   "title": "114-嘉義縣國小（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "嘉義縣114學年度國小組資訊科技競賽練習題，涵蓋公式計算、密碼學、貪婪演算法與清單分組統計。",
   "tasks": [
     {
@@ -43,51 +56,71 @@ const course = {
       "testCases": [
         {
           "input": "10",
+          "expectedOutput": "5000",
+          "output": "5000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "30",
+          "expectedOutput": "15000",
+          "output": "15000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "40",
+          "expectedOutput": "25000",
+          "output": "25000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "80",
+          "expectedOutput": "75000",
+          "output": "75000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "120",
+          "expectedOutput": "145000",
+          "output": "145000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "60",
+          "expectedOutput": "45000",
+          "output": "45000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "100",
+          "expectedOutput": "105000",
+          "output": "105000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "31",
+          "expectedOutput": "16000",
+          "output": "16000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "61",
+          "expectedOutput": "46500",
+          "output": "46500",
           "score": 10,
           "hidden": false
         },
         {
           "input": "200",
+          "expectedOutput": "305000",
+          "output": "305000",
           "score": 10,
           "hidden": false
         }
@@ -162,51 +195,71 @@ const course = {
       "testCases": [
         {
           "input": "5\n9 8 10 6 7",
+          "expectedOutput": "8",
+          "output": "8",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n10 10 10 10 10",
+          "expectedOutput": "10",
+          "output": "10",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n5 5 7 7 10",
+          "expectedOutput": "6.333",
+          "output": "6.333",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n9 9 9 10 10",
+          "expectedOutput": "9.333",
+          "output": "9.333",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n7 7 8 8 6",
+          "expectedOutput": "7.333",
+          "output": "7.333",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n1 2 3 4 5 6",
+          "expectedOutput": "3.5",
+          "output": "3.5",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n0 0 1 1 2 2",
+          "expectedOutput": "1",
+          "output": "1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "7\n10 9 8 7 6 5 4",
+          "expectedOutput": "7",
+          "output": "7",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\n10 10 0 0 5 5 5 5",
+          "expectedOutput": "5",
+          "output": "5",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10\n10 9 9 9 9 9 9 9 9 0",
+          "expectedOutput": "9",
+          "output": "9",
           "score": 10,
           "hidden": false
         }
@@ -280,51 +333,71 @@ const course = {
       "testCases": [
         {
           "input": "0\nabc",
+          "expectedOutput": "abc",
+          "output": "abc",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\nxyz",
+          "expectedOutput": "yza",
+          "output": "yza",
           "score": 10,
           "hidden": false
         },
         {
           "input": "26\nhello",
+          "expectedOutput": "hello",
+          "output": "hello",
           "score": 10,
           "hidden": false
         },
         {
           "input": "28\naz",
+          "expectedOutput": "cb",
+          "output": "cb",
           "score": 10,
           "hidden": false
         },
         {
           "input": "100\na",
+          "expectedOutput": "w",
+          "output": "w",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\npokemon",
+          "expectedOutput": "utpjrts",
+          "output": "utpjrts",
           "score": 10,
           "hidden": false
         },
         {
           "input": "25\na",
+          "expectedOutput": "z",
+          "output": "z",
           "score": 10,
           "hidden": false
         },
         {
           "input": "13\nnop",
+          "expectedOutput": "abc",
+          "output": "abc",
           "score": 10,
           "hidden": false
         },
         {
           "input": "52\ncat",
+          "expectedOutput": "cat",
+          "output": "cat",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10\napple",
+          "expectedOutput": "kzzvo",
+          "output": "kzzvo",
           "score": 10,
           "hidden": false
         }
@@ -400,51 +473,71 @@ const course = {
       "testCases": [
         {
           "input": "5\n0 1 0 1 0\n0 0 0 0 0",
+          "expectedOutput": "2 0 1P",
+          "output": "2 0 1P",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n1 1 1 0 1 0\n0 1 1 1 1 0",
+          "expectedOutput": "8 10 2P",
+          "output": "8 10 2P",
           "score": 10,
           "hidden": false
         },
         {
           "input": "9\n0 1 0 1 0 1 0 1 0\n0 0 0 0 0 0 0 0 0",
+          "expectedOutput": "4 0 1P",
+          "output": "4 0 1P",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\n1 1 0 1 1 0 1 1\n1 1 1 0 1 1 1 0",
+          "expectedOutput": "12 14 2P",
+          "output": "12 14 2P",
           "score": 10,
           "hidden": false
         },
         {
           "input": "7\n1 1 0 1 1 0 1\n1 1 0 1 1 0 1",
+          "expectedOutput": "9 9 不分勝負",
+          "output": "9 9 不分勝負",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n1 1 1 1 1\n1 0 1 0 1",
+          "expectedOutput": "13 3 1P",
+          "output": "13 3 1P",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10\n0 0 0 0 0 0 0 0 0 0\n1 1 1 1 1 1 1 1 1 1",
+          "expectedOutput": "0 28 2P",
+          "output": "0 28 2P",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n1 0 0 0 0 1\n1 0 0 0 0 1",
+          "expectedOutput": "2 2 不分勝負",
+          "output": "2 2 不分勝負",
           "score": 10,
           "hidden": false
         },
         {
           "input": "7\n0 1 1 0 1 1 0\n1 1 0 0 0 1 1",
+          "expectedOutput": "8 8 不分勝負",
+          "output": "8 8 不分勝負",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\n1 0 1 0 1 0 1 0\n0 1 0 1 0 1 0 1",
+          "expectedOutput": "4 4 不分勝負",
+          "output": "4 4 不分勝負",
           "score": 10,
           "hidden": false
         }
@@ -517,51 +610,71 @@ const course = {
       "testCases": [
         {
           "input": "9\n50 60 40 70 90 30 80 90 60",
+          "expectedOutput": "4",
+          "output": "4",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n80 90 60 30 40",
+          "expectedOutput": "2",
+          "output": "2",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n100 50 60 70 80",
+          "expectedOutput": "3",
+          "output": "3",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\n100 100 100",
+          "expectedOutput": "2",
+          "output": "2",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n100",
+          "expectedOutput": "1",
+          "output": "1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n200 200 200 200 200",
+          "expectedOutput": "5",
+          "output": "5",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\n10 20 30 40 50 60 70 80",
+          "expectedOutput": "3",
+          "output": "3",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n199 1 199 1 199 1",
+          "expectedOutput": "3",
+          "output": "3",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n150 150 150 150",
+          "expectedOutput": "4",
+          "output": "4",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10\n50 50 50 50 50 50 50 50 50 50",
+          "expectedOutput": "3",
+          "output": "3",
           "score": 10,
           "hidden": false
         }
@@ -634,51 +747,71 @@ const course = {
       "testCases": [
         {
           "input": "1\n50",
+          "expectedOutput": "50",
+          "output": "50",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\n10 20 30",
+          "expectedOutput": "20",
+          "output": "20",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n7 8 9 10",
+          "expectedOutput": "8",
+          "output": "8",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n1 100 100 100 100",
+          "expectedOutput": "80",
+          "output": "80",
           "score": 10,
           "hidden": false
         },
         {
           "input": "20\n10 10 10 10 10 10 10 10 10 10 20 20 20 20 20 20 20 20 20 20",
+          "expectedOutput": "15",
+          "output": "15",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\n1 2",
+          "expectedOutput": "1",
+          "output": "1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\n33 33 33",
+          "expectedOutput": "33",
+          "output": "33",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n10 11 12 13 14",
+          "expectedOutput": "12",
+          "output": "12",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n99 99 99 99 99 99",
+          "expectedOutput": "99",
+          "output": "99",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n1 1 1 1",
+          "expectedOutput": "1",
+          "output": "1",
           "score": 10,
           "hidden": false
         }
@@ -752,51 +885,71 @@ const course = {
       "testCases": [
         {
           "input": "1\n皮卡丘 10",
+          "expectedOutput": "皮卡丘",
+          "output": "皮卡丘",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\n小火龍 12 妙蛙種子 18 傑尼龜 15",
+          "expectedOutput": "妙蛙種子",
+          "output": "妙蛙種子",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\nA 5 B 20 C 15 D 8",
+          "expectedOutput": "B",
+          "output": "B",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n皮卡丘 22 伊布 30 卡比獸 28 超夢 100 胖丁 18",
+          "expectedOutput": "超夢",
+          "output": "超夢",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\nP1 3 P2 6 P3 9 P4 12 P5 15 P6 18",
+          "expectedOutput": "P6",
+          "output": "P6",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\nX 50 Y 49",
+          "expectedOutput": "X",
+          "output": "X",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\nBulbasaur 5 Charmander 10 Squirtle 7",
+          "expectedOutput": "Charmander",
+          "output": "Charmander",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\nA 1 B 2 C 3 D 4",
+          "expectedOutput": "D",
+          "output": "D",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\nZ 99 Y 98 X 97 W 96 V 95",
+          "expectedOutput": "Z",
+          "output": "Z",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\nFirst 10 Second 20",
+          "expectedOutput": "Second",
+          "output": "Second",
           "score": 10,
           "hidden": false
         }
@@ -868,51 +1021,71 @@ const course = {
       "testCases": [
         {
           "input": "1\n皮卡丘 10",
+          "expectedOutput": "",
+          "output": "",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n伊布 15 胖丁 15 乘龍 10 卡比獸 20 妙蛙種子 15",
+          "expectedOutput": "卡比獸",
+          "output": "卡比獸",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n妙蛙種子 30 皮卡丘 30 小火龍 30 傑尼龜 30",
+          "expectedOutput": "",
+          "output": "",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n小火龍 100 皮卡丘 0 伊布 50 卡比獸 50 胖丁 50 超夢 100",
+          "expectedOutput": "小火龍 超夢",
+          "output": "小火龍 超夢",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\n皮卡丘 25 皮卡丘 30 妙蛙種子 18 小火龍 12 傑尼龜 40 伊布 35 卡比獸 28 胖丁 28",
+          "expectedOutput": "皮卡丘 傑尼龜 伊布 卡比獸 胖丁",
+          "output": "皮卡丘 傑尼龜 伊布 卡比獸 胖丁",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\nA 10 B 20 C 30",
+          "expectedOutput": "C",
+          "output": "C",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\nX 1 Y 100",
+          "expectedOutput": "Y",
+          "output": "Y",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\nP1 10 P2 11 P3 10 P4 10",
+          "expectedOutput": "P2",
+          "output": "P2",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\nA 100 B 10 C 10 D 10 E 10",
+          "expectedOutput": "A",
+          "output": "A",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\nM1 50 M2 51 M3 50 M4 49",
+          "expectedOutput": "M2",
+          "output": "M2",
           "score": 10,
           "hidden": false
         }
@@ -987,51 +1160,71 @@ const course = {
       "testCases": [
         {
           "input": "9\n火 水 火 電 水 草 草 毒 草",
+          "expectedOutput": "火2 水2 電1 草3 毒1",
+          "output": "火2 水2 電1 草3 毒1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\n水 火 電 水 草 水 電 草",
+          "expectedOutput": "水3 火1 電2 草2",
+          "output": "水3 火1 電2 草2",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n草",
+          "expectedOutput": "草1",
+          "output": "草1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n水 水 水 水 水",
+          "expectedOutput": "水5",
+          "output": "水5",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n電 火 草 電 火 水",
+          "expectedOutput": "電2 火2 草1 水1",
+          "output": "電2 火2 草1 水1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n冰 龍 冰 龍",
+          "expectedOutput": "冰2 龍2",
+          "output": "冰2 龍2",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n光 暗 光 暗 無",
+          "expectedOutput": "光2 暗2 無1",
+          "output": "光2 暗2 無1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\n超能 格鬥 超能",
+          "expectedOutput": "超能2 格鬥1",
+          "output": "超能2 格鬥1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "7\nA B C A B C D",
+          "expectedOutput": "A2 B2 C2 D1",
+          "output": "A2 B2 C2 D1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10\nX Y Z X Y Z X Y Z W",
+          "expectedOutput": "X3 Y3 Z3 W1",
+          "output": "X3 Y3 Z3 W1",
           "score": 10,
           "hidden": false
         }

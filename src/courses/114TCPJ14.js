@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，由 114JKeelung.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入，即使
 // 來源這次確實有真的starterXml範例答案，仍比照114TCPE01~13既有政策不外露）、課程代碼/
@@ -12,7 +25,7 @@ const course = {
   "code": "114TCPJ14",
   "title": "114-基隆市國中（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "114-基隆市國中114學年度科技教育創意實作競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
@@ -59,42 +72,52 @@ const course = {
       "testCases": [
         {
           "input": "KEELUNG\n3",
+          "expectedOutput": "L",
           "score": 10
         },
         {
           "input": "GOOGLE\n4",
+          "expectedOutput": "E",
           "score": 10
         },
         {
           "input": "INTERNATIONAL\n5",
+          "expectedOutput": "R",
           "score": 10
         },
         {
           "input": "PETERPIPERPICKED\n6",
+          "expectedOutput": "C",
           "score": 10
         },
         {
           "input": "MISSISSIPPI\n4",
+          "expectedOutput": "P",
           "score": 10
         },
         {
           "input": "ALPHABET\n1",
+          "expectedOutput": "A",
           "score": 10
         },
         {
           "input": "SUCCESSFULNESS\n5",
+          "expectedOutput": "F",
           "score": 10
         },
         {
           "input": "BANANABOAT\n2",
+          "expectedOutput": "A",
           "score": 10
         },
         {
           "input": "ZYZYZYXYZ\n3",
+          "expectedOutput": "X",
           "score": 10
         },
         {
           "input": "COMMUNICATION\n8",
+          "expectedOutput": "T",
           "score": 10
         }
       ]
@@ -138,42 +161,52 @@ const course = {
       "testCases": [
         {
           "input": "3\n3\n1 2 3",
+          "expectedOutput": "全勤",
           "score": 10
         },
         {
           "input": "7\n5\n5 2 4 1 3",
+          "expectedOutput": "6 7",
           "score": 10
         },
         {
           "input": "10\n9\n1 2 3 4 5 6 7 8 9",
+          "expectedOutput": "10",
           "score": 10
         },
         {
           "input": "4\n1\n2",
+          "expectedOutput": "1 3 4",
           "score": 10
         },
         {
           "input": "15\n9\n13 15 3 8 1 12 5 10 14",
+          "expectedOutput": "2 4 6 7 9 11",
           "score": 10
         },
         {
           "input": "5\n1\n5",
+          "expectedOutput": "1 2 3 4",
           "score": 10
         },
         {
           "input": "30\n30\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30",
+          "expectedOutput": "全勤",
           "score": 10
         },
         {
           "input": "5\n4\n2 3 4 5",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "5\n4\n1 2 4 5",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "20\n10\n1 3 5 7 9 11 13 15 17 19",
+          "expectedOutput": "2 4 6 8 10 12 14 16 18 20",
           "score": 10
         }
       ]
@@ -212,42 +245,52 @@ const course = {
       "testCases": [
         {
           "input": "b",
+          "expectedOutput": "a",
           "score": 10
         },
         {
           "input": "uqs",
+          "expectedOutput": "top",
           "score": 10
         },
         {
           "input": "ay",
+          "expectedOutput": "zw",
           "score": 10
         },
         {
           "input": "jtrr",
+          "expectedOutput": "iron",
           "score": 10
         },
         {
           "input": "qtrkwgturxr",
+          "expectedOutput": "programming",
           "score": 10
         },
         {
           "input": "brspj",
+          "expectedOutput": "apple",
           "score": 10
         },
         {
           "input": "agus",
+          "expectedOutput": "zero",
           "score": 10
         },
         {
           "input": "qawltt",
+          "expectedOutput": "python",
           "score": 10
         },
         {
           "input": "dcw",
+          "expectedOutput": "cat",
           "score": 10
         },
         {
           "input": "uclaft",
+          "expectedOutput": "taiwan",
           "score": 10
         }
       ]
@@ -281,42 +324,52 @@ const course = {
       "testCases": [
         {
           "input": "45 10 15 20\n1000 600 300",
+          "expectedOutput": "2300",
           "score": 10
         },
         {
           "input": "10 10 10 20\n500 300 100",
+          "expectedOutput": "300",
           "score": 10
         },
         {
           "input": "60 60 60 20\n100 50 10",
+          "expectedOutput": "480",
           "score": 10
         },
         {
           "input": "19 19 19 20\n1000 500 100",
+          "expectedOutput": "600",
           "score": 10
         },
         {
           "input": "100 0 0 30\n1000 500 100",
+          "expectedOutput": "3000",
           "score": 10
         },
         {
           "input": "10 20 30 10\n100 50 10",
+          "expectedOutput": "230",
           "score": 10
         },
         {
           "input": "50 50 50 100\n1000 500 100",
+          "expectedOutput": "500",
           "score": 10
         },
         {
           "input": "1 1 3 5\n100 50 10",
+          "expectedOutput": "10",
           "score": 10
         },
         {
           "input": "100 100 100 1\n10 5 1",
+          "expectedOutput": "1600",
           "score": 10
         },
         {
           "input": "20 20 20 20\n1000 500 100",
+          "expectedOutput": "1600",
           "score": 10
         }
       ]
@@ -355,42 +408,52 @@ const course = {
       "testCases": [
         {
           "input": "1\n可樂 5",
+          "expectedOutput": "可樂 5",
           "score": 10
         },
         {
           "input": "3\n紅茶 2 綠茶 1 奶茶 4",
+          "expectedOutput": "紅茶 2 綠茶 1 奶茶 4",
           "score": 10
         },
         {
           "input": "2\n多多綠 5 多多綠 5",
+          "expectedOutput": "多多綠 10",
           "score": 10
         },
         {
           "input": "5\n黑糖檸檬 2 仙草凍奶茶 10 綠豆沙加牛奶 5 黑糖檸檬 3 仙草凍奶茶 2",
+          "expectedOutput": "黑糖檸檬 5 仙草凍奶茶 12 綠豆沙加牛奶 5",
           "score": 10
         },
         {
           "input": "6\n可樂 10 雪碧 5 可樂 2 紅茶 8 雪碧 3 紅茶 1",
+          "expectedOutput": "可樂 12 雪碧 8 紅茶 9",
           "score": 10
         },
         {
           "input": "4\n綠茶 2 綠茶 2 綠茶 2 綠茶 2",
+          "expectedOutput": "綠茶 8",
           "score": 10
         },
         {
           "input": "3\n礦泉水 10 礦泉水 10 冰塊 5",
+          "expectedOutput": "礦泉水 20 冰塊 5",
           "score": 10
         },
         {
           "input": "2\nA 1 B 1",
+          "expectedOutput": "A 1 B 1",
           "score": 10
         },
         {
           "input": "6\n梅子綠 3 珍奶 1 梅子綠 2 拿鐵 5 珍奶 4 拿鐵 1",
+          "expectedOutput": "梅子綠 5 珍奶 5 拿鐵 6",
           "score": 10
         },
         {
           "input": "5\n拿鐵 10 美式 5 拿鐵 5 焦糖瑪奇朵 2 美式 10",
+          "expectedOutput": "拿鐵 15 美式 15 焦糖瑪奇朵 2",
           "score": 10
         }
       ]
@@ -429,42 +492,52 @@ const course = {
       "testCases": [
         {
           "input": "3\nAAB\nBCD\nCD",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "2\nAA\nBC\nBC",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "3\nABC\nBCD\nAD",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "2\nPP\nAB\nAP",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "4\nGGAB\nABCD\nCD",
+          "expectedOutput": "4",
           "score": 10
         },
         {
           "input": "2\nEF\nGH\nEF",
+          "expectedOutput": "不是親戚",
           "score": 10
         },
         {
           "input": "1\nK\nP\nKP",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "3\nIJK\nLMN\nLN",
+          "expectedOutput": "不是親戚",
           "score": 10
         },
         {
           "input": "8\nRSTTUVWX\nSTUVWXYZ\nYZ",
+          "expectedOutput": "6",
           "score": 10
         },
         {
           "input": "2\nZZ\nXY\nXY",
+          "expectedOutput": "2",
           "score": 10
         }
       ]

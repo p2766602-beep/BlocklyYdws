@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，2026-08-13由 114JHsinchu.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -9,7 +22,7 @@ const course = {
   "code": "114TCPJ04",
   "title": "114-新竹市國中（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "新竹市114學年度國中組資訊科技競賽練習題，涵蓋累進計費、字串驗證、排序與窮舉法，難度略高於國小組。",
   "tasks": [
     {
@@ -43,51 +56,71 @@ const course = {
       "testCases": [
         {
           "input": "6",
+          "expectedOutput": "180",
+          "output": "180",
           "score": 10,
           "hidden": false
         },
         {
           "input": "32",
+          "expectedOutput": "840",
+          "output": "840",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10",
+          "expectedOutput": "300",
+          "output": "300",
           "score": 10,
           "hidden": false
         },
         {
           "input": "11",
+          "expectedOutput": "325",
+          "output": "325",
           "score": 10,
           "hidden": false
         },
         {
           "input": "30",
+          "expectedOutput": "800",
+          "output": "800",
           "score": 10,
           "hidden": false
         },
         {
           "input": "31",
+          "expectedOutput": "820",
+          "output": "820",
           "score": 10,
           "hidden": false
         },
         {
           "input": "50",
+          "expectedOutput": "1200",
+          "output": "1200",
           "score": 10,
           "hidden": false
         },
         {
           "input": "51",
+          "expectedOutput": "1215",
+          "output": "1215",
           "score": 10,
           "hidden": false
         },
         {
           "input": "100",
+          "expectedOutput": "1950",
+          "output": "1950",
           "score": 10,
           "hidden": false
         },
         {
           "input": "0",
+          "expectedOutput": "0",
+          "output": "0",
           "score": 10,
           "hidden": false
         }
@@ -162,51 +195,71 @@ const course = {
       "testCases": [
         {
           "input": "3\n70 5 10",
+          "expectedOutput": "七福村 798",
+          "output": "七福村 798",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n10 12 65 5",
+          "expectedOutput": "大人國 1197",
+          "output": "大人國 1197",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n7",
+          "expectedOutput": "七福村 0",
+          "output": "七福村 0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\n65 5",
+          "expectedOutput": "大人國 599",
+          "output": "大人國 599",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\n20 20 20",
+          "expectedOutput": "七福村 1497",
+          "output": "七福村 1497",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n66 66 5 5 20",
+          "expectedOutput": "大人國 1797",
+          "output": "大人國 1797",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n7 14 21 28",
+          "expectedOutput": "七福村 0",
+          "output": "七福村 0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\n9 12",
+          "expectedOutput": "大人國 598",
+          "output": "大人國 598",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\n65 6 7",
+          "expectedOutput": "七福村 798",
+          "output": "七福村 798",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n35",
+          "expectedOutput": "七福村 0",
+          "output": "七福村 0",
           "score": 10,
           "hidden": false
         }
@@ -279,51 +332,71 @@ const course = {
       "testCases": [
         {
           "input": "3\n24",
+          "expectedOutput": "-6 3",
+          "output": "-6 3",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n40",
+          "expectedOutput": "-20 5",
+          "output": "-20 5",
           "score": 10,
           "hidden": false
         },
         {
           "input": "0\n7",
+          "expectedOutput": "0 0",
+          "output": "0 0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "-2\n24",
+          "expectedOutput": "4 3",
+          "output": "4 3",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10\n80",
+          "expectedOutput": "-80 10",
+          "output": "-80 10",
           "score": 10,
           "hidden": false
         },
         {
           "input": "-5\n40",
+          "expectedOutput": "20 5",
+          "output": "20 5",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n79",
+          "expectedOutput": "-7 9",
+          "output": "-7 9",
           "score": 10,
           "hidden": false
         },
         {
           "input": "-10\n9",
+          "expectedOutput": "0 1",
+          "output": "0 1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "100\n100",
+          "expectedOutput": "-1000 12",
+          "output": "-1000 12",
           "score": 10,
           "hidden": false
         },
         {
           "input": "-100\n100",
+          "expectedOutput": "1000 12",
+          "output": "1000 12",
           "score": 10,
           "hidden": false
         }
@@ -397,51 +470,71 @@ const course = {
       "testCases": [
         {
           "input": "2\nS11114 T00005",
+          "expectedOutput": "學生會員",
+          "output": "學生會員",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\nA12347 V00003 S11113",
+          "expectedOutput": "貴賓會員 學生會員",
+          "output": "貴賓會員 學生會員",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\nA00000",
+          "expectedOutput": "普通會員",
+          "output": "普通會員",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\nA00000 B00008 C00006",
+          "expectedOutput": "普通會員",
+          "output": "普通會員",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\nV00004 I00002 P00000",
+          "expectedOutput": "貴賓會員",
+          "output": "貴賓會員",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\nA00000 V00004 S00008 B00008 I00002 T00006",
+          "expectedOutput": "普通會員 貴賓會員 學生會員",
+          "output": "普通會員 貴賓會員 學生會員",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\nA11114 V11111 S11112 A00000",
+          "expectedOutput": "普通會員",
+          "output": "普通會員",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\nA12345 B12345 C12345",
+          "expectedOutput": "普通會員",
+          "output": "普通會員",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\nV00004 S00008",
+          "expectedOutput": "貴賓會員 學生會員",
+          "output": "貴賓會員 學生會員",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\nP00000 P00000 P00000",
+          "expectedOutput": "貴賓會員",
+          "output": "貴賓會員",
           "score": 10,
           "hidden": false
         }
@@ -516,51 +609,71 @@ const course = {
       "testCases": [
         {
           "input": "6\n80 70 60 50 40 30",
+          "expectedOutput": "300",
+          "output": "300",
           "score": 10,
           "hidden": false
         },
         {
           "input": "9\n30 30 30 30 30 40 40 40 40",
+          "expectedOutput": "280",
+          "output": "280",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n10 20 30 40 50",
+          "expectedOutput": "150",
+          "output": "150",
           "score": 10,
           "hidden": false
         },
         {
           "input": "12\n10 10 10 10 10 10 10 10 10 10 10 10",
+          "expectedOutput": "100",
+          "output": "100",
           "score": 10,
           "hidden": false
         },
         {
           "input": "7\n100 100 100 100 100 100 10",
+          "expectedOutput": "510",
+          "output": "510",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n55",
+          "expectedOutput": "55",
+          "output": "55",
           "score": 10,
           "hidden": false
         },
         {
           "input": "13\n100 90 80 70 60 50 40 30 20 10 5 5 5",
+          "expectedOutput": "510",
+          "output": "510",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n100 100 100 100 100 100",
+          "expectedOutput": "500",
+          "output": "500",
           "score": 10,
           "hidden": false
         },
         {
           "input": "11\n5 5 5 5 5 5 5 5 5 5 5",
+          "expectedOutput": "50",
+          "output": "50",
           "score": 10,
           "hidden": false
         },
         {
           "input": "18\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18",
+          "expectedOutput": "150",
+          "output": "150",
           "score": 10,
           "hidden": false
         }
@@ -633,51 +746,71 @@ const course = {
       "testCases": [
         {
           "input": "2\n6 4 2",
+          "expectedOutput": "三獎",
+          "output": "三獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\n3 2 5",
+          "expectedOutput": "未中獎",
+          "output": "未中獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "7\n1 2 3",
+          "expectedOutput": "特獎",
+          "output": "特獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "0\n1 2 3",
+          "expectedOutput": "特獎",
+          "output": "特獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n3 1 1",
+          "expectedOutput": "頭獎",
+          "output": "頭獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\n4 1 8",
+          "expectedOutput": "二獎",
+          "output": "二獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n5 9 1",
+          "expectedOutput": "二獎",
+          "output": "二獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "9\n9 9 9",
+          "expectedOutput": "未中獎",
+          "output": "未中獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n1 1 4",
+          "expectedOutput": "三獎",
+          "output": "三獎",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n1 1 2",
+          "expectedOutput": "頭獎",
+          "output": "頭獎",
           "score": 10,
           "hidden": false
         }

@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，2026-08-13由 114JNewTaipei.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -9,7 +22,7 @@ const course = {
   "code": "114TCPJ08",
   "title": "114-新北市國中（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "新北市114學年度國中組資訊科技競賽練習題，涵蓋分段計費、貪婪演算法與排列組合窮舉，最後一題需要窮舉24種排列組合。",
   "tasks": [
     {
@@ -48,51 +61,71 @@ const course = {
       "testCases": [
         {
           "input": "5 8 18",
+          "expectedOutput": "10",
+          "output": "10",
           "score": 10,
           "hidden": false
         },
         {
           "input": "7 12 20",
+          "expectedOutput": "20",
+          "output": "20",
           "score": 10,
           "hidden": false
         },
         {
           "input": "13 10 8",
+          "expectedOutput": "5",
+          "output": "5",
           "score": 10,
           "hidden": false
         },
         {
           "input": "9 11 11",
+          "expectedOutput": "10",
+          "output": "10",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1 20 12",
+          "expectedOutput": "20",
+          "output": "20",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10 10 5",
+          "expectedOutput": "5",
+          "output": "5",
           "score": 10,
           "hidden": false
         },
         {
           "input": "20 1 100",
+          "expectedOutput": "20",
+          "output": "20",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1 9 100",
+          "expectedOutput": "10",
+          "output": "10",
           "score": 10,
           "hidden": false
         },
         {
           "input": "11 20 1",
+          "expectedOutput": "5",
+          "output": "5",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10 11 11",
+          "expectedOutput": "5",
+          "output": "5",
           "score": 10,
           "hidden": false
         }
@@ -165,51 +198,71 @@ const course = {
       "testCases": [
         {
           "input": "170\n55",
+          "expectedOutput": "1423 較低能量",
+          "output": "1423 較低能量",
           "score": 10,
           "hidden": false
         },
         {
           "input": "175\n70",
+          "expectedOutput": "1576 標準能量",
+          "output": "1576 標準能量",
           "score": 10,
           "hidden": false
         },
         {
           "input": "150\n30",
+          "expectedOutput": "1147 極低能量",
+          "output": "1147 極低能量",
           "score": 10,
           "hidden": false
         },
         {
           "input": "180\n95",
+          "expectedOutput": "1825 較高能量",
+          "output": "1825 較高能量",
           "score": 10,
           "hidden": false
         },
         {
           "input": "200\n120",
+          "expectedOutput": "2101 極高能量",
+          "output": "2101 極高能量",
           "score": 10,
           "hidden": false
         },
         {
           "input": "160\n40",
+          "expectedOutput": "1261 較低能量",
+          "output": "1261 較低能量",
           "score": 10,
           "hidden": false
         },
         {
           "input": "165\n60",
+          "expectedOutput": "1462 較低能量",
+          "output": "1462 較低能量",
           "score": 10,
           "hidden": false
         },
         {
           "input": "170\n80",
+          "expectedOutput": "1663 標準能量",
+          "output": "1663 標準能量",
           "score": 10,
           "hidden": false
         },
         {
           "input": "190\n100",
+          "expectedOutput": "1891 較高能量",
+          "output": "1891 較高能量",
           "score": 10,
           "hidden": false
         },
         {
           "input": "150\n40",
+          "expectedOutput": "1243 較低能量",
+          "output": "1243 較低能量",
           "score": 10,
           "hidden": false
         }
@@ -289,51 +342,71 @@ const course = {
       "testCases": [
         {
           "input": "2 2 2\n3\n30 30 30 30 30 30 30 30 40",
+          "expectedOutput": "0 1 2 0",
+          "output": "0 1 2 0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2 1 1\n3\n30 30 30 30 30 30 30 30 40",
+          "expectedOutput": "1 1 1 0",
+          "output": "1 1 1 0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1 2 5\n4\n60 30 30 30 60 30 30 60 65 100 5 5",
+          "expectedOutput": "1 2 0 1",
+          "output": "1 2 0 1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "0 0 0\n2\n10 10 10 10 10 10",
+          "expectedOutput": "0 0 0 2",
+          "output": "0 0 0 2",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5 5 5\n5\n90 90 90 90 90 90 90 90 90 90 90 90 90 90 90",
+          "expectedOutput": "5 0 0 0",
+          "output": "5 0 0 0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5 5 5\n5\n50 50 50 50 50 50 50 50 50 50 50 50 50 50 50",
+          "expectedOutput": "0 5 0 0",
+          "output": "0 5 0 0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5 5 5\n5\n10 10 10 10 10 10 10 10 10 10 10 10 10 10 10",
+          "expectedOutput": "0 0 5 0",
+          "output": "0 0 5 0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1 1 1\n4\n10 10 10 10 10 10 10 10 10 10 10 10",
+          "expectedOutput": "1 1 1 1",
+          "output": "1 1 1 1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2 0 0\n3\n10 10 10 10 10 10 10 10 10",
+          "expectedOutput": "2 0 0 1",
+          "output": "2 0 0 1",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10 10 10\n3\n100 100 100 50 50 50 10 10 10",
+          "expectedOutput": "1 1 1 0",
+          "output": "1 1 1 0",
           "score": 10,
           "hidden": false
         }
@@ -411,51 +484,71 @@ const course = {
       "testCases": [
         {
           "input": "4\n10 1 10 1 10 1 10 1",
+          "expectedOutput": "43",
+          "output": "43",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n13 1 9 4 12 2 11 3",
+          "expectedOutput": "54",
+          "output": "54",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n12 3 15 4 13 2 11 6 11 1",
+          "expectedOutput": "58",
+          "output": "58",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n9 10 10 1 10 1 10 1",
+          "expectedOutput": "51",
+          "output": "51",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n8 8 8 8 12 1 12 1",
+          "expectedOutput": "57",
+          "output": "57",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n9 5 9 5 9 5 20 1 20 1",
+          "expectedOutput": "62",
+          "output": "62",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n10 1 10 1 10 1 10 50 11 2",
+          "expectedOutput": "45",
+          "output": "45",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n30 30 31 2 32 2 33 2 34 2",
+          "expectedOutput": "136",
+          "output": "136",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4\n10 10 10 10 10 10 10 10",
+          "expectedOutput": "70",
+          "output": "70",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5\n1 1 1 1 1 1 1 1 100 100",
+          "expectedOutput": "7",
+          "output": "7",
           "score": 10,
           "hidden": false
         }

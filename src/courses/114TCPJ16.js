@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，由 114JYunlin.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入，即使
 // 來源這次確實有真的starterXml範例答案，仍比照114TCPE01~13既有政策不外露）、課程代碼/
@@ -13,7 +26,7 @@ const course = {
   "code": "114TCPJ16",
   "title": "114-雲林縣國中（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "114-雲林縣國中114學年度科技教育創意實作競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
@@ -55,42 +68,52 @@ const course = {
       "testCases": [
         {
           "input": "125",
+          "expectedOutput": "2 分 5 秒",
           "score": 10
         },
         {
           "input": "360",
+          "expectedOutput": "6 分 0 秒",
           "score": 10
         },
         {
           "input": "59",
+          "expectedOutput": "0 分 59 秒",
           "score": 10
         },
         {
           "input": "60",
+          "expectedOutput": "1 分 0 秒",
           "score": 10
         },
         {
           "input": "0",
+          "expectedOutput": "0 分 0 秒",
           "score": 10
         },
         {
           "input": "3599",
+          "expectedOutput": "59 分 59 秒",
           "score": 10
         },
         {
           "input": "3600",
+          "expectedOutput": "60 分 0 秒",
           "score": 10
         },
         {
           "input": "7325",
+          "expectedOutput": "122 分 5 秒",
           "score": 10
         },
         {
           "input": "1",
+          "expectedOutput": "0 分 1 秒",
           "score": 10
         },
         {
           "input": "10000",
+          "expectedOutput": "166 分 40 秒",
           "score": 10
         }
       ]
@@ -124,42 +147,52 @@ const course = {
       "testCases": [
         {
           "input": "250",
+          "expectedOutput": "536",
           "score": 10
         },
         {
           "input": "50",
+          "expectedOutput": "84",
           "score": 10
         },
         {
           "input": "350",
+          "expectedOutput": "843",
           "score": 10
         },
         {
           "input": "100",
+          "expectedOutput": "168",
           "score": 10
         },
         {
           "input": "300",
+          "expectedOutput": "658",
           "score": 10
         },
         {
           "input": "0",
+          "expectedOutput": "0",
           "score": 10
         },
         {
           "input": "-1",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "-50",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "400",
+          "expectedOutput": "1028",
           "score": 10
         },
         {
           "input": "101",
+          "expectedOutput": "170",
           "score": 10
         }
       ]
@@ -193,42 +226,52 @@ const course = {
       "testCases": [
         {
           "input": "58\n1.50",
+          "expectedOutput": "過重",
           "score": 10
         },
         {
           "input": "68\n1.70",
+          "expectedOutput": "正常",
           "score": 10
         },
         {
           "input": "-5\n1.5",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "50\n-1.5",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "0\n1.5",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "50\n0",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "100\n1.6",
+          "expectedOutput": "肥胖",
           "score": 10
         },
         {
           "input": "45\n1.6",
+          "expectedOutput": "過輕",
           "score": 10
         },
         {
           "input": "61.94\n1.6",
+          "expectedOutput": "過重",
           "score": 10
         },
         {
           "input": "69.62\n1.6",
+          "expectedOutput": "肥胖",
           "score": 10
         }
       ]
@@ -262,42 +305,52 @@ const course = {
       "testCases": [
         {
           "input": "5\n80 75 90 60 100",
+          "expectedOutput": "81 3",
           "score": 10
         },
         {
           "input": "4\n50 40 50 41",
+          "expectedOutput": "45 2",
           "score": 10
         },
         {
           "input": "0",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "-1",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "3\n100 -5 50",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "3\n80 80 80",
+          "expectedOutput": "80 0",
           "score": 10
         },
         {
           "input": "4\n90 90 90 92",
+          "expectedOutput": "91 3",
           "score": 10
         },
         {
           "input": "5\n0 0 0 0 0",
+          "expectedOutput": "0 0",
           "score": 10
         },
         {
           "input": "1\n100",
+          "expectedOutput": "100 0",
           "score": 10
         },
         {
           "input": "5\n10 20 30 40 50",
+          "expectedOutput": "30 2",
           "score": 10
         }
       ]
@@ -331,42 +384,52 @@ const course = {
       "testCases": [
         {
           "input": "50\n10",
+          "expectedOutput": "70%",
           "score": 10
         },
         {
           "input": "90\n20",
+          "expectedOutput": "100%",
           "score": 10
         },
         {
           "input": "-1\n10",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "101\n10",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "50\n-1",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "50\n301",
+          "expectedOutput": "ERROR",
           "score": 10
         },
         {
           "input": "0\n0",
+          "expectedOutput": "0%",
           "score": 10
         },
         {
           "input": "0\n50",
+          "expectedOutput": "100%",
           "score": 10
         },
         {
           "input": "100\n0",
+          "expectedOutput": "100%",
           "score": 10
         },
         {
           "input": "10\n10",
+          "expectedOutput": "30%",
           "score": 10
         }
       ]

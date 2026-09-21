@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，由 114EYunlin.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入，即使
 // 來源這次確實有真的starterXml範例答案，仍比照114TCPE01~13既有政策不外露）、課程代碼/
@@ -12,7 +25,7 @@ const course = {
   "code": "114TCPE16",
   "title": "114-雲林縣國小（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "114-雲林縣國小114學年度科技教育創意實作競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
@@ -54,42 +67,52 @@ const course = {
       "testCases": [
         {
           "input": "2\n10",
+          "expectedOutput": "125.6",
           "score": 10
         },
         {
           "input": "3\n15",
+          "expectedOutput": "423.9",
           "score": 10
         },
         {
           "input": "1\n1",
+          "expectedOutput": "3.14",
           "score": 10
         },
         {
           "input": "10\n10",
+          "expectedOutput": "3140",
           "score": 10
         },
         {
           "input": "5\n20",
+          "expectedOutput": "1570",
           "score": 10
         },
         {
           "input": "20\n5",
+          "expectedOutput": "6280",
           "score": 10
         },
         {
           "input": "1.5\n4",
+          "expectedOutput": "28.26",
           "score": 10
         },
         {
           "input": "0.5\n10",
+          "expectedOutput": "7.85",
           "score": 10
         },
         {
           "input": "100\n1",
+          "expectedOutput": "31400",
           "score": 10
         },
         {
           "input": "8\n8",
+          "expectedOutput": "1607.68",
           "score": 10
         }
       ]
@@ -123,42 +146,53 @@ const course = {
       "testCases": [
         {
           "input": "88\n1.8",
+          "expectedOutput": "27.16 過重",
           "score": 10
         },
         {
           "input": "35\n1.65",
+          "expectedOutput": "12.86 過輕",
           "score": 10
         },
         {
           "input": "65\n1.7",
+          "expectedOutput": "22.49 標準",
           "score": 10
         },
         {
           "input": "75\n1.75",
+          "expectedOutput": "24.49 過重",
           "score": 10
         },
         {
           "input": "50\n1.6",
+          "expectedOutput": "19.53 標準",
           "score": 10
         },
         {
           "input": "40\n1.5",
+          "expectedOutput": "17.78 過輕",
           "score": 10
         },
         {
           "input": "100\n2.0",
-          "score": 10
+          "expectedOutput": "25 過重",
+          "score": 10,
+          "output": "25 過重"
         },
         {
           "input": "55\n1.75",
+          "expectedOutput": "17.96 過輕",
           "score": 10
         },
         {
           "input": "70\n1.75",
+          "expectedOutput": "22.86 標準",
           "score": 10
         },
         {
           "input": "80\n1.8",
+          "expectedOutput": "24.69 過重",
           "score": 10
         }
       ]
@@ -192,42 +226,52 @@ const course = {
       "testCases": [
         {
           "input": "5\n3.5",
+          "expectedOutput": "8",
           "score": 10
         },
         {
           "input": "7\n4",
+          "expectedOutput": "12",
           "score": 10
         },
         {
           "input": "6\n4",
+          "expectedOutput": "10",
           "score": 10
         },
         {
           "input": "4\n4",
+          "expectedOutput": "7",
           "score": 10
         },
         {
           "input": "1\n2.4",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "10\n10",
+          "expectedOutput": "42",
           "score": 10
         },
         {
           "input": "2.5\n2.5",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "3.6\n4.8",
+          "expectedOutput": "8",
           "score": 10
         },
         {
           "input": "8\n5",
+          "expectedOutput": "17",
           "score": 10
         },
         {
           "input": "5.5\n4.5",
+          "expectedOutput": "11",
           "score": 10
         }
       ]
@@ -261,42 +305,52 @@ const course = {
       "testCases": [
         {
           "input": "40\n11",
+          "expectedOutput": "有利潤賺8元",
           "score": 10
         },
         {
           "input": "35\n12",
+          "expectedOutput": "無利潤賠3.5元",
           "score": 10
         },
         {
           "input": "50\n10",
+          "expectedOutput": "有利潤賺25元",
           "score": 10
         },
         {
           "input": "100\n12",
+          "expectedOutput": "無利潤賠10元",
           "score": 10
         },
         {
           "input": "30\n11",
+          "expectedOutput": "有利潤賺6元",
           "score": 10
         },
         {
           "input": "60\n12",
+          "expectedOutput": "無利潤賠6元",
           "score": 10
         },
         {
           "input": "25\n11",
+          "expectedOutput": "有利潤賺5元",
           "score": 10
         },
         {
           "input": "80\n9",
+          "expectedOutput": "有利潤賺40元",
           "score": 10
         },
         {
           "input": "45\n12",
+          "expectedOutput": "無利潤賠4.5元",
           "score": 10
         },
         {
           "input": "10\n11",
+          "expectedOutput": "有利潤賺2元",
           "score": 10
         }
       ]
@@ -330,42 +384,52 @@ const course = {
       "testCases": [
         {
           "input": "350",
+          "expectedOutput": "766",
           "score": 10
         },
         {
           "input": "240",
+          "expectedOutput": "481",
           "score": 10
         },
         {
           "input": "120",
+          "expectedOutput": "196",
           "score": 10
         },
         {
           "input": "330",
+          "expectedOutput": "695",
           "score": 10
         },
         {
           "input": "50",
+          "expectedOutput": "82",
           "score": 10
         },
         {
           "input": "121",
+          "expectedOutput": "198",
           "score": 10
         },
         {
           "input": "331",
+          "expectedOutput": "699",
           "score": 10
         },
         {
           "input": "500",
+          "expectedOutput": "1294",
           "score": 10
         },
         {
           "input": "1000",
+          "expectedOutput": "3054",
           "score": 10
         },
         {
           "input": "0",
+          "expectedOutput": "0",
           "score": 10
         }
       ]

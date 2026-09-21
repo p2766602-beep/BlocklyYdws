@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，由 114ETaoyuan.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入，即使
 // 來源這次確實有真的starterXml範例答案，仍比照114TCPE01~13既有政策不外露）、課程代碼/
@@ -12,7 +25,7 @@ const course = {
   "code": "114TCPE15",
   "title": "114-桃園市國小（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "114-桃園市國小114學年度科技教育創意實作競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
@@ -64,42 +77,52 @@ const course = {
       "testCases": [
         {
           "input": "8\n1 2 2 3 2 1 3 2",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "6\n1 2 3 1 2 3",
+          "expectedOutput": "請重新投票",
           "score": 10
         },
         {
           "input": "5\n3 3 1 2 3",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "1\n1",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "10\n1 1 1 1 1 2 2 3 3 3",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "10\n3 3 3 3 3 1 1 1 2 2",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "4\n1 1 2 2",
+          "expectedOutput": "請重新投票",
           "score": 10
         },
         {
           "input": "3\n1 2 3",
+          "expectedOutput": "請重新投票",
           "score": 10
         },
         {
           "input": "15\n2 2 2 2 2 2 2 1 1 1 3 3 3 3 3",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "9\n1 1 1 2 2 2 3 3 3",
+          "expectedOutput": "請重新投票",
           "score": 10
         }
       ]
@@ -143,42 +166,52 @@ const course = {
       "testCases": [
         {
           "input": "1881",
+          "expectedOutput": "1 76 6",
           "score": 10
         },
         {
           "input": "3045",
+          "expectedOutput": "2 16 45",
           "score": 10
         },
         {
           "input": "8241",
+          "expectedOutput": "3 60 16",
           "score": 10
         },
         {
           "input": "1",
+          "expectedOutput": "1 1 1",
           "score": 10
         },
         {
           "input": "25",
+          "expectedOutput": "1 1 25",
           "score": 10
         },
         {
           "input": "2250",
+          "expectedOutput": "1 90 25",
           "score": 10
         },
         {
           "input": "2251",
+          "expectedOutput": "2 1 1",
           "score": 10
         },
         {
           "input": "6750",
+          "expectedOutput": "2 90 50",
           "score": 10
         },
         {
           "input": "6751",
+          "expectedOutput": "3 1 1",
           "score": 10
         },
         {
           "input": "9000",
+          "expectedOutput": "3 90 25",
           "score": 10
         }
       ]
@@ -222,42 +255,52 @@ const course = {
       "testCases": [
         {
           "input": "7\nA B A C A B A\n3\nA",
+          "expectedOutput": "2 1",
           "score": 10
         },
         {
           "input": "10\nA B C D A B C C B A\n4\nA C",
+          "expectedOutput": "3 5",
           "score": 10
         },
         {
           "input": "5\nA B C D E\n2\nA B C D E",
+          "expectedOutput": "2 1",
           "score": 10
         },
         {
           "input": "6\nX Y X Y X Y\n2\nX",
+          "expectedOutput": "1 1",
           "score": 10
         },
         {
           "input": "6\nX Y Z X Y Z\n3\nX Z",
+          "expectedOutput": "2 1",
           "score": 10
         },
         {
           "input": "5\nA A A A A\n2\nB",
+          "expectedOutput": "0 1",
           "score": 10
         },
         {
           "input": "8\nM N O P M N O P\n4\nM O",
+          "expectedOutput": "2 1",
           "score": 10
         },
         {
           "input": "1\nA\n1\nA",
+          "expectedOutput": "1 1",
           "score": 10
         },
         {
           "input": "10\nB B B A A A B B B B\n3\nA",
+          "expectedOutput": "3 4",
           "score": 10
         },
         {
           "input": "7\nC A B C A B C\n3\nC A",
+          "expectedOutput": "2 1",
           "score": 10
         }
       ]
@@ -301,42 +344,54 @@ const course = {
       "testCases": [
         {
           "input": "4\n25 10 30 -5\n4\n1 1 2 1",
+          "expectedOutput": "50 50",
           "score": 10
         },
         {
           "input": "5\n10 -5 0 20 -10\n3\n1 2 3",
+          "expectedOutput": "20 25",
           "score": 10
         },
         {
           "input": "5\n-10 -20 10 0 30\n5\n1 1 1 1 1",
+          "expectedOutput": "35 45",
           "score": 10
         },
         {
           "input": "3\n10 20 30\n2\n1 1",
-          "score": 10
+          "expectedOutput": "50 50",
+          "score": 10,
+          "output": "50 50"
         },
         {
           "input": "4\n-50 -50 -50 -50\n4\n1 1 1 1",
+          "expectedOutput": "5 5",
           "score": 10
         },
         {
           "input": "5\n10 10 10 10 10\n6\n1 1 1 1 1 1",
+          "expectedOutput": "50 50",
           "score": 10
         },
         {
           "input": "6\n0 0 0 0 0 0\n3\n2 2 2",
+          "expectedOutput": "5 5",
           "score": 10
         },
         {
           "input": "5\n5 5 5 5 5\n10\n1 1 1 1 1 1 1 1 1 1",
+          "expectedOutput": "50 50",
           "score": 10
         },
         {
           "input": "4\n50 -100 50 -100\n4\n1 1 1 1",
-          "score": 10
+          "expectedOutput": "50 50",
+          "score": 10,
+          "output": "50 50"
         },
         {
           "input": "5\n20 20 -30 40 10\n4\n1 1 1 1",
+          "expectedOutput": "50 50",
           "score": 10
         }
       ]

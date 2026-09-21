@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，2026-08-13由 114EHsinchuC.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -9,7 +22,7 @@ const course = {
   "code": "114TCPE05",
   "title": "114-新竹縣國小（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "新竹縣114學年度科技教育創意實作競賽-國小資訊科技組題庫",
   "source": {
     "project": "YDWS-CodingBank",
@@ -55,26 +68,36 @@ const course = {
       "testCases": [
         {
           "input": "3\n7",
+          "expectedOutput": "197.82",
+          "output": "197.82",
           "score": 20,
           "hidden": false
         },
         {
           "input": "9\n9",
+          "expectedOutput": "2289.06",
+          "output": "2289.06",
           "score": 20,
           "hidden": false
         },
         {
           "input": "1\n1",
+          "expectedOutput": "3.14",
+          "output": "3.14",
           "score": 20,
           "hidden": false
         },
         {
           "input": "5\n10",
+          "expectedOutput": "785.00",
+          "output": "785.00",
           "score": 20,
           "hidden": false
         },
         {
           "input": "2\n5",
+          "expectedOutput": "62.80",
+          "output": "62.80",
           "score": 20,
           "hidden": false
         }
@@ -148,26 +171,36 @@ const course = {
       "testCases": [
         {
           "input": "60\n1.55",
+          "expectedOutput": "24.97 過重",
+          "output": "24.97 過重",
           "score": 20,
           "hidden": false
         },
         {
           "input": "38\n1.43",
+          "expectedOutput": "18.58 標準",
+          "output": "18.58 標準",
           "score": 20,
           "hidden": false
         },
         {
           "input": "45\n1.7",
+          "expectedOutput": "15.57 過輕",
+          "output": "15.57 過輕",
           "score": 20,
           "hidden": false
         },
         {
           "input": "70\n1.75",
+          "expectedOutput": "22.86 標準",
+          "output": "22.86 標準",
           "score": 20,
           "hidden": false
         },
         {
           "input": "90\n1.6",
+          "expectedOutput": "35.16 過重",
+          "output": "35.16 過重",
           "score": 20,
           "hidden": false
         }
@@ -242,26 +275,36 @@ const course = {
       "testCases": [
         {
           "input": "4\n4",
+          "expectedOutput": "4",
+          "output": "4",
           "score": 20,
           "hidden": false
         },
         {
           "input": "5\n3.5",
+          "expectedOutput": "5",
+          "output": "5",
           "score": 20,
           "hidden": false
         },
         {
           "input": "2\n2",
+          "expectedOutput": "1",
+          "output": "1",
           "score": 20,
           "hidden": false
         },
         {
           "input": "10\n10",
+          "expectedOutput": "24",
+          "output": "24",
           "score": 20,
           "hidden": false
         },
         {
           "input": "3\n3",
+          "expectedOutput": "3",
+          "output": "3",
           "score": 20,
           "hidden": false
         }
@@ -336,26 +379,36 @@ const course = {
       "testCases": [
         {
           "input": "20\n11",
+          "expectedOutput": "有利潤 賺4元",
+          "output": "有利潤 賺4元",
           "score": 20,
           "hidden": false
         },
         {
           "input": "35\n12",
+          "expectedOutput": "無利潤 賠3元",
+          "output": "無利潤 賠3元",
           "score": 20,
           "hidden": false
         },
         {
           "input": "10\n5",
+          "expectedOutput": "有利潤 賺5元",
+          "output": "有利潤 賺5元",
           "score": 20,
           "hidden": false
         },
         {
           "input": "50\n12",
+          "expectedOutput": "無利潤 賠5元",
+          "output": "無利潤 賠5元",
           "score": 20,
           "hidden": false
         },
         {
           "input": "100\n11",
+          "expectedOutput": "有利潤 賺20元",
+          "output": "有利潤 賺20元",
           "score": 20,
           "hidden": false
         }
@@ -429,26 +482,36 @@ const course = {
       "testCases": [
         {
           "input": "50\n2\n100 50",
+          "expectedOutput": "1",
+          "output": "1",
           "score": 20,
           "hidden": false
         },
         {
           "input": "800\n3\n500 200 300",
+          "expectedOutput": "3",
+          "output": "3",
           "score": 20,
           "hidden": false
         },
         {
           "input": "1000\n2\n300 400",
+          "expectedOutput": "待備份檔案總容量超過雲端硬碟總空間，無法完整備份，請重新輸入。",
+          "output": "待備份檔案總容量超過雲端硬碟總空間，無法完整備份，請重新輸入。",
           "score": 20,
           "hidden": false
         },
         {
           "input": "250\n3\n100 100 100",
+          "expectedOutput": "3",
+          "output": "3",
           "score": 20,
           "hidden": false
         },
         {
           "input": "100\n1\n100",
+          "expectedOutput": "1",
+          "output": "1",
           "score": 20,
           "hidden": false
         }
@@ -523,11 +586,15 @@ const course = {
       "testCases": [
         {
           "input": "3\n555 339 80",
+          "expectedOutput": "3 130 1 1558",
+          "output": "3 130 1 1558",
           "score": 50,
           "hidden": false
         },
         {
           "input": "4\n222 911 349 119",
+          "expectedOutput": "4 194 2 3267",
+          "output": "4 194 2 3267",
           "score": 50,
           "hidden": false
         }

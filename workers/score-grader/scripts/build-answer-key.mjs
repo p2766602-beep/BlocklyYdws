@@ -1,7 +1,20 @@
-// 掃描 ../../../src/courses/*.js，抽出每個課程/題目/測資的正確答案，
-// 輸出成這個Worker專用的私密資料 src/answerKeys.json（瀏覽器端拿不到這份資料）。
+// 掃描 YDWS-CodingBank/courses/*.js（正本，含真正答案），抽出每個課程/題目/測資的正確
+// 答案，輸出成這個Worker專用的私密資料 src/answerKeys.json（瀏覽器端拿不到這份資料）。
 //
-// 每次src/courses底下的課程內容有異動時，記得重跑這支腳本並重新部署Worker：
+// 2026-09-21修正：原本讀的是../../../src/courses（BlocklyYdws自己的公開課程JS），但
+// mode:'contest'課程的正確答案本來就會從公開JS裡刻意清空（防止洩題），讀錯資料夾會讓
+// 這裡產生出來的「正確答案」全部變空字串，導致這些課程的系統評分永遠判定失敗，不管學生
+// 寫得多正確都一樣（實際發生過，CPB00等全部競賽模式課程都中招）。改讀YDWS-CodingBank
+// 正本（假設跟BlocklyYdws同一層目錄，見YOSEP根目錄CLAUDE.md的既有慣例），才能真的抓到
+// 完整的testCases.expectedOutput/output。
+//
+// 現在（2026-09-21起）平台上已經沒有任何課程真的是mode:'contest'了（全部改回'learning'
+// 用本機testCases比對，不再依賴這份Worker私密資料評分，見src/courses/CPB00.js等檔案開頭
+// 的說明）——這支腳本＋這份Worker目前形同備用/未使用，保留是為了以防萬一以後又有課程
+// 需要走這條路，路徑至少不會再讀錯。
+//
+// 每次YDWS-CodingBank/courses底下的課程內容有異動時，如果之後真的又有課程改回
+// mode:'contest'，記得重跑這支腳本並重新部署Worker：
 //   npm run build-answer-key
 
 import { readdirSync, writeFileSync } from 'node:fs';
@@ -9,10 +22,13 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const COURSES_DIR = path.resolve(__dirname, '../../../src/courses');
+const COURSES_DIR = path.resolve(__dirname, '../../../../YDWS-CodingBank/courses');
 const OUT_FILE = path.resolve(__dirname, '../src/answerKeys.json');
 
-const SKIP_FILES = new Set(['index.js', 'smartring-tasks.js']);
+// SmartRing系列(SRA00/SRB00/SRC00/SRF00)在YDWS-CodingBank/courses底下import的
+// smartring-tasks.js只是規格參考、缺少真正的執行期依賴，import會直接拋錯；反正這幾個
+// 也不是mode:'contest'課程、用不到這份答案庫，直接跳過。
+const SKIP_FILES = new Set(['index.js', 'smartring-tasks.js', 'SRA00.js', 'SRB00.js', 'SRC00.js', 'SRF00.js']);
 
 function getCourseObject(mod, fallbackCode) {
   if (mod.default && typeof mod.default === 'object') return mod.default;

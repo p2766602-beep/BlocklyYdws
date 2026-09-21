@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，由 114EMiaoli.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入，即使
 // 來源這次確實有真的starterXml範例答案，仍比照114TCPE01~17既有政策不外露）、課程代碼/
@@ -12,7 +25,7 @@ const course = {
   "code": "114TCPE18",
   "title": "114-苗栗縣國小（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "114-苗栗縣國小114學年度科技教育創意實作競賽題庫",
   "source": {
     "project": "YDWS-CodingBank",
@@ -63,42 +76,52 @@ const course = {
       "testCases": [
         {
           "input": "1",
+          "expectedOutput": "ML",
           "score": 10
         },
         {
           "input": "2",
+          "expectedOutput": "MLML",
           "score": 10
         },
         {
           "input": "5",
+          "expectedOutput": "MLMLMLMLML",
           "score": 10
         },
         {
           "input": "3",
+          "expectedOutput": "MLMLML",
           "score": 10
         },
         {
           "input": "4",
+          "expectedOutput": "MLMLMLML",
           "score": 10
         },
         {
           "input": "10",
+          "expectedOutput": "MLMLMLMLMLMLMLMLMLML",
           "score": 10
         },
         {
           "input": "6",
+          "expectedOutput": "MLMLMLMLMLML",
           "score": 10
         },
         {
           "input": "7",
+          "expectedOutput": "MLMLMLMLMLMLML",
           "score": 10
         },
         {
           "input": "8",
+          "expectedOutput": "MLMLMLMLMLMLMLML",
           "score": 10
         },
         {
           "input": "9",
+          "expectedOutput": "MLMLMLMLMLMLMLMLML",
           "score": 10
         }
       ]
@@ -136,42 +159,52 @@ const course = {
       "testCases": [
         {
           "input": "4\n1\n2\n4",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "5\n1\n2\n3\n4",
+          "expectedOutput": "5",
           "score": 10
         },
         {
           "input": "3\n2\n3",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "6\n1\n3\n4\n5\n6",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "7\n1\n2\n3\n4\n6\n7",
+          "expectedOutput": "5",
           "score": 10
         },
         {
           "input": "2\n1",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "2\n2",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "8\n1\n2\n3\n4\n5\n6\n8",
+          "expectedOutput": "7",
           "score": 10
         },
         {
           "input": "9\n1\n2\n3\n4\n5\n6\n7\n8",
+          "expectedOutput": "9",
           "score": 10
         },
         {
           "input": "10\n1\n2\n3\n4\n5\n6\n8\n9\n10",
+          "expectedOutput": "7",
           "score": 10
         }
       ]
@@ -209,42 +242,52 @@ const course = {
       "testCases": [
         {
           "input": "AAABABBB",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "ABAB",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "AB",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "AABB",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "AAAAABBBBB",
+          "expectedOutput": "5",
           "score": 10
         },
         {
           "input": "ABAABB",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "AABABB",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "AAABBBABAB",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "AABBAABB",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "AAAABBBB",
+          "expectedOutput": "4",
           "score": 10
         }
       ]
@@ -282,42 +325,52 @@ const course = {
       "testCases": [
         {
           "input": "2\n120\n130\n3\n120\n120\n130",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "1\n200\n1\n200",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "3\n140\n150\n160\n3\n140\n150\n160",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "4\n100\n110\n120\n130\n4\n140\n150\n160\n170",
+          "expectedOutput": "0",
           "score": 10
         },
         {
           "input": "3\n150\n150\n150\n2\n150\n150",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "2\n130\n130\n4\n130\n130\n130\n130",
+          "expectedOutput": "2",
           "score": 10
         },
         {
           "input": "5\n110\n120\n130\n140\n150\n5\n120\n130\n140\n150\n160",
+          "expectedOutput": "4",
           "score": 10
         },
         {
           "input": "1\n100\n2\n110\n120",
+          "expectedOutput": "0",
           "score": 10
         },
         {
           "input": "2\n150\n160\n1\n160",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "3\n140\n140\n150\n3\n140\n150\n150",
+          "expectedOutput": "2",
           "score": 10
         }
       ]
@@ -355,42 +408,52 @@ const course = {
       "testCases": [
         {
           "input": "999\n1",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "2008\n17",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "1998\n37",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "123\n456",
+          "expectedOutput": "0",
           "score": 10
         },
         {
           "input": "555\n555",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "9\n9",
+          "expectedOutput": "1",
           "score": 10
         },
         {
           "input": "999999\n1",
+          "expectedOutput": "6",
           "score": 10
         },
         {
           "input": "1000\n1000",
+          "expectedOutput": "0",
           "score": 10
         },
         {
           "input": "909\n91",
+          "expectedOutput": "3",
           "score": 10
         },
         {
           "input": "888\n222",
+          "expectedOutput": "3",
           "score": 10
         }
       ]

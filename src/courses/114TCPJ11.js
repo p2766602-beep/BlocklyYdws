@@ -1,3 +1,16 @@
+// 2026-09-21：mode從'contest'改回'learning'，testCases補回真正的expectedOutput/output
+// （從YDWS-CodingBank正本複製回來）。原本的設計是mode:'contest'課程的正確答案只存在
+// score-grader Worker私密的answerKeys.json，本機JS故意不含答案——但實測發現這份
+// answerKeys.json的產生腳本（build-answer-key.mjs）讀錯資料夾（讀到本來就被清空答案的
+// 公開JS，不是YDWS-CodingBank正本），導致產生出來的「正確答案」全部是空字串，讓這整批
+// 競賽模式課程的系統評分永遠判定失敗，不管學生寫得多正確都一樣（2026-09-21由使用者回報
+// CPB00第一題手動測試正確、系統評分卻失敗，追出這個系統性bug）。
+// 這個平台只是學生練習用，不是真正競賽平台，沒有必要為了防止用開發者工具偷看答案這種
+// 低機率情境，背負一套「本機JS跟Worker私密資料要保持同步」的維護成本（過去就是因為忘記
+// 重新產生/部署Worker答案庫才出過類似問題）——比照blockly-lab既有114TCP系列的做法，
+// 改成跟一般學習模式課程一樣的本機比對，starterXml仍然維持空字串（不能載入範例答案），
+// 標題仍然保留「（競賽模式）」，只有「答案存在哪裡、怎麼比對」這件事改了。
+
 // 競賽模式版本，2026-08-13由 114JTainan.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -9,7 +22,7 @@ const course = {
   "code": "114TCPJ11",
   "title": "114-臺南市國中（競賽模式）",
   "type": "programming",
-  "mode": "contest",
+  "mode": "learning",
   "description": "臺南市114學年度國中組資訊科技競賽練習題，涵蓋組合優惠最佳化、統計與質數判定。",
   "tasks": [
     {
@@ -43,51 +56,71 @@ const course = {
       "testCases": [
         {
           "input": "5\n5",
+          "expectedOutput": "4000",
+          "output": "4000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6\n3",
+          "expectedOutput": "3600",
+          "output": "3600",
           "score": 10,
           "hidden": false
         },
         {
           "input": "0\n10",
+          "expectedOutput": "5000",
+          "output": "5000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8\n4",
+          "expectedOutput": "4800",
+          "output": "4800",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10\n10",
+          "expectedOutput": "8000",
+          "output": "8000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\n5",
+          "expectedOutput": "3100",
+          "output": "3100",
           "score": 10,
           "hidden": false
         },
         {
           "input": "0\n0",
+          "expectedOutput": "0",
+          "output": "0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10\n0",
+          "expectedOutput": "4000",
+          "output": "4000",
           "score": 10,
           "hidden": false
         },
         {
           "input": "3\n4",
+          "expectedOutput": "2900",
+          "output": "2900",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n1",
+          "expectedOutput": "800",
+          "output": "800",
           "score": 10,
           "hidden": false
         }
@@ -165,51 +198,71 @@ const course = {
       "testCases": [
         {
           "input": "10 8 9 9 9",
+          "expectedOutput": "9",
+          "output": "9",
           "score": 10,
           "hidden": false
         },
         {
           "input": "6 6 9 10 9",
+          "expectedOutput": "8",
+          "output": "8",
           "score": 10,
           "hidden": false
         },
         {
           "input": "7 7 7 7 7",
+          "expectedOutput": "7",
+          "output": "7",
           "score": 10,
           "hidden": false
         },
         {
           "input": "5 7 8 9 6",
+          "expectedOutput": "7",
+          "output": "7",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8 10 8 9 10",
+          "expectedOutput": "9",
+          "output": "9",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10 10 10 10 10",
+          "expectedOutput": "10",
+          "output": "10",
           "score": 10,
           "hidden": false
         },
         {
           "input": "0 0 0 0 0",
+          "expectedOutput": "0",
+          "output": "0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1 2 3 4 5",
+          "expectedOutput": "3",
+          "output": "3",
           "score": 10,
           "hidden": false
         },
         {
           "input": "8 8 8 10 0",
+          "expectedOutput": "8",
+          "output": "8",
           "score": 10,
           "hidden": false
         },
         {
           "input": "4 5 6 7 8",
+          "expectedOutput": "6",
+          "output": "6",
           "score": 10,
           "hidden": false
         }
@@ -288,51 +341,71 @@ const course = {
       "testCases": [
         {
           "input": "21\n30",
+          "expectedOutput": "52",
+          "output": "52",
           "score": 10,
           "hidden": false
         },
         {
           "input": "13\n19",
+          "expectedOutput": "49",
+          "output": "49",
           "score": 10,
           "hidden": false
         },
         {
           "input": "54\n58",
+          "expectedOutput": "0",
+          "output": "0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n20",
+          "expectedOutput": "77",
+          "output": "77",
           "score": 10,
           "hidden": false
         },
         {
           "input": "91\n95",
+          "expectedOutput": "0",
+          "output": "0",
           "score": 10,
           "hidden": false
         },
         {
           "input": "61\n90",
+          "expectedOutput": "523",
+          "output": "523",
           "score": 10,
           "hidden": false
         },
         {
           "input": "2\n10",
+          "expectedOutput": "17",
+          "output": "17",
           "score": 10,
           "hidden": false
         },
         {
           "input": "1\n100",
+          "expectedOutput": "1060",
+          "output": "1060",
           "score": 10,
           "hidden": false
         },
         {
           "input": "97\n100",
+          "expectedOutput": "97",
+          "output": "97",
           "score": 10,
           "hidden": false
         },
         {
           "input": "10\n10",
+          "expectedOutput": "0",
+          "output": "0",
           "score": 10,
           "hidden": false
         }
