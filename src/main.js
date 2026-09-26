@@ -2508,4 +2508,27 @@ initAiCompanion({
   workerUrl: AI_COMPANION_WORKER_URL,
 });
 bindSmartRingRuntimeEvents();
+// 一鍵直達（2026-09-26）：網址帶 ?course=課程代碼&task=題號 時，自動填入課程代碼並載入課程，
+// 有指定 task 就切到那一題（只切換題目，不自動載入範例答案）。供 teaching-scaffolds/basic/
+// 自主學習教材的「前往練習」按鈕使用。課程或題號不存在時，沿用 loadCourse() 既有的錯誤提示。
+async function applyCourseDeepLink() {
+  const params = new URLSearchParams(window.location.search);
+  const code = (params.get('course') || '').trim();
+  if (!code) return;
+
+  courseCode.value = code;
+  await loadCourse();
+
+  const taskId = (params.get('task') || '').trim();
+  if (!taskId || !currentCourseGroup) return;
+
+  const task = getTaskById(currentCourseGroup, taskId);
+  if (task) {
+    loadTask(task, currentCourseGroup);
+  } else {
+    outputArea.textContent = `找不到子任務：${taskId}`;
+  }
+}
+
 initStatus();
+applyCourseDeepLink();
