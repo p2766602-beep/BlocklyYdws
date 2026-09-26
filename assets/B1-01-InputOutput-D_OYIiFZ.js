@@ -143,4 +143,4 @@ Louise`,expectedOutput:`Justin, Louise, 一起學習吧！`,output:`Justin, Loui
       </block>
     </next>
   </block>
-</xml>`,hints:[`輸入讀進來的是文字，要當成數字相加，才不會變成「37」這種接在一起的結果。`],extension:!1,sourceCourse:`M0-01-BasicOutput`,sourceDifficulty:`L1`}]};export{e as default};
+</xml>`,hints:[`用數學的「＋」積木把兩個數字相加；如果用「字串組合」，兩個數字會被接在一起（例如 9 和 4 變成 94），而不是 13。`],extension:!1,sourceCourse:`M0-01-BasicOutput`,sourceDifficulty:`L1`}]};export{e as default};

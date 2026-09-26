@@ -239,18 +239,30 @@ var e={code:`M1-08-SortApplied`,title:`排序應用：連動資料處理`,type:`
 每一個位置上的姓名與分數是一組資料，必須一起行動。
 老師指定兩個位置，小華需要把這兩個位置上的資料進行交換。
 交換時，姓名與分數都必須一起交換，其他位置保持不變。
-請你寫一個程式，完成指定位置的「連動清單交換」任務`,inputDescription:`第1行：5 個姓名（以空格隔開）。
+請你寫一個程式，完成指定位置的「連動清單交換」任務`,inputDescription:`第1行：一個整數 5，代表接下來有 5 個姓名。
 
-第2行：5 個整數，代表對應的分數（以空格隔開）。
+第2行：5 個姓名（以空格隔開）。
 
-第3行：兩個整數 P、Q，代表要交換的位置（1 ≤ P, Q ≤ 5）。`,outputDescription:`第1行：交換完成後的 5 個姓名（以空格隔開）。
+第3行：一個整數 5，代表接下來有 5 個分數。
 
-第2行：交換完成後的 5 個分數（以空格隔開）。`,requiresGreenFlag:!0,examples:[{input:`Amy Bob Carl Dora Eric
+第4行：5 個整數，代表對應的分數（以空格隔開）。
+
+第5行：一個整數 2，代表接下來有 2 個位置。
+
+第6行：兩個整數 P、Q，代表要交換的位置（1 ≤ P, Q ≤ 5）。`,outputDescription:`第1行：交換完成後的 5 個姓名（以空格隔開）。
+
+第2行：交換完成後的 5 個分數（以空格隔開）。`,requiresGreenFlag:!0,examples:[{input:`5
+Amy Bob Carl Dora Eric
+5
 80 90 70 85 60
+2
 2 4`,output:`Amy Dora Carl Bob Eric
 80 85 70 90 60`,explanation:`第2與第4個位置交換，
-姓名與分數必須一起交換。`},{input:`Tom May John Lily Ken
+姓名與分數必須一起交換。`},{input:`5
+Tom May John Lily Ken
+5
 75 88 92 60 85
+2
 1 5`,output:`Ken May John Lily Tom
 85 88 92 60 75`,explanation:`第1與第5個位置交換，
 兩個清單同步變動。`}],testCases:[{input:`5
