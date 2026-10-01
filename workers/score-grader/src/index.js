@@ -3,9 +3,12 @@ import answerKeys from './answerKeys.json';
 // 這個Worker是瀏覽器跟Google Sheet成績上傳之間唯一的橋樑：
 // 1. /grade：competition模式課程用（本機JS已經不含expectedOutput），
 //    用這份私密的answerKeys.json比對，只回傳通過/未通過，絕不回傳正確答案本身。
-// 2. /submit-score：所有課程都改走這裡送分數，Worker用自己的答案重新計算分數
-//    （不信任前端聲稱的score/passed/total），算完才用只有Worker知道的UPLOAD_TOKEN
-//    呼叫Google Apps Script寫入Sheet，瀏覽器端不再、也不能直接呼叫Apps Script URL。
+// 2. /submit-score：所有課程都走這裡送分數，用只有Worker知道的UPLOAD_TOKEN呼叫
+//    Google Apps Script寫入Sheet，瀏覽器端不能直接呼叫Apps Script URL。
+//    2026-10-01 使用者決定：分數直接採用平台「系統評分」在瀏覽器算出的結果
+//    （payload.localPreview），不再用answerKeys.json重新比對——答案庫沒有涵蓋新課程
+//    （例如B系列）、測資也沒有caseId，導致學生評分後無法上傳。防作弊改由前端「載入過
+//    範例的題目不能上傳」負責。Worker只檢查數字合理（0 ≤ passed ≤ total）並重算百分比。
 
 function corsHeaders(origin, allowedOrigins) {
   const allowOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
@@ -134,18 +137,26 @@ async function handleSubmitScore(body, env, headers) {
   const taskId = String(body.taskId || '').trim();
   const taskTitle = String(body.taskTitle || '').trim();
   const mode = String(body.mode || 'learning').trim();
-  const cases = Array.isArray(body.cases) ? body.cases : [];
   const profile = body.profile || {};
 
-  if (!courseId || !taskId || cases.length === 0) {
-    return jsonResponse({ error: '缺少必要欄位（courseId / taskId / cases）' }, 400, headers);
+  const preview = body.localPreview || {};
+  const total = Number(preview.total);
+  const passedCount = Number(preview.passed);
+
+  if (!courseId || !taskId) {
+    return jsonResponse({ error: '缺少必要欄位（courseId / taskId）' }, 400, headers);
   }
 
-  const graded = gradeCases(courseId, taskId, cases);
-
-  if (graded.error) {
-    return jsonResponse({ error: graded.error }, 404, headers);
+  if (!Number.isInteger(total) || !Number.isInteger(passedCount) || total <= 0 || passedCount < 0 || passedCount > total) {
+    return jsonResponse({ error: '評分結果格式不正確，請重新按「系統評分」後再上傳。' }, 400, headers);
   }
+
+  const graded = {
+    total,
+    passed: passedCount,
+    score: getAssessmentScore(passedCount, total),
+    allPassed: passedCount === total,
+  };
 
   const appsScriptPayload = {
     className: profile.className || '',
@@ -162,7 +173,7 @@ async function handleSubmitScore(body, env, headers) {
     total: graded.total,
     passRate: graded.score,
     allPassed: graded.allPassed,
-    version: 'score-grader-v1',
+    version: 'score-grader-v2-local',
   };
 
   const sheetResult = await forwardToAppsScript(env, appsScriptPayload);

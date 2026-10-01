@@ -220,6 +220,59 @@ let isUserProgramRunning = false;
 let hasProgrammingAssessmentResult = false;
 let lastAssessmentResult = null;
 let hasLoadedStarterForCurrentTask = false;
+
+// 2026-10-01：學生只要載入過某一題的範例，這一題就不能上傳成績。
+// 以前「清除工作區」會把hasLoadedStarterForCurrentTask重設，學生可以「載入範例→存檔→
+// 清除工作區→載回積木檔」繞過限制。現在改成：載入範例時把「課程::題號」記進這台瀏覽器的
+// localStorage，清除工作區、重新整理都不會解鎖；存檔時在積木檔裡加上標記，載入帶標記的檔案、
+// 或內容和範例完全相同的積木檔，也會鎖住對應的題目。
+const DEMO_LOCK_STORAGE_KEY = 'ydwsDemoLockedTasks';
+const demoLockedTasks = (() => {
+  try {
+    return new Set(JSON.parse(window.localStorage.getItem(DEMO_LOCK_STORAGE_KEY) || '[]'));
+  } catch {
+    return new Set();
+  }
+})();
+
+function getTaskLockKey(courseGroup = currentCourseGroup, task = currentTask) {
+  return courseGroup?.id && task?.id ? `${courseGroup.id}::${task.id}` : '';
+}
+
+function lockTaskForDemo(key) {
+  if (!key) return;
+  demoLockedTasks.add(key);
+  try {
+    window.localStorage.setItem(DEMO_LOCK_STORAGE_KEY, JSON.stringify([...demoLockedTasks]));
+  } catch {
+    // localStorage不可用時，至少這次瀏覽仍然鎖住（hasLoadedStarterForCurrentTask）。
+  }
+}
+
+function isCurrentTaskDemoLocked() {
+  return hasLoadedStarterForCurrentTask || demoLockedTasks.has(getTaskLockKey());
+}
+
+// 去掉id、座標、變數宣告與空白後的積木結構，用來比對「載入的積木檔是不是範例原封不動」。
+function normalizeBlocksXml(dom) {
+  dom.querySelectorAll('variables').forEach((el) => el.remove());
+  dom.querySelectorAll('*').forEach((el) => ['id', 'x', 'y'].forEach((attr) => el.removeAttribute(attr)));
+  return Blockly.Xml.domToText(dom).replace(/\s+/g, '');
+}
+
+function workspaceMatchesStarter(starterXml) {
+  if (!workspace || !starterXml) return false;
+  const temp = new Blockly.Workspace();
+  try {
+    Blockly.Xml.domToWorkspace(Blockly.utils.xml.textToDom(starterXml), temp);
+    return normalizeBlocksXml(Blockly.Xml.workspaceToDom(temp, true)) ===
+      normalizeBlocksXml(Blockly.Xml.workspaceToDom(workspace, true));
+  } catch {
+    return false;
+  } finally {
+    temp.dispose();
+  }
+}
 let isSmartRingPanelCollapsed = false;
 let isTaskPanelCollapsed = false;
 let isResultPanelCollapsed = false;
@@ -278,7 +331,7 @@ function updateSubmitScoreVisibility() {
   const shouldEnable = Boolean(
     isProgrammingCourse &&
       hasValidAssessmentResult &&
-      !hasLoadedStarterForCurrentTask &&
+      !isCurrentTaskDemoLocked() &&
       !isUserProgramRunning
   );
 
@@ -289,8 +342,8 @@ function updateSubmitScoreVisibility() {
     btnSubmitScore.title = '請先載入程式解題課程並完成系統評分。';
   } else if (!hasProgrammingAssessmentResult || !hasValidAssessmentResult) {
     btnSubmitScore.title = '請先完成系統評分。';
-  } else if (hasLoadedStarterForCurrentTask) {
-    btnSubmitScore.title = '本題已載入範例積木，不能上傳成績。請清除工作區後自行重新建置積木，再完成系統評分。';
+  } else if (isCurrentTaskDemoLocked()) {
+    btnSubmitScore.title = '本題已載入過範例積木，不能上傳成績。';
   } else if (!profileStatus.ok) {
     btnSubmitScore.title = `已完成系統評分；按下後會提示補填：${profileStatus.missingFields.join('、')}`;
   } else {
@@ -723,7 +776,9 @@ function clearWorkspace() {
   resetCompetitionAssessmentResult();
   updateCodePreview();
   updateTaskActionButtons();
-  outputArea.textContent = '已清除工作區。範例載入紀錄與評分結果已重置，請自行重新建置積木後再進行系統評分。';
+  outputArea.textContent = isCurrentTaskDemoLocked()
+    ? '已清除工作區，評分結果已重置。提醒：本題已載入過範例，仍然不能上傳成績。'
+    : '已清除工作區，評分結果已重置。';
 }
 
 function copyCode() {
@@ -1034,6 +1089,9 @@ function saveWorkspaceToFile() {
   if (!workspace) return;
 
   const xmlDom = Blockly.Xml.workspaceToDom(workspace);
+  if (isCurrentTaskDemoLocked() && getTaskLockKey()) {
+    xmlDom.setAttribute('data-ydws-demo', getTaskLockKey());
+  }
   const xmlText = Blockly.Xml.domToPrettyText(xmlDom);
   const blob = new Blob([xmlText], { type: 'text/xml;charset=utf-8' });
   const url = URL.createObjectURL(blob);
@@ -1075,9 +1133,25 @@ function loadWorkspaceFromFile(file) {
       workspace.clear();
       Blockly.Xml.domToWorkspace(xmlDom, workspace);
 
+      const markedKeys = String(xmlDom.getAttribute('data-ydws-demo') || '').split(/\s+/).filter(Boolean);
+      markedKeys.forEach(lockTaskForDemo);
+      const currentKey = getTaskLockKey();
+      const isDemoFile = Boolean(currentKey) && (
+        markedKeys.includes(currentKey) || workspaceMatchesStarter(currentTask?.starterXml)
+      );
+      if (isDemoFile) {
+        lockTaskForDemo(currentKey);
+        hasLoadedStarterForCurrentTask = true;
+      }
+      resetCompetitionAssessmentResult();
+      updateTaskActionButtons();
+      updateSubmitScoreVisibility();
+
       updateCodePreview();
       switchWorkspaceTab('blocks');
-      outputArea.textContent = `已載入積木檔案：${file.name}`;
+      outputArea.textContent = isDemoFile
+        ? `已載入積木檔案：${file.name}\n提醒：這個檔案是本題的範例積木，不能上傳本題成績。`
+        : `已載入積木檔案：${file.name}`;
     } catch (error) {
       outputArea.textContent = `載入積木檔案失敗：\n${error.message}`;
     }
@@ -1105,13 +1179,16 @@ function loadCourseStarter(course) {
     switchWorkspaceTab('blocks');
 
     hasLoadedStarterForCurrentTask = true;
+    if (isProgrammingProblemTask(course, currentCourseGroup)) {
+      lockTaskForDemo(getTaskLockKey(currentCourseGroup, course));
+    }
     resetCompetitionAssessmentResult();
     updateTaskActionButtons();
 
     const starterMessage = course.starterMessage || `已載入 ${course.id} 起始積木。`;
     outputArea.textContent = isProgrammingProblemTask(course, currentCourseGroup)
       ? `${starterMessage}
-提醒：本題已載入範例積木，不能上傳成績。若要上傳成績，請按「清除工作區」後自行重新建置積木並完成系統評分。`
+提醒：本題已載入範例積木，之後都不能上傳本題成績。`
       : starterMessage;
 
     return true;
@@ -2132,8 +2209,8 @@ async function submitScore() {
     return;
   }
 
-  if (hasLoadedStarterForCurrentTask) {
-    outputArea.textContent = '本題已載入範例積木，不能上傳成績。請按「清除工作區」清空積木後，自行重新建置積木並完成系統評分，再上傳成績。';
+  if (isCurrentTaskDemoLocked()) {
+    outputArea.textContent = '本題已載入過範例積木，不能上傳成績。';
     updateSubmitScoreVisibility();
     return;
   }
