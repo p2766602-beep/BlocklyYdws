@@ -221,11 +221,14 @@ let hasProgrammingAssessmentResult = false;
 let lastAssessmentResult = null;
 let hasLoadedStarterForCurrentTask = false;
 
-// 2026-10-01：學生只要載入過某一題的範例，這一題就不能上傳成績。
-// 以前「清除工作區」會把hasLoadedStarterForCurrentTask重設，學生可以「載入範例→存檔→
-// 清除工作區→載回積木檔」繞過限制。現在改成：載入範例時把「課程::題號」記進這台瀏覽器的
-// localStorage，清除工作區、重新整理都不會解鎖；存檔時在積木檔裡加上標記，載入帶標記的檔案、
-// 或內容和範例完全相同的積木檔，也會鎖住對應的題目。
+// 2026-10-01：學生只要載入過某一題的範例，這一題就不能上傳成績，直到「清除工作區」並
+// 重新手刻積木為止（2026-10-06修正：之前的版本把這個鎖做成永久性——連清除工作區、重新整理
+// 都解不開——結果變成即使學生清空畫布、自己重新刻出一份跟範例完全無關的答案，也永遠無法
+// 上傳，不符合原本「只要不是直接拿範例交差就該放行」的用意）。
+// 機制：載入範例時把「課程::題號」記進這台瀏覽器的localStorage；清除工作區時把這個鎖解開
+// （連同hasLoadedStarterForCurrentTask一起重設，見clearWorkspace()）。防堵的重點還是原本的
+// 漏洞——「載入範例→存檔→清除工作區→載回積木檔」——這條路徑不受這次修正影響：存檔時會在
+// 積木檔裡加上標記，載入帶標記的檔案、或內容和範例完全相同的積木檔，一樣會立刻重新鎖住。
 const DEMO_LOCK_STORAGE_KEY = 'ydwsDemoLockedTasks';
 const demoLockedTasks = (() => {
   try {
@@ -239,14 +242,25 @@ function getTaskLockKey(courseGroup = currentCourseGroup, task = currentTask) {
   return courseGroup?.id && task?.id ? `${courseGroup.id}::${task.id}` : '';
 }
 
-function lockTaskForDemo(key) {
-  if (!key) return;
-  demoLockedTasks.add(key);
+function persistDemoLockedTasks() {
   try {
     window.localStorage.setItem(DEMO_LOCK_STORAGE_KEY, JSON.stringify([...demoLockedTasks]));
   } catch {
-    // localStorage不可用時，至少這次瀏覽仍然鎖住（hasLoadedStarterForCurrentTask）。
+    // localStorage不可用時，至少這次瀏覽仍然反映在記憶體內的Set裡。
   }
+}
+
+function lockTaskForDemo(key) {
+  if (!key) return;
+  demoLockedTasks.add(key);
+  persistDemoLockedTasks();
+}
+
+// 清除工作區時呼叫，把這一題解鎖——之後只要沒有再載入範例或範例檔案，就能正常上傳成績。
+function unlockTaskForDemo(key) {
+  if (!key || !demoLockedTasks.has(key)) return;
+  demoLockedTasks.delete(key);
+  persistDemoLockedTasks();
 }
 
 function isCurrentTaskDemoLocked() {
@@ -773,12 +787,13 @@ function clearWorkspace() {
 
   workspace.clear();
   hasLoadedStarterForCurrentTask = false;
+  unlockTaskForDemo(getTaskLockKey());
   resetCompetitionAssessmentResult();
   updateCodePreview();
   updateTaskActionButtons();
   outputArea.textContent = isCurrentTaskDemoLocked()
     ? '已清除工作區，評分結果已重置。提醒：本題已載入過範例，仍然不能上傳成績。'
-    : '已清除工作區，評分結果已重置。';
+    : '已清除工作區，評分結果已重置。重新刻出自己的答案後即可正常上傳成績。';
 }
 
 function copyCode() {
