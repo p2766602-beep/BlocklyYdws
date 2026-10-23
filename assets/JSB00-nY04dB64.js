@@ -12,7 +12,7 @@ Hello後面會接小寫逗號，還有一個空白輸入
 
 這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。`,input:``,output:``},examples:[{input:`Amy`,output:`Hello, Amy`,explanation:`第一個輸入 Amy，代表名字為 Amy
 程式輸出 Hello, Amy`},{input:`Tom`,output:`Hello, Tom`,explanation:`第一個輸入 Tom，代表名字為 Tom
-程式輸出 Hello, Amy`}],testCases:[{input:`John`,expectedOutput:`Hello, John`,output:`Hello, John`,score:10,hidden:!1},{input:`Marry`,expectedOutput:`Hello, Marry`,output:`Hello, Marry`,score:10,hidden:!1},{input:`Sam`,expectedOutput:`Hello, Sam`,output:`Hello, Sam`,score:10,hidden:!1},{input:`Tom`,expectedOutput:`Hello, Tom`,output:`Hello, Tom`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+程式輸出 Hello, Tom`}],testCases:[{input:`John`,expectedOutput:`Hello, John`,output:`Hello, John`,score:10,hidden:!1},{input:`Marry`,expectedOutput:`Hello, Marry`,output:`Hello, Marry`,score:10,hidden:!1},{input:`Sam`,expectedOutput:`Hello, Sam`,output:`Hello, Sam`,score:10,hidden:!1},{input:`Tom`,expectedOutput:`Hello, Tom`,output:`Hello, Tom`,score:10,hidden:!1}],starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="var_name">名字</variable>
   </variables>
@@ -309,7 +309,7 @@ Louise`,expectedOutput:`Justin, Louise, 一起學習吧！`,output:`Justin, Loui
 80
 及格`,explanation:`第一行輸入3,表示有3筆資料
 第二行輸入3筆資料80 70 90，經過計算後
-總分、平均、及格或不及格180 80 及格`},{input:`3
+程式輸出總分、平均、及格或不及格180 80 及格`},{input:`3
 50 42 60`,output:`152
 51
 不及格`,explanation:`第一行輸入3,表示有3筆資料
@@ -505,7 +505,7 @@ Louise`,expectedOutput:`Justin, Louise, 一起學習吧！`,output:`Justin, Loui
 
 例如 N=5 時，1*2*3*4*5=120。
 這樣的練習可以訓練你使用迴圈計算。`,input:``,output:``},examples:[{input:`5`,output:`120`,explanation:`輸入 5 → 1*2*3*4*5=120
-程式輸出120`},{input:`6`,output:`720`,explanation:`6 → 1*2*3*4*5*6=720
+程式輸出120`},{input:`6`,output:`720`,explanation:`輸入 6 → 1*2*3*4*5*6=720
 程式輸出720`}],testCases:[{input:`5`,expectedOutput:`120`,output:`120`,score:10,hidden:!1},{input:`6`,expectedOutput:`720`,output:`720`,score:10,hidden:!1},{input:`1`,expectedOutput:`1`,output:`1`,score:10,hidden:!1},{input:`8`,expectedOutput:`40320`,output:`40320`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:``,flags:[],note:``,exportDecision:`輸出`},tags:{mainConcepts:[`迴圈與累計`],subConcepts:[`重複運算`],algorithm:[`迭代`],dataStructure:[],syntax:[`for`,`while`,`累加變數`],math:[],context:[]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`A-07-1`,title:`跳繩比賽`,problemTitle:`跳繩比賽`,courseCode:`JSB00`,courseName:`基礎練習1`,role:`challenge`,blocklyFit:`中`,requiresGreenFlag:!0,description:`體育課上，學生進行跳繩小組競賽比賽，小組人數不定，每人跳的次數也不同。
 
 請設計一個程式，第一行輸入數字N，代表小組有N人，後續輸入N筆資料

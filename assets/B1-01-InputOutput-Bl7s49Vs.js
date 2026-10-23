@@ -2,7 +2,8 @@ var e={code:`B1-01-InputOutput`,title:`K01 輸入與輸出`,description:`基礎�
 請你寫一個小程式，讓使用者輸入自己的名字，然後程式要輸出一行「Hello, 名字」。
 Hello後面會接小寫逗號，還有一個空白輸入
 這樣的練習可以幫助你理解輸入與輸出，是學習程式設計的基礎。`,inputDescription:``,outputDescription:``,requiresGreenFlag:!0,examples:[{input:`Amy`,output:`Hello, Amy`,explanation:`第一個輸入 Amy，代表名字為 Amy
-程式輸出 Hello, Amy`},{input:`Tom`,output:`Hello, Tom`,explanation:``}],testCases:[{input:`John`,expectedOutput:`Hello, John`,output:`Hello, John`,score:10},{input:`Marry`,expectedOutput:`Hello, Marry`,output:`Hello, Marry`,score:10},{input:`Sam`,expectedOutput:`Hello, Sam`,output:`Hello, Sam`,score:10},{input:`Tom`,expectedOutput:`Hello, Tom`,output:`Hello, Tom`,score:10}],difficulty:`L1`,difficultyLabel:`L1｜基礎`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
+程式輸出 Hello, Amy`},{input:`Tom`,output:`Hello, Tom`,explanation:`第二個輸入 Tom，代表名字為 Tom
+程式輸出 Hello, Tom`}],testCases:[{input:`John`,expectedOutput:`Hello, John`,output:`Hello, John`,score:10},{input:`Marry`,expectedOutput:`Hello, Marry`,output:`Hello, Marry`,score:10},{input:`Sam`,expectedOutput:`Hello, Sam`,output:`Hello, Sam`,score:10},{input:`Tom`,expectedOutput:`Hello, Tom`,output:`Hello, Tom`,score:10}],difficulty:`L1`,difficultyLabel:`L1｜基礎`,starterXml:`<xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
     <variable id="var_name">名字</variable>
   </variables>
