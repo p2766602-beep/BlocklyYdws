@@ -17,17 +17,17 @@ export default {
         "outputDescription": "",
         "requiresGreenFlag": true,
         "examples": [
-                  {
-                    "input": "Amy",
-                    "output": "Hello, Amy",
-                    "explanation": "第一個輸入 Amy，代表名字為 Amy\n程式輸出 Hello, Amy"
-                  },
-                  {
-                    "input": "Tom",
-                    "output": "Hello, Tom",
-                    "explanation": ""
-                  }
-                ],
+          {
+            "input": "Amy",
+            "output": "Hello, Amy",
+            "explanation": "第一個輸入 Amy，代表名字為 Amy\n程式輸出 Hello, Amy"
+          },
+          {
+            "input": "Tom",
+            "output": "Hello, Tom",
+            "explanation": "第二個輸入 Tom，代表名字為 Tom\n程式輸出 Hello, Tom"
+          }
+        ],
         "testCases": [
                   {
                     "input": "John",

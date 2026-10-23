@@ -28,7 +28,7 @@ export default {
         {
           "input": "Tom",
           "output": "Hello, Tom",
-          "explanation": ""
+          "explanation": "第二個輸入 Tom，代表名字為 Tom\n程式輸出 Hello, Tom"
         }
       ],
       "testCases": [
