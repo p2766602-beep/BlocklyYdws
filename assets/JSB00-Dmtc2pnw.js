@@ -309,7 +309,7 @@ Louise`,expectedOutput:`Justin, Louise, 一起學習吧！`,output:`Justin, Loui
 80
 及格`,explanation:`第一行輸入3,表示有3筆資料
 第二行輸入3筆資料80 70 90，經過計算後
-程式輸出總分、平均、及格或不及格180 80 及格`},{input:`3
+程式輸出總分、平均、及格或不及格240 80 及格`},{input:`3
 50 42 60`,output:`152
 51
 不及格`,explanation:`第一行輸入3,表示有3筆資料

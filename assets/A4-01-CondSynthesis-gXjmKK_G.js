@@ -109,7 +109,7 @@ var e={code:`A4-01-CondSynthesis`,title:`A07 條件判斷綜合`,description:`�
 80
 及格`,explanation:`第一行輸入3,表示有3筆資料
 第二行輸入3筆資料80 70 90，經過計算後
-總分、平均、及格或不及格180 80 及格`},{input:`3
+總分、平均、及格或不及格240 80 及格`},{input:`3
 50 42 60`,output:`152
 51
 不及格`,explanation:`第一行輸入3,表示有3筆資料
