@@ -84,6 +84,13 @@ javascriptGenerator.forBlock.interaction_say = function (block, generator) {
   return `print(${textCode});\n`;
 };
 
+// 對齊官方競賽平台：文字群組的「要求輸入文字，並顯示提示訊息」積木仍保留在工具箱，
+// 但功能已被官方移除，實際使用會在執行時報錯 'window' is not defined（2026-10實測）。
+// 本專案比照官方：積木照舊可拖出來，執行時丟出同樣的錯誤，引導學生改用「詢問並等待」。
+javascriptGenerator.forBlock.text_prompt_ext = function () {
+  return ["(() => { throw new ReferenceError(\"'window' is not defined\"); })()", Order.FUNCTION_CALL];
+};
+
 export function registerInteractionBlocks() {
   // 匯入本檔案時，Blockly.Blocks 與 JavaScript generator 已完成註冊。
 }
