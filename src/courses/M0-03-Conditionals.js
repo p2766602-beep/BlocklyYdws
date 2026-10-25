@@ -320,7 +320,7 @@ export default {
       {
         "id": "BSC01-006",
         "title": "成績等第",
-        "description": "給定一個分數，請依分數輸出等第。90 分以上為 A，80 到 89 為 B，70 到 79 為 C，60 到 69 為 D，未滿 60 為 F。",
+        "description": "給定一個分數，請依分數輸出等第。90 分以上為 A，80 到 89 為 B，70 到 79 為 C，60 到 69 為 D，未滿 60 為 E。",
         "inputDescription": "輸入一個整數 S，代表分數。",
         "outputDescription": "輸出一個字母，代表等第。",
         "requiresGreenFlag": true,
@@ -332,34 +332,34 @@ export default {
                   }
                 ],
         "testCases": [
-                  {
-                    "input": "95",
-                    "expectedOutput": "A",
-                    "output": "A",
-                    "score": 0
-                  },
-                  {
-                    "input": "86",
-                    "expectedOutput": "B",
-                    "output": "B",
-                    "score": 0
-                  },
-                  {
-                    "input": "70",
-                    "expectedOutput": "C",
-                    "output": "C",
-                    "score": 0
-                  },
-                  {
-                    "input": "59",
-                    "expectedOutput": "F",
-                    "output": "F",
-                    "score": 0
-                  }
-                ],
+          {
+            "input": "95",
+            "expectedOutput": "A",
+            "output": "A",
+            "score": 0
+          },
+          {
+            "input": "86",
+            "expectedOutput": "B",
+            "output": "B",
+            "score": 0
+          },
+          {
+            "input": "70",
+            "expectedOutput": "C",
+            "output": "C",
+            "score": 0
+          },
+          {
+            "input": "59",
+            "expectedOutput": "E",
+            "output": "E",
+            "score": 0
+          }
+        ],
         "difficulty": "L2",
         "difficultyLabel": "L2｜進階",
-        "starterXml": `<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="v_x">分數</variable></variables><block type="event_whenflagclicked" x="40" y="40"><next><block type="interaction_ask_and_wait"><value name="TEXT"><block type="text"><field name="TEXT">請輸入分數</field></block></value><next><block type="variables_set"><field name="VAR" id="v_x">分數</field><value name="VALUE"><block type="interaction_answer"></block></value><next><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">90</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">A</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">80</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">B</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">70</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">C</field></block></value></block></statement><statement name="ELSE"><block type="controls_if"><mutation elseif="0" else="1"></mutation><value name="IF0"><block type="logic_compare"><field name="OP">GTE</field><value name="A"><block type="variables_get"><field name="VAR" id="v_x">分數</field></block></value><value name="B"><block type="math_number"><field name="NUM">60</field></block></value></block></value><statement name="DO0"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">D</field></block></value></block></statement><statement name="ELSE"><block type="interaction_say"><value name="TEXT"><block type="text"><field name="TEXT">F</field></block></value></block></statement></block></statement></block></statement></block></statement></block></next></block></next></block></next></block></xml>`
+        "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v_x\">分數</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入分數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v_x\">分數</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">分數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">90</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">A</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">分數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">80</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">B</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">分數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">70</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">C</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GTE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v_x\">分數</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></value><statement name=\"DO0\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">D</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">E</field></block></value></block></statement></block></statement></block></statement></block></statement></block></next></block></next></block></next></block></xml>"
       },
       {
         "id": "BSC01-007",
