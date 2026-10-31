@@ -307,7 +307,7 @@ export default {
         "id": "GRAPH01-005",
         "title": "孤立設備數量",
         "description": "一個網路中，如果某個設備沒有任何連線，稱為孤立設備。給定網路連線資料，請計算孤立設備數量。",
-        "inputDescription": "第一個輸入為整數 N，表示有編號1~N個設備；第二個輸入為整數 M，表示接著有 M 組整數 A B；A B代表設備 A 與設備 B 有一條連線。",
+        "inputDescription": "第一個輸入為整數 N，表示有編號1~編號N共N個設備；第二個輸入為整數 M，表示接著會輸入 M 組整數 A B；A B代表設備 A 與設備 B 有一條連線。",
         "outputDescription": "輸出一個整數，代表孤立設備數量編號。",
         "requiresGreenFlag": true,
         "examples": [
