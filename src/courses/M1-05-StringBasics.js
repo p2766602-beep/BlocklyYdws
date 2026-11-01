@@ -28,25 +28,25 @@ export default {
                     "input": "hello",
                     "expectedOutput": "5",
                     "output": "5",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "a",
                     "expectedOutput": "1",
                     "output": "1",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "Scratch",
                     "expectedOutput": "7",
                     "output": "7",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "YDWS2026",
                     "expectedOutput": "8",
                     "output": "8",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
@@ -72,25 +72,25 @@ export default {
                     "input": "coding",
                     "expectedOutput": "c g",
                     "output": "c g",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "a",
                     "expectedOutput": "a a",
                     "output": "a a",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "Blockly",
                     "expectedOutput": "B y",
                     "output": "B y",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "12345",
                     "expectedOutput": "1 5",
                     "output": "1 5",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L1",
@@ -116,25 +116,25 @@ export default {
                     "input": "teacher\n4",
                     "expectedOutput": "c",
                     "output": "c",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "abcde\n1",
                     "expectedOutput": "a",
                     "output": "a",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "abcde\n5",
                     "expectedOutput": "e",
                     "output": "e",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "SmartRing\n6",
                     "expectedOutput": "R",
                     "output": "R",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L2",
@@ -165,25 +165,25 @@ export default {
                     "input": "banana\na",
                     "expectedOutput": "3",
                     "output": "3",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "mississippi\ns",
                     "expectedOutput": "4",
                     "output": "4",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "hello\nz",
                     "expectedOutput": "0",
                     "output": "0",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "aaaaa\na",
                     "expectedOutput": "5",
                     "output": "5",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L2",
@@ -214,25 +214,25 @@ export default {
                     "input": "abcde",
                     "expectedOutput": "edcba",
                     "output": "edcba",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "a",
                     "expectedOutput": "a",
                     "output": "a",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "level",
                     "expectedOutput": "level",
                     "output": "level",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "Smart",
                     "expectedOutput": "tramS",
                     "output": "tramS",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L2",
@@ -263,25 +263,25 @@ export default {
                     "input": "education",
                     "expectedOutput": "5",
                     "output": "5",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "sky",
                     "expectedOutput": "0",
                     "output": "0",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "banana",
                     "expectedOutput": "3",
                     "output": "3",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "aeiou",
                     "expectedOutput": "5",
                     "output": "5",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L2",
@@ -312,25 +312,25 @@ export default {
                     "input": "level",
                     "expectedOutput": "YES",
                     "output": "YES",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "abc",
                     "expectedOutput": "NO",
                     "output": "NO",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "a",
                     "expectedOutput": "YES",
                     "output": "YES",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "noon",
                     "expectedOutput": "YES",
                     "output": "YES",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L3",
@@ -361,25 +361,25 @@ export default {
                     "input": "book",
                     "expectedOutput": "YES",
                     "output": "YES",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "abcd",
                     "expectedOutput": "NO",
                     "output": "NO",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "a",
                     "expectedOutput": "NO",
                     "output": "NO",
-                    "score": 0
+                    "score": 10
                   },
                   {
                     "input": "committee",
                     "expectedOutput": "YES",
                     "output": "YES",
-                    "score": 0
+                    "score": 10
                   }
                 ],
         "difficulty": "L3",
