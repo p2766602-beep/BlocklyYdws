@@ -233,4 +233,4 @@ TASA 國家太空中心預計在特定的軌道高度上，沿著預定路徑佈
 15 9 6`,expectedOutput:`4 6 5`,output:`4 6 5`,score:10},{input:`10 5
 1 1 2 4 5 3 7 8 9
 2 3 4 5 6 7 8 9 10
-20 20 5 5 5`,expectedOutput:`5 6 8`,output:`5 6 8`,score:10}],difficulty:`L4`,difficultyLabel:`L4｜精熟`,starterXml:``,hints:[`這是三合一綜合題：(1)樹狀深度（跟V7圖論概念相同）(2)除法運算優化 (3)爬樓梯DP（跟A11-02的核心教學題同招）。當作綜合挑戰，三個小題做過一輪能複習前面好幾個單元學過的技巧。`],extension:!0,sourceCourse:`M2-08-GraphAdvanced`,sourceDifficulty:`L4`}]};export{e as default};
+20 20 5 5 5`,expectedOutput:`5 6 8`,output:`5 6 8`,score:10}],difficulty:`L4`,difficultyLabel:`L4｜精熟`,starterXml:``,hints:[`這是三合一綜合題：(1)樹狀深度（跟V7圖論概念相同）(2)除法運算優化 (3)爬樓梯DP（跟A21動態規劃暖身的核心教學題「爬樓梯方法數」同招）。當作綜合挑戰，三個小題做過一輪能複習前面好幾個單元學過的技巧。`],extension:!0,sourceCourse:`M2-08-GraphAdvanced`,sourceDifficulty:`L4`}]};export{e as default};

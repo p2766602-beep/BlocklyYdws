@@ -101,7 +101,7 @@ var e={code:`A7-02-GraphAdvanced`,title:`A14 圖論進階`,description:`進階�
 2 3 4 6 5`,expectedOutput:`4`,output:`4`,score:25},{input:`7
 6
 1 2 3 4 2 3
-2 3 4 5 6 7`,expectedOutput:`4`,output:`4`,score:30}],difficulty:`L5`,difficultyLabel:`L5｜大師`,starterXml:``,hints:[`先把輸入的「上級→下級」連線關係轉換成每個節點的上級是誰（跟前一題的父節點陣列結構一樣），再用同樣的方法往上走到根節點，算出每個節點的深度。`],extension:!1,sourceCourse:`M2-08-GraphAdvanced`,sourceDifficulty:`L5`},{id:`JSG01-010`,title:`【延伸】訊號站到主機的轉傳距離查詢`,description:`延續『單向接力』傳輸系統：每個訊號站（除了主伺服器）都有一個固定的上游接收站；上游編號為0代表該站本身就是主伺服器。給定一個要查詢的站點編號，請你算出從該站點出發，需要經過幾次轉傳才能到達主伺服器。
+2 3 4 5 6 7`,expectedOutput:`4`,output:`4`,score:30}],difficulty:`L5`,difficultyLabel:`L5｜大師`,starterXml:``,hints:[`先把輸入的「上級→下級」連線關係轉換成每個節點的上級是誰（跟本單元第1題「量子訊號的接力傳輸」的父節點陣列結構一樣），再用同樣的方法往上走到根節點，算出每個節點的深度。`],extension:!1,sourceCourse:`M2-08-GraphAdvanced`,sourceDifficulty:`L5`},{id:`JSG01-010`,title:`【延伸】訊號站到主機的轉傳距離查詢`,description:`延續『單向接力』傳輸系統：每個訊號站（除了主伺服器）都有一個固定的上游接收站；上游編號為0代表該站本身就是主伺服器。給定一個要查詢的站點編號，請你算出從該站點出發，需要經過幾次轉傳才能到達主伺服器。
 
 第一行輸入N，代表訊號站總數
 
