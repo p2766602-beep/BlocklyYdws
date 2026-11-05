@@ -28,6 +28,9 @@ async function fetchStarterOverrides(courseCode) {
 function applyStarterOverrides(courseGroup, overrides) {
   if (!overrides || Object.keys(overrides).length === 0) return courseGroup;
 
+  // 課程層級設定存在保留鍵 __course（不是題號）：contestLock=教師把這門課鎖成測驗（固定競賽模式）
+  const contestLock = Boolean(overrides.__course?.contestLock);
+
   const tasks = courseGroup.tasks.map((task) => {
     const override = overrides[task.id];
     if (!override) return task;
@@ -43,7 +46,7 @@ function applyStarterOverrides(courseGroup, overrides) {
     };
   });
 
-  return { ...courseGroup, tasks };
+  return { ...courseGroup, tasks, contestLock };
 }
 
 function getCourseCodeFromPath(path) {

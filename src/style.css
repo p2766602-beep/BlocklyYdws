@@ -189,7 +189,7 @@ button:disabled {
     minmax(120px, 0.95fr)
     minmax(140px, 1fr)
     minmax(150px, 1.1fr)
-    minmax(86px, 0.75fr)
+    max-content
     minmax(96px, 0.85fr)
     minmax(96px, 0.85fr)
     minmax(96px, 0.85fr);
@@ -308,6 +308,58 @@ button:disabled {
   color: #1e40af;
   background: #dbeafe;
   border-color: #bfdbfe;
+}
+
+/* 學習／競賽模式切換按鈕：有範例的課程可自行切換；沒有範例或教師鎖定測驗時固定競賽模式 */
+.mode-switch {
+  display: flex;
+  min-height: 36px;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.mode-switch-button {
+  flex: 1;
+  font-weight: 600;
+  box-shadow: none;
+  transform: none;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #475569;
+  background: #fff;
+  border: 0;
+  border-radius: 0;
+}
+
+.mode-switch-button:hover:not(:disabled) {
+  background: #f1f5f9;
+  box-shadow: none;
+  transform: none;
+}
+
+.mode-switch-button.active[data-mode="learning"] {
+  color: #1e40af;
+  background: #dbeafe;
+  font-weight: 700;
+}
+
+.mode-switch-button.active[data-mode="contest"] {
+  color: #92400e;
+  background: #fef3c7;
+  font-weight: 700;
+}
+
+.mode-switch-button:disabled:not(.active) {
+  color: #cbd5e1;
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.mode-switch-button:disabled.active {
+  cursor: default;
+  opacity: 1;
 }
 
 
@@ -711,15 +763,6 @@ button:disabled {
 .modal-section p {
   margin: 6px 0;
   line-height: 1.65;
-}
-
-/* AI伴學浮動視窗按鈕（面板本體樣式已自包含於 src/aiCompanion.js，跟模擬器面板同模式） */
-.ai-companion-toggle-button {
-  background: #7c3aed;
-}
-
-.ai-companion-toggle-button:hover {
-  background: #6d28d9;
 }
 
 /* 密室逃脫是獨立部署的專案（YDWS-EscapeRoom），這裡只是開新分頁的連結，

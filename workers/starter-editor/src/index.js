@@ -9,6 +9,10 @@
 // POST /overrides：教師寫入，body需要帶token比對TEACHER_TOKEN密鑰。
 //   body: { courseCode, taskId, starterXml, loadable, note }
 //   每次送出的是該題「完整」的期望狀態（不是逐欄位patch），由呼叫端（教師UI）組好整包送出。
+// POST /course-settings：教師寫入課程層級設定，同樣要帶token。
+//   body: { courseCode, contestLock }，存在同一筆KV值的保留鍵 __course（不是題號），
+//   GET /overrides 會一起回傳，前端不用多打一次API。
+//   contestLock=true：老師把這門課臨時當測驗，三個平台載入時都固定競賽模式、不能載入範例。
 
 function corsHeaders(origin, allowedOrigins) {
   const allowOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
@@ -88,6 +92,31 @@ async function handlePostOverride(body, env, headers) {
   return jsonResponse({ ok: true, courseCode, taskId, override: overrides[taskId] }, 200, headers);
 }
 
+async function handlePostCourseSettings(body, env, headers) {
+  const courseCode = normalizeCourseCode(body.courseCode);
+  const token = String(body.token || '');
+
+  if (!courseCode) {
+    return jsonResponse({ error: '缺少courseCode' }, 400, headers);
+  }
+
+  const expectedToken = env.TEACHER_TOKEN || '';
+  if (!expectedToken || token !== expectedToken) {
+    return jsonResponse({ error: '密碼錯誤' }, 401, headers);
+  }
+
+  const overrides = await loadCourseOverrides(env, courseCode);
+
+  overrides.__course = {
+    contestLock: body.contestLock === true,
+    updatedAt: new Date().toISOString(),
+  };
+
+  await env.STARTER_KV.put(`course:${courseCode}`, JSON.stringify(overrides));
+
+  return jsonResponse({ ok: true, courseCode, settings: overrides.__course }, 200, headers);
+}
+
 export default {
   async fetch(request, env) {
     const allowedOrigins = parseAllowedOrigins(env);
@@ -117,6 +146,16 @@ export default {
           return jsonResponse({ error: '請求格式錯誤' }, 400, headers);
         }
         return await handlePostOverride(body, env, headers);
+      }
+
+      if (request.method === 'POST' && url.pathname === '/course-settings') {
+        let body;
+        try {
+          body = await request.json();
+        } catch {
+          return jsonResponse({ error: '請求格式錯誤' }, 400, headers);
+        }
+        return await handlePostCourseSettings(body, env, headers);
       }
     } catch (error) {
       return jsonResponse({ error: String(error?.message || error) }, 500, headers);

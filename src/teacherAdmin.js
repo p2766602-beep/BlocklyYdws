@@ -20,6 +20,10 @@ const bulkActionsSection = document.getElementById('bulkActionsSection');
 const btnBulkLoadableOn = document.getElementById('btnBulkLoadableOn');
 const btnBulkLoadableOff = document.getElementById('btnBulkLoadableOff');
 const bulkStatus = document.getElementById('bulkStatus');
+const courseSettingsSection = document.getElementById('courseSettingsSection');
+const contestLockCheckbox = document.getElementById('contestLockCheckbox');
+const btnSaveCourseSettings = document.getElementById('btnSaveCourseSettings');
+const courseSettingsStatus = document.getElementById('courseSettingsStatus');
 
 // 目前畫面上已載入的題卡清單，供批次全選/全不選按鈕使用。每次重新載入課程時會被清空重建。
 let currentTaskCards = [];
@@ -67,6 +71,37 @@ async function saveOverride(courseCode, taskId, { starterXml, loadable, note }) 
 
   return data;
 }
+
+async function saveCourseSettings(courseCode, { contestLock }) {
+  const resp = await fetch(`${STARTER_EDITOR_WORKER_URL}/course-settings`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ courseCode, contestLock, token: teacherToken }),
+  });
+
+  const data = await resp.json().catch(() => ({}));
+
+  if (!resp.ok) {
+    throw new Error(data?.error || `儲存失敗（HTTP ${resp.status}）`);
+  }
+
+  return data;
+}
+
+btnSaveCourseSettings.addEventListener('click', async () => {
+  const courseCode = normalizeCourseCode(courseCodeInput.value);
+  setStatus(courseSettingsStatus, '儲存中...', null);
+  try {
+    await saveCourseSettings(courseCode, { contestLock: contestLockCheckbox.checked });
+    setStatus(
+      courseSettingsStatus,
+      contestLockCheckbox.checked ? '已鎖定為測驗。' : '已解除測驗鎖定，學生可自行切換模式。',
+      'ok'
+    );
+  } catch (error) {
+    setStatus(courseSettingsStatus, `儲存失敗：${error.message}`, 'error');
+  }
+});
 
 function renderTaskCard(task, override) {
   const card = document.createElement('div');
@@ -192,7 +227,9 @@ btnLoadCourse.addEventListener('click', async () => {
   taskListSection.innerHTML = '';
   currentTaskCards = [];
   bulkActionsSection.hidden = true;
+  courseSettingsSection.hidden = true;
   setStatus(bulkStatus, '', null);
+  setStatus(courseSettingsStatus, '', null);
 
   try {
     const [courseGroup, overrides] = await Promise.all([
@@ -213,6 +250,8 @@ btnLoadCourse.addEventListener('click', async () => {
       taskListSection.appendChild(card);
     });
 
+    contestLockCheckbox.checked = Boolean(overrides.__course?.contestLock);
+    courseSettingsSection.hidden = false;
     bulkActionsSection.hidden = currentTaskCards.length === 0;
   } catch (error) {
     setStatus(courseStatus, `載入失敗：${error.message}`, 'error');

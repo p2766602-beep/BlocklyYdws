@@ -9,7 +9,7 @@
     <div id="teacherApp" class="teacher-app">
       <header class="teacher-header">
         <h1>教師後台：範例答案編輯</h1>
-        <p>編輯每題「載入範例」的Blockly積木（XML）、開關，以及標記題目內容有誤。</p>
+        <p>編輯每題「載入範例」的Blockly積木（XML）、開關，以及標記題目內容有誤；也可以把整門課鎖定為測驗。</p>
       </header>
 
       <section id="lockSection" class="teacher-section">
@@ -28,6 +28,15 @@
         </label>
         <button id="btnLoadCourse" type="button">載入課程</button>
         <span id="courseStatus" class="teacher-status"></span>
+      </section>
+
+      <section id="courseSettingsSection" class="teacher-section" hidden>
+        <label class="loadable-toggle">
+          <input id="contestLockCheckbox" type="checkbox" />
+          鎖定為測驗：學生只能用競賽模式，不能載入範例（Blockly、Scratch 平台都套用，學生重新載入課程後生效）
+        </label>
+        <button id="btnSaveCourseSettings" type="button">儲存</button>
+        <span id="courseSettingsStatus" class="teacher-status"></span>
       </section>
 
       <section id="bulkActionsSection" class="teacher-section" hidden>

@@ -16,7 +16,6 @@
         <div class="header-actions">
           <button id="btnConnectSmartRing" type="button">連線</button>
           <button id="btnToggleSimulator" type="button">開啟模擬</button>
-          <button id="btnToggleAiCompanion" type="button" class="ai-companion-toggle-button">AI伴學</button>
           <a
             id="btnOpenEscapeRoom"
             class="escape-room-link-button"
@@ -66,7 +65,10 @@
 
         <div class="field-group mode-display-field" aria-live="polite">
           <span>模式</span>
-          <strong id="courseModeDisplay" class="mode-status-pill learning-mode">尚未載入</strong>
+          <div id="courseModeSwitch" class="mode-switch" role="group" aria-label="切換學習模式或競賽模式">
+            <button type="button" class="mode-switch-button" data-mode="learning" disabled>學習模式</button>
+            <button type="button" class="mode-switch-button" data-mode="contest" disabled>競賽模式</button>
+          </div>
         </div>
 
         <button id="btnLoadCourse" type="button" class="secondary-button">載入課程</button>
