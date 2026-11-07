@@ -1,14 +1,7 @@
-// Hand-authored by Claude from data/problem_bank_master_complete.csv (114JPenghu-1~5)
-// and cross-checked against every worked example in the source PDF via a JS reference
-// implementation before being written here. Not produced by export_course_js.py — that tool's
-// L1~L3-only "第一波" scope silently drops content (see MVP-J14 in blockly-lab/docs/MVP_LOG.md),
-// so re-running any CSV exporter against this file's course code is not safe without checking
-// its scope first.
-//
-// 2026-09-08：已補上全部題目的starterXml範例答案（headless Blockly驗證100% pass，
-// 見BlocklyYdws/.scratch_verify/build_penghu_j.cjs、build_taichung_j.cjs）。
+// Built by tools/lib/course-store.mjs：courses/114JPenghu.js ＋ courses-overrides/114JPenghu.json
+// 自動產生，請勿手動編輯；要改請用課程編輯器（tools/edit-server.mjs），再重新建置。
 
-const course = {
+export default {
   "code": "114JPenghu",
   "title": "114-澎湖縣國中",
   "type": "programming",
@@ -32,64 +25,64 @@ const course = {
       "difficulty": "L2",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的字串，輸出正確解碼後的內容。",
-      "inputDescription": "輸入共有一行，為一段包含小寫字母與空白的字串（長度不超過 100）。",
-      "outputDescription": "輸出解碼後的字串。",
+      "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的訊息（先讀入單字數 N，再讀入 N 個單字），輸出正確解碼後的內容，單字之間以一個空白隔開。",
+      "inputDescription": "第一行：單字數 N\n第二行：N 個由小寫字母組成的單字，以空白分隔（總長度不超過 100）。",
+      "outputDescription": "輸出解碼後的內容，單字之間以一個空白隔開。",
       "statement": {
-        "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的字串，輸出正確解碼後的內容。",
-        "input": "輸入共有一行，為一段包含小寫字母與空白的字串（長度不超過 100）。",
-        "output": "輸出解碼後的字串。"
+        "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的訊息（先讀入單字數 N，再讀入 N 個單字），輸出正確解碼後的內容，單字之間以一個空白隔開。",
+        "input": "第一行：單字數 N\n第二行：N 個由小寫字母組成的單字，以空白分隔（總長度不超過 100）。",
+        "output": "輸出解碼後的內容，單字之間以一個空白隔開。"
       },
       "examples": [
         {
-          "input": "bqqmf",
+          "input": "1\nbqqmf",
           "output": "apple",
           "explanation": "b→a, q→p, q→p, m→l, f→e，組合起來是 apple。"
         },
         {
-          "input": "ifmmp xpsme",
+          "input": "2\nifmmp xpsme",
           "output": "hello world",
           "explanation": "ifmmp 解碼為 hello，xpsme 解碼為 world，空白保持不變。"
         }
       ],
       "testCases": [
         {
-          "input": "bqqmf",
+          "input": "1\nbqqmf",
           "expectedOutput": "apple",
           "output": "apple",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "ifmmp xpsme",
+          "input": "2\nifmmp xpsme",
           "expectedOutput": "hello world",
           "output": "hello world",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "zoo",
+          "input": "1\nzoo",
           "expectedOutput": "ynn",
           "output": "ynn",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "uif dpef jt gvo",
+          "input": "4\nuif dpef jt gvo",
           "expectedOutput": "the code is fun",
           "output": "the code is fun",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "ibwf b ojdf ebz",
+          "input": "4\nibwf b ojdf ebz",
           "expectedOutput": "have a nice day",
           "output": "have a nice day",
           "score": 10,
           "hidden": false
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"p1_done\">done</variable><variable id=\"p1_word\">word</variable><variable id=\"p1_wlen\">wlen</variable><variable id=\"p1_wi\">wi</variable><variable id=\"p1_ch\">ch</variable><variable id=\"p1_dw\">dw</variable><variable id=\"p1_out\">out</variable><variable id=\"p1_alpha\">alpha</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_out\">out</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_alpha\">alpha</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"26\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\">a</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\">b</field></block></value><value name=\"ADD2\"><block type=\"text\"><field name=\"TEXT\">c</field></block></value><value name=\"ADD3\"><block type=\"text\"><field name=\"TEXT\">d</field></block></value><value name=\"ADD4\"><block type=\"text\"><field name=\"TEXT\">e</field></block></value><value name=\"ADD5\"><block type=\"text\"><field name=\"TEXT\">f</field></block></value><value name=\"ADD6\"><block type=\"text\"><field name=\"TEXT\">g</field></block></value><value name=\"ADD7\"><block type=\"text\"><field name=\"TEXT\">h</field></block></value><value name=\"ADD8\"><block type=\"text\"><field name=\"TEXT\">i</field></block></value><value name=\"ADD9\"><block type=\"text\"><field name=\"TEXT\">j</field></block></value><value name=\"ADD10\"><block type=\"text\"><field name=\"TEXT\">k</field></block></value><value name=\"ADD11\"><block type=\"text\"><field name=\"TEXT\">l</field></block></value><value name=\"ADD12\"><block type=\"text\"><field name=\"TEXT\">m</field></block></value><value name=\"ADD13\"><block type=\"text\"><field name=\"TEXT\">n</field></block></value><value name=\"ADD14\"><block type=\"text\"><field name=\"TEXT\">o</field></block></value><value name=\"ADD15\"><block type=\"text\"><field name=\"TEXT\">p</field></block></value><value name=\"ADD16\"><block type=\"text\"><field name=\"TEXT\">q</field></block></value><value name=\"ADD17\"><block type=\"text\"><field name=\"TEXT\">r</field></block></value><value name=\"ADD18\"><block type=\"text\"><field name=\"TEXT\">s</field></block></value><value name=\"ADD19\"><block type=\"text\"><field name=\"TEXT\">t</field></block></value><value name=\"ADD20\"><block type=\"text\"><field name=\"TEXT\">u</field></block></value><value name=\"ADD21\"><block type=\"text\"><field name=\"TEXT\">v</field></block></value><value name=\"ADD22\"><block type=\"text\"><field name=\"TEXT\">w</field></block></value><value name=\"ADD23\"><block type=\"text\"><field name=\"TEXT\">x</field></block></value><value name=\"ADD24\"><block type=\"text\"><field name=\"TEXT\">y</field></block></value><value name=\"ADD25\"><block type=\"text\"><field name=\"TEXT\">z</field></block></value></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">UNTIL</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_done\">done</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_word\">word</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_word\">word</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_dw\">dw</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_wlen\">wlen</field><value name=\"VALUE\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_word\">word</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LTE</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_wlen\">wlen</field></block></value></block></value><statement name=\"DO0\"><block type=\"controls_for\"><field name=\"VAR\" id=\"p1_wi\">wi</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_wlen\">wlen</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_ch\">ch</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_word\">word</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_wi\">wi</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_dw\">dw</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_dw\">dw</field></block></value><value name=\"ADD1\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">zabcdefghijklmnopqrstuvwxy</field></block></value><value name=\"AT\"><block type=\"lists_indexOf\"><field name=\"END\">FIRST</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_alpha\">alpha</field></block></value><value name=\"FIND\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_ch\">ch</field></block></value></block></value></block></value></block></value></block></next></block></statement></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"p1_out\">out</field><value name=\"VALUE\"><block type=\"logic_ternary\"><value name=\"IF\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_out\">out</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><value name=\"THEN\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_dw\">dw</field></block></value><value name=\"ELSE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_out\">out</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_dw\">dw</field></block></value></block></value></block></value></block></next></block></next></block></next></block></statement></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"p1_out\">out</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v1\">單字數</variable><variable id=\"v2\">字母表</variable><variable id=\"v3\">第幾個</variable><variable id=\"v4\">單字</variable><variable id=\"v5\">解碼</variable><variable id=\"v6\">第幾字</variable><variable id=\"v7\">字母</variable><variable id=\"v8\">位置值</variable><variable id=\"v9\">格</variable><variable id=\"v10\">新位置</variable><variable id=\"v11\">結果</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v1\">單字數</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v2\">字母表</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\">abcdefghijklmnopqrstuvwxyz</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v3\">第幾個</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v1\">單字數</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v4\">單字</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v5\">解碼</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v6\">第幾字</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v4\">單字</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v7\">字母</field><value name=\"VALUE\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v4\">單字</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v6\">第幾字</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v8\">位置值</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v9\">格</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_number\"><field name=\"NUM\">26</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v2\">字母表</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v9\">格</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v7\">字母</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v8\">位置值</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v9\">格</field></block></value><next><block type=\"controls_flow_statements\"><field name=\"FLOW\">BREAK</field></block></next></block></statement></block></statement><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v8\">位置值</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v5\">解碼</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v5\">解碼</field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v7\">字母</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v10\">新位置</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_modulo\"><value name=\"DIVIDEND\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v8\">位置值</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">25</field></block></value></block></value><value name=\"DIVISOR\"><block type=\"math_number\"><field name=\"NUM\">26</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v5\">解碼</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v5\">解碼</field></block></value><value name=\"ADD1\"><block type=\"text_charAt\"><mutation at=\"true\"></mutation><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v2\">字母表</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v10\">新位置</field></block></value></block></value></block></value></block></next></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v3\">第幾個</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v11\">結果</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v5\">解碼</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v11\">結果</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v11\">結果</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v5\">解碼</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v11\">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></xml>",
       "review": {
         "needsManualReview": false,
         "risk": "低",
@@ -461,7 +454,7 @@ const course = {
           "explanation": "先買 3 個 100 元、2 個 200 元、1 個 300 元，共花 1000 元，買到 6 件。"
         },
         {
-          "input": "500\n4\n600 700 800\n3 4 5",
+          "input": "500\n3\n600 700 800\n3 4 5",
           "output": "0",
           "explanation": "剩下的錢不夠買任何一樣商品，最多買 0 件。"
         }
@@ -475,7 +468,7 @@ const course = {
           "hidden": false
         },
         {
-          "input": "500\n4\n600 700 800\n3 4 5",
+          "input": "500\n3\n600 700 800\n3 4 5",
           "expectedOutput": "0",
           "output": "0",
           "score": 8,
@@ -571,5 +564,3 @@ const course = {
     }
   ]
 };
-
-export default course;

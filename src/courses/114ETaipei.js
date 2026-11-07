@@ -1,13 +1,5 @@
-// Hand-authored by Claude from data/problem_bank_master_complete.csv (114ETaipei-1~6)
-// and cross-checked against every worked example in txtFile/114ETaipei.txt via a JS reference
-// implementation before being written here. Not produced by export_course_js.py.
-//
-// starterXml：每一題都有手寫的教師示範答案（Blockly XML），並且用headless harness
-// （BlocklyYdws/.scratch_verify/verify.mjs，真正的Blockly.Xml.domToWorkspace+javascriptGenerator）
-// 對每一筆testCases實際跑過，不是憑印象手刻。
-// mode: 'learning'（比照2026-08-07既有決定：新題組一律採學習模式）。
-//
-// Taipei-E-2/Taipei-E-5兩題原本以textLit('\n')組合多行輸出，實測發現Blockly text積木的FieldTextInput會過濾掉常數字串裡的換行字元，已改用多次say()並靠測試harness的join('\n')接起來，詳見docs/PDF題目來源勘誤紀錄.md。
+// Built by tools/lib/course-store.mjs：courses/114ETaipei.js ＋ courses-overrides/114ETaipei.json
+// 自動產生，請勿手動編輯；要改請用課程編輯器（tools/edit-server.mjs），再重新建置。
 
 export default {
   "code": "114ETaipei",
@@ -294,99 +286,99 @@ export default {
       "difficulty": "L2",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 使用者輸入一個數字，代表有N位學生\n2. 接著輸入 N行成績資料，每行代表一位學生的各科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
-      "inputDescription": "學生數與N行成績",
+      "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 第一行輸入兩個數字 N 與 M，代表有 N 位學生、每位學生有 M 科成績\n2. 接著輸入 N 行成績資料，每行是一位學生的 M 科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
+      "inputDescription": "第一行：學生數 N 與科目數 M（以空白分隔）\n接下來 N 行：每行 M 個分數（以空白分隔）",
       "outputDescription": "修正後的成績清單",
       "statement": {
-        "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 使用者輸入一個數字，代表有N位學生\n2. 接著輸入 N行成績資料，每行代表一位學生的各科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
-        "input": "學生數與N行成績",
+        "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 第一行輸入兩個數字 N 與 M，代表有 N 位學生、每位學生有 M 科成績\n2. 接著輸入 N 行成績資料，每行是一位學生的 M 科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
+        "input": "第一行：學生數 N 與科目數 M（以空白分隔）\n接下來 N 行：每行 M 個分數（以空白分隔）",
         "output": "修正後的成績清單"
       },
       "examples": [
         {
-          "input": "2\n50 80 90\n40 55 100",
+          "input": "2 3\n50 80 90\n40 55 100",
           "output": "60 80 90\n60 60 100",
           "explanation": "50 及 40, 55 小於 60，皆修正為 60。"
         },
         {
-          "input": "1\n10 20 30",
+          "input": "1 3\n10 20 30",
           "output": "60 60 60",
           "explanation": "皆小於 60，修正為 60。"
         }
       ],
       "testCases": [
         {
-          "input": "1\n10 20 30",
+          "input": "1 3\n10 20 30",
           "expectedOutput": "60 60 60",
           "output": "60 60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "2\n100 100\n59 60",
+          "input": "2 2\n100 100\n59 60",
           "expectedOutput": "100 100\n60 60",
           "output": "100 100\n60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "3\n10 10\n80 80\n5 95",
+          "input": "3 2\n10 10\n80 80\n5 95",
           "expectedOutput": "60 60\n80 80\n60 95",
           "output": "60 60\n80 80\n60 95",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "1\n60 60 60",
+          "input": "1 3\n60 60 60",
           "expectedOutput": "60 60 60",
           "output": "60 60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "2\n59 58 57\n61 62 63",
+          "input": "2 3\n59 58 57\n61 62 63",
           "expectedOutput": "60 60 60\n61 62 63",
           "output": "60 60 60\n61 62 63",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "1\n0 0 0 0 0",
+          "input": "1 5\n0 0 0 0 0",
           "expectedOutput": "60 60 60 60 60",
           "output": "60 60 60 60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "4\n99\n100\n0\n60",
+          "input": "4 1\n99\n100\n0\n60",
           "expectedOutput": "99\n100\n60\n60",
           "output": "99\n100\n60\n60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "1\n59 99",
+          "input": "1 2\n59 99",
           "expectedOutput": "60 99",
           "output": "60 99",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "2\n80 80\n40 40",
+          "input": "2 2\n80 80\n40 40",
           "expectedOutput": "80 80\n60 60",
           "output": "80 80\n60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "3\n30\n40\n50",
+          "input": "3 1\n30\n40\n50",
           "expectedOutput": "60\n60\n60",
           "output": "60\n60\n60",
           "score": 10,
           "hidden": false
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t3_n\">N</variable><variable id=\"t3_all\">all</variable><variable id=\"t3_cnt\">cnt</variable><variable id=\"t3_done\">done</variable><variable id=\"t3_ans\">ans</variable><variable id=\"t3_k\">k</variable><variable id=\"t3_r\">r</variable><variable id=\"t3_c\">c</variable><variable id=\"t3_idx\">idx</variable><variable id=\"t3_val\">val</variable><variable id=\"t3_rowout\">rowout</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入學生數</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_n\">N</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_all\">all</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"math_number\"><field name=\"NUM\">300</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">UNTIL</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_done\">done</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_ans\">ans</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_ans\">ans</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_all\">all</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_ans\">ans</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></statement></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_k\">k</field><value name=\"VALUE\"><block type=\"math_round\"><field name=\"OP\">ROUNDDOWN</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_cnt\">cnt</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_n\">N</field></block></value></block></value></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t3_r\">r</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_n\">N</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t3_c\">c</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_k\">k</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_idx\">idx</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_r\">r</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_k\">k</field></block></value></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_c\">c</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_val\">val</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_all\">all</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_idx\">idx</field></block></value></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_val\">val</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_val\">val</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></statement><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_val\">val</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_val\">val</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t3_rowout\">rowout</field></block></value></block></next></block></next></block></statement></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v1\">學生數</variable><variable id=\"v2\">科目數</variable><variable id=\"v3\">第幾位</variable><variable id=\"v4\">第幾科</variable><variable id=\"v5\">成績</variable><variable id=\"v6\">這一行</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v1\">學生數</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v2\">科目數</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v3\">第幾位</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v1\">學生數</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"controls_for\"><field name=\"VAR\" id=\"v4\">第幾科</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v2\">科目數</field></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v5\">成績</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v5\">成績</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v5\">成績</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">60</field></block></value></block></statement><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v4\">第幾科</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v6\">這一行</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v5\">成績</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v6\">這一行</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v6\">這一行</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v5\">成績</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v6\">這一行</field></block></value></block></next></block></statement></block></next></block></next></block></next></block></next></block></next></block></xml>",
       "review": {
         "needsManualReview": false,
         "risk": "低",
@@ -429,99 +421,99 @@ export default {
       "difficulty": "L2",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：一串數字，以空白分隔\n2. 第二次輸入：區間大小 K\n3. 請依序計算每K 個相鄰數字的平均值\n4. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
-      "inputDescription": "數字字串與整數 K",
+      "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：數字的個數 N\n2. 第二次輸入：N 個數字，以空白分隔\n3. 第三次輸入：區間大小 K\n4. 請依序計算每K 個相鄰數字的平均值\n5. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
+      "inputDescription": "第一行：數字的個數 N\n第二行：N 個數字（以空白分隔）\n第三行：區間大小 K",
       "outputDescription": "算出的平均值數列 (數字之間以空白隔開)",
       "statement": {
-        "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：一串數字，以空白分隔\n2. 第二次輸入：區間大小 K\n3. 請依序計算每K 個相鄰數字的平均值\n4. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
-        "input": "數字字串與整數 K",
+        "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：數字的個數 N\n2. 第二次輸入：N 個數字，以空白分隔\n3. 第三次輸入：區間大小 K\n4. 請依序計算每K 個相鄰數字的平均值\n5. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
+        "input": "第一行：數字的個數 N\n第二行：N 個數字（以空白分隔）\n第三行：區間大小 K",
         "output": "算出的平均值數列 (數字之間以空白隔開)"
       },
       "examples": [
         {
-          "input": "10 20 30 40 50\n2",
+          "input": "5\n10 20 30 40 50\n2",
           "output": "15 25 35 45",
           "explanation": "依序計算每2個相鄰數字的平均值： (10+20)/2=15 (20+30)/2=25 (30+40)/2=35 (40+50)/2=45"
         },
         {
-          "input": "2 4 6 8\n2",
+          "input": "4\n2 4 6 8\n2",
           "output": "3 5 7",
           "explanation": "依序計算每2個相鄰數字的平均值。"
         }
       ],
       "testCases": [
         {
-          "input": "2 4 6 8\n2",
+          "input": "4\n2 4 6 8\n2",
           "expectedOutput": "3 5 7",
           "output": "3 5 7",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "10 20 30\n3",
+          "input": "3\n10 20 30\n3",
           "expectedOutput": "20",
           "output": "20",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "5 5 5 5\n1",
+          "input": "4\n5 5 5 5\n1",
           "expectedOutput": "5 5 5 5",
           "output": "5 5 5 5",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "10 20 30 40 50\n2",
+          "input": "5\n10 20 30 40 50\n2",
           "expectedOutput": "15 25 35 45",
           "output": "15 25 35 45",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "1 2 3 4 5 6\n3",
+          "input": "6\n1 2 3 4 5 6\n3",
           "expectedOutput": "2 3 4 5",
           "output": "2 3 4 5",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "10 10 10 10 10\n4",
+          "input": "5\n10 10 10 10 10\n4",
           "expectedOutput": "10 10",
           "output": "10 10",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "0 10 20 30 40\n5",
+          "input": "5\n0 10 20 30 40\n5",
           "expectedOutput": "20",
           "output": "20",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "100 200 300\n2",
+          "input": "3\n100 200 300\n2",
           "expectedOutput": "150 250",
           "output": "150 250",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "5 15 25 35\n2",
+          "input": "4\n5 15 25 35\n2",
           "expectedOutput": "10 20 30",
           "output": "10 20 30",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "2 2 2 2 2 2 2\n7",
+          "input": "7\n2 2 2 2 2 2 2\n7",
           "expectedOutput": "2",
           "output": "2",
           "score": 10,
           "hidden": false
         }
       ],
-      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"t4_all\">all</variable><variable id=\"t4_cnt\">cnt</variable><variable id=\"t4_done\">done</variable><variable id=\"t4_ans\">ans</variable><variable id=\"t4_k\">k</variable><variable id=\"t4_listlen\">listlen</variable><variable id=\"t4_start\">start</variable><variable id=\"t4_c\">c</variable><variable id=\"t4_sum\">sum</variable><variable id=\"t4_avg\">avg</variable><variable id=\"t4_out\">out</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_all\">all</field><value name=\"VALUE\"><block type=\"lists_repeat\"><value name=\"ITEM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"NUM\"><block type=\"math_number\"><field name=\"NUM\">300</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_whileUntil\"><field name=\"MODE\">UNTIL</field><value name=\"BOOL\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_done\">done</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\">請輸入數列與區間大小K</field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_ans\">ans</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"interaction_answer\"></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_ans\">ans</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_done\">done</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"lists_setIndex\"><mutation at=\"true\"></mutation><field name=\"MODE\">SET</field><field name=\"WHERE\">FROM_START</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_all\">all</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_ans\">ans</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></next></block></statement></block></next></block></next></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_k\">k</field><value name=\"VALUE\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_all\">all</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_listlen\">listlen</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_cnt\">cnt</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_out\">out</field><value name=\"VALUE\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_start\">start</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_listlen\">listlen</field></block></value><value name=\"B\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_k\">k</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_sum\">sum</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"t4_c\">c</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_k\">k</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_sum\">sum</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_sum\">sum</field></block></value><value name=\"B\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_all\">all</field></block></value><value name=\"AT\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_start\">start</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_c\">c</field></block></value></block></value></block></value></block></value></block></statement><next><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_avg\">avg</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"math_round\"><field name=\"OP\">ROUND</field><value name=\"NUM\"><block type=\"math_arithmetic\"><field name=\"OP\">MULTIPLY</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_sum\">sum</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_k\">k</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1000</field></block></value></block></value><next><block type=\"controls_if\"><mutation elseif=\"0\" else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"text_length\"><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_out\">out</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"2\"></mutation><value name=\"ADD0\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><value name=\"ADD1\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_avg\">avg</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"t4_out\">out</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_out\">out</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_avg\">avg</field></block></value></block></value></block></statement></block></next></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"t4_out\">out</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
+      "starterXml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><variables><variable id=\"v1\">個數</variable><variable id=\"v2\">區間</variable><variable id=\"v3\">起點</variable><variable id=\"v4\">總和</variable><variable id=\"v5\">第幾個</variable><variable id=\"v6\">結果</variable><variable id=\"v7\">數列</variable></variables><block type=\"event_whenflagclicked\" x=\"40\" y=\"40\"><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v1\">個數</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v7\">數列</field><value name=\"VALUE\"><block type=\"lists_create_with\"><mutation items=\"0\"></mutation></block></value><next><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v1\">個數</field></block></value><statement name=\"DO\"><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"lists_setIndex\"><mutation at=\"false\"></mutation><field name=\"MODE\">INSERT</field><field name=\"WHERE\">LAST</field><value name=\"LIST\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v7\">數列</field></block></value><value name=\"TO\"><block type=\"interaction_answer\"></block></value></block></next></block></statement><next><block type=\"interaction_ask_and_wait\"><value name=\"TEXT\"><block type=\"text\"><field name=\"TEXT\"></field></block></value><next><block type=\"variables_set\"><field name=\"VAR\" id=\"v2\">區間</field><value name=\"VALUE\"><block type=\"interaction_answer\"></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v3\">起點</field><value name=\"FROM\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v1\">個數</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v2\">區間</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v4\">總和</field><value name=\"VALUE\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><next><block type=\"controls_for\"><field name=\"VAR\" id=\"v5\">第幾個</field><value name=\"FROM\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v3\">起點</field></block></value><value name=\"TO\"><block type=\"math_arithmetic\"><field name=\"OP\">MINUS</field><value name=\"A\"><block type=\"math_arithmetic\"><field name=\"OP\">ADD</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v3\">起點</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v2\">區間</field></block></value></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><value name=\"BY\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value><statement name=\"DO\"><block type=\"math_change\"><field name=\"VAR\" id=\"v4\">總和</field><value name=\"DELTA\"><block type=\"lists_getIndex\"><mutation statement=\"false\" at=\"true\"></mutation><field name=\"MODE\">GET</field><field name=\"WHERE\">FROM_START</field><value name=\"VALUE\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v7\">數列</field></block></value><value name=\"AT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v5\">第幾個</field></block></value></block></value></block></statement><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">EQ</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v3\">起點</field></block></value><value name=\"B\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v6\">結果</field><value name=\"VALUE\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v4\">總和</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v2\">區間</field></block></value></block></value></block></statement><statement name=\"ELSE\"><block type=\"variables_set\"><field name=\"VAR\" id=\"v6\">結果</field><value name=\"VALUE\"><block type=\"text_join\"><mutation items=\"3\"></mutation><value name=\"ADD0\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v6\">結果</field></block></value><value name=\"ADD1\"><block type=\"text\"><field name=\"TEXT\"> </field></block></value><value name=\"ADD2\"><block type=\"math_arithmetic\"><field name=\"OP\">DIVIDE</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v4\">總和</field></block></value><value name=\"B\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v2\">區間</field></block></value></block></value></block></value></block></statement></block></next></block></next></block></statement><next><block type=\"interaction_say\"><value name=\"TEXT\"><block type=\"variables_get\"><field name=\"VAR\" id=\"v6\">結果</field></block></value></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></next></block></xml>",
       "review": {
         "needsManualReview": false,
         "risk": "低",

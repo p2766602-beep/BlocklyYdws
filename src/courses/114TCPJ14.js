@@ -1,19 +1,3 @@
-// 2026-09-21（更正）：mode維持/改回'contest'，不是'learning'——'contest'控制的是「系統
-// 評分結果顯示多少細節」：contest只顯示每筆測資通過/未通過，learning會顯示完整的輸入/
-// 正確答案/學生實際輸出。114TCP系列每題都有對應的學習模式課程（例如114TCPE01對應
-// 114EChaiyi）已經提供範例答案跟完整回饋，114TCP系列維持'contest'、模擬官方競賽平台
-// 「不洩漏答案」的行為是對的，之前一度誤改成'learning'已經改回來。
-//
-// 真正要修的bug是另一件事：mode:'contest'課程原本設計成「評分比對」要打score-grader
-// Worker（本機JS故意不含expectedOutput，防止洩題），但Worker私密的answerKeys.json產生
-// 腳本讀錯資料夾（讀到本來就被清空答案的公開JS，不是YDWS-CodingBank正本），導致「正確
-// 答案」全部變成空字串，系統評分永遠判定失敗，不管學生寫得多正確都一樣。修法是把
-// 「評分比對去哪裡做」跟「結果要顯示多少細節」這兩件事拆開：testCases補回YDWS-CodingBank
-// 正本的真正expectedOutput/output（本機也拿得到答案），main.js的評分邏輯改成不管mode是
-// 什麼、比對一律走本機（不再打Worker），但結果顯示邏輯完全沒動，mode還是看
-// 'contest'/'learning'決定要不要隱藏細節——這樣'contest'課程一樣不洩漏答案，只是評分
-// 比對不再依賴容易忘記重新產生/部署的Worker私密資料。
-
 // 競賽模式版本，由 114JKeelung.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入，即使
 // 來源這次確實有真的starterXml範例答案，仍比照114TCPE01~13既有政策不外露）、課程代碼/
@@ -471,22 +455,22 @@ const course = {
       "difficulty": "L3",
       "blocklyFit": "中",
       "requiresGreenFlag": true,
-      "description": "過年回老家，最難的就是分清楚親戚關係。我們定義「親等」為兩個人之間到「最近共同祖先」的距離總和。\n【規則說明】\n1. 距離計算：你與父母距離為1，與祖父母距離為2。依此類推(自己與自己的距離為0)。\n2. 親等公式：親等=(X往上到共同祖先的步數)+(Y往上到共同祖先的步數)。\n3. 唯一性：若有多位共同祖先，以親等最小(路徑最近)的為準。\n4. 無關係：若兩人在名單中完全沒有共同祖先，輸出不是親戚。\n【輸入格式】\n1. 第一個輸入：一個整數N，代表親戚關係的數量。\n2. 第二個輸入：N個父親代號(大寫字母)。\n3. 第三個輸入：N個兒子代號(與父親代號對應)。\n4. 第四個輸入：兩個欲查詢親等關係的代號X與Y。\n【輸出格式】\n輸出一個整數代表親等值；若無共同祖先則輸出不是親戚。",
+      "description": "過年回老家，最難的就是分清楚親戚關係。我們定義「親等」為兩個人之間到「最近共同祖先」的距離總和。\n【規則說明】\n1. 距離計算：你與父母距離為1，與祖父母距離為2。依此類推(自己與自己的距離為0)。\n2. 親等公式：親等=(X往上到共同祖先的步數)+(Y往上到共同祖先的步數)。\n3. 唯一性：若有多位共同祖先，以親等最小(路徑最近)的為準。\n4. 無關係：若兩人在名單中完全沒有共同祖先，輸出不是親戚。\n【輸入格式】\n1. 第一個輸入：一個整數N，代表親戚關係的數量。\n2. 第二個輸入：N個父親代號(大寫字母，以空白分隔)。\n3. 第三個輸入：N個兒子代號(與父親代號對應，以空白分隔)。\n4. 第四個輸入：兩個欲查詢親等關係的代號X與Y(以空白分隔)。\n【輸出格式】\n輸出一個整數代表親等值；若無共同祖先則輸出不是親戚。",
       "inputDescription": "",
       "outputDescription": "",
       "statement": {
-        "description": "過年回老家，最難的就是分清楚親戚關係。我們定義「親等」為兩個人之間到「最近共同祖先」的距離總和。\n【規則說明】\n1. 距離計算：你與父母距離為1，與祖父母距離為2。依此類推(自己與自己的距離為0)。\n2. 親等公式：親等=(X往上到共同祖先的步數)+(Y往上到共同祖先的步數)。\n3. 唯一性：若有多位共同祖先，以親等最小(路徑最近)的為準。\n4. 無關係：若兩人在名單中完全沒有共同祖先，輸出不是親戚。\n【輸入格式】\n1. 第一個輸入：一個整數N，代表親戚關係的數量。\n2. 第二個輸入：N個父親代號(大寫字母)。\n3. 第三個輸入：N個兒子代號(與父親代號對應)。\n4. 第四個輸入：兩個欲查詢親等關係的代號X與Y。\n【輸出格式】\n輸出一個整數代表親等值；若無共同祖先則輸出不是親戚。",
+        "description": "過年回老家，最難的就是分清楚親戚關係。我們定義「親等」為兩個人之間到「最近共同祖先」的距離總和。\n【規則說明】\n1. 距離計算：你與父母距離為1，與祖父母距離為2。依此類推(自己與自己的距離為0)。\n2. 親等公式：親等=(X往上到共同祖先的步數)+(Y往上到共同祖先的步數)。\n3. 唯一性：若有多位共同祖先，以親等最小(路徑最近)的為準。\n4. 無關係：若兩人在名單中完全沒有共同祖先，輸出不是親戚。\n【輸入格式】\n1. 第一個輸入：一個整數N，代表親戚關係的數量。\n2. 第二個輸入：N個父親代號(大寫字母，以空白分隔)。\n3. 第三個輸入：N個兒子代號(與父親代號對應，以空白分隔)。\n4. 第四個輸入：兩個欲查詢親等關係的代號X與Y(以空白分隔)。\n【輸出格式】\n輸出一個整數代表親等值；若無共同祖先則輸出不是親戚。",
         "input": "",
         "output": ""
       },
       "examples": [
         {
-          "input": "3\nAAB\nBCD\nCD",
+          "input": "3\nA A B\nB C D\nC D",
           "output": "3",
           "explanation": "C的父親是A(1步)；\nD的父親是B，B的父親是A(2步)。\n最近共同祖先為A，親等 = 1 + 2 = 3"
         },
         {
-          "input": "2\nEF\nGH\nEF",
+          "input": "2\nE F\nG H\nE F",
           "output": "不是親戚",
           "explanation": "E與F分屬不同家族血緣，完全沒有共同祖先，故輸出不是親戚"
         }
@@ -494,52 +478,52 @@ const course = {
       "starterXml": "",
       "testCases": [
         {
-          "input": "3\nAAB\nBCD\nCD",
+          "input": "3\nA A B\nB C D\nC D",
           "expectedOutput": "3",
           "score": 10
         },
         {
-          "input": "2\nAA\nBC\nBC",
+          "input": "2\nA A\nB C\nB C",
           "expectedOutput": "2",
           "score": 10
         },
         {
-          "input": "3\nABC\nBCD\nAD",
+          "input": "3\nA B C\nB C D\nA D",
           "expectedOutput": "3",
           "score": 10
         },
         {
-          "input": "2\nPP\nAB\nAP",
+          "input": "2\nP P\nA B\nA P",
           "expectedOutput": "1",
           "score": 10
         },
         {
-          "input": "4\nGGAB\nABCD\nCD",
+          "input": "4\nG G A B\nA B C D\nC D",
           "expectedOutput": "4",
           "score": 10
         },
         {
-          "input": "2\nEF\nGH\nEF",
+          "input": "2\nE F\nG H\nE F",
           "expectedOutput": "不是親戚",
           "score": 10
         },
         {
-          "input": "1\nK\nP\nKP",
+          "input": "1\nK\nP\nK P",
           "expectedOutput": "1",
           "score": 10
         },
         {
-          "input": "3\nIJK\nLMN\nLN",
+          "input": "3\nI J K\nL M N\nL N",
           "expectedOutput": "不是親戚",
           "score": 10
         },
         {
-          "input": "8\nRSTTUVWX\nSTUVWXYZ\nYZ",
+          "input": "8\nR S T T U V W X\nS T U V W X Y Z\nY Z",
           "expectedOutput": "6",
           "score": 10
         },
         {
-          "input": "2\nZZ\nXY\nXY",
+          "input": "2\nZ Z\nX Y\nX Y",
           "expectedOutput": "2",
           "score": 10
         }

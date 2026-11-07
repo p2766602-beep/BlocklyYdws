@@ -1,19 +1,3 @@
-// 2026-09-21（更正）：mode維持/改回'contest'，不是'learning'——'contest'控制的是「系統
-// 評分結果顯示多少細節」：contest只顯示每筆測資通過/未通過，learning會顯示完整的輸入/
-// 正確答案/學生實際輸出。114TCP系列每題都有對應的學習模式課程（例如114TCPE01對應
-// 114EChaiyi）已經提供範例答案跟完整回饋，114TCP系列維持'contest'、模擬官方競賽平台
-// 「不洩漏答案」的行為是對的，之前一度誤改成'learning'已經改回來。
-//
-// 真正要修的bug是另一件事：mode:'contest'課程原本設計成「評分比對」要打score-grader
-// Worker（本機JS故意不含expectedOutput，防止洩題），但Worker私密的answerKeys.json產生
-// 腳本讀錯資料夾（讀到本來就被清空答案的公開JS，不是YDWS-CodingBank正本），導致「正確
-// 答案」全部變成空字串，系統評分永遠判定失敗，不管學生寫得多正確都一樣。修法是把
-// 「評分比對去哪裡做」跟「結果要顯示多少細節」這兩件事拆開：testCases補回YDWS-CodingBank
-// 正本的真正expectedOutput/output（本機也拿得到答案），main.js的評分邏輯改成不管mode是
-// 什麼、比對一律走本機（不再打Worker），但結果顯示邏輯完全沒動，mode還是看
-// 'contest'/'learning'決定要不要隱藏細節——這樣'contest'課程一樣不洩漏答案，只是評分
-// 比對不再依賴容易忘記重新產生/部署的Worker私密資料。
-
 // 競賽模式版本，2026-08-13由 114ETaipei.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -310,92 +294,92 @@ const course = {
       "difficulty": "L2",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 使用者輸入一個數字，代表有N位學生\n2. 接著輸入 N行成績資料，每行代表一位學生的各科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
-      "inputDescription": "學生數與N行成績",
+      "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 第一行輸入兩個數字 N 與 M，代表有 N 位學生、每位學生有 M 科成績\n2. 接著輸入 N 行成績資料，每行是一位學生的 M 科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
+      "inputDescription": "第一行：學生數 N 與科目數 M（以空白分隔）\n接下來 N 行：每行 M 個分數（以空白分隔）",
       "outputDescription": "修正後的成績清單",
       "statement": {
-        "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 使用者輸入一個數字，代表有N位學生\n2. 接著輸入 N行成績資料，每行代表一位學生的各科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
-        "input": "學生數與N行成績",
+        "description": "學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。\n【任務規則】\n1. 第一行輸入兩個數字 N 與 M，代表有 N 位學生、每位學生有 M 科成績\n2. 接著輸入 N 行成績資料，每行是一位學生的 M 科分數(以空白分隔)\n3. 請檢查每一個分數，若小於60則改成60，否則保持不變\n4. 輸出修正後的分數表",
+        "input": "第一行：學生數 N 與科目數 M（以空白分隔）\n接下來 N 行：每行 M 個分數（以空白分隔）",
         "output": "修正後的成績清單"
       },
       "examples": [
         {
-          "input": "2\n50 80 90\n40 55 100",
+          "input": "2 3\n50 80 90\n40 55 100",
           "output": "60 80 90\n60 60 100",
           "explanation": "50 及 40, 55 小於 60，皆修正為 60。"
         },
         {
-          "input": "1\n10 20 30",
+          "input": "1 3\n10 20 30",
           "output": "60 60 60",
           "explanation": "皆小於 60，修正為 60。"
         }
       ],
       "testCases": [
         {
-          "input": "1\n10 20 30",
+          "input": "1 3\n10 20 30",
           "expectedOutput": "60 60 60",
           "output": "60 60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "2\n100 100\n59 60",
+          "input": "2 2\n100 100\n59 60",
           "expectedOutput": "100 100\n60 60",
           "output": "100 100\n60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "3\n10 10\n80 80\n5 95",
+          "input": "3 2\n10 10\n80 80\n5 95",
           "expectedOutput": "60 60\n80 80\n60 95",
           "output": "60 60\n80 80\n60 95",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "1\n60 60 60",
+          "input": "1 3\n60 60 60",
           "expectedOutput": "60 60 60",
           "output": "60 60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "2\n59 58 57\n61 62 63",
+          "input": "2 3\n59 58 57\n61 62 63",
           "expectedOutput": "60 60 60\n61 62 63",
           "output": "60 60 60\n61 62 63",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "1\n0 0 0 0 0",
+          "input": "1 5\n0 0 0 0 0",
           "expectedOutput": "60 60 60 60 60",
           "output": "60 60 60 60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "4\n99\n100\n0\n60",
+          "input": "4 1\n99\n100\n0\n60",
           "expectedOutput": "99\n100\n60\n60",
           "output": "99\n100\n60\n60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "1\n59 99",
+          "input": "1 2\n59 99",
           "expectedOutput": "60 99",
           "output": "60 99",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "2\n80 80\n40 40",
+          "input": "2 2\n80 80\n40 40",
           "expectedOutput": "80 80\n60 60",
           "output": "80 80\n60 60",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "3\n30\n40\n50",
+          "input": "3 1\n30\n40\n50",
           "expectedOutput": "60\n60\n60",
           "output": "60\n60\n60",
           "score": 10,
@@ -447,92 +431,92 @@ const course = {
       "difficulty": "L2",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：一串數字，以空白分隔\n2. 第二次輸入：區間大小 K\n3. 請依序計算每K 個相鄰數字的平均值\n4. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
-      "inputDescription": "數字字串與整數 K",
+      "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：數字的個數 N\n2. 第二次輸入：N 個數字，以空白分隔\n3. 第三次輸入：區間大小 K\n4. 請依序計算每K 個相鄰數字的平均值\n5. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
+      "inputDescription": "第一行：數字的個數 N\n第二行：N 個數字（以空白分隔）\n第三行：區間大小 K",
       "outputDescription": "算出的平均值數列 (數字之間以空白隔開)",
       "statement": {
-        "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：一串數字，以空白分隔\n2. 第二次輸入：區間大小 K\n3. 請依序計算每K 個相鄰數字的平均值\n4. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
-        "input": "數字字串與整數 K",
+        "description": "請計算清單中連續K個數字的平均值(Moving Average)。\n【任務規則】\n1. 第一次輸入：數字的個數 N\n2. 第二次輸入：N 個數字，以空白分隔\n3. 第三次輸入：區間大小 K\n4. 請依序計算每K 個相鄰數字的平均值\n5. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。",
+        "input": "第一行：數字的個數 N\n第二行：N 個數字（以空白分隔）\n第三行：區間大小 K",
         "output": "算出的平均值數列 (數字之間以空白隔開)"
       },
       "examples": [
         {
-          "input": "10 20 30 40 50\n2",
+          "input": "5\n10 20 30 40 50\n2",
           "output": "15 25 35 45",
           "explanation": "依序計算每2個相鄰數字的平均值： (10+20)/2=15 (20+30)/2=25 (30+40)/2=35 (40+50)/2=45"
         },
         {
-          "input": "2 4 6 8\n2",
+          "input": "4\n2 4 6 8\n2",
           "output": "3 5 7",
           "explanation": "依序計算每2個相鄰數字的平均值。"
         }
       ],
       "testCases": [
         {
-          "input": "2 4 6 8\n2",
+          "input": "4\n2 4 6 8\n2",
           "expectedOutput": "3 5 7",
           "output": "3 5 7",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "10 20 30\n3",
+          "input": "3\n10 20 30\n3",
           "expectedOutput": "20",
           "output": "20",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "5 5 5 5\n1",
+          "input": "4\n5 5 5 5\n1",
           "expectedOutput": "5 5 5 5",
           "output": "5 5 5 5",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "10 20 30 40 50\n2",
+          "input": "5\n10 20 30 40 50\n2",
           "expectedOutput": "15 25 35 45",
           "output": "15 25 35 45",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "1 2 3 4 5 6\n3",
+          "input": "6\n1 2 3 4 5 6\n3",
           "expectedOutput": "2 3 4 5",
           "output": "2 3 4 5",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "10 10 10 10 10\n4",
+          "input": "5\n10 10 10 10 10\n4",
           "expectedOutput": "10 10",
           "output": "10 10",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "0 10 20 30 40\n5",
+          "input": "5\n0 10 20 30 40\n5",
           "expectedOutput": "20",
           "output": "20",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "100 200 300\n2",
+          "input": "3\n100 200 300\n2",
           "expectedOutput": "150 250",
           "output": "150 250",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "5 15 25 35\n2",
+          "input": "4\n5 15 25 35\n2",
           "expectedOutput": "10 20 30",
           "output": "10 20 30",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "2 2 2 2 2 2 2\n7",
+          "input": "7\n2 2 2 2 2 2 2\n7",
           "expectedOutput": "2",
           "output": "2",
           "score": 10,

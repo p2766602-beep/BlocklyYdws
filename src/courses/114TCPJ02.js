@@ -1,19 +1,3 @@
-// 2026-09-21（更正）：mode維持/改回'contest'，不是'learning'——'contest'控制的是「系統
-// 評分結果顯示多少細節」：contest只顯示每筆測資通過/未通過，learning會顯示完整的輸入/
-// 正確答案/學生實際輸出。114TCP系列每題都有對應的學習模式課程（例如114TCPE01對應
-// 114EChaiyi）已經提供範例答案跟完整回饋，114TCP系列維持'contest'、模擬官方競賽平台
-// 「不洩漏答案」的行為是對的，之前一度誤改成'learning'已經改回來。
-//
-// 真正要修的bug是另一件事：mode:'contest'課程原本設計成「評分比對」要打score-grader
-// Worker（本機JS故意不含expectedOutput，防止洩題），但Worker私密的answerKeys.json產生
-// 腳本讀錯資料夾（讀到本來就被清空答案的公開JS，不是YDWS-CodingBank正本），導致「正確
-// 答案」全部變成空字串，系統評分永遠判定失敗，不管學生寫得多正確都一樣。修法是把
-// 「評分比對去哪裡做」跟「結果要顯示多少細節」這兩件事拆開：testCases補回YDWS-CodingBank
-// 正本的真正expectedOutput/output（本機也拿得到答案），main.js的評分邏輯改成不管mode是
-// 什麼、比對一律走本機（不再打Worker），但結果顯示邏輯完全沒動，mode還是看
-// 'contest'/'learning'決定要不要隱藏細節——這樣'contest'課程一樣不洩漏答案，只是評分
-// 比對不再依賴容易忘記重新產生/部署的Worker私密資料。
-
 // 競賽模式版本，2026-08-13由 114JChaiyiC.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -174,21 +158,21 @@ const course = {
       "blocklyFit": "高",
       "requiresGreenFlag": true,
       "description": "程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：\nA=0, B=1, C=2, D=3, E=4\n例如密碼 BC 代表 5 進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。\n1. 輸入密碼長度 L 與密碼內容（由 A-E 組成）。\n2. 權重計算：最右邊位數是 5 的 0 次方（任何數的 0 次方為 1），左邊一位是 5 的 1 次方，以此類推。\n3. 將每個字母轉換為對應數值後，計算總和。",
-      "inputDescription": "第一行：整數 L。\n第二行：L 個字元（如 BC）。",
+      "inputDescription": "第一行：整數 L。\n第二行：L 個字母，以空白分隔（如 B C）。",
       "outputDescription": "一個整數（10 進位數值）。",
       "statement": {
         "description": "程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：\nA=0, B=1, C=2, D=3, E=4\n例如密碼 BC 代表 5 進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。\n1. 輸入密碼長度 L 與密碼內容（由 A-E 組成）。\n2. 權重計算：最右邊位數是 5 的 0 次方（任何數的 0 次方為 1），左邊一位是 5 的 1 次方，以此類推。\n3. 將每個字母轉換為對應數值後，計算總和。",
-        "input": "第一行：整數 L。\n第二行：L 個字元（如 BC）。",
+        "input": "第一行：整數 L。\n第二行：L 個字母，以空白分隔（如 B C）。",
         "output": "一個整數（10 進位數值）。"
       },
       "examples": [
         {
-          "input": "2\nBC",
+          "input": "2\nB C",
           "output": "7",
           "explanation": "B=1, C=2。 1 × 5 + 2 = 7。"
         },
         {
-          "input": "3\nBAE",
+          "input": "3\nB A E",
           "output": "29",
           "explanation": "B=1, A=0, E=4。 1 × 25 + 0 × 5 + 4 × 1 = 29。"
         }
@@ -202,35 +186,35 @@ const course = {
           "hidden": false
         },
         {
-          "input": "2\nEE",
+          "input": "2\nE E",
           "expectedOutput": "24",
           "output": "24",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "3\nBAA",
+          "input": "3\nB A A",
           "expectedOutput": "25",
           "output": "25",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "4\nBAAA",
+          "input": "4\nB A A A",
           "expectedOutput": "125",
           "output": "125",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "5\nCDEAB",
+          "input": "5\nC D E A B",
           "expectedOutput": "1726",
           "output": "1726",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "5\nAAAAA",
+          "input": "5\nA A A A A",
           "expectedOutput": "0",
           "output": "0",
           "score": 10,
@@ -244,21 +228,21 @@ const course = {
           "hidden": false
         },
         {
-          "input": "4\nBCDE",
+          "input": "4\nB C D E",
           "expectedOutput": "194",
           "output": "194",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "5\nABCDE",
+          "input": "5\nA B C D E",
           "expectedOutput": "194",
           "output": "194",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "5\nEEEEE",
+          "input": "5\nE E E E E",
           "expectedOutput": "3124",
           "output": "3124",
           "score": 10,

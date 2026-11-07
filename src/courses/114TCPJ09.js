@@ -1,19 +1,3 @@
-// 2026-09-21（更正）：mode維持/改回'contest'，不是'learning'——'contest'控制的是「系統
-// 評分結果顯示多少細節」：contest只顯示每筆測資通過/未通過，learning會顯示完整的輸入/
-// 正確答案/學生實際輸出。114TCP系列每題都有對應的學習模式課程（例如114TCPE01對應
-// 114EChaiyi）已經提供範例答案跟完整回饋，114TCP系列維持'contest'、模擬官方競賽平台
-// 「不洩漏答案」的行為是對的，之前一度誤改成'learning'已經改回來。
-//
-// 真正要修的bug是另一件事：mode:'contest'課程原本設計成「評分比對」要打score-grader
-// Worker（本機JS故意不含expectedOutput，防止洩題），但Worker私密的answerKeys.json產生
-// 腳本讀錯資料夾（讀到本來就被清空答案的公開JS，不是YDWS-CodingBank正本），導致「正確
-// 答案」全部變成空字串，系統評分永遠判定失敗，不管學生寫得多正確都一樣。修法是把
-// 「評分比對去哪裡做」跟「結果要顯示多少細節」這兩件事拆開：testCases補回YDWS-CodingBank
-// 正本的真正expectedOutput/output（本機也拿得到答案），main.js的評分邏輯改成不管mode是
-// 什麼、比對一律走本機（不再打Worker），但結果顯示邏輯完全沒動，mode還是看
-// 'contest'/'learning'決定要不要隱藏細節——這樣'contest'課程一樣不洩漏答案，只是評分
-// 比對不再依賴容易忘記重新產生/部署的Worker私密資料。
-
 // 競賽模式版本，2026-08-13由 114JPenghu.js 複製並轉換而來（來源課程仍以學習模式繼續上架，互不影響）。
 // 轉換規則：mode改為'contest'、每題starterXml清空（競賽模式不提供範例答案可載入）、
 // 課程代碼/題目id/courseCode/courseName改用新代碼、title加註「（競賽模式）」。
@@ -48,57 +32,57 @@ const course = {
       "difficulty": "L2",
       "blocklyFit": "高",
       "requiresGreenFlag": true,
-      "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的字串，輸出正確解碼後的內容。",
-      "inputDescription": "輸入共有一行，為一段包含小寫字母與空白的字串（長度不超過 100）。",
-      "outputDescription": "輸出解碼後的字串。",
+      "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的訊息（先讀入單字數 N，再讀入 N 個單字），輸出正確解碼後的內容，單字之間以一個空白隔開。",
+      "inputDescription": "第一行：單字數 N\n第二行：N 個由小寫字母組成的單字，以空白分隔（總長度不超過 100）。",
+      "outputDescription": "輸出解碼後的內容，單字之間以一個空白隔開。",
       "statement": {
-        "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的字串，輸出正確解碼後的內容。",
-        "input": "輸入共有一行，為一段包含小寫字母與空白的字串（長度不超過 100）。",
-        "output": "輸出解碼後的字串。"
+        "description": "每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的訊息（先讀入單字數 N，再讀入 N 個單字），輸出正確解碼後的內容，單字之間以一個空白隔開。",
+        "input": "第一行：單字數 N\n第二行：N 個由小寫字母組成的單字，以空白分隔（總長度不超過 100）。",
+        "output": "輸出解碼後的內容，單字之間以一個空白隔開。"
       },
       "examples": [
         {
-          "input": "bqqmf",
+          "input": "1\nbqqmf",
           "output": "apple",
           "explanation": "b→a, q→p, q→p, m→l, f→e，組合起來是 apple。"
         },
         {
-          "input": "ifmmp xpsme",
+          "input": "2\nifmmp xpsme",
           "output": "hello world",
           "explanation": "ifmmp 解碼為 hello，xpsme 解碼為 world，空白保持不變。"
         }
       ],
       "testCases": [
         {
-          "input": "bqqmf",
+          "input": "1\nbqqmf",
           "expectedOutput": "apple",
           "output": "apple",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "ifmmp xpsme",
+          "input": "2\nifmmp xpsme",
           "expectedOutput": "hello world",
           "output": "hello world",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "zoo",
+          "input": "1\nzoo",
           "expectedOutput": "ynn",
           "output": "ynn",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "uif dpef jt gvo",
+          "input": "4\nuif dpef jt gvo",
           "expectedOutput": "the code is fun",
           "output": "the code is fun",
           "score": 10,
           "hidden": false
         },
         {
-          "input": "ibwf b ojdf ebz",
+          "input": "4\nibwf b ojdf ebz",
           "expectedOutput": "have a nice day",
           "output": "have a nice day",
           "score": 10,
@@ -477,7 +461,7 @@ const course = {
           "explanation": "先買 3 個 100 元、2 個 200 元、1 個 300 元，共花 1000 元，買到 6 件。"
         },
         {
-          "input": "500\n4\n600 700 800\n3 4 5",
+          "input": "500\n3\n600 700 800\n3 4 5",
           "output": "0",
           "explanation": "剩下的錢不夠買任何一樣商品，最多買 0 件。"
         }
@@ -491,7 +475,7 @@ const course = {
           "hidden": false
         },
         {
-          "input": "500\n4\n600 700 800\n3 4 5",
+          "input": "500\n3\n600 700 800\n3 4 5",
           "expectedOutput": "0",
           "output": "0",
           "score": 8,
