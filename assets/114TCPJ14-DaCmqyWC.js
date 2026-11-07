@@ -165,9 +165,9 @@ A 1 B 1`,expectedOutput:`A 1 B 1`,score:10},{input:`6
 4. 無關係：若兩人在名單中完全沒有共同祖先，輸出不是親戚。
 【輸入格式】
 1. 第一個輸入：一個整數N，代表親戚關係的數量。
-2. 第二個輸入：N個父親代號(大寫字母)。
-3. 第三個輸入：N個兒子代號(與父親代號對應)。
-4. 第四個輸入：兩個欲查詢親等關係的代號X與Y。
+2. 第二個輸入：N個父親代號(大寫字母，以空白分隔)。
+3. 第三個輸入：N個兒子代號(與父親代號對應，以空白分隔)。
+4. 第四個輸入：兩個欲查詢親等關係的代號X與Y(以空白分隔)。
 【輸出格式】
 輸出一個整數代表親等值；若無共同祖先則輸出不是親戚。`,inputDescription:``,outputDescription:``,statement:{description:`過年回老家，最難的就是分清楚親戚關係。我們定義「親等」為兩個人之間到「最近共同祖先」的距離總和。
 【規則說明】
@@ -177,46 +177,46 @@ A 1 B 1`,expectedOutput:`A 1 B 1`,score:10},{input:`6
 4. 無關係：若兩人在名單中完全沒有共同祖先，輸出不是親戚。
 【輸入格式】
 1. 第一個輸入：一個整數N，代表親戚關係的數量。
-2. 第二個輸入：N個父親代號(大寫字母)。
-3. 第三個輸入：N個兒子代號(與父親代號對應)。
-4. 第四個輸入：兩個欲查詢親等關係的代號X與Y。
+2. 第二個輸入：N個父親代號(大寫字母，以空白分隔)。
+3. 第三個輸入：N個兒子代號(與父親代號對應，以空白分隔)。
+4. 第四個輸入：兩個欲查詢親等關係的代號X與Y(以空白分隔)。
 【輸出格式】
 輸出一個整數代表親等值；若無共同祖先則輸出不是親戚。`,input:``,output:``},examples:[{input:`3
-AAB
-BCD
-CD`,output:`3`,explanation:`C的父親是A(1步)；
+A A B
+B C D
+C D`,output:`3`,explanation:`C的父親是A(1步)；
 D的父親是B，B的父親是A(2步)。
 最近共同祖先為A，親等 = 1 + 2 = 3`},{input:`2
-EF
-GH
-EF`,output:`不是親戚`,explanation:`E與F分屬不同家族血緣，完全沒有共同祖先，故輸出不是親戚`}],starterXml:``,testCases:[{input:`3
-AAB
-BCD
-CD`,expectedOutput:`3`,score:10},{input:`2
-AA
-BC
-BC`,expectedOutput:`2`,score:10},{input:`3
-ABC
-BCD
-AD`,expectedOutput:`3`,score:10},{input:`2
-PP
-AB
-AP`,expectedOutput:`1`,score:10},{input:`4
-GGAB
-ABCD
-CD`,expectedOutput:`4`,score:10},{input:`2
-EF
-GH
-EF`,expectedOutput:`不是親戚`,score:10},{input:`1
+E F
+G H
+E F`,output:`不是親戚`,explanation:`E與F分屬不同家族血緣，完全沒有共同祖先，故輸出不是親戚`}],starterXml:``,testCases:[{input:`3
+A A B
+B C D
+C D`,expectedOutput:`3`,score:10},{input:`2
+A A
+B C
+B C`,expectedOutput:`2`,score:10},{input:`3
+A B C
+B C D
+A D`,expectedOutput:`3`,score:10},{input:`2
+P P
+A B
+A P`,expectedOutput:`1`,score:10},{input:`4
+G G A B
+A B C D
+C D`,expectedOutput:`4`,score:10},{input:`2
+E F
+G H
+E F`,expectedOutput:`不是親戚`,score:10},{input:`1
 K
 P
-KP`,expectedOutput:`1`,score:10},{input:`3
-IJK
-LMN
-LN`,expectedOutput:`不是親戚`,score:10},{input:`8
-RSTTUVWX
-STUVWXYZ
-YZ`,expectedOutput:`6`,score:10},{input:`2
-ZZ
-XY
-XY`,expectedOutput:`2`,score:10}]}]};export{e as default};
+K P`,expectedOutput:`1`,score:10},{input:`3
+I J K
+L M N
+L N`,expectedOutput:`不是親戚`,score:10},{input:`8
+R S T T U V W X
+S T U V W X Y Z
+Y Z`,expectedOutput:`6`,score:10},{input:`2
+Z Z
+X Y
+X Y`,expectedOutput:`2`,score:10}]}]};export{e as default};

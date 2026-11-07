@@ -1,4 +1,13 @@
-var e={code:`114TCPJ09`,title:`114-澎湖縣國中（競賽模式）`,type:`programming`,mode:`contest`,description:`澎湖運算思維競賽-國中題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-07T12:42:45.135Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-澎湖縣國中`,version:`manual-transcription-verified`,convertedFrom:`114JPenghu`,convertedAt:`2026-08-13T00:39:19.893Z`,note:`競賽模式版本：由對應學習模式課程複製轉換而來（原課程仍以學習模式繼續上架，互不影響）。starterXml已清空，測資正確答案僅保留在這份canonical檔案與各平台Worker的私密answerKeys.json，兩平台公開JS檔案已移除。`},tasks:[{id:`114TCPJ09-1`,title:`神秘留言解碼器`,problemTitle:`神秘留言解碼器`,courseCode:`114TCPJ09`,courseName:`114-澎湖縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的字串，輸出正確解碼後的內容。`,inputDescription:`輸入共有一行，為一段包含小寫字母與空白的字串（長度不超過 100）。`,outputDescription:`輸出解碼後的字串。`,statement:{description:`每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的字串，輸出正確解碼後的內容。`,input:`輸入共有一行，為一段包含小寫字母與空白的字串（長度不超過 100）。`,output:`輸出解碼後的字串。`},examples:[{input:`bqqmf`,output:`apple`,explanation:`b→a, q→p, q→p, m→l, f→e，組合起來是 apple。`},{input:`ifmmp xpsme`,output:`hello world`,explanation:`ifmmp 解碼為 hello，xpsme 解碼為 world，空白保持不變。`}],testCases:[{input:`bqqmf`,expectedOutput:`apple`,output:`apple`,score:10,hidden:!1},{input:`ifmmp xpsme`,expectedOutput:`hello world`,output:`hello world`,score:10,hidden:!1},{input:`zoo`,expectedOutput:`ynn`,output:`ynn`,score:10,hidden:!1},{input:`uif dpef jt gvo`,expectedOutput:`the code is fun`,output:`the code is fun`,score:10,hidden:!1},{input:`ibwf b ojdf ebz`,expectedOutput:`have a nice day`,output:`have a nice day`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`逐字元位移解碼，需處理空白不變的例外，屬基礎字串處理題。`,exportDecision:`Claude 依使用者提供的114-澎湖縣國中PDF手動轉錄並驗證`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元位移`],algorithm:[`字串處理`],dataStructure:[`字串`],syntax:[`for`,`if`,`取字元`,`字串組合`],math:[],context:[`生活情境`,`密碼解碼`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`114TCPJ09-2`,title:`剛好的禮券`,problemTitle:`剛好的禮券`,courseCode:`114TCPJ09`,courseName:`114-澎湖縣國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`高`,requiresGreenFlag:!0,description:`小華手上有一張金額固定的禮券，想在商店中正好買兩樣不同的商品，將禮券金額完全花光。請檢查是否能從商品價格清單中找到兩個不同位置的商品，價格總和恰好等於禮券面額。如果找得到，輸出這兩個商品的價格（小的在前，大的在後）；如果同時有多組組合符合，輸出價差最小的兩樣商品價格；找不到則輸出 No Solution。`,inputDescription:`第一行輸入兩個整數 N 與 T，N 為商品數量，T 為禮券面額。
+var e={code:`114TCPJ09`,title:`114-澎湖縣國中（競賽模式）`,type:`programming`,mode:`contest`,description:`澎湖運算思維競賽-國中題庫`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-08-07T12:42:45.135Z`,sourceCsv:`data/problem_bank_master_complete.csv`,problemSetTitle:`114-澎湖縣國中`,version:`manual-transcription-verified`,convertedFrom:`114JPenghu`,convertedAt:`2026-08-13T00:39:19.893Z`,note:`競賽模式版本：由對應學習模式課程複製轉換而來（原課程仍以學習模式繼續上架，互不影響）。starterXml已清空，測資正確答案僅保留在這份canonical檔案與各平台Worker的私密answerKeys.json，兩平台公開JS檔案已移除。`},tasks:[{id:`114TCPJ09-1`,title:`神秘留言解碼器`,problemTitle:`神秘留言解碼器`,courseCode:`114TCPJ09`,courseName:`114-澎湖縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的訊息（先讀入單字數 N，再讀入 N 個單字），輸出正確解碼後的內容，單字之間以一個空白隔開。`,inputDescription:`第一行：單字數 N
+第二行：N 個由小寫字母組成的單字，以空白分隔（總長度不超過 100）。`,outputDescription:`輸出解碼後的內容，單字之間以一個空白隔開。`,statement:{description:`每個人會收到一段被編碼的英文字母訊息，訊息中只有小寫字母與空白。解碼規則：每個英文字母向前移動一個字母（例如 b→a，c→b，…，a→z），空白保持不變。請讀入一段編碼後的訊息（先讀入單字數 N，再讀入 N 個單字），輸出正確解碼後的內容，單字之間以一個空白隔開。`,input:`第一行：單字數 N
+第二行：N 個由小寫字母組成的單字，以空白分隔（總長度不超過 100）。`,output:`輸出解碼後的內容，單字之間以一個空白隔開。`},examples:[{input:`1
+bqqmf`,output:`apple`,explanation:`b→a, q→p, q→p, m→l, f→e，組合起來是 apple。`},{input:`2
+ifmmp xpsme`,output:`hello world`,explanation:`ifmmp 解碼為 hello，xpsme 解碼為 world，空白保持不變。`}],testCases:[{input:`1
+bqqmf`,expectedOutput:`apple`,output:`apple`,score:10,hidden:!1},{input:`2
+ifmmp xpsme`,expectedOutput:`hello world`,output:`hello world`,score:10,hidden:!1},{input:`1
+zoo`,expectedOutput:`ynn`,output:`ynn`,score:10,hidden:!1},{input:`4
+uif dpef jt gvo`,expectedOutput:`the code is fun`,output:`the code is fun`,score:10,hidden:!1},{input:`4
+ibwf b ojdf ebz`,expectedOutput:`have a nice day`,output:`have a nice day`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`逐字元位移解碼，需處理空白不變的例外，屬基礎字串處理題。`,exportDecision:`Claude 依使用者提供的114-澎湖縣國中PDF手動轉錄並驗證`},tags:{mainConcepts:[`字串處理`],subConcepts:[`字元位移`],algorithm:[`字串處理`],dataStructure:[`字串`],syntax:[`for`,`if`,`取字元`,`字串組合`],math:[],context:[`生活情境`,`密碼解碼`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`114TCPJ09-2`,title:`剛好的禮券`,problemTitle:`剛好的禮券`,courseCode:`114TCPJ09`,courseName:`114-澎湖縣國中（競賽模式）`,role:`contest`,difficulty:`L3`,blocklyFit:`高`,requiresGreenFlag:!0,description:`小華手上有一張金額固定的禮券，想在商店中正好買兩樣不同的商品，將禮券金額完全花光。請檢查是否能從商品價格清單中找到兩個不同位置的商品，價格總和恰好等於禮券面額。如果找得到，輸出這兩個商品的價格（小的在前，大的在後）；如果同時有多組組合符合，輸出價差最小的兩樣商品價格；找不到則輸出 No Solution。`,inputDescription:`第一行輸入兩個整數 N 與 T，N 為商品數量，T 為禮券面額。
 第二行包含 N 個整數，代表各商品的價格。`,outputDescription:`若找到符合條件的兩個商品，輸出其價格（數值較小者先輸出）。若找不到，輸出 No Solution。`,statement:{description:`小華手上有一張金額固定的禮券，想在商店中正好買兩樣不同的商品，將禮券金額完全花光。請檢查是否能從商品價格清單中找到兩個不同位置的商品，價格總和恰好等於禮券面額。如果找得到，輸出這兩個商品的價格（小的在前，大的在後）；如果同時有多組組合符合，輸出價差最小的兩樣商品價格；找不到則輸出 No Solution。`,input:`第一行輸入兩個整數 N 與 T，N 為商品數量，T 為禮券面額。
 第二行包含 N 個整數，代表各商品的價格。`,output:`若找到符合條件的兩個商品，輸出其價格（數值較小者先輸出）。若找不到，輸出 No Solution。`},examples:[{input:`3 10
 1 2 3`,output:`No Solution`,explanation:`任兩數相加都不等於 10。`},{input:`5 100
@@ -17,13 +26,13 @@ var e={code:`114TCPJ09`,title:`114-澎湖縣國中（競賽模式）`,type:`prog
 3
 100 300 200
 3 4 2`,output:`6`,explanation:`先買 3 個 100 元、2 個 200 元、1 個 300 元，共花 1000 元，買到 6 件。`},{input:`500
-4
+3
 600 700 800
 3 4 5`,output:`0`,explanation:`剩下的錢不夠買任何一樣商品，最多買 0 件。`}],testCases:[{input:`1000
 3
 100 300 200
 3 4 2`,expectedOutput:`6`,output:`6`,score:8,hidden:!1},{input:`500
-4
+3
 600 700 800
 3 4 5`,expectedOutput:`0`,output:`0`,score:8,hidden:!1},{input:`1500
 3

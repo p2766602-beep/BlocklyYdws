@@ -158,7 +158,7 @@ var e={code:`114TCPJ17`,title:`114-金門縣國中（競賽模式）`,type:`prog
 • 共有5組資料
 • 每組包含：一個大寫字母(B, M, T, F, J)
 • 一個整數(代表密度D)
-（註：格式以逗號隔開如範例所示）
+（註：代碼與密度以空白隔開，如範例所示）
 【輸出說明】
 • 請輸出5個原料代碼
 • 代表飲料完成後，由杯底到杯口的原料排列順序
@@ -182,61 +182,61 @@ var e={code:`114TCPJ17`,title:`114-金門縣國中（競賽模式）`,type:`prog
 • 共有5組資料
 • 每組包含：一個大寫字母(B, M, T, F, J)
 • 一個整數(代表密度D)
-（註：格式以逗號隔開如範例所示）
+（註：代碼與密度以空白隔開，如範例所示）
 【輸出說明】
 • 請輸出5個原料代碼
 • 代表飲料完成後，由杯底到杯口的原料排列順序
-• 每個代碼之間以一個逗號隔開`,input:``,output:``},examples:[{input:`B,120
-J,120
-T,110
-M,110
-F,90`,output:`B,J,T,M,F`,explanation:`密度比較：B(120) = J(120) > T(110) = M(110) > F(90)。
-最重的B放底部，第二放入的是J，接著往上是T、M，最輕的F在最上面`},{input:`F,100
-M,110
-T,110
-J,110
-B,120`,output:`B,M,T,J,F`,explanation:`密度比較：B(120) > M(110) = T(110) = J(110) > F(100)。
-順序為 B,M,T,J,F`}],starterXml:``,testCases:[{input:`B,120
-J,120
-T,110
-M,110
-F,90`,expectedOutput:`B,J,T,M,F`,score:10},{input:`F,100
-M,110
-T,110
-J,110
-B,120`,expectedOutput:`B,M,T,J,F`,score:10},{input:`B,10
-M,20
-T,30
-J,40
-F,50`,expectedOutput:`F,J,T,M,B`,score:10},{input:`M,50
-B,40
-T,60
-F,30
-J,70`,expectedOutput:`J,T,M,B,F`,score:10},{input:`B,100
-M,100
-T,100
-F,100
-J,100`,expectedOutput:`B,M,T,F,J`,score:10},{input:`T,10
-M,10
-B,10
-F,10
-J,10`,expectedOutput:`T,M,B,F,J`,score:10},{input:`B,99
-M,98
-T,97
-F,96
-J,95`,expectedOutput:`B,M,T,F,J`,score:10},{input:`F,50
-J,50
-T,30
-M,30
-B,20`,expectedOutput:`F,J,T,M,B`,score:10},{input:`J,20
-B,30
-T,40
-M,50
-F,60`,expectedOutput:`F,M,T,B,J`,score:10},{input:`B,30
-J,10
-T,30
-F,10
-M,30`,expectedOutput:`B,T,M,J,F`,score:10}]},{id:`114TCPJ17-4`,title:`4-數位交趾陶花`,problemTitle:`4-數位交趾陶花`,courseCode:`114TCPJ17`,courseName:`114-金門縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,description:`金門的交趾陶產業正結合科技藝術，開發一款「數位交趾陶花預覽器」。這款程式使用 Scratch 的「畫筆」內的「蓋章」功能，設計出具有「雙層花瓣」的花朵圖案。花朵由 外層花瓣與內層花瓣組成，兩層花瓣皆透過重複蓋章與旋轉的方式完成，但每一層的花瓣數量與旋轉角度並不相同。
+• 每個代碼之間以一個逗號隔開`,input:``,output:``},examples:[{input:`B 120
+J 120
+T 110
+M 110
+F 90`,output:`B,J,T,M,F`,explanation:`密度比較：B(120) = J(120) > T(110) = M(110) > F(90)。
+最重的B放底部，第二放入的是J，接著往上是T、M，最輕的F在最上面`},{input:`F 100
+M 110
+T 110
+J 110
+B 120`,output:`B,M,T,J,F`,explanation:`密度比較：B(120) > M(110) = T(110) = J(110) > F(100)。
+順序為 B,M,T,J,F`}],starterXml:``,testCases:[{input:`B 120
+J 120
+T 110
+M 110
+F 90`,expectedOutput:`B,J,T,M,F`,score:10},{input:`F 100
+M 110
+T 110
+J 110
+B 120`,expectedOutput:`B,M,T,J,F`,score:10},{input:`B 10
+M 20
+T 30
+J 40
+F 50`,expectedOutput:`F,J,T,M,B`,score:10},{input:`M 50
+B 40
+T 60
+F 30
+J 70`,expectedOutput:`J,T,M,B,F`,score:10},{input:`B 100
+M 100
+T 100
+F 100
+J 100`,expectedOutput:`B,M,T,F,J`,score:10},{input:`T 10
+M 10
+B 10
+F 10
+J 10`,expectedOutput:`T,M,B,F,J`,score:10},{input:`B 99
+M 98
+T 97
+F 96
+J 95`,expectedOutput:`B,M,T,F,J`,score:10},{input:`F 50
+J 50
+T 30
+M 30
+B 20`,expectedOutput:`F,J,T,M,B`,score:10},{input:`J 20
+B 30
+T 40
+M 50
+F 60`,expectedOutput:`F,M,T,B,J`,score:10},{input:`B 30
+J 10
+T 30
+F 10
+M 30`,expectedOutput:`B,T,M,J,F`,score:10}]},{id:`114TCPJ17-4`,title:`4-數位交趾陶花`,problemTitle:`4-數位交趾陶花`,courseCode:`114TCPJ17`,courseName:`114-金門縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,description:`金門的交趾陶產業正結合科技藝術，開發一款「數位交趾陶花預覽器」。這款程式使用 Scratch 的「畫筆」內的「蓋章」功能，設計出具有「雙層花瓣」的花朵圖案。花朵由 外層花瓣與內層花瓣組成，兩層花瓣皆透過重複蓋章與旋轉的方式完成，但每一層的花瓣數量與旋轉角度並不相同。
 請你依照下列規則，模擬程式執行後所產生的花朵圖形。
 【繪圖規則說明】
 【共通規則】
@@ -317,7 +317,7 @@ M,30`,expectedOutput:`B,T,M,J,F`,score:10}]},{id:`114TCPJ17-4`,title:`4-數位�
 3. 計算交換次數：統計整個排序過程中，總共執行了幾次「交換」動作。
 【輸入說明】
 • 第一行：一個整數N(2≤ N ≤10)，代表風獅爺的數量。
-• 第二行：N個整數，代表各尊風獅爺的身高，中間以逗號隔開。
+• 第二行：N個整數，代表各尊風獅爺的身高，中間以空白隔開。
 【輸出說明】
 • 前N-1行：依序輸出每一輪(Pass)排序結束後的風獅爺身高序列。
 • 最後一行：輸出一個整數，代表總共進行的「交換次數」。`,inputDescription:``,outputDescription:``,statement:{description:`金門各村落的風獅爺要準備祭典大合照，村長要求將4尊風獅爺依照身高「由矮到高」排好。工讀生小金負責進行搬動，規則如下：
@@ -331,11 +331,11 @@ M,30`,expectedOutput:`B,T,M,J,F`,score:10}]},{id:`114TCPJ17-4`,title:`4-數位�
 3. 計算交換次數：統計整個排序過程中，總共執行了幾次「交換」動作。
 【輸入說明】
 • 第一行：一個整數N(2≤ N ≤10)，代表風獅爺的數量。
-• 第二行：N個整數，代表各尊風獅爺的身高，中間以逗號隔開。
+• 第二行：N個整數，代表各尊風獅爺的身高，中間以空白隔開。
 【輸出說明】
 • 前N-1行：依序輸出每一輪(Pass)排序結束後的風獅爺身高序列。
 • 最後一行：輸出一個整數，代表總共進行的「交換次數」。`,input:``,output:``},examples:[{input:`4
-150,120,180,110`,output:`120 150 110 180
+150 120 180 110`,output:`120 150 110 180
 120 110 150 180
 110 120 150 180
 4`,explanation:`過程分析：
@@ -343,7 +343,7 @@ M,30`,expectedOutput:`B,T,M,J,F`,score:10}]},{id:`114TCPJ17-4`,title:`4-數位�
 2. 第二輪：150換110。結束後150就位。(交換1次)
 3. 第三輪：120換110。結束後120就位。(交換1次)
 總交換次數：2+1+1=4`},{input:`5
-160,140,170,130,150`,output:`140 160 130 150 170
+160 140 170 130 150`,output:`140 160 130 150 170
 140 130 150 160 170
 130 140 150 160 170
 130 140 150 160 170
@@ -352,45 +352,45 @@ M,30`,expectedOutput:`B,T,M,J,F`,score:10}]},{id:`114TCPJ17-4`,title:`4-數位�
 3. 第三輪：交換1次
 4. 第四輪：不換
 總交換次數：6`}],starterXml:``,testCases:[{input:`4
-150,120,180,110`,expectedOutput:`120 150 110 180
+150 120 180 110`,expectedOutput:`120 150 110 180
 120 110 150 180
 110 120 150 180
 4`,score:10},{input:`5
-160,140,170,130,150`,expectedOutput:`140 160 130 150 170
+160 140 170 130 150`,expectedOutput:`140 160 130 150 170
 140 130 150 160 170
 130 140 150 160 170
 130 140 150 160 170
 6`,score:10},{input:`3
-30,20,10`,expectedOutput:`20 10 30
+30 20 10`,expectedOutput:`20 10 30
 10 20 30
 3`,score:10},{input:`4
-10,20,30,40`,expectedOutput:`10 20 30 40
+10 20 30 40`,expectedOutput:`10 20 30 40
 10 20 30 40
 10 20 30 40
 0`,score:10},{input:`5
-50,40,30,20,10`,expectedOutput:`40 30 20 10 50
+50 40 30 20 10`,expectedOutput:`40 30 20 10 50
 30 20 10 40 50
 20 10 30 40 50
 10 20 30 40 50
 10`,score:10},{input:`4
-40,10,20,30`,expectedOutput:`10 20 30 40
+40 10 20 30`,expectedOutput:`10 20 30 40
 10 20 30 40
 10 20 30 40
 3`,score:10},{input:`4
-20,30,40,10`,expectedOutput:`20 30 10 40
+20 30 40 10`,expectedOutput:`20 30 10 40
 20 10 30 40
 10 20 30 40
 3`,score:10},{input:`3
-10,30,20`,expectedOutput:`10 20 30
+10 30 20`,expectedOutput:`10 20 30
 10 20 30
 1`,score:10},{input:`6
-20,10,60,50,40,30`,expectedOutput:`10 20 50 40 30 60
+20 10 60 50 40 30`,expectedOutput:`10 20 50 40 30 60
 10 20 40 30 50 60
 10 20 30 40 50 60
 10 20 30 40 50 60
 10 20 30 40 50 60
 7`,score:10},{input:`2
-20,10`,expectedOutput:`10 20
+20 10`,expectedOutput:`10 20
 1`,score:10}]},{id:`114TCPJ17-6`,title:`6-金門粥糜採購任務`,problemTitle:`6-金門粥糜採購任務`,courseCode:`114TCPJ17`,courseName:`114-金門縣國中（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`中`,description:`金門的粥糜聞名遐邇，許多遊客會指名購買不同店家的粥糜(共有9間名店，編號為 1, 2, 3, ......, 9)。導遊小金今天收到了團員們的訂單，準備前往各家店代購。為了節省時間，小金會先統計所有訂單中各家店的粥糜數量，並依照他規劃好的「取貨路線順序」來購買。請幫小金列出最終外送箱中粥糜排列的順序。
 【規則說明】
 1. 數量統計：首先統計所有訂單中，各個店家編號出現的總次數。

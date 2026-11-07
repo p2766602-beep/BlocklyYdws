@@ -28,25 +28,25 @@ A=0, B=1, C=2, D=3, E=4
 1. 輸入密碼長度 L 與密碼內容（由 A-E 組成）。
 2. 權重計算：最右邊位數是 5 的 0 次方（任何數的 0 次方為 1），左邊一位是 5 的 1 次方，以此類推。
 3. 將每個字母轉換為對應數值後，計算總和。`,inputDescription:`第一行：整數 L。
-第二行：L 個字元（如 BC）。`,outputDescription:`一個整數（10 進位數值）。`,statement:{description:`程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：
+第二行：L 個字母，以空白分隔（如 B C）。`,outputDescription:`一個整數（10 進位數值）。`,statement:{description:`程式設計社的入社考題是一串神秘代碼。代碼由 A, B, C, D, E 五個字母組成，這其實是一個「5進位」數字系統：
 A=0, B=1, C=2, D=3, E=4
 例如密碼 BC 代表 5 進位的 12，換算成 10 進位就是 1 × 5 + 2 = 7。請編寫程式將密碼解碼為 10 進位數字。
 1. 輸入密碼長度 L 與密碼內容（由 A-E 組成）。
 2. 權重計算：最右邊位數是 5 的 0 次方（任何數的 0 次方為 1），左邊一位是 5 的 1 次方，以此類推。
 3. 將每個字母轉換為對應數值後，計算總和。`,input:`第一行：整數 L。
-第二行：L 個字元（如 BC）。`,output:`一個整數（10 進位數值）。`},examples:[{input:`2
-BC`,output:`7`,explanation:`B=1, C=2。 1 × 5 + 2 = 7。`},{input:`3
-BAE`,output:`29`,explanation:`B=1, A=0, E=4。 1 × 25 + 0 × 5 + 4 × 1 = 29。`}],testCases:[{input:`1
+第二行：L 個字母，以空白分隔（如 B C）。`,output:`一個整數（10 進位數值）。`},examples:[{input:`2
+B C`,output:`7`,explanation:`B=1, C=2。 1 × 5 + 2 = 7。`},{input:`3
+B A E`,output:`29`,explanation:`B=1, A=0, E=4。 1 × 25 + 0 × 5 + 4 × 1 = 29。`}],testCases:[{input:`1
 A`,expectedOutput:`0`,output:`0`,score:10,hidden:!1},{input:`2
-EE`,expectedOutput:`24`,output:`24`,score:10,hidden:!1},{input:`3
-BAA`,expectedOutput:`25`,output:`25`,score:10,hidden:!1},{input:`4
-BAAA`,expectedOutput:`125`,output:`125`,score:10,hidden:!1},{input:`5
-CDEAB`,expectedOutput:`1726`,output:`1726`,score:10,hidden:!1},{input:`5
-AAAAA`,expectedOutput:`0`,output:`0`,score:10,hidden:!1},{input:`1
+E E`,expectedOutput:`24`,output:`24`,score:10,hidden:!1},{input:`3
+B A A`,expectedOutput:`25`,output:`25`,score:10,hidden:!1},{input:`4
+B A A A`,expectedOutput:`125`,output:`125`,score:10,hidden:!1},{input:`5
+C D E A B`,expectedOutput:`1726`,output:`1726`,score:10,hidden:!1},{input:`5
+A A A A A`,expectedOutput:`0`,output:`0`,score:10,hidden:!1},{input:`1
 E`,expectedOutput:`4`,output:`4`,score:10,hidden:!1},{input:`4
-BCDE`,expectedOutput:`194`,output:`194`,score:10,hidden:!1},{input:`5
-ABCDE`,expectedOutput:`194`,output:`194`,score:10,hidden:!1},{input:`5
-EEEEE`,expectedOutput:`3124`,output:`3124`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`進位轉換，練習權重乘冪的累加寫法。`,exportDecision:`Claude 依使用者提供的txtFile逐題轉錄、用JS參考實作逐題驗證，starterXml另外用headless Blockly harness對真正的javascript generator驗證過`},tags:{mainConcepts:[`進位轉換`],subConcepts:[`字元對應`],algorithm:[`進位轉換`],dataStructure:[`字串`],syntax:[`字元取出`],math:[`進位制`],context:[`密碼學`]},restrictions:{requiredBlocks:[],disabledBlocks:[]},courseCode:`114TCPJ02`,courseName:`114-嘉義縣國中（競賽模式）`},{id:`114TCPJ02-3`,title:`圖書館的舊書打包`,problemTitle:`圖書館的舊書打包`,role:`contest`,difficulty:`L3`,blocklyFit:`高`,requiresGreenFlag:!0,description:`學校圖書館正在進行舊書義賣，小華負責將舊書裝箱。為了節省箱子，小華決定採用一個策略：先把書按重量「由重到輕」排好。
+B C D E`,expectedOutput:`194`,output:`194`,score:10,hidden:!1},{input:`5
+A B C D E`,expectedOutput:`194`,output:`194`,score:10,hidden:!1},{input:`5
+E E E E E`,expectedOutput:`3124`,output:`3124`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`進位轉換，練習權重乘冪的累加寫法。`,exportDecision:`Claude 依使用者提供的txtFile逐題轉錄、用JS參考實作逐題驗證，starterXml另外用headless Blockly harness對真正的javascript generator驗證過`},tags:{mainConcepts:[`進位轉換`],subConcepts:[`字元對應`],algorithm:[`進位轉換`],dataStructure:[`字串`],syntax:[`字元取出`],math:[`進位制`],context:[`密碼學`]},restrictions:{requiredBlocks:[],disabledBlocks:[]},courseCode:`114TCPJ02`,courseName:`114-嘉義縣國中（競賽模式）`},{id:`114TCPJ02-3`,title:`圖書館的舊書打包`,problemTitle:`圖書館的舊書打包`,role:`contest`,difficulty:`L3`,blocklyFit:`高`,requiresGreenFlag:!0,description:`學校圖書館正在進行舊書義賣，小華負責將舊書裝箱。為了節省箱子，小華決定採用一個策略：先把書按重量「由重到輕」排好。
 每次拿出一個新箱子時，優先嘗試放入最重的書，箱子剩下的空間如果放得下就放進去，放不下就跳過這本，試下一本較輕的書，直到所有書都檢查過一輪，這個箱子就封箱。
 接著拿新箱子重複上述步驟，直到所有書都裝完。
 Note：箱子在封箱前要由重到輕，確認已經裝不下任何一本未裝箱的書了。`,inputDescription:`第一行：一個整數 W（箱子最大承重）。

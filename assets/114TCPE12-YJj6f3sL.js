@@ -152,37 +152,39 @@ O車5人`,output:`M車15人
 N車10人
 O車5人`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`固定3台車，各自加總5站人數並判斷是否超過20人，練習多次say()輸出多行結果。`,exportDecision:`Claude 依使用者提供的txtFile逐題轉錄、用JS參考實作逐題驗證，starterXml另外用headless Blockly harness對真正的javascript generator驗證過`},tags:{mainConcepts:[`迴圈`],subConcepts:[`條件判斷`],algorithm:[`累加`],dataStructure:[`變數`],syntax:[`for迴圈`],math:[],context:[`生活情境`,`交通`]},restrictions:{requiredBlocks:[],disabledBlocks:[]},courseCode:`114TCPE12`,courseName:`114-臺北市國小（競賽模式）`},{id:`114TCPE12-3`,title:`成績補考機制`,problemTitle:`成績補考機制`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。
 【任務規則】
-1. 使用者輸入一個數字，代表有N位學生
-2. 接著輸入 N行成績資料，每行代表一位學生的各科分數(以空白分隔)
+1. 第一行輸入兩個數字 N 與 M，代表有 N 位學生、每位學生有 M 科成績
+2. 接著輸入 N 行成績資料，每行是一位學生的 M 科分數(以空白分隔)
 3. 請檢查每一個分數，若小於60則改成60，否則保持不變
-4. 輸出修正後的分數表`,inputDescription:`學生數與N行成績`,outputDescription:`修正後的成績清單`,statement:{description:`學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。
+4. 輸出修正後的分數表`,inputDescription:`第一行：學生數 N 與科目數 M（以空白分隔）
+接下來 N 行：每行 M 個分數（以空白分隔）`,outputDescription:`修正後的成績清單`,statement:{description:`學校規定所有低於60分的成績都以60分計算。請幫老師修正所有學生的成績表。
 【任務規則】
-1. 使用者輸入一個數字，代表有N位學生
-2. 接著輸入 N行成績資料，每行代表一位學生的各科分數(以空白分隔)
+1. 第一行輸入兩個數字 N 與 M，代表有 N 位學生、每位學生有 M 科成績
+2. 接著輸入 N 行成績資料，每行是一位學生的 M 科分數(以空白分隔)
 3. 請檢查每一個分數，若小於60則改成60，否則保持不變
-4. 輸出修正後的分數表`,input:`學生數與N行成績`,output:`修正後的成績清單`},examples:[{input:`2
+4. 輸出修正後的分數表`,input:`第一行：學生數 N 與科目數 M（以空白分隔）
+接下來 N 行：每行 M 個分數（以空白分隔）`,output:`修正後的成績清單`},examples:[{input:`2 3
 50 80 90
 40 55 100`,output:`60 80 90
-60 60 100`,explanation:`50 及 40, 55 小於 60，皆修正為 60。`},{input:`1
-10 20 30`,output:`60 60 60`,explanation:`皆小於 60，修正為 60。`}],testCases:[{input:`1
-10 20 30`,expectedOutput:`60 60 60`,output:`60 60 60`,score:10,hidden:!1},{input:`2
+60 60 100`,explanation:`50 及 40, 55 小於 60，皆修正為 60。`},{input:`1 3
+10 20 30`,output:`60 60 60`,explanation:`皆小於 60，修正為 60。`}],testCases:[{input:`1 3
+10 20 30`,expectedOutput:`60 60 60`,output:`60 60 60`,score:10,hidden:!1},{input:`2 2
 100 100
 59 60`,expectedOutput:`100 100
 60 60`,output:`100 100
-60 60`,score:10,hidden:!1},{input:`3
+60 60`,score:10,hidden:!1},{input:`3 2
 10 10
 80 80
 5 95`,expectedOutput:`60 60
 80 80
 60 95`,output:`60 60
 80 80
-60 95`,score:10,hidden:!1},{input:`1
-60 60 60`,expectedOutput:`60 60 60`,output:`60 60 60`,score:10,hidden:!1},{input:`2
+60 95`,score:10,hidden:!1},{input:`1 3
+60 60 60`,expectedOutput:`60 60 60`,output:`60 60 60`,score:10,hidden:!1},{input:`2 3
 59 58 57
 61 62 63`,expectedOutput:`60 60 60
 61 62 63`,output:`60 60 60
-61 62 63`,score:10,hidden:!1},{input:`1
-0 0 0 0 0`,expectedOutput:`60 60 60 60 60`,output:`60 60 60 60 60`,score:10,hidden:!1},{input:`4
+61 62 63`,score:10,hidden:!1},{input:`1 5
+0 0 0 0 0`,expectedOutput:`60 60 60 60 60`,output:`60 60 60 60 60`,score:10,hidden:!1},{input:`4 1
 99
 100
 0
@@ -192,12 +194,12 @@ O車5人`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`
 60`,output:`99
 100
 60
-60`,score:10,hidden:!1},{input:`1
-59 99`,expectedOutput:`60 99`,output:`60 99`,score:10,hidden:!1},{input:`2
+60`,score:10,hidden:!1},{input:`1 2
+59 99`,expectedOutput:`60 99`,output:`60 99`,score:10,hidden:!1},{input:`2 2
 80 80
 40 40`,expectedOutput:`80 80
 60 60`,output:`80 80
-60 60`,score:10,hidden:!1},{input:`3
+60 60`,score:10,hidden:!1},{input:`3 1
 30
 40
 50`,expectedOutput:`60
@@ -206,26 +208,44 @@ O車5人`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`
 60
 60`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`每列科目數不固定但同一測資內一致，讀到輸入結束才能反推每列長度，練習不定長度輸入的處理技巧。`,exportDecision:`Claude 依使用者提供的txtFile逐題轉錄、用JS參考實作逐題驗證，starterXml另外用headless Blockly harness對真正的javascript generator驗證過`},tags:{mainConcepts:[`清單`],subConcepts:[`條件判斷`],algorithm:[`資料重建`],dataStructure:[`清單`],syntax:[`while迴圈`],math:[],context:[`生活情境`,`教育`]},restrictions:{requiredBlocks:[],disabledBlocks:[]},courseCode:`114TCPE12`,courseName:`114-臺北市國小（競賽模式）`},{id:`114TCPE12-4`,title:`滑動平均值`,problemTitle:`滑動平均值`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`請計算清單中連續K個數字的平均值(Moving Average)。
 【任務規則】
-1. 第一次輸入：一串數字，以空白分隔
-2. 第二次輸入：區間大小 K
-3. 請依序計算每K 個相鄰數字的平均值
-4. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。`,inputDescription:`數字字串與整數 K`,outputDescription:`算出的平均值數列 (數字之間以空白隔開)`,statement:{description:`請計算清單中連續K個數字的平均值(Moving Average)。
+1. 第一次輸入：數字的個數 N
+2. 第二次輸入：N 個數字，以空白分隔
+3. 第三次輸入：區間大小 K
+4. 請依序計算每K 個相鄰數字的平均值
+5. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。`,inputDescription:`第一行：數字的個數 N
+第二行：N 個數字（以空白分隔）
+第三行：區間大小 K`,outputDescription:`算出的平均值數列 (數字之間以空白隔開)`,statement:{description:`請計算清單中連續K個數字的平均值(Moving Average)。
 【任務規則】
-1. 第一次輸入：一串數字，以空白分隔
-2. 第二次輸入：區間大小 K
-3. 請依序計算每K 個相鄰數字的平均值
-4. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。`,input:`數字字串與整數 K`,output:`算出的平均值數列 (數字之間以空白隔開)`},examples:[{input:`10 20 30 40 50
-2`,output:`15 25 35 45`,explanation:`依序計算每2個相鄰數字的平均值： (10+20)/2=15 (20+30)/2=25 (30+40)/2=35 (40+50)/2=45`},{input:`2 4 6 8
-2`,output:`3 5 7`,explanation:`依序計算每2個相鄰數字的平均值。`}],testCases:[{input:`2 4 6 8
-2`,expectedOutput:`3 5 7`,output:`3 5 7`,score:10,hidden:!1},{input:`10 20 30
-3`,expectedOutput:`20`,output:`20`,score:10,hidden:!1},{input:`5 5 5 5
-1`,expectedOutput:`5 5 5 5`,output:`5 5 5 5`,score:10,hidden:!1},{input:`10 20 30 40 50
-2`,expectedOutput:`15 25 35 45`,output:`15 25 35 45`,score:10,hidden:!1},{input:`1 2 3 4 5 6
-3`,expectedOutput:`2 3 4 5`,output:`2 3 4 5`,score:10,hidden:!1},{input:`10 10 10 10 10
-4`,expectedOutput:`10 10`,output:`10 10`,score:10,hidden:!1},{input:`0 10 20 30 40
-5`,expectedOutput:`20`,output:`20`,score:10,hidden:!1},{input:`100 200 300
-2`,expectedOutput:`150 250`,output:`150 250`,score:10,hidden:!1},{input:`5 15 25 35
-2`,expectedOutput:`10 20 30`,output:`10 20 30`,score:10,hidden:!1},{input:`2 2 2 2 2 2 2
+1. 第一次輸入：數字的個數 N
+2. 第二次輸入：N 個數字，以空白分隔
+3. 第三次輸入：區間大小 K
+4. 請依序計算每K 個相鄰數字的平均值
+5. 例如數列 10 20 30，K=2。第一組(10+20)/2=15，第二組(20+30)/2=25。`,input:`第一行：數字的個數 N
+第二行：N 個數字（以空白分隔）
+第三行：區間大小 K`,output:`算出的平均值數列 (數字之間以空白隔開)`},examples:[{input:`5
+10 20 30 40 50
+2`,output:`15 25 35 45`,explanation:`依序計算每2個相鄰數字的平均值： (10+20)/2=15 (20+30)/2=25 (30+40)/2=35 (40+50)/2=45`},{input:`4
+2 4 6 8
+2`,output:`3 5 7`,explanation:`依序計算每2個相鄰數字的平均值。`}],testCases:[{input:`4
+2 4 6 8
+2`,expectedOutput:`3 5 7`,output:`3 5 7`,score:10,hidden:!1},{input:`3
+10 20 30
+3`,expectedOutput:`20`,output:`20`,score:10,hidden:!1},{input:`4
+5 5 5 5
+1`,expectedOutput:`5 5 5 5`,output:`5 5 5 5`,score:10,hidden:!1},{input:`5
+10 20 30 40 50
+2`,expectedOutput:`15 25 35 45`,output:`15 25 35 45`,score:10,hidden:!1},{input:`6
+1 2 3 4 5 6
+3`,expectedOutput:`2 3 4 5`,output:`2 3 4 5`,score:10,hidden:!1},{input:`5
+10 10 10 10 10
+4`,expectedOutput:`10 10`,output:`10 10`,score:10,hidden:!1},{input:`5
+0 10 20 30 40
+5`,expectedOutput:`20`,output:`20`,score:10,hidden:!1},{input:`3
+100 200 300
+2`,expectedOutput:`150 250`,output:`150 250`,score:10,hidden:!1},{input:`4
+5 15 25 35
+2`,expectedOutput:`10 20 30`,output:`10 20 30`,score:10,hidden:!1},{input:`7
+2 2 2 2 2 2 2
 7`,expectedOutput:`2`,output:`2`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`數列長度不固定、最後一個數字才是視窗大小K，練習不定長度輸入配合固定視窗滑動平均。`,exportDecision:`Claude 依使用者提供的txtFile逐題轉錄、用JS參考實作逐題驗證，starterXml另外用headless Blockly harness對真正的javascript generator驗證過`},tags:{mainConcepts:[`清單`],subConcepts:[`滑動視窗`],algorithm:[`滑動平均`],dataStructure:[`清單`],syntax:[`for迴圈`],math:[`平均值`],context:[`數學情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]},courseCode:`114TCPE12`,courseName:`114-臺北市國小（競賽模式）`},{id:`114TCPE12-5`,title:`連續字元分段顯示`,problemTitle:`連續字元分段顯示`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`給一個字串s，請將連續相同的字元視為一組，並依序顯示「字元+出現次數」。`,inputDescription:`輸入一串英文字串s。`,outputDescription:`每一組字元與次數以換行輸出。`,statement:{description:`給一個字串s，請將連續相同的字元視為一組，並依序顯示「字元+出現次數」。`,input:`輸入一串英文字串s。`,output:`每一組字元與次數以換行輸出。`},examples:[{input:`aaabbcddd`,output:`a3
 b2
 c1

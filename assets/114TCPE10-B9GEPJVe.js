@@ -34,14 +34,14 @@ var e={code:`114TCPE10`,title:`114-臺中市國小（競賽模式）`,type:`prog
 規則：
 進 1 球即得 1 分。
 每犯規 3 次，該隊扣 1 分。
-扣分不會讓分數低於 0 分。
+比賽結束後才計算得分：得分 = 進球數 − 犯規次數 ÷ 3（無條件捨去）；若結果小於 0，以 0 分計。
 事件代碼：GA＝A隊進球、GB＝B隊進球、FA＝A隊犯規、FB＝B隊犯規。
 請依序輸出 A 隊最後得分、B 隊最後得分、比賽結果（A Win / B Win / Draw）。`,inputDescription:`第一行輸入一個正整數 N，代表比賽中事件數量。
 接下來輸入 N 行，每一行輸入一個事件代碼（GA、GB、FA、FB）。`,outputDescription:`依序輸出三行：A 隊最後得分、B 隊最後得分、比賽結果（A Win、B Win 或 Draw）。`,statement:{description:`小明承辦了校際足球賽，需要一套自動計分與判定系統。每一場比賽只有兩隊，且只會發生兩種事情：進球 Goal、犯規 Foul。
 規則：
 進 1 球即得 1 分。
 每犯規 3 次，該隊扣 1 分。
-扣分不會讓分數低於 0 分。
+比賽結束後才計算得分：得分 = 進球數 − 犯規次數 ÷ 3（無條件捨去）；若結果小於 0，以 0 分計。
 事件代碼：GA＝A隊進球、GB＝B隊進球、FA＝A隊犯規、FB＝B隊犯規。
 請依序輸出 A 隊最後得分、B 隊最後得分、比賽結果（A Win / B Win / Draw）。`,input:`第一行輸入一個正整數 N，代表比賽中事件數量。
 接下來輸入 N 行，每一行輸入一個事件代碼（GA、GB、FA、FB）。`,output:`依序輸出三行：A 隊最後得分、B 隊最後得分、比賽結果（A Win、B Win 或 Draw）。`},examples:[{input:`7
@@ -109,15 +109,15 @@ FA`,expectedOutput:`0
 0
 Draw`,output:`0
 0
-Draw`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`需要用迴圈逐行讀取事件、用變數累計兩隊得分與犯規次數，並用整數除法換算扣分，是基礎的模擬類型題。`,exportDecision:`Claude 依使用者提供的臺中市114學年度國小組資訊科技教育競賽PDF手動轉錄並驗證`},tags:{mainConcepts:[`模擬與狀態更新`],subConcepts:[`迴圈與累計`],algorithm:[`模擬`],dataStructure:[`變數`],syntax:[`for`,`if`,`字串比較`,`整數除法`],math:[],context:[`生活情境`,`球類比賽`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`114TCPE10-4`,title:`紅牌與黃牌`,problemTitle:`紅牌與黃牌`,courseCode:`114TCPE10`,courseName:`114-臺中市國小（競賽模式）`,role:`contest`,difficulty:`L4`,blocklyFit:`高`,requiresGreenFlag:!0,description:`延續閃電十一人的基本規則（進球得分、每犯規 3 次扣 1 分、分數不低於 0），新增以下規則：
+Draw`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`需要用迴圈逐行讀取事件、用變數累計兩隊得分與犯規次數，並用整數除法換算扣分，是基礎的模擬類型題。`,exportDecision:`Claude 依使用者提供的臺中市114學年度國小組資訊科技教育競賽PDF手動轉錄並驗證`},tags:{mainConcepts:[`模擬與狀態更新`],subConcepts:[`迴圈與累計`],algorithm:[`模擬`],dataStructure:[`變數`],syntax:[`for`,`if`,`字串比較`,`整數除法`],math:[],context:[`生活情境`,`球類比賽`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`114TCPE10-4`,title:`紅牌與黃牌`,problemTitle:`紅牌與黃牌`,courseCode:`114TCPE10`,courseName:`114-臺中市國小（競賽模式）`,role:`contest`,difficulty:`L4`,blocklyFit:`高`,requiresGreenFlag:!0,description:`延續閃電十一人的基本規則（比賽結束後才計算得分：進球數 − 犯規次數 ÷ 3（無條件捨去），小於 0 以 0 分計），新增以下規則：
 每犯規 2 次，該隊得 1 張黃牌。
 同一隊累積 2 張黃牌，自動轉為 1 張紅牌。
-一旦出現紅牌，該隊立刻再扣 1 分（紅牌只會影響一次，不會重複扣分）。
+拿到紅牌的隊伍，計算得分時再扣 1 分（紅牌只會影響一次，不會重複扣分；扣完小於 0 仍以 0 分計）。
 請依序輸出 A 隊最後得分、B 隊最後得分、比賽結果（A Win / B Win / Draw）。`,inputDescription:`第一行輸入一個正整數 N，代表比賽中事件數量。
-接下來輸入 N 行，每一行輸入一個事件代碼（GA、GB、FA、FB）。`,outputDescription:`依序輸出三行：A 隊最後得分、B 隊最後得分、比賽結果（A Win、B Win 或 Draw）。`,statement:{description:`延續閃電十一人的基本規則（進球得分、每犯規 3 次扣 1 分、分數不低於 0），新增以下規則：
+接下來輸入 N 行，每一行輸入一個事件代碼（GA、GB、FA、FB）。`,outputDescription:`依序輸出三行：A 隊最後得分、B 隊最後得分、比賽結果（A Win、B Win 或 Draw）。`,statement:{description:`延續閃電十一人的基本規則（比賽結束後才計算得分：進球數 − 犯規次數 ÷ 3（無條件捨去），小於 0 以 0 分計），新增以下規則：
 每犯規 2 次，該隊得 1 張黃牌。
 同一隊累積 2 張黃牌，自動轉為 1 張紅牌。
-一旦出現紅牌，該隊立刻再扣 1 分（紅牌只會影響一次，不會重複扣分）。
+拿到紅牌的隊伍，計算得分時再扣 1 分（紅牌只會影響一次，不會重複扣分；扣完小於 0 仍以 0 分計）。
 請依序輸出 A 隊最後得分、B 隊最後得分、比賽結果（A Win / B Win / Draw）。`,input:`第一行輸入一個正整數 N，代表比賽中事件數量。
 接下來輸入 N 行，每一行輸入一個事件代碼（GA、GB、FA、FB）。`,output:`依序輸出三行：A 隊最後得分、B 隊最後得分、比賽結果（A Win、B Win 或 Draw）。`},examples:[{input:`6
 GA
@@ -189,10 +189,10 @@ FA`,expectedOutput:`0
 Draw`,output:`0
 0
 Draw`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`在上一題的基礎上疊加黃牌／紅牌規則，需要同時追蹤多個累計狀態並處理「只扣一次」的一次性條件，狀態管理複雜度較高。`,exportDecision:`Claude 依使用者提供的臺中市114學年度國小組資訊科技教育競賽PDF手動轉錄並驗證`},tags:{mainConcepts:[`模擬與狀態更新`],subConcepts:[`多重條件疊加`],algorithm:[`模擬`],dataStructure:[`變數`],syntax:[`for`,`if`,`字串比較`,`整數除法`],math:[],context:[`生活情境`,`球類比賽`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`114TCPE10-5`,title:`提前結束`,problemTitle:`提前結束`,courseCode:`114TCPE10`,courseName:`114-臺中市國小（競賽模式）`,role:`contest`,difficulty:`L4`,blocklyFit:`高`,requiresGreenFlag:!0,description:`延續紅牌與黃牌的規則，新增以下規則：
-任一隊出現 1 張紅牌，比賽立刻結束，後續事件全部忽略，輸出結果以「結束當下」為準。
+任一隊出現 1 張紅牌，比賽立刻結束，後續事件全部忽略，用結束當下的進球與犯規次數計算得分並輸出結果。
 請依序輸出 A 隊最後得分、B 隊最後得分、比賽結果（A Win / B Win / Draw）。`,inputDescription:`第一行輸入一個正整數 N，代表比賽中事件數量。
 接下來輸入 N 行，每一行輸入一個事件代碼（GA、GB、FA、FB）。`,outputDescription:`依序輸出三行：A 隊最後得分、B 隊最後得分、比賽結果（A Win、B Win 或 Draw）。`,statement:{description:`延續紅牌與黃牌的規則，新增以下規則：
-任一隊出現 1 張紅牌，比賽立刻結束，後續事件全部忽略，輸出結果以「結束當下」為準。
+任一隊出現 1 張紅牌，比賽立刻結束，後續事件全部忽略，用結束當下的進球與犯規次數計算得分並輸出結果。
 請依序輸出 A 隊最後得分、B 隊最後得分、比賽結果（A Win / B Win / Draw）。`,input:`第一行輸入一個正整數 N，代表比賽中事件數量。
 接下來輸入 N 行，每一行輸入一個事件代碼（GA、GB、FA、FB）。`,output:`依序輸出三行：A 隊最後得分、B 隊最後得分、比賽結果（A Win、B Win 或 Draw）。`},examples:[{input:`7
 GA
