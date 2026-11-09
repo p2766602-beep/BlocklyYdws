@@ -15,6 +15,7 @@ import {
 } from './smartring/simulator-bridge.js';
 
 import { scaffoldUrlForCourse } from './lib/scaffold-content.js';
+import { attachAnnotator } from './lib/annotator.js';
 
 import {
   getPublicCourseGroupListHtml,
@@ -1681,6 +1682,7 @@ function renderTaskInfo(task, courseGroup) {
       </div>
     `;
     renderProblemTaskModal(task, courseGroup);
+    attachTaskAnnotators(task);
     return;
   }
 
@@ -1690,6 +1692,12 @@ function renderTaskInfo(task, courseGroup) {
   `;
 
   renderLearningTaskModal(task, courseGroup);
+  attachTaskAnnotators(task);
+}
+
+// 2026-11-09：讀題畫重點只開在「查看完整任務」視窗（比側欄寬，畫記不容易因換行跑掉）。
+function attachTaskAnnotators(task) {
+  attachAnnotator(taskModalBody, task.id);
 }
 
 function getTaskSelectorLabel(task, courseGroup) {
