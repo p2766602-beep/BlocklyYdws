@@ -1,4 +1,4 @@
-var e={code:`115MOCK1111`,title:`115 校內模擬選拔賽（競賽模式）`,type:`programming`,mode:`contest`,description:`校內程式設計模擬選拔賽：共 8 題、比賽時間 90 分鐘，難度由基礎、進階到困難。每題 10 組測資、每組 10 分，每題 100 分，滿分 800 分。`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-11-10T06:35:50.298Z`,problemSetTitle:`115 校內模擬選拔賽（競賽模式）`,version:`original-contest`,note:`原創題目（比照 114 縣市賽題型風格），正本在 YDWS-CodingBank/contests/115MOCK1111/；參考解答已用 Blockly 無頭執行通過全部測資，競賽模式不提供載入。`},tasks:[{id:`115MOCK1111-1`,title:`1. 共享單車租借費`,problemTitle:`共享單車租借費`,courseCode:`115MOCK1111`,courseName:`115 校內模擬選拔賽（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`學校附近的共享單車依租借時數計費：
+var e={code:`115MOCK1111`,title:`115 校內模擬選拔賽（競賽模式）`,type:`programming`,mode:`contest`,description:`校內程式設計模擬選拔賽：共 8 題、比賽時間 90 分鐘，難度由基礎、進階到困難。每題 10 組測資、每組 10 分，每題 100 分，滿分 800 分。`,source:{project:`YDWS-CodingBank`,generatedAt:`2026-11-10T23:36:43.103Z`,problemSetTitle:`115 校內模擬選拔賽（競賽模式）`,version:`original-contest`,note:`原創題目（比照 114 縣市賽題型風格），正本在 YDWS-CodingBank/contests/115MOCK1111/；參考解答已用 Blockly 無頭執行通過全部測資，競賽模式不提供載入。`},tasks:[{id:`115MOCK1111-1`,title:`1. 共享單車租借費`,problemTitle:`共享單車租借費`,courseCode:`115MOCK1111`,courseName:`115 校內模擬選拔賽（競賽模式）`,role:`contest`,difficulty:`L2`,blocklyFit:`高`,requiresGreenFlag:!0,description:`學校附近的共享單車依租借時數計費：
 ・前 2 小時：每小時 30 元
 ・第 3～5 小時：每小時 20 元
 ・超過 5 小時的部分：每小時 10 元
@@ -525,256 +525,69 @@ LRRFFFFFFFRFFRLLLFLFFFFLFFFFLFFFFLFFLRRRFFFFLLLFFF`,expectedOutput:`0 0
 W
 19`,output:`0 0
 W
-19`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`難度：進階；對應 V5、V6`,exportDecision:`原創命題，測資輸出由 JS 參考解產生，並以 Blockly 參考解答無頭執行驗證 10/10`},tags:{mainConcepts:[`模擬`],subConcepts:[`狀態追蹤（位置＋方向）`,`方向轉換`,`邊界與障礙判斷`],algorithm:[],dataStructure:[],syntax:[],math:[],context:[`校園情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`115MOCK1111-6`,title:`6. 用電紀錄查詢`,problemTitle:`用電紀錄查詢`,courseCode:`115MOCK1111`,courseName:`115 校內模擬選拔賽（競賽模式）`,role:`contest`,difficulty:`L4`,blocklyFit:`高`,requiresGreenFlag:!0,description:`學校記錄了連續 N 天的用電度數（第 1 天到第 N 天）。節電小組會提出 Q 個查詢，
-每個查詢給兩個日子 L 和 R，想知道「第 L 天到第 R 天（含頭尾）」的用電總和。
-小組有時會把日子反過來寫：如果 L 比 R 大，一樣是查詢這兩天之間（含頭尾）的總和。
-請依序回答每個查詢。
+19`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`難度：進階；對應 V5、V6`,exportDecision:`原創命題，測資輸出由 JS 參考解產生，並以 Blockly 參考解答無頭執行驗證 10/10`},tags:{mainConcepts:[`模擬`],subConcepts:[`狀態追蹤（位置＋方向）`,`方向轉換`,`邊界與障礙判斷`],algorithm:[],dataStructure:[],syntax:[],math:[],context:[`校園情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`115MOCK1111-6`,title:`6. 節電週挑戰`,problemTitle:`節電週挑戰`,courseCode:`115MOCK1111`,courseName:`115 校內模擬選拔賽（競賽模式）`,role:`contest`,difficulty:`L4`,blocklyFit:`高`,requiresGreenFlag:!0,description:`學校記錄了連續 N 天的用電度數。節電小組想找出一段「連續的日子」，
+使這段期間的用電總和不超過 S 度，而且天數越長越好。
+請輸出最長可以有幾天，以及這段期間從第幾天開始（天數由 1 起算）。
+如果有好幾段一樣長，輸出開始日最早的那一段；如果連單獨一天都超過 S，兩行都輸出 0。
 
-【限制】1 ≤ N ≤ 60，0 ≤ 每天用電度數 ≤ 500，1 ≤ Q ≤ 20，1 ≤ L, R ≤ N`,inputDescription:`第一行輸入天數 N。
+【限制】1 ≤ N ≤ 50，1 ≤ 每天用電度數 ≤ 100，1 ≤ S ≤ 3000`,inputDescription:`第一行輸入天數 N。
 第二行輸入 N 個整數，依序為每天的用電度數。
-第三行輸入查詢數量 Q。
-接下來 Q 行，每行兩個整數 L R。`,outputDescription:`依序輸出 Q 行，每行是一個查詢的用電總和。`,statement:{description:`學校記錄了連續 N 天的用電度數（第 1 天到第 N 天）。節電小組會提出 Q 個查詢，
-每個查詢給兩個日子 L 和 R，想知道「第 L 天到第 R 天（含頭尾）」的用電總和。
-小組有時會把日子反過來寫：如果 L 比 R 大，一樣是查詢這兩天之間（含頭尾）的總和。
-請依序回答每個查詢。
+第三行輸入上限 S。`,outputDescription:`第一行輸出最長天數。
+第二行輸出開始日。`,statement:{description:`學校記錄了連續 N 天的用電度數。節電小組想找出一段「連續的日子」，
+使這段期間的用電總和不超過 S 度，而且天數越長越好。
+請輸出最長可以有幾天，以及這段期間從第幾天開始（天數由 1 起算）。
+如果有好幾段一樣長，輸出開始日最早的那一段；如果連單獨一天都超過 S，兩行都輸出 0。
 
-【限制】1 ≤ N ≤ 60，0 ≤ 每天用電度數 ≤ 500，1 ≤ Q ≤ 20，1 ≤ L, R ≤ N`,input:`第一行輸入天數 N。
+【限制】1 ≤ N ≤ 50，1 ≤ 每天用電度數 ≤ 100，1 ≤ S ≤ 3000`,input:`第一行輸入天數 N。
 第二行輸入 N 個整數，依序為每天的用電度數。
-第三行輸入查詢數量 Q。
-接下來 Q 行，每行兩個整數 L R。`,output:`依序輸出 Q 行，每行是一個查詢的用電總和。`},examples:[{input:`8
+第三行輸入上限 S。`,output:`第一行輸出最長天數。
+第二行輸出開始日。`},examples:[{input:`8
 5 3 8 2 2 9 1 1
-3
-2 4
-1 8
-6 6`,output:`13
-31
-9`,explanation:`第 2～4 天：3＋8＋2＝13；第 1～8 天：31；第 6～6 天：9。`},{input:`5
-120 80 0 45 300
-3
-4 2
-1 5
-3 3`,output:`125
-545
-0`,explanation:`「4 2」反過來寫，等於查詢第 2～4 天：80＋0＋45＝125；第 1～5 天：545；第 3 天：0。`}],testCases:[{input:`8
+12`,output:`3
+3`,explanation:`總和不超過 12 的最長區段是 3 天：第 3～5 天（8＋2＋2＝12）、第 5～7 天（2＋9＋1＝12）、第 6～8 天（9＋1＋1＝11）一樣長，取開始日最早的第 3 天。`},{input:`4
+30 40 25 50
+20`,output:`0
+0`,explanation:`每一天的用電都超過 20 度，連單獨一天都不行，兩行都輸出 0。`}],testCases:[{input:`8
 5 3 8 2 2 9 1 1
-3
-2 4
-1 8
-6 6`,expectedOutput:`13
-31
-9`,output:`13
-31
-9`,score:10,hidden:!1},{input:`5
-120 80 0 45 300
-3
-4 2
-1 5
-3 3`,expectedOutput:`125
-545
-0`,output:`125
-545
-0`,score:10,hidden:!1},{input:`1
-77
-2
-1 1
-1 1`,expectedOutput:`77
-77`,output:`77
-77`,score:10,hidden:!1},{input:`6
-0 0 0 0 0 0
-3
-1 6
-3 5
-6 2`,expectedOutput:`0
-0
+12`,expectedOutput:`3
+3`,output:`3
+3`,score:10,hidden:!1},{input:`4
+30 40 25 50
+20`,expectedOutput:`0
 0`,output:`0
-0
-0`,score:10,hidden:!1},{input:`10
-500 500 500 500 500 500 500 500 500 500
-4
-1 10
-10 1
-5 5
-3 8`,expectedOutput:`5000
-5000
-500
-3000`,output:`5000
-5000
-500
-3000`,score:10,hidden:!1},{input:`7
-12 7 0 33 18 5 40
-5
-1 1
-7 7
-7 1
-2 3
-4 6`,expectedOutput:`12
-40
-115
+0`,score:10,hidden:!1},{input:`1
 7
-56`,output:`12
-40
-115
-7
-56`,score:10,hidden:!1},{input:`60
-22 8 463 437 179 12 289 353 315 440 38 319 440 140 489 37 209 478 129 413 152 494 273 443 465 318 251 471 370 15 158 406 209 327 265 391 247 473 484 361 256 404 31 413 64 195 497 138 282 112 411 387 342 121 34 160 203 373 334 184
-20
-1 54
-42 43
-32 48
-34 29
-19 52
-41 57
-16 57
-59 47
-13 9
-56 22
-18 54
-39 12
-34 21
-45 10
-11 40
-36 35
-16 32
-59 58
-19 3
-2 57`,expectedOutput:`15436
-435
-5161
-1485
-10305
-4050
-11889
-3394
-1552
-10268
-11246
-8866
-4352
-10873
-9265
-656
-5082
-707
-4767
-15811`,output:`15436
-435
-5161
-1485
-10305
-4050
-11889
-3394
-1552
-10268
-11246
-8866
-4352
-10873
-9265
-656
-5082
-707
-4767
-15811`,score:10,hidden:!1},{input:`40
-225 151 293 288 201 156 275 139 164 126 214 136 264 199 165 153 162 295 239 237 188 211 284 121 191 284 295 297 121 141 201 129 187 255 199 160 250 199 138 245
-15
-1 40
-40 1
-20 21
-1 2
-39 40
-38 19
-16 35
-27 29
-4 5
-8 40
-11 12
-19 21
-21 10
-32 1
-2 19`,expectedOutput:`8178
-8178
-425
-376
-383
-4189
-4190
-713
-489
-6589
-350
-664
-2378
-6545
-3620`,output:`8178
-8178
-425
-376
-383
-4189
-4190
-713
-489
-6589
-350
-664
-2378
-6545
-3620`,score:10,hidden:!1},{input:`3
-10 20 30
-6
-1 2
-2 1
-2 3
-3 2
-1 3
-3 1`,expectedOutput:`30
-30
+7`,expectedOutput:`1
+1`,output:`1
+1`,score:10,hidden:!1},{input:`1
 50
-50
-60
-60`,output:`30
-30
-50
-50
-60
-60`,score:10,hidden:!1},{input:`25
-37 37 48 13 19 10 29 19 19 23 42 44 17 49 7 7 47 26 29 41 2 4 27 30 48
-12
-6 7
-20 9
-20 19
-6 11
-5 18
-10 16
-21 15
-5 21
-3 18
-8 2
-25 3
-10 11`,expectedOutput:`39
-351
-70
-142
-358
-189
-159
-430
-419
-175
-600
-65`,output:`39
-351
-70
-142
-358
-189
-159
-430
-419
-175
-600
-65`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`難度：進階＋；對應 V10`,exportDecision:`原創命題，測資輸出由 JS 參考解產生，並以 Blockly 參考解答無頭執行驗證 10/10`},tags:{mainConcepts:[`前綴和`],subConcepts:[`區間總和查詢`,`索引偏移（第 0 天的哨兵）`],algorithm:[],dataStructure:[],syntax:[],math:[],context:[`校園情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`115MOCK1111-7`,title:`7. 社團教室借用`,problemTitle:`社團教室借用`,courseCode:`115MOCK1111`,courseName:`115 校內模擬選拔賽（競賽模式）`,role:`contest`,difficulty:`L5`,blocklyFit:`高`,requiresGreenFlag:!0,description:`學校只有一間多功能教室，這學期共有 N 個社團提出借用申請，每個申請都有開始時間與結束時間（整點）。
+10`,expectedOutput:`0
+0`,output:`0
+0`,score:10,hidden:!1},{input:`6
+1 2 3 4 5 6
+21`,expectedOutput:`6
+1`,output:`6
+1`,score:10,hidden:!1},{input:`10
+5 5 5 5 5 5 5 5 5 5
+12`,expectedOutput:`2
+1`,output:`2
+1`,score:10,hidden:!1},{input:`9
+50 50 50 1 1 1 1 1 1
+6`,expectedOutput:`6
+4`,output:`6
+4`,score:10,hidden:!1},{input:`8
+100 3 4 100 2 2 2 100
+9`,expectedOutput:`3
+5`,output:`3
+5`,score:10,hidden:!1},{input:`50
+47 50 25 95 23 70 1 94 40 56 89 81 67 72 94 56 57 30 84 65 16 48 80 4 69 24 85 74 73 19 93 63 50 63 14 30 77 22 35 21 60 12 94 16 96 54 32 91 21 75
+300`,expectedOutput:`8
+35`,output:`8
+35`,score:10,hidden:!1},{input:`50
+10 16 16 19 17 4 18 17 13 5 1 14 2 3 12 8 14 9 19 12 1 17 16 17 19 7 13 9 16 2 18 14 19 12 14 1 5 10 11 20 16 15 16 12 19 18 19 3 2 17
+100`,expectedOutput:`12
+10`,output:`12
+10`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`難度：進階＋；對應 V10`,exportDecision:`原創命題，測資輸出由 JS 參考解產生，並以 Blockly 參考解答無頭執行驗證 10/10`},tags:{mainConcepts:[`連續區間總和`],subConcepts:[`雙層迴圈列舉（進一步：滑動視窗）`,`最大值與平手規則`],algorithm:[],dataStructure:[],syntax:[],math:[],context:[`校園情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}},{id:`115MOCK1111-7`,title:`7. 社團教室借用`,problemTitle:`社團教室借用`,courseCode:`115MOCK1111`,courseName:`115 校內模擬選拔賽（競賽模式）`,role:`contest`,difficulty:`L5`,blocklyFit:`高`,requiresGreenFlag:!0,description:`學校只有一間多功能教室，這學期共有 N 個社團提出借用申請，每個申請都有開始時間與結束時間（整點）。
 同一時間教室只能借給一個社團；但前一個社團結束的時間點，下一個社團就可以馬上開始使用
 （例如 9～11 點與 11～12 點可以同時核准）。
 請問最多可以核准幾個申請？
@@ -949,75 +762,75 @@ W
 2 1`,expectedOutput:`3
 2`,output:`3
 2`,score:10,hidden:!1},{input:`30 50
-7 11
-15 26
-7 14
-8 2
-16 19
-24 1
-21 19
-15 21
-20 2
-8 30
-25 19
-1 18
-20 12
-30 7
-27 20
-20 4
-3 15
-25 17
-27 29
-9 29
-7 6
-2 3
-9 11
-23 15
-17 5
-15 24
-8 12
-14 20
-20 11
-23 4
-23 13
-3 29
-5 25
-24 3
-23 30
-9 12
-23 7
-4 20
-11 8
-24 4
-20 25
-26 17
-21 8
-10 24
-11 23
-27 25
-3 6
+6 4
+5 24
+3 27
+20 16
+20 9
+19 16
+30 28
+6 27
+24 16
+2 9
+8 7
+2 4
 17 23
-29 7
-26 8`,expectedOutput:`3
-28`,output:`3
-28`,score:10,hidden:!1},{input:`30 18
-12 18
+1 15
+4 24
+15 27
+25 9
+16 22
+1 19
+6 17
+18 9
+6 15
+7 9
+14 15
+8 10
+11 2
+29 21
 21 10
-22 3
-17 12
-16 13
-16 21
-15 25
-3 23
-8 21
-29 17
-6 24
-7 18
-4 8
-2 27
-16 14
-19 6
-27 17
-12 9`,expectedOutput:`12
-8`,output:`12
-8`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`難度：困難；對應 V7（A13、A14）`,exportDecision:`原創命題，測資輸出由 JS 參考解產生，並以 Blockly 參考解答無頭執行驗證 10/10`},tags:{mainConcepts:[`圖（連線列表）`],subConcepts:[`走訪（BFS／DFS 或反覆擴散標記）`,`連通群組計數`],algorithm:[],dataStructure:[],syntax:[],math:[],context:[`校園情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}}]};export{e as default};
+12 21
+22 19
+8 2
+7 26
+26 14
+24 17
+5 9
+16 6
+15 11
+5 14
+24 18
+30 3
+9 17
+28 1
+7 16
+22 20
+14 10
+14 16
+26 30
+23 10
+21 1
+15 16`,expectedOutput:`2
+29`,output:`2
+29`,score:10,hidden:!1},{input:`30 18
+26 23
+8 23
+2 10
+18 5
+1 7
+11 15
+26 7
+14 8
+2 16
+19 24
+1 21
+19 15
+21 20
+2 8
+30 25
+19 1
+18 20
+12 30`,expectedOutput:`12
+17`,output:`12
+17`,score:10,hidden:!1}],starterXml:``,review:{needsManualReview:!1,risk:`低`,flags:[],note:`難度：困難；對應 V7（A13、A14）`,exportDecision:`原創命題，測資輸出由 JS 參考解產生，並以 Blockly 參考解答無頭執行驗證 10/10`},tags:{mainConcepts:[`圖（連線列表）`],subConcepts:[`走訪（BFS／DFS 或反覆擴散標記）`,`連通群組計數`],algorithm:[],dataStructure:[],syntax:[],math:[],context:[`校園情境`]},restrictions:{requiredBlocks:[],disabledBlocks:[]}}]};export{e as default};
