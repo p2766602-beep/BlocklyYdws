@@ -6,6 +6,9 @@
 // - 畫筆：在題目上自由畫（圈、底線、箭頭）；記錄畫下當時的內容寬度，重畫時等比縮放。
 // - 橡皮擦：點一下或劃過，整條筆跡／整段螢光就擦掉。
 // - 畫記依題目各存一份在這台電腦的瀏覽器（localStorage），換題再回來還在。
+// - 2026-11-11：存檔積木時畫記一起寫進檔案（getAnnotations／setAnnotations），老師載入就能看到；
+//   螢光筆另外記下被畫的文字（x），題目內容更正過、文字對不上時，那一筆會在顯示時自動移除。
+//   清除學生資料時用 clearAllAnnotations() 清掉這台電腦上所有題目的畫記。
 const STORAGE_PREFIX = 'ydws-annot-v1:';
 const STYLE_ID = 'ydws-annot-style';
 
@@ -76,6 +79,41 @@ function saveItems(key, items) {
   } catch {
     // 無痕視窗或封鎖儲存時，畫記只保留到重新整理為止。
   }
+}
+
+// 目前開著的畫記區（題號 → 重新讀取的函式），外部改了畫記時讓畫面跟著更新
+const ACTIVE = new Map();
+
+function sanitizeItems(items) {
+  if (!Array.isArray(items)) return [];
+  return items.filter((item) => item && (
+    (item.t === 'hl' && Number.isFinite(item.s) && Number.isFinite(item.e) && item.e > item.s)
+    || (item.t === 'pen' && Array.isArray(item.pts) && item.pts.length > 0)
+  ));
+}
+
+// 這一題的畫記（存檔用）
+export function getAnnotations(key) {
+  return key ? loadItems(key) : [];
+}
+
+// 用檔案裡的畫記取代這一題的畫記；回傳實際套用的筆數
+export function setAnnotations(key, items) {
+  if (!key) return 0;
+  const clean = sanitizeItems(items);
+  saveItems(key, clean);
+  ACTIVE.get(key)?.();
+  return clean.length;
+}
+
+// 清除這台電腦上所有題目的畫記（清除學生資料時用）
+export function clearAllAnnotations() {
+  try {
+    Object.keys(localStorage).filter((name) => name.startsWith(STORAGE_PREFIX)).forEach((name) => localStorage.removeItem(name));
+  } catch {
+    // 無法存取 localStorage 時略過
+  }
+  ACTIVE.forEach((reload) => reload());
 }
 
 function purposeById(id) {
@@ -190,6 +228,7 @@ export function attachAnnotator(container, key) {
   content.className = 'annot-content';
   while (container.firstChild) content.appendChild(container.firstChild);
   const originalHtml = content.innerHTML;
+  const plainText = content.textContent;
 
   const toolbar = document.createElement('div');
   toolbar.className = 'annot-toolbar';
@@ -224,7 +263,21 @@ export function attachAnnotator(container, key) {
 
   const ctx = canvas.getContext('2d');
   const toggleButton = toolbar.querySelector('.annot-toggle');
-  let items = loadItems(key);
+  const noteElement = document.createElement('span');
+  noteElement.className = 'annot-row-label annot-note';
+  toolbar.querySelector('.annot-row').appendChild(noteElement);
+
+  // 螢光筆記下的文字和目前題目對不上（題目更正過），那一筆就不能用了
+  function loadValidItems() {
+    const loaded = loadItems(key);
+    const valid = loaded.filter((item) => item.t !== 'hl' || typeof item.x !== 'string' || plainText.slice(item.s, item.e) === item.x);
+    const removed = loaded.length - valid.length;
+    if (removed > 0) saveItems(key, valid);
+    noteElement.textContent = removed > 0 ? `（題目內容有更新，${removed} 筆畫記對不上，已移除）` : '';
+    return valid;
+  }
+
+  let items = loadValidItems();
   let enabled = false;
   let activePurpose = PURPOSES[0];
   let activeTool = TOOLS[0];
@@ -330,7 +383,7 @@ export function attachAnnotator(container, key) {
     selection.removeAllRanges();
     if (end <= start || !range.toString().trim()) return;
 
-    items.push({ t: 'hl', p: activePurpose.id, s: start, e: end });
+    items.push({ t: 'hl', p: activePurpose.id, s: start, e: end, x: plainText.slice(start, end) });
     commit();
   }
 
@@ -423,8 +476,16 @@ export function attachAnnotator(container, key) {
   updateMode();
   requestAnimationFrame(redrawCanvas);
 
+  const reload = () => {
+    items = loadValidItems();
+    renderHighlights();
+    redrawCanvas();
+  };
+  ACTIVE.set(key, reload);
+
   const detach = () => {
     observer?.disconnect();
+    if (ACTIVE.get(key) === reload) ACTIVE.delete(key);
     if (container.__annotDetach === detach) delete container.__annotDetach;
   };
   container.__annotDetach = detach;

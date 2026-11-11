@@ -15,7 +15,8 @@ import {
 } from './smartring/simulator-bridge.js';
 
 import { scaffoldUrlForCourse } from './lib/scaffold-content.js';
-import { attachAnnotator } from './lib/annotator.js';
+import { attachAnnotator, getAnnotations, setAnnotations, clearAllAnnotations } from './lib/annotator.js';
+import { toggleInkPad } from './lib/inkpad.js';
 
 import {
   getPublicCourseGroupListHtml,
@@ -133,9 +134,46 @@ function normalizeGeneratedAsyncProcedures(code) {
   );
 }
 
-function getGeneratedUserCode() {
-  const code = javascriptGenerator.workspaceToCode(workspace);
-  return normalizeGeneratedAsyncProcedures(code);
+function getGeneratedUserCode({ withLoopGuard = false } = {}) {
+  const previousTrap = javascriptGenerator.INFINITE_LOOP_TRAP;
+  if (withLoopGuard) {
+    javascriptGenerator.INFINITE_LOOP_TRAP = '__ydwsLoopGuard();\n';
+  }
+  try {
+    const code = javascriptGenerator.workspaceToCode(workspace);
+    return normalizeGeneratedAsyncProcedures(code);
+  } finally {
+    javascriptGenerator.INFINITE_LOOP_TRAP = previousTrap;
+  }
+}
+
+// 2026-11-11：無窮迴圈保護。學生程式在網頁主執行緒上跑，沒有「詢問」的無窮迴圈會讓整個分頁卡死，
+// 連「中止程式」都按不到。每個迴圈開頭都檢查一次：程式連續佔住瀏覽器超過 LOOP_GUARD_LIMIT_MS
+// 沒有喘口氣，就丟出錯誤停止。用「心跳」判斷：程式有 await 真正的非同步動作（SmartRing、等待）時
+// 心跳會繼續跳，不會被誤判；等待使用者輸入（prompt 對話框）回來後也重新計時。
+const LOOP_GUARD_LIMIT_MS = 8000;
+const LOOP_GUARD_MESSAGE = '程式已經連續執行超過 8 秒，可能進入了無窮迴圈，已自動停止。\n請檢查迴圈的結束條件會不會成立（例如「重複直到」的條件、計數迴圈的終點）。';
+
+function createLoopGuard() {
+  let lastBreath = performance.now();
+  const heartbeat = setInterval(() => {
+    lastBreath = performance.now();
+  }, 100);
+  return {
+    check() {
+      if (performance.now() - lastBreath > LOOP_GUARD_LIMIT_MS) {
+        const error = new Error(LOOP_GUARD_MESSAGE);
+        error.name = 'LoopGuardError';
+        throw error;
+      }
+    },
+    breathe() {
+      lastBreath = performance.now();
+    },
+    dispose() {
+      clearInterval(heartbeat);
+    },
+  };
 }
 
 const blocklyDiv = document.getElementById('blocklyDiv');
@@ -521,7 +559,9 @@ function clearStudentProfile() {
 
   markStudentProfileFields([]);
   updateSubmitScoreVisibility();
-  outputArea.textContent = '已清除學生資料。';
+  clearWorkDraft();
+  clearAllAnnotations();
+  outputArea.textContent = '已清除學生資料，以及這台電腦上暫存的程式與畫重點。';
 }
 
 function handleStudentProfileInput() {
@@ -558,6 +598,7 @@ function initBlockly() {
   });
 
   workspace.addChangeListener(updateCodePreview);
+  workspace.addChangeListener(scheduleWorkDraftSave);
   updateCodePreview();
 }
 
@@ -659,7 +700,9 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false, o
     return { ok: false, output: '', error };
   }
 
-  const code = getGeneratedUserCode();
+  // 執行前先暫存：萬一瀏覽器卡死，重新整理後還能還原
+  saveWorkDraftNow();
+  const code = getGeneratedUserCode({ withLoopGuard: true });
 
   if (!code.trim()) {
     const error = new Error('目前沒有可以執行的程式。');
@@ -697,6 +740,13 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false, o
 
   smartRingRuntime.resetProgramStop();
   setProgramRunningUi(true);
+  const loopGuard = createLoopGuard();
+  // 等待輸入（對話框）回來之後重新計時，等待的時間不算在「連續執行」裡
+  const withBreath = (reader) => (...args) => {
+    const value = reader(...args);
+    loopGuard.breathe();
+    return value;
+  };
 
   try {
     window.alert = (message) => {
@@ -723,6 +773,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false, o
       'readLine',
       'prompt',
       'askAndWait',
+      '__ydwsLoopGuard',
       `
       "use strict";
       return (async () => {
@@ -733,7 +784,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false, o
 
     const promptArgument = shouldMockInput ? promptReader : originalPrompt.bind(window);
     const askAndWaitArgument = shouldMockInput ? tokenReader : originalPrompt.bind(window);
-    await runner(safePrint, smartRingRuntime, promptReader, promptArgument, askAndWaitArgument);
+    await runner(safePrint, smartRingRuntime, withBreath(promptReader), withBreath(promptArgument), withBreath(askAndWaitArgument), loopGuard.check);
 
     return {
       ok: true,
@@ -763,6 +814,7 @@ async function executeGeneratedCode({ inputText = null, writeToOutput = false, o
     window.alert = originalAlert;
     window.prompt = originalPrompt;
     console.log = originalConsoleLog;
+    loopGuard.dispose();
     setProgramRunningUi(false);
     smartRingRuntime.resetProgramStop();
   }
@@ -1145,12 +1197,114 @@ function createWorkspaceFileName() {
   return `${parts.join('_') || 'SmartRing'}.blockly.xml`;
 }
 
-function saveWorkspaceToFile() {
-  if (!workspace) return;
+// 2026-11-11：自動暫存工作區。積木變動（停手 0.8 秒後）、按「執行程式」「系統評分」的當下都會存一次，
+// 存在這台瀏覽器的 localStorage（只有一份，跟著目前的課程與題目）。重新整理或瀏覽器當掉重開後自動還原，
+// 並回到原本的課程與題目。範例鎖（data-ydws-demo）跟著一起存，避免重新整理就繞過「載入過範例不能上傳成績」。
+// 清除學生資料時一起刪除（共用電腦，下一位學生不會看到）。
+const WORK_DRAFT_STORAGE_KEY = 'ydws-work-draft-v1';
+let workDraftTimer = null;
+let isRestoringWorkDraft = false;
 
+function buildWorkspaceXmlDom() {
   const xmlDom = Blockly.Xml.workspaceToDom(workspace);
   if (isCurrentTaskDemoLocked() && getTaskLockKey()) {
     xmlDom.setAttribute('data-ydws-demo', getTaskLockKey());
+  }
+  return xmlDom;
+}
+
+function saveWorkDraftNow() {
+  clearTimeout(workDraftTimer);
+  workDraftTimer = null;
+  if (!workspace || isRestoringWorkDraft) return;
+  try {
+    if (workspace.getAllBlocks(false).length === 0) {
+      window.localStorage.removeItem(WORK_DRAFT_STORAGE_KEY);
+      return;
+    }
+    window.localStorage.setItem(WORK_DRAFT_STORAGE_KEY, JSON.stringify({
+      xml: Blockly.Xml.domToText(buildWorkspaceXmlDom()),
+      course: currentCourseGroup?.id || '',
+      task: currentTask?.id || '',
+      demo: Boolean(hasLoadedStarterForCurrentTask),
+      savedAt: Date.now(),
+    }));
+  } catch (error) {
+    console.warn('[Blockly Lab] 無法自動暫存工作區。', error);
+  }
+}
+
+function scheduleWorkDraftSave(event) {
+  if (isRestoringWorkDraft || event?.isUiEvent) return;
+  clearTimeout(workDraftTimer);
+  workDraftTimer = setTimeout(saveWorkDraftNow, 800);
+}
+
+function clearWorkDraft() {
+  clearTimeout(workDraftTimer);
+  workDraftTimer = null;
+  try {
+    window.localStorage.removeItem(WORK_DRAFT_STORAGE_KEY);
+  } catch (error) {
+    console.warn('[Blockly Lab] 無法清除暫存的工作區。', error);
+  }
+}
+
+async function restoreWorkDraft({ reloadCourse = true } = {}) {
+  if (!workspace) return;
+  let draft = null;
+  try {
+    draft = JSON.parse(window.localStorage.getItem(WORK_DRAFT_STORAGE_KEY) || 'null');
+  } catch {
+    draft = null;
+  }
+  if (!draft || !draft.xml) return;
+
+  // 回到暫存時的課程與題目（網址已經指定課程時就不換）
+  if (reloadCourse && draft.course) {
+    courseCode.value = draft.course;
+    await loadCourse();
+    const task = draft.task && currentCourseGroup ? getTaskById(currentCourseGroup, draft.task) : null;
+    if (task && currentTask?.id !== task.id) {
+      loadTask(task, currentCourseGroup);
+    }
+  }
+
+  isRestoringWorkDraft = true;
+  try {
+    const xmlDom = Blockly.utils.xml.textToDom(draft.xml);
+    workspace.clear();
+    Blockly.Xml.domToWorkspace(xmlDom, workspace);
+    String(xmlDom.getAttribute('data-ydws-demo') || '').split(/\s+/).filter(Boolean).forEach(lockTaskForDemo);
+    if (draft.demo && currentTask?.id === draft.task) {
+      hasLoadedStarterForCurrentTask = true;
+    }
+  } catch (error) {
+    console.warn('[Blockly Lab] 暫存的工作區無法還原。', error);
+    return;
+  } finally {
+    isRestoringWorkDraft = false;
+  }
+
+  resetCompetitionAssessmentResult();
+  updateCodePreview();
+  updateTaskActionButtons();
+  updateSubmitScoreVisibility();
+  const time = new Date(draft.savedAt || Date.now()).toLocaleString('zh-TW', { hour12: false });
+  outputArea.textContent = `已自動還原上次的程式（${time} 暫存）。\n如果要重新開始，請按「清除工作區」。`;
+}
+
+function saveWorkspaceToFile() {
+  if (!workspace) return;
+
+  const xmlDom = buildWorkspaceXmlDom();
+  // 2026-11-11：這一題的畫重點一起存進檔案（老師載入就能看到畫好的題目）
+  const annotations = currentTask?.id ? getAnnotations(currentTask.id) : [];
+  if (annotations.length > 0) {
+    const annotationElement = Blockly.utils.xml.createElement('ydws-annotations');
+    annotationElement.setAttribute('task', currentTask.id);
+    annotationElement.appendChild(Blockly.utils.xml.createTextNode(JSON.stringify(annotations)));
+    xmlDom.appendChild(annotationElement);
   }
   const xmlText = Blockly.Xml.domToPrettyText(xmlDom);
   const blob = new Blob([xmlText], { type: 'text/xml;charset=utf-8' });
@@ -1165,7 +1319,9 @@ function saveWorkspaceToFile() {
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 
-  outputArea.textContent = `已下載積木檔案：${fileName}`;
+  outputArea.textContent = annotations.length > 0
+    ? `已下載積木檔案：${fileName}（含這一題的 ${annotations.length} 筆畫重點）`
+    : `已下載積木檔案：${fileName}`;
 }
 
 function requestLoadWorkspaceFromFile() {
@@ -1189,6 +1345,10 @@ function loadWorkspaceFromFile(file) {
     try {
       const xmlText = String(reader.result || '');
       const xmlDom = Blockly.utils.xml.textToDom(xmlText);
+      // 畫重點不是積木，先從 XML 拿出來，再把積木載入工作區
+      const annotationElements = [...xmlDom.childNodes]
+        .filter((node) => String(node.nodeName || '').toLowerCase() === 'ydws-annotations');
+      annotationElements.forEach((node) => xmlDom.removeChild(node));
 
       workspace.clear();
       Blockly.Xml.domToWorkspace(xmlDom, workspace);
@@ -1212,6 +1372,24 @@ function loadWorkspaceFromFile(file) {
       outputArea.textContent = isDemoFile
         ? `已載入積木檔案：${file.name}\n提醒：這個檔案是本題的範例積木，不能上傳本題成績。`
         : `已載入積木檔案：${file.name}`;
+
+      const annotationElement = annotationElements[0];
+      if (annotationElement) {
+        const annotationTask = annotationElement.getAttribute('task') || '';
+        if (currentTask?.id && annotationTask === currentTask.id) {
+          let items = [];
+          try {
+            items = JSON.parse(annotationElement.textContent || '[]');
+          } catch {
+            items = [];
+          }
+          const count = setAnnotations(currentTask.id, items);
+          outputArea.textContent += `\n已載入這一題的 ${count} 筆畫重點，按「查看完整任務」就能看到。`;
+        } else {
+          outputArea.textContent += `\n檔案裡的畫重點屬於「${annotationTask}」，和目前的題目不同，所以沒有套用（積木已載入）。`;
+        }
+      }
+      saveWorkDraftNow();
     } catch (error) {
       outputArea.textContent = `載入積木檔案失敗：\n${error.message}`;
     }
@@ -2562,6 +2740,7 @@ function bindEvents() {
   btnRun.addEventListener('click', runUserCode);
   btnStop.addEventListener('click', stopUserCode);
   btnClear.addEventListener('click', clearWorkspace);
+  document.getElementById('btnInkPad')?.addEventListener('click', toggleInkPad);
   btnSaveBlocks.addEventListener('click', saveWorkspaceToFile);
   btnLoadBlocks.addEventListener('click', requestLoadWorkspaceFromFile);
 
@@ -2657,13 +2836,13 @@ bindSmartRingRuntimeEvents();
 async function applyCourseDeepLink() {
   const params = new URLSearchParams(window.location.search);
   const code = (params.get('course') || '').trim();
-  if (!code) return;
+  if (!code) return false;
 
   courseCode.value = code;
   await loadCourse();
 
   const taskId = (params.get('task') || '').trim();
-  if (!taskId || !currentCourseGroup) return;
+  if (!taskId || !currentCourseGroup) return true;
 
   const task = getTaskById(currentCourseGroup, taskId);
   if (task) {
@@ -2671,7 +2850,8 @@ async function applyCourseDeepLink() {
   } else {
     outputArea.textContent = `找不到子任務：${taskId}`;
   }
+  return true;
 }
 
 initStatus();
-applyCourseDeepLink();
+applyCourseDeepLink().then((hasDeepLink) => restoreWorkDraft({ reloadCourse: !hasDeepLink }));
