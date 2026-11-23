@@ -1,6 +1,8 @@
 // 2026-11-11：全頁畫筆。上課投影講解用：在整個畫面（積木區、題目、輸出都可以）蓋一層透明畫布畫記。
 // 使用者決策：不存檔、不跟著特定區塊移動；關閉（或按 Esc）就全部清除。開著的時候暫停操作底下的頁面。
 // BlocklyYdws、blockly-lab、osep-judge 共用這一份檔案，改的時候三邊要一起同步（樣式也包在這裡）。
+import { penCursor, markerCursor, eraserCursor } from './ink-cursor.js';
+
 const STYLE_ID = 'ydws-inkpad-style';
 
 const COLORS = [
@@ -147,6 +149,9 @@ function openInkPad() {
     toolbar.querySelectorAll('.inkpad-color').forEach((b) => b.classList.toggle('selected', b.dataset.color === color.id));
     toolbar.querySelectorAll('.inkpad-tool').forEach((b) => b.classList.toggle('selected', b.dataset.tool === tool.id));
     overlay.classList.toggle('inkpad-eraser', tool.id === 'eraser');
+    // 2026-11-18：筆形游標，筆尖顏色跟著目前的顏色（見 ink-cursor.js）
+    if (tool.id === 'eraser') overlay.style.cursor = eraserCursor(ERASER_RADIUS);
+    else overlay.style.cursor = tool.id === 'marker' ? markerCursor(color.color) : penCursor(color.color);
   }
 
   toolbar.querySelectorAll('.inkpad-color').forEach((button) => button.addEventListener('click', () => {

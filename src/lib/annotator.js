@@ -9,6 +9,8 @@
 // - 2026-11-11：存檔積木時畫記一起寫進檔案（getAnnotations／setAnnotations），老師載入就能看到；
 //   螢光筆另外記下被畫的文字（x），題目內容更正過、文字對不上時，那一筆會在顯示時自動移除。
 //   清除學生資料時用 clearAllAnnotations() 清掉這台電腦上所有題目的畫記。
+import { penCursor, eraserCursor } from './ink-cursor.js';
+
 const STORAGE_PREFIX = 'ydws-annot-v1:';
 const STYLE_ID = 'ydws-annot-style';
 
@@ -326,6 +328,10 @@ export function attachAnnotator(container, key) {
 
   function updateMode() {
     TOOLS.forEach((tool) => host.classList.toggle(`annot-mode-${tool.id}`, enabled && activeTool.id === tool.id));
+    // 2026-11-18：畫筆用筆形游標（筆尖是用途顏色），橡皮擦用和擦除範圍一樣大的圓圈（見 ink-cursor.js）
+    if (enabled && activeTool.id === 'pen') canvas.style.cursor = penCursor(activePurpose.color);
+    else if (enabled && activeTool.id === 'eraser') canvas.style.cursor = eraserCursor(ERASER_RADIUS);
+    else canvas.style.cursor = '';
     toggleButton.classList.toggle('active', enabled);
     toggleButton.textContent = enabled ? '✏️ 畫重點中（點此結束）' : '✏️ 畫重點';
     toolbar.querySelector('.annot-purposes').hidden = !enabled;
